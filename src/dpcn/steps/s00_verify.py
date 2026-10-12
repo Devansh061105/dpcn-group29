@@ -100,7 +100,7 @@ def run(cfg, oa, argv=()) -> None:
         "window": [cfg.window.start, cfg.window.end],
         "labs": results,
     }, indent=2), encoding="utf-8")
-    log.info("Wrote %s", out.relative_to(cfg.root))
+    log.info("Wrote %s", cfg.rel(out))
     log.info("API key: %s", "set" if cfg.api_key else "NOT set ($0.10/day budget)")
 
     failed = [r["short"] for r in results if r["problems"]]

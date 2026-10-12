@@ -65,6 +65,13 @@ class Config:
         """Absolute path under the repo root."""
         return self.root.joinpath(*parts)
 
+    def rel(self, p: Path) -> Path:
+        """Path relative to the repo root for log messages (the absolute path if outside it)."""
+        try:
+            return Path(p).relative_to(self.root)
+        except ValueError:
+            return Path(p)
+
     @property
     def year_filter(self) -> str:
         return f"publication_year:{self.window.start}-{self.window.end}"

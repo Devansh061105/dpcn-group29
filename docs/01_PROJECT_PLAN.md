@@ -200,7 +200,7 @@ It must do this at faculty, department and institution level, in ≤ 10 slides /
 | Short | OpenAlex ID | ROR | Website | Faculty page (found) |
 |---|---|---|---|---|
 | CSIR-CCMB | `I185638415` | `05shq4n12` | ccmb.res.in | `/people-details/?id=N` and `/dept_people/?sub_id=N` |
-| CSIR-IGIB | `I177828482` | `05ef28661` | igib.res.in | Rendered with JavaScript: use the browser or enter manually |
+| CSIR-IGIB | `I177828482` | `05ef28661` | igib.res.in | `/ScientistDirectory.html` (names embedded in the page's script; scraped) |
 | CSIR-IMTECH | `I4210147764` | `055rjs771` | imtech.res.in | "Departments" page under *About* |
 | CSIR-CDRI | `I185249246` | `04t8qjg16` | cdri.res.in | `ScientistDivisionWise?division=<code>` |
 
@@ -255,7 +255,7 @@ Overall about 78% of works are `article`. Preprints are 5–12% depending on the
 | **OpenAlex** | Usage-based pricing since 2026. **No key: $0.10/day (~1,000 list calls). Free key: $1/day (~10,000 list calls, ~1,000 searches).** Single-entity lookups by ID/DOI are free. Usage is visible in the `X-RateLimit-*` response headers. | **Every team member creates a free key.** Our full pipeline needs roughly 1,000–1,500 list calls (§10 of the guide), which is well inside one key's daily budget, provided all responses are **cached on disk** so re-runs cost nothing. |
 | **Scimago (SJR)** | The scripted download is blocked by a Cloudflare challenge (HTTP 403) | **Manual step:** download yearly CSVs from scimagojr.com in a browser (2016 → latest) and place them in `data/manual/sjr/`. |
 | **CORE portal** | CSV export works (`CORE2023`, no header row) | Scripted download is fine. |
-| **Lab websites** | CCMB, IMTECH and CDRI are static HTML. IGIB is rendered with JavaScript. | Semi-automatic roster scraping for 3 labs. Manual or browser-assisted entry for IGIB. |
+| **Lab websites** | All four sites can be scraped (IGIB's directory embeds its names in a script block; IMTECH serves Hindi unless the `/en/` path is used). | Automated roster scraping for all 4 labs (S01). |
 | Scopus / IRINS | Optional | Use only for spot-checks (e.g., citation counts for the top 10 papers, missing faculty). Not part of the pipeline. |
 
 ### 5.5 Useful OpenAlex institution IDs for classification
@@ -338,7 +338,7 @@ Each decision has an ID that the guide and the code refer to.
 2. Record per person: `faculty_id` (e.g. `CCMB-001`), `name`, `designation`, `department`, `institution`, `profile_url`, `orcid` (if listed), `email_domain`, `status` (current/former), `source`.
 3. Keep scientists and PIs only (A6).
 4. *Gap check:* list OpenAlex authors with ≥ 10 lab-affiliated works in 2020–2026 and `last_known_institutions` = the lab. Anyone not on the roster is reviewed. Typical cases are a recently joined or departed scientist, or a long-time senior technical officer.
-5. *Expected size:* about 50–70 per lab for CCMB, IGIB and IMTECH, and about 100–130 for CDRI, so **~300 faculty**.
+5. *Actual size (scraped 2026-10-13):* CCMB 41, IGIB 42, IMTECH 48, CDRI 101, so **232 faculty**. IMTECH lists no departments, so the D20 fallback applies there.
 
 **Step B. Author matching (S02–S03).**
 
@@ -578,7 +578,7 @@ The team size is not stated. Adapt as needed: with 3 people merge R4 + R5; with 
 | OpenAlex author disambiguation errors (split or merged profiles) | High | Wrong faculty counts and h-index | Multiple IDs per faculty; D4 affiliation check removes merged-in strangers; human review; spot-checks |
 | Name variants and initials in Indian names | High | Missed matches | Initials-aware fuzzy matching, ORCID, manual review sheet |
 | Roster incomplete for 2016–2019 (leavers) | Medium | Under-count in early years | D3 optional leavers; corpus coverage ratio shows the gap; stated as a limitation |
-| IGIB site not scrapeable | Certain | Manual effort | Browser-assisted or manual entry (~70 names, about 1 hour) |
+| IMTECH publishes no departments | Certain | Department-level stats weaker for IMTECH | D20 fallback: OpenAlex modal subfield |
 | OpenAlex budget exhausted | Low (with key) | Pipeline stalls | Free keys for everyone, disk cache, budget guard in the client that stops before 90% use |
 | SJR coverage gaps (new or regional journals) | Medium | Lower quartile coverage | Title fallback; report coverage; `NA` rather than guessing |
 | Hyperauthorship papers distort the authorship network | Medium | Misleading centrality | D16 threshold, reported |

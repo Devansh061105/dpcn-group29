@@ -533,7 +533,8 @@ Each step has the signature `def run(cfg, oa, argv=()) -> None` (`argv` = extra 
   - **CCMB:** fetch the homepage and collect `href="/people-details/?id=N"` and `/dept_people/?sub_id=N`. Fetch each people-details page and extract name, designation, and group/department with BeautifulSoup. Keep scientists only (designation contains *Scientist*, *Director*, *Fellow*, *Emeritus*).
   - **CDRI:** the homepage links `ScientistDivisionWise?division=<code>`. Collect all division codes from the navigation and fetch each. The division name becomes `department`.
   - **IMTECH:** start from the "Departments at IMTECH" page under *About*, then follow each department's faculty links.
-  - **IGIB:** the site is JavaScript-rendered, so plain requests return only a shell. Either (a) open it in the browser pane and copy the scientist list, or (b) watch the browser's network tab for the JSON endpoint the page calls and fetch that. Expect ~70 names. Manual entry takes about 1 hour.
+  - **IGIB:** `ScientistDirectory.html` embeds a `PEOPLE = [...]` array in a script block (name, profile URL, research areas); each profile page then gives designation, decision unit (department), ORCID and PubMed links. 42 people.
+  - **IMTECH:** the default site is Hindi; use the `/en/.../scientists` path. Cards give name and expertise, profile pages give designation. The site's department filter does not work, so `department` stays blank (D20 fallback).
 - **Rules:**
   - Keep the website's spelling.
   - One person, one `faculty_id`, even if they changed designation.
