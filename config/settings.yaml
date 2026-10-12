@@ -1,0 +1,53 @@
+window: {start: 2016, end: 2026, partial_year: 2026, cagr_end: 2025}
+
+openalex:
+  base_url: https://api.openalex.org
+  per_page: 200
+  or_batch: 100                  # max values in one OR filter
+  budget_stop_fraction: 0.90     # stop when 90% of the daily $ budget is used
+  sleep_s: 0.12                  # pause between live calls
+  max_retries: 6
+  cache_dir: data/cache/openalex
+
+work_filter:
+  include_work_types: [article, review, letter, conference-paper]
+  include_source_types: [journal, conference]
+  exclude_retracted: true
+
+matching:
+  auto_accept_score: 92
+  review_min_score: 70
+  min_years_at_lab_in_window: 1
+
+networks:
+  max_authors_for_pairs: 50      # plan D16
+  pagerank_alpha: 0.85
+  louvain_seed: 42
+  louvain_resolution: 1.0
+  betweenness_k_internal: 1000
+  dashboard_citation_nodes: 300
+  dashboard_internal_nodes: 600
+
+connections:
+  count_csir_academy_as_partner: false   # plan D11 (AcSIR)
+  jaccard_top_k_topics: 100
+  jaccard_top_partners: 30
+
+quartile:
+  mode: year_matched            # or: latest
+  sjr_dir: data/manual/sjr
+  core_file: data/manual/core/CORE2023.csv
+
+verify:
+  count_tolerance: 0.15         # S00 warns when a lab's work count drifts more than this
+
+paths:
+  cache: data/cache
+  interim: data/interim
+  manual: data/manual
+  review: data/review
+  submission: outputs/submission
+  stats: outputs/stats
+  networks: outputs/networks
+  figures: outputs/figures
+  report: outputs/report

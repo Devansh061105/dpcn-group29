@@ -1,0 +1,35 @@
+# Partner-institution classification (plan D12). First match wins, in this order:
+# institution_overrides.csv -> name_rules -> lineage_rules -> name_rules_late -> type_rules -> default
+
+umbrella_ids:            # never partners; dropped from coauthor_institutes
+  - I66760702    # CSIR (HQ/parent) when it appears as the institution itself
+  - I2799351866  # Government of India
+  - I4210134808  # Ministry of Science and Technology
+  - I3149292468  # Department of Atomic Energy (HQ)
+  - I3141573830  # Department of Biotechnology (HQ)
+
+csir_academy_ids: [I99364266]   # AcSIR
+
+name_rules:             # case-insensitive regex -> cluster; checked before lineage
+  - ['Indian Institute of Information Technology|\bIIIT\b', 'IIIT']
+  - ['Indian Institute of Technology|\bIIT\b', 'IIT']
+  - ['National Institute of Technology|\bNIT\b', 'NIT']
+  - ['Indian Institute of Science Education and Research|\bIISER\b', 'IISc/TIFR/IISER']
+  - ['^Indian Institute of Science\b(?! Education)', 'IISc/TIFR/IISER']
+  - ['Tata Institute of Fundamental Research|National Centre for Biological Sciences|International Centre for Theoretical Sciences', 'IISc/TIFR/IISER']
+  - ['National Institute of Science Education and Research', 'DAE']
+  - ['Indian Statistical Institute|Institute of Mathematical Sciences|Chennai Mathematical Institute|Harish-Chandra|S\. ?N\. Bose|Bose Institute|Saha Institute', 'Premier Science']
+  - ['Jawaharlal Nehru University|University of Hyderabad|University of Delhi|Banaras Hindu University|Jadavpur University|Jamia Millia Islamia|Aligarh Muslim University|Pondicherry University|Visva-Bharati|Central University|Tezpur University|North-Eastern Hill University|Assam University|University of Allahabad|Guru Ghasidas|Harisingh Gour|Babasaheb Bhimrao Ambedkar|Hemvati Nandan Bahuguna|Rajiv Gandhi University|Nagaland University|Mizoram University|Manipur University|Tripura University|Sikkim University', 'Central University']
+
+lineage_rules:          # lineage contains id -> cluster
+  I66760702: CSIR
+  I3149292468: DAE
+  I37048141: ICMR
+  I3141573830: DBT
+
+name_rules_late:
+  - ['All India Institute of Medical Sciences|Postgraduate Institute of Medical|Medical College|Hospital|\bAIIMS\b|\bPGIMER\b', 'Medical']
+  - ['University|Vishwavidyalaya|Vidyapeeth', 'University (other)']
+
+type_rules: {company: Industry, healthcare: Medical, government: Government, nonprofit: Other, facility: Other, education: University (other)}
+default: Other

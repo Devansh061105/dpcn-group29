@@ -1,0 +1,41 @@
+# Group 29 institutions (deck slide 9; see plan A1 for the CDRI discrepancy).
+# To drop an institution, delete its block - nothing else needs to change.
+group: 29
+cluster_label: CSIR            # our cluster for cross-cluster flags (plan D12)
+
+institutions:
+  - short: CSIR-CCMB
+    name: Centre for Cellular and Molecular Biology
+    city: Hyderabad
+    openalex_id: I185638415
+    ror: 05shq4n12
+    website: https://www.ccmb.res.in
+    aliases: ["ccmb", "cellular and molecular biology", "cellular & molecular biology"]
+    expected_works_2016_2026: 2333    # reconnaissance 2026-10-13, all work types
+
+  - short: CSIR-IGIB
+    name: Institute of Genomics and Integrative Biology
+    city: New Delhi
+    openalex_id: I177828482
+    ror: 05ef28661
+    website: https://www.igib.res.in
+    aliases: ["igib", "genomics and integrative biology", "genomics & integrative biology"]
+    expected_works_2016_2026: 2643
+
+  - short: CSIR-IMTECH
+    name: Institute of Microbial Technology
+    city: Chandigarh
+    openalex_id: I4210147764
+    ror: 055rjs771
+    website: https://www.imtech.res.in
+    aliases: ["imtech", "microbial technology"]
+    expected_works_2016_2026: 1636
+
+  - short: CSIR-CDRI
+    name: Central Drug Research Institute
+    city: Lucknow
+    openalex_id: I185249246
+    ror: 04t8qjg16
+    website: https://cdri.res.in
+    aliases: ["cdri", "central drug research"]
+    expected_works_2016_2026: 3952
