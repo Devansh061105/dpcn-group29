@@ -77,3 +77,8 @@ a { color: var(--accent); }
   .netwrap { grid-template-columns: 1fr; }
   .graph { height: 420px; }
 }
+body.shot .modebar-container { display: none !important; }
+table.plain { width: 100%; border-collapse: collapse; font-size: 12.5px; font-variant-numeric: tabular-nums; }
+table.plain th { text-align: left; border-bottom: 1px solid var(--axis); padding: 5px 6px; }
+table.plain td { border-bottom: 1px solid var(--grid); padding: 5px 6px; vertical-align: top; }
+main [hidden] { display: none !important; }

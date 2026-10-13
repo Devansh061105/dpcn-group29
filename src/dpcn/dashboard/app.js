@@ -19,6 +19,13 @@
     const n = parseInt(hex.replace("#", ""), 16), r = n >> 16 & 255, g = n >> 8 & 255, b = n & 255;
     return (0.2126 * r + 0.7152 * g + 0.0722 * b) / 255 > 0.55 ? "#0b0b0b" : "#ffffff";
   };
+  const ABBR = [["National Institute of Pharmaceutical Education and Research", "NIPER"], ["All India Institute of Medical Sciences", "AIIMS"],
+    ["Post Graduate Institute of Medical Education and Research", "PGIMER"], ["Indian Institute of Technology", "IIT"],
+    ["International Journal of", "Int. J."], ["Journal of", "J."], ["Institute", "Inst."], ["University", "Univ."]];
+  const abbr = (t, n = 40) => { let o = String(t); for (const [a, b] of ABBR) { if (o.length <= n) break; o = o.split(a).join(b); }
+    return o.length > n ? o.slice(0, n - 1) + "…" : o; };
+  // horizontal bars keyed by full name (unique) but labelled with a short form
+  const ticks = (names) => ({ tickmode: "array", tickvals: names, ticktext: names.map((x) => abbr(x)), automargin: true });
   const fmt = (x, d = 0) => (x === null || x === undefined || Number.isNaN(x)) ? "–" :
     Number(x).toLocaleString("en-US", { maximumFractionDigits: d, minimumFractionDigits: d });
   const pct = (x, d = 1) => (x === null || x === undefined) ? "–" : `${(100 * x).toFixed(d)}%`;
@@ -44,7 +51,32 @@
   const plot = (id, traces, lay) => Plotly.react(id, traces, layout(lay), { displaylogo: false, responsive: true,
     modeBarButtonsToRemove: ["lasso2d", "select2d", "autoScale2d"] });
 
+  function plainTable(id, rows, columns, opts) {   // screenshot mode: a static table drawn synchronously
+    const box = el(id); box.replaceChildren();
+    const t = document.createElement("table"); t.className = "plain";
+    const tr = document.createElement("tr");
+    columns.forEach((c) => { const th = document.createElement("th"); th.textContent = c.title; tr.append(th); });
+    t.append(tr);
+    let data = [...rows];
+    const s0 = (opts.initialSort || [])[0];
+    if (s0) data.sort((a, b) => (s0.dir === "desc" ? -1 : 1) * ((a[s0.column] ?? -Infinity) > (b[s0.column] ?? -Infinity) ? 1 : -1));
+    data.slice(0, opts.shotRows || 12).forEach((r) => {
+      const row = document.createElement("tr");
+      columns.forEach((c) => {
+        const td = document.createElement("td"); const v = r[c.field];
+        const out = typeof c.formatter === "function" ? c.formatter({ getValue: () => v }) : v;
+        if (out instanceof Node) td.append(out); else td.textContent = out ?? "";
+        if (c.hozAlign === "right") td.style.textAlign = "right";
+        row.append(td);
+      });
+      t.append(row);
+    });
+    box.append(t);
+    return null;
+  }
+
   function table(id, rows, columns, opts = {}) {
+    if (document.body.classList.contains("shot")) return plainTable(id, rows, columns, opts);
     // tables are small: rebuild on every render (updating a Tabulator that is still building throws)
     if (tables[id]) { try { tables[id].destroy(); } catch (e) { /* not built yet */ } }
     const t = new Tabulator(`#${id}`, Object.assign({ data: rows, columns, layout: "fitDataStretch",
@@ -114,14 +146,15 @@
                  fillcolor: css("--grid"), opacity: 0.5, line: { width: 0 }, layer: "below" }],
       margin: { l: 50, r: 70, t: 10, b: 40 },
       annotations: [{ x: py, y: 1, yref: "paper", text: "partial", showarrow: false, font: { size: 11, color: css("--muted") } },
-        ...traces.map((t) => ({ x: t.x[t.x.length - 1], y: t.y[t.y.length - 1], text: t.name, xanchor: "left", xshift: 8,
-          showarrow: false, font: { size: 11, color: css("--ink-2") } }))] });
+        ...traces.map((t) => { const i = t.x.indexOf(py - 1);   // label the last full year; the partial year crowds
+          return { x: t.x[i], y: t.y[i], text: t.name, xanchor: "left", yanchor: "bottom", xshift: 4, yshift: 4,
+            showarrow: false, font: { size: 11, color: css("--ink-2") } }; })] });
     plot("c-cites", scopes().map((lab) => {
       const rows = D.trend.filter((r) => r.scope === lab);
       return { type: "bar", x: rows.map((r) => r.year), y: rows.map((r) => r.citations), name: short(lab),
         marker: { color: labColor(lab), line: { color: css("--surface"), width: 1 } },
         hovertemplate: `<b>%{y:,}</b> citations<br>${short(lab)} · %{x}<extra></extra>` };
-    }), { barmode: "stack", xaxis: { dtick: 1 } });
+    }), { barmode: "stack", xaxis: { dtick: 1 }, legend: { orientation: "h", y: -0.18, traceorder: "normal" } });
     table("t-summary", D.summary.map((r) => ({ ...r, scope: short(r.scope) })), [
       { title: "Scope", field: "scope", frozen: true }, { title: "Papers", field: "papers", hozAlign: "right" },
       { title: "Citations", field: "citations", hozAlign: "right" },
@@ -150,12 +183,12 @@
 
     const tj = D.top_journals.filter((r) => r.scope === state.lab);
     const rev = [...tj].reverse();
-    plot("c-journals", [{ type: "bar", orientation: "h", y: rev.map((r) => r.journal_name.length > 42 ? r.journal_name.slice(0, 41) + "…" : r.journal_name),
+    plot("c-journals", [{ type: "bar", orientation: "h", y: rev.map((r) => r.journal_name),
       x: rev.map((r) => r.papers), text: rev.map((r) => `${r.papers} · ${r.quartile}`), textposition: "outside", cliponaxis: false,
       marker: { color: state.lab === "ALL" ? css("--multi") : labColor(state.lab) },
       customdata: rev.map((r) => [r.journal_name, r.citations]),
       hovertemplate: "<b>%{x} papers</b><br>%{customdata[0]}<br>%{customdata[1]:,} citations<extra></extra>" }],
-      { margin: { l: 230, r: 60, t: 10, b: 40 }, showlegend: false });
+      { margin: { l: 230, r: 60, t: 10, b: 40 }, showlegend: false, yaxis: ticks(rev.map((r) => r.journal_name)) });
     table("t-journals", (state.lab === "ALL" ? D.top_journals.filter((r) => r.scope !== "ALL") : tj).map((r) => ({ ...r, scope: short(r.scope) })), [
       { title: "Lab", field: "scope" }, { title: "#", field: "rank", hozAlign: "right" }, { title: "Journal", field: "journal_name", widthGrow: 3 },
       { title: "Papers", field: "papers", hozAlign: "right" }, { title: "Citations", field: "citations", hozAlign: "right" },
@@ -201,7 +234,7 @@
         y: bins.map((b) => (rr.find((r) => r.bin_start === b) || {}).faculty || 0),
         marker: { color: labColor(lab), line: { color: css("--surface"), width: 1 } },
         hovertemplate: `<b>%{y}</b> faculty<br>${short(lab)} · h %{x}<extra></extra>` };
-    }), { barmode: state.lab === "ALL" ? "stack" : "group", xaxis: { title: "h-index (2016–2026)" }, yaxis: { title: "Faculty" } });
+    }), { barmode: state.lab === "ALL" ? "stack" : "group", yaxis: { title: "Faculty", automargin: true }, legend: { orientation: "h", y: -0.18, traceorder: "normal" } });
 
     table("t-dept", D.departments.filter((r) => state.lab === "ALL" || r.lab === state.lab).map((r) => ({ ...r, lab: short(r.lab) })), [
       { title: "Lab", field: "lab" }, { title: "Department", field: "department", widthGrow: 3 },
@@ -302,7 +335,7 @@
         line: { color: labColor(lab), width: 2, dash: "dot" }, marker: { size: 8, symbol: "diamond" },
         hovertemplate: `<b>%{y}</b> citations given<br>${short(lab)} · %{x}<extra></extra>` });
     }
-    plot("c-flow", tr, { hovermode: "x unified", xaxis: { dtick: 1, title: "Citing year" } });
+    plot("c-flow", tr, { hovermode: "x unified", xaxis: { dtick: 1 } });
 
     const ci = D.top_citing_insts.filter((r) => state.lab === "ALL" || r.your_inst === state.lab);
     let rows = ci;
@@ -311,11 +344,12 @@
       rows = Object.entries(m).map(([k, v]) => ({ partner_inst: k, cites_in: v })).sort((a, b) => b.cites_in - a.cites_in).slice(0, 10);
     }
     const rv = [...rows].reverse();
-    plot("c-citers", [{ type: "bar", orientation: "h", y: rv.map((r) => r.partner_inst.length > 40 ? r.partner_inst.slice(0, 39) + "…" : r.partner_inst),
+    plot("c-citers", [{ type: "bar", orientation: "h", y: rv.map((r) => r.partner_inst),
       x: rv.map((r) => r.cites_in), text: rv.map((r) => fmt(r.cites_in)), textposition: "outside", cliponaxis: false,
       customdata: rv.map((r) => r.partner_inst),
       marker: { color: state.lab === "ALL" ? css("--multi") : labColor(state.lab) },
-      hovertemplate: "<b>%{x:,}</b> citations<br>%{customdata}<extra></extra>" }], { margin: { l: 240, r: 50, t: 10, b: 40 }, showlegend: false });
+      hovertemplate: "<b>%{x:,}</b> citations<br>%{customdata}<extra></extra>" }], { margin: { l: 240, r: 50, t: 10, b: 40 }, showlegend: false,
+      yaxis: ticks(rv.map((r) => r.partner_inst)) });
 
     const M = D.lab_matrix;
     plot("c-matrix", [{ type: "heatmap", z: M.z, x: M.labs.map(short), y: M.labs.map(short),
@@ -469,5 +503,19 @@
   });
   el("subtitle").textContent = `Group ${D.meta.group} · ${LABS.map(short).join(", ")} · OpenAlex snapshot ${D.meta.collected} · ${fmt(D.meta.rows)} faculty–paper rows`;
   document.querySelectorAll(".collected").forEach((e) => { e.textContent = D.meta.collected; });
-  show("overview");
+  // deep links: #tab=citation&lab=CSIR-IGIB&theme=light open that view directly
+  const hp = new URLSearchParams(location.hash.slice(1));
+  if (hp.get("theme")) document.documentElement.dataset.theme = hp.get("theme");
+  if (hp.get("shot")) document.body.classList.add("shot");     // screenshot mode: no chart toolbars
+  for (const k of ["layer", "colorby"]) {
+    const r = document.querySelector(`input[name="${k}"][value="${hp.get(k)}"]`);
+    if (r) { r.checked = true; state[k] = r.value; }
+  }
+  if (LABS.includes(hp.get("lab"))) { state.lab = hp.get("lab"); sel.value = state.lab; }
+  if (hp.get("focus")) {        // show only the panels holding these element ids (for screenshots and links)
+    const ids = hp.get("focus").split(",").map((x) => document.getElementById(x)).filter(Boolean);
+    document.querySelectorAll("main .card, main .kpis").forEach((c) => { if (!ids.some((e) => c.contains(e))) c.hidden = true; });
+    document.querySelectorAll("main .grid2").forEach((g) => { if (![...g.children].some((c) => !c.hidden)) g.hidden = true; });
+  }
+  show(RENDER[hp.get("tab")] ? hp.get("tab") : "overview");
 })();

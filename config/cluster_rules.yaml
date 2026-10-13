@@ -11,6 +11,8 @@ umbrella_ids:            # never partners; dropped from coauthor_institutes
 csir_academy_ids: [I99364266]   # AcSIR
 
 name_rules:             # case-insensitive regex -> cluster; checked before lineage
+  - ['National Institute of Pharmaceutical Education and Research|\bNIPER\b', 'NIPER']
+  - ['All India Institute of Medical Sciences|\bAIIMS\b|Post ?Graduate Institute of Medical|\bPGIMER\b|\bSGPGI|Medical University|Institute of Medical Sciences|Medical College|Medical Sciences', 'Medical']
   - ['Indian Institute of Information Technology|\bIIIT\b', 'IIIT']
   - ['Indian Institute of Technology|\bIIT\b', 'IIT']
   - ['National Institute of Technology|\bNIT\b', 'NIT']

@@ -112,9 +112,10 @@ def layout(G: nx.Graph, k_scale: float = 3.5) -> dict:
             out[n] = (round(x0 + (x - min(xs)) / span * size, 1), round(y0 + (y - min(ys)) / span * size, 1))
 
     place(comps[0], 0, 0, 1000)
+    top = max(y for _, y in out.values()) + 60       # small components in rows just below the main one
     cell, cols = 110, 9
     for i, c in enumerate(comps[1:]):
-        place(c, (i % cols) * cell, 1080 + (i // cols) * cell, cell * 0.7 if len(c) > 1 else 0)
+        place(c, (i % cols) * cell, top + (i // cols) * cell, cell * 0.7 if len(c) > 1 else 0)
     return out
 
 

@@ -1,6 +1,6 @@
 your_inst,partner_inst,shared_papers,total_citations,cites_in,cites_out,shared_papers_citations,partner_openalex_id,partner_cluster,cross_cluster,pair_label,partner_in_group,partner_is_csir_academy,jaccard_topics,jaccard_subfields,rank
 CSIR-CCMB,Indian Institute of Chemical Technology,106,912,318,594,7827,I55664587,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,0.0753,0.5152,1
-CSIR-CCMB,National Institute of Pharmaceutical Education and Research (Hyderabad),55,531,221,310,1093,I4210146715,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,0.1765,0.6949,2
+CSIR-CCMB,National Institute of Pharmaceutical Education and Research (Hyderabad),55,531,221,310,1093,I4210146715,NIPER,TRUE,CSIR↔NIPER,FALSE,FALSE,0.1765,0.6949,2
 CSIR-CCMB,Centre for DNA Fingerprinting and Diagnostics,54,245,123,122,2093,I78270026,Other,TRUE,CSIR↔Other,FALSE,FALSE,0.2579,0.5755,3
 CSIR-CCMB,Manipal Academy of Higher Education,42,363,156,207,1490,I164861460,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,0.0695,0.4599,4
 CSIR-CCMB,CSIR-IGIB,31,263,118,145,5504,I177828482,CSIR,FALSE,CSIR↔CSIR,TRUE,FALSE,0.3423,0.6393,5
@@ -17,20 +17,20 @@ CSIR-CCMB,Osmania University,22,189,49,140,471,I8975392,University (other),TRUE,
 CSIR-CCMB,National Institute of Mental Health and Neurosciences,22,181,83,98,1682,I699696,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,0.0582,0.4706,16
 CSIR-CCMB,Institute for Stem Cell Biology and Regenerative Medicine,22,143,55,88,471,I4210087873,DBT,TRUE,CSIR↔DBT,FALSE,FALSE,0.2821,0.6379,17
 CSIR-CCMB,National Chemical Laboratory,21,433,192,241,664,I3125981224,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,0.0811,0.5267,18
-CSIR-CCMB,National Institute of Pharmaceutical Education and Research (Mohali),19,255,99,156,385,I4210152674,Government,TRUE,CSIR↔Government,FALSE,FALSE,0.1628,0.626,19
+CSIR-CCMB,National Institute of Pharmaceutical Education and Research (Mohali),19,255,99,156,385,I4210152674,NIPER,TRUE,CSIR↔NIPER,FALSE,FALSE,0.1628,0.626,19
 CSIR-CCMB,Tata Institute of Fundamental Research,18,341,87,254,256,I11947397,IISc/TIFR/IISER,TRUE,CSIR↔IISc/TIFR/IISER,FALSE,FALSE,0.087,0.4388,20
 CSIR-CCMB,Birbal Sahni Institute of Palaeosciences,17,195,109,86,1028,I4405261827,Other,TRUE,CSIR↔Other,FALSE,FALSE,0.0582,0.254,21
 CSIR-CCMB,King Edward Memorial Hospital Research Centre,17,92,36,56,1714,I4210148958,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,0.0929,0.35,22
 CSIR-CCMB,Jawaharlal Nehru University,15,239,89,150,9443,I152429107,Central University,TRUE,CSIR↔Central University,FALSE,FALSE,0.1111,0.3699,23
-CSIR-CCMB,Nizam's Institute of Medical Sciences,14,96,31,65,288,I139669409,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,0.0811,0.5385,24
+CSIR-CCMB,Nizam's Institute of Medical Sciences,14,96,31,65,288,I139669409,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,0.0811,0.5385,24
 CSIR-CCMB,Wildlife Institute of India,13,212,87,125,318,I31888360,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,0.0753,0.3282,25
 CSIR-CCMB,Indian Institute of Science Education and Research Pune,13,134,47,87,62,I181996519,IISc/TIFR/IISER,TRUE,CSIR↔IISc/TIFR/IISER,FALSE,FALSE,0.0811,0.4184,26
 CSIR-CCMB,CSIR-CDRI,13,133,62,71,229,I185249246,CSIR,FALSE,CSIR↔CSIR,TRUE,FALSE,0.1834,0.6807,27
 CSIR-CCMB,CSIR-IMTECH,13,108,50,58,5982,I4210147764,CSIR,FALSE,CSIR↔CSIR,TRUE,FALSE,0.2422,0.5763,28
-CSIR-CCMB,University of Delhi,12,220,106,114,898,I110166357,Central University,TRUE,CSIR↔Central University,FALSE,FALSE,0.0811,0.3793,29
+CSIR-CCMB,University of Delhi,12,220,106,114,898,I110166357,Central University,TRUE,CSIR↔Central University,FALSE,FALSE,,,29
 CSIR-CCMB,Indian Council of Medical Research,12,208,87,121,142,I37048141,ICMR,TRUE,CSIR↔ICMR,FALSE,FALSE,0.1299,0.6,30
 CSIR-CCMB,Regional Centre for Biotechnology,12,118,57,61,103,I4210094671,Government,TRUE,CSIR↔Government,FALSE,FALSE,,,31
-CSIR-CCMB,CSI Holdsworth Memorial Hospital,12,88,29,59,193,I4210162192,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,32
+CSIR-CCMB,CSI Holdsworth Memorial Hospital,12,88,29,59,193,I4210162192,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,0.0444,0.1818,32
 CSIR-CCMB,Indian Institute of Chemical Biology,11,131,36,95,210,I160344538,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,33
 CSIR-CCMB,Indian Institute of Rice Research,11,111,35,76,111,I1298986040,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,34
 CSIR-CCMB,Sambalpur University,11,109,62,47,161,I112754052,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,35
@@ -41,7 +41,7 @@ CSIR-CCMB,University of Calcutta,9,127,62,65,5986,I106542073,University (other),
 CSIR-CCMB,"Birla Institute of Technology and Science, Pilani",9,103,67,36,101,I74796645,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,40
 CSIR-CCMB,National Institute of Animal Biotechnology,9,32,15,17,29,I4210092980,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,41
 CSIR-CCMB,Savitribai Phule Pune University,8,160,74,86,37,I878213199,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,42
-CSIR-CCMB,Post Graduate Institute of Medical Education and Research,8,125,48,77,5964,I45294948,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,43
+CSIR-CCMB,Post Graduate Institute of Medical Education and Research,8,125,48,77,5964,I45294948,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,43
 CSIR-CCMB,Institute of Life Sciences,8,80,26,54,7292,I4210118921,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,44
 CSIR-CCMB,National Institute of Nutrition,8,76,29,47,82,I53421241,ICMR,TRUE,CSIR↔ICMR,FALSE,FALSE,,,45
 CSIR-CCMB,Indian Institute of Science Education and Research Berhampur,8,34,24,10,83,I4210115612,IISc/TIFR/IISER,TRUE,CSIR↔IISc/TIFR/IISER,FALSE,FALSE,,,46
@@ -55,7 +55,7 @@ CSIR-CCMB,Institute of Reproductive Medicine,7,58,10,48,122,I4210127825,Medical,
 CSIR-CCMB,National Institute of Plant Genome Research,7,52,26,26,210,I4210153536,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,54
 CSIR-CCMB,Institute of Bioinformatics,7,47,13,34,100,I4210148697,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,55
 CSIR-CCMB,Amity University,6,160,116,44,347,I191972202,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,56
-CSIR-CCMB,National Institute of Pharmaceutical Education and Research (Guwahati),6,110,54,56,128,I4210154014,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,57
+CSIR-CCMB,National Institute of Pharmaceutical Education and Research (Guwahati),6,110,54,56,128,I4210154014,NIPER,TRUE,CSIR↔NIPER,FALSE,FALSE,,,57
 CSIR-CCMB,Bharati Vidyapeeth (Deemed to be University),6,90,46,44,90,I887998513,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,58
 CSIR-CCMB,Indian Institute of Technology Kanpur,6,87,42,45,77,I94234084,IIT,TRUE,CSIR↔IIT,FALSE,FALSE,,,59
 CSIR-CCMB,Homi Bhabha National Institute,6,85,46,39,26,I200207707,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,60
@@ -76,19 +76,19 @@ CSIR-CCMB,JSS Academy of Higher Education and Research,5,43,36,7,938,I126824641,
 CSIR-CCMB,Indian Institute of Science Education and Research Mohali,5,37,19,18,997,I165916956,IISc/TIFR/IISER,TRUE,CSIR↔IISc/TIFR/IISER,FALSE,FALSE,,,75
 CSIR-CCMB,Central Salt and Marine Chemicals Research Institute,5,36,16,20,52,I128420443,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,76
 CSIR-CCMB,"Anna University, Chennai",5,33,18,15,15,I33585257,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,77
-CSIR-CCMB,National Institute of Pharmaceutical Education and Research (Kolkata),4,85,36,49,100,I4210161501,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,78
-CSIR-CCMB,National Institute of Pharmaceutical Education and Research (Raebareli),4,82,32,50,100,I4210103783,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,79
+CSIR-CCMB,National Institute of Pharmaceutical Education and Research (Kolkata),4,85,36,49,100,I4210161501,NIPER,TRUE,CSIR↔NIPER,FALSE,FALSE,,,78
+CSIR-CCMB,National Institute of Pharmaceutical Education and Research (Raebareli),4,82,32,50,100,I4210103783,NIPER,TRUE,CSIR↔NIPER,FALSE,FALSE,,,79
 CSIR-CCMB,Tezpur University,4,80,30,50,50,I126601174,Central University,TRUE,CSIR↔Central University,FALSE,FALSE,,,80
-CSIR-CCMB,National Institute of Pharmaceutical Education and Research (Hājīpur),4,73,27,46,100,I4210098333,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,81
+CSIR-CCMB,National Institute of Pharmaceutical Education and Research (Hājīpur),4,73,27,46,100,I4210098333,NIPER,TRUE,CSIR↔NIPER,FALSE,FALSE,,,81
 CSIR-CCMB,Pondicherry University,4,69,28,41,839,I175691731,Central University,TRUE,CSIR↔Central University,FALSE,FALSE,,,82
-CSIR-CCMB,Institute of Medical Sciences,4,64,36,28,67,I51317819,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,83
+CSIR-CCMB,Institute of Medical Sciences,4,64,36,28,67,I51317819,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,83
 CSIR-CCMB,Yenepoya University,4,61,40,21,127,I158688498,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,84
 CSIR-CCMB,Yenepoya Research Centre,4,48,34,14,127,I4405268903,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,85
 CSIR-CCMB,Bharathidasan University,4,47,18,29,99,I4076070,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,86
 CSIR-CCMB,"Advanced Centre for Treatment, Research and Education in Cancer",4,44,15,29,27,I4210157422,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,87
 CSIR-CCMB,North East Institute of Science and Technology,4,35,21,14,70,I2800857658,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,88
-CSIR-CCMB,National Brain Research Centre,4,31,12,19,5927,I85332549,Government,TRUE,CSIR↔Government,FALSE,FALSE,,,89
-CSIR-CCMB,Public Health Foundation of India,4,31,8,23,529,I74653059,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,90
+CSIR-CCMB,Public Health Foundation of India,4,31,8,23,529,I74653059,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,89
+CSIR-CCMB,National Brain Research Centre,4,31,12,19,5927,I85332549,Government,TRUE,CSIR↔Government,FALSE,FALSE,,,90
 CSIR-CCMB,Central Leather Research Institute,4,30,6,24,93,I112576028,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,91
 CSIR-CCMB,Osmania Medical College,4,26,8,18,134,I99557698,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,92
 CSIR-CCMB,Shri Mata Vaishno Devi University,4,20,10,10,112,I59179055,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,93
@@ -100,8 +100,8 @@ CSIR-CCMB,Indian Institute of Technology Bombay,3,108,62,46,136,I162827531,IIT,T
 CSIR-CCMB,Centre For Wildlife Studies,3,90,14,76,56,I4210128182,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,99
 CSIR-CCMB,Institute of Himalayan Bioresource Technology,3,42,13,29,81,I4210128326,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,100
 CSIR-CCMB,"Indian Institute of Science Education and Research, Bhopal",3,40,19,21,33,I288749910,IISc/TIFR/IISER,TRUE,CSIR↔IISc/TIFR/IISER,FALSE,FALSE,,,101
-CSIR-CCMB,Indian Institute of Science Education and Research Kolkata,3,38,30,8,72,I127439422,IISc/TIFR/IISER,TRUE,CSIR↔IISc/TIFR/IISER,FALSE,FALSE,,,102
-CSIR-CCMB,Sree Chitra Thirunal Institute for Medical Sciences and Technology,3,38,17,21,52,I2800373951,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,103
+CSIR-CCMB,Sree Chitra Thirunal Institute for Medical Sciences and Technology,3,38,17,21,52,I2800373951,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,102
+CSIR-CCMB,Indian Institute of Science Education and Research Kolkata,3,38,30,8,72,I127439422,IISc/TIFR/IISER,TRUE,CSIR↔IISc/TIFR/IISER,FALSE,FALSE,,,103
 CSIR-CCMB,International Crops Research Institute for the Semi-Arid Tropics,3,35,12,23,75,I4210163774,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,104
 CSIR-CCMB,Government Rajaji Hospital,3,33,13,20,47,I2801491149,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,105
 CSIR-CCMB,National Institute of Science Education and Research,3,32,14,18,23,I163389970,DAE,TRUE,CSIR↔DAE,FALSE,FALSE,,,106
@@ -110,8 +110,8 @@ CSIR-CCMB,Central University of Haryana,3,25,21,4,26,I4210133503,Central Univers
 CSIR-CCMB,Birla Institute of Scientific Research,3,24,16,8,40,I4210113324,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,109
 CSIR-CCMB,Central Electrochemical Research Institute,3,22,14,8,135,I106349282,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,110
 CSIR-CCMB,Jain University,3,21,17,4,19,I106826634,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,111
-CSIR-CCMB,Ashoka University,3,20,17,3,24,I347237974,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,112
-CSIR-CCMB,WWF-India,3,20,14,6,83,I1329578906,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,113
+CSIR-CCMB,WWF-India,3,20,14,6,83,I1329578906,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,112
+CSIR-CCMB,Ashoka University,3,20,17,3,24,I347237974,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,113
 CSIR-CCMB,"Jawaharlal Nehru Technological University, Hyderabad",3,19,8,11,55,I10874241,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,114
 CSIR-CCMB,Bangalore University,3,19,13,6,21,I53465836,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,115
 CSIR-CCMB,Central Institute of Medicinal and Aromatic Plants,3,19,3,16,26,I68145777,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,116
@@ -131,7 +131,7 @@ CSIR-CCMB,Ashoka Trust for Research in Ecology and the Environment,2,93,25,68,6,
 CSIR-CCMB,KIIT University,2,85,25,60,34,I67357951,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,130
 CSIR-CCMB,Jamia Millia Islamia,2,67,41,26,16,I59475050,Central University,TRUE,CSIR↔Central University,FALSE,FALSE,,,131
 CSIR-CCMB,University of Mysore,2,65,20,45,6,I204743663,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,132
-CSIR-CCMB,Sanjay Gandhi Post Graduate Institute of Medical Sciences,2,63,18,45,12,I161370692,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,133
+CSIR-CCMB,Sanjay Gandhi Post Graduate Institute of Medical Sciences,2,63,18,45,12,I161370692,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,133
 CSIR-CCMB,Central University of Punjab,2,60,37,23,1385,I114724429,Central University,TRUE,CSIR↔Central University,FALSE,FALSE,,,134
 CSIR-CCMB,Indian Institute of Technology Kharagpur,2,59,23,36,5860,I145894827,IIT,TRUE,CSIR↔IIT,FALSE,FALSE,,,135
 CSIR-CCMB,Zoological Survey of India,2,56,28,28,12,I1338006420,Government,TRUE,CSIR↔Government,FALSE,FALSE,,,136
@@ -143,59 +143,59 @@ CSIR-CCMB,National Institute of Biomedical Genomics,2,48,21,27,1346,I4210158866,
 CSIR-CCMB,Indian Institute of Technology Hyderabad,2,48,40,8,92,I65181880,IIT,TRUE,CSIR↔IIT,FALSE,FALSE,,,142
 CSIR-CCMB,Symbiosis International University,2,42,36,6,152,I244572783,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,143
 CSIR-CCMB,Indian Institute of Technology Jodhpur,2,38,32,6,49,I154549908,IIT,TRUE,CSIR↔IIT,FALSE,FALSE,,,144
-CSIR-CCMB,University of Lucknow,2,36,25,11,71,I186246823,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,145
-CSIR-CCMB,Chandigarh University,2,36,34,2,10,I101407740,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,146
+CSIR-CCMB,Chandigarh University,2,36,34,2,10,I101407740,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,145
+CSIR-CCMB,University of Lucknow,2,36,25,11,71,I186246823,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,146
 CSIR-CCMB,University of Jammu,2,35,20,15,41,I145846420,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,147
 CSIR-CCMB,Bharathiar University,2,33,12,21,6,I111575329,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,148
 CSIR-CCMB,Jadavpur University,2,28,12,16,5860,I170979836,Central University,TRUE,CSIR↔Central University,FALSE,FALSE,,,149
 CSIR-CCMB,National Institute of Research in Tuberculosis,2,27,6,21,8,I4210140595,ICMR,TRUE,CSIR↔ICMR,FALSE,FALSE,,,150
 CSIR-CCMB,Sardar Patel University,2,27,12,15,16,I57085157,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,151
-CSIR-CCMB,Government of Karnataka,2,25,8,17,29,I2802584695,Government,TRUE,CSIR↔Government,FALSE,FALSE,,,152
-CSIR-CCMB,Sir Ganga Ram Hospital,2,25,7,18,1344,I4210113434,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,153
+CSIR-CCMB,Sir Ganga Ram Hospital,2,25,7,18,1344,I4210113434,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,152
+CSIR-CCMB,Government of Karnataka,2,25,8,17,29,I2802584695,Government,TRUE,CSIR↔Government,FALSE,FALSE,,,153
 CSIR-CCMB,Indian Institute of Technology Indore,2,24,9,15,34,I64295750,IIT,TRUE,CSIR↔IIT,FALSE,FALSE,,,154
 CSIR-CCMB,Madurai Medical College,2,24,8,16,35,I15664174,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,155
-CSIR-CCMB,Government of Tamil Nadu,2,23,6,17,40,I148776243,Government,TRUE,CSIR↔Government,FALSE,FALSE,,,156
-CSIR-CCMB,Government Medical College (Kozhikode),2,23,11,12,10,I248710770,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,157
-CSIR-CCMB,GITAM University,2,22,16,6,53,I885392262,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,158
-CSIR-CCMB,Jawaharlal Institute of Post Graduate Medical Education and Research,2,22,5,17,41,I61923386,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,159
-CSIR-CCMB,National Center for Disease Control,2,21,8,13,1365,I103004294,Government,TRUE,CSIR↔Government,FALSE,FALSE,,,160
-CSIR-CCMB,Central Food Technological Research Institute,2,21,5,16,25,I150037166,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,161
-CSIR-CCMB,King George's Medical University,2,21,9,12,60,I280994,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,162
+CSIR-CCMB,Government Medical College (Kozhikode),2,23,11,12,10,I248710770,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,156
+CSIR-CCMB,Government of Tamil Nadu,2,23,6,17,40,I148776243,Government,TRUE,CSIR↔Government,FALSE,FALSE,,,157
+CSIR-CCMB,Jawaharlal Institute of Post Graduate Medical Education and Research,2,22,5,17,41,I61923386,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,158
+CSIR-CCMB,GITAM University,2,22,16,6,53,I885392262,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,159
+CSIR-CCMB,Central Food Technological Research Institute,2,21,5,16,25,I150037166,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,160
+CSIR-CCMB,National Center for Disease Control,2,21,8,13,1365,I103004294,Government,TRUE,CSIR↔Government,FALSE,FALSE,,,161
+CSIR-CCMB,King George's Medical University,2,21,9,12,60,I280994,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,162
 CSIR-CCMB,Defence Research and Development Organisation,2,20,16,4,16,I1340206300,Government,TRUE,CSIR↔Government,FALSE,FALSE,,,163
 CSIR-CCMB,National Environmental Engineering Research Institute,2,19,13,6,29,I170347488,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,164
 CSIR-CCMB,St. John's National Academy of Health Sciences,2,18,9,9,76,I4210129261,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,165
 CSIR-CCMB,Acharya Nagarjuna University,2,17,5,12,21,I177001074,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,166
-CSIR-CCMB,University of Trans-Disciplinary Health Sciences and Technology,2,17,14,3,10,I3132239849,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,167
-CSIR-CCMB,Gujarat University,2,17,12,5,6,I114173286,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,168
-CSIR-CCMB,Apollo Hospitals (Hyderabad),2,16,8,8,15,I4210130696,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,169
-CSIR-CCMB,Andhra University,2,16,10,6,53,I100887729,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,170
-CSIR-CCMB,University of Mumbai,2,16,4,12,43,I169877490,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,171
+CSIR-CCMB,Gujarat University,2,17,12,5,6,I114173286,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,167
+CSIR-CCMB,University of Trans-Disciplinary Health Sciences and Technology,2,17,14,3,10,I3132239849,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,168
+CSIR-CCMB,Andhra University,2,16,10,6,53,I100887729,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,169
+CSIR-CCMB,University of Mumbai,2,16,4,12,43,I169877490,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,170
+CSIR-CCMB,Apollo Hospitals (Hyderabad),2,16,8,8,15,I4210130696,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,171
 CSIR-CCMB,Wildlife Trust of India,2,15,7,8,15,I4405254779,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,172
-CSIR-CCMB,Kerala University of Fisheries and Ocean Studies,2,15,9,6,18,I221342038,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,173
-CSIR-CCMB,Institute of Mathematical Sciences,2,15,7,8,12,I59611059,Premier Science,TRUE,CSIR↔Premier Science,FALSE,FALSE,,,174
+CSIR-CCMB,Institute of Mathematical Sciences,2,15,7,8,12,I59611059,Premier Science,TRUE,CSIR↔Premier Science,FALSE,FALSE,,,173
+CSIR-CCMB,Kerala University of Fisheries and Ocean Studies,2,15,9,6,18,I221342038,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,174
 CSIR-CCMB,Tamil Nadu Veterinary and Animal Sciences University,2,13,6,7,169,I82452031,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,175
 CSIR-CCMB,Narayan Medical College and Hospital,2,13,10,3,53,I4210141553,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,176
 CSIR-CCMB,Indian Institute of Technology Dhanbad,2,12,8,4,45,I189109744,IIT,TRUE,CSIR↔IIT,FALSE,FALSE,,,177
-CSIR-CCMB,King Institute of Preventive Medicine and Research,2,11,5,6,83,I323874257,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,178
-CSIR-CCMB,Institute of Nuclear Medicine & Allied Sciences,2,11,7,4,67,I4210114989,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,179
-CSIR-CCMB,Deccan College of Medical Sciences,2,10,1,9,13,I149145351,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,180
-CSIR-CCMB,Narayana Health,2,10,8,2,56,I288496929,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,181
+CSIR-CCMB,Institute of Nuclear Medicine & Allied Sciences,2,11,7,4,67,I4210114989,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,178
+CSIR-CCMB,King Institute of Preventive Medicine and Research,2,11,5,6,83,I323874257,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,179
+CSIR-CCMB,Narayana Health,2,10,8,2,56,I288496929,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,180
+CSIR-CCMB,VIT Bhopal University,2,10,6,4,48,I4405263090,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,181
 CSIR-CCMB,Indraprastha Institute of Information Technology Delhi,2,10,7,3,30,I119939252,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,182
 CSIR-CCMB,Armed Forces Medical College,2,10,2,8,4,I83878805,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,183
-CSIR-CCMB,VIT Bhopal University,2,10,6,4,48,I4405263090,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,184
-CSIR-CCMB,Government Medical College (Nagpur),2,9,0,9,0,I168974072,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,185
-CSIR-CCMB,Sri Krishnadevaraya University,2,9,5,4,53,I4031970,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,186
-CSIR-CCMB,Krishna University,2,9,3,6,53,I221092938,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,187
-CSIR-CCMB,Malla Reddy Institute Of Medical Sciences,2,8,7,1,8,I4405261501,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,188
-CSIR-CCMB,Shri Dharmasthala Manjunatheshwara University,2,7,6,1,18,I4387152955,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,189
-CSIR-CCMB,Institute of Minerals and Materials Technology,2,7,4,3,31,I4210107015,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,190
+CSIR-CCMB,Deccan College of Medical Sciences,2,10,1,9,13,I149145351,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,184
+CSIR-CCMB,Krishna University,2,9,3,6,53,I221092938,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,185
+CSIR-CCMB,Government Medical College (Nagpur),2,9,0,9,0,I168974072,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,186
+CSIR-CCMB,Sri Krishnadevaraya University,2,9,5,4,53,I4031970,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,187
+CSIR-CCMB,Malla Reddy Institute Of Medical Sciences,2,8,7,1,8,I4405261501,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,188
+CSIR-CCMB,Institute of Minerals and Materials Technology,2,7,4,3,31,I4210107015,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,189
+CSIR-CCMB,Malla Reddy Vishwavidyapeeth,2,7,7,0,8,I4405267936,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,190
 CSIR-CCMB,Krishna Institute of Medical Sciences,2,7,5,2,11,I4210091132,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,191
-CSIR-CCMB,Malla Reddy Vishwavidyapeeth,2,7,7,0,8,I4405267936,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,192
+CSIR-CCMB,Shri Dharmasthala Manjunatheshwara University,2,7,6,1,18,I4387152955,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,192
 CSIR-CCMB,Defence Research Laboratory,2,6,5,1,50,I4210154459,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,193
 CSIR-CCMB,Department of Science and Technology,2,5,4,1,647,I4210098748,Government,TRUE,CSIR↔Government,FALSE,FALSE,,,194
 CSIR-CCMB,Global Hospitals,2,4,2,2,49,I4210114360,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,195
-CSIR-CCMB,Sardarkrushinagar Dantiwada Agricultural University,2,3,3,0,13,I271267010,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,196
-CSIR-CCMB,Science and Engineering Research Board,2,3,3,0,647,I2799536621,Government,TRUE,CSIR↔Government,FALSE,FALSE,,,197
+CSIR-CCMB,Science and Engineering Research Board,2,3,3,0,647,I2799536621,Government,TRUE,CSIR↔Government,FALSE,FALSE,,,196
+CSIR-CCMB,Sardarkrushinagar Dantiwada Agricultural University,2,3,3,0,13,I271267010,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,197
 CSIR-CCMB,Sunshine Hospitals,2,0,0,0,46,I4210095867,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,198
 CSIR-CCMB,SRM Institute of Science and Technology,1,83,59,24,2,I145286018,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,199
 CSIR-CCMB,Wildlife Conservation Society India,1,73,1,72,44,I4210154569,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,200
@@ -217,175 +217,175 @@ CSIR-CCMB,ICMR-National Institute of Virology,1,33,14,19,1337,I60374024,ICMR,TRU
 CSIR-CCMB,Mizoram University,1,33,20,13,13,I195459967,Central University,TRUE,CSIR↔Central University,FALSE,FALSE,,,216
 CSIR-CCMB,National Institute of Advanced Studies,1,31,8,23,44,I22956069,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,217
 CSIR-CCMB,National Institute of Technology Rourkela,1,31,22,9,5860,I16292982,NIT,TRUE,CSIR↔NIT,FALSE,FALSE,,,218
-CSIR-CCMB,Central University of Gujarat,1,30,20,10,18,I89095802,Central University,TRUE,CSIR↔Central University,FALSE,FALSE,,,219
-CSIR-CCMB,Indian Veterinary Research Institute,1,30,22,8,93,I185790649,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,220
+CSIR-CCMB,Indian Veterinary Research Institute,1,30,22,8,93,I185790649,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,219
+CSIR-CCMB,Central University of Gujarat,1,30,20,10,18,I89095802,Central University,TRUE,CSIR↔Central University,FALSE,FALSE,,,220
 CSIR-CCMB,Nirma University,1,29,24,5,12,I165831266,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,221
-CSIR-CCMB,University of Petroleum and Energy Studies,1,28,25,3,19,I5847235,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,222
-CSIR-CCMB,King Edward Memorial Hospital and Seth G.S. Medical College,1,28,5,23,0,I193353881,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,223
-CSIR-CCMB,Archaeological Survey of India,1,28,21,7,6,I4405266383,Government,TRUE,CSIR↔Government,FALSE,FALSE,,,224
-CSIR-CCMB,Indian Institute of Toxicology Research,1,26,11,15,15,I85145500,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,225
-CSIR-CCMB,Centre For Human Genetics,1,26,6,20,170,I4210098597,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,226
-CSIR-CCMB,University of Kerala,1,26,13,13,13,I158338959,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,227
+CSIR-CCMB,Archaeological Survey of India,1,28,21,7,6,I4405266383,Government,TRUE,CSIR↔Government,FALSE,FALSE,,,222
+CSIR-CCMB,University of Petroleum and Energy Studies,1,28,25,3,19,I5847235,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,223
+CSIR-CCMB,King Edward Memorial Hospital and Seth G.S. Medical College,1,28,5,23,0,I193353881,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,224
+CSIR-CCMB,University of Kerala,1,26,13,13,13,I158338959,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,225
+CSIR-CCMB,Indian Institute of Toxicology Research,1,26,11,15,15,I85145500,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,226
+CSIR-CCMB,Centre For Human Genetics,1,26,6,20,170,I4210098597,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,227
 CSIR-CCMB,Kumaun University,1,25,8,17,31,I119311299,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,228
 CSIR-CCMB,All India Institute of Medical Sciences Rishikesh,1,25,16,9,48,I4387152206,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,229
 CSIR-CCMB,St.John's Medical College Hospital,1,24,9,15,7,I4210145302,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,230
 CSIR-CCMB,National Institute of Epidemiology,1,24,14,10,8,I4210100069,ICMR,TRUE,CSIR↔ICMR,FALSE,FALSE,,,231
-CSIR-CCMB,Galgotias University,1,23,21,2,0,I155125381,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,232
-CSIR-CCMB,All India Institute of Medical Sciences Jodhpur,1,23,17,6,0,I216021267,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,233
+CSIR-CCMB,All India Institute of Medical Sciences Jodhpur,1,23,17,6,0,I216021267,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,232
+CSIR-CCMB,Galgotias University,1,23,21,2,0,I155125381,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,233
 CSIR-CCMB,Vision Research Foundation,1,22,10,12,24,I4405267514,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,234
-CSIR-CCMB,DBT/Wellcome Trust India Alliance,1,22,13,9,40,I4210160166,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,235
-CSIR-CCMB,Indian Institute of Technology Gandhinagar,1,22,11,11,2,I27674431,IIT,TRUE,CSIR↔IIT,FALSE,FALSE,,,236
+CSIR-CCMB,Indian Institute of Technology Gandhinagar,1,22,11,11,2,I27674431,IIT,TRUE,CSIR↔IIT,FALSE,FALSE,,,235
+CSIR-CCMB,DBT/Wellcome Trust India Alliance,1,22,13,9,40,I4210160166,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,236
 CSIR-CCMB,Babasaheb Bhimrao Ambedkar University,1,21,19,2,9,I143247161,Central University,TRUE,CSIR↔Central University,FALSE,FALSE,,,237
 CSIR-CCMB,Assam University,1,21,8,13,20,I49278261,Central University,TRUE,CSIR↔Central University,FALSE,FALSE,,,238
-CSIR-CCMB,Lilavati Hospital & Research Centre,1,20,9,11,4,I2800084889,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,239
-CSIR-CCMB,Loyola College,1,20,7,13,7,I4405274569,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,240
-CSIR-CCMB,Shoolini University,1,20,16,4,19,I4210133311,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,241
-CSIR-CCMB,S.N. Bose National Centre for Basic Sciences,1,19,8,11,23,I77430839,Premier Science,TRUE,CSIR↔Premier Science,FALSE,FALSE,,,242
-CSIR-CCMB,Fetal Care Research Foundation,1,19,2,17,170,I4210138510,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,243
-CSIR-CCMB,Adamas University,1,19,16,3,41,I3130244785,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,244
-CSIR-CCMB,CSIR National Physical Laboratory of India,1,19,3,16,25,I88910343,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,245
+CSIR-CCMB,Shoolini University,1,20,16,4,19,I4210133311,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,239
+CSIR-CCMB,Lilavati Hospital & Research Centre,1,20,9,11,4,I2800084889,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,240
+CSIR-CCMB,Loyola College,1,20,7,13,7,I4405274569,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,241
+CSIR-CCMB,Adamas University,1,19,16,3,41,I3130244785,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,242
+CSIR-CCMB,S.N. Bose National Centre for Basic Sciences,1,19,8,11,23,I77430839,Premier Science,TRUE,CSIR↔Premier Science,FALSE,FALSE,,,243
+CSIR-CCMB,CSIR National Physical Laboratory of India,1,19,3,16,25,I88910343,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,244
+CSIR-CCMB,Fetal Care Research Foundation,1,19,2,17,170,I4210138510,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,245
 CSIR-CCMB,Chaitanya,1,18,15,3,27,I4405266258,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,246
-CSIR-CCMB,Regional Medical Research Center,1,17,6,11,7,I2802952153,ICMR,TRUE,CSIR↔ICMR,FALSE,FALSE,,,247
-CSIR-CCMB,Sankara Nethralaya,1,17,5,12,24,I118298837,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,248
-CSIR-CCMB,Veer Bahadur Singh Purvanchal University,1,16,3,13,24,I875728190,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,249
-CSIR-CCMB,Alagappa University,1,16,9,7,53,I131155284,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,250
+CSIR-CCMB,Sankara Nethralaya,1,17,5,12,24,I118298837,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,247
+CSIR-CCMB,Regional Medical Research Center,1,17,6,11,7,I2802952153,ICMR,TRUE,CSIR↔ICMR,FALSE,FALSE,,,248
+CSIR-CCMB,Alagappa University,1,16,9,7,53,I131155284,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,249
+CSIR-CCMB,JSS Medical College and Hospital,1,16,10,6,1,I86826812,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,250
 CSIR-CCMB,Government Medical College (Thiruvananthapuram),1,16,5,11,15,I129862065,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,251
-CSIR-CCMB,JSS Medical College and Hospital,1,16,10,6,1,I86826812,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,252
-CSIR-CCMB,Kerala Forest Research Institute,1,15,6,9,5,I98944809,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,253
-CSIR-CCMB,Central University of Rajasthan,1,15,10,5,28,I76777374,Central University,TRUE,CSIR↔Central University,FALSE,FALSE,,,254
-CSIR-CCMB,Guru Ghasidas Vishwavidyalaya,1,15,11,4,0,I26285277,Central University,TRUE,CSIR↔Central University,FALSE,FALSE,,,255
-CSIR-CCMB,Gauhati University,1,15,5,10,11,I138537684,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,256
-CSIR-CCMB,Ministry of Health and Family Welfare,1,15,4,11,1,I4210148677,Government,TRUE,CSIR↔Government,FALSE,FALSE,,,257
+CSIR-CCMB,Veer Bahadur Singh Purvanchal University,1,16,3,13,24,I875728190,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,252
+CSIR-CCMB,Guru Ghasidas Vishwavidyalaya,1,15,11,4,0,I26285277,Central University,TRUE,CSIR↔Central University,FALSE,FALSE,,,253
+CSIR-CCMB,Gauhati University,1,15,5,10,11,I138537684,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,254
+CSIR-CCMB,Ministry of Health and Family Welfare,1,15,4,11,1,I4210148677,Government,TRUE,CSIR↔Government,FALSE,FALSE,,,255
+CSIR-CCMB,Kerala Forest Research Institute,1,15,6,9,5,I98944809,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,256
+CSIR-CCMB,Central University of Rajasthan,1,15,10,5,28,I76777374,Central University,TRUE,CSIR↔Central University,FALSE,FALSE,,,257
 CSIR-CCMB,University of Rajasthan,1,14,8,6,10,I99552915,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,258
-CSIR-CCMB,Indian Institute for Human Settlements,1,14,8,6,0,I4210136078,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,259
-CSIR-CCMB,Rajendra Memorial National Institute of Health Research,1,14,3,11,24,I134315084,ICMR,TRUE,CSIR↔ICMR,FALSE,FALSE,,,260
-CSIR-CCMB,Gauhati Medical College and Hospital,1,14,4,10,11,I134260573,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,261
-CSIR-CCMB,Institute of Public Health Bengaluru,1,14,7,7,1,I4210088493,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,262
-CSIR-CCMB,Aravind Eye Hospital,1,14,1,13,5,I2800958399,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,263
-CSIR-CCMB,Jaslok Hospital,1,14,8,6,48,I2802099312,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,264
-CSIR-CCMB,Cochin University of Science and Technology,1,14,5,9,11,I20497027,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,265
-CSIR-CCMB,Abasaheb Garware College,1,14,1,13,6,I183970581,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,266
+CSIR-CCMB,Abasaheb Garware College,1,14,1,13,6,I183970581,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,259
+CSIR-CCMB,Cochin University of Science and Technology,1,14,5,9,11,I20497027,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,260
+CSIR-CCMB,Indian Institute for Human Settlements,1,14,8,6,0,I4210136078,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,261
+CSIR-CCMB,Aravind Eye Hospital,1,14,1,13,5,I2800958399,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,262
+CSIR-CCMB,Gauhati Medical College and Hospital,1,14,4,10,11,I134260573,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,263
+CSIR-CCMB,Institute of Public Health Bengaluru,1,14,7,7,1,I4210088493,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,264
+CSIR-CCMB,Jaslok Hospital,1,14,8,6,48,I2802099312,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,265
+CSIR-CCMB,Rajendra Memorial National Institute of Health Research,1,14,3,11,24,I134315084,ICMR,TRUE,CSIR↔ICMR,FALSE,FALSE,,,266
 CSIR-CCMB,Mahatma Gandhi University (Kottayam),1,13,6,7,3,I177436651,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,267
 CSIR-CCMB,National Institute of Technology Warangal,1,13,7,6,25,I121750182,NIT,TRUE,CSIR↔NIT,FALSE,FALSE,,,268
-CSIR-CCMB,National Institute for Research in Tribal Health,1,13,2,11,7,I4210100515,ICMR,TRUE,CSIR↔ICMR,FALSE,FALSE,,,269
-CSIR-CCMB,"Ministry of Environment, Forests and Climate Change",1,13,5,8,10,I1291012402,Government,TRUE,CSIR↔Government,FALSE,FALSE,,,270
-CSIR-CCMB,JSS College of Pharmacy,1,13,12,1,15,I4405270214,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,271
-CSIR-CCMB,ICAR Research Complex for NEH Region,1,13,8,5,7,I4210111975,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,272
-CSIR-CCMB,Sriram Chandra Bhanja Medical College Hospital,1,12,0,12,23,I3133213366,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,273
-CSIR-CCMB,Professor Jayashankar Telangana Agricultural University,1,12,2,10,13,I4210092736,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,274
-CSIR-CCMB,Indian Institute of Science Education and Research Thiruvananthapuram,1,12,4,8,0,I50557253,IISc/TIFR/IISER,TRUE,CSIR↔IISc/TIFR/IISER,FALSE,FALSE,,,275
-CSIR-CCMB,Tata Consultancy Services (India),1,12,7,5,13,I55215948,Industry,TRUE,CSIR↔Industry,FALSE,FALSE,,,276
-CSIR-CCMB,Chilika Development Authority,1,12,0,12,1,I4210130859,Government,TRUE,CSIR↔Government,FALSE,FALSE,,,277
+CSIR-CCMB,ICAR Research Complex for NEH Region,1,13,8,5,7,I4210111975,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,269
+CSIR-CCMB,JSS College of Pharmacy,1,13,12,1,15,I4405270214,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,270
+CSIR-CCMB,National Institute for Research in Tribal Health,1,13,2,11,7,I4210100515,ICMR,TRUE,CSIR↔ICMR,FALSE,FALSE,,,271
+CSIR-CCMB,"Ministry of Environment, Forests and Climate Change",1,13,5,8,10,I1291012402,Government,TRUE,CSIR↔Government,FALSE,FALSE,,,272
+CSIR-CCMB,Chilika Development Authority,1,12,0,12,1,I4210130859,Government,TRUE,CSIR↔Government,FALSE,FALSE,,,273
+CSIR-CCMB,Indian Institute of Science Education and Research Thiruvananthapuram,1,12,4,8,0,I50557253,IISc/TIFR/IISER,TRUE,CSIR↔IISc/TIFR/IISER,FALSE,FALSE,,,274
+CSIR-CCMB,Tata Consultancy Services (India),1,12,7,5,13,I55215948,Industry,TRUE,CSIR↔Industry,FALSE,FALSE,,,275
+CSIR-CCMB,Professor Jayashankar Telangana Agricultural University,1,12,2,10,13,I4210092736,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,276
+CSIR-CCMB,Sriram Chandra Bhanja Medical College Hospital,1,12,0,12,23,I3133213366,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,277
 CSIR-CCMB,Grant Medical College and Sir Jamshedjee Jeejeebhoy Group of Hospitals,1,11,4,7,0,I169117269,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,278
 CSIR-CCMB,Medanta The Medicity (Gurgaon),1,11,4,7,48,I1291450037,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,279
 CSIR-CCMB,National Institute of Malaria Research,1,11,4,7,13,I76782289,ICMR,TRUE,CSIR↔ICMR,FALSE,FALSE,,,280
-CSIR-CCMB,Indian Institute of Technology Mandi,1,10,7,3,3,I9579091,IIT,TRUE,CSIR↔IIT,FALSE,FALSE,,,281
-CSIR-CCMB,Safdarjang Hospital,1,10,5,5,2,I1312996466,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,282
-CSIR-CCMB,"Regional Cancer Center, Thiruvananthapuram",1,10,2,8,0,I2800611740,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,283
+CSIR-CCMB,Safdarjang Hospital,1,10,5,5,2,I1312996466,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,281
+CSIR-CCMB,"Regional Cancer Center, Thiruvananthapuram",1,10,2,8,0,I2800611740,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,282
+CSIR-CCMB,Manipur University,1,10,6,4,7,I16471300,Central University,TRUE,CSIR↔Central University,FALSE,FALSE,,,283
 CSIR-CCMB,Central Scientific Instruments Organisation,1,10,5,5,25,I42095658,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,284
-CSIR-CCMB,Manipur University,1,10,6,4,7,I16471300,Central University,TRUE,CSIR↔Central University,FALSE,FALSE,,,285
-CSIR-CCMB,National Institute of Oceanography,1,10,2,8,25,I75093019,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,286
+CSIR-CCMB,National Institute of Oceanography,1,10,2,8,25,I75093019,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,285
+CSIR-CCMB,Indian Institute of Technology Mandi,1,10,7,3,3,I9579091,IIT,TRUE,CSIR↔IIT,FALSE,FALSE,,,286
 CSIR-CCMB,Maharaja Ranjit Singh Punjab Technical University,1,9,7,2,7,I4210136518,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,287
-CSIR-CCMB,Burdwan Medical College & Hospital,1,9,6,3,4,I166813715,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,288
-CSIR-CCMB,Indraprastha Apollo Hospitals,1,9,2,7,1337,I1302839792,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,289
-CSIR-CCMB,"Vignan's Foundation for Science, Technology & Research",1,9,9,0,14,I149313025,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,290
-CSIR-CCMB,Mysore Medical College,1,9,3,6,6,I4210132256,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,291
+CSIR-CCMB,Mysore Medical College,1,9,3,6,6,I4210132256,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,288
+CSIR-CCMB,Solapur University,1,9,5,4,4,I155907036,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,289
+CSIR-CCMB,Burdwan Medical College & Hospital,1,9,6,3,4,I166813715,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,290
+CSIR-CCMB,Indraprastha Apollo Hospitals,1,9,2,7,1337,I1302839792,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,291
 CSIR-CCMB,Vinoba Bhave University,1,9,6,3,4,I71631882,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,292
-CSIR-CCMB,Solapur University,1,9,5,4,4,I155907036,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,293
-CSIR-CCMB,Guru Jambheshwar University of Science and Technology,1,9,7,2,5,I15896350,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,294
-CSIR-CCMB,Institute of Bioinformatics and Applied Biotechnology,1,8,3,5,0,I4210153885,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,295
-CSIR-CCMB,Mazumdar Shaw Medical Centre,1,8,8,0,5,I4210102983,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,296
-CSIR-CCMB,Institute of Neurosciences Kolkata,1,8,7,1,48,I4210115788,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,297
+CSIR-CCMB,Guru Jambheshwar University of Science and Technology,1,9,7,2,5,I15896350,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,293
+CSIR-CCMB,"Vignan's Foundation for Science, Technology & Research",1,9,9,0,14,I149313025,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,294
+CSIR-CCMB,Indian Institute of Oilseeds Research,1,8,7,1,22,I4210099769,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,295
+CSIR-CCMB,Utkal University,1,8,4,4,8,I70699430,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,296
+CSIR-CCMB,Mazumdar Shaw Medical Centre,1,8,8,0,5,I4210102983,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,297
 CSIR-CCMB,National Institute of Occupational Health,1,8,1,7,7,I4210105310,ICMR,TRUE,CSIR↔ICMR,FALSE,FALSE,,,298
-CSIR-CCMB,Indian Institute of Oilseeds Research,1,8,7,1,22,I4210099769,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,299
-CSIR-CCMB,Utkal University,1,8,4,4,8,I70699430,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,300
-CSIR-CCMB,Central Agricultural University,1,7,6,1,7,I76253773,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,301
-CSIR-CCMB,Syngene International (India),1,7,2,5,11,I4210149349,Industry,TRUE,CSIR↔Industry,FALSE,FALSE,,,302
-CSIR-CCMB,Kongu Arts and Science College,1,7,2,5,25,I4405269461,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,303
+CSIR-CCMB,Institute of Bioinformatics and Applied Biotechnology,1,8,3,5,0,I4210153885,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,299
+CSIR-CCMB,Institute of Neurosciences Kolkata,1,8,7,1,48,I4210115788,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,300
+CSIR-CCMB,Syngene International (India),1,7,2,5,11,I4210149349,Industry,TRUE,CSIR↔Industry,FALSE,FALSE,,,301
+CSIR-CCMB,Shree Krishna Hospital,1,7,6,1,48,I4210109742,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,302
+CSIR-CCMB,Central Agricultural University,1,7,6,1,7,I76253773,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,303
 CSIR-CCMB,Institute of Genetics and Hospital for Genetic Diseases,1,7,1,6,0,I4210105935,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,304
-CSIR-CCMB,Vardhman Mahavir Medical College & Safdarjung Hospital,1,7,2,5,2,I17972996,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,305
-CSIR-CCMB,Shree Krishna Hospital,1,7,6,1,48,I4210109742,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,306
-CSIR-CCMB,Amala Institute of Medical Sciences,1,7,0,7,19,I173894486,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,307
-CSIR-CCMB,Government of Uttar Pradesh,1,7,5,2,2,I2801491316,Government,TRUE,CSIR↔Government,FALSE,FALSE,,,308
-CSIR-CCMB,Agri Biotech Foundation,1,7,3,4,22,I4210091695,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,309
-CSIR-CCMB,TIFR Centre for Interdisciplinary Sciences,1,7,1,6,2,I4210112849,DAE,TRUE,CSIR↔DAE,FALSE,FALSE,,,310
-CSIR-CCMB,Government of West Bengal,1,7,5,2,46,I2801424531,Government,TRUE,CSIR↔Government,FALSE,FALSE,,,311
-CSIR-CCMB,Fourth Paradigm Institute,1,6,2,4,25,I2799463389,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,312
-CSIR-CCMB,Kerala Forest Department,1,6,3,3,71,I4405281010,Government,TRUE,CSIR↔Government,FALSE,FALSE,,,313
-CSIR-CCMB,Central Building Research Institute,1,6,3,3,25,I2801347850,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,314
-CSIR-CCMB,Lady Hardinge Medical College,1,6,5,1,23,I114546181,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,315
-CSIR-CCMB,Swarnandhra College of Engineering and Technology,1,5,4,1,17,I4405278262,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,316
-CSIR-CCMB,Advanced Materials and Processes Research Institute,1,5,2,3,25,I115635661,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,317
-CSIR-CCMB,Indian Institute of Horticultural Research,1,5,3,2,7,I1332470094,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,318
-CSIR-CCMB,Dayalbagh Educational Institute,1,5,3,2,14,I178254495,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,319
+CSIR-CCMB,TIFR Centre for Interdisciplinary Sciences,1,7,1,6,2,I4210112849,DAE,TRUE,CSIR↔DAE,FALSE,FALSE,,,305
+CSIR-CCMB,Vardhman Mahavir Medical College & Safdarjung Hospital,1,7,2,5,2,I17972996,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,306
+CSIR-CCMB,Kongu Arts and Science College,1,7,2,5,25,I4405269461,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,307
+CSIR-CCMB,Government of West Bengal,1,7,5,2,46,I2801424531,Government,TRUE,CSIR↔Government,FALSE,FALSE,,,308
+CSIR-CCMB,Amala Institute of Medical Sciences,1,7,0,7,19,I173894486,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,309
+CSIR-CCMB,Government of Uttar Pradesh,1,7,5,2,2,I2801491316,Government,TRUE,CSIR↔Government,FALSE,FALSE,,,310
+CSIR-CCMB,Agri Biotech Foundation,1,7,3,4,22,I4210091695,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,311
+CSIR-CCMB,Central Building Research Institute,1,6,3,3,25,I2801347850,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,312
+CSIR-CCMB,Lady Hardinge Medical College,1,6,5,1,23,I114546181,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,313
+CSIR-CCMB,Kerala Forest Department,1,6,3,3,71,I4405281010,Government,TRUE,CSIR↔Government,FALSE,FALSE,,,314
+CSIR-CCMB,Fourth Paradigm Institute,1,6,2,4,25,I2799463389,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,315
+CSIR-CCMB,Vivekananda Memorial Hospital,1,5,5,0,23,I4210091732,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,316
+CSIR-CCMB,Kokilaben Dhirubhai Ambani Hospital,1,5,2,3,48,I4210131938,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,317
+CSIR-CCMB,Swarnandhra College of Engineering and Technology,1,5,4,1,17,I4405278262,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,318
+CSIR-CCMB,Government of Gujarat,1,5,0,5,13,I2802014819,Government,TRUE,CSIR↔Government,FALSE,FALSE,,,319
 CSIR-CCMB,Rabindranath Tagore International Institute of Cardiac Sciences,1,5,4,1,4,I4210095468,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,320
-CSIR-CCMB,Kokilaben Dhirubhai Ambani Hospital,1,5,2,3,48,I4210131938,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,321
-CSIR-CCMB,Vivekananda Memorial Hospital,1,5,5,0,23,I4210091732,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,322
-CSIR-CCMB,Government of Gujarat,1,5,0,5,13,I2802014819,Government,TRUE,CSIR↔Government,FALSE,FALSE,,,323
-CSIR-CCMB,Pramukhswami Medical College,1,5,5,0,48,I4210120131,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,324
-CSIR-CCMB,International Centers for Excellence in Research,1,5,0,5,1,I4210096703,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,325
-CSIR-CCMB,National Geophysical Research Institute,1,5,1,4,25,I22716965,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,326
-CSIR-CCMB,University of Agricultural Sciences Raichur,1,5,1,4,0,I61553790,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,327
-CSIR-CCMB,Lepra Society,1,5,0,5,10,I4210146720,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,328
-CSIR-CCMB,Indian Institute of Petroleum,1,4,1,3,25,I84279003,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,329
-CSIR-CCMB,P. D. Hinduja Hospital and Medical Research Centre,1,4,2,2,0,I2800474033,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,330
-CSIR-CCMB,State Forest Research Institute,1,4,4,0,40,I4210112836,Government,TRUE,CSIR↔Government,FALSE,FALSE,,,331
+CSIR-CCMB,Dayalbagh Educational Institute,1,5,3,2,14,I178254495,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,321
+CSIR-CCMB,University of Agricultural Sciences Raichur,1,5,1,4,0,I61553790,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,322
+CSIR-CCMB,Indian Institute of Horticultural Research,1,5,3,2,7,I1332470094,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,323
+CSIR-CCMB,National Geophysical Research Institute,1,5,1,4,25,I22716965,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,324
+CSIR-CCMB,Pramukhswami Medical College,1,5,5,0,48,I4210120131,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,325
+CSIR-CCMB,International Centers for Excellence in Research,1,5,0,5,1,I4210096703,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,326
+CSIR-CCMB,Lepra Society,1,5,0,5,10,I4210146720,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,327
+CSIR-CCMB,Advanced Materials and Processes Research Institute,1,5,2,3,25,I115635661,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,328
+CSIR-CCMB,North Eastern Indira Gandhi Regional Institute of Health and Medical Sciences,1,4,1,3,7,I231543472,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,329
+CSIR-CCMB,Jehangir Hospital,1,4,1,3,12,I2800733875,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,330
+CSIR-CCMB,Indian Institute of Petroleum,1,4,1,3,25,I84279003,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,331
 CSIR-CCMB,P.V. Narsimha Rao Telangana Veterinary University,1,4,1,3,12,I4210098074,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,332
-CSIR-CCMB,Central Institute of Mining and Fuel Research,1,4,1,3,25,I4210127669,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,333
-CSIR-CCMB,University of Calicut,1,4,2,2,812,I114176345,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,334
-CSIR-CCMB,Central University of Jammu,1,4,4,0,2,I4210142231,Central University,TRUE,CSIR↔Central University,FALSE,FALSE,,,335
-CSIR-CCMB,National Aerospace Laboratories,1,4,1,3,25,I1286499117,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,336
-CSIR-CCMB,Jehangir Hospital,1,4,1,3,12,I2800733875,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,337
-CSIR-CCMB,North Eastern Indira Gandhi Regional Institute of Health and Medical Sciences,1,4,1,3,7,I231543472,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,338
+CSIR-CCMB,Central University of Jammu,1,4,4,0,2,I4210142231,Central University,TRUE,CSIR↔Central University,FALSE,FALSE,,,333
+CSIR-CCMB,Goa Medical College,1,4,2,2,48,I238597064,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,334
+CSIR-CCMB,University of Calicut,1,4,2,2,812,I114176345,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,335
+CSIR-CCMB,State Forest Research Institute,1,4,4,0,40,I4210112836,Government,TRUE,CSIR↔Government,FALSE,FALSE,,,336
+CSIR-CCMB,National Aerospace Laboratories,1,4,1,3,25,I1286499117,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,337
+CSIR-CCMB,Central Institute of Mining and Fuel Research,1,4,1,3,25,I4210127669,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,338
 CSIR-CCMB,O. P. Jindal Global University,1,4,3,1,23,I4210129200,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,339
-CSIR-CCMB,Goa Medical College,1,4,2,2,48,I238597064,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,340
-CSIR-CCMB,Yashoda Hospital,1,3,1,2,11,I4210129842,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,341
-CSIR-CCMB,Gautam Buddha University,1,3,3,0,2,I72769676,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,342
+CSIR-CCMB,P. D. Hinduja Hospital and Medical Research Centre,1,4,2,2,0,I2800474033,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,340
+CSIR-CCMB,Kamineni Hospitals,1,3,2,1,14,I4210127887,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,341
+CSIR-CCMB,Telangana University,1,3,3,0,22,I3133026063,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,342
 CSIR-CCMB,Centre for Ecology Development and Research,1,3,2,1,41,I4405261514,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,343
-CSIR-CCMB,Kamineni Hospitals,1,3,2,1,14,I4210127887,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,344
-CSIR-CCMB,Vimta (India),1,3,1,2,10,I4210103938,Industry,TRUE,CSIR↔Industry,FALSE,FALSE,,,345
-CSIR-CCMB,Foundation for Revitalisation of Local Health Traditions,1,3,1,2,1,I4210107901,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,346
-CSIR-CCMB,Sri Dharmasthala Manjunatheshwara College of Ayurveda & Hospital Udupi,1,3,1,2,1,I4405262647,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,347
-CSIR-CCMB,Biocon (India),1,3,0,3,11,I4210143327,Industry,TRUE,CSIR↔Industry,FALSE,FALSE,,,348
-CSIR-CCMB,Telangana University,1,3,3,0,22,I3133026063,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,349
-CSIR-CCMB,Indira Gandhi National Open University,1,3,1,2,2,I51969498,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,350
-CSIR-CCMB,Central Glass and Ceramic Research Institute,1,2,1,1,0,I1309307044,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,351
-CSIR-CCMB,"Sickle Cell Institute Chhattisgarh, Raipur",1,2,1,1,4,I4210119209,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,352
-CSIR-CCMB,Basavatarakam Indo American Cancer Hospital and Research Institute,1,2,1,1,22,I4210097897,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,353
+CSIR-CCMB,Gautam Buddha University,1,3,3,0,2,I72769676,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,344
+CSIR-CCMB,Foundation for Revitalisation of Local Health Traditions,1,3,1,2,1,I4210107901,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,345
+CSIR-CCMB,Biocon (India),1,3,0,3,11,I4210143327,Industry,TRUE,CSIR↔Industry,FALSE,FALSE,,,346
+CSIR-CCMB,Yashoda Hospital,1,3,1,2,11,I4210129842,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,347
+CSIR-CCMB,Indira Gandhi National Open University,1,3,1,2,2,I51969498,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,348
+CSIR-CCMB,Vimta (India),1,3,1,2,10,I4210103938,Industry,TRUE,CSIR↔Industry,FALSE,FALSE,,,349
+CSIR-CCMB,Sri Dharmasthala Manjunatheshwara College of Ayurveda & Hospital Udupi,1,3,1,2,1,I4405262647,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,350
+CSIR-CCMB,Madras Medical Mission,1,2,1,1,4,I2802574061,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,351
+CSIR-CCMB,Karnataka Veterinary Animal and Fisheries Sciences University,1,2,1,1,17,I244504473,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,352
+CSIR-CCMB,Dr. B.R.K.R. Government Ayurvedic College,1,2,0,2,0,I4210139327,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,353
 CSIR-CCMB,Hislop College,1,2,0,2,15,I119204206,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,354
-CSIR-CCMB,Dr. B.R.K.R. Government Ayurvedic College,1,2,0,2,0,I4210139327,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,355
-CSIR-CCMB,Madras Medical Mission,1,2,1,1,4,I2802574061,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,356
-CSIR-CCMB,Central Tuber Crops Research Institute,1,2,1,1,7,I1322336093,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,357
-CSIR-CCMB,Guntur Medical College,1,2,1,1,1,I179150554,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,358
-CSIR-CCMB,Premium Serums & Vaccines Pvt. Ltd. (India),1,2,1,1,23,I4405259454,Industry,TRUE,CSIR↔Industry,FALSE,FALSE,,,359
-CSIR-CCMB,Sri Balaji Vidyapeeth University,1,2,2,0,41,I4210115345,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,360
-CSIR-CCMB,"National Institute of Science, Technology and Development Studies",1,2,0,2,25,I4210128462,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,361
-CSIR-CCMB,Karnataka Veterinary Animal and Fisheries Sciences University,1,2,1,1,17,I244504473,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,362
+CSIR-CCMB,Guntur Medical College,1,2,1,1,1,I179150554,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,355
+CSIR-CCMB,"National Institute of Science, Technology and Development Studies",1,2,0,2,25,I4210128462,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,356
+CSIR-CCMB,"Sickle Cell Institute Chhattisgarh, Raipur",1,2,1,1,4,I4210119209,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,357
+CSIR-CCMB,Premium Serums & Vaccines Pvt. Ltd. (India),1,2,1,1,23,I4405259454,Industry,TRUE,CSIR↔Industry,FALSE,FALSE,,,358
+CSIR-CCMB,Sri Balaji Vidyapeeth University,1,2,2,0,41,I4210115345,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,359
+CSIR-CCMB,Central Glass and Ceramic Research Institute,1,2,1,1,0,I1309307044,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,360
+CSIR-CCMB,Basavatarakam Indo American Cancer Hospital and Research Institute,1,2,1,1,22,I4210097897,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,361
+CSIR-CCMB,Central Tuber Crops Research Institute,1,2,1,1,7,I1322336093,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,362
 CSIR-CCMB,PSG Institute of Medical Sciences & Research,1,1,1,0,48,I174404548,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,363
-CSIR-CCMB,Regional Medical Research Centre (Belgaum),1,1,0,1,41,I4210093644,ICMR,TRUE,CSIR↔ICMR,FALSE,FALSE,,,364
-CSIR-CCMB,Employees' State Insurance Model Hospital,1,1,0,1,22,I4210121909,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,365
-CSIR-CCMB,Durgabai Deshmukh Hospital,1,1,0,1,22,I2800910329,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,366
-CSIR-CCMB,Darjeeling Government College,1,1,1,0,0,I4405271790,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,367
-CSIR-CCMB,Defence Food Research Laboratory,1,1,0,1,15,I2802608988,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,368
-CSIR-CCMB,Central Coastal Agricultural Research Institute,1,0,0,0,13,I4210094289,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,369
-CSIR-CCMB,Mamta Health Institute for Mother and Child,1,0,0,0,23,I4210141386,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,370
-CSIR-CCMB,Institute for Seri-Biotechnological Research,1,0,0,0,1,I4210098363,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,371
-CSIR-CCMB,Jaswant Rai Speciality Hospital,1,0,0,0,0,I4210114808,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,372
-CSIR-CCMB,Vikram Hospital,1,0,0,0,48,I4210128967,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,373
-CSIR-CCMB,Newman College,1,0,0,0,3,I4405254459,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,374
-CSIR-CCMB,Akhand Jyoti Eye Hospital,1,0,0,0,0,I4405259693,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,375
-CSIR-CCMB,Paras Hospitals,1,0,0,0,0,I4210092216,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,376
-CSIR-CCMB,Artemis Hospitals,1,0,0,0,0,I4210165151,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,377
-CSIR-CCMB,Ayush & Health Sciences University Chhattisgarh,1,0,0,0,0,I4210143923,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,378
-CSIR-CCMB,Lourdes Hospital,1,0,0,0,48,I4210086567,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,379
-CSIR-CCMB,Vijaya Medical and Educational Trust,1,0,0,0,48,I4210104745,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,380
-CSIR-CCMB,Indian Institute of Technology Dharwad,1,0,0,0,8,I4210152718,IIT,TRUE,CSIR↔IIT,FALSE,FALSE,,,381
-CSIR-CDRI,King George's Medical University,138,807,312,495,2588,I280994,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,0.0417,0.5267,1
+CSIR-CCMB,Darjeeling Government College,1,1,1,0,0,I4405271790,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,364
+CSIR-CCMB,Durgabai Deshmukh Hospital,1,1,0,1,22,I2800910329,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,365
+CSIR-CCMB,Defence Food Research Laboratory,1,1,0,1,15,I2802608988,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,366
+CSIR-CCMB,Employees' State Insurance Model Hospital,1,1,0,1,22,I4210121909,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,367
+CSIR-CCMB,Regional Medical Research Centre (Belgaum),1,1,0,1,41,I4210093644,ICMR,TRUE,CSIR↔ICMR,FALSE,FALSE,,,368
+CSIR-CCMB,Vikram Hospital,1,0,0,0,48,I4210128967,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,369
+CSIR-CCMB,Artemis Hospitals,1,0,0,0,0,I4210165151,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,370
+CSIR-CCMB,Lourdes Hospital,1,0,0,0,48,I4210086567,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,371
+CSIR-CCMB,Paras Hospitals,1,0,0,0,0,I4210092216,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,372
+CSIR-CCMB,Vijaya Medical and Educational Trust,1,0,0,0,48,I4210104745,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,373
+CSIR-CCMB,Jaswant Rai Speciality Hospital,1,0,0,0,0,I4210114808,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,374
+CSIR-CCMB,Indian Institute of Technology Dharwad,1,0,0,0,8,I4210152718,IIT,TRUE,CSIR↔IIT,FALSE,FALSE,,,375
+CSIR-CCMB,Akhand Jyoti Eye Hospital,1,0,0,0,0,I4405259693,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,376
+CSIR-CCMB,Institute for Seri-Biotechnological Research,1,0,0,0,1,I4210098363,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,377
+CSIR-CCMB,Mamta Health Institute for Mother and Child,1,0,0,0,23,I4210141386,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,378
+CSIR-CCMB,Newman College,1,0,0,0,3,I4405254459,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,379
+CSIR-CCMB,Ayush & Health Sciences University Chhattisgarh,1,0,0,0,0,I4210143923,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,380
+CSIR-CCMB,Central Coastal Agricultural Research Institute,1,0,0,0,13,I4210094289,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,381
+CSIR-CDRI,King George's Medical University,138,807,312,495,2588,I280994,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,0.0417,0.5267,1
 CSIR-CDRI,Central Institute of Medicinal and Aromatic Plants,85,763,299,464,1606,I68145777,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,0.1494,0.5625,2
-CSIR-CDRI,National Institute of Pharmaceutical Education and Research (Hyderabad),77,939,449,490,1132,I4210146715,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,0.3793,0.7241,3
-CSIR-CDRI,National Institute of Pharmaceutical Education and Research (Mohali),69,1052,371,681,1673,I4210152674,Government,TRUE,CSIR↔Government,FALSE,FALSE,0.3333,0.6949,4
-CSIR-CDRI,National Institute of Pharmaceutical Education and Research (Raebareli),64,644,298,346,1734,I4210103783,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,0.3245,0.626,5
-CSIR-CDRI,Sanjay Gandhi Post Graduate Institute of Medical Sciences,57,560,156,404,1126,I161370692,Other,TRUE,CSIR↔Other,FALSE,FALSE,0.0638,0.5504,6
+CSIR-CDRI,National Institute of Pharmaceutical Education and Research (Hyderabad),77,939,449,490,1132,I4210146715,NIPER,TRUE,CSIR↔NIPER,FALSE,FALSE,0.3793,0.7241,3
+CSIR-CDRI,National Institute of Pharmaceutical Education and Research (Mohali),69,1052,371,681,1673,I4210152674,NIPER,TRUE,CSIR↔NIPER,FALSE,FALSE,0.3333,0.6949,4
+CSIR-CDRI,National Institute of Pharmaceutical Education and Research (Raebareli),64,644,298,346,1734,I4210103783,NIPER,TRUE,CSIR↔NIPER,FALSE,FALSE,0.3245,0.626,5
+CSIR-CDRI,Sanjay Gandhi Post Graduate Institute of Medical Sciences,57,560,156,404,1126,I161370692,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,0.0638,0.5504,6
 CSIR-CDRI,SRM Institute of Science and Technology,54,929,496,433,1132,I145286018,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,0.0363,0.3333,7
 CSIR-CDRI,Jawaharlal Nehru University,53,703,312,391,708,I152429107,Central University,TRUE,CSIR↔Central University,FALSE,FALSE,0.0695,0.3514,8
 CSIR-CDRI,Indian Institute of Toxicology Research,53,511,194,317,1136,I85145500,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,0.1834,0.6529,9
@@ -397,9 +397,9 @@ CSIR-CDRI,Translational Health Science and Technology Institute,36,365,168,197,7
 CSIR-CDRI,All India Institute of Medical Sciences,33,524,207,317,639,I63739035,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,0.0695,0.5038,15
 CSIR-CDRI,Amity University,30,351,236,115,1849,I191972202,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,0.0638,0.3245,16
 CSIR-CDRI,National Botanical Research Institute,29,323,128,195,653,I170396143,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,0.0929,0.5082,17
-CSIR-CDRI,National Institute of Pharmaceutical Education and Research (Guwahati),28,347,176,171,556,I4210154014,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,0.2987,0.626,18
+CSIR-CDRI,National Institute of Pharmaceutical Education and Research (Guwahati),28,347,176,171,556,I4210154014,NIPER,TRUE,CSIR↔NIPER,FALSE,FALSE,0.2987,0.626,18
 CSIR-CDRI,"Birla Institute of Technology and Science, Pilani",25,596,329,267,642,I74796645,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,0.0526,0.3072,19
-CSIR-CDRI,Institute of Medical Sciences,24,535,101,434,717,I51317819,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,0.1364,0.6129,20
+CSIR-CDRI,Institute of Medical Sciences,24,535,101,434,717,I51317819,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,0.1364,0.6129,20
 CSIR-CDRI,Sophisticated Analytical Instrument Facility,24,109,51,58,233,I4405269473,Other,TRUE,CSIR↔Other,FALSE,FALSE,0.126,0.2019,21
 CSIR-CDRI,Indian Institute of Integrative Medicine,22,398,119,279,316,I4210108071,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,0.2987,0.623,22
 CSIR-CDRI,Dr. Hari Singh Gour University,21,469,189,280,480,I8977528,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,0.1299,0.3986,23
@@ -430,9 +430,9 @@ CSIR-CDRI,Indian Council of Medical Research,10,360,169,191,247,I37048141,ICMR,T
 CSIR-CDRI,Institute of Himalayan Bioresource Technology,10,273,60,213,149,I4210128326,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,48
 CSIR-CDRI,Banasthali University,10,142,66,76,284,I102117144,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,49
 CSIR-CDRI,Indian Institute of Technology Bombay,9,360,101,259,99,I162827531,IIT,TRUE,CSIR↔IIT,FALSE,FALSE,,,50
-CSIR-CDRI,National Institute of Pharmaceutical Education and Research (Kolkata),9,199,108,91,116,I4210161501,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,51
+CSIR-CDRI,National Institute of Pharmaceutical Education and Research (Kolkata),9,199,108,91,116,I4210161501,NIPER,TRUE,CSIR↔NIPER,FALSE,FALSE,,,51
 CSIR-CDRI,KLE Academy of Higher Education and Research,9,173,122,51,61,I4210125823,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,52
-CSIR-CDRI,National Institute of Pharmaceutical Education and Research (Hājīpur),9,158,82,76,106,I4210098333,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,53
+CSIR-CDRI,National Institute of Pharmaceutical Education and Research (Hājīpur),9,158,82,76,106,I4210098333,NIPER,TRUE,CSIR↔NIPER,FALSE,FALSE,,,53
 CSIR-CDRI,North East Institute of Science and Technology,9,117,73,44,267,I2800857658,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,54
 CSIR-CDRI,National Institute for Interdisciplinary Science and Technology,9,103,39,64,113,I146682468,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,55
 CSIR-CDRI,Motilal Nehru National Institute of Technology,9,86,49,37,138,I152869788,NIT,TRUE,CSIR↔NIT,FALSE,FALSE,,,56
@@ -441,7 +441,7 @@ CSIR-CDRI,Indian Institute of Technology Ropar,8,163,86,77,97,I119241673,IIT,TRU
 CSIR-CDRI,Lilavati Hospital & Research Centre,8,69,42,27,190,I2800084889,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,59
 CSIR-CDRI,Panjab University,7,406,152,254,93,I51452335,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,60
 CSIR-CDRI,SRM University,7,173,37,136,152,I4210131147,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,61
-CSIR-CDRI,Post Graduate Institute of Medical Education and Research,7,167,53,114,99,I45294948,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,62
+CSIR-CDRI,Post Graduate Institute of Medical Education and Research,7,167,53,114,99,I45294948,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,62
 CSIR-CDRI,"Indian Institute of Science Education and Research, Bhopal",7,116,44,72,43,I288749910,IISc/TIFR/IISER,TRUE,CSIR↔IISc/TIFR/IISER,FALSE,FALSE,,,63
 CSIR-CDRI,Indian Institute of Science Education and Research Pune,7,111,33,78,70,I181996519,IISc/TIFR/IISER,TRUE,CSIR↔IISc/TIFR/IISER,FALSE,FALSE,,,64
 CSIR-CDRI,Indian Council of Agricultural Research,7,104,56,48,123,I179420787,Government,TRUE,CSIR↔Government,FALSE,FALSE,,,65
@@ -489,8 +489,8 @@ CSIR-CDRI,Bhabha Atomic Research Centre,4,116,55,61,44,I1329621470,DAE,TRUE,CSIR
 CSIR-CDRI,Era's Lucknow Medical College and Hospital,4,81,60,21,143,I4210107565,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,107
 CSIR-CDRI,National Institute of Technology Rourkela,4,72,45,27,74,I16292982,NIT,TRUE,CSIR↔NIT,FALSE,FALSE,,,108
 CSIR-CDRI,Indian Veterinary Research Institute,4,63,22,41,24,I185790649,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,109
-CSIR-CDRI,Ministry of AYUSH,4,46,25,21,5,I4210124368,Government,TRUE,CSIR↔Government,FALSE,FALSE,,,110
-CSIR-CDRI,Assam Don Bosco University,4,46,25,21,34,I10767319,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,111
+CSIR-CDRI,Assam Don Bosco University,4,46,25,21,34,I10767319,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,110
+CSIR-CDRI,Ministry of AYUSH,4,46,25,21,5,I4210124368,Government,TRUE,CSIR↔Government,FALSE,FALSE,,,111
 CSIR-CDRI,Indrashil University,4,40,17,23,27,I4210162019,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,112
 CSIR-CDRI,Institute of Reproductive Medicine,4,30,10,20,94,I4210127825,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,113
 CSIR-CDRI,Jawaharlal Nehru Tropical Botanic Garden and Research Institute,4,24,9,15,97,I2800926800,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,114
@@ -501,7 +501,7 @@ CSIR-CDRI,Indian Institute of Technology BHU,3,299,162,137,220,I56404289,IIT,TRU
 CSIR-CDRI,GLA University,3,216,188,28,125,I82571370,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,119
 CSIR-CDRI,Guru Nanak Dev University,3,176,78,98,26,I165682329,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,120
 CSIR-CDRI,JSS Academy of Higher Education and Research,3,145,103,42,44,I126824641,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,121
-CSIR-CDRI,National Institute of Pharmaceutical Education and Research - Ahmedabad,3,135,73,62,330,I4210102411,Government,TRUE,CSIR↔Government,FALSE,FALSE,,,122
+CSIR-CDRI,National Institute of Pharmaceutical Education and Research - Ahmedabad,3,135,73,62,330,I4210102411,NIPER,TRUE,CSIR↔NIPER,FALSE,FALSE,,,122
 CSIR-CDRI,University of Kashmir,3,97,56,41,67,I135388327,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,123
 CSIR-CDRI,Central Food Technological Research Institute,3,91,28,63,45,I150037166,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,124
 CSIR-CDRI,Lalit Narayan Mithila University,3,83,79,4,28,I3130357712,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,125
@@ -518,8 +518,8 @@ CSIR-CDRI,SRM Medical College Hospital and Research Centre,3,62,35,27,88,I440526
 CSIR-CDRI,Indian Institute of Technology Hyderabad,3,60,37,23,44,I65181880,IIT,TRUE,CSIR↔IIT,FALSE,FALSE,,,136
 CSIR-CDRI,Tata Memorial Hospital,3,55,13,42,47,I2800098698,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,137
 CSIR-CDRI,"Advanced Centre for Treatment, Research and Education in Cancer",3,38,12,26,48,I4210157422,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,138
-CSIR-CDRI,Indian Institute of Technology Mandi,3,34,23,11,26,I9579091,IIT,TRUE,CSIR↔IIT,FALSE,FALSE,,,139
-CSIR-CDRI,Institute of Liver and Biliary Sciences,3,34,16,18,32,I4210123001,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,140
+CSIR-CDRI,Institute of Liver and Biliary Sciences,3,34,16,18,32,I4210123001,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,139
+CSIR-CDRI,Indian Institute of Technology Mandi,3,34,23,11,26,I9579091,IIT,TRUE,CSIR↔IIT,FALSE,FALSE,,,140
 CSIR-CDRI,BRIC-National Agri-Food and Biomanufacturing Institute,3,33,18,15,146,I4210164849,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,141
 CSIR-CDRI,"Sanskriti University, Mathura",3,30,22,8,22,I4405258449,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,142
 CSIR-CDRI,Indian Institute of Information Technology Allahabad,3,29,10,19,1,I26072440,IIIT,TRUE,CSIR↔IIIT,FALSE,FALSE,,,143
@@ -552,64 +552,64 @@ CSIR-CDRI,Kakatiya University,2,65,18,47,20,I28210344,University (other),TRUE,CS
 CSIR-CDRI,National Institute of Technology Raipur,2,63,49,14,79,I38335241,NIT,TRUE,CSIR↔NIT,FALSE,FALSE,,,170
 CSIR-CDRI,JSS College of Pharmacy,2,62,37,25,20,I4405270214,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,171
 CSIR-CDRI,Madurai Kamaraj University,2,61,9,52,50,I13268429,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,172
-CSIR-CDRI,Nitte Meenakshi Institute of Technology,2,59,48,11,28,I4405268608,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,173
-CSIR-CDRI,Gauhati University,2,59,31,28,120,I138537684,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,174
+CSIR-CDRI,Gauhati University,2,59,31,28,120,I138537684,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,173
+CSIR-CDRI,Nitte Meenakshi Institute of Technology,2,59,48,11,28,I4405268608,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,174
 CSIR-CDRI,Assam University,2,58,38,20,39,I49278261,Central University,TRUE,CSIR↔Central University,FALSE,FALSE,,,175
 CSIR-CDRI,Galgotias University,2,54,37,17,0,I155125381,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,176
 CSIR-CDRI,Central University of Gujarat,2,53,30,23,4,I89095802,Central University,TRUE,CSIR↔Central University,FALSE,FALSE,,,177
 CSIR-CDRI,Dr. Reddy's Laboratories (India),2,50,10,40,490,I4210117495,Industry,TRUE,CSIR↔Industry,FALSE,FALSE,,,178
 CSIR-CDRI,Shree Guru Gobind Singh Tricentenary University,2,48,32,16,19,I3130021832,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,179
 CSIR-CDRI,Centre for DNA Fingerprinting and Diagnostics,2,46,19,27,38,I78270026,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,180
-CSIR-CDRI,Siddaganga Institute of Technology,2,45,40,5,28,I4387153738,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,181
-CSIR-CDRI,Rajiv Gandhi Centre for Biotechnology,2,45,14,31,20,I89324447,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,182
+CSIR-CDRI,Rajiv Gandhi Centre for Biotechnology,2,45,14,31,20,I89324447,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,181
+CSIR-CDRI,Siddaganga Institute of Technology,2,45,40,5,28,I4387153738,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,182
 CSIR-CDRI,Shiv Nadar University,2,42,14,28,8,I26604189,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,183
 CSIR-CDRI,Raman Research Institute,2,39,8,31,98,I119598438,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,184
-CSIR-CDRI,Mizoram University,2,38,18,20,78,I195459967,Central University,TRUE,CSIR↔Central University,FALSE,FALSE,,,185
-CSIR-CDRI,Amity University Jaipur,2,38,31,7,2,I4405263076,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,186
+CSIR-CDRI,Amity University Jaipur,2,38,31,7,2,I4405263076,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,185
+CSIR-CDRI,Mizoram University,2,38,18,20,78,I195459967,Central University,TRUE,CSIR↔Central University,FALSE,FALSE,,,186
 CSIR-CDRI,Deen Dayal Upadhyaya Gorakhpur University,2,36,15,21,6,I886702836,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,187
 CSIR-CDRI,Madras Christian College,2,35,28,7,110,I4405277150,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,188
 CSIR-CDRI,Institute of Bioinformatics and Applied Biotechnology,2,33,12,21,27,I4210153885,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,189
 CSIR-CDRI,Central Institute of Mining and Fuel Research,2,29,25,4,41,I4210127669,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,190
 CSIR-CDRI,National Institute of Oceanography,2,21,5,16,41,I75093019,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,191
 CSIR-CDRI,Bastar University,2,18,15,3,7,I4210135828,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,192
-CSIR-CDRI,North Eastern Regional Institute of Science and Technology,2,17,7,10,10,I160302567,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,193
-CSIR-CDRI,Topiwala National Medical College & BYL Nair Charitable Hospital,2,17,8,9,70,I3024917321,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,194
+CSIR-CDRI,Topiwala National Medical College & BYL Nair Charitable Hospital,2,17,8,9,70,I3024917321,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,193
+CSIR-CDRI,North Eastern Regional Institute of Science and Technology,2,17,7,10,10,I160302567,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,194
 CSIR-CDRI,Government of Uttar Pradesh,2,17,14,3,1,I2801491316,Government,TRUE,CSIR↔Government,FALSE,FALSE,,,195
-CSIR-CDRI,The Assam Royal Global University,2,16,11,5,68,I4405256338,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,196
-CSIR-CDRI,Tata Chemicals (India),2,16,6,10,46,I2800685081,Industry,TRUE,CSIR↔Industry,FALSE,FALSE,,,197
-CSIR-CDRI,West Bengal State University,2,16,3,13,42,I55862774,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,198
+CSIR-CDRI,Tata Chemicals (India),2,16,6,10,46,I2800685081,Industry,TRUE,CSIR↔Industry,FALSE,FALSE,,,196
+CSIR-CDRI,West Bengal State University,2,16,3,13,42,I55862774,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,197
+CSIR-CDRI,The Assam Royal Global University,2,16,11,5,68,I4405256338,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,198
 CSIR-CDRI,Ranchi University,2,15,10,5,14,I112700253,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,199
 CSIR-CDRI,Central Scientific Instruments Organisation,2,15,6,9,41,I42095658,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,200
 CSIR-CDRI,CSIR National Physical Laboratory of India,2,14,6,8,41,I88910343,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,201
 CSIR-CDRI,Dr. Yashwant Singh Parmar University of Horticulture and Forestry,2,14,5,9,132,I211055903,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,202
 CSIR-CDRI,National Institute of Occupational Health,2,13,4,9,49,I4210105310,ICMR,TRUE,CSIR↔ICMR,FALSE,FALSE,,,203
-CSIR-CDRI,ESIC Hospital (Delhi),2,12,7,5,15,I4210159729,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,204
-CSIR-CDRI,ICAR Research Complex for NEH Region,2,12,2,10,29,I4210111975,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,205
-CSIR-CDRI,Shri Mata Vaishno Devi University,2,10,4,6,15,I59179055,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,206
-CSIR-CDRI,Tamil Nadu Veterinary and Animal Sciences University,2,10,2,8,5,I82452031,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,207
-CSIR-CDRI,Ashoka University,2,10,9,1,7,I347237974,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,208
-CSIR-CDRI,National Forensic Sciences University,2,9,8,1,4,I1331084196,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,209
-CSIR-CDRI,"All India Institute of Medical Sciences, Deoghar",2,9,4,5,29,I4396570500,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,210
+CSIR-CDRI,ICAR Research Complex for NEH Region,2,12,2,10,29,I4210111975,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,204
+CSIR-CDRI,ESIC Hospital (Delhi),2,12,7,5,15,I4210159729,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,205
+CSIR-CDRI,Tamil Nadu Veterinary and Animal Sciences University,2,10,2,8,5,I82452031,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,206
+CSIR-CDRI,Ashoka University,2,10,9,1,7,I347237974,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,207
+CSIR-CDRI,Shri Mata Vaishno Devi University,2,10,4,6,15,I59179055,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,208
+CSIR-CDRI,"All India Institute of Medical Sciences, Deoghar",2,9,4,5,29,I4396570500,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,209
+CSIR-CDRI,National Forensic Sciences University,2,9,8,1,4,I1331084196,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,210
 CSIR-CDRI,Physical Research Laboratory,2,8,1,7,4,I121502294,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,211
-CSIR-CDRI,National Aerospace Laboratories,2,8,2,6,41,I1286499117,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,212
-CSIR-CDRI,Tata Consultancy Services (India),2,8,3,5,2,I55215948,Industry,TRUE,CSIR↔Industry,FALSE,FALSE,,,213
-CSIR-CDRI,Armed Forces Medical College,2,7,1,6,26,I83878805,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,214
-CSIR-CDRI,Ministry of Earth Sciences,2,7,6,1,2,I4210100914,Government,TRUE,CSIR↔Government,FALSE,FALSE,,,215
-CSIR-CDRI,National Institute of Solar Energy,2,7,3,4,70,I4210155121,Government,TRUE,CSIR↔Government,FALSE,FALSE,,,216
+CSIR-CDRI,Tata Consultancy Services (India),2,8,3,5,2,I55215948,Industry,TRUE,CSIR↔Industry,FALSE,FALSE,,,212
+CSIR-CDRI,National Aerospace Laboratories,2,8,2,6,41,I1286499117,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,213
+CSIR-CDRI,National Institute of Solar Energy,2,7,3,4,70,I4210155121,Government,TRUE,CSIR↔Government,FALSE,FALSE,,,214
+CSIR-CDRI,Armed Forces Medical College,2,7,1,6,26,I83878805,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,215
+CSIR-CDRI,Ministry of Earth Sciences,2,7,6,1,2,I4210100914,Government,TRUE,CSIR↔Government,FALSE,FALSE,,,216
 CSIR-CDRI,Alkem (India),2,6,1,5,79,I4210150536,Industry,TRUE,CSIR↔Industry,FALSE,FALSE,,,217
 CSIR-CDRI,Central Electronics Engineering Research Institute,2,6,4,2,41,I41763900,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,218
-CSIR-CDRI,National Institute of Ocean Technology,2,5,3,2,2,I25592554,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,219
+CSIR-CDRI,Apollo Hospitals (Bilaspur),2,5,3,2,43,I4210122887,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,219
 CSIR-CDRI,Advanced Materials and Processes Research Institute,2,5,3,2,41,I115635661,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,220
-CSIR-CDRI,Apollo Hospitals (Bilaspur),2,5,3,2,43,I4210122887,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,221
-CSIR-CDRI,Centre for Marine Living Resources and Ecology,2,4,3,1,2,I4405269523,Government,TRUE,CSIR↔Government,FALSE,FALSE,,,222
-CSIR-CDRI,Sarojini Naidu Medical College,2,4,3,1,5,I2799711398,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,223
+CSIR-CDRI,National Institute of Ocean Technology,2,5,3,2,2,I25592554,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,221
+CSIR-CDRI,All India Institute of Medical Sciences Bibinagar,2,4,4,0,38,I4405252828,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,222
+CSIR-CDRI,Centre for Marine Living Resources and Ecology,2,4,3,1,2,I4405269523,Government,TRUE,CSIR↔Government,FALSE,FALSE,,,223
 CSIR-CDRI,Fourth Paradigm Institute,2,4,2,2,41,I2799463389,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,224
-CSIR-CDRI,All India Institute of Medical Sciences Bibinagar,2,4,4,0,38,I4405252828,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,225
+CSIR-CDRI,Sarojini Naidu Medical College,2,4,3,1,5,I2799711398,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,225
 CSIR-CDRI,National Geophysical Research Institute,2,3,1,2,41,I22716965,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,226
 CSIR-CDRI,Central Building Research Institute,2,3,1,2,41,I2801347850,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,227
-CSIR-CDRI,Ganesh Shankar Vidyarthi Memorial Medical College,2,2,1,1,4,I2802359691,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,228
-CSIR-CDRI,Jawaharlal Nehru Krishi Vishwa Vidyalaya,2,2,1,1,19,I290859477,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,229
-CSIR-CDRI,Krantisinh Nana Patil College of Veterinary Science,2,2,0,2,26,I4210160490,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,230
+CSIR-CDRI,Jawaharlal Nehru Krishi Vishwa Vidyalaya,2,2,1,1,19,I290859477,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,228
+CSIR-CDRI,Krantisinh Nana Patil College of Veterinary Science,2,2,0,2,26,I4210160490,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,229
+CSIR-CDRI,Ganesh Shankar Vidyarthi Memorial Medical College,2,2,1,1,4,I2802359691,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,230
 CSIR-CDRI,Vellore Institute of Technology University,1,283,171,112,10,I876193797,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,231
 CSIR-CDRI,Chitkara University,1,243,196,47,0,I74319210,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,232
 CSIR-CDRI,University of Madras,1,159,43,116,7,I215927,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,233
@@ -625,8 +625,8 @@ CSIR-CDRI,Annamalai University,1,92,30,62,9,I197081775,University (other),TRUE,C
 CSIR-CDRI,"Anna University, Chennai",1,85,21,64,22,I33585257,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,243
 CSIR-CDRI,Shoolini University,1,82,39,43,2,I4210133311,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,244
 CSIR-CDRI,KR Mangalam University,1,79,66,13,24,I4210114149,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,245
-CSIR-CDRI,Hemwati Nandan Bahuguna Garhwal University,1,79,40,39,16,I185052938,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,246
-CSIR-CDRI,University of Kalyani,1,79,37,42,31,I77501641,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,247
+CSIR-CDRI,University of Kalyani,1,79,37,42,31,I77501641,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,246
+CSIR-CDRI,Hemwati Nandan Bahuguna Garhwal University,1,79,40,39,16,I185052938,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,247
 CSIR-CDRI,University of Petroleum and Energy Studies,1,74,57,17,2,I5847235,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,248
 CSIR-CDRI,Tezpur University,1,73,30,43,0,I126601174,Central University,TRUE,CSIR↔Central University,FALSE,FALSE,,,249
 CSIR-CDRI,Graphic Era University,1,72,60,12,43,I60054993,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,250
@@ -635,14 +635,14 @@ CSIR-CDRI,Indian Institute of Technology Gandhinagar,1,59,37,22,3,I27674431,IIT,
 CSIR-CDRI,Cochin University of Science and Technology,1,54,33,21,0,I20497027,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,253
 CSIR-CDRI,Sam Higginbottom Institute of Agriculture,1,52,23,29,12,I223959643,Government,TRUE,CSIR↔Government,FALSE,FALSE,,,254
 CSIR-CDRI,Institute of Life Sciences,1,51,16,35,3,I4210118921,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,255
-CSIR-CDRI,Dr. B. R. Ambedkar National Institute of Technology Jalandhar,1,50,37,13,7,I70971781,NIT,TRUE,CSIR↔NIT,FALSE,FALSE,,,256
-CSIR-CDRI,Indian Institute of Technology Patna,1,50,22,28,18,I132153292,IIT,TRUE,CSIR↔IIT,FALSE,FALSE,,,257
-CSIR-CDRI,Sri Venkateswara University,1,50,15,35,5,I170558118,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,258
-CSIR-CDRI,Andhra University,1,50,25,25,489,I100887729,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,259
-CSIR-CDRI,IFTM University,1,48,31,17,31,I2801192375,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,260
-CSIR-CDRI,Dehradun Institute of Technology University,1,48,38,10,3,I933318745,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,261
-CSIR-CDRI,Sathyabama Institute of Science and Technology,1,48,36,12,6,I43814544,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,262
-CSIR-CDRI,Sri Ramachandra Institute of Higher Education and Research,1,48,20,28,59,I20107917,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,263
+CSIR-CDRI,Andhra University,1,50,25,25,489,I100887729,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,256
+CSIR-CDRI,Dr. B. R. Ambedkar National Institute of Technology Jalandhar,1,50,37,13,7,I70971781,NIT,TRUE,CSIR↔NIT,FALSE,FALSE,,,257
+CSIR-CDRI,Indian Institute of Technology Patna,1,50,22,28,18,I132153292,IIT,TRUE,CSIR↔IIT,FALSE,FALSE,,,258
+CSIR-CDRI,Sri Venkateswara University,1,50,15,35,5,I170558118,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,259
+CSIR-CDRI,Sathyabama Institute of Science and Technology,1,48,36,12,6,I43814544,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,260
+CSIR-CDRI,Sri Ramachandra Institute of Higher Education and Research,1,48,20,28,59,I20107917,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,261
+CSIR-CDRI,IFTM University,1,48,31,17,31,I2801192375,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,262
+CSIR-CDRI,Dehradun Institute of Technology University,1,48,38,10,3,I933318745,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,263
 CSIR-CDRI,Jiwaji University,1,48,10,38,48,I102471911,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,264
 CSIR-CDRI,Thapar Institute of Engineering & Technology,1,41,28,13,4,I162030827,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,265
 CSIR-CDRI,Ramaiah Institute of Technology,1,39,19,20,60,I4405255153,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,266
@@ -651,104 +651,104 @@ CSIR-CDRI,Swami Ramanand Teerth Marathwada University,1,35,16,19,4,I196652580,Un
 CSIR-CDRI,Jaipur National University,1,35,24,11,0,I9223067,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,269
 CSIR-CDRI,Gyan Vihar University,1,34,24,10,1,I91894341,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,270
 CSIR-CDRI,Assam Down Town University,1,34,30,4,2,I49068896,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,271
-CSIR-CDRI,Ganpat University,1,33,29,4,0,I45372603,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,272
-CSIR-CDRI,Chittaranjan National Cancer Institute,1,33,14,19,28,I2802271162,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,273
-CSIR-CDRI,Jawaharlal Institute of Post Graduate Medical Education and Research,1,32,9,23,46,I61923386,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,274
-CSIR-CDRI,University of Jammu,1,32,13,19,10,I145846420,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,275
+CSIR-CDRI,Chittaranjan National Cancer Institute,1,33,14,19,28,I2802271162,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,272
+CSIR-CDRI,Ganpat University,1,33,29,4,0,I45372603,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,273
+CSIR-CDRI,University of Jammu,1,32,13,19,10,I145846420,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,274
+CSIR-CDRI,Jawaharlal Institute of Post Graduate Medical Education and Research,1,32,9,23,46,I61923386,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,275
 CSIR-CDRI,Indian Institute of Technology Dhanbad,1,30,21,9,74,I189109744,IIT,TRUE,CSIR↔IIT,FALSE,FALSE,,,276
 CSIR-CDRI,Jaypee Institute of Information Technology,1,28,16,12,3,I154970844,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,277
 CSIR-CDRI,Pandit Deendayal Energy University,1,27,19,8,13,I33586908,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,278
 CSIR-CDRI,Loyola College,1,26,5,21,18,I4405274569,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,279
 CSIR-CDRI,Sambalpur University,1,26,7,19,3,I112754052,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,280
 CSIR-CDRI,Madras Diabetes Research Foundation,1,23,3,20,7,I4210092311,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,281
-CSIR-CDRI,All India Institute of Medical Sciences Bhopal,1,23,7,16,37,I4210106490,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,282
-CSIR-CDRI,Chaudhary Charan Singh Haryana Agricultural University,1,23,18,5,59,I24927338,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,283
+CSIR-CDRI,Chaudhary Charan Singh Haryana Agricultural University,1,23,18,5,59,I24927338,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,282
+CSIR-CDRI,All India Institute of Medical Sciences Bhopal,1,23,7,16,37,I4210106490,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,283
 CSIR-CDRI,Assam Agricultural University,1,22,11,11,9,I35839044,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,284
-CSIR-CDRI,GD Goenka University,1,22,18,4,3,I2802922787,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,285
-CSIR-CDRI,Regional Medical Research Center,1,22,11,11,1,I2802952153,ICMR,TRUE,CSIR↔ICMR,FALSE,FALSE,,,286
-CSIR-CDRI,REVA University,1,22,19,3,0,I83737708,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,287
-CSIR-CDRI,Energy and Resources Institute,1,21,8,13,66,I1286858202,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,288
-CSIR-CDRI,G.B. Pant Institute of Himalayan Environment and Development,1,21,11,10,19,I4210163968,Government,TRUE,CSIR↔Government,FALSE,FALSE,,,289
+CSIR-CDRI,REVA University,1,22,19,3,0,I83737708,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,285
+CSIR-CDRI,GD Goenka University,1,22,18,4,3,I2802922787,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,286
+CSIR-CDRI,Regional Medical Research Center,1,22,11,11,1,I2802952153,ICMR,TRUE,CSIR↔ICMR,FALSE,FALSE,,,287
+CSIR-CDRI,G.B. Pant Institute of Himalayan Environment and Development,1,21,11,10,19,I4210163968,Government,TRUE,CSIR↔Government,FALSE,FALSE,,,288
+CSIR-CDRI,Energy and Resources Institute,1,21,8,13,66,I1286858202,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,289
 CSIR-CDRI,Dr. M.G.R. Educational and Research Institute,1,20,13,7,7,I19926482,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,290
-CSIR-CDRI,Rajiv Gandhi Technical University,1,20,6,14,56,I196622127,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,291
-CSIR-CDRI,Guru Gobind Singh Indraprastha University,1,20,9,11,10,I105454292,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,292
+CSIR-CDRI,Guru Gobind Singh Indraprastha University,1,20,9,11,10,I105454292,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,291
+CSIR-CDRI,Rajiv Gandhi Technical University,1,20,6,14,56,I196622127,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,292
 CSIR-CDRI,Vinayaka Missions University,1,19,12,7,18,I175548057,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,293
-CSIR-CDRI,Veer Kunwar Singh University,1,19,19,0,1,I116130893,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,294
-CSIR-CDRI,Kalasalingam Academy of Research and Education,1,19,12,7,18,I98499257,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,295
-CSIR-CDRI,Sikkim University,1,18,11,7,1,I43475992,Central University,TRUE,CSIR↔Central University,FALSE,FALSE,,,296
-CSIR-CDRI,West Bengal University of Animal and Fishery Sciences,1,18,3,15,11,I75444546,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,297
+CSIR-CDRI,Kalasalingam Academy of Research and Education,1,19,12,7,18,I98499257,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,294
+CSIR-CDRI,Veer Kunwar Singh University,1,19,19,0,1,I116130893,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,295
+CSIR-CDRI,West Bengal University of Animal and Fishery Sciences,1,18,3,15,11,I75444546,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,296
+CSIR-CDRI,Sikkim University,1,18,11,7,1,I43475992,Central University,TRUE,CSIR↔Central University,FALSE,FALSE,,,297
 CSIR-CDRI,"P.E.S. College of Engineering, Mandya",1,18,11,7,42,I4405283756,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,298
 CSIR-CDRI,JSS Medical College and Hospital,1,17,10,7,1,I86826812,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,299
 CSIR-CDRI,Shri Guru Ram Rai University,1,16,16,0,1,I4405261556,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,300
 CSIR-CDRI,Sant Gadge Baba Amravati University,1,16,9,7,5,I150513749,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,301
 CSIR-CDRI,National Bureau of Agriculturally Important Microorganisms,1,15,5,10,3,I4210123061,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,302
-CSIR-CDRI,Bennett University,1,14,9,5,5,I3129773123,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,303
-CSIR-CDRI,Nizam's Institute of Medical Sciences,1,14,3,11,46,I139669409,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,304
-CSIR-CDRI,SMS Medical College,1,14,8,6,42,I164135366,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,305
-CSIR-CDRI,Yogi Vemana University,1,13,6,7,17,I83073037,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,306
+CSIR-CDRI,SMS Medical College,1,14,8,6,42,I164135366,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,303
+CSIR-CDRI,Nizam's Institute of Medical Sciences,1,14,3,11,46,I139669409,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,304
+CSIR-CDRI,Bennett University,1,14,9,5,5,I3129773123,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,305
+CSIR-CDRI,Government Medical College and Hospital (Chandigarh),1,13,4,9,6,I4210098996,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,306
 CSIR-CDRI,Cooch Behar Panchanan Barma University,1,13,8,5,88,I2611379103,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,307
 CSIR-CDRI,Swami Rama Himalayan University,1,13,6,7,8,I2802000655,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,308
 CSIR-CDRI,Indian Institute of Technology Tirupati,1,13,11,2,3,I4210109292,IIT,TRUE,CSIR↔IIT,FALSE,FALSE,,,309
-CSIR-CDRI,Government Medical College and Hospital (Chandigarh),1,13,4,9,6,I4210098996,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,310
-CSIR-CDRI,Madras Medical Mission,1,12,2,10,7,I2802574061,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,311
-CSIR-CDRI,Institute of Cytology and Preventive Oncology,1,12,0,12,32,I4210160116,ICMR,TRUE,CSIR↔ICMR,FALSE,FALSE,,,312
-CSIR-CDRI,Anthem Biosciences (India),1,12,2,10,62,I4210138068,Industry,TRUE,CSIR↔Industry,FALSE,FALSE,,,313
+CSIR-CDRI,Yogi Vemana University,1,13,6,7,17,I83073037,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,310
+CSIR-CDRI,Institute of Cytology and Preventive Oncology,1,12,0,12,32,I4210160116,ICMR,TRUE,CSIR↔ICMR,FALSE,FALSE,,,311
+CSIR-CDRI,Anthem Biosciences (India),1,12,2,10,62,I4210138068,Industry,TRUE,CSIR↔Industry,FALSE,FALSE,,,312
+CSIR-CDRI,Madras Medical Mission,1,12,2,10,7,I2802574061,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,313
 CSIR-CDRI,Central Mechanical Engineering Research Institute,1,11,5,6,16,I70735523,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,314
 CSIR-CDRI,Gautam Buddha University,1,11,8,3,4,I72769676,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,315
 CSIR-CDRI,Institute of Molecular Medicine,1,11,0,11,17,I4210146488,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,316
 CSIR-CDRI,Punjab Engineering College,1,10,9,1,7,I860003557,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,317
 CSIR-CDRI,Madras Medical College,1,10,3,7,7,I159337121,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,318
-CSIR-CDRI,Munger University,1,9,8,1,59,I4210103923,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,319
-CSIR-CDRI,ITM University,1,9,8,1,7,I191366470,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,320
-CSIR-CDRI,All India Institute of Medical Sciences Jodhpur,1,9,2,7,37,I216021267,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,321
-CSIR-CDRI,Central Agricultural University,1,9,2,7,66,I76253773,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,322
-CSIR-CDRI,Sir H.N. Reliance Foundation Hospital and Research Centre,1,9,4,5,2,I2799514748,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,323
-CSIR-CDRI,"International Institute of Information Technology, Hyderabad",1,8,3,5,2,I64189192,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,324
+CSIR-CDRI,Central Agricultural University,1,9,2,7,66,I76253773,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,319
+CSIR-CDRI,Sir H.N. Reliance Foundation Hospital and Research Centre,1,9,4,5,2,I2799514748,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,320
+CSIR-CDRI,Munger University,1,9,8,1,59,I4210103923,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,321
+CSIR-CDRI,ITM University,1,9,8,1,7,I191366470,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,322
+CSIR-CDRI,All India Institute of Medical Sciences Jodhpur,1,9,2,7,37,I216021267,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,323
+CSIR-CDRI,Apollo Hospitals (Ahmedabad),1,8,5,3,15,I4210159024,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,324
 CSIR-CDRI,Indian Institute of Technology Goa,1,8,3,5,3,I4210112052,IIT,TRUE,CSIR↔IIT,FALSE,FALSE,,,325
-CSIR-CDRI,Karnataka State Open University,1,8,7,1,24,I342246540,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,326
-CSIR-CDRI,Apollo Hospitals (Ahmedabad),1,8,5,3,15,I4210159024,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,327
+CSIR-CDRI,"International Institute of Information Technology, Hyderabad",1,8,3,5,2,I64189192,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,326
+CSIR-CDRI,Karnataka State Open University,1,8,7,1,24,I342246540,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,327
 CSIR-CDRI,National Institute of Biomedical Genomics,1,8,0,8,1,I4210158866,DBT,TRUE,CSIR↔DBT,FALSE,FALSE,,,328
 CSIR-CDRI,Defence Institute of Advanced Technology,1,7,4,3,7,I156406944,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,329
-CSIR-CDRI,Centre for Chronic Disease Control,1,7,0,7,1,I4210119988,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,330
+CSIR-CDRI,The Neotia University,1,7,6,1,0,I4405266546,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,330
 CSIR-CDRI,Lala Lajpat Rai Memorial Medical College,1,7,3,4,3,I219845778,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,331
 CSIR-CDRI,Magadh University,1,7,6,1,0,I127727965,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,332
-CSIR-CDRI,The Neotia University,1,7,6,1,0,I4405266546,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,333
-CSIR-CDRI,Vinoba Bhave University,1,6,5,1,5,I71631882,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,334
-CSIR-CDRI,Jaslok Hospital,1,6,0,6,42,I2802099312,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,335
-CSIR-CDRI,Mody University of Science and Technology,1,6,3,3,0,I72563045,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,336
+CSIR-CDRI,Centre for Chronic Disease Control,1,7,0,7,1,I4210119988,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,333
+CSIR-CDRI,Mody University of Science and Technology,1,6,3,3,0,I72563045,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,334
+CSIR-CDRI,Bombay Hospital,1,6,1,5,28,I4210135821,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,335
+CSIR-CDRI,Vinoba Bhave University,1,6,5,1,5,I71631882,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,336
 CSIR-CDRI,World Health Organization Regional Office for South-East Asia,1,6,1,5,0,I4210112062,Government,TRUE,CSIR↔Government,FALSE,FALSE,,,337
-CSIR-CDRI,RIMT University,1,6,6,0,7,I4405281987,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,338
-CSIR-CDRI,Max Super Speciality Hospital,1,6,2,4,4,I2802464703,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,339
-CSIR-CDRI,Bombay Hospital,1,6,1,5,28,I4210135821,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,340
+CSIR-CDRI,Max Super Speciality Hospital,1,6,2,4,4,I2802464703,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,338
+CSIR-CDRI,Jaslok Hospital,1,6,0,6,42,I2802099312,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,339
+CSIR-CDRI,RIMT University,1,6,6,0,7,I4405281987,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,340
 CSIR-CDRI,Soban Singh Jeena University,1,6,4,2,1,I4405260884,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,341
 CSIR-CDRI,Kazi Nazrul University,1,5,2,3,18,I3131729800,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,342
 CSIR-CDRI,Cancer Institute (WIA),1,5,0,5,59,I2801345345,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,343
-CSIR-CDRI,Rajiv Gandhi Institute of Petroleum Technology,1,5,3,2,10,I98210582,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,344
-CSIR-CDRI,Botanical Survey of India,1,5,1,4,5,I1282638777,Government,TRUE,CSIR↔Government,FALSE,FALSE,,,345
-CSIR-CDRI,Sawai Man Singh Hospital,1,5,5,0,42,I2802525668,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,346
-CSIR-CDRI,Indira Gandhi Institute of Medical Sciences,1,5,0,5,11,I238035932,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,347
-CSIR-CDRI,Government General Hospital,1,5,3,2,7,I2801220108,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,348
-CSIR-CDRI,International Advanced Research Centre for Powder Metallurgy and New Materials,1,4,1,3,32,I4210103291,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,349
-CSIR-CDRI,Shri Ramswaroop Memorial University,1,4,4,0,625,I4210106473,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,350
-CSIR-CDRI,National Centre for Coastal Research,1,4,3,1,0,I4210117185,Government,TRUE,CSIR↔Government,FALSE,FALSE,,,351
+CSIR-CDRI,Sawai Man Singh Hospital,1,5,5,0,42,I2802525668,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,344
+CSIR-CDRI,Government General Hospital,1,5,3,2,7,I2801220108,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,345
+CSIR-CDRI,Indira Gandhi Institute of Medical Sciences,1,5,0,5,11,I238035932,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,346
+CSIR-CDRI,Botanical Survey of India,1,5,1,4,5,I1282638777,Government,TRUE,CSIR↔Government,FALSE,FALSE,,,347
+CSIR-CDRI,Rajiv Gandhi Institute of Petroleum Technology,1,5,3,2,10,I98210582,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,348
+CSIR-CDRI,National Centre for Coastal Research,1,4,3,1,0,I4210117185,Government,TRUE,CSIR↔Government,FALSE,FALSE,,,349
+CSIR-CDRI,International Advanced Research Centre for Powder Metallurgy and New Materials,1,4,1,3,32,I4210103291,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,350
+CSIR-CDRI,Shri Ramswaroop Memorial University,1,4,4,0,625,I4210106473,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,351
 CSIR-CDRI,"All India Institute of Medical Sciences, Nagpur",1,3,3,0,4,I4401200305,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,352
-CSIR-CDRI,Brahmananda Keshab Chandra College,1,3,2,1,6,I4405277791,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,353
-CSIR-CDRI,"National Institute of Science, Technology and Development Studies",1,3,0,3,25,I4210128462,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,354
-CSIR-CDRI,Trident Academy of Technology,1,3,1,2,11,I4405277697,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,355
-CSIR-CDRI,"All India Institute of Medical Sciences, Mangalagiri",1,3,2,1,42,I4405257640,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,356
-CSIR-CDRI,National Institute for Implementation Research on Non-Communicable Diseases,1,3,0,3,0,I4210158034,ICMR,TRUE,CSIR↔ICMR,FALSE,FALSE,,,357
-CSIR-CDRI,Vinayaka Missions Medical College and Hospitals,1,2,1,1,18,I4210138697,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,358
-CSIR-CDRI,Niloufer Hospital,1,2,0,2,3,I2801125169,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,359
-CSIR-CDRI,"All India Institute of Medical Sciences, Kalyani",1,2,2,0,8,I4405255515,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,360
+CSIR-CDRI,"National Institute of Science, Technology and Development Studies",1,3,0,3,25,I4210128462,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,353
+CSIR-CDRI,Trident Academy of Technology,1,3,1,2,11,I4405277697,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,354
+CSIR-CDRI,National Institute for Implementation Research on Non-Communicable Diseases,1,3,0,3,0,I4210158034,ICMR,TRUE,CSIR↔ICMR,FALSE,FALSE,,,355
+CSIR-CDRI,Brahmananda Keshab Chandra College,1,3,2,1,6,I4405277791,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,356
+CSIR-CDRI,"All India Institute of Medical Sciences, Mangalagiri",1,3,2,1,42,I4405257640,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,357
+CSIR-CDRI,"All India Institute of Medical Sciences, Kalyani",1,2,2,0,8,I4405255515,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,358
+CSIR-CDRI,Virus Unit,1,2,0,2,49,I4210093260,ICMR,TRUE,CSIR↔ICMR,FALSE,FALSE,,,359
+CSIR-CDRI,Central Pulp & Paper Research Institute,1,2,0,2,67,I4210125508,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,360
 CSIR-CDRI,Kerala Veterinary and Animal Sciences University,1,2,1,1,0,I335685885,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,361
-CSIR-CDRI,Periyar Maniammai Institute of Science & Technology,1,2,1,1,10,I207025910,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,362
-CSIR-CDRI,"All India Institute of Medical Sciences, Vijaypur, Jammu",1,2,2,0,0,I4405256279,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,363
-CSIR-CDRI,Virus Unit,1,2,0,2,49,I4210093260,ICMR,TRUE,CSIR↔ICMR,FALSE,FALSE,,,364
-CSIR-CDRI,Central Pulp & Paper Research Institute,1,2,0,2,67,I4210125508,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,365
+CSIR-CDRI,Vinayaka Missions Medical College and Hospitals,1,2,1,1,18,I4210138697,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,362
+CSIR-CDRI,Niloufer Hospital,1,2,0,2,3,I2801125169,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,363
+CSIR-CDRI,Periyar Maniammai Institute of Science & Technology,1,2,1,1,10,I207025910,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,364
+CSIR-CDRI,"All India Institute of Medical Sciences, Vijaypur, Jammu",1,2,2,0,0,I4405256279,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,365
 CSIR-CDRI,Larsen & Toubro (India),1,1,1,0,2,I4210116539,Industry,TRUE,CSIR↔Industry,FALSE,FALSE,,,366
-CSIR-CDRI,National Council Of Educational Research And Training,1,1,1,0,0,I15949855,Government,TRUE,CSIR↔Government,FALSE,FALSE,,,367
-CSIR-CDRI,Central Institute for Research on Goats,1,1,1,0,0,I4210108051,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,368
-CSIR-CDRI,Gujarat Institute of Development Research,1,1,1,0,1,I4210092074,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,369
+CSIR-CDRI,Central Institute for Research on Goats,1,1,1,0,0,I4210108051,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,367
+CSIR-CDRI,Gujarat Institute of Development Research,1,1,1,0,1,I4210092074,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,368
+CSIR-CDRI,National Council Of Educational Research And Training,1,1,1,0,0,I15949855,Government,TRUE,CSIR↔Government,FALSE,FALSE,,,369
 CSIR-CDRI,Nazareth Hospital,1,0,0,0,11,I4210157212,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,370
 CSIR-IGIB,All India Institute of Medical Sciences,250,1527,711,816,6648,I63739035,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,0.0989,0.4815,1
 CSIR-IGIB,University of Delhi,170,1367,505,862,9048,I110166357,Central University,TRUE,CSIR↔Central University,FALSE,FALSE,0.0811,0.4085,2
@@ -765,7 +765,7 @@ CSIR-IGIB,"Dr. D. Y. Patil Medical College, Hospital and Research Centre",25,139
 CSIR-IGIB,Maharshi Dayanand University,24,420,343,77,1019,I905734797,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,0.105,0.3889,13
 CSIR-IGIB,CSIR-CCMB,24,328,123,205,3997,I185638415,CSIR,FALSE,CSIR↔CSIR,TRUE,FALSE,0.3423,0.6393,14
 CSIR-IGIB,Institute of Human Behaviour and Allied Sciences,24,94,24,70,441,I4210118052,Other,TRUE,CSIR↔Other,FALSE,FALSE,0.1173,0.3481,15
-CSIR-IGIB,Post Graduate Institute of Medical Education and Research,23,300,126,174,2891,I45294948,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,0.0929,0.4925,16
+CSIR-IGIB,Post Graduate Institute of Medical Education and Research,23,300,126,174,2891,I45294948,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,0.0929,0.4925,16
 CSIR-IGIB,Indian Council of Medical Research,21,310,145,165,2786,I37048141,ICMR,TRUE,CSIR↔ICMR,FALSE,FALSE,0.1696,0.5385,17
 CSIR-IGIB,Indian Institute of Chemical Biology,21,213,112,101,3065,I160344538,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,0.2346,0.7094,18
 CSIR-IGIB,Translational Health Science and Technology Institute,21,206,103,103,2972,I2801880299,Government,TRUE,CSIR↔Government,FALSE,FALSE,0.227,0.595,19
@@ -778,18 +778,18 @@ CSIR-IGIB,Manipal Academy of Higher Education,16,311,157,154,343,I164861460,Univ
 CSIR-IGIB,Regional Centre for Biotechnology,16,208,142,66,3020,I4210094671,Government,TRUE,CSIR↔Government,FALSE,FALSE,0.2821,0.5873,26
 CSIR-IGIB,Indian Institute of Technology Delhi,16,178,115,63,2800,I68891433,IIT,TRUE,CSIR↔IIT,FALSE,FALSE,0.0309,0.3605,27
 CSIR-IGIB,Government Medical College (Kozhikode),16,45,23,22,155,I248710770,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,0.0929,0.4706,28
-CSIR-IGIB,Savitribai Phule Pune University,14,414,83,331,2973,I878213199,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,0.0363,0.3793,29
-CSIR-IGIB,Indian Institute of Science Bangalore,14,387,136,251,2925,I59270414,IISc/TIFR/IISER,TRUE,CSIR↔IISc/TIFR/IISER,FALSE,FALSE,,,30
-CSIR-IGIB,CSIR-CDRI,14,184,63,121,2890,I185249246,CSIR,FALSE,CSIR↔CSIR,TRUE,FALSE,,,31
+CSIR-IGIB,Savitribai Phule Pune University,14,414,83,331,2973,I878213199,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,29
+CSIR-IGIB,Indian Institute of Science Bangalore,14,387,136,251,2925,I59270414,IISc/TIFR/IISER,TRUE,CSIR↔IISc/TIFR/IISER,FALSE,FALSE,0.0471,0.4085,30
+CSIR-IGIB,CSIR-CDRI,14,184,63,121,2890,I185249246,CSIR,FALSE,CSIR↔CSIR,TRUE,FALSE,0.1765,0.6529,31
 CSIR-IGIB,Atal Bihari Vajpayee Institute of Medical Sciences and Dr. Ram Manohar Lohia Hospital,14,95,25,70,191,I2800585909,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,32
-CSIR-IGIB,Indian Institute of Technology Kanpur,14,83,53,30,238,I94234084,IIT,TRUE,CSIR↔IIT,FALSE,FALSE,0.0101,0.3072,33
+CSIR-IGIB,Indian Institute of Technology Kanpur,14,83,53,30,238,I94234084,IIT,TRUE,CSIR↔IIT,FALSE,FALSE,,,33
 CSIR-IGIB,CSIR-IMTECH,13,155,54,101,2843,I4210147764,CSIR,FALSE,CSIR↔CSIR,TRUE,FALSE,,,34
 CSIR-IGIB,Indian Institute of Integrative Medicine,13,101,55,46,2856,I4210108071,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,35
 CSIR-IGIB,Indian Institute of Technology Jodhpur,12,197,175,22,2746,I154549908,IIT,TRUE,CSIR↔IIT,FALSE,FALSE,,,36
 CSIR-IGIB,Jawaharlal Nehru Centre for Advanced Scientific Research,12,166,44,122,3089,I147481903,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,37
 CSIR-IGIB,SMS Medical College,12,82,31,51,204,I164135366,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,38
 CSIR-IGIB,National Institute of Biomedical Genomics,11,172,62,110,1491,I4210158866,DBT,TRUE,CSIR↔DBT,FALSE,FALSE,,,39
-CSIR-IGIB,Institute of Medical Sciences,11,147,75,72,276,I51317819,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,40
+CSIR-IGIB,Institute of Medical Sciences,11,147,75,72,276,I51317819,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,40
 CSIR-IGIB,"Birla Institute of Technology and Science, Pilani",11,138,89,49,157,I74796645,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,41
 CSIR-IGIB,Indian Institute of Toxicology Research,11,110,31,79,361,I85145500,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,42
 CSIR-IGIB,North East Institute of Science and Technology,11,82,40,42,271,I2800857658,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,43
@@ -822,16 +822,16 @@ CSIR-IGIB,Guru Gobind Singh Indraprastha University,6,56,15,41,155,I105454292,Un
 CSIR-IGIB,Devi Ahilya Vishwavidyalaya,6,52,23,29,149,I138272832,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,70
 CSIR-IGIB,Tirunelveli Medical College,6,46,16,30,148,I118826373,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,71
 CSIR-IGIB,National Brain Research Centre,6,46,13,33,241,I85332549,Government,TRUE,CSIR↔Government,FALSE,FALSE,,,72
-CSIR-IGIB,Sree Chitra Thirunal Institute for Medical Sciences and Technology,6,43,20,23,46,I2800373951,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,73
+CSIR-IGIB,Sree Chitra Thirunal Institute for Medical Sciences and Technology,6,43,20,23,46,I2800373951,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,73
 CSIR-IGIB,All India Institute of Medical Sciences Jodhpur,6,40,25,15,38,I216021267,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,74
 CSIR-IGIB,Infectious Disease and Beliaghata General Hospital,6,38,20,18,197,I4405266086,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,75
 CSIR-IGIB,Tata Consultancy Services (India),6,29,21,8,164,I55215948,Industry,TRUE,CSIR↔Industry,FALSE,FALSE,,,76
 CSIR-IGIB,Apollo Hospitals (Chennai),6,28,14,14,17,I1327930874,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,77
 CSIR-IGIB,Kalawati Saran Children's Hospital,6,11,8,3,63,I4210150446,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,78
 CSIR-IGIB,Manav Rachna International Institute of Research and Studies,6,8,7,1,33,I55016150,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,79
-CSIR-IGIB,Sanjay Gandhi Post Graduate Institute of Medical Sciences,5,135,50,85,2664,I161370692,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,80
+CSIR-IGIB,Sanjay Gandhi Post Graduate Institute of Medical Sciences,5,135,50,85,2664,I161370692,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,80
 CSIR-IGIB,Indian Institute of Chemical Technology,5,92,30,62,130,I55664587,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,81
-CSIR-IGIB,University College of Medical Sciences,5,81,19,62,140,I172982924,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,82
+CSIR-IGIB,University College of Medical Sciences,5,81,19,62,140,I172982924,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,82
 CSIR-IGIB,Yenepoya University,5,70,48,22,153,I158688498,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,83
 CSIR-IGIB,"Medical College and Hospital, Kolkata",5,63,24,39,200,I68428275,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,84
 CSIR-IGIB,Rashtrasant Tukadoji Maharaj Nagpur University,5,59,24,35,150,I133978751,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,85
@@ -859,25 +859,25 @@ CSIR-IGIB,Institute of Liver and Biliary Sciences,4,51,24,27,72,I4210123001,Medi
 CSIR-IGIB,Alagappa University,4,49,26,23,98,I131155284,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,107
 CSIR-IGIB,National Institute of Plant Genome Research,4,49,18,31,129,I4210153536,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,108
 CSIR-IGIB,Central Institute of Medicinal and Aromatic Plants,4,46,19,27,63,I68145777,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,109
-CSIR-IGIB,Babasaheb Bhimrao Ambedkar University,4,45,23,22,14,I143247161,Central University,TRUE,CSIR↔Central University,FALSE,FALSE,,,110
-CSIR-IGIB,Institute of Minerals and Materials Technology,4,45,34,11,87,I4210107015,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,111
+CSIR-IGIB,Institute of Minerals and Materials Technology,4,45,34,11,87,I4210107015,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,110
+CSIR-IGIB,Babasaheb Bhimrao Ambedkar University,4,45,23,22,14,I143247161,Central University,TRUE,CSIR↔Central University,FALSE,FALSE,,,111
 CSIR-IGIB,Government of Mizoram,4,44,15,29,138,I4210157823,Government,TRUE,CSIR↔Government,FALSE,FALSE,,,112
 CSIR-IGIB,Central University of Haryana,4,39,20,19,9,I4210133503,Central University,TRUE,CSIR↔Central University,FALSE,FALSE,,,113
 CSIR-IGIB,University of Mysore,4,38,24,14,25,I204743663,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,114
-CSIR-IGIB,School of Tropical Medicine,4,33,11,22,194,I4405267645,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,115
-CSIR-IGIB,"Dr. D.Y. Patil Vidyapeeth, Pune",4,33,29,4,28,I4210103194,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,116
+CSIR-IGIB,"Dr. D.Y. Patil Vidyapeeth, Pune",4,33,29,4,28,I4210103194,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,115
+CSIR-IGIB,School of Tropical Medicine,4,33,11,22,194,I4405267645,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,116
 CSIR-IGIB,Mynvax (India),4,32,23,9,89,I4405259513,Industry,TRUE,CSIR↔Industry,FALSE,FALSE,,,117
 CSIR-IGIB,CSIR National Physical Laboratory of India,4,28,12,16,2657,I88910343,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,118
 CSIR-IGIB,Apollo Hospitals (Hyderabad),4,27,16,11,12,I4210130696,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,119
 CSIR-IGIB,Indian Institute of Petroleum,4,24,12,12,57,I84279003,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,120
-CSIR-IGIB,Rajendra Institute of Medical Sciences,4,21,12,9,46,I304662888,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,121
-CSIR-IGIB,Central Electronics Engineering Research Institute,4,21,7,14,296,I41763900,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,122
+CSIR-IGIB,Central Electronics Engineering Research Institute,4,21,7,14,296,I41763900,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,121
+CSIR-IGIB,Rajendra Institute of Medical Sciences,4,21,12,9,46,I304662888,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,122
 CSIR-IGIB,International Life Sciences Institute India,4,20,14,6,52,I1291372781,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,123
 CSIR-IGIB,Vellore Institute of Technology University,3,116,67,49,2837,I876193797,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,124
 CSIR-IGIB,SRM Institute of Science and Technology,3,99,70,29,10,I145286018,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,125
 CSIR-IGIB,Indian Institute of Technology Guwahati,3,72,40,32,2670,I1317621060,IIT,TRUE,CSIR↔IIT,FALSE,FALSE,,,126
-CSIR-IGIB,Indian Institute of Technology BHU,3,72,55,17,107,I56404289,IIT,TRUE,CSIR↔IIT,FALSE,FALSE,,,127
-CSIR-IGIB,Maharaja Sayajirao University of Baroda,3,72,26,46,134,I110116418,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,128
+CSIR-IGIB,Maharaja Sayajirao University of Baroda,3,72,26,46,134,I110116418,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,127
+CSIR-IGIB,Indian Institute of Technology BHU,3,72,55,17,107,I56404289,IIT,TRUE,CSIR↔IIT,FALSE,FALSE,,,128
 CSIR-IGIB,Public Health Foundation of India,3,66,10,56,5,I74653059,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,129
 CSIR-IGIB,Indian Institute of Technology Bombay,3,65,37,28,15,I162827531,IIT,TRUE,CSIR↔IIT,FALSE,FALSE,,,130
 CSIR-IGIB,Bose Institute,3,63,27,36,2,I152754861,Premier Science,TRUE,CSIR↔Premier Science,FALSE,FALSE,,,131
@@ -885,8 +885,8 @@ CSIR-IGIB,Osmania University,3,53,10,43,103,I8975392,University (other),TRUE,CSI
 CSIR-IGIB,DR. B.R.A. Institute Rotary Cancer Hospital,3,46,35,11,17,I4210161040,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,133
 CSIR-IGIB,Army Hospital Research and Referral,3,46,7,39,38,I4210165779,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,134
 CSIR-IGIB,Yenepoya Research Centre,3,45,37,8,73,I4405268903,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,135
-CSIR-IGIB,National Institute of Nutrition,3,44,9,35,12,I53421241,ICMR,TRUE,CSIR↔ICMR,FALSE,FALSE,,,136
-CSIR-IGIB,JSS Medical College and Hospital,3,44,28,16,89,I86826812,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,137
+CSIR-IGIB,JSS Medical College and Hospital,3,44,28,16,89,I86826812,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,136
+CSIR-IGIB,National Institute of Nutrition,3,44,9,35,12,I53421241,ICMR,TRUE,CSIR↔ICMR,FALSE,FALSE,,,137
 CSIR-IGIB,Regional Institute of Medical Sciences,3,42,12,30,134,I43666680,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,138
 CSIR-IGIB,Kongu Arts and Science College,3,40,10,30,134,I4405269461,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,139
 CSIR-IGIB,SRM University,3,39,21,18,10,I4210131147,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,140
@@ -896,23 +896,23 @@ CSIR-IGIB,Kurnool Medical College,3,33,16,17,191,I61631359,Medical,TRUE,CSIR↔M
 CSIR-IGIB,All India Institute of Medical Sciences Bhubaneswar,3,29,18,11,46,I4210117092,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,144
 CSIR-IGIB,Hindu Rao Hospital,3,25,8,17,51,I4210091779,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,145
 CSIR-IGIB,"International Institute of Information Technology, Hyderabad",3,24,18,6,73,I64189192,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,146
-CSIR-IGIB,"Government Institute of Medical Sciences, Greater Noida",3,23,4,19,338,I4405273197,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,147
+CSIR-IGIB,"Government Institute of Medical Sciences, Greater Noida",3,23,4,19,338,I4405273197,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,147
 CSIR-IGIB,North Eastern Hill University,3,17,6,11,42,I197465736,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,148
 CSIR-IGIB,Advanced Materials and Processes Research Institute,3,16,8,8,42,I115635661,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,149
-CSIR-IGIB,T. D. Medical College,3,15,6,9,32,I2802466914,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,150
-CSIR-IGIB,St. John's National Academy of Health Sciences,3,15,7,8,35,I4210129261,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,151
+CSIR-IGIB,St. John's National Academy of Health Sciences,3,15,7,8,35,I4210129261,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,150
+CSIR-IGIB,T. D. Medical College,3,15,6,9,32,I2802466914,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,151
 CSIR-IGIB,Indira Gandhi Institute of Child Health,3,15,9,6,31,I4210158200,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,152
 CSIR-IGIB,University of Kerala,3,13,5,8,89,I158338959,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,153
 CSIR-IGIB,M S Swaminathan Research Foundation,3,12,0,12,29,I2799627270,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,154
-CSIR-IGIB,D.Y. Patil Education Society,3,10,7,3,11,I4210145115,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,155
-CSIR-IGIB,Agartala Government Medical College,3,10,9,1,12,I4210167321,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,156
+CSIR-IGIB,Agartala Government Medical College,3,10,9,1,12,I4210167321,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,155
+CSIR-IGIB,D.Y. Patil Education Society,3,10,7,3,11,I4210145115,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,156
 CSIR-IGIB,Unit for Research and Development of Information Products,3,8,1,7,65,I4210141333,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,157
-CSIR-IGIB,Sitaram Bhartia Institute of Science and Research,3,7,1,6,12,I4210118890,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,158
-CSIR-IGIB,Persistent Systems (India),3,7,5,2,37,I2800727657,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,159
+CSIR-IGIB,Persistent Systems (India),3,7,5,2,37,I2800727657,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,158
+CSIR-IGIB,Sitaram Bhartia Institute of Science and Research,3,7,1,6,12,I4210118890,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,159
 CSIR-IGIB,National Environmental Engineering Research Institute,2,117,56,61,41,I170347488,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,160
 CSIR-IGIB,ICMR-National Institute of Virology,2,101,38,63,1340,I60374024,ICMR,TRUE,CSIR↔ICMR,FALSE,FALSE,,,161
-CSIR-IGIB,Jadavpur University,2,59,32,27,2611,I170979836,Central University,TRUE,CSIR↔Central University,FALSE,FALSE,,,162
-CSIR-IGIB,Indian Institute of Technology Madras,2,59,43,16,19,I24676775,IIT,TRUE,CSIR↔IIT,FALSE,FALSE,,,163
+CSIR-IGIB,Indian Institute of Technology Madras,2,59,43,16,19,I24676775,IIT,TRUE,CSIR↔IIT,FALSE,FALSE,,,162
+CSIR-IGIB,Jadavpur University,2,59,32,27,2611,I170979836,Central University,TRUE,CSIR↔Central University,FALSE,FALSE,,,163
 CSIR-IGIB,SASTRA University,2,54,26,28,54,I932239252,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,164
 CSIR-IGIB,University of Hyderabad,2,53,31,22,34,I36893310,Central University,TRUE,CSIR↔Central University,FALSE,FALSE,,,165
 CSIR-IGIB,St.John's Medical College Hospital,2,51,15,36,24,I4210145302,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,166
@@ -929,8 +929,8 @@ CSIR-IGIB,Department of Science and Technology,2,34,31,3,101,I4210098748,Governm
 CSIR-IGIB,Kasturba Hospital,2,33,15,18,101,I4210120124,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,177
 CSIR-IGIB,Guru Jambheshwar University of Science and Technology,2,32,25,7,0,I15896350,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,178
 CSIR-IGIB,Centre for Chronic Disease Control,2,32,3,29,1099,I4210119988,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,179
-CSIR-IGIB,KLE Academy of Higher Education and Research,2,31,21,10,22,I4210125823,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,180
-CSIR-IGIB,Madras Medical College,2,31,6,25,36,I159337121,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,181
+CSIR-IGIB,Madras Medical College,2,31,6,25,36,I159337121,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,180
+CSIR-IGIB,KLE Academy of Higher Education and Research,2,31,21,10,22,I4210125823,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,181
 CSIR-IGIB,Indian Institute of Technology Indore,2,28,14,14,2637,I64295750,IIT,TRUE,CSIR↔IIT,FALSE,FALSE,,,182
 CSIR-IGIB,Indian Institute of Science Education and Research Kolkata,2,27,23,4,26,I127439422,IISc/TIFR/IISER,TRUE,CSIR↔IISc/TIFR/IISER,FALSE,FALSE,,,183
 CSIR-IGIB,Regional Medical Research Centre (Dibrugarh),2,27,10,17,7,I2802376228,ICMR,TRUE,CSIR↔ICMR,FALSE,FALSE,,,184
@@ -939,8 +939,8 @@ CSIR-IGIB,National Institute for Interdisciplinary Science and Technology,2,24,1
 CSIR-IGIB,Central Salt and Marine Chemicals Research Institute,2,23,12,11,41,I128420443,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,187
 CSIR-IGIB,D.Y. Patil University,2,22,10,12,53,I4210153931,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,188
 CSIR-IGIB,National Institute of Pathology,2,21,16,5,23,I4210096777,ICMR,TRUE,CSIR↔ICMR,FALSE,FALSE,,,189
-CSIR-IGIB,Dr. A.P.J. Abdul Kalam Technical University,2,18,5,13,10,I116943215,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,190
-CSIR-IGIB,"Indian Institute of Science Education and Research, Tirupati",2,18,18,0,4,I4210140410,IISc/TIFR/IISER,TRUE,CSIR↔IISc/TIFR/IISER,FALSE,FALSE,,,191
+CSIR-IGIB,"Indian Institute of Science Education and Research, Tirupati",2,18,18,0,4,I4210140410,IISc/TIFR/IISER,TRUE,CSIR↔IISc/TIFR/IISER,FALSE,FALSE,,,190
+CSIR-IGIB,Dr. A.P.J. Abdul Kalam Technical University,2,18,5,13,10,I116943215,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,191
 CSIR-IGIB,Deenbandhu Chhotu Ram University of Science and Technology,2,17,6,11,65,I253188195,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,192
 CSIR-IGIB,Central Electrochemical Research Institute,2,16,7,9,41,I106349282,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,193
 CSIR-IGIB,College of Medicine & Sagore Dutta Hospital,2,14,3,11,173,I265637623,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,194
@@ -948,37 +948,37 @@ CSIR-IGIB,National Institute of Oceanography,2,14,6,8,41,I75093019,CSIR,FALSE,CS
 CSIR-IGIB,Jubilee Mission Medical College and Research Institute,2,13,11,2,13,I2800507371,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,196
 CSIR-IGIB,Central Institute of Mining and Fuel Research,2,13,6,7,41,I4210127669,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,197
 CSIR-IGIB,Fourth Paradigm Institute,2,12,6,6,41,I2799463389,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,198
-CSIR-IGIB,Rajiv Gandhi Cancer Institute and Research Centre,2,12,11,1,30,I4210092995,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,199
-CSIR-IGIB,Vector Control Research Centre,2,12,4,8,2619,I4210144797,ICMR,TRUE,CSIR↔ICMR,FALSE,FALSE,,,200
-CSIR-IGIB,Intel (India),2,12,8,4,46,I4210146682,Industry,TRUE,CSIR↔Industry,FALSE,FALSE,,,201
-CSIR-IGIB,Kokilaben Dhirubhai Ambani Hospital,2,11,5,6,43,I4210131938,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,202
+CSIR-IGIB,Vector Control Research Centre,2,12,4,8,2619,I4210144797,ICMR,TRUE,CSIR↔ICMR,FALSE,FALSE,,,199
+CSIR-IGIB,Intel (India),2,12,8,4,46,I4210146682,Industry,TRUE,CSIR↔Industry,FALSE,FALSE,,,200
+CSIR-IGIB,Rajiv Gandhi Cancer Institute and Research Centre,2,12,11,1,30,I4210092995,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,201
+CSIR-IGIB,National Aerospace Laboratories,2,11,5,6,41,I1286499117,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,202
 CSIR-IGIB,Indira Gandhi Medical College,2,11,8,3,14,I2799277952,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,203
-CSIR-IGIB,National Aerospace Laboratories,2,11,5,6,41,I1286499117,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,204
+CSIR-IGIB,Kokilaben Dhirubhai Ambani Hospital,2,11,5,6,43,I4210131938,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,204
 CSIR-IGIB,Central Building Research Institute,2,10,4,6,41,I2801347850,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,205
 CSIR-IGIB,Dr. Lal PathLabs Pvt Ltd (India),2,9,5,4,16,I4405259595,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,206
-CSIR-IGIB,National Geophysical Research Institute,2,9,3,6,41,I22716965,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,207
+CSIR-IGIB,Gautam Buddha University,2,9,6,3,2,I72769676,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,207
 CSIR-IGIB,Indian Institute of Technology Ropar,2,9,4,5,2611,I119241673,IIT,TRUE,CSIR↔IIT,FALSE,FALSE,,,208
-CSIR-IGIB,Gautam Buddha University,2,9,6,3,2,I72769676,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,209
-CSIR-IGIB,Central University of Himachal Pradesh,2,8,2,6,1,I180952551,Central University,TRUE,CSIR↔Central University,FALSE,FALSE,,,210
-CSIR-IGIB,Central Institute of Fisheries Education,2,8,8,0,23,I581031,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,211
+CSIR-IGIB,National Geophysical Research Institute,2,9,3,6,41,I22716965,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,209
+CSIR-IGIB,Central Institute of Fisheries Education,2,8,8,0,23,I581031,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,210
+CSIR-IGIB,Central University of Himachal Pradesh,2,8,2,6,1,I180952551,Central University,TRUE,CSIR↔Central University,FALSE,FALSE,,,211
 CSIR-IGIB,MNR Medical College and Hospital,2,7,6,1,9,I4210144026,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,212
 CSIR-IGIB,Chaudhary Charan Singh University,2,6,3,3,175,I303593345,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,213
 CSIR-IGIB,Baddi University of Emerging Sciences and Technologies,2,6,4,2,21,I3131609308,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,214
 CSIR-IGIB,Central Road Research Institute,2,5,0,5,32,I4210106426,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,215
 CSIR-IGIB,Kannur Medical College,2,5,3,2,9,I4210129664,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,216
 CSIR-IGIB,KMCT Group of Educational Institutions,2,3,1,2,9,I4210103484,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,217
-CSIR-IGIB,St. Stephen’s Hospital,2,1,0,1,19,I4210147366,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,218
-CSIR-IGIB,St. Stephen's College,2,1,0,1,4,I4405274875,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,219
+CSIR-IGIB,St. Stephen's College,2,1,0,1,4,I4405274875,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,218
+CSIR-IGIB,St. Stephen’s Hospital,2,1,0,1,19,I4210147366,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,219
 CSIR-IGIB,Saveetha University,1,142,123,19,19,I85461943,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,220
 CSIR-IGIB,Panjab University,1,137,68,69,24,I51452335,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,221
 CSIR-IGIB,Indian Council of Agricultural Research,1,88,64,24,2611,I179420787,Government,TRUE,CSIR↔Government,FALSE,FALSE,,,222
 CSIR-IGIB,Aligarh Muslim University,1,80,28,52,4,I171210897,Central University,TRUE,CSIR↔Central University,FALSE,FALSE,,,223
-CSIR-IGIB,King George's Medical University,1,79,30,49,50,I280994,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,224
+CSIR-IGIB,King George's Medical University,1,79,30,49,50,I280994,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,224
 CSIR-IGIB,National Institute of Cholera and Enteric Diseases,1,73,22,51,33,I4210101909,ICMR,TRUE,CSIR↔ICMR,FALSE,FALSE,,,225
-CSIR-IGIB,National Institute of Pharmaceutical Education and Research (Mohali),1,72,44,28,2,I4210152674,Government,TRUE,CSIR↔Government,FALSE,FALSE,,,226
-CSIR-IGIB,National Institute of Pharmaceutical Education and Research (Hyderabad),1,66,42,24,7,I4210146715,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,227
-CSIR-IGIB,Sharda University,1,62,55,7,0,I74885063,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,228
-CSIR-IGIB,Indian Institute of Technology Kharagpur,1,62,33,29,8,I145894827,IIT,TRUE,CSIR↔IIT,FALSE,FALSE,,,229
+CSIR-IGIB,National Institute of Pharmaceutical Education and Research (Mohali),1,72,44,28,2,I4210152674,NIPER,TRUE,CSIR↔NIPER,FALSE,FALSE,,,226
+CSIR-IGIB,National Institute of Pharmaceutical Education and Research (Hyderabad),1,66,42,24,7,I4210146715,NIPER,TRUE,CSIR↔NIPER,FALSE,FALSE,,,227
+CSIR-IGIB,Indian Institute of Technology Kharagpur,1,62,33,29,8,I145894827,IIT,TRUE,CSIR↔IIT,FALSE,FALSE,,,228
+CSIR-IGIB,Sharda University,1,62,55,7,0,I74885063,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,229
 CSIR-IGIB,Siksha O Anusandhan University,1,61,39,22,146,I193073490,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,230
 CSIR-IGIB,Pondicherry University,1,60,28,32,43,I175691731,Central University,TRUE,CSIR↔Central University,FALSE,FALSE,,,231
 CSIR-IGIB,Indian Veterinary Research Institute,1,59,42,17,2611,I185790649,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,232
@@ -986,168 +986,168 @@ CSIR-IGIB,Homi Bhabha National Institute,1,56,47,9,2611,I200207707,University (o
 CSIR-IGIB,"Anna University, Chennai",1,54,20,34,2,I33585257,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,234
 CSIR-IGIB,University of Madras,1,53,17,36,2611,I215927,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,235
 CSIR-IGIB,Central University of Punjab,1,51,37,14,38,I114724429,Central University,TRUE,CSIR↔Central University,FALSE,FALSE,,,236
-CSIR-IGIB,Delhi Pharmaceutical Science and Research University,1,49,36,13,21,I39238937,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,237
-CSIR-IGIB,National Botanical Research Institute,1,49,19,30,16,I170396143,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,238
+CSIR-IGIB,National Botanical Research Institute,1,49,19,30,16,I170396143,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,237
+CSIR-IGIB,Delhi Pharmaceutical Science and Research University,1,49,36,13,21,I39238937,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,238
 CSIR-IGIB,Defence Institute of Physiology and Allied Sciences,1,47,11,36,4,I51313444,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,239
 CSIR-IGIB,Annamalai University,1,46,17,29,0,I197081775,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,240
 CSIR-IGIB,Sri Ramachandra Institute of Higher Education and Research,1,42,21,21,30,I20107917,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,241
 CSIR-IGIB,National Institute of Technology Rourkela,1,40,27,13,2611,I16292982,NIT,TRUE,CSIR↔NIT,FALSE,FALSE,,,242
 CSIR-IGIB,Graphic Era University,1,40,38,2,0,I60054993,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,243
-CSIR-IGIB,All India Institute of Medical Sciences Bhopal,1,39,31,8,5,I4210106490,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,244
-CSIR-IGIB,Rajiv Gandhi Centre for Biotechnology,1,39,19,20,5,I89324447,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,245
-CSIR-IGIB,National Institute of Epidemiology,1,39,17,22,3,I4210100069,ICMR,TRUE,CSIR↔ICMR,FALSE,FALSE,,,246
+CSIR-IGIB,Rajiv Gandhi Centre for Biotechnology,1,39,19,20,5,I89324447,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,244
+CSIR-IGIB,National Institute of Epidemiology,1,39,17,22,3,I4210100069,ICMR,TRUE,CSIR↔ICMR,FALSE,FALSE,,,245
+CSIR-IGIB,All India Institute of Medical Sciences Bhopal,1,39,31,8,5,I4210106490,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,246
 CSIR-IGIB,National Institute of Malaria Research,1,36,13,23,0,I76782289,ICMR,TRUE,CSIR↔ICMR,FALSE,FALSE,,,247
 CSIR-IGIB,Indian Institute of Technology Roorkee,1,35,21,14,70,I154851008,IIT,TRUE,CSIR↔IIT,FALSE,FALSE,,,248
 CSIR-IGIB,Regional Medical Research Center,1,33,9,24,7,I2802952153,ICMR,TRUE,CSIR↔ICMR,FALSE,FALSE,,,249
 CSIR-IGIB,Dr. Hari Singh Gour University,1,33,26,7,13,I8977528,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,250
 CSIR-IGIB,National JALMA Institute for Leprosy & Other Mycobacterial Diseases,1,32,12,20,61,I4210132386,ICMR,TRUE,CSIR↔ICMR,FALSE,FALSE,,,251
 CSIR-IGIB,All India Institute of Medical Sciences Rishikesh,1,31,21,10,0,I4387152206,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,252
-CSIR-IGIB,National Institute of Pharmaceutical Education and Research (Guwahati),1,30,20,10,3,I4210154014,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,253
+CSIR-IGIB,Institute of Chemical Technology,1,30,14,16,20,I167751958,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,253
 CSIR-IGIB,Vidyasagar University,1,30,11,19,16,I41549804,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,254
-CSIR-IGIB,Institute of Chemical Technology,1,30,14,16,20,I167751958,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,255
+CSIR-IGIB,National Institute of Pharmaceutical Education and Research (Guwahati),1,30,20,10,3,I4210154014,NIPER,TRUE,CSIR↔NIPER,FALSE,FALSE,,,255
 CSIR-IGIB,Saha Institute of Nuclear Physics,1,28,7,21,2611,I16019930,Premier Science,TRUE,CSIR↔Premier Science,FALSE,FALSE,,,256
-CSIR-IGIB,Hemwati Nandan Bahuguna Garhwal University,1,26,22,4,0,I185052938,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,257
-CSIR-IGIB,Jain University,1,26,24,2,0,I106826634,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,258
+CSIR-IGIB,Jain University,1,26,24,2,0,I106826634,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,257
+CSIR-IGIB,Hemwati Nandan Bahuguna Garhwal University,1,26,22,4,0,I185052938,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,258
 CSIR-IGIB,Birla Institute of Technology and Science - Hyderabad Campus,1,26,20,6,6,I4210101034,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,259
 CSIR-IGIB,Vision Research Foundation,1,25,3,22,8,I4405267514,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,260
 CSIR-IGIB,Government of Kerala,1,25,12,13,63,I2800731441,Government,TRUE,CSIR↔Government,FALSE,FALSE,,,261
 CSIR-IGIB,Tamil Nadu Veterinary and Animal Sciences University,1,24,7,17,76,I82452031,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,262
-CSIR-IGIB,Narayana Nethralaya,1,23,6,17,2,I4210117994,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,263
-CSIR-IGIB,Government Medical College (Thiruvananthapuram),1,23,15,8,5,I129862065,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,264
-CSIR-IGIB,Tripura University,1,23,19,4,0,I72677176,Central University,TRUE,CSIR↔Central University,FALSE,FALSE,,,265
-CSIR-IGIB,Dayanand Medical College & Hospital,1,23,10,13,11,I4210088867,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,266
-CSIR-IGIB,Medanta The Medicity (Gurgaon),1,23,9,14,9,I1291450037,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,267
-CSIR-IGIB,National AIDS Research Institute,1,22,10,12,2611,I4210159305,ICMR,TRUE,CSIR↔ICMR,FALSE,FALSE,,,268
-CSIR-IGIB,Symbiosis International University,1,22,13,9,4,I244572783,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,269
-CSIR-IGIB,BRIC-National Agri-Food and Biomanufacturing Institute,1,22,13,9,24,I4210164849,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,270
-CSIR-IGIB,All India Institute of Medical Sciences Bibinagar,1,22,21,1,2,I4405252828,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,271
+CSIR-IGIB,Dayanand Medical College & Hospital,1,23,10,13,11,I4210088867,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,263
+CSIR-IGIB,Medanta The Medicity (Gurgaon),1,23,9,14,9,I1291450037,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,264
+CSIR-IGIB,Government Medical College (Thiruvananthapuram),1,23,15,8,5,I129862065,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,265
+CSIR-IGIB,Tripura University,1,23,19,4,0,I72677176,Central University,TRUE,CSIR↔Central University,FALSE,FALSE,,,266
+CSIR-IGIB,Narayana Nethralaya,1,23,6,17,2,I4210117994,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,267
+CSIR-IGIB,Symbiosis International University,1,22,13,9,4,I244572783,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,268
+CSIR-IGIB,National AIDS Research Institute,1,22,10,12,2611,I4210159305,ICMR,TRUE,CSIR↔ICMR,FALSE,FALSE,,,269
+CSIR-IGIB,All India Institute of Medical Sciences Bibinagar,1,22,21,1,2,I4405252828,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,270
+CSIR-IGIB,BRIC-National Agri-Food and Biomanufacturing Institute,1,22,13,9,24,I4210164849,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,271
 CSIR-IGIB,Tata Institute for Genetics and Society,1,22,21,1,2,I4210156799,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,272
-CSIR-IGIB,Central University of Tamil Nadu,1,21,14,7,2611,I112471378,Central University,TRUE,CSIR↔Central University,FALSE,FALSE,,,273
-CSIR-IGIB,National Institute for Research in Tribal Health,1,21,9,12,7,I4210100515,ICMR,TRUE,CSIR↔ICMR,FALSE,FALSE,,,274
-CSIR-IGIB,Gauhati University,1,21,9,12,30,I138537684,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,275
-CSIR-IGIB,Adamas University,1,21,17,4,43,I3130244785,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,276
-CSIR-IGIB,University of Rajasthan,1,20,9,11,11,I99552915,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,277
-CSIR-IGIB,North Bengal University,1,20,10,10,16,I56090587,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,278
-CSIR-IGIB,Kurukshetra University,1,19,4,15,35,I178000100,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,279
+CSIR-IGIB,Adamas University,1,21,17,4,43,I3130244785,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,273
+CSIR-IGIB,Gauhati University,1,21,9,12,30,I138537684,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,274
+CSIR-IGIB,National Institute for Research in Tribal Health,1,21,9,12,7,I4210100515,ICMR,TRUE,CSIR↔ICMR,FALSE,FALSE,,,275
+CSIR-IGIB,Central University of Tamil Nadu,1,21,14,7,2611,I112471378,Central University,TRUE,CSIR↔Central University,FALSE,FALSE,,,276
+CSIR-IGIB,North Bengal University,1,20,10,10,16,I56090587,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,277
+CSIR-IGIB,University of Rajasthan,1,20,9,11,11,I99552915,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,278
+CSIR-IGIB,Parul University (Vadodara),1,19,19,0,0,I9694494,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,279
 CSIR-IGIB,National Institute of Cancer Prevention and Research,1,19,9,10,17,I4210160993,ICMR,TRUE,CSIR↔ICMR,FALSE,FALSE,,,280
-CSIR-IGIB,Medanta The Medicity (Indore),1,19,9,10,9,I4210115207,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,281
-CSIR-IGIB,Parul University (Vadodara),1,19,19,0,0,I9694494,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,282
+CSIR-IGIB,Kurukshetra University,1,19,4,15,35,I178000100,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,281
+CSIR-IGIB,Medanta The Medicity (Indore),1,19,9,10,9,I4210115207,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,282
 CSIR-IGIB,Gujarat Biotechnology Research Centre,1,19,5,14,3,I4405268643,Government,TRUE,CSIR↔Government,FALSE,FALSE,,,283
-CSIR-IGIB,"Vignan's Foundation for Science, Technology & Research",1,18,13,5,10,I149313025,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,284
-CSIR-IGIB,"All India Institute of Ayurveda, New Delhi",1,18,16,2,12,I4405252805,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,285
+CSIR-IGIB,"All India Institute of Ayurveda, New Delhi",1,18,16,2,12,I4405252805,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,284
+CSIR-IGIB,"Vignan's Foundation for Science, Technology & Research",1,18,13,5,10,I149313025,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,285
 CSIR-IGIB,Agharkar Research Institute,1,17,10,7,2611,I151205615,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,286
 CSIR-IGIB,Osmania Medical College,1,17,3,14,76,I99557698,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,287
 CSIR-IGIB,National Institute of Technology Durgapur,1,16,11,5,22,I155837530,NIT,TRUE,CSIR↔NIT,FALSE,FALSE,,,288
-CSIR-IGIB,Jawaharlal Nehru Medical College (Belagavi),1,16,9,7,21,I4210104297,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,289
+CSIR-IGIB,All India Institute of Medical Sciences Raipur,1,16,10,6,20,I129734738,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,289
 CSIR-IGIB,King Institute of Preventive Medicine and Research,1,16,7,9,76,I323874257,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,290
 CSIR-IGIB,Institute of Neurosciences Kolkata,1,16,10,6,3,I4210115788,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,291
 CSIR-IGIB,"All India Institute of Medical Sciences, Kalyani",1,16,12,4,0,I4405255515,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,292
-CSIR-IGIB,All India Institute of Medical Sciences Raipur,1,16,10,6,20,I129734738,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,293
-CSIR-IGIB,University of Kalyani,1,15,8,7,5,I77501641,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,294
-CSIR-IGIB,Lokmanya Tilak Municipal General Hospital and Lokmanya Tilak Municipal Medical College,1,15,9,6,0,I2800471911,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,295
-CSIR-IGIB,Holy Family Hospital,1,14,4,10,5,I1329324871,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,296
-CSIR-IGIB,Sri Venkateswara Institute of Medical Sciences,1,14,5,9,0,I107740395,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,297
-CSIR-IGIB,Barkatullah University,1,14,8,6,2611,I464993,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,298
-CSIR-IGIB,Rungta College,1,14,7,7,89,I4405259702,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,299
-CSIR-IGIB,Kuvempu University,1,13,5,8,6,I178319760,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,300
-CSIR-IGIB,Rajiv Gandhi Technical University,1,13,2,11,31,I196622127,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,301
-CSIR-IGIB,Shobhit University,1,13,8,5,43,I191247993,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,302
-CSIR-IGIB,TERI University,1,13,3,10,0,I118315836,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,303
+CSIR-IGIB,Jawaharlal Nehru Medical College (Belagavi),1,16,9,7,21,I4210104297,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,293
+CSIR-IGIB,Lokmanya Tilak Municipal General Hospital and Lokmanya Tilak Municipal Medical College,1,15,9,6,0,I2800471911,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,294
+CSIR-IGIB,University of Kalyani,1,15,8,7,5,I77501641,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,295
+CSIR-IGIB,Sri Venkateswara Institute of Medical Sciences,1,14,5,9,0,I107740395,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,296
+CSIR-IGIB,Holy Family Hospital,1,14,4,10,5,I1329324871,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,297
+CSIR-IGIB,Rungta College,1,14,7,7,89,I4405259702,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,298
+CSIR-IGIB,Barkatullah University,1,14,8,6,2611,I464993,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,299
+CSIR-IGIB,TERI University,1,13,3,10,0,I118315836,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,300
+CSIR-IGIB,Kuvempu University,1,13,5,8,6,I178319760,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,301
+CSIR-IGIB,Rajiv Gandhi Technical University,1,13,2,11,31,I196622127,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,302
+CSIR-IGIB,Shobhit University,1,13,8,5,43,I191247993,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,303
 CSIR-IGIB,Amity University Jaipur,1,13,10,3,5,I4405263076,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,304
-CSIR-IGIB,Deenanath Mangeshkar Hospital and Research Center,1,12,7,5,21,I4210116893,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,305
-CSIR-IGIB,National Institute of Occupational Health,1,12,1,11,7,I4210105310,ICMR,TRUE,CSIR↔ICMR,FALSE,FALSE,,,306
-CSIR-IGIB,Sardar Patel University,1,11,2,9,20,I57085157,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,307
-CSIR-IGIB,Presidency University,1,11,5,6,5,I157674215,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,308
-CSIR-IGIB,Kerala University of Fisheries and Ocean Studies,1,11,5,6,1,I221342038,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,309
+CSIR-IGIB,National Institute of Occupational Health,1,12,1,11,7,I4210105310,ICMR,TRUE,CSIR↔ICMR,FALSE,FALSE,,,305
+CSIR-IGIB,Deenanath Mangeshkar Hospital and Research Center,1,12,7,5,21,I4210116893,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,306
+CSIR-IGIB,Government Medical College and Hospital (Trivandrum),1,11,6,5,5,I4210093352,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,307
+CSIR-IGIB,Sardar Patel University,1,11,2,9,20,I57085157,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,308
+CSIR-IGIB,Serum Institute of India (India),1,11,5,6,21,I3131544347,Industry,TRUE,CSIR↔Industry,FALSE,FALSE,,,309
 CSIR-IGIB,Hemchandracharya North Gujarat University,1,11,6,5,22,I335036346,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,310
 CSIR-IGIB,World Health Organization Regional Office for South-East Asia,1,11,2,9,78,I4210112062,Government,TRUE,CSIR↔Government,FALSE,FALSE,,,311
-CSIR-IGIB,South Asian University,1,11,5,6,19,I90425906,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,312
-CSIR-IGIB,Serum Institute of India (India),1,11,5,6,21,I3131544347,Industry,TRUE,CSIR↔Industry,FALSE,FALSE,,,313
-CSIR-IGIB,Government Medical College and Hospital (Trivandrum),1,11,6,5,5,I4210093352,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,314
-CSIR-IGIB,Pramukhswami Medical College,1,10,8,2,3,I4210120131,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,315
-CSIR-IGIB,Bundelkhand University,1,10,3,7,14,I190570697,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,316
-CSIR-IGIB,Central University of Jammu,1,10,7,3,54,I4210142231,Central University,TRUE,CSIR↔Central University,FALSE,FALSE,,,317
-CSIR-IGIB,Apollo Gleneagles Hospitals,1,10,2,8,31,I2801225794,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,318
-CSIR-IGIB,M S Ramaiah University of Applied Sciences,1,9,7,2,33,I302410947,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,319
-CSIR-IGIB,Heart Care Foundation of India,1,9,3,6,78,I4405282263,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,320
-CSIR-IGIB,Fortis Memorial Research Institute,1,9,8,1,3,I4210108369,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,321
-CSIR-IGIB,Aster Medcity,1,9,7,2,4,I4210150119,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,322
-CSIR-IGIB,Gujarat Ayurved University,1,9,5,4,0,I2800605627,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,323
-CSIR-IGIB,Tamil Nadu Agricultural University,1,9,8,1,4,I134900695,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,324
+CSIR-IGIB,Kerala University of Fisheries and Ocean Studies,1,11,5,6,1,I221342038,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,312
+CSIR-IGIB,South Asian University,1,11,5,6,19,I90425906,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,313
+CSIR-IGIB,Presidency University,1,11,5,6,5,I157674215,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,314
+CSIR-IGIB,Central University of Jammu,1,10,7,3,54,I4210142231,Central University,TRUE,CSIR↔Central University,FALSE,FALSE,,,315
+CSIR-IGIB,Apollo Gleneagles Hospitals,1,10,2,8,31,I2801225794,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,316
+CSIR-IGIB,Bundelkhand University,1,10,3,7,14,I190570697,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,317
+CSIR-IGIB,Pramukhswami Medical College,1,10,8,2,3,I4210120131,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,318
+CSIR-IGIB,Gujarat Ayurved University,1,9,5,4,0,I2800605627,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,319
+CSIR-IGIB,Fortis Memorial Research Institute,1,9,8,1,3,I4210108369,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,320
+CSIR-IGIB,M S Ramaiah University of Applied Sciences,1,9,7,2,33,I302410947,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,321
+CSIR-IGIB,Tamil Nadu Agricultural University,1,9,8,1,4,I134900695,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,322
+CSIR-IGIB,Heart Care Foundation of India,1,9,3,6,78,I4405282263,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,323
+CSIR-IGIB,Aster Medcity,1,9,7,2,4,I4210150119,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,324
 CSIR-IGIB,Sri Jayadeva Institute of Cardiovascular Sciences and Research,1,9,8,1,4,I2803020280,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,325
-CSIR-IGIB,Society for Applied Studies,1,8,0,8,1,I4210095463,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,326
-CSIR-IGIB,JIS University,1,8,7,1,23,I4405256552,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,327
-CSIR-IGIB,XIM University,1,8,7,1,22,I4210137468,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,328
-CSIR-IGIB,Kerala University of Health Sciences,1,8,6,2,0,I348718759,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,329
-CSIR-IGIB,West Bengal University of Animal and Fishery Sciences,1,8,4,4,0,I75444546,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,330
-CSIR-IGIB,Indian Institute of Public Health Gandhinagar,1,8,3,5,1,I4210156591,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,331
+CSIR-IGIB,Kerala University of Health Sciences,1,8,6,2,0,I348718759,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,326
+CSIR-IGIB,XIM University,1,8,7,1,22,I4210137468,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,327
+CSIR-IGIB,JIS University,1,8,7,1,23,I4405256552,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,328
+CSIR-IGIB,Society for Applied Studies,1,8,0,8,1,I4210095463,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,329
+CSIR-IGIB,Indian Institute of Public Health Gandhinagar,1,8,3,5,1,I4210156591,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,330
+CSIR-IGIB,West Bengal University of Animal and Fishery Sciences,1,8,4,4,0,I75444546,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,331
 CSIR-IGIB,Charotar University of Science and Technology,1,7,6,1,20,I33459947,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,332
-CSIR-IGIB,Unilever (India),1,7,2,5,30,I4210124316,Industry,TRUE,CSIR↔Industry,FALSE,FALSE,,,333
-CSIR-IGIB,Suamandeep Vidyapeeth University,1,7,4,3,0,I4210119093,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,334
-CSIR-IGIB,Bennett University,1,6,5,1,7,I3129773123,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,335
-CSIR-IGIB,INCLEN Trust International,1,6,1,5,1,I4210164175,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,336
-CSIR-IGIB,"National Institute of Science, Technology and Development Studies",1,6,0,6,25,I4210128462,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,337
-CSIR-IGIB,Central Institute of Brackishwater Aquaculture,1,6,3,3,208,I2800988382,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,338
-CSIR-IGIB,International Crops Research Institute for the Semi-Arid Tropics,1,6,1,5,3,I4210163774,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,339
-CSIR-IGIB,Ahmedabad University,1,6,3,3,1,I52527943,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,340
+CSIR-IGIB,Suamandeep Vidyapeeth University,1,7,4,3,0,I4210119093,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,333
+CSIR-IGIB,Unilever (India),1,7,2,5,30,I4210124316,Industry,TRUE,CSIR↔Industry,FALSE,FALSE,,,334
+CSIR-IGIB,"National Institute of Science, Technology and Development Studies",1,6,0,6,25,I4210128462,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,335
+CSIR-IGIB,International Crops Research Institute for the Semi-Arid Tropics,1,6,1,5,3,I4210163774,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,336
+CSIR-IGIB,Central Institute of Brackishwater Aquaculture,1,6,3,3,208,I2800988382,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,337
+CSIR-IGIB,Ahmedabad University,1,6,3,3,1,I52527943,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,338
+CSIR-IGIB,Bennett University,1,6,5,1,7,I3129773123,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,339
+CSIR-IGIB,INCLEN Trust International,1,6,1,5,1,I4210164175,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,340
 CSIR-IGIB,Kerala Institute of Medical Sciences,1,6,3,3,5,I4210127957,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,341
-CSIR-IGIB,Ambedkar University Delhi,1,5,3,2,1,I190765188,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,342
-CSIR-IGIB,Narayan Medical College and Hospital,1,5,1,4,0,I4210141553,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,343
-CSIR-IGIB,Krantisinh Nana Patil College of Veterinary Science,1,5,3,2,139,I4210160490,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,344
-CSIR-IGIB,Indira Gandhi Institute of Medical Sciences,1,5,5,0,0,I238035932,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,345
-CSIR-IGIB,Mahatma Gandhi Medical College and Research Institute,1,5,0,5,0,I1302623664,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,346
+CSIR-IGIB,Raiganj University,1,5,4,1,16,I275778967,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,342
+CSIR-IGIB,Mody University of Science and Technology,1,5,4,1,22,I72563045,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,343
+CSIR-IGIB,Baba Raghav Das Medical College,1,5,4,1,1,I2799408090,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,344
+CSIR-IGIB,Central Mechanical Engineering Research Institute,1,5,4,1,16,I70735523,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,345
+CSIR-IGIB,Narayan Medical College and Hospital,1,5,1,4,0,I4210141553,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,346
 CSIR-IGIB,"Ministry of Environment, Forests and Climate Change",1,5,4,1,20,I1291012402,Government,TRUE,CSIR↔Government,FALSE,FALSE,,,347
-CSIR-IGIB,Raiganj University,1,5,4,1,16,I275778967,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,348
-CSIR-IGIB,Mody University of Science and Technology,1,5,4,1,22,I72563045,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,349
-CSIR-IGIB,Central Mechanical Engineering Research Institute,1,5,4,1,16,I70735523,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,350
-CSIR-IGIB,Baba Raghav Das Medical College,1,5,4,1,1,I2799408090,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,351
-CSIR-IGIB,Dr. Baba Saheb Ambedkar Medical College and Hospital,1,5,3,2,47,I4405278595,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,352
+CSIR-IGIB,Krantisinh Nana Patil College of Veterinary Science,1,5,3,2,139,I4210160490,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,348
+CSIR-IGIB,Dr. Baba Saheb Ambedkar Medical College and Hospital,1,5,3,2,47,I4405278595,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,349
+CSIR-IGIB,Ambedkar University Delhi,1,5,3,2,1,I190765188,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,350
+CSIR-IGIB,Indira Gandhi Institute of Medical Sciences,1,5,5,0,0,I238035932,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,351
+CSIR-IGIB,Mahatma Gandhi Medical College and Research Institute,1,5,0,5,0,I1302623664,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,352
 CSIR-IGIB,Bhubaneswar Borooah Cancer Institute,1,4,1,3,32,I2800073537,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,353
-CSIR-IGIB,Biotech Park,1,4,1,3,21,I4210100303,Government,TRUE,CSIR↔Government,FALSE,FALSE,,,354
-CSIR-IGIB,Kanya Maha Vidyalaya,1,4,1,3,117,I28630478,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,355
-CSIR-IGIB,Kannur University,1,4,2,2,1,I52703040,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,356
-CSIR-IGIB,ITM University,1,4,3,1,28,I191366470,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,357
-CSIR-IGIB,Subbaiah Medical College,1,3,1,2,5,I4210111051,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,358
-CSIR-IGIB,DBT/Wellcome Trust India Alliance,1,3,2,1,23,I4210160166,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,359
-CSIR-IGIB,R. G. Kar Medical College and Hospital,1,3,1,2,23,I336022086,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,360
+CSIR-IGIB,ITM University,1,4,3,1,28,I191366470,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,354
+CSIR-IGIB,Biotech Park,1,4,1,3,21,I4210100303,Government,TRUE,CSIR↔Government,FALSE,FALSE,,,355
+CSIR-IGIB,Kanya Maha Vidyalaya,1,4,1,3,117,I28630478,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,356
+CSIR-IGIB,Kannur University,1,4,2,2,1,I52703040,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,357
+CSIR-IGIB,Paras Hospitals,1,3,2,1,19,I4210092216,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,358
+CSIR-IGIB,R. G. Kar Medical College and Hospital,1,3,1,2,23,I336022086,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,359
+CSIR-IGIB,Sri Balaji Vidyapeeth University,1,3,3,0,0,I4210115345,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,360
 CSIR-IGIB,Rajagiri Hospital,1,3,2,1,5,I4210113677,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,361
-CSIR-IGIB,North Eastern Indira Gandhi Regional Institute of Health and Medical Sciences,1,3,3,0,7,I231543472,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,362
-CSIR-IGIB,Woxsen School of Business,1,3,2,1,22,I3131870445,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,363
-CSIR-IGIB,Paras Hospitals,1,3,2,1,19,I4210092216,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,364
-CSIR-IGIB,Sri Balaji Vidyapeeth University,1,3,3,0,0,I4210115345,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,365
-CSIR-IGIB,BAIF Development Research Foundation,1,3,3,0,11,I2800340409,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,366
-CSIR-IGIB,Mediciti Institute of Medical Sciences,1,3,1,2,1,I3130691990,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,367
+CSIR-IGIB,Woxsen School of Business,1,3,2,1,22,I3131870445,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,362
+CSIR-IGIB,Mediciti Institute of Medical Sciences,1,3,1,2,1,I3130691990,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,363
+CSIR-IGIB,DBT/Wellcome Trust India Alliance,1,3,2,1,23,I4210160166,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,364
+CSIR-IGIB,North Eastern Indira Gandhi Regional Institute of Health and Medical Sciences,1,3,3,0,7,I231543472,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,365
+CSIR-IGIB,Subbaiah Medical College,1,3,1,2,5,I4210111051,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,366
+CSIR-IGIB,BAIF Development Research Foundation,1,3,3,0,11,I2800340409,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,367
 CSIR-IGIB,Dr. Shroff’s Charity Eye Hospital,1,2,2,0,35,I4210134825,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,368
-CSIR-IGIB,Baby Memorial Hospital,1,2,2,0,1,I4210147874,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,369
-CSIR-IGIB,Eastern Command Hospital,1,2,1,1,1,I4210113612,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,370
-CSIR-IGIB,Women's Christian College,1,2,0,2,0,I4405265746,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,371
-CSIR-IGIB,Sri Manakula Vinayagar Medical College and Hospital,1,2,1,1,2,I4210141780,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,372
-CSIR-IGIB,Care Institute of Medical Sciences,1,2,2,0,0,I2801933607,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,373
+CSIR-IGIB,"J.C. Bose University of Science & Technology, YMCA",1,2,2,0,20,I55124831,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,369
+CSIR-IGIB,Care Institute of Medical Sciences,1,2,2,0,0,I2801933607,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,370
+CSIR-IGIB,Eastern Command Hospital,1,2,1,1,1,I4210113612,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,371
+CSIR-IGIB,Science Health Allied Research Education,1,2,0,2,1,I4210150225,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,372
+CSIR-IGIB,Women's Christian College,1,2,0,2,0,I4405265746,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,373
 CSIR-IGIB,Choithram Hospital and Research Centre,1,2,1,1,18,I4210161314,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,374
-CSIR-IGIB,Science and Engineering Research Board,1,2,2,0,61,I2799536621,Government,TRUE,CSIR↔Government,FALSE,FALSE,,,375
+CSIR-IGIB,Baby Memorial Hospital,1,2,2,0,1,I4210147874,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,375
 CSIR-IGIB,"St Joseph's University, Bengaluru, India",1,2,0,2,33,I4403928339,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,376
-CSIR-IGIB,Science Health Allied Research Education,1,2,0,2,1,I4210150225,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,377
-CSIR-IGIB,"J.C. Bose University of Science & Technology, YMCA",1,2,2,0,20,I55124831,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,378
-CSIR-IGIB,Lifeline Hospital,1,1,0,1,3,I4210160031,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,379
-CSIR-IGIB,Lata Medical Research Foundation,1,1,0,1,1,I4210090168,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,380
-CSIR-IGIB,Velammal Medical College Hospital and Research Institute,1,1,0,1,19,I4210104323,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,381
-CSIR-IGIB,JECRC University,1,1,1,0,1,I3131927718,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,382
-CSIR-IGIB,Lala Lajpat Rai Memorial Medical College,1,0,0,0,1,I219845778,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,383
-CSIR-IGIB,Ansal University,1,0,0,0,70,I170110779,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,384
-CSIR-IGIB,Society for Education Welfare and Action Rural,1,0,0,0,1,I4210110511,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,385
-CSIR-IGIB,National Informatics Centre,1,0,0,0,2,I4210160811,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,386
-CSIR-IGIB,Nalbari College,1,0,0,0,10,I4405277624,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,387
-CSIR-IGIB,Jaypee Hospital,1,0,0,0,19,I4210159756,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,388
-CSIR-IGIB,YR Gaitonde Centre for AIDS Research and Education,1,0,0,0,23,I4210127818,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,389
-CSIR-IGIB,Indira Gandhi Delhi Technical University for Women,1,0,0,0,1,I4210143260,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,390
+CSIR-IGIB,Science and Engineering Research Board,1,2,2,0,61,I2799536621,Government,TRUE,CSIR↔Government,FALSE,FALSE,,,377
+CSIR-IGIB,Sri Manakula Vinayagar Medical College and Hospital,1,2,1,1,2,I4210141780,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,378
+CSIR-IGIB,Velammal Medical College Hospital and Research Institute,1,1,0,1,19,I4210104323,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,379
+CSIR-IGIB,JECRC University,1,1,1,0,1,I3131927718,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,380
+CSIR-IGIB,Lifeline Hospital,1,1,0,1,3,I4210160031,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,381
+CSIR-IGIB,Lata Medical Research Foundation,1,1,0,1,1,I4210090168,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,382
+CSIR-IGIB,Ansal University,1,0,0,0,70,I170110779,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,383
+CSIR-IGIB,Society for Education Welfare and Action Rural,1,0,0,0,1,I4210110511,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,384
+CSIR-IGIB,Nalbari College,1,0,0,0,10,I4405277624,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,385
+CSIR-IGIB,Indira Gandhi Delhi Technical University for Women,1,0,0,0,1,I4210143260,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,386
+CSIR-IGIB,YR Gaitonde Centre for AIDS Research and Education,1,0,0,0,23,I4210127818,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,387
+CSIR-IGIB,Lala Lajpat Rai Memorial Medical College,1,0,0,0,1,I219845778,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,388
+CSIR-IGIB,National Informatics Centre,1,0,0,0,2,I4210160811,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,389
+CSIR-IGIB,Jaypee Hospital,1,0,0,0,19,I4210159756,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,390
 CSIR-IMTECH,Panjab University,83,555,260,295,1664,I51452335,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,0.1429,0.3985,1
-CSIR-IMTECH,Post Graduate Institute of Medical Education and Research,43,279,118,161,3846,I45294948,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,0.0753,0.4308,2
-CSIR-IMTECH,National Institute of Pharmaceutical Education and Research (Mohali),41,410,167,243,593,I4210152674,Government,TRUE,CSIR↔Government,FALSE,FALSE,0.1834,0.5897,3
+CSIR-IMTECH,Post Graduate Institute of Medical Education and Research,43,279,118,161,3846,I45294948,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,0.0753,0.4308,2
+CSIR-IMTECH,National Institute of Pharmaceutical Education and Research (Mohali),41,410,167,243,593,I4210152674,NIPER,TRUE,CSIR↔NIPER,FALSE,FALSE,0.1834,0.5897,3
 CSIR-IMTECH,Central Scientific Instruments Organisation,28,85,54,31,1102,I42095658,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,0.0417,0.4308,4
 CSIR-IMTECH,Indian Institute of Technology Ropar,20,140,101,39,3483,I119241673,IIT,TRUE,CSIR↔IIT,FALSE,FALSE,0.005,0.3099,5
 CSIR-IMTECH,Nirma University,20,131,49,82,426,I165831266,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,0.0471,0.3286,6
 CSIR-IMTECH,Indian Institute of Science Education and Research Mohali,19,148,62,86,532,I165916956,IISc/TIFR/IISER,TRUE,CSIR↔IISc/TIFR/IISER,FALSE,FALSE,0.0695,0.3577,7
-CSIR-IMTECH,National Institute of Pharmaceutical Education and Research (Hyderabad),18,179,117,62,301,I4210146715,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,0.1976,0.5897,8
+CSIR-IMTECH,National Institute of Pharmaceutical Education and Research (Hyderabad),18,179,117,62,301,I4210146715,NIPER,TRUE,CSIR↔NIPER,FALSE,FALSE,0.1976,0.5897,8
 CSIR-IMTECH,Central University of Punjab,18,106,72,34,209,I114724429,Central University,TRUE,CSIR↔Central University,FALSE,FALSE,0.1236,0.4308,9
 CSIR-IMTECH,CSIR-CCMB,17,225,79,146,237,I185638415,CSIR,FALSE,CSIR↔CSIR,TRUE,FALSE,0.2422,0.5763,10
 CSIR-IMTECH,Translational Health Science and Technology Institute,16,280,136,144,2906,I2801880299,Government,TRUE,CSIR↔Government,FALSE,FALSE,0.2422,0.5431,11
@@ -1176,7 +1176,7 @@ CSIR-IMTECH,Central Food Technological Research Institute,6,42,20,22,137,I150037
 CSIR-IMTECH,Indian Institute of Technology Kharagpur,5,94,49,45,70,I145894827,IIT,TRUE,CSIR↔IIT,FALSE,FALSE,,,34
 CSIR-IMTECH,National Institute of Immunology,5,89,35,54,32,I4210156726,Government,TRUE,CSIR↔Government,FALSE,FALSE,,,35
 CSIR-IMTECH,Pondicherry University,5,68,43,25,45,I175691731,Central University,TRUE,CSIR↔Central University,FALSE,FALSE,,,36
-CSIR-IMTECH,National Institute of Pharmaceutical Education and Research (Guwahati),5,36,24,12,122,I4210154014,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,37
+CSIR-IMTECH,National Institute of Pharmaceutical Education and Research (Guwahati),5,36,24,12,122,I4210154014,NIPER,TRUE,CSIR↔NIPER,FALSE,FALSE,,,37
 CSIR-IMTECH,Galgotias University,5,20,20,0,74,I155125381,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,38
 CSIR-IMTECH,Banaras Hindu University,4,171,91,80,2690,I91357014,Central University,TRUE,CSIR↔Central University,FALSE,FALSE,,,39
 CSIR-IMTECH,All India Institute of Medical Sciences,4,169,54,115,2646,I63739035,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,40
@@ -1195,8 +1195,8 @@ CSIR-IMTECH,University of Calcutta,3,79,23,56,2701,I106542073,University (other)
 CSIR-IMTECH,Indian Institute of Chemical Technology,3,64,27,37,65,I55664587,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,53
 CSIR-IMTECH,"Maharishi Markandeshwar University, Mullana",3,63,44,19,62,I155284866,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,54
 CSIR-IMTECH,Jawaharlal Nehru Centre for Advanced Scientific Research,3,59,16,43,2636,I147481903,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,55
-CSIR-IMTECH,National Centre for Biological Sciences,3,40,11,29,26,I194223965,IISc/TIFR/IISER,TRUE,CSIR↔IISc/TIFR/IISER,FALSE,FALSE,,,56
-CSIR-IMTECH,National Institute of Plant Genome Research,3,40,14,26,21,I4210153536,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,57
+CSIR-IMTECH,National Institute of Plant Genome Research,3,40,14,26,21,I4210153536,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,56
+CSIR-IMTECH,National Centre for Biological Sciences,3,40,11,29,26,I194223965,IISc/TIFR/IISER,TRUE,CSIR↔IISc/TIFR/IISER,FALSE,FALSE,,,57
 CSIR-IMTECH,Guru Jambheshwar University of Science and Technology,3,39,21,18,151,I15896350,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,58
 CSIR-IMTECH,University of Jammu,3,34,18,16,118,I145846420,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,59
 CSIR-IMTECH,Institute of Bioinformatics and Applied Biotechnology,3,30,28,2,103,I4210153885,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,60
@@ -1204,8 +1204,8 @@ CSIR-IMTECH,Central Salt and Marine Chemicals Research Institute,3,30,11,19,72,I
 CSIR-IMTECH,Veer Narmad South Gujarat University,3,19,14,5,2,I10926426,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,62
 CSIR-IMTECH,Defence Research and Development Organisation,3,15,9,6,2617,I1340206300,Government,TRUE,CSIR↔Government,FALSE,FALSE,,,63
 CSIR-IMTECH,Jiwaji University,3,14,2,12,88,I102471911,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,64
-CSIR-IMTECH,Topiwala National Medical College & BYL Nair Charitable Hospital,3,10,4,6,45,I3024917321,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,65
-CSIR-IMTECH,Indian Institute of Petroleum,3,10,6,4,48,I84279003,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,66
+CSIR-IMTECH,Indian Institute of Petroleum,3,10,6,4,48,I84279003,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,65
+CSIR-IMTECH,Topiwala National Medical College & BYL Nair Charitable Hospital,3,10,4,6,45,I3024917321,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,66
 CSIR-IMTECH,Defence Institute of High Altitude Research,3,7,3,4,14,I4210090935,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,67
 CSIR-IMTECH,Central Building Research Institute,3,6,4,2,62,I2801347850,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,68
 CSIR-IMTECH,National Metallurgical Laboratory,3,6,3,3,20,I4210111921,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,69
@@ -1227,13 +1227,13 @@ CSIR-IMTECH,Indian Agricultural Research Institute,2,38,18,20,86,I45509622,Other
 CSIR-IMTECH,Homi Bhabha National Institute,2,37,29,8,2612,I200207707,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,85
 CSIR-IMTECH,National Environmental Engineering Research Institute,2,36,18,18,41,I170347488,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,86
 CSIR-IMTECH,North East Institute of Science and Technology,2,33,24,9,41,I2800857658,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,87
-CSIR-IMTECH,National Institute of Pharmaceutical Education and Research (Kolkata),2,31,19,12,51,I4210161501,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,88
+CSIR-IMTECH,National Institute of Pharmaceutical Education and Research (Kolkata),2,31,19,12,51,I4210161501,NIPER,TRUE,CSIR↔NIPER,FALSE,FALSE,,,88
 CSIR-IMTECH,Indian Institute of Technology Indore,2,30,19,11,2620,I64295750,IIT,TRUE,CSIR↔IIT,FALSE,FALSE,,,89
-CSIR-IMTECH,National Institute of Pharmaceutical Education and Research (Raebareli),2,29,20,9,51,I4210103783,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,90
-CSIR-IMTECH,Punjab Agricultural University,2,29,18,11,28,I899646,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,91
+CSIR-IMTECH,Punjab Agricultural University,2,29,18,11,28,I899646,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,90
+CSIR-IMTECH,National Institute of Pharmaceutical Education and Research (Raebareli),2,29,20,9,51,I4210103783,NIPER,TRUE,CSIR↔NIPER,FALSE,FALSE,,,91
 CSIR-IMTECH,Indian Institute of Rice Research,2,25,10,15,87,I1298986040,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,92
-CSIR-IMTECH,University of Burdwan,2,24,13,11,31,I132359460,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,93
-CSIR-IMTECH,Vidyasagar University,2,24,8,16,6,I41549804,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,94
+CSIR-IMTECH,Vidyasagar University,2,24,8,16,6,I41549804,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,93
+CSIR-IMTECH,University of Burdwan,2,24,13,11,31,I132359460,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,94
 CSIR-IMTECH,Shree Guru Gobind Singh Tricentenary University,2,22,19,3,4,I3130021832,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,95
 CSIR-IMTECH,National Institute of Mental Health and Neurosciences,2,20,5,15,2612,I699696,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,96
 CSIR-IMTECH,Tripura University,2,19,14,5,2,I72677176,Central University,TRUE,CSIR↔Central University,FALSE,FALSE,,,97
@@ -1244,15 +1244,15 @@ CSIR-IMTECH,Indian Institute of Science Education and Research Thiruvananthapura
 CSIR-IMTECH,Institute of Minerals and Materials Technology,2,13,11,2,41,I4210107015,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,102
 CSIR-IMTECH,"International Institute of Information Technology, Hyderabad",2,11,3,8,34,I64189192,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,103
 CSIR-IMTECH,Mynvax (India),2,9,1,8,25,I4405259513,Industry,TRUE,CSIR↔Industry,FALSE,FALSE,,,104
-CSIR-IMTECH,Sree Chitra Thirunal Institute for Medical Sciences and Technology,2,8,4,4,68,I2800373951,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,105
+CSIR-IMTECH,Sree Chitra Thirunal Institute for Medical Sciences and Technology,2,8,4,4,68,I2800373951,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,105
 CSIR-IMTECH,Advanced Materials and Processes Research Institute,2,6,4,2,41,I115635661,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,106
 CSIR-IMTECH,Central Electrochemical Research Institute,2,6,4,2,41,I106349282,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,107
-CSIR-IMTECH,Punjab Technical University,2,4,2,2,17,I94616015,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,108
-CSIR-IMTECH,Center for Excellence in Basic Sciences,2,4,2,2,10,I4210156819,DAE,TRUE,CSIR↔DAE,FALSE,FALSE,,,109
-CSIR-IMTECH,D.A.V. College Chandigarh,2,4,2,2,12,I4405276032,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,110
+CSIR-IMTECH,D.A.V. College Chandigarh,2,4,2,2,12,I4405276032,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,108
+CSIR-IMTECH,Punjab Technical University,2,4,2,2,17,I94616015,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,109
+CSIR-IMTECH,Center for Excellence in Basic Sciences,2,4,2,2,10,I4210156819,DAE,TRUE,CSIR↔DAE,FALSE,FALSE,,,110
 CSIR-IMTECH,Central Institute of Mining and Fuel Research,2,4,2,2,41,I4210127669,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,111
-CSIR-IMTECH,National Aerospace Laboratories,2,2,1,1,41,I1286499117,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,112
-CSIR-IMTECH,Mahindra University,2,2,2,0,34,I4210164565,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,113
+CSIR-IMTECH,Mahindra University,2,2,2,0,34,I4210164565,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,112
+CSIR-IMTECH,National Aerospace Laboratories,2,2,1,1,41,I1286499117,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,113
 CSIR-IMTECH,National Geophysical Research Institute,2,2,1,1,41,I22716965,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,114
 CSIR-IMTECH,Fourth Paradigm Institute,2,2,1,1,41,I2799463389,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,115
 CSIR-IMTECH,IBM (India),2,0,0,0,34,I4210129961,Industry,TRUE,CSIR↔Industry,FALSE,FALSE,,,116
@@ -1260,10 +1260,10 @@ CSIR-IMTECH,Vellore Institute of Technology University,1,142,96,46,2611,I8761937
 CSIR-IMTECH,Indian Institute of Technology Delhi,1,99,55,44,2611,I68891433,IIT,TRUE,CSIR↔IIT,FALSE,FALSE,,,118
 CSIR-IMTECH,SRM Institute of Science and Technology,1,81,65,16,2,I145286018,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,119
 CSIR-IMTECH,Jadavpur University,1,72,36,36,2611,I170979836,Central University,TRUE,CSIR↔Central University,FALSE,FALSE,,,120
-CSIR-IMTECH,Institute of Medical Sciences,1,67,26,41,48,I51317819,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,121
+CSIR-IMTECH,Institute of Medical Sciences,1,67,26,41,48,I51317819,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,121
 CSIR-IMTECH,National Institute of Technology Rourkela,1,64,30,34,2611,I16292982,NIT,TRUE,CSIR↔NIT,FALSE,FALSE,,,122
-CSIR-IMTECH,Indian Institute of Technology Bombay,1,59,28,31,4,I162827531,IIT,TRUE,CSIR↔IIT,FALSE,FALSE,,,123
-CSIR-IMTECH,SASTRA University,1,59,36,23,1,I932239252,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,124
+CSIR-IMTECH,SASTRA University,1,59,36,23,1,I932239252,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,123
+CSIR-IMTECH,Indian Institute of Technology Bombay,1,59,28,31,4,I162827531,IIT,TRUE,CSIR↔IIT,FALSE,FALSE,,,124
 CSIR-IMTECH,University of Madras,1,56,18,38,2611,I215927,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,125
 CSIR-IMTECH,KIIT University,1,55,33,22,2611,I67357951,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,126
 CSIR-IMTECH,Indian Institute of Technology Roorkee,1,53,31,22,18,I154851008,IIT,TRUE,CSIR↔IIT,FALSE,FALSE,,,127
@@ -1278,80 +1278,80 @@ CSIR-IMTECH,Indian Institute of Science Education and Research Pune,1,36,18,18,2
 CSIR-IMTECH,Bharati Vidyapeeth (Deemed to be University),1,35,19,16,24,I887998513,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,136
 CSIR-IMTECH,Institute of Life Sciences,1,34,14,20,2611,I4210118921,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,137
 CSIR-IMTECH,Yenepoya Research Centre,1,31,11,20,48,I4405268903,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,138
-CSIR-IMTECH,Indian Institute of Technology Jodhpur,1,27,18,9,2611,I154549908,IIT,TRUE,CSIR↔IIT,FALSE,FALSE,,,139
-CSIR-IMTECH,National Botanical Research Institute,1,27,13,14,16,I170396143,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,140
-CSIR-IMTECH,Amity University Gurugram,1,27,18,9,48,I4405262955,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,141
+CSIR-IMTECH,National Botanical Research Institute,1,27,13,14,16,I170396143,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,139
+CSIR-IMTECH,Amity University Gurugram,1,27,18,9,48,I4405262955,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,140
+CSIR-IMTECH,Indian Institute of Technology Jodhpur,1,27,18,9,2611,I154549908,IIT,TRUE,CSIR↔IIT,FALSE,FALSE,,,141
 CSIR-IMTECH,Apollo Hospitals (Chennai),1,25,5,20,44,I1327930874,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,142
 CSIR-IMTECH,Symbiosis International University,1,23,12,11,20,I244572783,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,143
-CSIR-IMTECH,Central University of Haryana,1,22,21,1,2,I4210133503,Central University,TRUE,CSIR↔Central University,FALSE,FALSE,,,144
-CSIR-IMTECH,National Institute of Pharmaceutical Education and Research (Hājīpur),1,22,13,9,29,I4210098333,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,145
+CSIR-IMTECH,National Institute of Pharmaceutical Education and Research (Hājīpur),1,22,13,9,29,I4210098333,NIPER,TRUE,CSIR↔NIPER,FALSE,FALSE,,,144
+CSIR-IMTECH,Central University of Haryana,1,22,21,1,2,I4210133503,Central University,TRUE,CSIR↔Central University,FALSE,FALSE,,,145
 CSIR-IMTECH,Delhi Technological University,1,21,12,9,3,I863896202,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,146
-CSIR-IMTECH,Sam Higginbottom Institute of Agriculture,1,20,17,3,37,I223959643,Government,TRUE,CSIR↔Government,FALSE,FALSE,,,147
-CSIR-IMTECH,"Indian Institute of Science Education and Research, Tirupati",1,20,15,5,28,I4210140410,IISc/TIFR/IISER,TRUE,CSIR↔IISc/TIFR/IISER,FALSE,FALSE,,,148
-CSIR-IMTECH,Jaypee Institute of Information Technology,1,20,16,4,8,I154970844,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,149
+CSIR-IMTECH,Jaypee Institute of Information Technology,1,20,16,4,8,I154970844,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,147
+CSIR-IMTECH,Sam Higginbottom Institute of Agriculture,1,20,17,3,37,I223959643,Government,TRUE,CSIR↔Government,FALSE,FALSE,,,148
+CSIR-IMTECH,"Indian Institute of Science Education and Research, Tirupati",1,20,15,5,28,I4210140410,IISc/TIFR/IISER,TRUE,CSIR↔IISc/TIFR/IISER,FALSE,FALSE,,,149
 CSIR-IMTECH,Birla Institute of Technology and Science - Hyderabad Campus,1,20,13,7,9,I4210101034,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,150
 CSIR-IMTECH,Central University of Tamil Nadu,1,19,15,4,2611,I112471378,Central University,TRUE,CSIR↔Central University,FALSE,FALSE,,,151
-CSIR-IMTECH,National Institute of Technology Durgapur,1,18,11,7,11,I155837530,NIT,TRUE,CSIR↔NIT,FALSE,FALSE,,,152
+CSIR-IMTECH,Indian Institute of Technology Mandi,1,18,13,5,48,I9579091,IIT,TRUE,CSIR↔IIT,FALSE,FALSE,,,152
 CSIR-IMTECH,Lala Lajpat Rai University of Veterinary and Animal Sciences,1,18,9,9,1,I233492666,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,153
-CSIR-IMTECH,Jain University,1,18,15,3,123,I106826634,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,154
-CSIR-IMTECH,Tezpur University,1,18,9,9,30,I126601174,Central University,TRUE,CSIR↔Central University,FALSE,FALSE,,,155
-CSIR-IMTECH,Indian Institute of Technology Mandi,1,18,13,5,48,I9579091,IIT,TRUE,CSIR↔IIT,FALSE,FALSE,,,156
-CSIR-IMTECH,National Bureau of Agriculturally Important Microorganisms,1,18,3,15,10,I4210123061,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,157
+CSIR-IMTECH,Tezpur University,1,18,9,9,30,I126601174,Central University,TRUE,CSIR↔Central University,FALSE,FALSE,,,154
+CSIR-IMTECH,National Institute of Technology Durgapur,1,18,11,7,11,I155837530,NIT,TRUE,CSIR↔NIT,FALSE,FALSE,,,155
+CSIR-IMTECH,National Bureau of Agriculturally Important Microorganisms,1,18,3,15,10,I4210123061,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,156
+CSIR-IMTECH,Jain University,1,18,15,3,123,I106826634,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,157
 CSIR-IMTECH,Central University of Himachal Pradesh,1,17,10,7,10,I180952551,Central University,TRUE,CSIR↔Central University,FALSE,FALSE,,,158
-CSIR-IMTECH,King George's Medical University,1,17,8,9,60,I280994,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,159
-CSIR-IMTECH,Sanjay Gandhi Post Graduate Institute of Medical Sciences,1,16,7,9,2611,I161370692,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,160
+CSIR-IMTECH,King George's Medical University,1,17,8,9,60,I280994,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,159
+CSIR-IMTECH,Sanjay Gandhi Post Graduate Institute of Medical Sciences,1,16,7,9,2611,I161370692,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,160
 CSIR-IMTECH,Ministry of Health and Family Welfare,1,16,5,11,16,I4210148677,Government,TRUE,CSIR↔Government,FALSE,FALSE,,,161
 CSIR-IMTECH,Institute of Mathematical Sciences,1,16,15,1,1,I59611059,Premier Science,TRUE,CSIR↔Premier Science,FALSE,FALSE,,,162
-CSIR-IMTECH,National Institute of Food Technology Entrepreneurship and Management,1,15,10,5,1,I342702707,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,163
-CSIR-IMTECH,Banasthali University,1,15,3,12,4,I102117144,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,164
-CSIR-IMTECH,Saha Institute of Nuclear Physics,1,15,7,8,2611,I16019930,Premier Science,TRUE,CSIR↔Premier Science,FALSE,FALSE,,,165
-CSIR-IMTECH,University of Lucknow,1,15,12,3,4,I186246823,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,166
-CSIR-IMTECH,Institute of Bioinformatics,1,15,7,8,48,I4210148697,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,167
+CSIR-IMTECH,Banasthali University,1,15,3,12,4,I102117144,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,163
+CSIR-IMTECH,University of Lucknow,1,15,12,3,4,I186246823,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,164
+CSIR-IMTECH,Institute of Bioinformatics,1,15,7,8,48,I4210148697,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,165
+CSIR-IMTECH,National Institute of Food Technology Entrepreneurship and Management,1,15,10,5,1,I342702707,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,166
+CSIR-IMTECH,Saha Institute of Nuclear Physics,1,15,7,8,2611,I16019930,Premier Science,TRUE,CSIR↔Premier Science,FALSE,FALSE,,,167
 CSIR-IMTECH,University of Kalyani,1,13,7,6,12,I77501641,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,168
-CSIR-IMTECH,Institute of Post Graduate Medical Education and Research,1,12,2,10,2,I4210100047,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,169
-CSIR-IMTECH,Sri Guru Granth Sahib World University,1,12,6,6,18,I199140397,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,170
+CSIR-IMTECH,Sri Guru Granth Sahib World University,1,12,6,6,18,I199140397,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,169
+CSIR-IMTECH,Institute of Post Graduate Medical Education and Research,1,12,2,10,2,I4210100047,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,170
 CSIR-IMTECH,University of Rajasthan,1,11,2,9,16,I99552915,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,171
 CSIR-IMTECH,Barkatullah University,1,11,7,4,2611,I464993,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,172
 CSIR-IMTECH,Max Super Speciality Hospital,1,11,3,8,23,I2802464703,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,173
 CSIR-IMTECH,Max Healthcare,1,10,1,9,23,I307255591,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,174
 CSIR-IMTECH,MIT World Peace University,1,9,8,1,4,I4210088227,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,175
-CSIR-IMTECH,National AIDS Research Institute,1,8,3,5,2611,I4210159305,ICMR,TRUE,CSIR↔ICMR,FALSE,FALSE,,,176
-CSIR-IMTECH,Maharaja Ganga Singh University,1,8,3,5,18,I220911346,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,177
-CSIR-IMTECH,All India Institute of Medical Sciences Rishikesh,1,8,5,3,7,I4387152206,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,178
-CSIR-IMTECH,ICAR-National Bureau Of Plant Genetic Resources,1,8,4,4,25,I4210097415,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,179
+CSIR-IMTECH,All India Institute of Medical Sciences Rishikesh,1,8,5,3,7,I4387152206,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,176
+CSIR-IMTECH,ICAR-National Bureau Of Plant Genetic Resources,1,8,4,4,25,I4210097415,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,177
+CSIR-IMTECH,National AIDS Research Institute,1,8,3,5,2611,I4210159305,ICMR,TRUE,CSIR↔ICMR,FALSE,FALSE,,,178
+CSIR-IMTECH,Maharaja Ganga Singh University,1,8,3,5,18,I220911346,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,179
 CSIR-IMTECH,National Institute of Occupational Health,1,8,5,3,93,I4210105310,ICMR,TRUE,CSIR↔ICMR,FALSE,FALSE,,,180
-CSIR-IMTECH,SMS Medical College,1,7,5,2,2,I164135366,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,181
+CSIR-IMTECH,Government of Kerala,1,7,3,4,67,I2800731441,Government,TRUE,CSIR↔Government,FALSE,FALSE,,,181
 CSIR-IMTECH,National Institute of Technology Srinagar,1,7,3,4,9,I8778637,NIT,TRUE,CSIR↔NIT,FALSE,FALSE,,,182
-CSIR-IMTECH,Government of Kerala,1,7,3,4,67,I2800731441,Government,TRUE,CSIR↔Government,FALSE,FALSE,,,183
-CSIR-IMTECH,Sardarkrushinagar Dantiwada Agricultural University,1,6,1,5,12,I271267010,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,184
-CSIR-IMTECH,ICAR - Central Institute for Research on Cotton Technology,1,6,5,1,10,I4210094422,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,185
+CSIR-IMTECH,SMS Medical College,1,7,5,2,2,I164135366,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,183
+CSIR-IMTECH,National Institute of Biomedical Genomics,1,6,2,4,60,I4210158866,DBT,TRUE,CSIR↔DBT,FALSE,FALSE,,,184
+CSIR-IMTECH,Sardarkrushinagar Dantiwada Agricultural University,1,6,1,5,12,I271267010,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,185
 CSIR-IMTECH,Ministry of Defence,1,6,4,2,5,I4210150591,Government,TRUE,CSIR↔Government,FALSE,FALSE,,,186
 CSIR-IMTECH,Department of Public,1,6,5,1,2,I4210139346,Government,TRUE,CSIR↔Government,FALSE,FALSE,,,187
 CSIR-IMTECH,Institute of Nuclear Medicine & Allied Sciences,1,6,3,3,2611,I4210114989,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,188
-CSIR-IMTECH,National Institute of Biomedical Genomics,1,6,2,4,60,I4210158866,DBT,TRUE,CSIR↔DBT,FALSE,FALSE,,,189
+CSIR-IMTECH,ICAR - Central Institute for Research on Cotton Technology,1,6,5,1,10,I4210094422,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,189
 CSIR-IMTECH,Vector Control Research Centre,1,5,2,3,2611,I4210144797,ICMR,TRUE,CSIR↔ICMR,FALSE,FALSE,,,190
-CSIR-IMTECH,REVA University,1,5,5,0,4,I83737708,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,191
-CSIR-IMTECH,Central Mechanical Engineering Research Institute,1,5,2,3,16,I70735523,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,192
-CSIR-IMTECH,"Ministry of Environment, Forests and Climate Change",1,4,4,0,4,I1291012402,Government,TRUE,CSIR↔Government,FALSE,FALSE,,,193
-CSIR-IMTECH,Fergusson College,1,4,2,2,4,I126227178,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,194
-CSIR-IMTECH,Fortis Escorts Heart Institute,1,4,0,4,19,I4210102489,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,195
-CSIR-IMTECH,Defence Institute of Advanced Technology,1,4,1,3,5,I156406944,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,196
-CSIR-IMTECH,National Institute of Biologicals,1,4,3,1,1,I4405257039,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,197
-CSIR-IMTECH,"J.C. Bose University of Science & Technology, YMCA",1,4,4,0,3,I55124831,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,198
-CSIR-IMTECH,Central Soil Salinity Research Institute,1,4,3,1,10,I1342238530,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,199
-CSIR-IMTECH,L V Prasad Eye Institute,1,3,1,2,17,I2801255070,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,200
+CSIR-IMTECH,Central Mechanical Engineering Research Institute,1,5,2,3,16,I70735523,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,191
+CSIR-IMTECH,REVA University,1,5,5,0,4,I83737708,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,192
+CSIR-IMTECH,National Institute of Biologicals,1,4,3,1,1,I4405257039,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,193
+CSIR-IMTECH,"J.C. Bose University of Science & Technology, YMCA",1,4,4,0,3,I55124831,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,194
+CSIR-IMTECH,Central Soil Salinity Research Institute,1,4,3,1,10,I1342238530,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,195
+CSIR-IMTECH,Fortis Escorts Heart Institute,1,4,0,4,19,I4210102489,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,196
+CSIR-IMTECH,Defence Institute of Advanced Technology,1,4,1,3,5,I156406944,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,197
+CSIR-IMTECH,"Ministry of Environment, Forests and Climate Change",1,4,4,0,4,I1291012402,Government,TRUE,CSIR↔Government,FALSE,FALSE,,,198
+CSIR-IMTECH,Fergusson College,1,4,2,2,4,I126227178,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,199
+CSIR-IMTECH,Tata Institute for Genetics and Society,1,3,2,1,22,I4210156799,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,200
 CSIR-IMTECH,Indian Institute of Information Technology Una,1,3,3,0,0,I4210127244,IIIT,TRUE,CSIR↔IIIT,FALSE,FALSE,,,201
-CSIR-IMTECH,Tata Institute for Genetics and Society,1,3,2,1,22,I4210156799,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,202
-CSIR-IMTECH,King Edward Memorial Hospital and Seth G.S. Medical College,1,2,1,1,2,I193353881,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,203
-CSIR-IMTECH,National Institute of Abiotic Stress Management,1,2,2,0,10,I4210166936,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,204
-CSIR-IMTECH,Central Institute for Cotton Research,1,2,2,0,10,I185412522,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,205
-CSIR-IMTECH,Chellaram Hospital,1,2,0,2,11,I4210089518,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,206
-CSIR-IMTECH,Employees' State Insurance Model Hospital,1,1,0,1,22,I4210121909,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,207
-CSIR-IMTECH,Jai Narain Vyas University,1,1,1,0,18,I59100879,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,208
+CSIR-IMTECH,L V Prasad Eye Institute,1,3,1,2,17,I2801255070,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,202
+CSIR-IMTECH,National Institute of Abiotic Stress Management,1,2,2,0,10,I4210166936,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,203
+CSIR-IMTECH,Central Institute for Cotton Research,1,2,2,0,10,I185412522,Other,TRUE,CSIR↔Other,FALSE,FALSE,,,204
+CSIR-IMTECH,Chellaram Hospital,1,2,0,2,11,I4210089518,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,205
+CSIR-IMTECH,King Edward Memorial Hospital and Seth G.S. Medical College,1,2,1,1,2,I193353881,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,206
+CSIR-IMTECH,"All India Institute of Medical Sciences, Nagpur",1,1,1,0,2,I4401200305,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,207
+CSIR-IMTECH,"National Institute of Science, Technology and Development Studies",1,1,0,1,25,I4210128462,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,208
 CSIR-IMTECH,Durgabai Deshmukh Hospital,1,1,0,1,22,I2800910329,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,209
-CSIR-IMTECH,"All India Institute of Medical Sciences, Nagpur",1,1,1,0,2,I4401200305,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,210
-CSIR-IMTECH,"National Institute of Science, Technology and Development Studies",1,1,0,1,25,I4210128462,CSIR,FALSE,CSIR↔CSIR,FALSE,FALSE,,,211
-CSIR-IMTECH,"Khwaja Moinuddin Chishti Language University, Lucknow, U.P.",1,1,1,0,4,I4405261701,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,212
+CSIR-IMTECH,"Khwaja Moinuddin Chishti Language University, Lucknow, U.P.",1,1,1,0,4,I4405261701,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,210
+CSIR-IMTECH,Employees' State Insurance Model Hospital,1,1,0,1,22,I4210121909,Medical,TRUE,CSIR↔Medical,FALSE,FALSE,,,211
+CSIR-IMTECH,Jai Narain Vyas University,1,1,1,0,18,I59100879,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,212
 CSIR-IMTECH,Islamic University of Science and Technology,1,1,1,0,9,I4264650,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,213
 CSIR-IMTECH,Virchow BioTech (India),1,0,0,0,0,I4210142982,Industry,TRUE,CSIR↔Industry,FALSE,FALSE,,,214
 CSIR-IMTECH,Chanakya University,1,0,0,0,2,I4405278643,University (other),TRUE,CSIR↔University (other),FALSE,FALSE,,,215
