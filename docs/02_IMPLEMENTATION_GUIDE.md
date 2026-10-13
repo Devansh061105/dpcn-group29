@@ -1,6 +1,8 @@
 # DPCN Research Mapping — Group 29 Implementation Guide
 
-This guide is the *how*: environment, repository layout, configuration, shared modules, and a precise specification of each pipeline step (S00–S15), plus the dashboard, report, validation and runbook. Decision IDs (D1…D22) and ambiguity IDs (A1…A16) refer to [01_PROJECT_PLAN.md](01_PROJECT_PLAN.md).
+This guide is the *how*: environment, repository layout, configuration, shared modules, and a precise specification of each pipeline step (S00–S15), plus the dashboard, report, validation and runbook. Decision IDs (D1…D26) and ambiguity IDs (A1…A16) refer to [01_PROJECT_PLAN.md](01_PROJECT_PLAN.md).
+
+> **Status (2026-10-13): S00–S05 are implemented and tested; S06–S15 are not started.** Where the code differs from the text of a step, the step has an **"As built"** note (S03, and S04/S05 together). Next actions and setup are in [03_HANDOFF.md](03_HANDOFF.md).
 
 ---
 
@@ -72,9 +74,11 @@ DPCN Assignment 2/
 │   ├── cli.py                  # `run <step>|all [--from sXX]`
 │   ├── config.py               # loads yaml + .env into a Config object
 │   ├── openalex.py             # cached, budgeted API client
-│   ├── names.py                # name normalisation and matching
+│   ├── names.py                # name cleaning and the name-matching rules (S01, S03)
+│   ├── corpus.py               # lab paper corpus and the pool of authors with lab papers (S03, S04)
+│   ├── web.py                  # polite cached fetcher for lab websites (S01)
 │   ├── institutions.py         # registry, umbrella/academy flags, cluster classifier
-│   ├── io.py                   # parquet/csv helpers, required-column writers
+│   ├── io.py                   # (planned, not needed so far) parquet/csv helpers, required-column writers
 │   └── steps/
 │       ├── s00_verify.py   s01_roster.py   s02_candidates.py  s03_match.py
 │       ├── s04_works.py    s05_normalise.py s06_enrich.py     s07_flows.py
@@ -965,38 +969,46 @@ All three are available on cdnjs or jsDelivr.
 python -m dpcn run s00
 ```
 ```bash
-python -m dpcn run s01 --scrape all
+python -m dpcn run s01 --scrape all --merge
 ```
-*(Manual: clean the roster, download SJR files, review matches.)*
+*(Manual: second person reviews `data/manual/faculty_roster.csv`; download the Scimago and CORE files into `data/manual/`.)*
 ```bash
 python -m dpcn run s02
 ```
 ```bash
 python -m dpcn run s03
 ```
-*(Manual: fill `data/review/faculty_match_review.csv`, then re-run s03 to apply decisions.)*
+*(Manual: fill `decision` in `data/review/faculty_match_review.csv` for the unmatched people, then re-run s03.)*
 ```bash
-python -m dpcn run all --from s04
+python -m dpcn run s04
+```
+```bash
+python -m dpcn run s05
+```
+*(Manual: tick `add` and set `status` in `data/review/uncovered_lab_authors.csv`, run `python -m dpcn run s01 --add-uncovered`, then re-run s03, s04, s05. Decide the `link_by_profile_years` setting.)*
+```bash
+python -m dpcn run all --from s06
 ```
 
 **Re-run after any manual change:** `python -m dpcn run all --from <step>`. Cached calls are free.
 
-**Estimated OpenAlex usage** (list calls at $0.0001 each; single lookups free):
+**OpenAlex usage** (list calls at $0.0001 each; single lookups are free). Measured for the finished steps, estimated for the rest:
 
 | Step | Calls | Cost |
 |---|---:|---:|
-| S00 verify | 4 | — |
-| S02 author candidates | ~65 | $0.007 |
-| S03 review samples | ~100 | $0.010 |
-| S04 faculty works + lab corpus | ~130 | $0.013 |
+| S00 verify | 12 | — |
+| S02 author candidates | 66 (measured) | $0.007 |
+| S03 matching (lab corpus, profile papers, details, sample titles) | about 340 over several runs (measured) | $0.05 |
+| S04 faculty works (the lab corpus comes from the S03 cache) | 226 (measured) | $0.005 |
+| S05 | 0 | — |
 | S06 sources | ~20 | $0.002 |
 | S07 out-flow + in-flow | ~300–600 | $0.03–0.06 |
 | S11 Jaccard group-bys | ~110 | $0.011 |
-| **Total** | **~750–1,050** | **≈ $0.10** |
+| **Total** | **~1,100–1,400** | **≈ $0.12** |
 
 This fits easily in one free key's $1/day. Without a key it would hit the $0.10/day cap, so **use keys**.
 
-**Wall-clock:** a full uncached run takes about 15–30 minutes. A cached re-run takes about 1–2 minutes.
+**Wall-clock:** rebuilding S02 to S05 from an empty cache takes about 30 minutes (S03 and S04 are the long ones); a cached re-run takes about 1–2 minutes.
 
 ---
 

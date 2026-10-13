@@ -5,8 +5,36 @@
 | **Course** | DPCN (Instructor: Chittaranjan Hens), Academic Year 2026 |
 | **Team** | Group 29 — CSIR Biology / Life Sciences cluster |
 | **Document** | Project plan (the *what* and *why*). The *how* is in [02_IMPLEMENTATION_GUIDE.md](02_IMPLEMENTATION_GUIDE.md). |
-| **Version / date** | v1.0 — 2026-10-13 |
+| **Version / date** | v1.1 — 2026-10-13 (v1.0 plus the results of steps S00–S05; see the next section) |
 | **Sources** | `DPCN Research Mapping Project_n4.pptx` (12 slides) and `DPCN_Instruction_Note.docx` (11 sections) |
+
+---
+
+## Status and changes since v1.0
+
+**Where we are:** steps S00–S05 are built, run and tested (102 unit tests). That covers the faculty roster, the OpenAlex author matching and the first dataset tables. No deliverable file has been produced yet. The step-by-step status, setup and next actions for a new team member are in [03_HANDOFF.md](03_HANDOFF.md); dated findings are in [qa_log.md](qa_log.md).
+
+| Phase (section 9) | State |
+|---|---|
+| P0 Setup | **Done** |
+| P1 Roster | **Done, with caveats**: 232 scientists scraped from the four lab websites; the manual Scimago and CORE downloads and a second-person review are still to do |
+| P2 Matching | **Run**: 213 of 232 matched (91.8%); 19 need a manual decision |
+| P3 Collection | **Done**: 4,584 papers in the intermediate tables; coverage is limited by the roster (below) |
+| P4 Enrichment and flows | Not started (S06, S07) |
+| M1 draft dataset | Not started (S08) |
+| P5 Networks, M2 | Not started (S09 to S11) |
+| P6 Stats, P7 Dashboard, P8 Report, M3 | Not started (S12 to S15) |
+
+**What changed in the method, and why** (new decisions D23 to D26 in section 6):
+
+1. **The author pool comes from lab papers, not profile affiliations (D23).** Matching only against OpenAlex profiles that list the lab missed people whose main profile carries no lab affiliation. We now match against authors who appear on lab-affiliated papers, and use ORCID and the papers listed on each person's own web page as stronger evidence.
+2. **Precision safeguards (D26).** Auditing the first matching runs found wrong matches (alternate names of merged profiles, surname-first misreads). Fixed and covered by tests.
+3. **The faculty definition is extended in practice (D25).** The scraped rosters cover only 46 to 68% of each lab's papers; well-known scientists are missing from the websites. S05 produces a ranked list of lab-affiliated authors who are not on the roster so that real scientists, current or former, can be added after a person confirms them. This uses the option left open in D3.
+4. **Link methods are recorded and one is optional (D24).** A paper is linked through OpenAlex institution data or the raw affiliation text (as planned); a third, weaker method (author profile says they were at the lab that year) exists but is switched off by default.
+
+**Items from v1.0 now closed:** A1/A2 still stand (we include CDRI; instructor confirmation pending). The IMTECH 2026 anomaly was 169 fungal taxon-name records with no journal and is excluded correctly. IGIB's scientist list turned out to be scrapeable, so no manual entry was needed. Roster size is 232, not about 300.
+
+**New risks found:** the roster limits coverage (now rated High, section 12); the IGIB website itself carries a wrong ORCID on one profile; IMTECH publishes no departments.
 
 ---
 
@@ -238,7 +266,7 @@ All four are `type: facility` with lineage → CSIR (`I66760702`) → Ministry o
 | 2025 | 241 | 241 | 141 | 392 |
 | 2026* | 224 | 155 | **261** | 279 |
 
-\* Partial year. **The IMTECH 2026 spike (261, of which 242 are articles, versus a typical ~140)** is suspicious. It may be a publication-date artefact or a batch of journal records. **We investigate it in step S05** (look at publication dates, journals and authors) before trusting the trend.
+\* Partial year. **The IMTECH 2026 spike (261, of which 242 are articles, versus a typical ~140)** is suspicious. It may be a publication-date artefact or a batch of journal records. **Resolved in S05:** 169 of the 2026 records have a DOI but no journal, and every title sampled is a fungal taxon name (for example "Paraaniptodera longispora K. L. Pang ..."), not a paper. The "no journal source" rule excludes them; IMTECH has 72 real papers in 2026, in line with about 100 a year before.
 
 ### 5.2 Type mix
 Overall about 78% of works are `article`. Preprints are 5–12% depending on the lab (IGIB and CCMB are highest). Book chapters are 4–6%. Pure conference papers are fewer than 15 per lab, which confirms A14.
@@ -299,6 +327,10 @@ Each decision has an ID that the guide and the code refer to.
 | **D20** | **Research area** = OpenAlex `primary_topic` → field / subfield / domain. **Department** = division or research area from the lab website. If none is available, the faculty member's modal OpenAlex subfield is used, marked `dept_source=openalex`. | CCMB and IGIB do not publish formal departments | — |
 | **D21** | **Dashboard** = a single self-contained static HTML file (Plotly.js + Tabulator + Cytoscape.js, data embedded as JSON), generated by Python | One file to submit, opens offline-ish, can also go on GitHub Pages, needs no server | Streamlit or Dash. Easier to build, but needs a running server or deployment. |
 | **D22** | All API responses are cached on disk, keyed by request URL. Collection date and code version are written to `outputs/submission/metadata.json`. | Re-runs are free and reproducible | — |
+| **D23** | **Candidate pool for matching = authors who appear on lab-affiliated papers in 2016–2026** (plus S02 profile data: years at the lab, works count, merged-profile flag). Evidence order: ORCID, then papers listed on the person's own web page, then an unambiguous name match, then a manual decision. | Affiliation is stored per paper in OpenAlex; a person's main profile may carry no lab affiliation (IMTECH's Pawan Gupta has 6 works under an IMTECH-affiliated profile). The same corpus is needed by S04, so it costs nothing extra. | Profiles with a lab affiliation record only (the v1.0 design). |
+| **D24** | **Faculty–paper links are recorded with their method**: `lineage` (OpenAlex resolved an institution under the lab), `raw_string` (the raw affiliation text names the lab), and `profile_years` (the authorship has no institution at all but the author's own profile places them at the lab that year). `profile_years` is **off by default** (`work_filter.link_by_profile_years`); S05 reports what it would add (about 262 papers). | Keeps D4 exactly while making the borderline cases visible and switchable. The lineage links are precise: in 99.3% a raw affiliation string names the lab. | Always on (more recall, a judgement call), or never offered. |
+| **D25** | **Roster growth from authorship evidence.** Scientists who are missing from the website lists but are frequent last/corresponding authors on lab papers can be added, as `current` or `former`, after a team member confirms them. Extends D2 and uses the option in D3. The report states the resulting definition. | The scraped rosters give only 46 to 68% paper coverage; the missing people are well-known lab scientists. | Keep the website lists only and report the low coverage as a limitation. |
+| **D26** | **Name-matching safeguards.** Only a candidate's display name may auto-accept (alternate names of merged profiles led to wrong matches); a family name must agree (fuzzy >= 92); first given names must line up; a name is read surname-first on both sides only when initials follow; ORCIDs taken from web pages must agree with the name; an author claimed by two faculty is held back; when different people match, a leader is accepted only with >= 10 lab papers and >= 5x the next person. | The first matching runs, audited by hand, accepted Sachin Kumar as eleven other Kumars and Prem P Yadav as Pooja Yadav. | Looser fuzzy matching with more manual review. |
 
 ---
 
@@ -516,6 +548,8 @@ The start date is not stated in the brief. **Day 1 = the day we start coding.**
 
 Buffer: Days 17–18 (or the weekend) for fixes.
 
+**Status against this timeline (2026-10-13):** P0 done; P1 and P2 built (manual review and downloads outstanding, see 03_HANDOFF.md); P3 done; everything from P4 on is not started. The calendar start date is not known to this document, so the day numbers above are relative.
+
 ---
 
 ## 10. Team roles
@@ -577,14 +611,16 @@ The team size is not stated. Adapt as needed: with 3 people merge R4 + R5; with 
 |---|---|---|---|
 | OpenAlex author disambiguation errors (split or merged profiles) | High | Wrong faculty counts and h-index | Multiple IDs per faculty; D4 affiliation check removes merged-in strangers; human review; spot-checks |
 | Name variants and initials in Indian names | High | Missed matches | Initials-aware fuzzy matching, ORCID, manual review sheet |
-| Roster incomplete for 2016–2019 (leavers) | Medium | Under-count in early years | D3 optional leavers; corpus coverage ratio shows the gap; stated as a limitation |
+| Roster incomplete (leavers, retirees, scientists missing from the websites) | **High — occurred** | Only 46–68% of each lab's papers have a roster member on them; lower in early years | D25: ranked uncovered-author list, confirm and add; report the coverage ratio and the faculty definition |
 | IMTECH publishes no departments | Certain | Department-level stats weaker for IMTECH | D20 fallback: OpenAlex modal subfield |
 | OpenAlex budget exhausted | Low (with key) | Pipeline stalls | Free keys for everyone, disk cache, budget guard in the client that stops before 90% use |
 | SJR coverage gaps (new or regional journals) | Medium | Lower quartile coverage | Title fallback; report coverage; `NA` rather than guessing |
 | Hyperauthorship papers distort the authorship network | Medium | Misleading centrality | D16 threshold, reported |
 | AcSIR and umbrella affiliations inflate "partners" | High | Misleading rankings | D11 exclusions and flags |
 | 2026 partial year misread as a decline | High | Wrong trend claims | Marked partial; CAGR to 2025 |
-| IMTECH 2026 anomaly | Medium | Wrong trend | Investigate in S05; document |
+| IMTECH 2026 anomaly | Closed | — | Resolved in S05: 169 fungal taxon-name records with no journal, excluded by the source rule |
+| Wrong data on a lab website (IGIB lists one person's ORCID on another's profile) | Occurred | A wrong author match | D26: an ORCID must agree with the name; roster ORCID IGIB-014 to be blanked by hand |
+| Papers with no institution data on the faculty member's authorship | Medium | About 262 probable lab papers missed | D24: optional `profile_years` rule, decision recorded in the report |
 | Citation counts differ from Scopus / Google Scholar | Certain | Questions in viva | State the source and snapshot date; show the comparison for the top 10 |
 | Dashboard performance with large graphs | Medium | Laggy UI | Show top-N subgraphs in the browser; full graphs in GEXF |
 | Group 29 scope changed by the instructor | Low–medium | Rework | Config-driven institution list; ask early (Q1) |
