@@ -566,6 +566,18 @@ Each step has the signature `def run(cfg, oa, argv=()) -> None` (`argv` = extra 
 - **Accept:** ≥ 95% of roster faculty have at least one author ID. Print the unmatched list (it goes into the report's limitations).
 - **Cost:** about 100 small calls (sample titles).
 
+**As built (differences from the algorithm above, found by auditing the first runs):**
+
+- **Candidate pool = authors with lab-affiliated papers, not only profiles with a lab affiliation record.** `corpus.build_author_pool` reads the lab corpus (the same requests S04 uses, so S04 costs nothing extra) and counts each author's qualifying lab papers. Affiliation is stored per paper, so this finds a person's main profile even when the profile itself lists no lab (the IMTECH Pawan Gupta case). S02's profile data supplies years, works count and the merged-profile flag.
+- **Evidence order:** `orcid` > `doi` (papers listed on the person's own profile page; the one author whose name fits is them; 830 DOIs + 87 PubMed IDs checked) > `auto` (name match, unambiguous) > `manual`.
+- **ORCIDs scraped from web pages must agree with the name.** The IGIB site lists Arpan Parichha's ORCID on Jitendra Narayan's page; an ORCID whose author name scores below `review_min_score` goes to review instead.
+- **Only the display name can auto-accept.** OpenAlex "alternate names" of unflagged profiles still merge people (a profile for "Sanjay Kumar" listed "Sachin Kumar"), so an alternate-only match goes to review ("matches only an alternate name").
+- **Name rules (`names.initials_compatible`):** shared family name (fuzzy >= 92), first given names must line up (equal / initial / >= 88), remaining given names of the shorter side must match. A name is read surname-first on both sides only when the rest are initials, so "Pradeep Kumar" does not match "Pradeep Kumar Tiwari".
+- **Dominance rule:** if different people match, the leader is auto-accepted only with >= 10 lab papers and >= 5x the next different person; the namesakes stay in the review sheet.
+- **Never auto-accepted:** merged profiles, initials-only names, candidates with no lab-affiliated papers, and any author claimed by two faculty.
+- **Review sheet:** `person_status` UNMATCHED rows come first. Put `accept`/`reject` in `decision` and re-run; decisions are kept on every re-run (they are read back from the sheet) and `data/manual/faculty_match_overrides.csv` (`faculty_id,author_id,decision`) is also honoured.
+- **The 95% target** means faculty with at least one author ID after review. A new joiner whose papers do not yet carry the lab affiliation legitimately has none; list such people in the report's limitations.
+
 ### S04: fetch works
 - **Faculty corpus:** collect all accepted author IDs (~300–450). For each batch of 100:
 

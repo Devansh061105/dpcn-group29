@@ -2,10 +2,16 @@
 
 Mapping 2016–2026 research output, citation networks and authorship networks for the CSIR biology labs **CCMB, IGIB, IMTECH and CDRI**.
 
+**New here? Start with [docs/03_HANDOFF.md](docs/03_HANDOFF.md)**: current status, setup, and the next steps in order.
+
 | Doc | Purpose |
 |---|---|
+| [docs/03_HANDOFF.md](docs/03_HANDOFF.md) | Status, setup, how the code is organised, what to do next, known issues |
 | [docs/01_PROJECT_PLAN.md](docs/01_PROJECT_PLAN.md) | Requirements, ambiguities, scope, decisions (D1–D22), methodology, timeline, roles, QA, risks, traceability |
 | [docs/02_IMPLEMENTATION_GUIDE.md](docs/02_IMPLEMENTATION_GUIDE.md) | Environment, repo layout, config, OpenAlex client, step-by-step pipeline S00–S15, dashboard, report, runbook |
+| [docs/qa_log.md](docs/qa_log.md) | Dated log of findings, anomalies and manual decisions |
+
+**Status:** S00–S03 done (S03 awaits a manual review of 19 people); S04–S15 not started.
 
 ## Quick start (Windows, Miniconda)
 
