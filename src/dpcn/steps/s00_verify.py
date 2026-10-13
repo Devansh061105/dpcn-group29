@@ -2,7 +2,7 @@
 
 Fails if a lab's ROR or country doesn't match the config, or it has no works in the window.
 Warns (doesn't fail) if the work count drifted beyond `verify.count_tolerance` from the
-reconnaissance figure; record any drift in docs/qa_log.md.
+reconnaissance figure; record any drift in the team QA log.
 Writes data/interim/s00_verification.json.
 """
 from __future__ import annotations

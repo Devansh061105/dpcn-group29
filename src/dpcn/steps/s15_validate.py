@@ -118,7 +118,7 @@ Window: {y0}-{y1} ({partial} is a partial year). Data collected from OpenAlex on
 FILES
 {files}
 
-KEY DECISIONS (full list: docs/01_PROJECT_PLAN.md, section 6)
+KEY DECISIONS (full list: README.md, "Methodological decisions")
 - Faculty (D2/D25): scientists listed on each lab's website, plus scientists identified from lab-affiliated
   authorship (frequent last/corresponding author) and confirmed by the team; matched to OpenAlex author IDs.
 - A paper counts for a faculty member only if their own authorship carries the lab affiliation (D4).
