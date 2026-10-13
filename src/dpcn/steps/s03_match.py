@@ -141,7 +141,7 @@ def decide(name: str, cands: list[Cand], orcid_ids=(), doi_ids=None, auto_score:
 
     blocked += [(name_score(name, c.names), c, "ORCID on the web page belongs to a differently named author")
                 for c in wrong_orcid]
-    blocked.sort(key=lambda t: (-t[0], -t[1].n_lab_works))
+    blocked.sort(key=lambda t: (-t[0], -t[1].n_lab_works, t[1].author_id))
     if d.accepted:
         blocked = [t for t in blocked if t[0] >= auto_score]
     d.review = [{"cand": c, "score": s, "reason": r} for s, c, r in blocked[:max_review]]
@@ -370,14 +370,14 @@ def run(cfg, oa, argv=()) -> None:
                 "reason": x["reason"], "n_lab_works_window": c.n_lab_works, "works_count": c.works_count,
                 "years_at_lab_window": c.years_at_lab_window, "at_lab_now": c.at_lab_now,
                 "suspect_merged": c.suspect_merged, "orcid": c.orcid,
-                "accepted_ids": ";".join(d.accepted), "sample_titles": titles_cache.get(c.author_id, ""),
+                "accepted_ids": ";".join(sorted(d.accepted)), "sample_titles": titles_cache.get(c.author_id, ""),
                 "decision": decisions.get((fid, c.author_id), "")})
 
     fam = pd.DataFrame(map_rows, columns=MAP_COLS)
     rev = pd.DataFrame(review_rows, columns=REVIEW_COLS).fillna("")
     # people who still need a decision first, strongest candidate first
     rev["_s"] = pd.to_numeric(rev["score"], errors="coerce").fillna(-1)
-    rev = (rev.sort_values(["person_status", "institution", "faculty_id", "_s"], ascending=[False, True, True, False],
+    rev = (rev.sort_values(["person_status", "institution", "faculty_id", "_s", "cand_author_id"], ascending=[False, True, True, False, True],
                            kind="stable").drop(columns="_s").reset_index(drop=True))
     cfg.paths.interim.mkdir(parents=True, exist_ok=True)
     cfg.paths.review.mkdir(parents=True, exist_ok=True)
