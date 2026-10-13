@@ -1,0 +1,24 @@
+scope,domain,papers,share
+CSIR-CCMB,Life Sciences,700,0.5814
+CSIR-CCMB,Health Sciences,331,0.2749
+CSIR-CCMB,Physical Sciences,162,0.1346
+CSIR-CCMB,Social Sciences,9,0.0075
+CSIR-CCMB,Unknown,2,0.0017
+CSIR-IGIB,Life Sciences,688,0.4855
+CSIR-IGIB,Health Sciences,565,0.3987
+CSIR-IGIB,Physical Sciences,155,0.1094
+CSIR-IGIB,Social Sciences,9,0.0064
+CSIR-IMTECH,Life Sciences,438,0.5361
+CSIR-IMTECH,Health Sciences,207,0.2534
+CSIR-IMTECH,Physical Sciences,171,0.2093
+CSIR-IMTECH,Social Sciences,1,0.0012
+CSIR-CDRI,Health Sciences,942,0.349
+CSIR-CDRI,Physical Sciences,881,0.3264
+CSIR-CDRI,Life Sciences,874,0.3238
+CSIR-CDRI,Unknown,1,0.0004
+CSIR-CDRI,Social Sciences,1,0.0004
+ALL,Life Sciences,2679,0.4419
+ALL,Health Sciences,1996,0.3292
+ALL,Physical Sciences,1365,0.2251
+ALL,Social Sciences,20,0.0033
+ALL,Unknown,3,0.0005

@@ -6,6 +6,7 @@ config/cluster_rules.yaml; hand corrections in data/manual/institution_overrides
 """
 from __future__ import annotations
 
+import json
 import re
 from pathlib import Path
 
@@ -31,6 +32,9 @@ class InstitutionRegistry:
         self.overrides = overrides if overrides is not None else self._load_overrides(cfg.paths.manual)
         self.count_academy = bool(cfg.connections.count_csir_academy_as_partner)
         self.insts: dict[str, dict] = {}
+        # "Name (City)" for institutions whose display name is shared by several OpenAlex records (S07 writes it)
+        lp = Path(cfg.paths.interim) / "institution_labels.json"
+        self.city_labels: dict[str, str] = json.loads(lp.read_text(encoding="utf-8")) if lp.exists() else {}
 
     @staticmethod
     def _load_overrides(manual_dir: Path) -> dict[str, dict]:
@@ -103,7 +107,7 @@ class InstitutionRegistry:
         ov = self.overrides.get(iid)
         if ov and ov.get("short_name"):
             return ov["short_name"]
-        return self._get(iid)["display_name"] or iid
+        return self.city_labels.get(iid) or self._get(iid)["display_name"] or iid
 
     def partner_ok(self, iid: str, own_lab: str | None = None) -> bool:
         """An Indian institution that counts as a partner of `own_lab`: not an umbrella body, not the lab

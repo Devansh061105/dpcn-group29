@@ -17,21 +17,29 @@ DPCN Research Mapping Project (instructor: Chittaranjan Hens), **Group 29**. We 
 
 ## 2. Status at a glance
 
+Updated 2026-10-14. Every step is built and has run; `python -m dpcn run s15` passes all checks.
+
 | Step | What it does | State |
 |---|---|---|
-| S00 | Verify the four labs in OpenAlex (ROR, country, work counts) | **Done** |
-| S01 | Faculty roster scraped from the lab websites | **Done**: 232 faculty. Needs a second person to review the file |
-| S02 | Pool of OpenAlex authors affiliated with each lab | **Done**: 11,892 rows |
-| S03 | Match roster faculty to OpenAlex author IDs | **Built and run**: 213 of 232 matched. **19 need a human decision** (section 6, task 1) |
-| S04 | Fetch the raw works (faculty papers plus each lab's corpus) | **Done**: 7,838 faculty papers, 4 lab corpora |
-| S05 | Apply the inclusion rules, deduplicate, build the dataset tables | **Done**: 4,584 papers. Coverage is limited by an incomplete roster (section 6, task 1b) |
-| S06 – S15 | Enrich, flows, main CSV, networks, connections, stats, dashboard, report, validate | **Not started** (the CLI lists them; each reports "not implemented") |
+| S00 | Verify the four labs in OpenAlex | **Done** |
+| S01 | Faculty roster | **Done**: 294 faculty = 232 from the websites + 62 added from authorship evidence (D25, qa_log 2026-10-14) |
+| S02 | Author candidate pool | **Done**: 11,892 rows |
+| S03 | Match faculty to OpenAlex IDs | **Done**: 278 of 294 matched (94.6%); review decisions recorded in the sheet and in qa_log |
+| S04 / S05 | Raw works; inclusion rules | **Done**: 6,063 papers, 8,107 faculty-paper rows; coverage of each lab's output 71–81% |
+| S06 | Quartiles, CORE, departments | **Done**: SJR quartile known for 93–98% of journal papers |
+| S07 | Indian in/out-flow | **Done**: 33,936 Indian works cited, 31,482 Indian works citing (about 600 calls, $0.12) |
+| S08 | `group29_data.csv` | **Done**: 14 required columns + 18 extras |
+| S09 | Citation network | **Done**: 64,240 exported edges (9,634 internal); PageRank, in-degree, lab matrix |
+| S10 | Authorship network | **Done**: 127,062 pair rows; faculty graph 274 nodes / 1,311 links, 31 Louvain communities (Q 0.54) |
+| S11 | `indian_connections.csv` + Jaccard | **Done**: 6,182 lab–partner rows, Jaccard for each lab's top 30 partners |
+| S12 | Statistics tables and figures | **Done**: `outputs/stats/`, `outputs/figures/` |
+| S13 | Dashboard | **Done**: `outputs/submission/group29_dashboard.html`, 6.7 MB, opens offline (libraries inlined; `--cdn` for a small file) |
+| S14 | Report | **Done**: `outputs/report/group29_report.pptx` + `.pdf`, 10 slides, every number read from `outputs/stats` |
+| S15 | Validate and package | **Done**: all checks pass; `group29_week2.zip`, `group29_week3.zip` |
 
-Nothing has been submitted. No deliverable file exists yet (the intermediate tables behind `group29_data.csv` exist from S05, but S06 to S08 have not run).
+Nothing has been submitted yet. Open decisions that affect the work (see also section 8):
 
-Open decisions that affect the work (see also section 8):
-
-1. **CDRI scope.** The slide deck lists CDRI under Group 29; the instruction note's table puts CDRI under Groups 27–28. We included it. Confirm with the instructor; removing it is deleting one block in `config/institutions.yaml`.
+1. **CDRI scope.** The slide deck lists CDRI under Group 29; the instruction note's table puts CDRI under Groups 27–28. We included it. Confirm with the instructor; removing it is deleting one block in `config/institutions.yaml` and re-running from S02.
 2. Five more questions for the instructor are in plan section 14 (definition of faculty, `total_citations` meaning, h-index window, extra columns, dashboard format).
 
 ## 3. Setup on a new machine
@@ -164,67 +172,21 @@ Checks done: no duplicate DOIs; the integrity checks in code pass; in 99.3% of l
 
 ## 6. What to do next, in order
 
-### Task 1: finish S03 (about 1 to 2 hours, needs a person)
+The pipeline is complete; what is left is review and judgement.
 
-1. Open `data/review/faculty_match_review.csv`. Rows with `person_status = UNMATCHED` are listed first (about 19 people). For each, look at `cand_name`, `score`, `reason`, `n_lab_works_window`, `sample_titles`, then write `accept` or `reject` in the `decision` column. Where `reason` is "no candidate found" there is nothing to decide.
-2. Likely accepts to verify: **Krishan Gopal** (IMTECH-040) with "Krishan Gopal Thakur" (51 lab papers); **Virendrakumar M Prajapati** with "V.M. Prajapati"; **Er. Ranvir Singh** with "Singh Rajender" (99 lab papers). About 10 people have no candidate at all (for example Dinabandhu Sar, Gorakhnath R Jachak, Satish C Philkhana, Neha Topno, Garry Bedi, Imtiyaz Yaseen); they are probably new joiners or staff with no papers under the lab's name. List them in the report's limitations rather than force a match.
-3. Optionally, for people already matched, check the lower rows (`person_status = matched`): they are alternative profiles the matcher held back. Accept any that are clearly the same person to capture more of their papers.
-4. Run it again:
+1. **Second-person review of the roster growth** (qa_log 2026-10-14): check the 62 people added from `uncovered_lab_authors.csv` (`source = uncovered-author list (S05)` in `data/manual/faculty_roster.csv`). Remove anyone who is not a scientist/PI, fill `designation`/`department` where known. Six merged OpenAlex profiles were skipped (Anurag Agrawal, Ajay Kumar Srivastava, Divya Ramesh Singh, Shailendra Kumar Saxena, Brijesh N. Kumar, Vijay Pal Singh); add them by hand if wanted. After any change:
 
 ```bash
-python -m dpcn run s03
+python -m dpcn run all --from s03
 ```
 
-   Decisions are kept. You can also add rows to `data/manual/faculty_match_overrides.csv` (columns `faculty_id,author_id,decision`).
-5. Skim `data/review/roster_gaps.csv` (204 authors with 6 or more years and 15 or more lab papers who are not on the roster). Most are long-staying students or postdocs, but a scientist missing from the website would show up here. To add someone, append a row to `data/manual/faculty_roster.csv` (next free `faculty_id`, `status=current`, `source=manual`) and re-run S03.
-6. Correct the wrong ORCID: `IGIB-014` (Jitendra Narayan) holds Arpan Parichha's ORCID `0000-0002-5507-5742`, copied from the IGIB site. Blank it in `faculty_roster.csv`.
-7. Another team member should review `faculty_roster.csv` itself: check the CDRI page "S&T Infrastructure & Services" (a 13th tab the scraper skipped, see qa_log S01) and add former faculty with `status=former` if wanted.
-8. Record what you decided in `docs/qa_log.md`.
+2. **Read the report and the dashboard as a reader would.** The "key findings" sentences on slide 10 are generated from the statistics; rewrite them in your own words if you prefer (edit `src/dpcn/steps/s14_report.py`, function `build`).
+3. **Manual spot checks** (plan §11): 20 random rows against publisher pages; top-10 citations against Google Scholar; log results in `docs/qa_log.md`.
+4. **Send the instructor questions** (plan §14), especially CDRI.
+5. Correct the wrong ORCID on `IGIB-014` in `faculty_roster.csv` (Arpan Parichha's ORCID copied from the IGIB site).
+6. **Submit**: week 2 = `outputs/submission/group29_week2.zip`; week 3 = `outputs/submission/group29_week3.zip`.
 
-**Done when** at least 95% of faculty who have lab-affiliated papers have an author ID, and the unmatched remainder is listed in qa_log.
-
-### Task 1b: grow the roster from the uncovered-author list (about 1 to 2 hours, needs a person who knows the labs)
-
-S05 wrote `data/review/uncovered_lab_authors.csv`: up to 60 people per lab who appear on lab papers that have no matched faculty member, ranked by how often they are the last or corresponding author (the principal-investigator position). It also shows first and last year, whether OpenAlex still lists them at the lab (`at_lab_now`) and a `suspect_merged` flag (a merged profile; take care).
-
-1. For each row that is a real scientist (not a student or technician), set `add` to TRUE and `status` to `current` or `former`. Check against the lab website or Google Scholar if unsure. A very high paper count with few last-author papers usually means a technician, a student, or a merged profile.
-2. Run:
-
-```bash
-python -m dpcn run s01 --add-uncovered
-```
-
-   This appends them to `faculty_roster.csv` (source "uncovered-author list (S05)") and pre-accepts their OpenAlex author in `data/manual/faculty_match_overrides.csv`, so no name matching is needed.
-3. Re-run S03, S04 and S05 (mostly cached, quick). Coverage in the S05 printout should rise.
-4. Record who was added and why in `docs/qa_log.md`. State the definition in the report: "faculty = scientists listed on the lab website, plus scientists identified from lab-affiliated authorship and confirmed by a team member". Ask the instructor (plan question 2) if unsure.
-
-**Decision needed: the profile-years rule.** 523 papers by roster faculty have no institution data on the faculty member's authorship; for about 262 of those papers the author's own OpenAlex profile places them at the lab that year. Setting `work_filter.link_by_profile_years: true` in `config/settings.yaml` adds them (marked `profile_years` in `faculty_papers`). It is off, matching plan D4 exactly. We lean towards turning it on, since those are very likely lab papers, but it is a judgement call to state in the report.
-
-### Task 2: manual downloads (can be done in parallel by anyone, 30 minutes)
-
-- **Journal quartiles.** scimagojr.com blocks scripted downloads. In a browser go to Journal Rankings, and for each year 2016 to the latest, choose all subject areas and types and click Download data. Save as `data/manual/sjr/scimagojr_<YEAR>.csv`. Files are semicolon-separated.
-- **Conference ranks.** Download the CORE export (CORE2023) and save it as `data/manual/core/CORE2023.csv` (the file has no header row: `id,title,acronym,source,rank,dblp,for1,for2,for3`). Almost no biology venues are CORE-ranked, so expect nearly all conference papers to be unranked; the dashboard shows a note saying so.
-
-### Task 3: send the instructor questions (plan section 14)
-Send early. The most important is the CDRI scope question.
-
-### Task 4: implement S04 to S15
-S06 to S15 remain. Follow `02_IMPLEMENTATION_GUIDE.md` section 7 for each, in this order. S06 reads `works.parquet` and `institutions.parquet`; S07 starts from the dataset work IDs in `works.parquet`. Build one step, run it, check its acceptance conditions, write tests for the logic, log findings in `qa_log.md`.
-
-| Step | Key points specific to our setup |
-|---|---|
-| **S04, S05** | Done (section 5). Re-run both after any roster change. |
-| **S06** enrich | Quartile join (year-matched Scimago by ISSN, then title; D8), CORE for conferences, research area from OpenAlex topics, department from the roster. IMTECH has no department: use the most frequent OpenAlex subfield and set `dept_source=openalex` (D20). |
-| **S07** flows | Indian in-flow and out-flow with batched `cites:` and `cited_by:` filters (100 IDs per call). Umbrella bodies (CSIR HQ, Government of India and so on) and the AcSIR academy are not partners (D11). |
-| **S08** main CSV | Exact 14 required columns in order, then extras; one row per paper per faculty member per lab (D5). |
-| **S09 / S10 / S11** | Citation network, authorship network, `indian_connections.csv` with Jaccard topic similarity (D13 to D19). |
-| **S12** stats | Metric tables in `outputs/stats/`; window h-index (D10). |
-| **S13 / S14** | Single-file HTML dashboard (11 panels, plan section 7.7) and the report of at most 10 slides (plan section 7.8). |
-| **S15** validate | All checks in plan section 11, then package `outputs/submission/`. |
-
-**Deadlines.** Week 1–2: the four CSV files (S04 to S11). Week 3: report and dashboard (S12 to S14). The plan's suggested day-by-day schedule is in plan section 9. Aim for a draft `group29_data.csv` at the end of week 1.
-
-**Suggested split for a team** (adapt to team size): one person on data (S04, S05, S08); one on roster, quality and manual downloads (Task 1, Task 2, S06, S15); one on networks (S07, S09 to S11); one on dashboard (S13); one on statistics and report (S12, S14).
+**If new journals enter the dataset** (roster changes), re-fetch the SJR files: see `data/manual/sjr/README.md`.
 
 ## 7. Working conventions
 

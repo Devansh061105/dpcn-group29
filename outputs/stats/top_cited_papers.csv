@@ -1,0 +1,51 @@
+scope,rank,title,journal,year,citations,doi,labs
+CSIR-CCMB,1,Guidelines for the use and interpretation of assays for monitoring autophagy (3rd edition),Autophagy,2016,5860,https://doi.org/10.1080/15548627.2015.1100356,CSIR-CCMB
+CSIR-CCMB,2,The Simons Genome Diversity Project: 300 genomes from 142 diverse populations,Nature,2016,1595,https://doi.org/10.1038/nature18964,CSIR-CCMB
+CSIR-CCMB,3,SARS-CoV-2 B.1.617.2 Delta variant replication and immune evasion,Nature,2021,1337,https://doi.org/10.1038/s41586-021-03944-y,CSIR-CCMB; CSIR-IGIB
+CSIR-CCMB,4,The genetic architecture of type 2 diabetes,Nature,2016,1049,https://doi.org/10.1038/nature18642,CSIR-CCMB; CSIR-IGIB
+CSIR-CCMB,5,The power of genetic diversity in genome-wide association studies of lipids,Nature,2021,968,https://doi.org/10.1038/s41586-021-04064-3,CSIR-CCMB; CSIR-IGIB
+CSIR-CCMB,6,A saturated map of common genetic variants associated with human height,Nature,2022,815,https://doi.org/10.1038/s41586-022-05275-y,CSIR-CCMB
+CSIR-CCMB,7,Ongoing declines for the world’s amphibians in the face of emerging threats,Nature,2023,812,https://doi.org/10.1038/s41586-023-06578-4,CSIR-CCMB
+CSIR-CCMB,8,The formation of human populations in South and Central Asia,Science,2019,741,https://doi.org/10.1126/science.aat7487,CSIR-CCMB
+CSIR-CCMB,9,Multi-ancestry genetic study of type 2 diabetes highlights the power of diverse populations for discovery and translation,Nature Genetics,2022,715,https://doi.org/10.1038/s41588-022-01058-3,CSIR-CCMB
+CSIR-CCMB,10,Chitosan as biomaterial in drug delivery and tissue engineering,International Journal of Biological Macromolecules,2017,684,https://doi.org/10.1016/j.ijbiomac.2017.08.140,CSIR-CCMB
+CSIR-IGIB,1,Guidelines for the use and interpretation of assays for monitoring autophagy (4th edition) 1,Autophagy,2021,2611,https://doi.org/10.1080/15548627.2020.1797280,CSIR-IGIB; CSIR-IMTECH
+CSIR-IGIB,2,Oxidative Stress: A Key Modulator in Neurodegenerative Diseases,Molecules,2019,2251,https://doi.org/10.3390/molecules24081583,CSIR-IGIB
+CSIR-IGIB,3,SARS-CoV-2 B.1.617.2 Delta variant replication and immune evasion,Nature,2021,1337,https://doi.org/10.1038/s41586-021-03944-y,CSIR-CCMB; CSIR-IGIB
+CSIR-IGIB,4,Altered TMPRSS2 usage by SARS-CoV-2 Omicron impacts infectivity and fusogenicity,Nature,2022,1148,https://doi.org/10.1038/s41586-022-04474-x,CSIR-IGIB
+CSIR-IGIB,5,The genetic architecture of type 2 diabetes,Nature,2016,1049,https://doi.org/10.1038/nature18642,CSIR-CCMB; CSIR-IGIB
+CSIR-IGIB,6,The power of genetic diversity in genome-wide association studies of lipids,Nature,2021,968,https://doi.org/10.1038/s41586-021-04064-3,CSIR-CCMB; CSIR-IGIB
+CSIR-IGIB,7,Lipid rafts in immune signalling: current progress and future perspective,Immunology,2016,331,https://doi.org/10.1111/imm.12617,CSIR-IGIB
+CSIR-IGIB,8,Mechanistic Insight into Oxidative Stress-Triggered Signaling Pathways and Type 2 Diabetes,Molecules,2022,325,https://doi.org/10.3390/molecules27030950,CSIR-IGIB
+CSIR-IGIB,9,Nanoscale Self-Assembly for Therapeutic Delivery,Frontiers in Bioengineering and Biotechnology,2020,323,https://doi.org/10.3389/fbioe.2020.00127,CSIR-IGIB
+CSIR-IGIB,10,"Genomic characterization and epidemiology of an emerging SARS-CoV-2 variant in Delhi, India",Science,2021,300,https://doi.org/10.1126/science.abj9932,CSIR-IGIB
+CSIR-IMTECH,1,Guidelines for the use and interpretation of assays for monitoring autophagy (4th edition) 1,Autophagy,2021,2611,https://doi.org/10.1080/15548627.2020.1797280,CSIR-IGIB; CSIR-IMTECH
+CSIR-IMTECH,2,A review on the biosynthesis of metal and metal salt nanoparticles by microbes,RSC Advances,2019,706,https://doi.org/10.1039/c8ra10483b,CSIR-IMTECH
+CSIR-IMTECH,3,THPdb: Database of FDA-approved peptide and protein therapeutics,PLoS ONE,2017,486,https://doi.org/10.1371/journal.pone.0181748,CSIR-IMTECH
+CSIR-IMTECH,4,Computer-aided designing of immunosuppressive peptides based on IL-10 inducing potential,Scientific Reports,2017,317,https://doi.org/10.1038/srep42851,CSIR-IMTECH
+CSIR-IMTECH,5,A Web Server and Mobile App for Computing Hemolytic Potency of Peptides,Scientific Reports,2016,267,https://doi.org/10.1038/srep22843,CSIR-IMTECH
+CSIR-IMTECH,6,Potential Role of Gut Microbiota in Induction and Regulation of Innate Immune Memory,Frontiers in Immunology,2019,237,https://doi.org/10.3389/fimmu.2019.02441,CSIR-IMTECH
+CSIR-IMTECH,7,Biofilm formation in the lung contributes to virulence and drug tolerance of Mycobacterium tuberculosis,Nature Communications,2021,229,https://doi.org/10.1038/s41467-021-21748-6,CSIR-IMTECH
+CSIR-IMTECH,8,Benchmarking of different molecular docking methods for protein-peptide docking,BMC Bioinformatics,2019,208,https://doi.org/10.1186/s12859-018-2449-y,CSIR-IMTECH
+CSIR-IMTECH,9,aBiofilm: a resource of anti-biofilm agents and their potential implications in targeting antibiotic drug resistance,Nucleic Acids Research,2017,190,https://doi.org/10.1093/nar/gkx1157,CSIR-IMTECH
+CSIR-IMTECH,10,Inhibitory Effect of Sophorolipid on Candida albicans Biofilm Formation and Hyphal Growth,Scientific Reports,2016,189,https://doi.org/10.1038/srep23575,CSIR-IMTECH
+CSIR-CDRI,1,"Nanoemulsion: Concepts, development and applications in drug delivery",Journal of Controlled Release,2017,1354,https://doi.org/10.1016/j.jconrel.2017.03.008,CSIR-CDRI
+CSIR-CDRI,2,Strategies for Fermentation Medium Optimization: An In-Depth Review,Frontiers in Microbiology,2017,625,https://doi.org/10.3389/fmicb.2016.02087,CSIR-CDRI
+CSIR-CDRI,3,A comprehensive review on polyelectrolyte complexes,Drug Discovery Today,2017,489,https://doi.org/10.1016/j.drudis.2017.06.008,CSIR-CDRI
+CSIR-CDRI,4,An update on natural compounds in the remedy of diabetes mellitus: A systematic review,Journal of Traditional and Complementary Medicine,2017,455,https://doi.org/10.1016/j.jtcme.2017.08.012,CSIR-CDRI
+CSIR-CDRI,5,Taurine deficiency as a driver of aging,Science,2023,435,https://doi.org/10.1126/science.abn9257,CSIR-CDRI
+CSIR-CDRI,6,"Autophagy in ovary and polycystic ovary syndrome: role, dispute and future perspective",Autophagy,2021,305,https://doi.org/10.1080/15548627.2021.1938914,CSIR-CDRI
+CSIR-CDRI,7,Physiological and Functional Basis of Dopamine Receptors and Their Role in Neurogenesis: Possible Implication for Parkinson’s disease,Journal of Experimental Neuroscience,2018,276,https://doi.org/10.1177/1179069518779829,CSIR-CDRI
+CSIR-CDRI,8,Global occurrence of deoxynivalenol in food commodities and exposure risk assessment in humans in the last decade: a survey,Critical Reviews in Food Science and Nutrition,2019,270,https://doi.org/10.1080/10408398.2019.1571479,CSIR-CDRI
+CSIR-CDRI,9,Neutrophils and Neutrophil Extracellular Traps Drive Necroinflammation in COVID-19,Cells,2020,263,https://doi.org/10.3390/cells9061383,CSIR-CDRI
+CSIR-CDRI,10,Metabolic Insight of Neutrophils in Health and Disease,Frontiers in Immunology,2019,261,https://doi.org/10.3389/fimmu.2019.02099,CSIR-CDRI
+ALL,1,Guidelines for the use and interpretation of assays for monitoring autophagy (3rd edition),Autophagy,2016,5860,https://doi.org/10.1080/15548627.2015.1100356,CSIR-CCMB
+ALL,2,Guidelines for the use and interpretation of assays for monitoring autophagy (4th edition) 1,Autophagy,2021,2611,https://doi.org/10.1080/15548627.2020.1797280,CSIR-IGIB; CSIR-IMTECH
+ALL,3,Oxidative Stress: A Key Modulator in Neurodegenerative Diseases,Molecules,2019,2251,https://doi.org/10.3390/molecules24081583,CSIR-IGIB
+ALL,4,The Simons Genome Diversity Project: 300 genomes from 142 diverse populations,Nature,2016,1595,https://doi.org/10.1038/nature18964,CSIR-CCMB
+ALL,5,"Nanoemulsion: Concepts, development and applications in drug delivery",Journal of Controlled Release,2017,1354,https://doi.org/10.1016/j.jconrel.2017.03.008,CSIR-CDRI
+ALL,6,SARS-CoV-2 B.1.617.2 Delta variant replication and immune evasion,Nature,2021,1337,https://doi.org/10.1038/s41586-021-03944-y,CSIR-CCMB; CSIR-IGIB
+ALL,7,Altered TMPRSS2 usage by SARS-CoV-2 Omicron impacts infectivity and fusogenicity,Nature,2022,1148,https://doi.org/10.1038/s41586-022-04474-x,CSIR-IGIB
+ALL,8,The genetic architecture of type 2 diabetes,Nature,2016,1049,https://doi.org/10.1038/nature18642,CSIR-CCMB; CSIR-IGIB
+ALL,9,The power of genetic diversity in genome-wide association studies of lipids,Nature,2021,968,https://doi.org/10.1038/s41586-021-04064-3,CSIR-CCMB; CSIR-IGIB
+ALL,10,A saturated map of common genetic variants associated with human height,Nature,2022,815,https://doi.org/10.1038/s41586-022-05275-y,CSIR-CCMB

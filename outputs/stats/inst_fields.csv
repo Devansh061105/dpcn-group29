@@ -1,0 +1,56 @@
+scope,field,papers,share
+CSIR-CCMB,"Biochemistry, Genetics and Molecular Biology",535,0.4444
+CSIR-CCMB,Medicine,318,0.2641
+CSIR-CCMB,Agricultural and Biological Sciences,67,0.0556
+CSIR-CCMB,Environmental Science,66,0.0548
+CSIR-CCMB,Neuroscience,61,0.0507
+CSIR-CCMB,Chemistry,42,0.0349
+CSIR-CCMB,Immunology and Microbiology,32,0.0266
+CSIR-CCMB,Materials Science,23,0.0191
+CSIR-CCMB,Engineering,14,0.0116
+CSIR-CCMB,Computer Science,13,0.0108
+CSIR-CCMB,Other,33,0.0274
+CSIR-IGIB,Medicine,555,0.3917
+CSIR-IGIB,"Biochemistry, Genetics and Molecular Biology",524,0.3698
+CSIR-IGIB,Neuroscience,66,0.0466
+CSIR-IGIB,Materials Science,57,0.0402
+CSIR-IGIB,Immunology and Microbiology,41,0.0289
+CSIR-IGIB,Agricultural and Biological Sciences,29,0.0205
+CSIR-IGIB,"Pharmacology, Toxicology and Pharmaceutics",28,0.0198
+CSIR-IGIB,Chemistry,27,0.0191
+CSIR-IGIB,Computer Science,24,0.0169
+CSIR-IGIB,Engineering,22,0.0155
+CSIR-IGIB,Other,44,0.0311
+CSIR-IMTECH,"Biochemistry, Genetics and Molecular Biology",313,0.3831
+CSIR-IMTECH,Medicine,198,0.2424
+CSIR-IMTECH,Agricultural and Biological Sciences,75,0.0918
+CSIR-IMTECH,Environmental Science,60,0.0734
+CSIR-IMTECH,Immunology and Microbiology,41,0.0502
+CSIR-IMTECH,Materials Science,35,0.0428
+CSIR-IMTECH,Computer Science,35,0.0428
+CSIR-IMTECH,Engineering,20,0.0245
+CSIR-IMTECH,Chemistry,19,0.0233
+CSIR-IMTECH,Dentistry,7,0.0086
+CSIR-IMTECH,Other,14,0.0171
+CSIR-CDRI,Medicine,933,0.3457
+CSIR-CDRI,Chemistry,637,0.236
+CSIR-CDRI,"Biochemistry, Genetics and Molecular Biology",529,0.196
+CSIR-CDRI,Materials Science,140,0.0519
+CSIR-CDRI,"Pharmacology, Toxicology and Pharmaceutics",129,0.0478
+CSIR-CDRI,Immunology and Microbiology,109,0.0404
+CSIR-CDRI,Agricultural and Biological Sciences,62,0.023
+CSIR-CDRI,Computer Science,53,0.0196
+CSIR-CDRI,Neuroscience,45,0.0167
+CSIR-CDRI,Engineering,20,0.0074
+CSIR-CDRI,Other,42,0.0156
+ALL,Medicine,1955,0.3224
+ALL,"Biochemistry, Genetics and Molecular Biology",1889,0.3116
+ALL,Chemistry,724,0.1194
+ALL,Materials Science,255,0.0421
+ALL,Agricultural and Biological Sciences,226,0.0373
+ALL,Immunology and Microbiology,222,0.0366
+ALL,Neuroscience,175,0.0289
+ALL,"Pharmacology, Toxicology and Pharmaceutics",167,0.0275
+ALL,Environmental Science,157,0.0259
+ALL,Computer Science,124,0.0205
+ALL,Other,169,0.0279

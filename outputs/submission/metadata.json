@@ -1,0 +1,50 @@
+{
+  "group": 29,
+  "institutions": [
+    "CSIR-CCMB",
+    "CSIR-IGIB",
+    "CSIR-IMTECH",
+    "CSIR-CDRI"
+  ],
+  "collection_date": "2026-10-13",
+  "built_at": "2026-10-13T19:26:57+00:00",
+  "source": "OpenAlex (api.openalex.org), Scimago SJR, CORE2023",
+  "window": [
+    2016,
+    2026
+  ],
+  "partial_year": 2026,
+  "rows": 8107,
+  "unique_papers": 6063,
+  "per_institution": {
+    "CSIR-CCMB": {
+      "rows": 1346,
+      "papers": 1204,
+      "faculty": 54,
+      "cites_indian_inst_true": 1093,
+      "cited_by_indian_inst_true": 882
+    },
+    "CSIR-CDRI": {
+      "rows": 3917,
+      "papers": 2699,
+      "faculty": 116,
+      "cites_indian_inst_true": 3514,
+      "cited_by_indian_inst_true": 2971
+    },
+    "CSIR-IGIB": {
+      "rows": 1821,
+      "papers": 1417,
+      "faculty": 55,
+      "cites_indian_inst_true": 1513,
+      "cited_by_indian_inst_true": 1306
+    },
+    "CSIR-IMTECH": {
+      "rows": 1023,
+      "papers": 817,
+      "faculty": 49,
+      "cites_indian_inst_true": 918,
+      "cited_by_indian_inst_true": 784
+    }
+  },
+  "git_commit": "9187374"
+}

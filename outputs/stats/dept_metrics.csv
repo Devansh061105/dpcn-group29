@@ -1,0 +1,109 @@
+lab,department,faculty,mean_h_window,median_h_window,dept_source,papers,citations,q1_fraction
+CSIR-CCMB,Molecular Biology,8,10.38,9.5,openalex,204,3190,0.6623
+CSIR-CCMB,Evolutionary and Medical Genetics,1,24.0,24.0,website,115,4171,0.633
+CSIR-CCMB,Membrane and Receptor Biology,1,24.0,24.0,website,91,1874,0.7333
+CSIR-CCMB,Genome Organization and Epigenetic Regulation,1,19.0,19.0,website,72,1313,0.6714
+CSIR-CCMB,Genomic Research on Complex Diseases,1,24.0,24.0,website,70,6090,0.8209
+CSIR-CCMB,Behavioral Neuroscience,1,22.0,22.0,openalex,58,1034,0.6667
+CSIR-CCMB,Understanding the Species Extinction and Biodiversity Conservation,1,13.0,13.0,website,45,901,0.8293
+CSIR-CCMB,"Bioinformatics, Big Data, Algorithms in Biology",1,15.0,15.0,website,43,2150,0.7857
+CSIR-CCMB,Plant-Pathogen Interactions,1,17.0,17.0,website,41,721,0.7692
+CSIR-CCMB,Structural Biology,1,12.0,12.0,website,38,413,0.8684
+CSIR-CCMB,Understanding the mechanisms of Neural injury and its Repair,1,15.0,15.0,website,38,764,0.7632
+CSIR-CCMB,Brain Energy Metabolism in Neurological and Psychiatric Disorders,1,15.0,15.0,website,37,662,0.7778
+CSIR-CCMB,Mass Spectrometry based Proteomics and Cancer Biology,1,10.0,10.0,website,33,369,0.5758
+CSIR-CCMB,Ecology and Conservation of Endangered Species,1,12.0,12.0,website,32,1495,0.5938
+CSIR-CCMB,Host-Virus Interactions: Molecular Perspectives,1,10.0,10.0,website,26,356,0.7308
+CSIR-CCMB,Roles of the Ubiquitin Proteasome System and Autophagy in Malaria Parasite Biology and Pathogenesis,1,13.0,13.0,website,26,6209,0.8077
+CSIR-CCMB,Computational Theory and Mathematics,1,10.0,10.0,openalex,24,546,0.7222
+CSIR-CCMB,Molecular & Cellular Biology. Bacterial Genetics.,1,6.0,6.0,website,24,1445,0.8333
+CSIR-CCMB,Microbiology,1,10.0,10.0,openalex,22,226,0.5
+CSIR-CCMB,Ophthalmology,1,11.0,11.0,openalex,21,6374,0.8571
+CSIR-CCMB,Bacterial Cell Wall Synthesis and its Regulation,1,12.0,12.0,website,20,634,1.0
+CSIR-CCMB,Bio-mechanisms of Regeneration,1,11.0,11.0,website,20,397,0.7895
+CSIR-CCMB,Non-coding RNA-mediated gene regulation,1,6.0,6.0,website,18,148,0.3889
+CSIR-CCMB,"Biomedical Nanotheranostics: 3D Bioprinting based Targeted Drug Delivery, Tissue Engineering and Regenerative Therapy",1,10.0,10.0,website,16,1253,0.6875
+CSIR-CCMB,Nature and Landscape Conservation,1,7.0,7.0,openalex,16,146,0.9333
+CSIR-CCMB,Stress Biology and Molecular Medicine,1,9.0,9.0,website,16,171,0.375
+CSIR-CCMB,Cellular Biochemistry and Proteomics,1,6.0,6.0,website,15,93,0.8571
+CSIR-CCMB,Conservation Biology and Population Genetics of Endangered Species,1,10.0,10.0,website,15,312,0.7857
+CSIR-CCMB,"Systematics, Historical Biogeography & Diversification in the Tropical Forests",1,7.0,7.0,website,15,132,0.7857
+CSIR-CCMB,Cell and Developmental Biology,1,6.0,6.0,website,14,653,0.7143
+CSIR-CCMB,Spectroscopy,1,7.0,7.0,openalex,14,153,0.25
+CSIR-CCMB,Conservation Genetics of Endangered Species,1,5.0,5.0,website,11,142,0.4545
+CSIR-CCMB,Liver fibrosis & regeneration; Stem cells in chronic liver disease,1,7.0,7.0,website,11,186,0.5455
+CSIR-CCMB,Pathobiology of Mycobacterium tuberculosis,1,6.0,6.0,website,11,124,0.5455
+CSIR-CCMB,Cellular and Molecular Neuroscience,1,2.0,2.0,openalex,10,21,0.7
+CSIR-CCMB,Plant Reproductive Biology,1,4.0,4.0,website,9,58,1.0
+CSIR-CCMB,"Cell biology, Host-Pathogen interactions, Cancer immunity, and autoimmune disorders",1,6.0,6.0,website,8,85,1.0
+CSIR-CCMB,Molecular machinery of translation in Leishmania parasite.,1,5.0,5.0,website,8,113,0.5
+CSIR-CCMB,Receptor Signalling and Immune Response,1,4.0,4.0,website,8,244,0.75
+CSIR-CCMB,Structural biology of macromolecular machinery and cryo-electron microscopy,1,5.0,5.0,website,8,312,1.0
+CSIR-CCMB,"Cellular Metabolism, Microbial Genetics and Microbial Pathogenesis",1,2.0,2.0,website,5,30,1.0
+CSIR-CCMB,Developmental Biology,1,4.0,4.0,website,5,65,1.0
+CSIR-CCMB,Early Embryonic Development in Mouse,1,3.0,3.0,website,4,26,0.75
+CSIR-CCMB,Cardiovascular Biology,1,3.0,3.0,website,3,20,1.0
+CSIR-CCMB,Mechanism of Epigenetic Inheritance in Plants,1,3.0,3.0,website,3,146,0.6667
+CSIR-CCMB,Regulation of Axon growth and Regeneration in the Mammalian Central Nervous System,1,1.0,1.0,website,2,11,1.0
+CSIR-CCMB,in vivo Muscle Repair and Maintenance,1,1.0,1.0,website,1,3,0.0
+CSIR-CDRI,Medicinal & Process Chemistry,20,8.9,7.0,website,487,6582,0.6554
+CSIR-CDRI,Molecular Microbiology & Immunology,12,8.92,8.5,website,393,6236,0.5692
+CSIR-CDRI,Biochemistry & Structural Biology,12,11.33,10.5,website,360,4895,0.6826
+CSIR-CDRI,Pharmaceutics & Pharmacokinetics,6,20.0,23.0,website,358,8632,0.6073
+CSIR-CDRI,Toxicology & Experimental Medicine,7,13.14,13.0,website,269,5545,0.6275
+CSIR-CDRI,Endocrinology,6,15.67,16.0,website,247,6452,0.6818
+CSIR-CDRI,Molecular Biology,4,22.0,24.0,openalex,247,6233,0.7605
+CSIR-CDRI,Pharmacology,8,12.75,16.0,website,189,4440,0.7487
+CSIR-CDRI,Sophisticated Analytical Instrument Facility & Research,6,11.33,10.0,website,169,2994,0.6626
+CSIR-CDRI,Organic Chemistry,7,10.57,10.0,openalex,166,2792,0.6376
+CSIR-CDRI,Cancer Biology,5,15.6,16.0,website,161,3329,0.7134
+CSIR-CDRI,Neuroscience & Ageing Biology,4,12.75,13.5,website,121,2247,0.6833
+CSIR-CDRI,Biomaterials,2,22.0,22.0,openalex,82,4405,0.7
+CSIR-CDRI,Molecular Medicine,2,15.5,15.5,openalex,60,1427,0.8
+CSIR-CDRI,Immunology,1,19.0,19.0,openalex,57,1343,0.7636
+CSIR-CDRI,"Public Health, Environmental and Occupational Health",2,14.5,14.5,openalex,56,1125,0.6667
+CSIR-CDRI,Medicinal & Process Chemistry; Sophisticated Analytical Instrument Facility & Research,1,15.0,15.0,website,55,585,0.4815
+CSIR-CDRI,Microbiology,1,16.0,16.0,openalex,40,616,0.925
+CSIR-CDRI,Laboratory Animal Facility,3,6.0,4.0,website,36,625,0.7778
+CSIR-CDRI,Virus Research and Therapeutics,3,4.67,4.0,website,28,237,0.7143
+CSIR-CDRI,Complementary and alternative medicine,1,13.0,13.0,openalex,23,788,0.4
+CSIR-CDRI,Computational Theory and Mathematics,1,11.0,11.0,openalex,23,359,0.1818
+CSIR-CDRI,Infectious Diseases,1,10.0,10.0,openalex,21,230,0.619
+CSIR-CDRI,Nephrology,1,16.0,16.0,openalex,19,1158,0.9474
+CSIR-IGIB,Decision Unit 1: Genomics and Genome Biology,6,11.83,11.5,website,270,3506,0.5336
+CSIR-IGIB,Molecular Biology,7,13.0,10.0,openalex,233,6592,0.5507
+CSIR-IGIB,Genetics,3,19.0,14.0,openalex,215,7396,0.6087
+CSIR-IGIB,Decision Unit 3: Chemical Biology,6,16.0,17.0,website,207,8941,0.6931
+CSIR-IGIB,Decision Unit 6: Infectious Diseases Biology,3,18.0,12.0,website,163,5421,0.8544
+CSIR-IGIB,Decision Unit 2: Disease Biology and Therapeutics,2,17.5,17.5,website,104,3845,0.7263
+CSIR-IGIB,Decision Unit 4: Systems Biology,6,7.5,5.5,website,76,1976,0.7903
+CSIR-IGIB,Decision Unit 5: Functional Biology,6,6.67,8.5,website,76,1582,0.8
+CSIR-IGIB,Psychiatry and Mental health,1,23.0,23.0,openalex,75,4229,0.5068
+CSIR-IGIB,Decision Unit 2: Disease Biology,4,8.0,8.5,website,58,1099,0.8621
+CSIR-IGIB,Rheumatology,1,17.0,17.0,openalex,58,884,0.3929
+CSIR-IGIB,Materials Chemistry,1,19.0,19.0,openalex,57,1401,0.4107
+CSIR-IGIB,Physiology,2,12.0,12.0,openalex,43,1074,0.9048
+CSIR-IGIB,Immunology and Allergy,1,11.0,11.0,openalex,33,417,0.5667
+CSIR-IGIB,Infectious Diseases,1,10.0,10.0,openalex,29,249,0.1667
+CSIR-IGIB,Decision Unit 6: Infectious Disease Biology,2,5.5,5.5,website,24,315,0.6522
+CSIR-IGIB,Computational Theory and Mathematics,1,11.0,11.0,openalex,18,600,0.5714
+CSIR-IGIB,Decision Unit 7: Research Support,1,1.0,1.0,website,1,1,1.0
+CSIR-IGIB,Decision Unit-1: Genomics and Genome Biology,1,0.0,0.0,website,1,0,1.0
+CSIR-IMTECH,Molecular Biology,17,10.59,11.0,openalex,377,8952,0.7487
+CSIR-IMTECH,Infectious Diseases,11,10.73,8.0,openalex,217,8319,0.8638
+CSIR-IMTECH,Plant Science,2,13.5,13.5,openalex,72,1370,0.6212
+CSIR-IMTECH,Microbiology,1,15.0,15.0,openalex,48,942,0.413
+CSIR-IMTECH,Molecular Medicine,2,11.5,11.5,openalex,48,822,0.6596
+CSIR-IMTECH,"Public Health, Environmental and Occupational Health",2,10.5,10.5,openalex,40,655,0.8
+CSIR-IMTECH,Genetics,2,8.5,8.5,openalex,32,684,0.8065
+CSIR-IMTECH,Computational Theory and Mathematics,2,8.0,8.0,openalex,30,663,0.6667
+CSIR-IMTECH,Food Science,1,20.0,20.0,openalex,29,1788,0.8966
+CSIR-IMTECH,Cell Biology,1,12.0,12.0,openalex,18,682,0.9412
+CSIR-IMTECH,Biochemistry,1,7.0,7.0,openalex,13,153,0.9167
+CSIR-IMTECH,Electrical and Electronic Engineering,1,10.0,10.0,openalex,13,544,1.0
+CSIR-IMTECH,Physiology,1,5.0,5.0,openalex,6,173,0.8333
+CSIR-IMTECH,Biomaterials,1,2.0,2.0,openalex,5,78,0.6
+CSIR-IMTECH,Epidemiology,1,1.0,1.0,openalex,2,5,0.0
+CSIR-IMTECH,Polymers and Plastics,1,2.0,2.0,openalex,2,13,1.0
+CSIR-IMTECH,Biotechnology,1,0.0,0.0,openalex,1,0,0.0
+CSIR-IMTECH,Materials Chemistry,1,0.0,0.0,openalex,1,0,1.0

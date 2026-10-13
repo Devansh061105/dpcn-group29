@@ -1,0 +1,16 @@
+{
+  "tables": [
+    "core_ranks",
+    "dept_metrics",
+    "faculty_metrics",
+    "hindex_hist",
+    "inst_domains",
+    "inst_fields",
+    "inst_quartile",
+    "inst_subfields",
+    "inst_summary",
+    "inst_top_journals",
+    "inst_year_counts",
+    "top_cited_papers"
+  ]
+}

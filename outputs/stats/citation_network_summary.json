@@ -1,0 +1,22 @@
+{
+  "nodes": 6063,
+  "internal_edges": 9634,
+  "density": 0.0002621218000611962,
+  "weak_components": 1867,
+  "largest_wcc": 3414,
+  "isolates": 1595,
+  "share_indeg_0": 0.4905162460827973,
+  "mean_indeg": 1.5889823519709714,
+  "max_indeg": 31,
+  "reciprocity": 0.006227942702927133,
+  "exported_edges": {
+    "outflow": 29304,
+    "inflow": 25302,
+    "internal": 9634
+  },
+  "cross_institute_edges": 60713,
+  "dropped_not_cross": {
+    "outflow": 6476,
+    "inflow": 729
+  }
+}

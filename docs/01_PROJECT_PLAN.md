@@ -19,11 +19,11 @@
 | P0 Setup | **Done** |
 | P1 Roster | **Done, with caveats**: 232 scientists scraped from the four lab websites; the manual Scimago and CORE downloads and a second-person review are still to do |
 | P2 Matching | **Run**: 213 of 232 matched (91.8%); 19 need a manual decision |
-| P3 Collection | **Done**: 4,584 papers in the intermediate tables; coverage is limited by the roster (below) |
-| P4 Enrichment and flows | Not started (S06, S07) |
-| M1 draft dataset | Not started (S08) |
-| P5 Networks, M2 | Not started (S09 to S11) |
-| P6 Stats, P7 Dashboard, P8 Report, M3 | Not started (S12 to S15) |
+| P3 Collection | **Done**: 6,063 papers after roster growth (2026-10-14); coverage 71–81% of each lab's output |
+| P4 Enrichment and flows | **Done** (S06, S07): quartile coverage 93–98% |
+| M1 draft dataset | **Done** (S08): `group29_data.csv`, 8,107 rows |
+| P5 Networks, M2 | **Done** (S09 to S11): the four CSVs validate |
+| P6 Stats, P7 Dashboard, P8 Report, M3 | **Built** (S12 to S15): drafts ready for team review |
 
 **What changed in the method, and why** (new decisions D23 to D26 in section 6):
 

@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Group 29 Research Map</title>
+<!--__LIBS__-->
+<style>/*__STYLES__*/</style>
+</head>
+<body>
+<header class="top">
+  <div class="title">
+    <h1>CSIR Biology Labs · Research Map 2016–2026</h1>
+    <p class="sub" id="subtitle"></p>
+  </div>
+  <div class="controls">
+    <label for="lab">Institution</label>
+    <select id="lab"></select>
+    <button id="theme" type="button" aria-label="Toggle dark mode">◐</button>
+  </div>
+</header>
+<nav class="tabs" role="tablist" id="tabs">
+  <button role="tab" data-tab="overview" aria-selected="true">Overview</button>
+  <button role="tab" data-tab="journals">Journals</button>
+  <button role="tab" data-tab="faculty">Faculty</button>
+  <button role="tab" data-tab="research">Research</button>
+  <button role="tab" data-tab="citation">Citation network</button>
+  <button role="tab" data-tab="collab">Collaboration</button>
+  <button role="tab" data-tab="about">About the data</button>
+</nav>
+<main>
+  <section id="tab-overview" class="tab">
+    <div class="kpis" id="kpis"></div>
+    <div class="card"><h2>1 · Publication trend</h2><p class="note">Papers per year. 2026 is a partial year (data collected <span class="collected"></span>).</p><div id="c-trend" class="chart"></div></div>
+    <div class="grid2">
+      <div class="card"><h2>Citations received by publication year</h2><p class="note">Citation counts at collection date; recent papers have had less time to be cited.</p><div id="c-cites" class="chart"></div></div>
+      <div class="card"><h2>Institution summary</h2><div id="t-summary"></div></div>
+    </div>
+  </section>
+
+  <section id="tab-journals" class="tab" hidden>
+    <div class="grid2">
+      <div class="card"><h2>3 · Journal quartile distribution</h2><p class="note">Scimago (SJR) best quartile in the publication year. Q1 fraction = Q1 ÷ journal papers with a known quartile.</p><div id="c-quart" class="chart"></div></div>
+      <div class="card"><h2>5 · Top journals</h2><p class="note">By paper count (top 5 per institution; top 10 for all labs).</p><div id="c-journals" class="chart"></div></div>
+    </div>
+    <div class="grid2">
+      <div class="card"><h2>Top journals (table)</h2><div id="t-journals"></div></div>
+      <div class="card"><h2>9 · Conference rank (CORE)</h2><div id="core-note" class="note"></div><div id="c-core" class="chart small"></div></div>
+    </div>
+  </section>
+
+  <section id="tab-faculty" class="tab" hidden>
+    <div class="card"><h2>2 &amp; 4 · Faculty list and performance</h2>
+      <p class="note">Sort by any column; type in a header to filter. h (2016–26) is computed from this dataset; h (lifetime) is OpenAlex's, for context. <label class="inline"><input type="checkbox" id="compact"> Compact list (name, department, h-index, papers)</label></p>
+      <div id="t-faculty"></div></div>
+    <div class="grid2">
+      <div class="card"><h2>6 · h-index distribution</h2><p class="note">Faculty window h-index (2016–2026), bins of 5.</p><div id="c-hindex" class="chart"></div></div>
+      <div class="card"><h2>Department level</h2><p class="note">IMTECH publishes no departments: its faculty are grouped by their most frequent OpenAlex subfield.</p><div id="t-dept"></div></div>
+    </div>
+  </section>
+
+  <section id="tab-research" class="tab" hidden>
+    <div class="grid2">
+      <div class="card"><h2>7 · Research area breakdown</h2><p class="note">OpenAlex primary topic: field (inner ring) → subfield (outer). Click a field to zoom.</p><div id="c-areas" class="chart tall"></div></div>
+      <div class="card"><h2>Fields by share of papers</h2><div id="c-fields" class="chart tall"></div></div>
+    </div>
+    <div class="card"><h2>8 · Most-cited papers (top 10)</h2><div id="t-cited"></div></div>
+  </section>
+
+  <section id="tab-citation" class="tab" hidden>
+    <div class="kpis" id="kpis-cit"></div>
+    <div class="card"><h2>10 · Citation network</h2>
+      <p class="note">Directed graph of dataset papers citing each other: <span id="cit-n"></span> papers, the most influential by PageRank plus the papers that cite or are cited by them. Node size = PageRank, colour and shape = lab, arrow = "cites". Click a node for details; scroll to zoom.</p>
+      <div class="netwrap"><div id="g-cit" class="graph"></div><aside id="cit-info" class="info"><p class="muted">Click a paper.</p></aside></div>
+      <div class="legend" id="leg-cit"></div></div>
+    <div class="grid2">
+      <div class="card"><h2>PageRank top 10</h2><div id="t-pr"></div></div>
+      <div class="card"><h2>In-degree distribution</h2><p class="note">Citations each paper receives from the rest of the corpus (log–log; papers with in-degree 0 not shown).</p><div id="c-indeg" class="chart"></div></div>
+    </div>
+    <div class="grid2">
+      <div class="card"><h2>Indian citation flow by year</h2><p class="note">Citations from (in) and to (out) works carrying another Indian institution.</p><div id="c-flow" class="chart"></div></div>
+      <div class="card"><h2>Top 10 Indian institutes citing the lab</h2><div id="c-citers" class="chart"></div></div>
+    </div>
+    <div class="grid2">
+      <div class="card"><h2>Lab-to-lab citations</h2><p class="note">Rows cite columns (internal corpus edges).</p><div id="c-matrix" class="chart"></div></div>
+      <div class="card"><h2>Most-cited Indian papers citing the lab</h2><div id="t-citers-papers"></div></div>
+    </div>
+  </section>
+
+  <section id="tab-collab" class="tab" hidden>
+    <div class="kpis" id="kpis-au"></div>
+    <div class="card"><h2>11 · Authorship network</h2>
+      <div class="note row">
+        <span>Graph:</span>
+        <label><input type="radio" name="layer" value="faculty" checked> Faculty only</label>
+        <label><input type="radio" name="layer" value="internal"> All lab authors (top 600 by degree)</label>
+        <span class="sep">Colour:</span>
+        <label><input type="radio" name="colorby" value="lab" checked> Lab</label>
+        <label><input type="radio" name="colorby" value="comm"> Community (Louvain)</label>
+      </div>
+      <p class="note">Undirected co-authorship; node size = degree, edge width = joint papers, dashed edges join two labs. Click a node for details.</p>
+      <div class="netwrap"><div id="g-au" class="graph"></div><aside id="au-info" class="info"><p class="muted">Click an author.</p></aside></div>
+      <div class="legend" id="leg-au"></div></div>
+    <div class="grid2">
+      <div class="card"><h2>Degree &amp; betweenness centrality</h2><div id="t-cent"></div></div>
+      <div class="card"><h2>Communities</h2><div id="t-comm"></div></div>
+    </div>
+    <div class="grid2">
+      <div class="card"><h2>Indian partner institutions (co-authorship)</h2><p class="note">Ranked by shared papers; Jaccard = overlap of the top-100 OpenAlex topics of the two institutions.</p><div id="t-partners"></div></div>
+      <div class="card"><h2>Co-authorship by partner cluster</h2><p class="note">Cross-cluster links, e.g. CSIR↔IIT, CSIR↔Medical.</p><div id="c-cluster" class="chart"></div></div>
+    </div>
+    <div class="card"><h2>Hub authors bridging institutions</h2><p class="note">Faculty whose co-authors span the most Indian partner institutions.</p><div id="t-hubs"></div></div>
+  </section>
+
+  <section id="tab-about" class="tab" hidden>
+    <div class="card prose" id="about"></div>
+  </section>
+</main>
+<div id="tip" class="tip" hidden></div>
+<script id="data" type="application/json">__DATA__</script>
+<script>/*__APP__*/</script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+scope,subfield,papers,share
+CSIR-CCMB,Molecular Biology,344,0.2857
+CSIR-CCMB,Genetics,150,0.1246
+CSIR-CCMB,Infectious Diseases,77,0.064
+CSIR-CCMB,Plant Science,48,0.0399
+CSIR-CCMB,"Public Health, Environmental and Occupational Health",37,0.0307
+CSIR-CCMB,Cell Biology,27,0.0224
+CSIR-CCMB,Ecology,26,0.0216
+CSIR-CCMB,Cellular and Molecular Neuroscience,21,0.0174
+CSIR-CCMB,Neurology,21,0.0174
+CSIR-CCMB,Organic Chemistry,21,0.0174
+CSIR-CCMB,Other,432,0.3588
+CSIR-IGIB,Molecular Biology,310,0.2188
+CSIR-IGIB,Infectious Diseases,147,0.1037
+CSIR-IGIB,Genetics,107,0.0755
+CSIR-IGIB,Physiology,54,0.0381
+CSIR-IGIB,Cancer Research,52,0.0367
+CSIR-IGIB,Cellular and Molecular Neuroscience,45,0.0318
+CSIR-IGIB,Cell Biology,43,0.0303
+CSIR-IGIB,Epidemiology,36,0.0254
+CSIR-IGIB,Biomaterials,36,0.0254
+CSIR-IGIB,Pharmacology,34,0.024
+CSIR-IGIB,Other,553,0.3903
+CSIR-IMTECH,Molecular Biology,186,0.2277
+CSIR-IMTECH,Infectious Diseases,116,0.142
+CSIR-IMTECH,Molecular Medicine,42,0.0514
+CSIR-IMTECH,Plant Science,38,0.0465
+CSIR-IMTECH,Food Science,36,0.0441
+CSIR-IMTECH,Computational Theory and Mathematics,34,0.0416
+CSIR-IMTECH,Ecology,33,0.0404
+CSIR-IMTECH,Genetics,32,0.0392
+CSIR-IMTECH,Immunology,22,0.0269
+CSIR-IMTECH,Materials Chemistry,21,0.0257
+CSIR-IMTECH,Other,257,0.3146
+CSIR-CDRI,Organic Chemistry,546,0.2023
+CSIR-CDRI,Molecular Biology,392,0.1452
+CSIR-CDRI,"Public Health, Environmental and Occupational Health",152,0.0563
+CSIR-CDRI,Infectious Diseases,139,0.0515
+CSIR-CDRI,Biomaterials,95,0.0352
+CSIR-CDRI,Pharmaceutical Science,77,0.0285
+CSIR-CDRI,Epidemiology,76,0.0282
+CSIR-CDRI,Reproductive Medicine,74,0.0274
+CSIR-CDRI,Pharmacology,70,0.0259
+CSIR-CDRI,Analytical Chemistry,64,0.0237
+CSIR-CDRI,Other,1014,0.3757
+ALL,Molecular Biology,1228,0.2025
+ALL,Organic Chemistry,599,0.0988
+ALL,Infectious Diseases,452,0.0746
+ALL,Genetics,314,0.0518
+ALL,"Public Health, Environmental and Occupational Health",225,0.0371
+ALL,Biomaterials,155,0.0256
+ALL,Plant Science,147,0.0242
+ALL,Epidemiology,136,0.0224
+ALL,Pharmacology,130,0.0214
+ALL,Physiology,126,0.0208
+ALL,Other,2551,0.4207

@@ -11,7 +11,7 @@ Mapping 2016–2026 research output, citation networks and authorship networks f
 | [docs/02_IMPLEMENTATION_GUIDE.md](docs/02_IMPLEMENTATION_GUIDE.md) | Environment, repo layout, config, OpenAlex client, step-by-step pipeline S00–S15, dashboard, report, runbook |
 | [docs/qa_log.md](docs/qa_log.md) | Dated log of findings, anomalies and manual decisions |
 
-**Status:** S00–S05 done (S03 awaits a manual review of 19 people; the roster should grow, see the handoff); S06–S15 not started.
+**Status (2026-10-14):** all steps S00–S15 built and run; all validation checks pass. Draft deliverables are in `outputs/submission/` (four CSVs, `group29_dashboard.html`, `README.txt`, `metadata.json`, week-2/week-3 zips) and `outputs/report/` (10-slide report, .pptx + .pdf). Open items before submitting are in the handoff, section 6.
 
 ## Quick start (Windows, Miniconda)
 
@@ -35,6 +35,9 @@ python -m dpcn list
 ```
 ```bash
 python -m dpcn run s00
+```
+```bash
+python -m dpcn run all --from s06
 ```
 ```bash
 pytest -q

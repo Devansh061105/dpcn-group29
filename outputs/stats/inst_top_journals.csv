@@ -1,0 +1,31 @@
+scope,rank,journal_name,papers,citations,quartile
+CSIR-CCMB,1,Scientific Reports,54,1191,Q1
+CSIR-CCMB,2,eLife,20,238,Q1
+CSIR-CCMB,3,Journal of Biosciences,19,347,Q1
+CSIR-CCMB,4,Mitochondrion,16,279,Q2
+CSIR-CCMB,5,Chemistry and Physics of Lipids,15,251,Q1
+CSIR-IGIB,1,Scientific Reports,54,1915,Q1
+CSIR-IGIB,2,Indian Journal of Microbiology,21,911,Q3
+CSIR-IGIB,3,Frontiers in Microbiology,21,812,Q1
+CSIR-IGIB,4,PLoS ONE,17,610,Q1
+CSIR-IGIB,5,International Journal of Biological Macromolecules,15,230,Q1
+CSIR-IMTECH,1,Scientific Reports,47,2612,Q1
+CSIR-IMTECH,2,INTERNATIONAL JOURNAL OF SYSTEMATIC AND EVOLUTIONARY MICROBIOLOGY,38,446,Q1
+CSIR-IMTECH,3,Frontiers in Microbiology,33,1044,Q1
+CSIR-IMTECH,4,International Journal of Biological Macromolecules,28,597,Q1
+CSIR-IMTECH,5,PLoS ONE,20,989,Q1
+CSIR-CDRI,1,European Journal of Medicinal Chemistry,59,1413,Q1
+CSIR-CDRI,2,Organic Letters,55,699,Q1
+CSIR-CDRI,3,The Journal of Organic Chemistry,46,887,Q1
+CSIR-CDRI,4,International Journal of Biological Macromolecules,45,679,Q1
+CSIR-CDRI,5,Chemical Communications,42,797,Q1
+ALL,1,Scientific Reports,182,6716,Q1
+ALL,2,International Journal of Biological Macromolecules,97,2633,Q1
+ALL,3,European Journal of Medicinal Chemistry,67,1622,Q1
+ALL,4,Frontiers in Microbiology,61,2542,Q1
+ALL,5,Organic Letters,56,705,Q1
+ALL,6,PLoS ONE,54,1936,Q1
+ALL,7,RSC Advances,50,1717,Q1
+ALL,8,Chemical Communications,50,955,Q1
+ALL,9,The Journal of Organic Chemistry,47,889,Q1
+ALL,10,ChemistrySelect,47,337,Q2
