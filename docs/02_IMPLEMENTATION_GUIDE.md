@@ -610,6 +610,15 @@ Each step has the signature `def run(cfg, oa, argv=()) -> None` (`argv` = extra 
    - if they are wrong-institution records, exclude them via an override list.
 - **Accept:** each faculty-paper link has a lab; no duplicate DOIs; the coverage ratio (faculty-corpus papers ÷ lab-corpus papers after the same type filter) is printed per lab.
 
+**S04/S05 as built (differences from the description above):**
+
+- The faculty collection adds `type:article|review|letter|conference-paper` to the author-ID filter (the S05 type rule, applied early to save pages). The lab corpus keeps all types so that coverage can be reported; S05 filters both the same way.
+- Raw files are `data/interim/works_raw/faculty.jsonl.gz` and `lab_<name>.jsonl.gz`. `corpus.iter_lab_works` makes the lab requests identical to S03's, so they come from the cache.
+- S05 deduplicates by DOI (or long title plus year) and prefers a record that has a lab link, so a duplicate can never remove a linked paper; it found no duplicate DOIs in the real data.
+- Link methods are recorded per faculty-paper row: `lineage` (OpenAlex institution data), `raw_string` (text names the lab) and, only if `work_filter.link_by_profile_years` is on, `profile_years`.
+- S05 also writes `data/review/uncovered_lab_authors.csv` (lab-affiliated authors with no matched faculty, ranked by last/corresponding authorship) and runs integrity checks that fail the step. `python -m dpcn run s01 --add-uncovered` turns ticked rows of that file into roster entries with pre-accepted author IDs.
+- `institutions.py` (the registry the guide placed in S05) is built and writes `institutions.parquet`; the partner-cluster rules are in `config/cluster_rules.yaml`.
+
 ### S06: enrich (quartile, CORE, research area, department)
 - **Sources:** for unique `source_id`s, call `sources?filter=openalex:S1|…|S100&select=id,display_name,type,issn_l,issn,host_organization_name` (about 20 calls).
 - **SJR manual download (R2):**

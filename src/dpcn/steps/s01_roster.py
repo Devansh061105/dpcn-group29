@@ -7,6 +7,8 @@ Workflow:
     (edit faculty_roster.csv by hand: fix names, add former faculty, etc.)
     python -m dpcn run s01                  # validate the master roster -> data/interim/roster.parquet
 
+    python -m dpcn run s01 --add-uncovered  # add scientists ticked in data/review/uncovered_lab_authors.csv (after s05)
+
 --merge never deletes or overwrites existing roster rows; it only appends new people and fills
 blank fields (orcid, department, profile evidence) on people already present.
 """
@@ -306,6 +308,61 @@ def merge(cfg) -> None:
                     "and re-run --merge", review_left)
 
 
+def add_uncovered(cfg) -> None:
+    """Append people confirmed in data/review/uncovered_lab_authors.csv (S05) to the roster.
+
+    A reviewer sets `add` to TRUE and `status` to current/former on the rows that are real scientists. Each is
+    added to faculty_roster.csv and pre-accepted for its OpenAlex author in faculty_match_overrides.csv, so S03
+    needs no further matching. Safe to repeat: authors already accepted are skipped.
+    """
+    src = cfg.paths.review / "uncovered_lab_authors.csv"
+    if not src.exists():
+        raise StepFailed(f"{cfg.rel(src)} not found - run s05 first")
+    unc = pd.read_csv(src, dtype=str, keep_default_na=False)
+    sel = unc[unc["add"].str.strip().str.upper().isin(["TRUE", "YES", "Y", "1"])]
+    bad = sel[~sel["status"].str.strip().str.lower().isin(["current", "former"])]
+    if len(bad):
+        raise StepFailed("set status to 'current' or 'former' for: " + ", ".join(bad["name"] + " [" + bad["lab"] + "]"))
+
+    roster = _read_roster(cfg)
+    ov_path = cfg.paths.manual / "faculty_match_overrides.csv"
+    ov = (pd.read_csv(ov_path, dtype=str, keep_default_na=False) if ov_path.exists()
+          else pd.DataFrame(columns=["faculty_id", "author_id", "decision"]))
+    accepted = set(ov.loc[ov["decision"] == "accept", "author_id"])
+    added, skipped = [], []
+    for _, r in sel.iterrows():
+        short = r["lab"]
+        if short not in cfg.lab_by_short:
+            raise StepFailed(f"unknown lab {short!r} in {cfg.rel(src)}")
+        name = " ".join(r["name"].split())
+        in_lab = roster["institution"] == short
+        if r["author_id"] in accepted:
+            continue
+        if norm(name) in set(roster.loc[in_lab, "name"].map(norm)):
+            skipped.append(name)
+            continue
+        ids = roster.loc[in_lab, "faculty_id"].str.extract(r"-(\d+)$")[0].dropna().astype(int)
+        fid = f"{_prefix(short)}-{(ids.max() if len(ids) else 0) + 1:03d}"
+        roster.loc[len(roster)] = {
+            "faculty_id": fid, "name": name, "designation": "", "department": "", "institution": short,
+            "profile_url": "", "orcid": r.get("orcid", ""), "status": r["status"].strip().lower(),
+            "source": "uncovered-author list (S05)", "notes": r.get("note", "") or f"OpenAlex {r['author_id']}",
+            "expertise": "", "profile_dois": "", "profile_pmids": ""}
+        ov.loc[len(ov)] = {"faculty_id": fid, "author_id": r["author_id"], "decision": "accept"}
+        accepted.add(r["author_id"])
+        added.append(f"{fid} {name}")
+    roster = roster.sort_values(["institution", "faculty_id"], kind="stable")[ROSTER_COLS]
+    roster.to_csv(_roster_path(cfg), index=False, encoding="utf-8", lineterminator="\n")
+    ov_path.parent.mkdir(parents=True, exist_ok=True)
+    ov.to_csv(ov_path, index=False, encoding="utf-8", lineterminator="\n")
+    log.info("Added %d people to the roster%s", len(added), (": " + ", ".join(added)) if added else "")
+    if skipped:
+        log.warning("Not added (a person with this name is already on that lab's roster; fix their match in "
+                    "faculty_match_review.csv instead): %s", ", ".join(skipped))
+    if added:
+        log.info("Next: python -m dpcn run s03, then s04 and s05 to include their papers")
+
+
 def validate(cfg) -> pd.DataFrame:
     path = _roster_path(cfg)
     if not path.exists():
@@ -355,12 +412,16 @@ def run(cfg, oa, argv=()) -> None:
     ap.add_argument("--scrape", choices=[*SCRAPERS, "all"], help="scrape lab website(s) into data/review/")
     ap.add_argument("--refresh", action="store_true", help="with --scrape: ignore cached HTML")
     ap.add_argument("--merge", action="store_true", help="append keep=TRUE scraped rows to the master roster")
+    ap.add_argument("--add-uncovered", action="store_true",
+                    help="add the people ticked in data/review/uncovered_lab_authors.csv (written by s05)")
     args = ap.parse_args(list(argv))
 
     if args.scrape:
         scrape(cfg, args.scrape, args.refresh)
     if args.merge:
         merge(cfg)
+    if args.add_uncovered:
+        add_uncovered(cfg)
     if args.scrape and not args.merge:
         log.info("Next: review data/review/roster_*_scraped.csv, then `python -m dpcn run s01 --merge`")
         return

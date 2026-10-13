@@ -11,7 +11,7 @@ Mapping 2016–2026 research output, citation networks and authorship networks f
 | [docs/02_IMPLEMENTATION_GUIDE.md](docs/02_IMPLEMENTATION_GUIDE.md) | Environment, repo layout, config, OpenAlex client, step-by-step pipeline S00–S15, dashboard, report, runbook |
 | [docs/qa_log.md](docs/qa_log.md) | Dated log of findings, anomalies and manual decisions |
 
-**Status:** S00–S03 done (S03 awaits a manual review of 19 people); S04–S15 not started.
+**Status:** S00–S05 done (S03 awaits a manual review of 19 people; the roster should grow, see the handoff); S06–S15 not started.
 
 ## Quick start (Windows, Miniconda)
 

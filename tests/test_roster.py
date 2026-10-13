@@ -130,3 +130,41 @@ def test_validate_catches_problems(cfg):
     pd.DataFrame(good[:3]).to_csv(path, index=False)
     with pytest.raises(StepFailed, match="labs with no faculty"):
         s01.validate(cfg)
+
+
+def _uncovered(cfg, rows):
+    cols = ["lab", "author_id", "name", "uncovered_papers", "last_or_corresponding", "first_author", "first_year",
+            "last_year", "orcid", "works_count", "at_lab_now", "suspect_merged", "add", "status", "note"]
+    df = pd.DataFrame([{**{c: "" for c in cols}, **r} for r in rows], columns=cols)
+    df.to_csv(cfg.paths.review / "uncovered_lab_authors.csv", index=False)
+
+
+def test_add_uncovered_adds_roster_rows_and_preaccepts_the_author(cfg):
+    path = cfg.paths.manual / "faculty_roster.csv"
+    path.parent.mkdir(parents=True)
+    pd.DataFrame([{**{c: "" for c in s01.ROSTER_COLS}, "faculty_id": "IGIB-001", "name": "Ann Lee",
+                   "institution": "CSIR-IGIB", "status": "current"}]).to_csv(path, index=False)
+    _uncovered(cfg, [
+        {"lab": "CSIR-IGIB", "author_id": "A10", "name": "Vinod  Scaria", "add": "TRUE", "status": "Current"},
+        {"lab": "CSIR-IGIB", "author_id": "A11", "name": "Not Chosen", "add": "", "status": ""},
+        {"lab": "CSIR-IGIB", "author_id": "A12", "name": "Ann Lee", "add": "TRUE", "status": "current"},   # already there
+        {"lab": "CSIR-IMTECH", "author_id": "A13", "name": "G P S Raghava", "add": "yes", "status": "former",
+         "orcid": "0000-0001-0000-0000"}])
+    s01.add_uncovered(cfg)
+    roster = pd.read_csv(path, dtype=str, keep_default_na=False).set_index("faculty_id")
+    assert roster.loc["IGIB-002", "name"] == "Vinod Scaria" and roster.loc["IGIB-002", "status"] == "current"
+    assert roster.loc["IMTECH-001", "status"] == "former" and roster.loc["IMTECH-001", "orcid"] == "0000-0001-0000-0000"
+    assert "Not Chosen" not in set(roster["name"]) and (roster["name"] == "Ann Lee").sum() == 1
+    ov = pd.read_csv(cfg.paths.manual / "faculty_match_overrides.csv", dtype=str)
+    assert sorted(zip(ov.faculty_id, ov.author_id, ov.decision)) == [
+        ("IGIB-002", "A10", "accept"), ("IMTECH-001", "A13", "accept")]
+    s01.add_uncovered(cfg)                                   # idempotent
+    assert len(pd.read_csv(path)) == 3 and len(pd.read_csv(cfg.paths.manual / "faculty_match_overrides.csv")) == 2
+
+
+def test_add_uncovered_requires_a_status(cfg):
+    (cfg.paths.manual).mkdir(parents=True)
+    pd.DataFrame(columns=s01.ROSTER_COLS).to_csv(cfg.paths.manual / "faculty_roster.csv", index=False)
+    _uncovered(cfg, [{"lab": "CSIR-IGIB", "author_id": "A10", "name": "Vinod Scaria", "add": "TRUE", "status": ""}])
+    with pytest.raises(StepFailed, match="status"):
+        s01.add_uncovered(cfg)

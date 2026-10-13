@@ -13,6 +13,9 @@ work_filter:
   include_work_types: [article, review, letter, conference-paper]
   include_source_types: [journal, conference]
   exclude_retracted: true
+  # Also link a faculty authorship that has NO institution data when the author's own OpenAlex profile places
+  # them at the lab in that year. Off = plan D4 exactly. S05 reports how many papers this would add.
+  link_by_profile_years: false
 
 matching:
   auto_accept_score: 92
