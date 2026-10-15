@@ -370,13 +370,14 @@
   }
 
   function renderCollab() {
-    const fg = D.authorship_summary.faculty_graph, ig = D.authorship_summary.internal_graph;
+    const a = D.authorship_by_lab[state.lab], all = state.lab === "ALL";
     kpis("kpis-au", [
-      ["Faculty nodes", fmt(fg.nodes), `${fmt(fg.isolates)} with no faculty co-author`], ["Faculty co-author links", fmt(fg.edges), `${fmt(fg.cross_lab_edges)} between labs`],
-      ["Communities (Louvain)", fmt(fg.communities), `modularity Q = ${fg.modularity.toFixed(3)}`],
-      ["All lab authors", fmt(ig.nodes), `${fmt(ig.edges)} links, Q = ${ig.modularity.toFixed(3)}`],
-      ["Pair rows exported", fmt(D.authorship_summary.pairs_rows), `${fmt(D.authorship_summary.indian_link_rows)} Indian inter-institute`],
-      ["Papers skipped for pairs", fmt(D.authorship_summary.papers_skipped_over_max_authors), `> ${D.meta.max_authors_for_pairs} authors`],
+      ["Faculty nodes", fmt(a.fac_nodes), `${fmt(a.fac_isolates)} with no faculty co-author`],
+      ["Faculty co-author links", fmt(a.fac_edges), all ? `${fmt(a.fac_cross)} between labs` : `${fmt(a.fac_cross)} with other labs`],
+      ["Communities (Louvain)", fmt(a.communities), all ? `modularity Q = ${a.modularity.toFixed(3)}` : `largest holds ${fmt(a.largest_comm)} of ${fmt(a.fac_nodes)} faculty`],
+      ["All lab authors", fmt(a.int_nodes), all ? `${fmt(a.int_edges)} links, Q = ${a.int_modularity.toFixed(3)}` : `${fmt(a.int_edges)} links`],
+      ["Pair rows exported", fmt(a.pair_rows), `${fmt(a.indian_rows)} Indian inter-institute`],
+      ["Papers skipped for pairs", fmt(a.skipped), `> ${D.meta.max_authors_for_pairs} authors`],
     ]);
     const G = D.authorship[state.layer];
     const keep = new Set(G.nodes.filter((n) => state.lab === "ALL" || n.lab === state.lab).map((n) => n.id));

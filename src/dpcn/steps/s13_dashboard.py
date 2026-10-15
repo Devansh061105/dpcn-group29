@@ -14,6 +14,7 @@ import json
 import logging
 from pathlib import Path
 
+import networkx as nx
 import pandas as pd
 import requests
 
@@ -43,6 +44,37 @@ def library(cfg, name: str, url: str) -> str:
         r.raise_for_status()
         cache.write_bytes(r.content)
     return cache.read_text(encoding="utf-8")
+
+
+def authorship_by_lab(cfg, main: pd.DataFrame, au_sum: dict) -> dict:
+    """Collaboration-tab headline numbers for each lab, from the exported graphs and pair file ("ALL" = S10 summary)."""
+    net = cfg.paths.networks
+    Gf = nx.read_gexf(net / "authorship_faculty.gexf")
+    Gi = nx.read_gexf(net / "authorship_internal.gexf")
+    pairs = pd.read_csv(cfg.paths.submission / "authorship_network.csv", usecols=["inst_a", "inst_b", "indian_link"],
+                        dtype=str, keep_default_na=False)
+    papers = main.drop_duplicates(["openalex_id", "institution"])
+    big = papers[pd.to_numeric(papers["n_authors"], errors="coerce") > cfg.networks.max_authors_for_pairs]
+    fg, ig = au_sum["faculty_graph"], au_sum["internal_graph"]
+    out = {"ALL": {"fac_nodes": fg["nodes"], "fac_isolates": fg["isolates"], "fac_edges": fg["edges"],
+                   "fac_cross": fg["cross_lab_edges"], "communities": fg["communities"],
+                   "modularity": fg["modularity"], "int_nodes": ig["nodes"], "int_edges": ig["edges"],
+                   "int_modularity": ig["modularity"], "pair_rows": au_sum["pairs_rows"],
+                   "indian_rows": au_sum["indian_link_rows"],
+                   "skipped": au_sum["papers_skipped_over_max_authors"]}}
+    for lab in cfg.lab_by_short:
+        fac = {n for n, d in Gf.nodes(data=True) if d.get("lab") == lab}
+        f_edges = [(a, b, d) for a, b, d in Gf.edges(data=True) if a in fac or b in fac]
+        comms = pd.Series([Gf.nodes[n].get("community") for n in fac]).value_counts()
+        inte = {n for n, d in Gi.nodes(data=True) if d.get("lab") == lab}
+        rows = (pairs["inst_a"] == lab) | (pairs["inst_b"] == lab)
+        out[lab] = {"fac_nodes": len(fac), "fac_isolates": sum(1 for n in fac if Gf.degree(n) == 0),
+                    "fac_edges": len(f_edges), "fac_cross": sum(1 for *_, d in f_edges if d.get("cross_lab")),
+                    "communities": int(len(comms)), "largest_comm": int(comms.iloc[0]) if len(comms) else 0,
+                    "int_nodes": len(inte), "int_edges": sum(1 for a, b in Gi.edges() if a in inte or b in inte),
+                    "pair_rows": int(rows.sum()), "indian_rows": int((rows & (pairs["indian_link"] == "TRUE")).sum()),
+                    "skipped": int((big["institution"] == lab).sum())}
+    return out
 
 
 def bundle(cfg) -> dict:
@@ -88,6 +120,7 @@ def bundle(cfg) -> dict:
         "flow_year": records(T["citation_flow_year"]), "flow_summary": records(T["citation_flow_summary"]),
         "top_citing_insts": records(T["top_citing_institutes"]), "top_citing_papers": records(T["top_citing_papers"]),
         "authorship": json.loads((net / "authorship_dash.json").read_text()), "authorship_summary": au_sum,
+        "authorship_by_lab": authorship_by_lab(cfg, main, au_sum),
         "centrality": records(T["authorship_centrality"]), "communities": records(T["communities"]),
         "hubs": records(T["hub_authors"]), "partners": records(partners),
         "cross_cluster": records(T["cross_cluster_summary"]),
