@@ -49,6 +49,8 @@ class Config:
         self.connections = _ns(settings["connections"])
         self.quartile = _ns(settings["quartile"])
         self.verify = _ns(settings["verify"])
+        self.phase2 = _ns(settings.get("phase2", {}))
+        self.team = _ns(settings.get("team", {}))
         self.paths = SimpleNamespace(**{k: self.root / v for k, v in settings["paths"].items()})
 
         self.group: int = insts["group"]

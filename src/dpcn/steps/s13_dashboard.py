@@ -17,6 +17,7 @@ from pathlib import Path
 import networkx as nx
 import pandas as pd
 import requests
+import yaml
 
 from . import StepFailed
 
@@ -77,6 +78,26 @@ def authorship_by_lab(cfg, main: pd.DataFrame, au_sum: dict) -> dict:
     return out
 
 
+def phase2_bundle(cfg) -> dict | None:
+    """Phase II tables (written by s16). Absent before s16 has run: the dashboard then shows the original tabs only."""
+    st = cfg.paths.stats
+    names = ["overview", "yearly", "faculty", "journals", "top30_papers", "faculty_top10", "author_classes",
+             "if_histogram", "hyper_papers", "temporal_network", "temporal_citations", "citers", "citer_evidence"]
+    if not all((st / f"p2_{n}.csv").exists() for n in names):
+        log.warning("Phase II tables not found - run s16 first; building the dashboard without the Phase II tabs")
+        return None
+    T = {n: pd.read_csv(st / f"p2_{n}.csv", keep_default_na=False, na_values=[""]) for n in names}
+    c = T["citers"]
+    T["citers"] = c[c["cites_in"] >= 30]            # the long tail adds size, not information
+    notes_path = cfg.root / cfg.phase2.notes_file
+    notes = (yaml.safe_load(notes_path.read_text(encoding="utf-8")) or {}) if notes_path.exists() else {}
+    out = {n: records(df) for n, df in T.items()}
+    out["inst_network"] = json.loads((cfg.paths.networks / "inst_network.json").read_text(encoding="utf-8"))
+    out["summary"] = json.loads((st / "p2_summary.json").read_text(encoding="utf-8"))
+    out["notes"] = {k: str(v or "").strip() for k, v in notes.items()}
+    return out
+
+
 def bundle(cfg) -> dict:
     st, net = cfg.paths.stats, cfg.paths.networks
     need = ["inst_summary", "inst_year_counts", "inst_quartile", "inst_top_journals", "faculty_metrics",
@@ -108,7 +129,11 @@ def bundle(cfg) -> dict:
                  "lab_names": {l["short"]: f"{l['name']}, {l['city']}" for l in cfg.labs},
                  "collected": meta.get("collection_date", ""), "window": [cfg.window.start, cfg.window.end],
                  "partial_year": cfg.window.partial_year, "rows": meta.get("rows"),
-                 "max_authors_for_pairs": cfg.networks.max_authors_for_pairs},
+                 "max_authors_for_pairs": cfg.networks.max_authors_for_pairs,
+                 "team": {"members": list(cfg.team.members), "course": cfg.team.course, "instructor": cfg.team.instructor,
+                          "affiliation": cfg.team.affiliation},
+                 "institutes": [{"short": l["short"], "name": l["name"], "city": l["city"], "website": l["website"]}
+                                for l in cfg.labs]},
         "summary": records(T["inst_summary"]), "trend": records(T["inst_year_counts"]),
         "quartiles": records(T["inst_quartile"]), "top_journals": records(T["inst_top_journals"]),
         "faculty": records(T["faculty_metrics"]), "hindex": records(T["hindex_hist"]),
@@ -124,6 +149,7 @@ def bundle(cfg) -> dict:
         "centrality": records(T["authorship_centrality"]), "communities": records(T["communities"]),
         "hubs": records(T["hub_authors"]), "partners": records(partners),
         "cross_cluster": records(T["cross_cluster_summary"]),
+        "p2": phase2_bundle(cfg),
     }
 
 
@@ -141,7 +167,8 @@ def run(cfg, oa, argv=()) -> None:
                          f"<script>{library(cfg, n, u)}</script>" for n, (k, u) in LIBS.items())
     html = (html.replace("/*__STYLES__*/", (SRC / "styles.css").read_text(encoding="utf-8"))
                 .replace("<!--__LIBS__-->", head)
-                .replace("/*__APP__*/", (SRC / "app.js").read_text(encoding="utf-8"))
+                .replace("/*__APP__*/", (SRC / "app.js").read_text(encoding="utf-8")
+                         .replace("/*__PHASE2__*/", (SRC / "phase2.js").read_text(encoding="utf-8")))
                 .replace("__DATA__", data))
     out = cfg.paths.submission / f"group{cfg.group}_dashboard.html"
     out.write_text(html, encoding="utf-8")

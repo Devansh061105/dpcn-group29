@@ -54,3 +54,29 @@ paths:
   networks: outputs/networks
   figures: outputs/figures
   report: outputs/report
+
+# Phase II (instructor's additional directions, step s16)
+phase2:
+  if_thresholds: [5, 10]            # "Q1 papers in journals with IF > 5 and IF > 10"
+  multi_author_min: 10              # papers are classified as fewer than this many authors, or this many or more
+  hyper_author_min: 100             # "hyperauthored": citations from such papers are tracked and flagged
+  mega_author_min: 1000
+  faculty_flag_share_hyper: 0.25    # flag a faculty member when this share of citations comes from hyperauthored papers
+  faculty_flag_share_multi: 0.60    # ... or this share from papers with multi_author_min or more authors
+  faculty_flag_min_citations: 100   # ... but only for faculty with at least this many citations (small totals are noise)
+  citer_min_cites: 150              # a citing institution is "heavy" from this many citations received by our labs
+  citer_ratio_min: 15               # ... and "citation-heavy relative to collaboration" from this many citations per shared paper
+  citer_detail_top: 40              # citing institutions examined in detail (authors, journals) through OpenAlex
+  inst_network_nodes: 45            # partner institutions drawn in the institutional network (plus the four labs)
+  jcr_file: data/manual/jcr/jcr_impact_factors.csv
+  scimago_dir: data/manual/sjr_full   # full Scimago download(s); newest scimagojr_<year>.csv is used for Cites/Doc (2y)
+  ownership_file: data/manual/institution_ownership.csv
+  notes_file: data/manual/phase2_notes.yaml
+
+# Shown in the dashboard header
+team:
+  group: 29
+  members: [Devansh Magotra, Deepraj Choudhary, Aman Uniyal]
+  course: DPCN
+  instructor: Chittaranjan Hens
+  affiliation: IIIT Hyderabad

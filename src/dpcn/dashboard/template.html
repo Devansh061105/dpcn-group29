@@ -12,6 +12,8 @@
   <div class="title">
     <h1>CSIR Biology Labs · Research Map 2016–2026</h1>
     <p class="sub" id="subtitle"></p>
+    <p class="team" id="team"></p>
+    <div class="insts" id="insts"></div>
   </div>
   <div class="controls">
     <label for="lab">Institution</label>
@@ -26,6 +28,10 @@
   <button role="tab" data-tab="research">Research</button>
   <button role="tab" data-tab="citation">Citation network</button>
   <button role="tab" data-tab="collab">Collaboration</button>
+  <button role="tab" data-tab="impact">Impact &amp; authors</button>
+  <button role="tab" data-tab="compare">Faculty compare</button>
+  <button role="tab" data-tab="instnet">Institutions &amp; time</button>
+  <button role="tab" data-tab="flags">Flags</button>
   <button role="tab" data-tab="about">About the data</button>
 </nav>
 <main>
@@ -110,6 +116,80 @@
       <div class="card"><h2>Co-authorship by partner cluster</h2><p class="note">Cross-cluster links, e.g. CSIR↔IIT, CSIR↔Medical.</p><div id="c-cluster" class="chart"></div></div>
     </div>
     <div class="card"><h2>Hub authors bridging institutions</h2><p class="note">Faculty whose co-authors span the most Indian partner institutions.</p><div id="t-hubs"></div></div>
+  </section>
+
+  <section id="tab-impact" class="tab" hidden>
+    <div class="card banner" id="if-banner"></div>
+    <div class="kpis" id="kpis-impact"></div>
+    <div class="grid2">
+      <div class="card"><h2>Q1 publications and impact factor</h2><p class="note">Papers in Q1 journals, and how many of them are in journals above each impact-factor line.</p><div id="c-q1if" class="chart"></div></div>
+      <div class="card"><h2>Papers and citations by number of authors</h2><p class="note">Where the papers come from, and where the citations come from.</p><div id="c-authcls" class="chart"></div></div>
+    </div>
+    <div class="card"><h2>Yearly publications, author count and collaborating institutions</h2><p class="note">Bars: papers per year split by author count. Lines (right axis): distinct institutions that co-authored with the lab that year, with and without the 100+ author consortium papers. 2026 is partial.</p><div id="c-yearly" class="chart"></div></div>
+    <div class="grid2">
+      <div class="card"><h2>Collaborating institutions per year</h2><p class="note">Distinct co-author institutions, Indian and foreign (the lab's own institution and AcSIR excluded). One consortium paper can list over a thousand institutions, so dotted lines recount without papers that have 100+ authors.</p><div id="c-collab-year" class="chart"></div></div>
+      <div class="card"><h2>Journal impact factor of the papers</h2><p class="note">Dashed lines mark the two thresholds.</p><div id="c-ifdist" class="chart"></div></div>
+    </div>
+    <div class="card"><h2>Top 30 papers by journal impact factor</h2><p class="note">Ranked by the journal's impact factor, then by citations. Conference papers have no impact factor and are not ranked.</p><div id="t-top30"></div></div>
+    <div class="card"><h2>Most frequently published journals</h2><div id="t-freqj"></div></div>
+    <div class="card team-note" data-note="overview"></div>
+    <div class="card team-note" data-note="journals"></div>
+  </section>
+
+  <section id="tab-compare" class="tab" hidden>
+    <div class="card"><h2>Compare faculty</h2>
+      <div class="row note"><label>X <select id="cmp-x"></select></label><label>Y <select id="cmp-y"></select></label><label>Size <select id="cmp-s"></select></label></div>
+      <p class="note">Each point is a faculty member, coloured by lab. A diamond with a dark outline is flagged (a large share of citations comes from many-author papers; see the Flags tab).</p>
+      <div id="c-fcomp" class="chart tall"></div></div>
+    <div class="grid2">
+      <div class="card"><h2>Most productive faculty</h2><p class="note">Papers, 2016–2026.</p><div id="c-top-prod" class="chart"></div></div>
+      <div class="card"><h2>Most connected faculty</h2><p class="note">Distinct collaborating institutions.</p><div id="c-top-conn" class="chart"></div></div>
+    </div>
+    <div class="card"><h2>Faculty comparison</h2>
+      <p class="note">Sort by any column; type in a header to filter. "Citations excl." removes papers with the configured number of authors or more; "Flag" explains why a row is flagged.</p>
+      <div id="t-fcomp"></div></div>
+    <div class="card"><h2>Top 10 publications of a faculty member</h2>
+      <div class="row note"><label>Faculty <select id="f-pick"></select></label></div>
+      <p class="note">Ranked by journal impact factor, then citations.</p><div id="t-ftop10"></div></div>
+    <div class="card team-note" data-note="faculty"></div>
+  </section>
+
+  <section id="tab-instnet" class="tab" hidden>
+    <div class="card"><h2>Institutional network</h2>
+      <div class="row note"><label>From <select id="yr-from"></select></label><label>to <select id="yr-to"></select></label><span id="inst-n" class="muted"></span></div>
+      <p class="note">Indian institutions that co-authored dataset papers with the labs, and with each other on those papers. Edge width = joint papers in the chosen years; node size = joint papers. Pick one lab above to see only its own partners. Click a node for its partners.</p>
+      <div class="netwrap"><div id="g-inst" class="graph"></div><aside id="inst-info" class="info"><p class="muted">Click an institution.</p></aside></div>
+      <div class="legend" id="leg-inst"></div></div>
+    <div class="grid2">
+      <div class="card"><h2>Faculty co-authorship network over time</h2>
+        <div class="row note"><label>Measure <select id="tnet-metric">
+          <option value="faculty_active">Faculty active</option><option value="links">Co-author links</option><option value="mean_degree">Mean links per faculty</option>
+          <option value="density">Density</option><option value="largest_component_share">Share in the largest component</option>
+          <option value="new_links">New links</option><option value="cross_lab_links">Links between labs</option></select></label>
+          <label><input type="radio" name="tmode" value="year" checked> Each year</label><label><input type="radio" name="tmode" value="cumulative"> Cumulative</label></div>
+        <p class="note">Faculty only: students are excluded. "New links" applies to single years.</p><div id="c-tnet" class="chart"></div></div>
+      <div class="card"><h2>Citation network over time</h2><p class="note">Citations made in each year (by the citing paper's year).</p><div id="c-tcit" class="chart"></div></div>
+    </div>
+    <div class="card team-note" data-note="networks"></div>
+  </section>
+
+  <section id="tab-flags" class="tab" hidden>
+    <div class="kpis" id="kpis-flags"></div>
+    <div class="grid2">
+      <div class="card"><h2>Where citations come from, by author count</h2><p class="note">Share of all citations that arrive on papers of each author-count class.</p><div id="c-clsshare" class="chart"></div></div>
+      <div class="card"><h2>Faculty most dependent on many-author papers</h2><p class="note">Share of a faculty member's citations that come from papers with 100 or more authors; the dashed line is the flag threshold. Only faculty with at least 100 citations are considered.</p><div id="c-dep" class="chart"></div></div>
+    </div>
+    <div class="card"><h2>Papers with 100 or more authors</h2><p class="note">Consortium-style papers collect citations for every co-author. Their citations are real, but they say little about any one author's contribution.</p><div id="t-hyper"></div></div>
+    <div class="card"><h2>Flagged faculty</h2><p class="note">Flagged when 25% or more of the citations come from papers with 100+ authors, or 60% or more from papers with 10+ authors (faculty with at least 100 citations). "Without" columns recompute the citations and h-index leaving the 100+ author papers out.</p><div id="t-flagfac"></div></div>
+    <div class="card team-note" data-note="hyperauthorship"></div>
+    <div class="card"><h2>Institutions citing the labs</h2>
+      <div class="row note"><label>Ownership <select id="own-filter"><option value="all">All</option><option value="government">Government</option><option value="government-aided">Government-aided</option><option value="private">Private (non-government)</option><option value="unclassified">Unclassified</option></select></label></div>
+      <p class="note">Each point is an institution: citations it gave the lab(s) against papers it co-authored with them. Above the dashed diagonal an institution cites far more than it collaborates. Ownership comes from a hand-made file (data/manual/institution_ownership.csv) that the team must verify; heavy = at least 150 citations.</p>
+      <div id="c-citers2" class="chart tall"></div><div id="t-citers"></div></div>
+    <div class="card"><h2>Evidence on why: the citing papers</h2>
+      <p class="note">For the institutions citing most (and every flagged one), what the citing papers look like. These are indicators, not conclusions: concentration in one author or journal, citations arriving with a shared author, a high share of review articles, or one of our papers drawing most of the citations are different explanations. <span id="ev-note"></span></p>
+      <div id="t-evidence"></div></div>
+    <div class="card team-note" data-note="citers"></div>
   </section>
 
   <section id="tab-about" class="tab" hidden>

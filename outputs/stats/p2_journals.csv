@@ -1,0 +1,101 @@
+scope,rank,journal_name,papers,citations,impact_factor,if_source,quartile,issn
+CSIR-CCMB,1,Scientific Reports,54,1191,3.9,JCR 2024,Q1,2045-2322
+CSIR-CCMB,2,eLife,20,238,6.21,Scimago Cites/Doc (2y) 2025,Q1,2050-084X
+CSIR-CCMB,3,Journal of Biosciences,19,347,1.9,JCR 2024,Q1,0250-5991
+CSIR-CCMB,4,Mitochondrion,16,279,4.5,JCR 2024,Q2,1567-7249
+CSIR-CCMB,5,Chemistry and Physics of Lipids,15,251,2.8,JCR 2024,Q1,0009-3084
+CSIR-CCMB,6,Nature Communications,13,916,15.7,JCR 2024,Q1,2041-1723
+CSIR-CCMB,7,PLoS ONE,13,239,2.6,JCR 2024,Q1,1932-6203
+CSIR-CCMB,8,Biochemical and Biophysical Research Communications,13,115,2.2,JCR 2024,Q1,0006-291X
+CSIR-CCMB,9,Proceedings of the National Academy of Sciences,12,284,9.1,JCR 2024,Q1,0027-8424
+CSIR-CCMB,10,Nature,11,7532,48.5,JCR 2024,Q1,0028-0836
+CSIR-CCMB,11,The Journal of Physical Chemistry B,11,227,2.9,JCR 2024,Q1,1520-5207
+CSIR-CCMB,12,ACS Chemical Neuroscience,11,120,3.9,JCR 2024,Q1,1948-7193
+CSIR-CCMB,13,Biochimica et Biophysica Acta (BBA) - Biomembranes,10,387,2.5,JCR 2024,Q1,0005-2736
+CSIR-CCMB,14,Journal of Biological Chemistry,10,308,3.9,JCR 2024,Q1,0021-9258
+CSIR-CCMB,15,International Journal of Biological Macromolecules,9,1127,8.5,JCR 2024,Q1,0141-8130
+CSIR-CCMB,16,Biochemistry,9,155,3.0,JCR 2024,Q1,0006-2960
+CSIR-CCMB,17,Nucleic Acids Research,9,145,13.1,JCR 2024,Q1,0305-1048
+CSIR-CCMB,18,The Journal of Membrane Biology,9,102,2.9,JCR 2024,Q2,0022-2631
+CSIR-CCMB,19,ACS Omega,8,215,4.3,JCR 2024,Q1,2470-1343
+CSIR-CCMB,20,Biophysical Journal,8,49,3.1,JCR 2024,Q1,0006-3495
+CSIR-IGIB,1,Scientific Reports,54,1915,3.9,JCR 2024,Q1,2045-2322
+CSIR-IGIB,2,Indian Journal of Microbiology,21,911,1.6,JCR 2024,Q3,0046-8991
+CSIR-IGIB,3,Frontiers in Microbiology,21,812,4.5,JCR 2024,Q1,1664-302X
+CSIR-IGIB,4,PLoS ONE,17,610,2.6,JCR 2024,Q1,1932-6203
+CSIR-IGIB,5,International Journal of Biological Macromolecules,15,230,8.5,JCR 2024,Q1,0141-8130
+CSIR-IGIB,6,iScience,15,89,4.1,JCR 2024,Q1,2589-0042
+CSIR-IGIB,7,Stem Cell Research,15,43,0.6,JCR 2025,Q3,1873-5061
+CSIR-IGIB,8,Gene,14,122,2.4,JCR 2024,Q2,0378-1119
+CSIR-IGIB,9,Frontiers in Immunology,12,244,5.9,JCR 2024,Q1,1664-3224
+CSIR-IGIB,10,Journal of Biomolecular Structure and Dynamics,12,237,2.4,JCR 2024,Q2,0739-1102
+CSIR-IGIB,11,eLife,12,236,6.21,Scimago Cites/Doc (2y) 2025,Q1,2050-084X
+CSIR-IGIB,12,Nature Communications,12,229,15.7,JCR 2024,Q1,2041-1723
+CSIR-IGIB,13,ACS Omega,12,101,4.3,JCR 2024,Q1,2470-1343
+CSIR-IGIB,14,Mitochondrion,11,117,4.5,JCR 2024,Q2,1567-7249
+CSIR-IGIB,15,Movement Disorders Clinical Practice,11,85,2.7,JCR 2024,Q2,2330-1619
+CSIR-IGIB,16,F1000Research,11,34,1.92,Scimago Cites/Doc (2y) 2025,Q1,2046-1402
+CSIR-IGIB,17,Journal of the Neurological Sciences,11,15,3.2,JCR 2024,Q2,0022-510X
+CSIR-IGIB,18,International Journal of Molecular Sciences,10,492,4.9,JCR 2024,Q1,1422-0067
+CSIR-IGIB,19,Biochemistry,10,84,3.0,JCR 2024,Q1,0006-2960
+CSIR-IGIB,20,Journal of Biological Chemistry,9,371,3.9,JCR 2024,Q1,0021-9258
+CSIR-IMTECH,1,Scientific Reports,47,2612,3.9,JCR 2024,Q1,2045-2322
+CSIR-IMTECH,2,INTERNATIONAL JOURNAL OF SYSTEMATIC AND EVOLUTIONARY MICROBIOLOGY,38,446,2.0,JCR 2024,Q1,1466-5026
+CSIR-IMTECH,3,Frontiers in Microbiology,33,1044,4.5,JCR 2024,Q1,1664-302X
+CSIR-IMTECH,4,International Journal of Biological Macromolecules,28,597,8.5,JCR 2024,Q1,0141-8130
+CSIR-IMTECH,5,PLoS ONE,20,989,2.6,JCR 2024,Q1,1932-6203
+CSIR-IMTECH,6,Frontiers in Immunology,15,929,5.9,JCR 2024,Q1,1664-3224
+CSIR-IMTECH,7,Current Microbiology,10,51,2.6,JCR 2024,Q2,0343-8651
+CSIR-IMTECH,8,Nature Communications,9,619,15.7,JCR 2024,Q1,2041-1723
+CSIR-IMTECH,9,Journal of Biological Chemistry,9,142,3.9,JCR 2024,Q1,0021-9258
+CSIR-IMTECH,10,RSC Advances,8,936,4.6,JCR 2024,Q1,2046-2069
+CSIR-IMTECH,11,Frontiers in Cellular and Infection Microbiology,8,216,4.8,JCR 2024,Q1,2235-2988
+CSIR-IMTECH,12,Journal of Applied Microbiology,8,156,3.2,JCR 2024,Q2,1364-5072
+CSIR-IMTECH,13,Microbiology Spectrum,8,123,3.8,JCR 2024,Q1,2165-0497
+CSIR-IMTECH,14,Autophagy,7,2902,14.3,JCR 2024,Q1,1554-8627
+CSIR-IMTECH,15,Indian Journal of Microbiology,7,26,1.6,JCR 2024,Q3,0046-8991
+CSIR-IMTECH,16,Frontiers in Pharmacology,6,314,4.8,JCR 2024,Q1,1663-9812
+CSIR-IMTECH,17,Biosensors and Bioelectronics,6,310,10.5,JCR 2024,Q1,0956-5663
+CSIR-IMTECH,18,ACS Omega,6,200,4.3,JCR 2024,Q1,2470-1343
+CSIR-IMTECH,19,Journal of Bacteriology,6,102,3.0,JCR 2024,Q1,0021-9193
+CSIR-IMTECH,20,Systematic and Applied Microbiology,6,97,4.2,JCR 2024,Q1,0723-2020
+CSIR-CDRI,1,European Journal of Medicinal Chemistry,59,1413,5.9,JCR 2024,Q1,0223-5234
+CSIR-CDRI,2,Organic Letters,55,699,5.0,JCR 2024,Q1,1523-7052
+CSIR-CDRI,3,The Journal of Organic Chemistry,46,887,3.6,JCR 2024,Q1,0022-3263
+CSIR-CDRI,4,International Journal of Biological Macromolecules,45,679,8.5,JCR 2024,Q1,0141-8130
+CSIR-CDRI,5,Chemical Communications,42,797,4.2,JCR 2024,Q1,1359-7345
+CSIR-CDRI,6,Organic & Biomolecular Chemistry,41,603,2.7,JCR 2024,Q1,1477-0520
+CSIR-CDRI,7,Life Sciences,40,1273,5.1,JCR 2024,Q1,0024-3205
+CSIR-CDRI,8,ChemistrySelect,39,307,2.0,JCR 2024,Q2,2365-6549
+CSIR-CDRI,9,Asian Journal of Organic Chemistry,36,472,2.7,JCR 2024,Q2,2193-5807
+CSIR-CDRI,10,Scientific Reports,32,1176,3.9,JCR 2024,Q1,2045-2322
+CSIR-CDRI,11,RSC Advances,32,585,4.6,JCR 2024,Q1,2046-2069
+CSIR-CDRI,12,Advanced Synthesis & Catalysis,30,529,4.0,JCR 2024,Q1,1615-4150
+CSIR-CDRI,13,ChemInform,29,1,0.0,OpenAlex 2-year mean citedness (proxy),NA,0009-2975
+CSIR-CDRI,14,European Journal of Pharmacology,28,603,4.7,JCR 2024,Q1,0014-2999
+CSIR-CDRI,15,Bioorganic Chemistry,26,389,4.7,JCR 2024,Q1,0045-2068
+CSIR-CDRI,16,European Journal of Organic Chemistry,25,308,2.7,JCR 2024,Q2,1099-0690
+CSIR-CDRI,17,Biomedicine & Pharmacotherapy,24,617,7.5,JCR 2024,Q1,0753-3322
+CSIR-CDRI,18,Journal of Molecular Structure,22,271,4.7,JCR 2024,Q2,0022-2860
+CSIR-CDRI,19,Biochemical and Biophysical Research Communications,22,201,2.2,JCR 2024,Q1,0006-291X
+CSIR-CDRI,20,Chemistry - An Asian Journal,22,153,3.3,JCR 2024,Q1,1861-471X
+ALL,1,Scientific Reports,182,6716,3.9,JCR 2024,Q1,2045-2322
+ALL,2,International Journal of Biological Macromolecules,97,2633,8.5,JCR 2024,Q1,0141-8130
+ALL,3,European Journal of Medicinal Chemistry,67,1622,5.9,JCR 2024,Q1,0223-5234
+ALL,4,Frontiers in Microbiology,61,2542,4.5,JCR 2024,Q1,1664-302X
+ALL,5,Organic Letters,56,705,5.0,JCR 2024,Q1,1523-7052
+ALL,6,PLoS ONE,54,1936,2.6,JCR 2024,Q1,1932-6203
+ALL,7,RSC Advances,50,1717,4.6,JCR 2024,Q1,2046-2069
+ALL,8,Chemical Communications,50,955,4.2,JCR 2024,Q1,1359-7345
+ALL,9,The Journal of Organic Chemistry,47,889,3.6,JCR 2024,Q1,0022-3263
+ALL,10,ChemistrySelect,47,337,2.0,JCR 2024,Q2,2365-6549
+ALL,11,Life Sciences,45,1449,5.1,JCR 2024,Q1,0024-3205
+ALL,12,ACS Omega,45,842,4.3,JCR 2024,Q1,2470-1343
+ALL,13,Organic & Biomolecular Chemistry,44,655,2.7,JCR 2024,Q1,1477-0520
+ALL,14,Biochemical and Biophysical Research Communications,44,372,2.2,JCR 2024,Q1,0006-291X
+ALL,15,Nature Communications,41,2088,15.7,JCR 2024,Q1,2041-1723
+ALL,16,Bioorganic Chemistry,41,694,4.7,JCR 2024,Q1,0045-2068
+ALL,17,Journal of Biomolecular Structure and Dynamics,39,478,2.4,JCR 2024,Q2,0739-1102
+ALL,18,INTERNATIONAL JOURNAL OF SYSTEMATIC AND EVOLUTIONARY MICROBIOLOGY,39,451,2.0,JCR 2024,Q1,1466-5026
+ALL,19,Frontiers in Immunology,38,1780,5.9,JCR 2024,Q1,1664-3224
+ALL,20,Journal of Biological Chemistry,38,1091,3.9,JCR 2024,Q1,0021-9258
