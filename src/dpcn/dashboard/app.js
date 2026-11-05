@@ -473,12 +473,34 @@
       "Citation network: dataset papers citing dataset papers (analysis), plus citations to or from works with another Indian institution (flows).",
       `Authorship network: co-author pairs on papers with at most ${D.meta.max_authors_for_pairs} authors; the faculty graph merges each person's OpenAlex profiles into one node.`,
     ];
-    const ul = document.createElement("ul"); items.forEach((t) => { const li = document.createElement("li"); li.textContent = t; ul.append(li); }); box.append(ul);
+    const list = (xs) => { const u = document.createElement("ul"); xs.forEach((x) => { const li = document.createElement("li"); li.textContent = x; u.append(li); }); box.append(u); };
+    list(items);
+    add("h3", "Data sources, journal rankings and citation databases");
+    list([
+      `Publications, authorships, affiliations and citation counts: OpenAlex (api.openalex.org), snapshot ${D.meta.collected}. Citation counts are OpenAlex's and differ from Scopus and Web of Science.`,
+      "Journal quartiles (Q1 to Q4): Scimago Journal & Country Rank (SJR), best quartile in the publication year.",
+      "Impact factor: Clarivate JCR where the team supplied it, otherwise Scimago's 2-year citations per document (Scopus data), otherwise OpenAlex's 2-year mean citedness, a proxy (see the Impact & authors tab). Each paper shows which source its value came from.",
+      "Conference ranks: CORE 2023 (portal.core.edu.au).",
+      "Faculty lists: the websites of the four institutes, extended with scientists identified from lab-affiliated papers and confirmed by the team. Students are not on the roster.",
+    ]);
+    if (P2) {
+      const T = P2.summary.thresholds;
+      add("h3", "Phase II definitions");
+      list([
+        `Multi-author paper: ${T.multi_author_min} or more authors. Hyperauthored paper: ${T.hyper_author_min} or more. A faculty member is flagged when ${100 * T.faculty_flag_share_hyper}% of their citations come from ${T.hyper_author_min}+ author papers or ${100 * T.faculty_flag_share_multi}% from ${T.multi_author_min}+ author papers.`,
+        `Heavy citing institution: at least ${T.citer_min_cites} citations given to the labs. "Few shared papers": at least ${T.citer_ratio_min} citations per co-authored paper. Non-government: ownership classified as private in data/manual/institution_ownership.csv (government-aided institutions, such as Jamia Hamdard, are publicly funded and are not flagged). The classification was checked for the flagged institutions against the UGC lists, statutes and the institutions' own documents; the evidence is in that file, and rows marked partial or no are not fully confirmed.`,
+        "Students are left out of the faculty-only networks (faculty co-authorship and its temporal measures); their publications remain in every publication statistic, and the 'all lab authors' network shows them.",
+        "Institutional network: Indian institutions only. AcSIR, CSIR's degree academy where PhD students register, is left out as a registration affiliation, not a collaborator.",
+        "Collaborating institutions are counted per paper from the co-author affiliations OpenAlex records; the lab's own institution and AcSIR are not counted.",
+      ]);
+    }
   }
+
+  /*__PHASE2__*/
 
   // ------------------------------------------------------------------ wiring
   const RENDER = { overview: renderOverview, journals: renderJournals, faculty: renderFaculty, research: renderResearch,
-    citation: renderCitation, collab: renderCollab, about: renderAbout };
+    citation: renderCitation, collab: renderCollab, about: renderAbout, ...P2REG };
   function render() { RENDER[state.tab](); rendered[state.tab] = state.lab; }
   function show(tab) {
     state.tab = tab;
@@ -494,6 +516,8 @@
   sel.addEventListener("change", () => { state.lab = sel.value; Object.keys(rendered).forEach((k) => delete rendered[k]); render(); });
   document.querySelectorAll("#tabs button").forEach((b) => b.addEventListener("click", () => show(b.dataset.tab)));
   el("compact").addEventListener("change", renderFaculty);
+  if (P2) P2WIRE();
+  else document.querySelectorAll('#tabs button[data-tab="impact"], #tabs button[data-tab="compare"], #tabs button[data-tab="instnet"], #tabs button[data-tab="flags"]').forEach((b) => b.remove());
   document.querySelectorAll('input[name="layer"]').forEach((r) => r.addEventListener("change", () => { state.layer = r.value; renderCollab(); }));
   document.querySelectorAll('input[name="colorby"]').forEach((r) => r.addEventListener("change", () => { state.colorby = r.value; renderCollab(); }));
   el("theme").addEventListener("click", () => {
@@ -504,6 +528,10 @@
   });
   el("subtitle").textContent = `Group ${D.meta.group} · ${LABS.map(short).join(", ")} · OpenAlex snapshot ${D.meta.collected} · ${fmt(D.meta.rows)} faculty–paper rows`;
   document.querySelectorAll(".collected").forEach((e) => { e.textContent = D.meta.collected; });
+  const tm = D.meta.team;
+  el("team").textContent = `Group ${D.meta.group} · ${tm.members.join(", ")} · ${tm.affiliation} · ${tm.course} course (instructor: ${tm.instructor})`;
+  D.meta.institutes.forEach((i) => { const s = document.createElement("span");
+    s.textContent = `${i.short.replace("CSIR-", "")}: ${i.name}, ${i.city}`; el("insts").append(s); });
   // deep links: #tab=citation&lab=CSIR-IGIB&theme=light open that view directly
   const hp = new URLSearchParams(location.hash.slice(1));
   if (hp.get("theme")) document.documentElement.dataset.theme = hp.get("theme");

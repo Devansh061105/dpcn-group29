@@ -8,3 +8,7 @@ __pycache__/
 .ipynb_checkpoints/
 .venv/
 outputs/submission/*.zip
+
+# licensed or large downloads supplied by each team member locally (see data/manual/jcr/README.md)
+data/manual/jcr/jcr_impact_factors.csv
+data/manual/sjr_full/

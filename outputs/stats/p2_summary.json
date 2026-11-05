@@ -1,0 +1,47 @@
+{
+  "if_coverage": 1.0,
+  "papers": 6063,
+  "thresholds": {
+    "if_thresholds": [
+      5,
+      10
+    ],
+    "multi_author_min": 10,
+    "hyper_author_min": 100,
+    "mega_author_min": 1000,
+    "faculty_flag_share_hyper": 0.25,
+    "faculty_flag_share_multi": 0.6,
+    "faculty_flag_min_citations": 100,
+    "citer_min_cites": 150,
+    "citer_ratio_min": 15,
+    "citer_detail_top": 40,
+    "inst_network_nodes": 45,
+    "scimago_dir": "data/manual/sjr_full"
+  },
+  "if_sources": {
+    "JCR 2024": 1327,
+    "OpenAlex 2-year mean citedness (proxy)": 142,
+    "Scimago Cites/Doc (2y) 2025": 72,
+    "JCR 2025": 27
+  },
+  "journals": 1568,
+  "tables": {
+    "overview": 5,
+    "yearly": 55,
+    "faculty": 274,
+    "journals": 100,
+    "top30_papers": 150,
+    "faculty_top10": 2398,
+    "author_classes": 20,
+    "if_histogram": 105,
+    "hyper_papers": 26,
+    "temporal_network": 110,
+    "temporal_citations": 55,
+    "citers": 8522,
+    "citer_evidence": 53
+  },
+  "flagged_faculty_hyper": 15,
+  "flagged_faculty_multi": 37,
+  "hyperauthored_papers": 26,
+  "flagged_citers_non_government": 19
+}

@@ -31,6 +31,7 @@ STEPS: list[tuple[str, str]] = [
     ("s10", "s10_authorship"),
     ("s11", "s11_connections"),
     ("s12", "s12_stats"),
+    ("s16", "s16_phase2"),      # Phase II analyses; runs before the dashboard, which displays them
     ("s13", "s13_dashboard"),
     ("s14", "s14_report"),
     ("s15", "s15_validate"),
