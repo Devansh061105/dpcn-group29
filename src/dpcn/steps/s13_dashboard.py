@@ -82,7 +82,7 @@ def phase2_bundle(cfg) -> dict | None:
     """Phase II tables (written by s16). Absent before s16 has run: the dashboard then shows the original tabs only."""
     st = cfg.paths.stats
     names = ["overview", "yearly", "faculty", "journals", "top30_papers", "faculty_top10", "author_classes",
-             "if_histogram", "hyper_papers", "temporal_network", "temporal_citations", "citers", "citer_evidence"]
+             "if_histogram", "hyper_papers", "temporal_network", "temporal_citations", "citers", "citer_evidence", "departments"]
     if not all((st / f"p2_{n}.csv").exists() for n in names):
         log.warning("Phase II tables not found - run s16 first; building the dashboard without the Phase II tabs")
         return None

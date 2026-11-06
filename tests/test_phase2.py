@@ -230,3 +230,131 @@ def test_faculty_flag_needs_a_meaningful_citation_total():
     f = P.faculty_table(d9, LABS, P2, fm).set_index("faculty_id")
     assert f.loc["F9", "cit_share_hyper"] == 1.0 and not bool(f.loc["F9", "flag_hyper"]) and f.loc["F9", "flag"] == ""
     assert bool(f.loc["F2", "flag_hyper"])                                         # a large total still flags
+
+
+# ---------------------------------------------------------------- size-normalised citers
+
+P2N = SimpleNamespace(citer_norm_min_cites=30, citer_norm_min_works=300, citer_norm_z=2.0)
+
+
+def norm_inputs():
+    """Ten institutions that give 100 citations per 1,000 field papers, one that gives 1,000, one with too few papers."""
+    rows, out = [], []
+    for i in range(10):
+        rows.append(("I%d" % i, "Gov %d" % i, "government", 100 + 10 * i, 5))
+        out.append(("I%d" % i, 2000, 1000))                       # rate 100 .. 190 per 1,000 field papers
+    rows.append(("IP", "Private Big", "private", 2000, 2))
+    out.append(("IP", 4000, 1000))                                # rate 2,000: an outlier even though its size is average
+    rows.append(("IS", "Private Small", "private", 500, 2))
+    out.append(("IS", 150, 100))                                  # below the paper floor: not assessable
+    rows.append(("IL", "Gov Large", "government", 900, 50))
+    out.append(("IL", 60000, 50000))                              # large output: many citations, low rate
+    rows.append(("IT", "Tiny", "private", 10, 1))
+    out.append(("IT", 5000, 5000))                                # below the citation floor
+    t = pd.DataFrame(rows, columns=["partner_openalex_id", "partner_inst", "ownership", "cites_in", "shared_papers"])
+    t["scope"] = "ALL"
+    t["flag_non_government"] = t["partner_inst"].isin(["Private Big", "Private Small"])
+    return t, pd.DataFrame(out, columns=["partner_openalex_id", "works_all", "works_ls"])
+
+
+def test_normalising_moves_a_large_institution_out_of_the_spotlight():
+    t, out = norm_inputs()
+    n = P.citer_normalised(t, out, P2N).set_index("partner_inst")
+    assert n.loc["Gov Large", "rate_per_1000"] == pytest.approx(900 / 50000 * 1000)       # 18 per 1,000: big, but not unusual
+    assert n.loc["Gov Large", "cites_in"] > n.loc["Gov 0", "cites_in"] * 5                # yet 9x the raw count of Gov 0
+    assert not n.loc["Gov Large", "flag_norm_outlier"]
+    assert n.loc["Private Big", "rate_per_1000"] == pytest.approx(2000.0)
+    assert bool(n.loc["Private Big", "flag_norm_outlier"]) and bool(n.loc["Private Big", "flag_non_government_norm"])
+
+
+def test_institutions_outside_the_comparison_group_get_no_rate():
+    t, out = norm_inputs()
+    n = P.citer_normalised(t, out, P2N).set_index("partner_inst")
+    for name in ("Private Small", "Tiny"):                       # too few papers / too few citations
+        assert not n.loc[name, "norm_group"] and np.isnan(n.loc[name, "rate_z"]) and not n.loc[name, "flag_norm_outlier"]
+    assert int(n["norm_group"].sum()) == 12                       # ten small government + Private Big + Gov Large
+
+
+def test_observed_over_expected_uses_the_pooled_rate_of_the_group():
+    t, out = norm_inputs()
+    n = P.citer_normalised(t, out, P2N)
+    g = n[n["norm_group"]]
+    pooled = g["cites_in"].sum() / g["works_ls"].sum()
+    assert (g["expected_cites"] / g["works_ls"]).round(9).eq(round(pooled, 9)).all()
+    assert (g["obs_exp"] * g["expected_cites"]).round(6).eq(g["cites_in"].astype(float).round(6)).all()
+    gov = g[g["ownership"] == "government"]
+    big = n[n["partner_inst"] == "Private Big"].iloc[0]
+    assert big["rate_vs_gov"] == pytest.approx(big["rate_per_1000"] / (gov["cites_in"] / gov["works_ls"] * 1000).median())
+
+
+def test_scopes_are_compared_separately_and_summary_counts_the_flagged():
+    t, out = norm_inputs()
+    other = t.copy(); other["scope"] = "CSIR-A"; other["cites_in"] = (other["cites_in"] / 10).round().astype(int)   # 3 or fewer: below the floor
+    n = P.citer_normalised(pd.concat([t, other], ignore_index=True), out, P2N)
+    assert not n[n["scope"] == "CSIR-A"]["norm_group"].any()      # only 2 institutions clear the floor there: too few to compare, so none is rated
+    assert n[(n["scope"] == "ALL") & n["norm_group"]]["rate_z"].notna().all()
+    s = P.norm_summary(n, P2N)
+    assert s["flagged_before"] == 2 and s["flagged_assessed"] == 1 and s["flagged_still_outliers"] == 1
+    assert s["flagged_not_assessed"] == ["Private Small"] and s["still_outliers"] == ["Private Big"]
+
+
+# ---------------------------------------------------------------- abstracts, departments, sensitivity, quality
+
+def fm_for(ids):
+    return pd.DataFrame({"faculty_id": ids, "degree": 1, "strength": 1, "betweenness": 0.0, "community": 0,
+                         "n_partner_insts": 1, "h_lifetime": 1, "designation": "x"})
+
+
+def test_meeting_abstracts_stay_in_totals_but_not_in_ranked_lists():
+    for title, doi, expect in [("P5108Demographic profile of patients", "https://doi.org/10.1093/x.p5108", True),
+                               ("241PMultisystemic manifestations", "https://doi.org/10.1016/y", True),
+                               ("AB062. DNA damage in children", "https://doi.org/10.1/z", True),
+                               ("A poster", "https://doi.org/10.1099/acmi.cc2021.po0042", True),
+                               ("2-aryl benzimidazole conjugates", "https://doi.org/10.1/q", False),
+                               ("16S rRNA profiling of the gut", "https://doi.org/10.1/r", False)]:
+        assert P.is_meeting_abstract(title, doi) is expect, title
+    rows = main_rows()
+    rows.loc[rows["openalex_id"] == "P1", ["title", "doi"]] = ["P5108Demographic profile", "https://doi.org/10.1093/x.p5108"]
+    d9 = P.prepare(rows, impact(), LABS, P2)
+    assert set(d9.loc[d9["is_abstract"], "openalex_id"]) == {"P1"}
+    assert d9.drop_duplicates("openalex_id").shape[0] == 6                           # still counted as a publication
+    assert "P5108Demographic profile" not in set(P.top_papers_by_if(d9, LABS, 30)["title"])
+    assert "P5108Demographic profile" not in set(P.faculty_top_papers(d9, 10)["title"])
+
+
+def test_department_table_counts_each_paper_once_per_department(d):
+    fac = P.faculty_table(d, LABS, P2, fm_for(["F1", "F2", "F3"]))
+    t = P.department_table(d, LABS, P2, fac).set_index("lab")
+    a, b = t.loc["CSIR-A"], t.loc["CSIR-B"]
+    assert a["faculty"] == 2 and a["papers"] == 5 and bool(a["small"])                 # P3 is shared by F1 and F2 but counts once
+    assert a["q1_papers"] == 2 and a["q1_share"] == pytest.approx(2 / 4)               # the conference paper has no quartile
+    assert a["q1_if_gt5"] == 2 and a["q1_if_gt10"] == 2 and a["citations"] == 642
+    assert a["cit_share_hyper"] == pytest.approx(600 / 642)
+    assert a["collab_inst"] == 3 and a["collab_inst_excl_hyper"] == 2                  # the consortium paper brings one extra institution
+    assert a["flagged_faculty"] == 2 and b["flagged_faculty"] == 0
+    assert b["papers"] == 2 and b["q1_share"] == 0.5 and b["q1_if_gt5"] == 1 and b["q1_if_gt10"] == 0
+
+
+def test_if_sensitivity_changes_only_the_source_not_the_papers(d):
+    imp = pd.DataFrame({"issn_n": ["11111111", "22222222", "33333333"], "impact_factor": [12.0, 4.0, 6.5],
+                        "if_jcr": [12.0, np.nan, 6.5], "if_scimago": [8.0, 6.0, 4.0], "if_openalex_proxy": [15.0, 4.0, 9.0]})
+    s = {r["source"].split(":")[0].split(" for")[0].split(" where")[0]: r for r in P.if_sensitivity(d, imp, P2)}
+    rows = P.if_sensitivity(d, imp, P2)
+    assert [(r["q1_if_gt5"], r["q1_if_gt10"]) for r in rows] == [(3, 2), (3, 2), (2, 0), (3, 2)]   # 3 Q1 journal papers in every variant
+    assert all(r["journals_with_value_share"] == 1.0 for r in rows) and len(s) == 4
+
+
+def test_quality_summary_counts_checks_that_should_be_zero():
+    main = pd.DataFrame({"faculty_id": ["F1", "F1", "F2", "F3"], "institution": ["A", "A", "A", "B"],
+                         "author_openalex_ids": ["A1;A1", "A1;A1", "A2", "A2"],             # A2 sits on two people: an identity clash
+                         "affil_method": ["lineage", "raw_string", "lineage", "lineage"], "dept_source": ["website", "website", "openalex", "website"],
+                         "quartile_source": ["sjr", "sjr", "none", "sjr"]})
+    roster = pd.DataFrame({"faculty_id": ["F1", "F2", "F3", "F4"], "name": ["a", "b", "c", "c"], "institution": ["A", "A", "B", "B"],
+                           "status": ["current", "former", "current", "current"], "orcid": ["0000", "", "", ""], "profile_dois": ["10.1/x", "", "", ""]})
+    q = P.quality_summary(main, roster, pd.DataFrame({"faculty_id": ["F2"]}), ["A", "B"])
+    assert q["roster"] == 4 and q["faculty_with_papers"] == 3 and q["faculty_without_papers"] == 1
+    assert q["openalex_ids_shared_by_two_faculty"] == 1 and q["duplicate_roster_names"] == 1 and q["faculty_in_more_than_one_lab"] == 0
+    assert q["affiliation_lineage_rows"] == 3 and q["affiliation_text_rows"] == 1 and q["manual_match_decisions"] == 1
+    assert q["roster_with_orcid"] == 1 and q["roster_with_profile_dois"] == 1
+    lab_b = [r for r in q["per_lab"] if r["lab"] == "B"][0]
+    assert lab_b["roster"] == 2 and lab_b["with_papers"] == 1 and lab_b["without_papers"] == 1

@@ -123,6 +123,7 @@
 
   // ------------------------------------------------------------------ tab: overview
   function renderOverview() {
+    if (P2 && P2API.questions) P2API.questions();
     const s = D.summary.find((r) => r.scope === state.lab);
     const cagrKey = Object.keys(s).find((k) => k.startsWith("cagr_"));
     kpis("kpis", [
@@ -488,11 +489,12 @@
       add("h3", "Phase II definitions");
       list([
         `Multi-author paper: ${T.multi_author_min} or more authors. Hyperauthored paper: ${T.hyper_author_min} or more. A faculty member is flagged when ${100 * T.faculty_flag_share_hyper}% of their citations come from ${T.hyper_author_min}+ author papers or ${100 * T.faculty_flag_share_multi}% from ${T.multi_author_min}+ author papers.`,
-        `Heavy citing institution: at least ${T.citer_min_cites} citations given to the labs. "Few shared papers": at least ${T.citer_ratio_min} citations per co-authored paper. Non-government: ownership classified as private in data/manual/institution_ownership.csv (government-aided institutions, such as Jamia Hamdard, are publicly funded and are not flagged). The classification was checked for the flagged institutions against the UGC lists, statutes and the institutions' own documents; the evidence is in that file, and rows marked partial or no are not fully confirmed.`,
+        `Heavy citing institution: at least ${T.citer_min_cites} citations given to the labs. "Few shared papers": at least ${T.citer_ratio_min} citations per co-authored paper. Non-government: ownership classified as private in data/manual/institution_ownership.csv (government-aided institutions, such as Jamia Hamdard, are publicly funded and are not flagged). The classification was checked for the flagged institutions against the UGC lists, statutes and the institutions' own documents; the evidence is in that file, and rows marked partial or no are not fully confirmed. Size adjustment: citations to the lab(s) per 1,000 articles and reviews the institution published in 2016-2026 in the labs' main fields (OpenAlex counts); outlier = robust z-score of the log of that rate at or above the threshold within institutions that gave at least 30 citations and have at least 300 such papers.`,
         "Students are left out of the faculty-only networks (faculty co-authorship and its temporal measures); their publications remain in every publication statistic, and the 'all lab authors' network shows them.",
         "Institutional network: Indian institutions only. AcSIR, CSIR's degree academy where PhD students register, is left out as a registration affiliation, not a collaborator.",
         "Collaborating institutions are counted per paper from the co-author affiliations OpenAlex records; the lab's own institution and AcSIR are not counted.",
       ]);
+      if (P2API.quality) P2API.quality(add, list);
     }
   }
 

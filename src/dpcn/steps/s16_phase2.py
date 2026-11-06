@@ -125,6 +125,22 @@ def load_ownership(cfg) -> dict:
             for _, r in df.iterrows() if r["openalex_id"]}
 
 
+def institution_output(cfg, oa, ids: list[str]) -> pd.DataFrame:
+    """Papers (articles and reviews) of each citing institution in the study window, all fields and in the labs' fields.
+
+    Counts come from OpenAlex through the institution's lineage (so its departments and colleges are included), one cached
+    count call each; this is the denominator that turns raw citation counts into rates."""
+    p2 = cfg.phase2
+    window = f"publication_year:{cfg.window.start}-{cfg.window.end},type:article|review"
+    fields = "|".join(str(f) for f in p2.citer_norm_fields)
+    rows = []
+    for i in ids:
+        base = f"authorships.institutions.lineage:{i},{window}"
+        rows.append({"partner_openalex_id": i, "works_all": oa.count("works", base),
+                     "works_ls": oa.count("works", f"{base},primary_topic.field.id:{fields}")})
+    return pd.DataFrame(rows, columns=["partner_openalex_id", "works_all", "works_ls"])
+
+
 def citing_works(oa, dois: list[str]) -> dict:
     """citing doi -> authors, journal, type, year (cached lookups, 50 DOIs per call)."""
     out = {}
@@ -235,6 +251,15 @@ def run(cfg, oa, argv=()) -> None:
     classes = P.author_class_table(d, labs, p2)
     ifhist = P.if_histogram(d, labs)
     hyper = P.hyper_papers(d, labs, p2)
+    dept = P.department_table(d, labs, p2, fac)
+    sens = P.if_sensitivity(d, impact, p2)
+    roster = pd.read_csv(cfg.root / "data/manual/faculty_roster.csv", dtype=str, keep_default_na=False)
+    overrides = pd.read_csv(cfg.root / "data/manual/faculty_match_overrides.csv", dtype=str, keep_default_na=False)
+    quality = P.quality_summary(main, roster, overrides, labs)
+    abstracts = sorted(d.loc[d["is_abstract"], ["openalex_id", "title"]].drop_duplicates("openalex_id")["title"])
+    t5 = f"q1_if_gt{p2.if_thresholds[0]}"
+    if sens[0][t5] != int(ov.set_index("scope").loc["ALL", t5]):
+        raise StepFailed("impact-factor sensitivity does not reproduce the overview count for the source in use")
     fac_lab = dict(zip(fac["faculty_id"], fac["lab"]))
     tnet = P.temporal_faculty_network(pairs, fac_lab, labs)
     tcit = P.temporal_citations(cit, labs)
@@ -242,11 +267,15 @@ def run(cfg, oa, argv=()) -> None:
     inet = P.institution_network(pairs, cluster, labs, p2.inst_network_nodes)
     citers = P.citer_table(ic, load_ownership(cfg), p2, labs)
     evidence = citer_evidence(cfg, oa, citers, cit, main, pairs)
+    ids = sorted(set(citers.loc[citers["cites_in"] >= p2.citer_norm_min_cites, "partner_openalex_id"]))
+    output = institution_output(cfg, oa, ids)
+    citers = P.citer_normalised(citers, output, p2)
+    norm = P.norm_summary(citers, p2)
 
     info = check(cfg, main, ov, yearly, fac, classes, hyper, citers, ic)
     out = {"overview": ov, "yearly": yearly, "faculty": fac, "journals": jour, "top30_papers": top30,
            "faculty_top10": ftop, "author_classes": classes, "if_histogram": ifhist, "hyper_papers": hyper, "temporal_network": tnet,
-           "temporal_citations": tcit, "citers": citers, "citer_evidence": evidence}
+           "temporal_citations": tcit, "citers": citers, "citer_evidence": evidence, "departments": dept}
     for name, df in out.items():
         df.to_csv(st / f"p2_{name}.csv", index=False, encoding="utf-8", lineterminator="\n")
     (net / "inst_network.json").write_text(json.dumps(inet, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
@@ -255,9 +284,12 @@ def run(cfg, oa, argv=()) -> None:
                "journals": len(impact), "tables": {k: len(v) for k, v in out.items()},
                "flagged_faculty_hyper": int(fac["flag_hyper"].sum()), "flagged_faculty_multi": int(fac["flag_multi"].sum()),
                "hyperauthored_papers": len(hyper),
-               "flagged_citers_non_government": int(citers[(citers.scope == "ALL")]["flag_non_government"].sum())}
+               "flagged_citers_non_government": int(citers[(citers.scope == "ALL")]["flag_non_government"].sum()),
+               "citer_normalised": norm, "if_sensitivity": sens, "quality": quality,
+               "meeting_abstracts": {"papers": len(abstracts), "titles": abstracts}}
     (st / "p2_summary.json").write_text(json.dumps(summary, indent=2, default=float), encoding="utf-8")
     report(ov, fac, hyper, citers, impact, summary)
+    report_norm(summary["citer_normalised"])
 
 
 def report(ov, fac, hyper, citers, impact, summary) -> None:
@@ -273,3 +305,17 @@ def report(ov, fac, hyper, citers, impact, summary) -> None:
     allc = citers[citers.scope == "ALL"]
     print(f"Heavy citing institutions: {int(allc.flag_heavy.sum())}; heavy relative to collaboration: "
           f"{int(allc.flag_citation_heavy_vs_collab.sum())}; flagged non-government: {int(allc.flag_non_government.sum())}")
+
+
+def report_norm(n: dict) -> None:
+    print(f"\nSize-normalised heavy citers (rate = citations to the labs per 1,000 papers in the labs' fields; "
+          f"{n['compared']} institutions with >= {n['min_cites']} citations and >= {n['min_works']} such papers)")
+    print(f"  flagged non-government before: {n['flagged_before']}; assessable: {n['flagged_assessed']}; still outliers (z >= {n['z']}): "
+          f"{n['flagged_still_outliers']}")
+    print(f"  median rate by ownership: { {k: round(v, 1) for k, v in n['median_rate'].items()} } (n = {n['n_by_ownership']})")
+    print(f"  Spearman rank correlation raw vs normalised: {n['rank_corr_raw_vs_normalised']:.2f}")
+    print(f"  flagged outliers by z cut-off / all-fields denominator: {n['sensitivity_flagged_outliers']}")
+    print(f"  still outliers: {n['still_outliers']}")
+    print(f"  no longer outliers: {n['no_longer_outliers']}")
+    print(f"  not assessable: {n['flagged_not_assessed']}")
+    print(f"  outliers not in the original flagged set: {n['new_outliers_any_ownership']}")

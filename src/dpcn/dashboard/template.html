@@ -36,6 +36,9 @@
 </nav>
 <main>
   <section id="tab-overview" class="tab">
+    <div class="card" id="rq-card" hidden><h2>Questions we ask of the data</h2>
+      <p class="note">Each answer is computed from the data on the tab it links to; our own reading of the results is in the "Team interpretation" boxes there.</p>
+      <div id="rq" class="rq"></div></div>
     <div class="kpis" id="kpis"></div>
     <div class="card"><h2>1 · Publication trend</h2><p class="note">Papers per year. 2026 is a partial year (data collected <span class="collected"></span>).</p><div id="c-trend" class="chart"></div></div>
     <div class="grid2">
@@ -120,6 +123,9 @@
 
   <section id="tab-impact" class="tab" hidden>
     <div class="card banner" id="if-banner"></div>
+    <div class="card"><h2>How much does the impact-factor source matter?</h2>
+      <p class="note">The same Q1 papers counted with the impact factor taken from different sources (the row marked ▸ is what the dashboard uses). The counts above IF 5 depend strongly on the source; the counts above IF 10 hardly do.</p>
+      <div id="t-ifsens"></div></div>
     <div class="kpis" id="kpis-impact"></div>
     <div class="grid2">
       <div class="card"><h2>Q1 publications and impact factor</h2><p class="note">Papers in Q1 journals, and how many of them are in journals above each impact-factor line.</p><div id="c-q1if" class="chart"></div></div>
@@ -151,6 +157,10 @@
     <div class="card"><h2>Top 10 publications of a faculty member</h2>
       <div class="row note"><label>Faculty <select id="f-pick"></select></label></div>
       <p class="note">Ranked by journal impact factor, then citations.</p><div id="t-ftop10"></div></div>
+    <div class="card"><h2>Departments compared</h2>
+      <div class="row note"><label class="inline"><input type="checkbox" id="dept-small" checked> Hide departments with fewer than 3 faculty</label></div>
+      <p class="note">Each point is a department: papers per faculty member against the share of its journal papers in Q1 journals; the size is its citations per paper. The table also shows citations and collaborating institutions with and without papers of 100 or more authors, and how many faculty are flagged. Departments come from the lab websites (or OpenAlex where a website lists none); a paper shared by several faculty of one department counts once for it.</p>
+      <div id="c-dept" class="chart tall"></div><div id="t-dept"></div></div>
     <div class="card team-note" data-note="faculty"></div>
   </section>
 
@@ -186,6 +196,9 @@
       <div class="row note"><label>Ownership <select id="own-filter"><option value="all">All</option><option value="government">Government</option><option value="government-aided">Government-aided</option><option value="private">Private (non-government)</option><option value="unclassified">Unclassified</option></select></label></div>
       <p class="note">Each point is an institution: citations it gave the lab(s) against papers it co-authored with them. Above the dashed diagonal an institution cites far more than it collaborates. Ownership comes from a hand-made file (data/manual/institution_ownership.csv) that the team must verify; heavy = at least 150 citations.</p>
       <div id="c-citers2" class="chart tall"></div><div id="t-citers"></div></div>
+    <div class="card"><h2>Do they still stand out once size is taken into account?</h2>
+      <p class="note">Big institutions give more citations simply because they publish more. Each point divides an institution's citations to the lab(s) by its own output: articles and reviews of 2016&ndash;2026 in the labs' main fields (medicine, biochemistry and genetics, chemistry, immunology and microbiology, agricultural and biological sciences, neuroscience, pharmacology; about 88% of the labs' papers). Institutions with at least 30 citations and 300 such papers are compared. The dashed line is a robust z-score of 2 on the log of the rate (median and MAD of the compared group); the tick on each row is that group's median; flagged non-government institutions have a dark outline. Output counts come from OpenAlex.</p>
+      <div id="c-citers-norm" class="chart"></div></div>
     <div class="card"><h2>Evidence on why: the citing papers</h2>
       <p class="note">For the institutions citing most (and every flagged one), what the citing papers look like. These are indicators, not conclusions: concentration in one author or journal, citations arriving with a shared author, a high share of review articles, or one of our papers drawing most of the citations are different explanations. <span id="ev-note"></span></p>
       <div id="t-evidence"></div></div>
