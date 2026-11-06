@@ -60,6 +60,16 @@ def class_order(p2) -> list[str]:
 
 # --------------------------------------------------------------------------- preparation
 
+# Conference and poster abstracts that a journal prints in a supplement. They count as publications (OpenAlex lists them
+# as journal papers), but they inherit the journal's impact factor, so they are kept out of the IF-ranked lists.
+_ABSTRACT_TITLE = re.compile(r"^(?:[A-Z]{1,2})?\d{3,5}[A-Z]?(?=[A-Z][a-z])|^[A-Z]{1,3}\d{2,4}\.\s")   # "P5108Title...", "241PTitle...", "AB062. Title"
+_ABSTRACT_DOI = re.compile(r"\.(?:p|po|op|s)\d{2,5}$", re.I)                                       # ".../ehy566.p5108", ".../acmi.cc2021.po0042"
+
+
+def is_meeting_abstract(title, doi) -> bool:
+    return bool(_ABSTRACT_TITLE.search(str(title or "").strip()) or _ABSTRACT_DOI.search(str(doi or "").strip()))
+
+
 def prepare(main: pd.DataFrame, impact: pd.DataFrame, labs: list[str], p2) -> pd.DataFrame:
     """Typed copy of the dataset with impact factor, author class and collaborating-institution sets added."""
     d = main.copy()
@@ -69,6 +79,7 @@ def prepare(main: pd.DataFrame, impact: pd.DataFrame, labs: list[str], p2) -> pd
     imp = impact.drop_duplicates("issn_n")[["issn_n", "impact_factor", "if_source"]]
     d = d.merge(imp, on="issn_n", how="left")
     d["is_journal"] = d["type"] == "journal"
+    d["is_abstract"] = [is_meeting_abstract(a, b) for a, b in zip(d["title"], d["doi"])]
     d["is_q1"] = d["quartile"] == "Q1"
     d["author_class"] = d["n_authors"].map(lambda n: author_class(n, p2))
     lab_set = set(labs)
@@ -260,7 +271,7 @@ def top_papers_by_if(d, labs, n: int = 30) -> pd.DataFrame:
     names = d.groupby("openalex_id")["author"].agg(lambda s: "; ".join(sorted(set(s))))
     rows = []
     for scope, p in sc.items():
-        q = _paper_cols(p[p["is_journal"] & p["impact_factor"].notna()], names)
+        q = _paper_cols(p[p["is_journal"] & p["impact_factor"].notna() & ~p["is_abstract"]], names)
         q = q.sort_values(["impact_factor", "citations"], ascending=False).head(n)
         q.insert(0, "rank", range(1, len(q) + 1))
         q.insert(0, "scope", scope)
@@ -273,7 +284,7 @@ def faculty_top_papers(d, n: int = 10) -> pd.DataFrame:
     rows = []
     for fid, g0 in d.groupby("faculty_id"):
         g = g0.drop_duplicates("openalex_id")
-        g = g[g["is_journal"] & g["impact_factor"].notna()].sort_values(["impact_factor", "citations"], ascending=False).head(n)
+        g = g[g["is_journal"] & g["impact_factor"].notna() & ~g["is_abstract"]].sort_values(["impact_factor", "citations"], ascending=False).head(n)
         if g.empty:
             continue
         q = g[["title", "journal_name", "impact_factor", "if_source", "quartile", "year", "citations", "n_authors", "doi"]].copy()
@@ -479,3 +490,176 @@ def citer_evidence(edges: pd.DataFrame, works: dict, cited_authors: dict, cited_
                      "top_citing_year": ty, "top_citing_year_share": tyn / n if n else np.nan,
                      "review_share": rev / n if n else np.nan, "citing_papers_found": len(ws)})
     return pd.DataFrame(rows)
+
+
+# --------------------------------------------------------------------------- size-normalised heavy citers
+
+def citer_normalised(t: pd.DataFrame, output: pd.DataFrame, p2) -> pd.DataFrame:
+    """Adds a size-normalised view to the citer table.
+
+    `output` has one row per partner_openalex_id: works_all (articles and reviews of the institution in the window) and
+    works_ls (the same, in the labs' main fields). Raw citation counts reward big institutions, so for every scope the
+    institutions that gave at least `citer_norm_min_cites` citations and have at least `citer_norm_min_works` papers in
+    those fields are compared on
+      rate_per_1000   = citations to the scope per 1,000 papers in the labs' fields
+      expected_cites  = papers in the labs' fields x the pooled rate of that comparison group
+      obs_exp         = cites_in / expected_cites
+      rate_z          = robust z-score (median and MAD) of log10(rate_per_1000) within the group
+      rate_vs_gov     = rate / median rate of the government institutions in the group
+    `flag_norm_outlier` is rate_z >= citer_norm_z; `flag_non_government_norm` keeps only private institutions.
+    Institutions outside the comparison group get NaN, never a made-up value.
+    """
+    t = t.drop(columns=[c for c in t.columns if c in ("works_all", "works_ls")], errors="ignore")
+    t = t.merge(output[["partner_openalex_id", "works_all", "works_ls"]], on="partner_openalex_id", how="left")
+    for c in ("rate_per_1000", "rate_all_per_1000", "expected_cites", "obs_exp", "rate_z", "rate_vs_gov", "rate_pctile"):
+        t[c] = np.nan
+    t["norm_group"] = False
+    t["flag_norm_outlier"] = False
+    for scope, idx in t.groupby("scope").groups.items():
+        g = t.loc[idx]
+        g = g[(g["cites_in"] >= p2.citer_norm_min_cites) & (g["works_ls"] >= p2.citer_norm_min_works)]
+        if len(g) < 5:
+            continue
+        rate = g["cites_in"] / g["works_ls"] * 1000
+        logr = np.log10(rate.clip(lower=1e-9))
+        mad = float(np.median(np.abs(logr - logr.median())))
+        z = (logr - logr.median()) / (1.4826 * mad) if mad > 0 else logr * np.nan
+        pooled = g["cites_in"].sum() / g["works_ls"].sum()
+        gov = rate[g["ownership"] == "government"]
+        t.loc[g.index, "norm_group"] = True
+        t.loc[g.index, "rate_per_1000"] = rate
+        t.loc[g.index, "rate_all_per_1000"] = g["cites_in"] / g["works_all"].clip(lower=1) * 1000
+        t.loc[g.index, "expected_cites"] = g["works_ls"] * pooled
+        t.loc[g.index, "obs_exp"] = g["cites_in"] / (g["works_ls"] * pooled)
+        t.loc[g.index, "rate_z"] = z
+        t.loc[g.index, "rate_pctile"] = rate.rank(pct=True) * 100
+        if len(gov):
+            t.loc[g.index, "rate_vs_gov"] = rate / float(gov.median())
+    t["flag_norm_outlier"] = t["norm_group"] & (t["rate_z"] >= p2.citer_norm_z)
+    t["flag_non_government_norm"] = t["flag_norm_outlier"] & (t["ownership"] == "private")
+    return t
+
+
+def norm_summary(t: pd.DataFrame, p2) -> dict:
+    """Headline findings of the normalised analysis (scope ALL) with simple sensitivity checks."""
+    a = t[(t["scope"] == "ALL") & t["norm_group"]].copy()
+    flagged = t[(t["scope"] == "ALL") & t["flag_non_government"]]
+    assessed = flagged[flagged["norm_group"]]
+    raw_rank = a["cites_in"].rank(ascending=False)
+    norm_rank = a["rate_per_1000"].rank(ascending=False)
+    out = {
+        "compared": int(len(a)), "min_cites": p2.citer_norm_min_cites, "min_works": p2.citer_norm_min_works, "z": p2.citer_norm_z,
+        "flagged_before": int(len(flagged)), "flagged_assessed": int(len(assessed)),
+        "flagged_not_assessed": sorted(flagged.loc[~flagged["norm_group"], "partner_inst"]),
+        "flagged_still_outliers": int(assessed["flag_norm_outlier"].sum()),
+        "still_outliers": sorted(assessed.loc[assessed["flag_norm_outlier"], "partner_inst"]),
+        "no_longer_outliers": sorted(assessed.loc[~assessed["flag_norm_outlier"], "partner_inst"]),
+        "new_outliers_any_ownership": sorted(a.loc[a["flag_norm_outlier"] & ~a["partner_inst"].isin(flagged["partner_inst"]), "partner_inst"]),
+        "median_rate": {k: float(v) for k, v in a.groupby("ownership")["rate_per_1000"].median().items()},
+        "n_by_ownership": {k: int(v) for k, v in a.groupby("ownership").size().items()},
+        "rank_corr_raw_vs_normalised": float(raw_rank.corr(norm_rank, method="spearman")) if len(a) > 2 else None,
+        "outliers_by_ownership": {k: int(v) for k, v in a[a["flag_norm_outlier"]].groupby("ownership").size().items()},
+    }
+    # sensitivity: stricter / looser z, and the all-fields denominator instead of the labs' fields
+    sens = {}
+    for z in (1.5, 2.0, 2.5, 3.0):
+        sens[f"z>={z}"] = int((assessed["rate_z"] >= z).sum())
+    lr = np.log10((a["cites_in"] / a["works_all"].clip(lower=1) * 1000).clip(lower=1e-9))
+    mad = float(np.median(np.abs(lr - lr.median())))
+    zz = (lr - lr.median()) / (1.4826 * mad) if mad > 0 else lr * np.nan
+    sens["all_fields_denominator_outliers_among_flagged"] = int((zz[assessed.index] >= p2.citer_norm_z).sum())
+    out["sensitivity_flagged_outliers"] = sens
+    return out
+
+
+
+# --------------------------------------------------------------------------- departments
+
+def department_table(d: pd.DataFrame, labs: list[str], p2, fac: pd.DataFrame) -> pd.DataFrame:
+    """One row per (lab, department): output, quality, citations and collaboration, with consortium effects shown apart.
+
+    A paper shared by several faculty of one department counts once for that department. Departments with fewer than three
+    faculty are marked `small`: their ratios move with one person."""
+    x = d.copy()
+    x["department"] = x["department"].replace("", "Unknown")
+    flagged = set(fac.loc[fac["flag"].fillna("") != "", "faculty_id"]) if "flag" in fac else set()
+    t5, t10 = p2.if_thresholds
+    rows = []
+    for (lab, dept), g in x.groupby(["institution", "department"]):
+        p = g.drop_duplicates("openalex_id")
+        j = p[p["is_journal"]]
+        kq = j[j["quartile"].isin(["Q1", "Q2", "Q3", "Q4"])]
+        q1 = kq[kq["is_q1"]]
+        hyper = p[p["n_authors"] >= p2.hyper_author_min]
+        nh = p[p["n_authors"] < p2.hyper_author_min]
+        cit = float(p["citations"].sum())
+        facs = list(g["faculty_id"].unique())
+        union = set().union(*p["collab_all"]) if len(p) else set()
+        union_nh = set().union(*nh["collab_all"]) if len(nh) else set()
+        rows.append({
+            "lab": lab, "department": dept, "faculty": len(facs), "papers": len(p), "papers_per_faculty": len(p) / len(facs),
+            "q1_papers": len(q1), "q1_share": _share(len(q1), len(kq)),
+            f"q1_if_gt{t5}": int((q1["impact_factor"] > t5).sum()), f"q1_if_gt{t10}": int((q1["impact_factor"] > t10).sum()),
+            "mean_if": float(j["impact_factor"].mean()) if j["impact_factor"].notna().any() else float("nan"),
+            "citations": int(cit), "cites_per_paper": cit / len(p) if len(p) else float("nan"),
+            "cit_share_hyper": _share(hyper["citations"].sum(), cit),
+            "collab_inst": len(union), "collab_inst_excl_hyper": len(union_nh),
+            "flagged_faculty": sum(f in flagged for f in facs), "small": len(facs) < 3})
+    return pd.DataFrame(rows).sort_values(["lab", "papers"], ascending=[True, False]).reset_index(drop=True)
+
+
+# --------------------------------------------------------------------------- sensitivity to the impact-factor source
+
+def if_sensitivity(d: pd.DataFrame, impact: pd.DataFrame, p2) -> list[dict]:
+    """Q1 papers above each impact-factor line (all labs) when every journal takes its value from one source instead.
+
+    Where a source does not list a journal the next source is used, so every variant covers the same papers."""
+    t5, t10 = p2.if_thresholds
+    imp = impact.drop_duplicates("issn_n").set_index("issn_n")
+    final = imp["impact_factor"]
+    variants = [
+        ("As used: JCR, else Scimago, else OpenAlex", final),
+        ("OpenAlex 2-year mean citedness for every journal", imp["if_openalex_proxy"].fillna(final)),
+        ("Scimago cites per document where listed, else OpenAlex", imp["if_scimago"].fillna(imp["if_openalex_proxy"]).fillna(final)),
+        ("JCR where listed, else no value", imp["if_jcr"]),
+    ]
+    p = d.drop_duplicates("openalex_id")
+    p = p[p["is_journal"] & p["is_q1"]]
+    out = []
+    for name, ser in variants:
+        v = p["issn_n"].map(ser)
+        out.append({"source": name, "journals_with_value_share": float(v.notna().mean()) if len(p) else float("nan"),
+                    f"q1_if_gt{t5}": int((v > t5).sum()), f"q1_if_gt{t10}": int((v > t10).sum())})
+    return out
+
+
+# --------------------------------------------------------------------------- author and affiliation checks
+
+def quality_summary(main: pd.DataFrame, roster: pd.DataFrame, overrides: pd.DataFrame, labs: list[str]) -> dict:
+    """Counts that show how the faculty list, the author matches and the affiliations were checked."""
+    fa = main.drop_duplicates("faculty_id")
+    ids = {}
+    for fid, s in zip(fa["faculty_id"], fa["author_openalex_ids"]):
+        ids[fid] = {i for i in str(s).split(";") if i}
+    owner: dict[str, set] = {}
+    for fid, s in ids.items():
+        for i in s:
+            owner.setdefault(i, set()).add(fid)
+    have = set(fa["faculty_id"])
+    per_lab = []
+    for lab in labs:
+        r = roster[roster["institution"] == lab]
+        per_lab.append({"lab": lab, "roster": len(r), "current": int((r["status"] == "current").sum()), "former": int((r["status"] == "former").sum()),
+                        "with_papers": int(r["faculty_id"].isin(have).sum()), "without_papers": int((~r["faculty_id"].isin(have)).sum())})
+    rows = len(main)
+    return {
+        "per_lab": per_lab, "roster": len(roster), "faculty_with_papers": len(have), "faculty_without_papers": int(len(roster) - len(set(roster["faculty_id"]) & have)),
+        "rows": rows, "affiliation_lineage_rows": int((main["affil_method"] == "lineage").sum()), "affiliation_text_rows": int((main["affil_method"] == "raw_string").sum()),
+        "dept_from_website_rows": int((main["dept_source"] == "website").sum()), "dept_from_openalex_rows": int((main["dept_source"] == "openalex").sum()),
+        "quartile_sjr_rows": int((main["quartile_source"] == "sjr").sum()), "quartile_none_rows": int((main["quartile_source"] == "none").sum()),
+        "roster_with_orcid": int((roster["orcid"] != "").sum()), "roster_with_profile_dois": int((roster["profile_dois"] != "").sum()),
+        "manual_match_decisions": len(overrides), "duplicate_roster_names": int(roster["name"].duplicated().sum()),
+        "faculty_in_more_than_one_lab": int((main.groupby("faculty_id")["institution"].nunique() > 1).sum()),
+        "openalex_ids_shared_by_two_faculty": int(sum(len(v) > 1 for v in owner.values())),
+        "faculty_without_openalex_id": int(sum(1 for s in ids.values() if not s)),
+    }

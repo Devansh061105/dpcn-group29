@@ -105,3 +105,26 @@ def test_scimago_sits_between_jcr_and_the_proxy(cfg):
     assert j.loc["2222-2222", "impact_factor"] == 5.5 and j.loc["2222-2222", "if_source"] == "JCR 2024"      # JCR beats Scimago
     assert j.loc["3333-3333", "impact_factor"] == 4.0 and j.loc["3333-3333", "if_source"] == S.PROXY          # not in Scimago: proxy
     assert j.loc["1111-1111", "if_openalex_proxy"] == 7.25                                                    # proxy kept for comparison
+
+
+class CountingOA:
+    """Stands in for the OpenAlex client's count(): records each filter and answers from a table."""
+    def __init__(self, counts):
+        self.counts, self.filters = counts, []
+
+    def count(self, path, filter):
+        assert path == "works"
+        self.filters.append(filter)
+        inst = filter.split("lineage:")[1].split(",")[0]
+        return self.counts[(inst, "primary_topic.field.id" in filter)]
+
+
+def test_institution_output_counts_all_papers_and_those_in_the_labs_fields(cfg):
+    oa = CountingOA({("I1", False): 5000, ("I1", True): 1200, ("I2", False): 90, ("I2", True): 10})
+    df = S.institution_output(cfg, oa, ["I1", "I2"]).set_index("partner_openalex_id")
+    assert df.loc["I1", "works_all"] == 5000 and df.loc["I1", "works_ls"] == 1200
+    assert (df["works_ls"] <= df["works_all"]).all()
+    assert len(oa.filters) == 4                                        # two calls per institution
+    assert all(f"publication_year:{cfg.window.start}-{cfg.window.end}" in f and "type:article|review" in f for f in oa.filters)
+    ls = [f for f in oa.filters if "primary_topic.field.id" in f][0]
+    assert ls.endswith("primary_topic.field.id:" + "|".join(str(x) for x in cfg.phase2.citer_norm_fields))

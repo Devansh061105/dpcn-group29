@@ -67,6 +67,11 @@ phase2:
   citer_min_cites: 150              # a citing institution is "heavy" from this many citations received by our labs
   citer_ratio_min: 15               # ... and "citation-heavy relative to collaboration" from this many citations per shared paper
   citer_detail_top: 40              # citing institutions examined in detail (authors, journals) through OpenAlex
+  # size-normalised view of the heavy citers: citations to the labs per 1,000 papers of the citing institution
+  citer_norm_min_cites: 30          # institutions with at least this many citations to the scope are compared
+  citer_norm_min_works: 300         # ... and at least this many papers in the labs' fields (smaller bases are not assessed)
+  citer_norm_z: 2.0                 # outlier = robust z-score of log10(rate) at or above this
+  citer_norm_fields: [11, 13, 16, 24, 27, 28, 30]   # OpenAlex fields that hold ~88% of the labs' papers (agri/bio, biochem/genetics, chemistry, immuno/micro, medicine, neuro, pharma)
   inst_network_nodes: 45            # partner institutions drawn in the institutional network (plus the four labs)
   jcr_file: data/manual/jcr/jcr_impact_factors.csv
   scimago_dir: data/manual/sjr_full   # full Scimago download(s); newest scimagojr_<year>.csv is used for Cites/Doc (2y)

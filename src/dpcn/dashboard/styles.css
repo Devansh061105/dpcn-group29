@@ -90,3 +90,11 @@ main [hidden] { display: none !important; }
 .team-note { border-style: dashed; }
 .note-body { white-space: pre-wrap; margin: 0; }
 .row label { display: inline-flex; gap: 6px; align-items: center; color: var(--ink-2); }
+
+/* research questions on the overview */
+.rq { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 10px; }
+.rqi { border: 1px solid var(--ring); border-radius: 8px; padding: 10px 12px; }
+.rqi h3 { font-size: 13.5px; margin: 0 0 4px; font-weight: 600; }
+.rqi p { margin: 0 0 6px; color: var(--ink-2); font-size: 12.5px; }
+.linkbtn { border: 0; background: none; color: var(--accent); padding: 0; cursor: pointer; font-size: 12.5px; }
+.linkbtn:hover { text-decoration: underline; }

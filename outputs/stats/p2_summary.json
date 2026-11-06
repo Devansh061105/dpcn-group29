@@ -15,6 +15,18 @@
     "citer_min_cites": 150,
     "citer_ratio_min": 15,
     "citer_detail_top": 40,
+    "citer_norm_min_cites": 30,
+    "citer_norm_min_works": 300,
+    "citer_norm_z": 2.0,
+    "citer_norm_fields": [
+      11,
+      13,
+      16,
+      24,
+      27,
+      28,
+      30
+    ],
     "inst_network_nodes": 45,
     "scimago_dir": "data/manual/sjr_full"
   },
@@ -38,10 +50,174 @@
     "temporal_network": 110,
     "temporal_citations": 55,
     "citers": 8522,
-    "citer_evidence": 53
+    "citer_evidence": 53,
+    "departments": 108
   },
   "flagged_faculty_hyper": 15,
   "flagged_faculty_multi": 37,
   "hyperauthored_papers": 26,
-  "flagged_citers_non_government": 19
+  "flagged_citers_non_government": 19,
+  "citer_normalised": {
+    "compared": 356,
+    "min_cites": 30,
+    "min_works": 300,
+    "z": 2.0,
+    "flagged_before": 19,
+    "flagged_assessed": 19,
+    "flagged_not_assessed": [],
+    "flagged_still_outliers": 0,
+    "still_outliers": [],
+    "no_longer_outliers": [
+      "Amity University Gurugram",
+      "Birla Institute of Technology, Mesra",
+      "Chandigarh University",
+      "Chitkara University",
+      "GITAM University",
+      "GLA University",
+      "Graphic Era University",
+      "JSS Academy of Higher Education and Research",
+      "Jain University",
+      "Lovely Professional University",
+      "Maharishi Markandeshwar University, Mullana",
+      "Narsee Monjee Institute of Management Studies",
+      "SASTRA University",
+      "Saveetha University",
+      "Sharda University",
+      "Shri Vile Parle Kelavani Mandal",
+      "Siksha O Anusandhan University",
+      "Uttaranchal University",
+      "Vellore Institute of Technology University"
+    ],
+    "new_outliers_any_ownership": [
+      "Ashoka University",
+      "Central Scientific Instruments Organisation",
+      "Centre for DNA Fingerprinting and Diagnostics",
+      "Indian Institute of Technology Jodhpur",
+      "Indian Institute of Toxicology Research",
+      "Indraprastha Institute of Information Technology Delhi",
+      "National Institute of Pharmaceutical Education and Research (Guwahati)",
+      "National Institute of Pharmaceutical Education and Research (Hyderabad)",
+      "National Institute of Pharmaceutical Education and Research (Mohali)",
+      "National Institute of Pharmaceutical Education and Research (Raebareli)",
+      "National JALMA Institute for Leprosy & Other Mycobacterial Diseases",
+      "Regional Centre for Biotechnology",
+      "Translational Health Science and Technology Institute"
+    ],
+    "median_rate": {
+      "government": 69.86027944111777,
+      "government-aided": 142.0627802690583,
+      "private": 61.64238969812117,
+      "unclassified": 40.5709992486852
+    },
+    "n_by_ownership": {
+      "government": 143,
+      "government-aided": 1,
+      "private": 47,
+      "unclassified": 165
+    },
+    "rank_corr_raw_vs_normalised": 0.4229088964586741,
+    "outliers_by_ownership": {
+      "government": 12,
+      "private": 1
+    },
+    "sensitivity_flagged_outliers": {
+      "z>=1.5": 0,
+      "z>=2.0": 0,
+      "z>=2.5": 0,
+      "z>=3.0": 0,
+      "all_fields_denominator_outliers_among_flagged": 0
+    }
+  },
+  "if_sensitivity": [
+    {
+      "source": "As used: JCR, else Scimago, else OpenAlex",
+      "journals_with_value_share": 1.0,
+      "q1_if_gt5": 1221,
+      "q1_if_gt10": 277
+    },
+    {
+      "source": "OpenAlex 2-year mean citedness for every journal",
+      "journals_with_value_share": 1.0,
+      "q1_if_gt5": 2008,
+      "q1_if_gt10": 282
+    },
+    {
+      "source": "Scimago cites per document where listed, else OpenAlex",
+      "journals_with_value_share": 1.0,
+      "q1_if_gt5": 1935,
+      "q1_if_gt10": 292
+    },
+    {
+      "source": "JCR where listed, else no value",
+      "journals_with_value_share": 0.9713541666666666,
+      "q1_if_gt5": 1172,
+      "q1_if_gt10": 274
+    }
+  ],
+  "quality": {
+    "per_lab": [
+      {
+        "lab": "CSIR-CCMB",
+        "roster": 56,
+        "current": 50,
+        "former": 6,
+        "with_papers": 54,
+        "without_papers": 2
+      },
+      {
+        "lab": "CSIR-IGIB",
+        "roster": 60,
+        "current": 52,
+        "former": 8,
+        "with_papers": 55,
+        "without_papers": 5
+      },
+      {
+        "lab": "CSIR-IMTECH",
+        "roster": 54,
+        "current": 51,
+        "former": 3,
+        "with_papers": 49,
+        "without_papers": 5
+      },
+      {
+        "lab": "CSIR-CDRI",
+        "roster": 124,
+        "current": 112,
+        "former": 12,
+        "with_papers": 116,
+        "without_papers": 8
+      }
+    ],
+    "roster": 294,
+    "faculty_with_papers": 274,
+    "faculty_without_papers": 20,
+    "rows": 8107,
+    "affiliation_lineage_rows": 8091,
+    "affiliation_text_rows": 16,
+    "dept_from_website_rows": 5134,
+    "dept_from_openalex_rows": 2973,
+    "quartile_sjr_rows": 7807,
+    "quartile_none_rows": 299,
+    "roster_with_orcid": 85,
+    "roster_with_profile_dois": 68,
+    "manual_match_decisions": 67,
+    "duplicate_roster_names": 0,
+    "faculty_in_more_than_one_lab": 0,
+    "openalex_ids_shared_by_two_faculty": 0,
+    "faculty_without_openalex_id": 0
+  },
+  "meeting_abstracts": {
+    "papers": 8,
+    "titles": [
+      "241PMultisystemic manifestations in neuromuscular disorders",
+      "257PSpectrum of dystrophin mutations in a dystrophinopathy cohort in north India",
+      "390PClinical and genetic profile of a cohort of myotonic dystrophy from north India",
+      "523PSpinal muscular atrophy in an adult neurology clinic: delay in diagnosis to treatment",
+      "AB062. DNA damage is associated with infantile-pediatric cases of mitochondrial disorders: a pilot study from North India",
+      "Complex sphingolipids: Vital determinants of drug susceptibility, membrane integrity and pathogenesis of Candida glabrata",
+      "P5108Demographic, clinical, coronary angiographic profile and telomere length in young patients of acute myocardial infarction among nondiabetics and nonsmokers",
+      "P5443Association of G allele of CTLA 4 1661 A/G polymorphism with susceptibility and severity of rheumatic heart disease"
+    ]
+  }
 }

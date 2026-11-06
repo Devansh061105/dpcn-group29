@@ -2,6 +2,7 @@
    plot(), table(), kpis() and the other helpers. Every panel reads state.lab. Data: D.p2 (built by S13 from s16). */
 const P2 = D.p2;
 const P2REG = {};
+const P2API = {};      // functions the other tabs call (the panels below live in the block's own scope)
 let P2WIRE = () => {};
 const CLUSTER_COLORS = { "IIT": "#8e6bc4", "NIT": "#b08968", "IIIT": "#c46b8a", "Central University": "#4aa3a8",
   "University (other)": "#7fb069", "Medical": "#d9778b", "IISc/TIFR/IISER": "#6b8fc4", "Premier Science": "#a58fd0",
@@ -32,6 +33,7 @@ if (P2) {
   // ---------------------------------------------------------------- tab: impact factor and author counts
   function renderImpact() {
     const o = ovRow(state.lab), src = P2.summary.if_sources || {};
+    renderIfSens();
     const nJcr = Object.entries(src).filter(([k]) => k.startsWith("JCR")).reduce((a, [, v]) => a + v, 0);
     const nProxy = Object.entries(src).filter(([k]) => k.includes("proxy")).reduce((a, [, v]) => a + v, 0);
     const nSci = Object.entries(src).filter(([k]) => k.startsWith("Scimago")).reduce((a, [, v]) => a + v, 0), nAll = nJcr + nSci + nProxy;
@@ -167,6 +169,7 @@ if (P2) {
     [...rows].sort((a, b) => b.papers - a.papers).forEach((r) => { const o = document.createElement("option"); o.value = r.faculty_id;
       o.textContent = `${r.name} (${short(r.lab)}, ${r.papers} papers)`; pick.append(o); });
     if ([...pick.options].some((o) => o.value === keep)) pick.value = keep;
+    renderDepts();
     renderTop10();
     renderNotes();
   }
@@ -245,6 +248,8 @@ if (P2) {
     const o = ovRow(state.lab), fac = P2.faculty.filter((r) => state.lab === "ALL" || r.lab === state.lab);
     const hyperShare = (o[`citation_share_${HYPER}-999`] || 0) + (o["citation_share_1000+"] || 0);
     const cit = P2.citers.filter((r) => r.scope === state.lab);
+    const flaggedNG = cit.filter((r) => r.flag_non_government && r.norm_group);
+    const nAssessed = flaggedNG.length, nOut = flaggedNG.filter((r) => r.flag_norm_outlier).length;
     kpis("kpis-flags", [
       [`Papers with ${HYPER}+ authors`, fmt((o[`papers_${HYPER}-999`] || 0) + (o["papers_1000+"] || 0)), `${pct(((o[`papers_${HYPER}-999`] || 0) + (o["papers_1000+"] || 0)) / o.papers, 1)} of papers`],
       ["Their share of citations", pct(hyperShare, 1), `${fmt((o[`citations_${HYPER}-999`] || 0) + (o["citations_1000+"] || 0))} citations`],
@@ -252,6 +257,7 @@ if (P2) {
       ["Heavy citing institutions", fmt(cit.filter((r) => r.flag_heavy).length), `≥ ${TH.citer_min_cites} citations into the lab`],
       ["Heavy, few shared papers", fmt(cit.filter((r) => r.flag_citation_heavy_vs_collab).length), `≥ ${TH.citer_ratio_min} citations per shared paper`],
       ["Flagged non-government", fmt(cit.filter((r) => r.flag_non_government).length), "private, heavy, few shared papers"],
+      ["Still outliers after size adjustment", `${fmt(nOut)} of ${fmt(nAssessed)}`, `citations per 1,000 papers, z ≥ ${TH.citer_norm_z}`],
     ]);
     const sc = state.lab === "ALL" ? [...LABS, "ALL"] : [state.lab, "ALL"];
     const classes = [...new Set(P2.author_classes.map((r) => r.author_class))];
@@ -313,12 +319,17 @@ if (P2) {
       annotations: [{ x: 1, xref: "paper", y: Math.log10(TH.citer_min_cites), yref: "y", text: `${TH.citer_min_cites} citations`, showarrow: false, xanchor: "right", yanchor: "bottom", font: { size: 10, color: css("--muted") } }],
       legend: { orientation: "h", y: -0.22 } });
 
-    table("t-citers", rows.map((r) => ({ ...r, flags: [r.flag_non_government ? "non-government, heavy, few shared papers" : "", r.flag_citation_heavy_vs_collab && !r.flag_non_government ? "heavy, few shared papers" : "", r.flag_heavy && !r.flag_citation_heavy_vs_collab ? "heavy" : ""].filter(Boolean).join("; ") })), [
+    renderCiterRates();
+
+    table("t-citers", rows.map((r) => ({ ...r, flags: [r.flag_norm_outlier ? "outlier after size adjustment" : "", r.flag_non_government ? "non-government, heavy, few shared papers" : "", r.flag_citation_heavy_vs_collab && !r.flag_non_government ? "heavy, few shared papers" : "", r.flag_heavy && !r.flag_citation_heavy_vs_collab ? "heavy" : ""].filter(Boolean).join("; ") })), [
       { title: "Institution", field: "partner_inst", headerFilter: "input", widthGrow: 3, frozen: true },
       { title: "Ownership", field: "ownership" }, { title: "Cluster", field: "partner_cluster" },
       { title: "Cites in", field: "cites_in", hozAlign: "right", sorter: "number" }, { title: "Cites out", field: "cites_out", hozAlign: "right", sorter: "number" },
       { title: "Shared papers", field: "shared_papers", hozAlign: "right", sorter: "number" },
       { title: "Cites per shared paper", field: "cites_per_shared_paper", hozAlign: "right", sorter: "number", formatter: (c) => fmt(c.getValue(), 1) },
+      { title: "Papers in the labs' fields, 2016–26", field: "works_ls", hozAlign: "right", sorter: "number", formatter: (c) => c.getValue() == null ? "–" : fmt(c.getValue()) },
+      { title: "Cites per 1,000 such papers", field: "rate_per_1000", hozAlign: "right", sorter: "number", formatter: (c) => c.getValue() == null ? "–" : fmt(c.getValue(), 1) },
+      { title: "× expected for its size", field: "obs_exp", hozAlign: "right", sorter: "number", formatter: (c) => c.getValue() == null ? "–" : fmt(c.getValue(), 2) },
       { title: "Flags", field: "flags", widthGrow: 2, formatter: "textarea" }], { maxHeight: 440, initialSort: [{ column: "cites_in", dir: "desc" }] });
 
     const ev = P2.citer_evidence.filter((r) => own === "all" || r.ownership === own);
@@ -337,6 +348,133 @@ if (P2) {
       { maxHeight: 460, initialSort: [{ column: "citations", dir: "desc" }] });
   }
 
+  function renderCiterRates() {   // size-normalised view: citations given per 1,000 papers of the institution in the labs' fields
+    const ng = P2.citers.filter((r) => r.scope === state.lab && r.norm_group);
+    const box = el("c-citers-norm");
+    if (ng.length < 5) { box.textContent = "Too few institutions clear the thresholds for this lab to compare."; return; }
+    const q = (a, p) => { const s = [...a].sort((x, y) => x - y); return s[Math.floor((s.length - 1) * p)]; };
+    const lr = ng.map((r) => Math.log10(r.rate_per_1000)), med = q(lr, 0.5), mad = 1.4826 * q(lr.map((v) => Math.abs(v - med)), 0.5);
+    const thr = Math.pow(10, med + TH.citer_norm_z * mad);
+    const jit = (s) => { let h = 0; for (const ch of s) h = (h * 31 + ch.charCodeAt(0)) | 0; return ((h >>> 0) % 1000) / 1000 - 0.5; };
+    const order = ["government", "government-aided", "private", "unclassified"], groups = order.filter((ow) => ng.some((r) => r.ownership === ow));
+    // a few labels only, placed on alternating sides so neighbours in a dense row do not print over each other
+    const namedList = [...new Set([...ng.filter((r) => r.flag_non_government).sort((a, b) => b.rate_per_1000 - a.rate_per_1000).slice(0, 2),
+      ...[...ng].sort((a, b) => b.rate_per_1000 - a.rate_per_1000).slice(0, 4)].map((r) => r.partner_inst))];
+    const spots = ["top right", "top left", "bottom right", "bottom left", "top center", "bottom center"];
+    const placed = new Map(namedList.map((n, i) => [n, spots[i % spots.length]]));
+    const traces = groups.map((ow, k) => {
+      const rr = ng.filter((r) => r.ownership === ow);
+      return { type: "scatter", mode: "markers+text", showlegend: false, name: ow, x: rr.map((r) => r.rate_per_1000), y: rr.map((r) => k + 0.34 * jit(r.partner_inst)),
+        text: rr.map((r) => placed.has(r.partner_inst) ? abbr(r.partner_inst, 22) : ""), textposition: rr.map((r) => placed.get(r.partner_inst) || "top center"), textfont: { size: 10, color: css("--ink-2") },
+        marker: { size: rr.map((r) => r.flag_non_government ? 12 : 7), color: ownColor(ow), opacity: 0.78,
+          line: { color: rr.map((r) => r.flag_non_government ? css("--ink") : css("--surface")), width: rr.map((r) => r.flag_non_government ? 2 : 0.6) } },
+        customdata: rr.map((r) => [r.partner_inst, r.cites_in, r.works_ls, r.obs_exp, r.shared_papers]),
+        hovertemplate: "<b>%{customdata[0]}</b><br>%{x:.0f} citations per 1,000 papers<br>%{customdata[1]:,} citations ÷ %{customdata[2]:,} papers in the labs' fields<br>%{customdata[3]:.1f}× the expected count · %{customdata[4]} shared papers<extra>" + ow + "</extra>" };
+    });
+    traces.push({ type: "scatter", mode: "markers", showlegend: false, name: "group median", x: groups.map((ow) => q(ng.filter((r) => r.ownership === ow).map((r) => r.rate_per_1000), 0.5)),
+      y: groups.map((_, k) => k), marker: { symbol: "line-ns-open", size: 30, color: css("--ink"), line: { color: css("--ink"), width: 2 } },
+      hovertemplate: "median %{x:.0f} per 1,000 papers<extra></extra>" });
+    plot("c-citers-norm", traces, { xaxis: { type: "log", title: "Citations given to the lab(s) per 1,000 papers of the institution in the labs' fields", tickvals: [10, 30, 100, 300, 1000], ticktext: ["10", "30", "100", "300", "1,000"] },
+      yaxis: { tickmode: "array", tickvals: groups.map((_, k) => k), ticktext: groups.map((ow) => `${ow} (${ng.filter((r) => r.ownership === ow).length})`), range: [-0.6, groups.length - 0.4], zeroline: false, rangemode: "normal", automargin: true },
+      shapes: [{ type: "line", xref: "x", yref: "paper", x0: thr, x1: thr, y0: 0, y1: 1, line: { color: css("--muted"), width: 1, dash: "dash" } }],
+      annotations: [{ x: Math.log10(thr), xref: "x", y: 1, yref: "paper", text: `outlier line (z ≥ ${TH.citer_norm_z})`, showarrow: false, xanchor: "left", yanchor: "top", font: { size: 10, color: css("--muted") } }] });
+  }
+
+  // ---------------------------------------------------------------- departments
+  function renderDepts() {
+    const hide = el("dept-small").checked;
+    const rows = P2.departments.filter((r) => (state.lab === "ALL" || r.lab === state.lab) && !(hide && r.small));
+    const maxC = Math.max(1, ...rows.map((r) => r.cites_per_paper || 0));
+    plot("c-dept", LABS.filter((l) => rows.some((r) => r.lab === l)).map((lab) => {
+      const rr = rows.filter((r) => r.lab === lab);
+      return { type: "scatter", mode: "markers", name: short(lab), x: rr.map((r) => r.papers_per_faculty), y: rr.map((r) => r.q1_share),
+        customdata: rr.map((r) => [r.department, r.faculty, r.papers, r.cites_per_paper, r.collab_inst, r.flagged_faculty]),
+        marker: { size: rr.map((r) => 8 + 26 * Math.sqrt((r.cites_per_paper || 0) / maxC)), color: labColor(lab), opacity: 0.78, line: { color: css("--surface"), width: 1 } },
+        hovertemplate: "<b>%{customdata[0]}</b><br>%{customdata[1]} faculty · %{customdata[2]} papers<br>%{x:.1f} papers per faculty<br>Q1 share %{y:.0%}<br>%{customdata[3]:.1f} citations per paper<br>%{customdata[4]} collaborating institutions · %{customdata[5]} faculty flagged<extra>" + short(lab) + "</extra>" };
+    }), { xaxis: { title: "Papers per faculty member, 2016–2026", rangemode: "tozero" }, yaxis: { title: "Share of journal papers in Q1 journals", tickformat: ".0%", range: [0, 1] }, hovermode: "closest" });
+    table("t-dept", rows.map((r) => ({ ...r, lab: short(r.lab) })), [
+      { title: "Lab", field: "lab", headerFilter: "input", frozen: true }, { title: "Department", field: "department", headerFilter: "input", widthGrow: 3, minWidth: 220 },
+      { title: "Faculty", field: "faculty", hozAlign: "right", sorter: "number" }, { title: "Papers", field: "papers", hozAlign: "right", sorter: "number" },
+      { title: "Papers / faculty", field: "papers_per_faculty", hozAlign: "right", sorter: "number", formatter: (c) => fmt(c.getValue(), 1) },
+      { title: "Q1 share", field: "q1_share", hozAlign: "right", sorter: "number", formatter: (c) => pct(c.getValue(), 0) },
+      { title: `Q1, IF>${IF1}`, field: `q1_if_gt${IF1}`, hozAlign: "right", sorter: "number" }, { title: `Q1, IF>${IF2}`, field: `q1_if_gt${IF2}`, hozAlign: "right", sorter: "number" },
+      { title: "Mean IF", field: "mean_if", hozAlign: "right", sorter: "number", formatter: ifFmt },
+      { title: "Citations", field: "citations", hozAlign: "right", sorter: "number" },
+      { title: "Cites / paper", field: "cites_per_paper", hozAlign: "right", sorter: "number", formatter: (c) => fmt(c.getValue(), 1) },
+      { title: `% cit. from ${HYPER}+`, field: "cit_share_hyper", hozAlign: "right", sorter: "number", formatter: (c) => pct(c.getValue(), 0) },
+      { title: "Collab. inst.", field: "collab_inst", hozAlign: "right", sorter: "number" },
+      { title: `Collab. inst. excl. ${HYPER}+`, field: "collab_inst_excl_hyper", hozAlign: "right", sorter: "number" },
+      { title: "Faculty flagged", field: "flagged_faculty", hozAlign: "right", sorter: "number" },
+      { title: "Small", field: "small", formatter: (c) => c.getValue() ? "< 3 faculty" : "" }], { maxHeight: 440, initialSort: [{ column: "papers", dir: "desc" }] });
+  }
+
+  // ---------------------------------------------------------------- how much does the impact-factor source matter?
+  function renderIfSens() {
+    const rows = (P2.summary.if_sensitivity || []).map((r, i) => ({ ...r, used: i === 0 }));
+    table("t-ifsens", rows, [
+      { title: "Impact factor taken from", field: "source", widthGrow: 4, formatter: (c) => (c.getRow().getData().used ? "▸ " : "") + c.getValue() },
+      { title: "Q1 papers with a value", field: "journals_with_value_share", hozAlign: "right", formatter: (c) => pct(c.getValue(), 0) },
+      { title: `Q1 papers, IF > ${IF1}`, field: `q1_if_gt${IF1}`, hozAlign: "right", sorter: "number" },
+      { title: `Q1 papers, IF > ${IF2}`, field: `q1_if_gt${IF2}`, hozAlign: "right", sorter: "number" }], { layout: "fitColumns", maxHeight: 230 });
+  }
+
+  // ---------------------------------------------------------------- the questions we ask, answered from the data on the other tabs
+  function renderQuestions() {
+    const card = el("rq-card"), box = el("rq");
+    card.hidden = false; box.replaceChildren();
+    const A = ovRow("ALL"), labsOv = LABS.map((l) => ovRow(l)), S = P2.summary, N = S.citer_normalised || {}, sens = S.if_sensitivity || [];
+    const by = (key, dir) => [...labsOv].sort((a, b) => dir * (b[key] - a[key]))[0];
+    const big = by("papers", 1), hi = by("q1_share", 1), lo = by("q1_share", -1);
+    const fac = P2.faculty, ord = (k) => [...fac].sort((a, b) => (b[k] || 0) - (a[k] || 0));
+    const topId = (k, n) => new Set(ord(k).slice(0, n).map((r) => r.faculty_id));
+    const both = [...topId("citations", 10)].filter((x) => topId("degree", 10).has(x)).length;
+    const rankX = (r) => 1 + fac.filter((f) => (f.citations_excl_hyper || 0) > (r.citations_excl_hyper || 0)).length;
+    const shift = ord("citations").slice(0, 4).map(rankX);
+    const hyperN = (A[`papers_${HYPER}-999`] || 0) + (A["papers_1000+"] || 0);
+    const hyperC = (A[`citation_share_${HYPER}-999`] || 0) + (A["citation_share_1000+"] || 0);
+    const flagged = fac.filter((r) => r.flag_hyper || r.flag_multi).length;
+    const years = P2.temporal_network.filter((r) => r.scope === "ALL" && r.mode === "cumulative"), last = years.reduce((a, b) => (b.year > a.year ? b : a));
+    const med = N.median_rate || {}, nums = sens.map((r) => r[`q1_if_gt${IF2}`]);
+    const items = [
+      ["How productive are the labs, and how much of their work appears in high-impact journals?", "impact",
+        `${short(big.scope)} publishes the most (${fmt(big.papers)} papers). The Q1 share runs from ${pct(lo.q1_share, 0)} (${short(lo.scope)}) to ${pct(hi.q1_share, 0)} (${short(hi.scope)}). ${pct(A[`q1_if_gt${IF1}_share_of_q1`], 0)} of Q1 papers are in journals with IF above ${IF1}, and ${pct(A[`q1_if_gt${IF2}_share_of_q1`], 0)} above ${IF2}.`],
+      ["Do the same faculty lead on output, citations and connections?", "compare",
+        `${ord("papers")[0].name} leads on papers, ${ord("citations")[0].name} on citations and ${ord("degree")[0].name} on co-author links. ${both} of the ten most cited faculty are also among the ten most connected.`],
+      ["Do a few many-author papers distort the citation counts?", "flags",
+        `${fmt(hyperN)} papers with ${HYPER}+ authors (${pct(hyperN / A.papers, 1)} of papers) carry ${pct(hyperC, 1)} of all citations. ${fmt(flagged)} faculty are flagged, and the four most cited faculty fall from ranks 1–4 to ranks ${Math.min(...shift)}–${Math.max(...shift)} without those papers.`],
+      ["Is the labs' collaboration real, or inflated by consortium papers?", "instnet",
+        `${fmt(A.collab_inst_all)} institutions appear on the labs' papers, but ${fmt(A.collab_inst_all_excl_hyper)} once papers with ${HYPER}+ authors are set aside. Only ${pct(last.cross_lab_links / last.links, 1)} of faculty co-authorship links (${fmt(last.cross_lab_links)} of ${fmt(last.links)}) join different labs.`],
+      ["Do private institutions cite the labs more than their size explains?", "flags",
+        `Raw counts flag ${fmt(N.flagged_before)} private institutions. Per 1,000 papers in the labs' fields, ${fmt(N.flagged_still_outliers)} of ${fmt(N.flagged_assessed)} still stand out (median ${fmt(med.private, 0)} for private institutions against ${fmt(med.government, 0)} for government ones).`],
+      ["How much do the headline counts depend on the impact-factor source?", "impact",
+        `Q1 papers above IF ${IF1}: ${fmt(sens[0] && sens[0][`q1_if_gt${IF1}`])} with the sources we use, up to ${fmt(Math.max(...sens.map((r) => r[`q1_if_gt${IF1}`])))} if a free substitute is used for every journal. Above IF ${IF2} the counts stay between ${fmt(Math.min(...nums))} and ${fmt(Math.max(...nums))}.`],
+    ];
+    items.forEach(([q, tab, a]) => {
+      const d = document.createElement("div"); d.className = "rqi";
+      const h = document.createElement("h3"); h.textContent = q;
+      const p = document.createElement("p"); p.textContent = a;
+      const b = document.createElement("button"); b.type = "button"; b.className = "linkbtn"; b.textContent = "See the evidence →";
+      b.addEventListener("click", () => { show(tab); window.scrollTo(0, 0); });
+      d.append(h, p, b); box.append(d);
+    });
+  }
+
+  // ---------------------------------------------------------------- author and affiliation checks (About tab)
+  function renderQualityPanel(add, list) {
+    const Q = P2.summary.quality, M = P2.summary.meeting_abstracts || { papers: 0 };
+    if (!Q) return;
+    const cur = Q.per_lab.reduce((a, r) => a + r.current, 0), former = Q.per_lab.reduce((a, r) => a + r.former, 0);
+    add("h3", "Author and affiliation checks");
+    list([
+      `Faculty lists: ${fmt(Q.roster)} faculty on the four rosters (${fmt(cur)} current, ${fmt(former)} former). ${fmt(Q.faculty_with_papers)} have at least one paper in the window and ${fmt(Q.faculty_without_papers)} have none (${Q.per_lab.map((r) => `${short(r.lab)} ${r.without_papers}`).join(", ")}).`,
+      `Identity: a profile is matched to an OpenAlex author by ORCID first (${fmt(Q.roster_with_orcid)} roster entries carry one), then by the papers listed on the lab profile page (${fmt(Q.roster_with_profile_dois)} entries), then by an unambiguous display name; ${fmt(Q.manual_match_decisions)} matches were decided by hand. Checks that must come out at zero: OpenAlex author IDs shared by two faculty = ${Q.openalex_ids_shared_by_two_faculty}; faculty in more than one lab = ${Q.faculty_in_more_than_one_lab}; duplicate names on the roster = ${Q.duplicate_roster_names}; faculty without an author ID = ${Q.faculty_without_openalex_id}.`,
+      `Affiliation: a paper counts for a faculty member only when that person's own authorship carries the lab. ${fmt(Q.affiliation_lineage_rows)} of ${fmt(Q.rows)} faculty-paper rows (${pct(Q.affiliation_lineage_rows / Q.rows, 1)}) show it through OpenAlex's institution record and ${fmt(Q.affiliation_text_rows)} through the raw affiliation text.`,
+      `Departments come from the lab websites for ${fmt(Q.dept_from_website_rows)} rows and from OpenAlex for ${fmt(Q.dept_from_openalex_rows)}. Journal quartiles come from SJR for ${fmt(Q.quartile_sjr_rows)} rows; ${fmt(Q.quartile_none_rows)} rows have no quartile (conference papers and journals SJR does not list).`,
+      "Students and other non-faculty lab authors appear only in the all-authors network; the faculty-only network and its yearly measures use roster faculty only. Their papers stay in every publication count.",
+      `${fmt(M.papers)} conference or poster abstracts that journals print in supplements (for example in the European Heart Journal) are counted as publications but kept out of the impact-factor ranked top-30 and top-10 lists, because they inherit the journal's impact factor.`,
+    ]);
+  }
+
   P2WIRE = function () {
     CMP.forEach(([k, label]) => ["cmp-x", "cmp-y", "cmp-s"].forEach((id) => { const o = document.createElement("option"); o.value = k; o.textContent = label; el(id).append(o); }));
     el("cmp-x").value = "papers"; el("cmp-y").value = "q1_papers"; el("cmp-s").value = "citations";
@@ -350,7 +488,9 @@ if (P2) {
     el("tnet-metric").addEventListener("change", renderTemporal);
     document.querySelectorAll('input[name="tmode"]').forEach((r) => r.addEventListener("change", renderTemporal));
     el("own-filter").addEventListener("change", renderCiters);
+    el("dept-small").addEventListener("change", renderDepts);
   };
 
+  Object.assign(P2API, { questions: renderQuestions, quality: renderQualityPanel });
   Object.assign(P2REG, { impact: renderImpact, compare: renderCompare, instnet: renderInstNet, flags: renderFlags });
 }
