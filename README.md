@@ -46,6 +46,8 @@ python -m dpcn run s13
 
 **Our interpretation** of each result is written in `data/manual/phase2_notes.yaml` and shown on the dashboard; the dashboard itself only reports numbers.
 
+**Layout.** The dashboard has seven sections (Overview, Findings, Publications, Faculty, Networks, Flags, About); sections with several pages show a pill switcher. Links such as `#tab=citation&lab=CSIR-IGIB` open a page directly, and the lab selector at the top right filters every page.
+
 **Hosting.** The dashboard is one self-contained file and is served by GitHub Pages from `index.html`.
 
 ## Running it

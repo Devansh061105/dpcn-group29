@@ -40,15 +40,22 @@
     const ink2 = css("--ink-2"), grid = css("--grid");
     return Object.assign({
       paper_bgcolor: "rgba(0,0,0,0)", plot_bgcolor: "rgba(0,0,0,0)",
-      font: { family: "system-ui, -apple-system, Segoe UI, sans-serif", size: 12, color: ink2 },
-      margin: { l: 50, r: 16, t: 10, b: 40 },
-      xaxis: { gridcolor: grid, linecolor: css("--axis"), zeroline: false },
-      yaxis: { gridcolor: grid, linecolor: css("--axis"), zeroline: false, rangemode: "tozero", automargin: true },
-      legend: { orientation: "h", y: -0.18, font: { color: ink2 } },
-      hoverlabel: { bgcolor: css("--surface"), bordercolor: css("--axis"), font: { color: css("--ink") } },
-    }, extra);
+      font: { family: "Inter, system-ui, -apple-system, Segoe UI, sans-serif", size: 13, color: ink2 },
+      margin: { l: 56, r: 18, t: 12, b: 44 },
+      xaxis: { gridcolor: grid, linecolor: css("--axis"), zeroline: false, automargin: true, title: { font: { size: 13, color: css("--ink-2") } }, tickfont: { size: 12 } },
+      yaxis: { gridcolor: grid, linecolor: css("--axis"), zeroline: false, rangemode: "tozero", automargin: true, title: { font: { size: 13, color: css("--ink-2") } }, tickfont: { size: 12 } },
+      legend: { orientation: "h", y: 1.02, yanchor: "bottom", x: 0, font: { color: ink2, size: 12.5 }, itemclick: "toggle", itemdoubleclick: "toggleothers" },
+      hoverlabel: { bgcolor: css("--surface"), bordercolor: css("--axis"), font: { color: css("--ink"), size: 13, family: "Inter, system-ui, sans-serif" } },
+      hovermode: "closest", bargap: 0.25,
+    }, extra, {
+      xaxis: Object.assign({ gridcolor: grid, linecolor: css("--axis"), zeroline: false, automargin: true, tickfont: { size: 12 } }, extra.xaxis || {}),
+      yaxis: Object.assign({ gridcolor: grid, linecolor: css("--axis"), zeroline: false, rangemode: "tozero", automargin: true, tickfont: { size: 12 } }, extra.yaxis || {}),
+      legend: Object.assign({ orientation: "h", x: 0, y: 1.02, yanchor: "bottom", font: { color: ink2, size: 12.5 } }, extra.legend || {}),
+    });
   }
-  const plot = (id, traces, lay) => Plotly.react(id, traces, layout(lay), { displaylogo: false, responsive: true,
+  const logTicks = (L) => { for (const k of Object.keys(L)) {      // log axes: label only 1, 2, 5 per decade
+    const ax = L[k]; if (/^[xy]axis/.test(k) && ax && ax.type === "log" && !ax.tickvals && !ax.dtick) ax.dtick = "D2"; } return L; };
+  const plot = (id, traces, lay) => Plotly.react(id, traces, logTicks(layout(lay)), { displaylogo: false, responsive: true, displayModeBar: "hover",
     modeBarButtonsToRemove: ["lasso2d", "select2d", "autoScale2d"] });
 
   function plainTable(id, rows, columns, opts) {   // screenshot mode: a static table drawn synchronously
@@ -148,10 +155,8 @@
     const s = D.summary.find((r) => r.scope === state.lab);
     const cagrKey = Object.keys(s).find((k) => k.startsWith("cagr_"));
     kpis("kpis", [
-      ["Papers", fmt(s.papers), `${fmt(s.journal_papers)} journal · ${fmt(s.conference_papers)} conference`],
-      ["Citations", fmt(s.citations), `median ${fmt(s.median_citations)} per paper`],
-      ["Faculty with papers", fmt(s.faculty_with_papers), `of ${fmt(s.roster_faculty)} on the roster`],
-      ["Q1 fraction", pct(s.q1_fraction), `quartile known for ${pct(s.quartile_coverage, 0)}`],
+      ["Journal papers", fmt(s.journal_papers), `${fmt(s.conference_papers)} conference papers`],
+      ["Median citations", fmt(s.median_citations), "per paper"],
       ["Institutional h-index", fmt(s.institutional_h), "over 2016–2026 papers"],
       ["Growth (CAGR)", pct(s[cagrKey]), cagrKey.replace("cagr_", "").replace("_", "–")],
       ["Indian partner co-authors", pct(s.pct_indian_partner_collab, 0), `foreign co-authors ${pct(s.pct_foreign_collab, 0)}`],
@@ -176,7 +181,7 @@
       return { type: "bar", x: rows.map((r) => r.year), y: rows.map((r) => r.citations), name: short(lab),
         marker: { color: labColor(lab), line: { color: css("--surface"), width: 1 } },
         hovertemplate: `<b>%{y:,}</b> citations<br>${short(lab)} · %{x}<extra></extra>` };
-    }), { barmode: "stack", xaxis: { dtick: 1 }, legend: { orientation: "h", y: -0.18, traceorder: "normal" } });
+    }), { barmode: "stack", xaxis: { dtick: 1 }, legend: { orientation: "h", y: 1.02, yanchor: "bottom", x: 0, traceorder: "normal" } });
     table("t-summary", D.summary.map((r) => ({ ...r, scope: short(r.scope) })), [
       { title: "Scope", field: "scope", frozen: true }, { title: "Papers", field: "papers", hozAlign: "right" },
       { title: "Citations", field: "citations", hozAlign: "right" },
@@ -201,7 +206,7 @@
       textposition: "inside", insidetextanchor: "middle", textfont: { color: inkOn(qc[q]) },
       hovertemplate: `<b>%{x:.1%}</b> (%{customdata} papers)<br>%{y} · ${q}<extra></extra>` })),
       { barmode: "stack", xaxis: { tickformat: ".0%", range: [0, 1] }, yaxis: { autorange: "reversed" }, margin: { l: 70, r: 10, t: 10, b: 50 },
-        legend: { orientation: "h", y: -0.18, traceorder: "normal" } });
+        legend: { orientation: "h", y: 1.02, yanchor: "bottom", x: 0, traceorder: "normal" } });
 
     const tj = D.top_journals.filter((r) => r.scope === state.lab);
     const rev = [...tj].reverse();
@@ -256,7 +261,7 @@
         y: bins.map((b) => (rr.find((r) => r.bin_start === b) || {}).faculty || 0),
         marker: { color: labColor(lab), line: { color: css("--surface"), width: 1 } },
         hovertemplate: `<b>%{y}</b> faculty<br>${short(lab)} · h %{x}<extra></extra>` };
-    }), { barmode: state.lab === "ALL" ? "stack" : "group", yaxis: { title: "Faculty", automargin: true }, legend: { orientation: "h", y: -0.18, traceorder: "normal" } });
+    }), { barmode: state.lab === "ALL" ? "stack" : "group", yaxis: { title: "Faculty", automargin: true }, legend: { orientation: "h", y: 1.02, yanchor: "bottom", x: 0, traceorder: "normal" } });
 
     table("t-dept", D.departments.filter((r) => state.lab === "ALL" || r.lab === state.lab).map((r) => ({ ...r, lab: short(r.lab) })), [
       { title: "Lab", field: "lab" }, { title: "Department", field: "department", widthGrow: 3 },
@@ -539,23 +544,77 @@
   // ------------------------------------------------------------------ wiring
   const RENDER = { overview: renderOverview, journals: renderJournals, faculty: renderFaculty, research: renderResearch,
     citation: renderCitation, collab: renderCollab, about: renderAbout, ...P2REG };
-  function render() { RENDER[state.tab](); rendered[state.tab] = state.lab; }
+  function render() { heroStats(); RENDER[state.tab](); rendered[state.tab] = state.lab; }
+  // seven top-level sections; a section with several pages gets a pill switcher underneath
+  const GROUPS = [
+    ["overview", ["overview"]], ["findings", ["findings"]], ["publications", ["impact", "journals", "research"]],
+    ["people", ["faculty", "compare"]], ["networks", ["citation", "collab", "instnet"]], ["flags", ["flags"]], ["about", ["about"]]];
+  const SECT = {
+    overview: ["Overview", "The four labs at a glance", "Output, citations and the questions we asked of the data. Pick a lab at the top right to see it alone."],
+    findings: ["Findings", "What holds up against a baseline", "Each result is compared with what chance or a controlled model would give, so a pattern is only reported when it is real."],
+    impact: ["Impact & authors", "Impact factors, author counts and growth", "Q1 papers in high-impact journals, how many authors papers have, and the top papers by journal impact factor."],
+    journals: ["Journals", "Where the labs publish", "Quartiles, the journals used most and the conference papers."],
+    research: ["Research areas", "What the labs work on", "Fields and subfields of the papers, from OpenAlex topics."],
+    faculty: ["Faculty list", "Every scientist and their output", "Papers, citations and h-index for each faculty member on the roster."],
+    compare: ["Compare faculty", "Faculty and departments side by side", "Most productive, most connected, and each person's top papers by impact factor."],
+    citation: ["Citation network", "Which papers cite which", "Citations among the labs' own papers and to and from other Indian institutions."],
+    collab: ["Co-authorship", "Who writes with whom", "The faculty co-authorship network, its communities and its brokers."],
+    instnet: ["Institutions & time", "Partners across India, and how the networks grew", "The partner-institution network with a year range, and the faculty network year by year."],
+    flags: ["Flags", "Numbers that need a closer look", "Many-author papers, merged author profiles and heavy citing institutions, each with the evidence."],
+    about: ["About", "Data, methods and the team's work", "Sources, definitions, checks, and the manual work behind every number."],
+  };
+  const groupOf = (tab) => (GROUPS.find(([, ts]) => ts.includes(tab)) || GROUPS[0])[0];
+  const available = (tabs) => tabs.filter((t) => RENDER[t] && el(`tab-${t}`));
+  document.querySelectorAll("main > section.tab").forEach((sec) => {      // section headers from SECT
+    const k = sec.id.replace("tab-", ""), m = SECT[k]; if (!m || k === "overview") return;
+    const h = document.createElement("div"); h.className = "sec-head";
+    h.innerHTML = '<div><p class="eyebrow"></p><h2 class="sec-title"></h2></div><p class="sec-desc"></p>';
+    h.querySelector(".eyebrow").textContent = m[0]; h.querySelector(".sec-title").textContent = m[1]; h.querySelector(".sec-desc").textContent = m[2];
+    sec.prepend(h);
+  });
+  document.querySelectorAll("main .card > h2").forEach((h) => {         // "3 · Journal quartiles" -> a small panel chip
+    const m = h.textContent.match(/^([\d][\d &]*) · (.*)$/); if (!m) return;
+    h.textContent = ""; const c = document.createElement("span"); c.className = "panel-no"; c.textContent = `Panel ${m[1]}`;
+    h.append(c, document.createTextNode(m[2]));
+  });
+  function heroStats() {
+    const s = D.summary.find((r) => r.scope === state.lab); const box = el("hero-stats"); if (!s || !box) return;
+    box.replaceChildren(...[[fmt(s.papers), "papers", `${state.lab === "ALL" ? "all four labs" : short(state.lab)}, 2016–2026`],
+      [fmt(s.citations), "citations", "OpenAlex, at collection"], [fmt(s.faculty_with_papers), "faculty", `with papers, of ${fmt(s.roster_faculty)} on the roster`],
+      [pct(s.q1_fraction, 0), "in Q1 journals", "of papers with a known quartile"]].map(([v, l, sub]) => {
+      const d = document.createElement("div"); d.className = "stat";
+      d.innerHTML = '<div class="v"></div><div class="l"></div><div class="s"></div>';
+      d.querySelector(".v").textContent = v; d.querySelector(".l").textContent = l; d.querySelector(".s").textContent = sub; return d; }));
+  }
   function show(tab) {
+    if (!RENDER[tab] || !el(`tab-${tab}`)) tab = "overview";
     state.tab = tab;
-    document.querySelectorAll("#tabs button").forEach((b) => b.setAttribute("aria-selected", String(b.dataset.tab === tab)));
+    const g = groupOf(tab), pages = available(GROUPS.find(([k]) => k === g)[1]);
+    document.querySelectorAll("#tabs button").forEach((b) => b.setAttribute("aria-selected", String(b.dataset.group === g)));
+    const sub = el("subnav"); sub.replaceChildren();
+    sub.parentElement.hidden = pages.length < 2;
+    pages.forEach((t) => { const b = document.createElement("button"); b.type = "button"; b.setAttribute("role", "tab");
+      b.textContent = SECT[t] ? SECT[t][0] : t; b.setAttribute("aria-selected", String(t === tab));
+      b.addEventListener("click", () => show(t)); sub.append(b); });
+    el("hero").hidden = tab !== "overview";
     document.querySelectorAll(".tab").forEach((s) => { s.hidden = s.id !== `tab-${tab}`; });
     if (rendered[tab] !== state.lab) render();
+    const th = document.documentElement.dataset.theme;
+    history.replaceState(null, "", `#tab=${tab}${state.lab !== "ALL" ? `&lab=${state.lab}` : ""}${th ? `&theme=${th}` : ""}`);
     window.dispatchEvent(new Event("resize"));
     Object.values(tables).forEach((t) => { if (t.built && t.element.offsetParent) t.redraw(true); });
   }
   const sel = el("lab");
   [["ALL", "All four labs"], ...LABS.map((l) => [l, `${l} — ${D.meta.lab_names[l]}`])].forEach(([v, t]) => {
     const o = document.createElement("option"); o.value = v; o.textContent = t; sel.append(o); });
-  sel.addEventListener("change", () => { state.lab = sel.value; Object.keys(rendered).forEach((k) => delete rendered[k]); render(); });
-  document.querySelectorAll("#tabs button").forEach((b) => b.addEventListener("click", () => show(b.dataset.tab)));
+  sel.addEventListener("change", () => { state.lab = sel.value; Object.keys(rendered).forEach((k) => delete rendered[k]); show(state.tab); });
+  document.querySelectorAll("#tabs button").forEach((b) => b.addEventListener("click", () => {
+    const pages = available(GROUPS.find(([k]) => k === b.dataset.group)[1]); show(pages[0] || "overview"); window.scrollTo(0, 0); }));
+  document.querySelectorAll("[data-go]").forEach((b) => b.addEventListener("click", () => { show(b.dataset.go); window.scrollTo(0, 0); }));
   el("compact").addEventListener("change", renderFaculty);
   if (P2) P2WIRE();
-  else document.querySelectorAll('#tabs button[data-tab="impact"], #tabs button[data-tab="compare"], #tabs button[data-tab="instnet"], #tabs button[data-tab="flags"], #tabs button[data-tab="findings"]').forEach((b) => b.remove());
+  document.querySelectorAll("#tabs button").forEach((b) => {    // drop sections with nothing to show (no Phase II data)
+    if (!available(GROUPS.find(([k]) => k === b.dataset.group)[1]).length) b.remove(); });
   document.querySelectorAll('input[name="layer"]').forEach((r) => r.addEventListener("change", () => { state.layer = r.value; renderCollab(); }));
   document.querySelectorAll('input[name="colorby"]').forEach((r) => r.addEventListener("change", () => { state.colorby = r.value; renderCollab(); }));
   el("theme").addEventListener("click", () => {
@@ -564,10 +623,10 @@
     root.dataset.theme = dark ? "light" : "dark";
     Object.keys(rendered).forEach((k) => delete rendered[k]); render();
   });
-  el("subtitle").textContent = `Group ${D.meta.group} · ${LABS.map(short).join(", ")} · OpenAlex snapshot ${D.meta.collected} · ${fmt(D.meta.rows)} faculty–paper rows`;
+  el("subtitle").textContent = `Papers, citations and collaboration networks of ${LABS.map(short).join(", ")}, built from OpenAlex (snapshot ${D.meta.collected}), journal rankings and a hand-checked faculty roster.`;
   document.querySelectorAll(".collected").forEach((e) => { e.textContent = D.meta.collected; });
   const tm = D.meta.team;
-  el("team").textContent = `Group ${D.meta.group} · ${tm.members.join(", ")} · ${tm.affiliation} · ${tm.course} course (instructor: ${tm.instructor})`;
+  el("team").textContent = `${tm.members.join(", ")} · ${tm.affiliation} · ${tm.course} course (instructor: ${tm.instructor})`;
   D.meta.institutes.forEach((i) => { const s = document.createElement("span");
     s.textContent = `${i.short.replace("CSIR-", "")}: ${i.name}, ${i.city}`; el("insts").append(s); });
   // deep links: #tab=citation&lab=CSIR-IGIB&theme=light open that view directly

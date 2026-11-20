@@ -4,37 +4,42 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Group 29 Research Map</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@500;600;700&display=swap" rel="stylesheet">
 <!--__LIBS__-->
 <style>/*__STYLES__*/</style>
 </head>
 <body>
-<header class="top">
-  <div class="title">
-    <h1>CSIR Biology Labs · Research Map 2016–2026</h1>
-    <p class="sub" id="subtitle"></p>
+<div class="topbar">
+  <div class="topbar-in">
+    <button class="brand" type="button" data-go="overview" aria-label="Back to the overview"><span class="dot"></span><span class="brand-grp">Group 29 · </span><b>Research Map</b></button>
+    <nav class="tabs" role="tablist" id="tabs" aria-label="Sections">
+      <button role="tab" data-group="overview" aria-selected="true">Overview</button>
+      <button role="tab" data-group="findings">Findings</button>
+      <button role="tab" data-group="publications">Publications</button>
+      <button role="tab" data-group="people">Faculty</button>
+      <button role="tab" data-group="networks">Networks</button>
+      <button role="tab" data-group="flags">Flags</button>
+      <button role="tab" data-group="about">About</button>
+    </nav>
+    <div class="controls">
+      <label for="lab" class="sr">Institution</label>
+      <select id="lab" aria-label="Institution"></select>
+      <button id="theme" type="button" aria-label="Toggle dark mode" title="Light / dark">◐</button>
+    </div>
+  </div>
+</div>
+<header class="hero" id="hero">
+  <div class="hero-in">
+    <p class="eyebrow">DPCN · IIIT Hyderabad · Group 29</p>
+    <h1>How four CSIR biology labs do science, <span class="nowrap">2016–2026</span></h1>
+    <p class="lead" id="subtitle"></p>
+    <div class="hero-stats" id="hero-stats"></div>
     <p class="team" id="team"></p>
     <div class="insts" id="insts"></div>
   </div>
-  <div class="controls">
-    <label for="lab">Institution</label>
-    <select id="lab"></select>
-    <button id="theme" type="button" aria-label="Toggle dark mode">◐</button>
-  </div>
 </header>
-<nav class="tabs" role="tablist" id="tabs">
-  <button role="tab" data-tab="overview" aria-selected="true">Overview</button>
-  <button role="tab" data-tab="findings">Findings</button>
-  <button role="tab" data-tab="journals">Journals</button>
-  <button role="tab" data-tab="faculty">Faculty</button>
-  <button role="tab" data-tab="research">Research</button>
-  <button role="tab" data-tab="citation">Citation network</button>
-  <button role="tab" data-tab="collab">Collaboration</button>
-  <button role="tab" data-tab="impact">Impact &amp; authors</button>
-  <button role="tab" data-tab="compare">Faculty compare</button>
-  <button role="tab" data-tab="instnet">Institutions &amp; time</button>
-  <button role="tab" data-tab="flags">Flags</button>
-  <button role="tab" data-tab="about">About the data</button>
-</nav>
+<div class="subnav-wrap"><div class="subnav" id="subnav" role="tablist" aria-label="Pages in this section"></div></div>
 <main>
   <section id="tab-overview" class="tab">
     <div class="card" id="rq-card" hidden><h2>Questions we ask of the data</h2>
@@ -49,7 +54,7 @@
   </section>
 
   <section id="tab-findings" class="tab" hidden>
-    <div class="card banner"><h2>What holds up against a baseline</h2>
+    <div class="card banner"><h2>How to read this tab</h2>
       <p class="note">Each result below compares what we observe with what chance or a controlled model predicts: citations reshuffled while every paper keeps its citation counts, cited year and field; lab labels shuffled across faculty; co-authorship links rewired with every person keeping their number of links. Figures cover all four labs (the lab selector does not change this tab unless a chart says so). Computed by step s17 from the submitted data; the methods are listed at the end of the tab.</p></div>
     <div class="card"><h2>Findings</h2><div id="fd-list"></div></div>
     <div class="grid2">

@@ -54,7 +54,7 @@ if (P2) {
     const sc = sc2(), q = [["Q1 papers", "q1_papers", css("--q1")], [`Q1 and IF > ${IF1}`, `q1_if_gt${IF1}`, css("--q2")], [`Q1 and IF > ${IF2}`, `q1_if_gt${IF2}`, css("--q3")]];
     plot("c-q1if", q.map(([name, key, color]) => ({ type: "bar", name, x: sc.map(scopeLabel), y: sc.map((s) => ovRow(s)[key]),
       marker: { color, line: { color: css("--surface"), width: 1 } }, text: sc.map((s) => fmt(ovRow(s)[key])), textposition: "outside", cliponaxis: false,
-      hovertemplate: `<b>%{y:,}</b> papers<br>%{x} · ${name}<extra></extra>` })), { barmode: "group", yaxis: { title: "Papers" }, legend: { orientation: "h", y: -0.2 } });
+      hovertemplate: `<b>%{y:,}</b> papers<br>%{x} · ${name}<extra></extra>` })), { barmode: "group", yaxis: { title: "Papers" }, legend: { orientation: "h", y: 1.02, yanchor: "bottom", x: 0 } });
 
     const cls = P2.author_classes.filter((r) => r.scope === state.lab);
     const names = cls.map((r) => `${r.author_class} authors`);
@@ -65,7 +65,7 @@ if (P2) {
       { type: "bar", name: "Share of citations", x: names, y: cls.map((r) => r.share_of_citations), marker: { color: css("--lab-2") },
         text: cls.map((r) => pct(r.share_of_citations, 1)), textposition: "outside", cliponaxis: false,
         customdata: cls.map((r) => r.citations), hovertemplate: "<b>%{y:.1%}</b> of citations (%{customdata:,})<br>%{x}<extra></extra>" }],
-      { barmode: "group", yaxis: { tickformat: ".0%", title: "Share" }, legend: { orientation: "h", y: -0.2 } });
+      { barmode: "group", yaxis: { tickformat: ".0%", title: "Share" }, legend: { orientation: "h", y: 1.02, yanchor: "bottom", x: 0 } });
 
     const yr = P2.yearly.filter((r) => r.scope === state.lab), py = D.meta.partial_year;
     plot("c-yearly", [
@@ -81,7 +81,7 @@ if (P2) {
         hovertemplate: "<b>%{y}</b> distinct institutions without the consortium papers<br>%{x}<extra></extra>" }],
       { barmode: "stack", xaxis: { dtick: 1 }, yaxis: { title: "Papers" },
         yaxis2: { overlaying: "y", side: "right", title: "Collaborating institutions", rangemode: "tozero", showgrid: false, automargin: true },
-        margin: { l: 55, r: 70, t: 10, b: 50 }, legend: { orientation: "h", y: -0.2 },
+        margin: { l: 55, r: 70, t: 10, b: 50 }, legend: { orientation: "h", y: 1.02, yanchor: "bottom", x: 0 },
         shapes: [{ type: "rect", xref: "x", yref: "paper", x0: py - 0.5, x1: py + 0.5, y0: 0, y1: 1, fillcolor: css("--grid"), opacity: 0.5, line: { width: 0 }, layer: "below" }] });
 
     const cl = (name, key, color, dash, symbol) => ({ name, x: yr.map((r) => r.year), y: yr.map((r) => r[key]), mode: "lines+markers",
@@ -91,7 +91,7 @@ if (P2) {
       cl(`Indian, without ${HYPER}+ author papers`, "collab_inst_indian_excl_hyper", css("--lab-3"), "dot", "diamond"),
       cl("Foreign institutions", "collab_inst_foreign", css("--lab-2"), "solid", "circle"),
       cl(`Foreign, without ${HYPER}+ author papers`, "collab_inst_foreign_excl_hyper", css("--lab-2"), "dot", "diamond")],
-      { hovermode: "x unified", xaxis: { dtick: 1 }, yaxis: { title: "Distinct institutions" }, legend: { orientation: "h", y: -0.3 } });
+      { hovermode: "x unified", xaxis: { dtick: 1 }, yaxis: { title: "Distinct institutions" }, legend: { orientation: "h", y: 1.02, yanchor: "bottom", x: 0 } });
 
     const hist = P2.if_histogram.filter((r) => r.scope === state.lab);
     const bx = hist.map((r) => r.bin_start + 0.5);
@@ -103,7 +103,7 @@ if (P2) {
       { barmode: "stack", xaxis: { title: "Journal impact factor (last bin = 20 and above)", range: [0, 21] }, yaxis: { title: "Papers" },
         shapes: [IF1, IF2].map((x) => ({ type: "line", xref: "x", yref: "paper", x0: x, x1: x, y0: 0, y1: 1, line: { color: css("--ink"), width: 1, dash: "dash" } })),
         annotations: [IF1, IF2].map((x) => ({ x, y: 1, yref: "paper", text: `IF ${x}`, showarrow: false, yanchor: "bottom", font: { size: 11, color: css("--ink-2") } })),
-        margin: { l: 50, r: 16, t: 28, b: 40 }, legend: { orientation: "h", y: -0.25 } });
+        margin: { l: 50, r: 16, t: 28, b: 40 }, legend: { orientation: "h", y: 1.02, yanchor: "bottom", x: 0 } });
 
     renderLabCorpus();
     table("t-top30", P2.top30_papers.filter((r) => r.scope === state.lab), [
@@ -138,7 +138,7 @@ if (P2) {
     plot("c-corpus", [
       { type: "bar", name: "With a roster scientist (faculty-attributed)", x: y.map((r) => r.year), y: y.map((r) => r.papers_faculty), marker: { color: css("--lab-1") } },
       { type: "bar", name: "Without one (students, postdocs, staff, unlisted scientists)", x: y.map((r) => r.year), y: y.map((r) => r.papers_without_roster_scientist), marker: { color: css("--qna") } }],
-      { barmode: "stack", xaxis: { dtick: 1 }, yaxis: { title: "Lab-affiliated papers" }, legend: { orientation: "h", y: -0.2 } });
+      { barmode: "stack", xaxis: { dtick: 1 }, yaxis: { title: "Lab-affiliated papers" }, legend: { orientation: "h", y: 1.02, yanchor: "bottom", x: 0 } });
   }
 
   // ---------------------------------------------------------------- tab: faculty comparison
@@ -290,7 +290,7 @@ if (P2) {
       text: sc.map((s) => { const v = (P2.author_classes.find((r) => r.scope === s && r.author_class === c) || {}).share_of_citations || 0; return v >= 0.06 ? pct(v, 0) : ""; }),
       textposition: "inside", insidetextanchor: "middle", textfont: { color: inkOn(palette[i % 4]) },
       hovertemplate: `<b>%{x:.1%}</b> of citations<br>%{y} · ${c} authors<extra></extra>` })),
-      { barmode: "stack", xaxis: { tickformat: ".0%", range: [0, 1] }, yaxis: { autorange: "reversed" }, margin: { l: 70, r: 10, t: 10, b: 50 }, legend: { orientation: "h", y: -0.2, traceorder: "normal" } });
+      { barmode: "stack", xaxis: { tickformat: ".0%", range: [0, 1] }, yaxis: { autorange: "reversed" }, margin: { l: 70, r: 10, t: 10, b: 50 }, legend: { orientation: "h", y: 1.02, yanchor: "bottom", x: 0, traceorder: "normal" } });
 
     const dep = fac.filter((r) => r.citations >= TH.faculty_flag_min_citations).sort((a, b) => (b.cit_share_hyper || 0) - (a.cit_share_hyper || 0)).slice(0, 15).reverse();
     plot("c-dep", [{ type: "bar", orientation: "h", y: dep.map((r) => r.name), x: dep.map((r) => r.cit_share_hyper), marker: { color: dep.map((r) => labColor(r.lab)) },
@@ -335,7 +335,7 @@ if (P2) {
     }), { xaxis: { type: "log", title: "Citations on 2016–2026 lab papers" }, yaxis: { type: "log", title: "Lifetime citations (all OpenAlex profiles of the person)" },
       shapes: [{ type: "line", xref: "paper", yref: "y", x0: 0, x1: 1, y0: TH.lifetime_flag_citations, y1: TH.lifetime_flag_citations, line: { color: css("--muted"), width: 1, dash: "dash" } }],
       annotations: [{ x: 0, xref: "paper", y: Math.log10(TH.lifetime_flag_citations), yref: "y", text: "1 lakh", showarrow: false, xanchor: "left", yanchor: "bottom", font: { size: 10, color: css("--muted") } }],
-      hovermode: "closest", legend: { orientation: "h", y: -0.2 } });
+      hovermode: "closest", legend: { orientation: "h", y: 1.02, yanchor: "bottom", x: 0 } });
     table("t-life", fac.filter((r) => r.flag_lifetime).map((r) => ({ ...r, lab: short(r.lab) })), [
       { title: "Name", field: "name", frozen: true, minWidth: 150 }, { title: "Lab", field: "lab" },
       { title: "Lifetime citations", field: "lifetime_citations", hozAlign: "right", sorter: "number", formatter: (c) => fmt(c.getValue()) },
@@ -365,7 +365,7 @@ if (P2) {
       shapes: [{ type: "line", xref: "x", yref: "y", x0: 0.8, x1: 300, y0: 0.8 * TH.citer_ratio_min, y1: 300 * TH.citer_ratio_min, line: { color: css("--muted"), width: 1, dash: "dash" } },
                { type: "line", xref: "paper", yref: "y", x0: 0, x1: 1, y0: TH.citer_min_cites, y1: TH.citer_min_cites, line: { color: css("--muted"), width: 1, dash: "dot" } }],
       annotations: [{ x: 1, xref: "paper", y: Math.log10(TH.citer_min_cites), yref: "y", text: `${TH.citer_min_cites} citations`, showarrow: false, xanchor: "right", yanchor: "bottom", font: { size: 10, color: css("--muted") } }],
-      legend: { orientation: "h", y: -0.22 } });
+      legend: { orientation: "h", y: 1.02, yanchor: "bottom", x: 0 } });
 
     renderCiterRates();
 
@@ -571,7 +571,7 @@ if (P2) {
       x: scs.map((s) => ((R.citation_audience || []).find((r) => r.citing_scope === s && r.class === c) || {}).share || 0),
       marker: { color: cc[i], line: { color: css("--surface"), width: 1 } },
       hovertemplate: `<b>%{x:.1%}</b> of citations<br>%{y} · ${c}<extra></extra>` })),
-      { barmode: "stack", xaxis: { tickformat: ".0%", range: [0, 1] }, yaxis: { autorange: "reversed" }, margin: { l: 70, r: 10, t: 10, b: 50 }, legend: { orientation: "h", y: -0.25, traceorder: "normal" } });
+      { barmode: "stack", xaxis: { tickformat: ".0%", range: [0, 1] }, yaxis: { autorange: "reversed" }, margin: { l: 70, r: 10, t: 10, b: 50 }, legend: { orientation: "h", y: 1.02, yanchor: "bottom", x: 0, traceorder: "normal" } });
 
     const z = LABS.map((a) => LABS.map((b) => (exAll.find((r) => r.citing_lab === a && r.cited_lab === b) || {}).obs_exp));
     const tx = LABS.map((a) => LABS.map((b) => { const r = exAll.find((x) => x.citing_lab === a && x.cited_lab === b) || {}; return `${fmt(r.obs_exp, 2)}${r.q_bh < 0.05 ? "*" : ""}<br>${fmt(r.observed, 0)} vs ${fmt(r.expected, 0)}`; }));
@@ -594,7 +594,7 @@ if (P2) {
       y: dists.map((d) => ((R.distance_lift || []).find((r) => r.basis === b && r.distance === d) || {}).lift),
       text: dists.map((d) => fmt(((R.distance_lift || []).find((r) => r.basis === b && r.distance === d) || {}).lift, 1) + "×"), textposition: "outside", cliponaxis: false,
       marker: { color: i ? css("--lab-1") : css("--qna") }, hovertemplate: "<b>%{y:.2f}×</b> expected<br>%{x} · " + b + "<extra></extra>" })),
-      { barmode: "group", yaxis: { type: "log", title: "Observed ÷ expected (log)" }, legend: { orientation: "h", y: -0.2 },
+      { barmode: "group", yaxis: { type: "log", title: "Observed ÷ expected (log)", tickvals: [0.1, 0.2, 0.5, 1, 2, 3], ticktext: ["0.1×", "0.2×", "0.5×", "1×", "2×", "3×"] }, legend: { orientation: "h", y: 1.02, yanchor: "bottom", x: 0 },
         shapes: [{ type: "line", xref: "paper", yref: "y", x0: 0, x1: 1, y0: 1, y1: 1, line: { color: css("--muted"), dash: "dash", width: 1 } }] });
 
     const ledAll = (R.led_vs_middle || []).filter((r) => scs.includes(r.scope));
@@ -607,7 +607,7 @@ if (P2) {
         marker: { size: 11, symbol: "diamond", color: i ? css("--lab-4") : css("--lab-1"), line: { color: css("--ink"), width: 1 } },
         hovertemplate: `<b>%{y:.2f}×</b> field-and-year average<br>%{x} · ${ro}<extra></extra>` }))],
       { barmode: "group", yaxis: { tickformat: ".0%", title: "Share of citations" }, yaxis2: { overlaying: "y", side: "right", title: "× average", rangemode: "tozero", showgrid: false },
-        legend: { orientation: "h", y: -0.3 }, margin: { l: 55, r: 55, t: 10, b: 60 } });
+        legend: { orientation: "h", y: 1.02, yanchor: "bottom", x: 0 }, margin: { l: 55, r: 55, t: 10, b: 60 } });
 
     const tri = R.triadic_closure || [];
     plot("c-fd-pers", [
@@ -626,13 +626,13 @@ if (P2) {
       return { type: "scatter", mode: "markers", name: i ? "with controls" : "raw", x: rr.map((r) => r.pct_effect), y: rr.map((r) => short(r.term.replace("lab: ", ""))),
         error_x: { type: "data", symmetric: false, array: rr.map((r) => r.pct_high - r.pct_effect), arrayminus: rr.map((r) => r.pct_effect - r.pct_low), color: css("--ink-2") },
         marker: { size: 10, color: i ? css("--lab-1") : css("--qna"), symbol: i ? "circle" : "diamond" }, hovertemplate: `<b>%{x:+.0f}%</b> vs CDRI<br>%{y} · ${i ? "with controls" : "raw"}<extra></extra>` };
-    }), { xaxis: { title: "% difference in citations per paper vs CDRI", zeroline: true }, legend: { orientation: "h", y: -0.25 },
+    }), { xaxis: { title: "% difference in citations per paper vs CDRI", zeroline: true }, legend: { orientation: "h", y: 1.02, yanchor: "bottom", x: 0 },
       shapes: [{ type: "line", xref: "x", yref: "paper", x0: 0, x1: 0, y0: 0, y1: 1, line: { color: css("--muted"), dash: "dash", width: 1 } }] });
 
     plot("c-fd-covid", LABS.map((l) => { const rr = cov.filter((r) => r.scope === l);
       return { name: short(l), x: rr.map((r) => r.year), y: rr.map((r) => r.covid_share), mode: "lines+markers", line: { color: labColor(l), width: 2 }, marker: { size: 7 },
         hovertemplate: `<b>%{y:.0%}</b> of papers<br>${short(l)} · %{x}<extra></extra>` }; }),
-      { hovermode: "x unified", xaxis: { dtick: 1 }, yaxis: { tickformat: ".0%", title: "Share of the lab's papers" }, legend: { orientation: "h", y: -0.2 } });
+      { hovermode: "x unified", xaxis: { dtick: 1 }, yaxis: { tickformat: ".0%", title: "Share of the lab's papers" }, legend: { orientation: "h", y: 1.02, yanchor: "bottom", x: 0 } });
 
     plot("c-fd-flow", [...[...LABS, "ALL"].map((l) => { const rr = fw.filter((r) => r.scope === l);
       return { name: l === "ALL" ? "All labs" : short(l), x: rr.map((r) => r.cohort), y: rr.map((r) => r.ratio_window), mode: "lines+markers",
@@ -640,7 +640,7 @@ if (P2) {
         hovertemplate: `<b>%{y:.2f}×</b> in ÷ out<br>${l === "ALL" ? "All labs" : short(l)} · papers of %{x}<extra></extra>` }; }),
       { name: "All labs, raw yearly", x: fwAll.map((r) => r.cohort), y: fwAll.map((r) => r.ratio_raw), mode: "lines", line: { color: css("--muted"), dash: "dash", width: 2 },
         hovertemplate: "<b>%{y:.2f}×</b> raw<br>%{x}<extra></extra>" }],
-      { xaxis: { dtick: 1, title: "Publication year of the labs' papers" }, yaxis: { title: "Citations in ÷ out" }, legend: { orientation: "h", y: -0.3 },
+      { xaxis: { dtick: 1, title: "Publication year of the labs' papers" }, yaxis: { title: "Citations in ÷ out" }, legend: { orientation: "h", y: 1.02, yanchor: "bottom", x: 0 },
         shapes: [{ type: "line", xref: "paper", yref: "y", x0: 0, x1: 1, y0: 1, y1: 1, line: { color: css("--muted"), dash: "dot", width: 1 } }] });
 
     const rk = [["rank_citations", "full counting"], ["rank_citations_frac", "fractional"], ["rank_citations_lt100", "without 100+ author papers"]];
@@ -649,7 +649,7 @@ if (P2) {
       hovertemplate: `<b>rank %{x}</b> ${nm}<br>%{y}<extra></extra>` })),
       { xaxis: { type: "log", title: { text: "Rank among faculty (log; 1 = most cited)", standoff: 8 }, autorange: "reversed" },
         yaxis: { autorange: "reversed", type: "category", dtick: 1, automargin: true, tickfont: { size: 11 } },
-        legend: { orientation: "h", y: -0.3, x: 0 }, margin: { l: 10, r: 16, t: 10, b: 100 } });
+        legend: { orientation: "h", y: 1.02, yanchor: "bottom", x: 0 }, margin: { l: 10, r: 16, t: 10, b: 100 } });
 
     table("t-fd-credit", lc.map((r) => ({ ...r, scope_l: r.scope === "ALL" ? "All labs" : short(r.scope),
       mncs_ci: `${fmt(r.mncs, 2)} (${fmt(r.mncs_low, 2)}–${fmt(r.mncs_high, 2)})`, top10_ci: `${pct(r.top10_share, 1)} (${pct(r.top10_low, 1)}–${pct(r.top10_high, 1)})`,
