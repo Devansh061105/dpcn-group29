@@ -102,7 +102,7 @@ if (P2) {
         hovertemplate: "<b>%{y}</b> other papers<extra></extra>" }],
       { barmode: "stack", xaxis: { title: "Journal impact factor (last bin = 20 and above)", range: [0, 21] }, yaxis: { title: "Papers" },
         shapes: [IF1, IF2].map((x) => ({ type: "line", xref: "x", yref: "paper", x0: x, x1: x, y0: 0, y1: 1, line: { color: css("--ink"), width: 1, dash: "dash" } })),
-        annotations: [IF1, IF2].map((x) => ({ x, y: 1, yref: "paper", text: `IF ${x}`, showarrow: false, yanchor: "bottom", font: { size: 11, color: css("--ink-2") } })),
+        annotations: [IF1, IF2].map((x) => ({ x, y: 1, yref: "paper", text: `IF ${x}`, showarrow: false, yanchor: "bottom", font: { size: 12, color: css("--ink-2") } })),
         margin: { l: 50, r: 16, t: 28, b: 40 }, legend: { orientation: "h", y: 1.02, yanchor: "bottom", x: 0 } });
 
     renderLabCorpus();
@@ -228,7 +228,7 @@ if (P2) {
     cyInst = cytoscape({ container: el("g-inst"), elements: els, layout: { name: "preset", fit: true, padding: 24 }, wheelSensitivity: 0.25,
       minZoom: 0.2, maxZoom: 6, style: [
         { selector: "node", style: { width: "data(size)", height: "data(size)", "background-color": "data(color)", shape: "data(shape)",
-          "border-width": 1.5, "border-color": css("--surface"), label: "data(label)", "font-size": 10, color: css("--ink"),
+          "border-width": 1.5, "border-color": css("--surface"), label: "data(label)", "font-size": 12, color: css("--ink"),
           "text-valign": "bottom", "text-margin-y": 3, "text-outline-width": 2, "text-outline-color": css("--surface") } },
         { selector: "edge", style: { width: "mapData(w, 1, 40, 0.8, 7)", "line-color": css("--muted"), opacity: 0.6, "curve-style": "haystack" } },
         { selector: "node:selected", style: { "border-color": css("--ink"), "border-width": 3 } },
@@ -327,14 +327,14 @@ if (P2) {
     plot("c-life", scopes().map((lab) => {
       const rr = pts.filter((r) => r.lab === lab);
       return { type: "scatter", mode: "markers+text", name: short(lab), x: rr.map((r) => Math.max(r.citations, 1)), y: rr.map((r) => r.lifetime_citations),
-        text: rr.map((r) => r.flag_lifetime ? r.name : ""), textposition: "middle right", textfont: { size: 10, color: css("--ink-2") },
+        text: rr.map((r) => r.flag_lifetime ? r.name : ""), textposition: "middle right", textfont: { size: 12, color: css("--ink-2") },
         customdata: rr.map((r) => [r.name, r.flag_lifetime_reason || "", r.window_share_of_lifetime]),
         marker: { size: rr.map((r) => r.flag_lifetime ? 12 : 7), color: labColor(lab), opacity: 0.8, symbol: rr.map((r) => r.flag_lifetime ? "diamond" : "circle"),
           line: { color: rr.map((r) => r.flag_lifetime ? css("--ink") : css("--surface")), width: rr.map((r) => r.flag_lifetime ? 2 : 1) } },
         hovertemplate: "<b>%{customdata[0]}</b><br>%{x:,} citations on 2016–26 lab papers<br>%{y:,} lifetime citations (OpenAlex)<br>%{customdata[2]:.1%} of lifetime in the window<br><i>%{customdata[1]}</i><extra>" + short(lab) + "</extra>" };
     }), { xaxis: { type: "log", title: "Citations on 2016–2026 lab papers" }, yaxis: { type: "log", title: "Lifetime citations (all OpenAlex profiles of the person)" },
       shapes: [{ type: "line", xref: "paper", yref: "y", x0: 0, x1: 1, y0: TH.lifetime_flag_citations, y1: TH.lifetime_flag_citations, line: { color: css("--muted"), width: 1, dash: "dash" } }],
-      annotations: [{ x: 0, xref: "paper", y: Math.log10(TH.lifetime_flag_citations), yref: "y", text: "1 lakh", showarrow: false, xanchor: "left", yanchor: "bottom", font: { size: 10, color: css("--muted") } }],
+      annotations: [{ x: 0, xref: "paper", y: Math.log10(TH.lifetime_flag_citations), yref: "y", text: "1 lakh", showarrow: false, xanchor: "left", yanchor: "bottom", font: { size: 12, color: css("--muted") } }],
       hovermode: "closest", legend: { orientation: "h", y: 1.02, yanchor: "bottom", x: 0 } });
     table("t-life", fac.filter((r) => r.flag_lifetime).map((r) => ({ ...r, lab: short(r.lab) })), [
       { title: "Name", field: "name", frozen: true, minWidth: 150 }, { title: "Lab", field: "lab" },
@@ -356,7 +356,7 @@ if (P2) {
     plot("c-citers2", owners.map((ow) => {
       const rr = rows.filter((r) => r.ownership === ow);
       return { type: "scatter", mode: "markers+text", name: ow, x: rr.map((r) => Math.max(r.shared_papers, 0.8)), y: rr.map((r) => r.cites_in),
-        text: rr.map((r) => labelled.has(r.partner_inst) ? abbr(r.partner_inst, 22) : ""), textposition: "top center", textfont: { size: 10, color: css("--ink-2") },
+        text: rr.map((r) => labelled.has(r.partner_inst) ? abbr(r.partner_inst, 22) : ""), textposition: "top center", textfont: { size: 12, color: css("--ink-2") },
         marker: { size: rr.map((r) => r.flag_non_government ? 13 : 8), color: ownColor(ow), opacity: 0.8, line: { color: rr.map((r) => r.flag_non_government ? css("--ink") : css("--surface")), width: rr.map((r) => r.flag_non_government ? 2 : 1) } },
         customdata: rr.map((r) => [r.partner_inst, r.shared_papers, r.cites_per_shared_paper]),
         hovertemplate: "<b>%{customdata[0]}</b><br>%{y:,} citations into the lab(s)<br>%{customdata[1]} shared papers · %{customdata[2]:.1f} per shared paper<extra>" + ow + "</extra>" };
@@ -364,7 +364,7 @@ if (P2) {
       yaxis: { type: "log", title: "Citations received from the institution", rangemode: "normal", tickvals: [30, 100, 300, 1000, 3000], ticktext: ["30", "100", "300", "1,000", "3,000"] },
       shapes: [{ type: "line", xref: "x", yref: "y", x0: 0.8, x1: 300, y0: 0.8 * TH.citer_ratio_min, y1: 300 * TH.citer_ratio_min, line: { color: css("--muted"), width: 1, dash: "dash" } },
                { type: "line", xref: "paper", yref: "y", x0: 0, x1: 1, y0: TH.citer_min_cites, y1: TH.citer_min_cites, line: { color: css("--muted"), width: 1, dash: "dot" } }],
-      annotations: [{ x: 1, xref: "paper", y: Math.log10(TH.citer_min_cites), yref: "y", text: `${TH.citer_min_cites} citations`, showarrow: false, xanchor: "right", yanchor: "bottom", font: { size: 10, color: css("--muted") } }],
+      annotations: [{ x: 1, xref: "paper", y: Math.log10(TH.citer_min_cites), yref: "y", text: `${TH.citer_min_cites} citations`, showarrow: false, xanchor: "right", yanchor: "bottom", font: { size: 12, color: css("--muted") } }],
       legend: { orientation: "h", y: 1.02, yanchor: "bottom", x: 0 } });
 
     renderCiterRates();
@@ -414,7 +414,7 @@ if (P2) {
     const traces = groups.map((ow, k) => {
       const rr = ng.filter((r) => r.ownership === ow);
       return { type: "scatter", mode: "markers+text", showlegend: false, name: ow, x: rr.map((r) => r.rate_per_1000), y: rr.map((r) => k + 0.34 * jit(r.partner_inst)),
-        text: rr.map((r) => placed.has(r.partner_inst) ? abbr(r.partner_inst, 22) : ""), textposition: rr.map((r) => placed.get(r.partner_inst) || "top center"), textfont: { size: 10, color: css("--ink-2") },
+        text: rr.map((r) => placed.has(r.partner_inst) ? abbr(r.partner_inst, 22) : ""), textposition: rr.map((r) => placed.get(r.partner_inst) || "top center"), textfont: { size: 12, color: css("--ink-2") },
         marker: { size: rr.map((r) => r.flag_non_government ? 12 : 7), color: ownColor(ow), opacity: 0.78,
           line: { color: rr.map((r) => r.flag_non_government ? css("--ink") : css("--surface")), width: rr.map((r) => r.flag_non_government ? 2 : 0.6) } },
         customdata: rr.map((r) => [r.partner_inst, r.cites_in, r.works_ls, r.obs_exp, r.shared_papers]),
@@ -426,7 +426,7 @@ if (P2) {
     plot("c-citers-norm", traces, { xaxis: { type: "log", title: "Citations given to the lab(s) per 1,000 papers of the institution in the labs' fields", tickvals: [10, 30, 100, 300, 1000], ticktext: ["10", "30", "100", "300", "1,000"] },
       yaxis: { tickmode: "array", tickvals: groups.map((_, k) => k), ticktext: groups.map((ow) => `${ow} (${ng.filter((r) => r.ownership === ow).length})`), range: [-0.6, groups.length - 0.4], zeroline: false, rangemode: "normal", automargin: true },
       shapes: [{ type: "line", xref: "x", yref: "paper", x0: thr, x1: thr, y0: 0, y1: 1, line: { color: css("--muted"), width: 1, dash: "dash" } }],
-      annotations: [{ x: Math.log10(thr), xref: "x", y: 1, yref: "paper", text: `outlier line (z ≥ ${TH.citer_norm_z})`, showarrow: false, xanchor: "left", yanchor: "top", font: { size: 10, color: css("--muted") } }] });
+      annotations: [{ x: Math.log10(thr), xref: "x", y: 1, yref: "paper", text: `outlier line (z ≥ ${TH.citer_norm_z})`, showarrow: false, xanchor: "left", yanchor: "top", font: { size: 12, color: css("--muted") } }] });
   }
 
   // ---------------------------------------------------------------- departments

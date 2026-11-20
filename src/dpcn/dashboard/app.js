@@ -40,17 +40,17 @@
     const ink2 = css("--ink-2"), grid = css("--grid");
     return Object.assign({
       paper_bgcolor: "rgba(0,0,0,0)", plot_bgcolor: "rgba(0,0,0,0)",
-      font: { family: "Inter, system-ui, -apple-system, Segoe UI, sans-serif", size: 13, color: ink2 },
+      font: { family: "Inter, system-ui, -apple-system, Segoe UI, sans-serif", size: 14, color: ink2 },
       margin: { l: 56, r: 18, t: 12, b: 44 },
-      xaxis: { gridcolor: grid, linecolor: css("--axis"), zeroline: false, automargin: true, title: { font: { size: 13, color: css("--ink-2") } }, tickfont: { size: 12 } },
-      yaxis: { gridcolor: grid, linecolor: css("--axis"), zeroline: false, rangemode: "tozero", automargin: true, title: { font: { size: 13, color: css("--ink-2") } }, tickfont: { size: 12 } },
-      legend: { orientation: "h", y: 1.02, yanchor: "bottom", x: 0, font: { color: ink2, size: 12.5 }, itemclick: "toggle", itemdoubleclick: "toggleothers" },
-      hoverlabel: { bgcolor: css("--surface"), bordercolor: css("--axis"), font: { color: css("--ink"), size: 13, family: "Inter, system-ui, sans-serif" } },
+      xaxis: { gridcolor: grid, linecolor: css("--axis"), zeroline: false, automargin: true, title: { font: { size: 14, color: css("--ink-2") } }, tickfont: { size: 13 } },
+      yaxis: { gridcolor: grid, linecolor: css("--axis"), zeroline: false, rangemode: "tozero", automargin: true, title: { font: { size: 13, color: css("--ink-2") } }, tickfont: { size: 13 } },
+      legend: { orientation: "h", y: 1.02, yanchor: "bottom", x: 0, font: { color: ink2, size: 13.5 }, itemclick: "toggle", itemdoubleclick: "toggleothers" },
+      hoverlabel: { bgcolor: css("--surface"), bordercolor: css("--axis"), font: { color: css("--ink"), size: 14, family: "Inter, system-ui, sans-serif" } },
       hovermode: "closest", bargap: 0.25,
     }, extra, {
-      xaxis: Object.assign({ gridcolor: grid, linecolor: css("--axis"), zeroline: false, automargin: true, tickfont: { size: 12 } }, extra.xaxis || {}),
-      yaxis: Object.assign({ gridcolor: grid, linecolor: css("--axis"), zeroline: false, rangemode: "tozero", automargin: true, tickfont: { size: 12 } }, extra.yaxis || {}),
-      legend: Object.assign({ orientation: "h", x: 0, y: 1.02, yanchor: "bottom", font: { color: ink2, size: 12.5 } }, extra.legend || {}),
+      xaxis: Object.assign({ gridcolor: grid, linecolor: css("--axis"), zeroline: false, automargin: true, tickfont: { size: 13 } }, extra.xaxis || {}),
+      yaxis: Object.assign({ gridcolor: grid, linecolor: css("--axis"), zeroline: false, rangemode: "tozero", automargin: true, tickfont: { size: 13 } }, extra.yaxis || {}),
+      legend: Object.assign({ orientation: "h", x: 0, y: 1.02, yanchor: "bottom", font: { color: ink2, size: 13.5 } }, extra.legend || {}),
     });
   }
   const logTicks = (L) => { for (const k of Object.keys(L)) {      // log axes: label only 1, 2, 5 per decade
@@ -172,10 +172,10 @@
       shapes: [{ type: "rect", xref: "x", yref: "paper", x0: py - 0.5, x1: py + 0.5, y0: 0, y1: 1,
                  fillcolor: css("--grid"), opacity: 0.5, line: { width: 0 }, layer: "below" }],
       margin: { l: 50, r: 70, t: 10, b: 40 },
-      annotations: [{ x: py, y: 1, yref: "paper", text: "partial", showarrow: false, font: { size: 11, color: css("--muted") } },
+      annotations: [{ x: py, y: 1, yref: "paper", text: "partial", showarrow: false, font: { size: 12, color: css("--muted") } },
         ...traces.map((t) => { const i = t.x.indexOf(py - 1);   // label the last full year; the partial year crowds
           return { x: t.x[i], y: t.y[i], text: t.name, xanchor: "left", yanchor: "bottom", xshift: 4, yshift: 4,
-            showarrow: false, font: { size: 11, color: css("--ink-2") } }; })] });
+            showarrow: false, font: { size: 12, color: css("--ink-2") } }; })] });
     plot("c-cites", scopes().map((lab) => {
       const rows = D.trend.filter((r) => r.scope === lab);
       return { type: "bar", x: rows.map((r) => r.year), y: rows.map((r) => r.citations), name: short(lab),
