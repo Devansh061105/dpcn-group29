@@ -10,6 +10,7 @@
 <style>/*__STYLES__*/</style>
 </head>
 <body>
+<div class="progress" id="progress" aria-hidden="true"></div>
 <div class="topbar">
   <div class="topbar-in">
     <button class="brand" type="button" data-go="overview" aria-label="Back to the overview"><span class="dot"></span><span class="brand-grp">Group 29 · </span><b>Research Map</b></button>
@@ -30,15 +31,18 @@
   </div>
 </div>
 <header class="hero" id="hero">
+  <div class="hero-orbs" aria-hidden="true"><i></i><i></i><i></i></div>
+  <svg class="hero-net" id="hero-net" aria-hidden="true"></svg>
   <div class="hero-in">
     <p class="eyebrow">DPCN · IIIT Hyderabad · Group 29</p>
-    <h1>How four CSIR biology labs do science, <span class="nowrap">2016–2026</span></h1>
+    <h1>How four CSIR biology labs <span class="grad">do science</span>, <span class="nowrap">2016–2026</span></h1>
     <p class="lead" id="subtitle"></p>
     <div class="hero-stats" id="hero-stats"></div>
     <p class="team" id="team"></p>
     <div class="insts" id="insts"></div>
   </div>
 </header>
+<button class="to-top" id="to-top" type="button" aria-label="Back to top">↑</button>
 <div class="subnav-wrap"><div class="subnav" id="subnav" role="tablist" aria-label="Pages in this section"></div></div>
 <main>
   <section id="tab-overview" class="tab">

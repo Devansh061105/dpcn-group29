@@ -47,6 +47,7 @@
       legend: { orientation: "h", y: 1.02, yanchor: "bottom", x: 0, font: { color: ink2, size: 13.5 }, itemclick: "toggle", itemdoubleclick: "toggleothers" },
       hoverlabel: { bgcolor: css("--surface"), bordercolor: css("--axis"), font: { color: css("--ink"), size: 14, family: "Inter, system-ui, sans-serif" } },
       hovermode: "closest", bargap: 0.25,
+      transition: matchMedia("(prefers-reduced-motion: reduce)").matches ? undefined : { duration: 450, easing: "cubic-in-out" },
     }, extra, {
       xaxis: Object.assign({ gridcolor: grid, linecolor: css("--axis"), zeroline: false, automargin: true, tickfont: { size: 13 } }, extra.xaxis || {}),
       yaxis: Object.assign({ gridcolor: grid, linecolor: css("--axis"), zeroline: false, rangemode: "tozero", automargin: true, tickfont: { size: 13 } }, extra.yaxis || {}),
@@ -585,6 +586,7 @@
       const d = document.createElement("div"); d.className = "stat";
       d.innerHTML = '<div class="v"></div><div class="l"></div><div class="s"></div>';
       d.querySelector(".v").textContent = v; d.querySelector(".l").textContent = l; d.querySelector(".s").textContent = sub; return d; }));
+    box.querySelectorAll(".v").forEach((e, i) => countUp(e, 900 + 120 * i));
   }
   function show(tab) {
     if (!RENDER[tab] || !el(`tab-${tab}`)) tab = "overview";
@@ -597,8 +599,10 @@
       b.textContent = SECT[t] ? SECT[t][0] : t; b.setAttribute("aria-selected", String(t === tab));
       b.addEventListener("click", () => show(t)); sub.append(b); });
     el("hero").hidden = tab !== "overview";
+    document.body.dataset.group = g;
     document.querySelectorAll(".tab").forEach((s) => { s.hidden = s.id !== `tab-${tab}`; });
     if (rendered[tab] !== state.lab) render();
+    afterShow(tab);
     const th = document.documentElement.dataset.theme;
     history.replaceState(null, "", `#tab=${tab}${state.lab !== "ALL" ? `&lab=${state.lab}` : ""}${th ? `&theme=${th}` : ""}`);
     window.dispatchEvent(new Event("resize"));
@@ -627,8 +631,13 @@
   document.querySelectorAll(".collected").forEach((e) => { e.textContent = D.meta.collected; });
   const tm = D.meta.team;
   el("team").textContent = `${tm.members.join(", ")} · ${tm.affiliation} · ${tm.course} course (instructor: ${tm.instructor})`;
-  D.meta.institutes.forEach((i) => { const s = document.createElement("span");
-    s.textContent = `${i.short.replace("CSIR-", "")}: ${i.name}, ${i.city}`; el("insts").append(s); });
+  D.meta.institutes.forEach((i) => {        // one chip per lab, in its colour; a click filters the dashboard to that lab
+    const c = document.createElement("button"); c.type = "button"; c.className = "lab-chip"; c.dataset.lab = i.short;
+    c.style.setProperty("--chip", labColor(i.short)); c.title = `Show ${i.short} only`;
+    const b = document.createElement("b"); b.textContent = short(i.short);
+    c.append(document.createElement("i"), b, document.createTextNode(` ${i.name}, ${i.city}`));
+    c.addEventListener("click", () => { sel.value = state.lab === i.short ? "ALL" : i.short; sel.dispatchEvent(new Event("change")); });
+    el("insts").append(c); });
   // deep links: #tab=citation&lab=CSIR-IGIB&theme=light open that view directly
   const hp = new URLSearchParams(location.hash.slice(1));
   if (hp.get("theme")) document.documentElement.dataset.theme = hp.get("theme");
@@ -643,5 +652,70 @@
     document.querySelectorAll("main .card, main .kpis").forEach((c) => { if (!ids.some((e) => c.contains(e))) c.hidden = true; });
     document.querySelectorAll("main .grid2").forEach((g) => { if (![...g.children].some((c) => !c.hidden)) g.hidden = true; });
   }
+  // ------------------------------------------------------------------ motion and colour
+  const calm = matchMedia("(prefers-reduced-motion: reduce)").matches || document.body.classList.contains("shot");
+  function countUp(e, ms = 900) {             // "6,027" / "66%" / "143,701" count up from zero
+    const txt = e.textContent, m = txt.match(/^([^\d-]*)(-?[\d,]+(?:\.\d+)?)(.*)$/);
+    if (!m || calm) return;
+    const target = parseFloat(m[2].replace(/,/g, "")), dec = (m[2].split(".")[1] || "").length, t0 = performance.now();
+    const step = (t) => { const k = Math.min(1, (t - t0) / ms), v = target * (1 - Math.pow(1 - k, 3));
+      e.textContent = m[1] + v.toLocaleString("en-US", { minimumFractionDigits: dec, maximumFractionDigits: dec }) + m[3];
+      if (k < 1) requestAnimationFrame(step); else e.textContent = txt; };
+    requestAnimationFrame(step);
+  }
+  const REVEAL = "main .card, main .kpi, main .rqi, #fd-list > *, .sec-head";
+  const io = ("IntersectionObserver" in window && !calm) ? new IntersectionObserver((es) => es.forEach((x) => {
+    if (x.isIntersecting) { x.target.classList.add("in"); io.unobserve(x.target); } }), { rootMargin: "0px 0px -40px 0px", threshold: 0.04 }) : null;
+  function armReveal() {
+    document.querySelectorAll(REVEAL).forEach((e) => {
+      if (e.dataset.rv) return; e.dataset.rv = "1";
+      if (!io) return;
+      const sib = e.parentElement ? [...e.parentElement.children].indexOf(e) : 0;
+      e.style.setProperty("--d", `${Math.min(sib, 8) * 60}ms`); e.classList.add("rv"); io.observe(e);
+    });
+  }
+  function moveIndicator() {                  // the pill behind the selected section slides to it
+    const nav = el("tabs"), on = nav.querySelector('[aria-selected="true"]'); let ind = nav.querySelector(".nav-ind");
+    if (!ind) { ind = document.createElement("span"); ind.className = "nav-ind"; nav.prepend(ind); }
+    if (!on) { ind.style.opacity = 0; return; }
+    const first = !ind.dataset.ready;
+    if (first) ind.style.transition = "none";                     // appear in place on load; slide only on later changes
+    ind.style.opacity = 1; ind.style.width = `${on.offsetWidth}px`; ind.style.transform = `translateX(${on.offsetLeft}px)`;
+    if (first) { void ind.offsetWidth; ind.style.transition = ""; ind.dataset.ready = "1"; }
+  }
+  function afterShow(tab) {
+    moveIndicator();
+    const sec = el(`tab-${tab}`);
+    if (!calm && sec) { sec.classList.remove("enter"); void sec.offsetWidth; sec.classList.add("enter"); }
+    armReveal();
+    if (!calm) document.querySelectorAll(`#tab-${tab} .kpi .v`).forEach((e, i) => countUp(e, 700 + 60 * i));
+    document.querySelectorAll(".lab-chip").forEach((c) => c.classList.toggle("on", c.dataset.lab === state.lab));
+  }
+  new MutationObserver(() => armReveal()).observe(document.querySelector("main"), { childList: true, subtree: true });
+  addEventListener("resize", moveIndicator);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(moveIndicator);   // widths change once Inter loads
+  setTimeout(moveIndicator, 600);
+  addEventListener("scroll", () => {          // reading progress and the back-to-top button
+    const h = document.documentElement, k = h.scrollTop / Math.max(1, h.scrollHeight - h.clientHeight);
+    el("progress").style.transform = `scaleX(${k})`; el("to-top").classList.toggle("show", h.scrollTop > 700);
+  }, { passive: true });
+  el("to-top").addEventListener("click", () => window.scrollTo({ top: 0, behavior: calm ? "auto" : "smooth" }));
+  (function heroNet() {                       // decorative network in the hero: four lab clusters, gently drifting
+    const svg = el("hero-net"); if (!svg) return;
+    const W = 560, H = 420, NS = "http://www.w3.org/2000/svg"; svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+    let seed = 29; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+    const centres = [[150, 130], [400, 110], [170, 310], [420, 300]], pts = [];
+    LABS.forEach((l, li) => { for (let k = 0; k < 9; k++) { const a = rnd() * 6.28, r = 18 + rnd() * 70;
+      pts.push({ x: centres[li][0] + Math.cos(a) * r, y: centres[li][1] + Math.sin(a) * r, c: labColor(l), li, r: 2.5 + rnd() * 4.5 }); } });
+    const g = document.createElementNS(NS, "g"); g.setAttribute("class", "edges");
+    pts.forEach((p, i) => pts.forEach((q, j) => { if (j <= i) return; const d = Math.hypot(p.x - q.x, p.y - q.y);
+      if ((p.li === q.li && d < 80) || (p.li !== q.li && d < 120 && rnd() < 0.12)) {
+        const ln = document.createElementNS(NS, "line"); Object.entries({ x1: p.x, y1: p.y, x2: q.x, y2: q.y }).forEach(([k, v]) => ln.setAttribute(k, v.toFixed(1)));
+        if (p.li !== q.li) ln.setAttribute("class", "cross"); g.append(ln); } }));
+    svg.append(g);
+    pts.forEach((p, i) => { const c = document.createElementNS(NS, "circle");
+      Object.entries({ cx: p.x.toFixed(1), cy: p.y.toFixed(1), r: p.r.toFixed(1), fill: p.c }).forEach(([k, v]) => c.setAttribute(k, v));
+      c.style.setProperty("--fd", `${(i % 7) * 0.6}s`); svg.append(c); });
+  })();
   show(RENDER[hp.get("tab")] ? hp.get("tab") : "overview");
 })();
