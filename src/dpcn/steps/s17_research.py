@@ -9,13 +9,17 @@ Each analysis compares an observed number with what chance (a randomised network
   A3 collaboration homophily  cross-lab co-authorship vs lab-label permutation and degree-preserving rewiring; a
                            logistic model of who writes with whom (same lab, same department, topic similarity)
   A4 citation by co-authorship distance  citations between faculty pairs by their distance in the co-authorship
-                           network the year before, relative to a volume-only null (Singh et al. 2020 for Indian
+                           network the year before, relative to a volume-only null (as Singh et al. 2020 did for
                            physics, here for Indian biology labs)
   A5 led vs middle-author  papers our labs lead (first, last or corresponding author) vs papers where they are a
                            middle author, with citations normalised by field and year
   A6 tie persistence and triadic closure  do new collaborations last, and do they close triangles
   A7 lab impact with controls  log citations ~ lab + year + field + team size + review (OLS, HC1 errors)
   A8 the COVID-19 shock     share and citations of SARS-CoV-2 papers by lab and year
+  A9 same-window citation flow  Indian citations into each year's papers within 2 years vs references out of them to
+                           Indian work of the previous 2 years, so recent years are not biased by citation lag
+  A10 credit and normalisation  fractional counting (1/authors), field-and-year normalised citations (MNCS, top-10%
+                           share), rank shifts, and how concentrated each lab's citations are (Gini, effective papers)
 
 Outputs: outputs/stats/research_*.csv and research_summary.json. Randomness is seeded; inputs are the s05/s09 tables.
 """
@@ -506,6 +510,96 @@ def covid(D: Data) -> pd.DataFrame:
 
 # --------------------------------------------------------------------------- run
 
+# --------------------------------------------------------------------------- A9 same-window citation flow
+
+def flow_same_window(D: Data, cfg, lag: int = 2) -> pd.DataFrame:
+    """Per lab and publication cohort Y: Indian citations received within [Y, Y+lag] against references made to Indian
+    works of [Y-lag, Y]. Raw yearly counts compare complete outflow with still-growing inflow; this does not."""
+    it = cfg.paths.interim
+    oy = pd.read_parquet(it / "outflow_works.parquet", columns=["work_id", "year"]).drop_duplicates("work_id")
+    oy = oy.set_index("work_id")["year"]
+    e = D.edges[D.edges["cross_institute"].fillna(False).astype(bool)]
+    wy = D.works["year"].astype(int)
+    last = int(cfg.window.end) - (1 if cfg.window.partial_year else 0)
+    rows = []
+    for scope in [*D.labs, "ALL"]:
+        ids = set(D.links.loc[D.links["institution"] == scope, "work_id"]) if scope != "ALL" else set(wy.index)
+        i = e[(e["scope"] == "inflow") & e["tgt"].isin(ids)].copy()
+        i["cohort"] = i["tgt"].map(wy)
+        o = e[(e["scope"] == "outflow") & e["src"].isin(ids)].copy()
+        o["cohort"] = o["src"].map(wy)
+        o["cited_year"] = o["tgt"].map(oy)
+        for y in range(int(cfg.window.start), last - lag + 1):
+            n_in = int(((i["cohort"] == y) & i["year"].between(y, y + lag)).sum())
+            n_out = int(((o["cohort"] == y) & o["cited_year"].between(y - lag, y)).sum())
+            raw_in = int((i["year"] == y).sum())
+            raw_out = int((o["cohort"] == y).sum())
+            rows.append({"scope": scope, "cohort": y, "in_window": n_in, "out_window": n_out,
+                         "ratio_window": n_in / n_out if n_out else np.nan,
+                         "raw_in_by_citing_year": raw_in, "raw_out": raw_out,
+                         "ratio_raw": raw_in / raw_out if raw_out else np.nan})
+    return pd.DataFrame(rows)
+
+
+# --------------------------------------------------------------------------- A10 credit, normalisation, concentration
+
+def gini(x: np.ndarray) -> float:
+    x = np.sort(np.asarray(x, dtype=float))
+    n = len(x)
+    if n == 0 or x.sum() == 0:
+        return np.nan
+    return float((2 * np.arange(1, n + 1) - n - 1).dot(x) / (n * x.sum()))
+
+
+def credit(D: Data, cfg) -> tuple[pd.DataFrame, pd.DataFrame]:
+    """Faculty table with full and fractional counts and field-year normalised citations; lab table with MNCS,
+    top-10% share and concentration."""
+    rng = np.random.default_rng(SEED)
+    w = D.works.copy()
+    w["field_k"] = w["field"].fillna("Unknown")
+    grp = w.groupby(["field_k", "year"])["cited_by_count"]
+    w["ncs"] = w["cited_by_count"] / grp.transform("mean").replace(0, np.nan)
+    thr = grp.transform(lambda s: s.quantile(0.9))
+    w["top10"] = w["cited_by_count"] >= thr
+    w["frac"] = 1 / w["n_authors"].clip(lower=1)
+    roster = pd.read_parquet(cfg.paths.interim / "roster.parquet").set_index("faculty_id")
+    L = D.links.drop_duplicates(["work_id", "faculty_id"]).join(w[["cited_by_count", "n_authors", "ncs", "frac"]], on="work_id")
+    L["cit_frac"] = L["cited_by_count"] * L["frac"]
+    f = L.groupby("faculty_id").agg(papers=("work_id", "nunique"), papers_frac=("frac", "sum"),
+                                    citations=("cited_by_count", "sum"), citations_frac=("cit_frac", "sum"),
+                                    mncs=("ncs", "mean"),
+                                    citations_lt100=("cited_by_count", lambda s: s[L.loc[s.index, "n_authors"] < 100].sum()))
+    f["name"] = f.index.map(roster["name"])
+    f["lab"] = f.index.map(D.fac_lab)
+    for c in ("papers", "papers_frac", "citations", "citations_frac", "citations_lt100", "mncs"):
+        f[f"rank_{c}"] = f[c].rank(ascending=False, method="min").astype(int)
+    f["rank_shift_citations"] = f["rank_citations_frac"] - f["rank_citations"]
+    f = f.reset_index().sort_values("rank_citations")
+    labs = []
+    for scope in [*D.labs, "ALL"]:
+        ids = set(D.links.loc[D.links["institution"] == scope, "work_id"]) if scope != "ALL" else set(w.index)
+        g = w[w.index.isin(ids)]
+        ncs = g["ncs"].dropna().to_numpy()
+        boot = [rng.choice(ncs, len(ncs)).mean() for _ in range(1000)] if len(ncs) else [np.nan]
+        k = int(g["top10"].sum())
+        lo, hi = wilson(k, len(g))
+        c = g["cited_by_count"].to_numpy(dtype=float)
+        fc = f[f["lab"] == scope] if scope != "ALL" else f
+        gb = [gini(rng.choice(fc["citations"].to_numpy(), len(fc))) for _ in range(500)] if len(fc) else [np.nan]
+        labs.append({"scope": scope, "papers": len(g), "mncs": ncs.mean() if len(ncs) else np.nan,
+                     "mncs_low": np.percentile(boot, 2.5), "mncs_high": np.percentile(boot, 97.5),
+                     "top10_share": k / len(g) if len(g) else np.nan, "top10_low": lo, "top10_high": hi,
+                     "effective_papers": c.sum() ** 2 / (c ** 2).sum() if (c ** 2).sum() else np.nan,
+                     "top_paper_share": c.max() / c.sum() if c.sum() else np.nan,
+                     "gini_faculty_citations": gini(fc["citations"].to_numpy()),
+                     "gini_low": np.nanpercentile(gb, 2.5), "gini_high": np.nanpercentile(gb, 97.5),
+                     "gini_faculty_papers": gini(fc["papers"].to_numpy()),
+                     "faculty": len(fc)})
+    return f, pd.DataFrame(labs)
+
+
+# --------------------------------------------------------------------------- run
+
 def run(cfg, oa, argv=()) -> None:
     D = Data(cfg)
     st = cfg.paths.stats
@@ -529,6 +623,11 @@ def run(cfg, oa, argv=()) -> None:
     imp.to_csv(st / "research_lab_impact.csv", index=False, lineterminator="\n")
     cv = covid(D)
     cv.to_csv(st / "research_covid.csv", index=False, lineterminator="\n")
+    fw = flow_same_window(D, cfg)
+    fw.to_csv(st / "research_flow_window.csv", index=False, lineterminator="\n")
+    fac_credit, lab_credit = credit(D, cfg)
+    fac_credit.to_csv(st / "research_faculty_credit.csv", index=False, lineterminator="\n")
+    lab_credit.to_csv(st / "research_lab_credit.csv", index=False, lineterminator="\n")
 
     a_all = aud[aud["citing_scope"] == "ALL"].set_index("class")["share"].to_dict()
     ind = ex[(ex["basis"].str.startswith("independent")) & (ex["cited_lab"] == "within-lab share")]
@@ -543,6 +642,9 @@ def run(cfg, oa, argv=()) -> None:
         "triadic_closure_mean_lift": float(tri["lift"].replace([np.inf], np.nan).mean()),
         "led_vs_middle_all": lm[lm["scope"] == "ALL"].to_dict("records"),
         "lab_impact": imp.to_dict("records"),
+        "flow_window_all": fw[fw["scope"] == "ALL"].to_dict("records"),
+        "lab_credit": lab_credit.to_dict("records"),
+        "top_rank_shifts": fac_credit.nsmallest(10, "rank_citations")[["name", "lab", "rank_citations", "rank_citations_frac", "rank_citations_lt100", "rank_mncs"]].to_dict("records"),
         "covid_peak": cv.loc[cv.groupby("scope")["covid_share"].idxmax()].to_dict("records"),
     }
     (st / "research_summary.json").write_text(json.dumps(json_safe(summary), indent=2, default=float, allow_nan=False), encoding="utf-8")
@@ -557,3 +659,6 @@ def run(cfg, oa, argv=()) -> None:
     print(pers.to_string(index=False))
     print("Triadic closure lift by year:", tri.set_index("year")["lift"].round(1).to_dict())
     print(imp.to_string(index=False))
+    print(fw[fw.scope == "ALL"].round(2).to_string(index=False))
+    print(lab_credit.round(3).to_string(index=False))
+    print(fac_credit.head(10)[["name", "lab", "rank_citations", "rank_citations_frac", "rank_citations_lt100", "rank_mncs"]].to_string(index=False))

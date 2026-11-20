@@ -43,6 +43,12 @@ ABBREV = [("National Institute of Pharmaceutical Education and Research", "NIPER
           ("Immunology and Microbiology", "Immunology & Microbiology"), ("Institute", "Inst."), ("University", "Univ.")]
 
 
+def R_flow_window(T):
+    """Same-window flow table from s17, if present."""
+    f = T.get("_stats_dir")
+    return pd.read_csv(f / "research_flow_window.csv") if f is not None and (f / "research_flow_window.csv").exists() else None
+
+
 def abbr(name: str, n: int = 40) -> str:
     """Shorter display name (the CSVs keep the full one); cut at a word boundary with an ellipsis."""
     out = str(name)
@@ -229,6 +235,7 @@ def load(cfg):
     T["indeg"] = pd.read_csv(st / "citation_indegree_dist.csv")
     rs = st / "research_summary.json"           # step s17 (tests against randomised baselines); optional
     T["rs"] = json.loads(rs.read_text()) if rs.exists() else None
+    T["_stats_dir"] = st
     T["cit"] = json.loads((st / "citation_network_summary.json").read_text())
     T["au"] = json.loads((st / "authorship_network_summary.json").read_text())
     T["meta"] = json.loads((cfg.paths.submission / "metadata.json").read_text())
@@ -469,7 +476,16 @@ def build(cfg, T) -> Presentation:
     ext = cc[~cc.pair_label.str.endswith(("↔CSIR", "↔Other"))].groupby("pair_label")["shared_papers"].sum().sort_values(ascending=False)
     gives = [short(l) for l in labs if fs.loc[l, "impact_ratio"] < 1]
     gets = [short(l) for l in labs if fs.loc[l, "impact_ratio"] >= 1]
-    flow_line = (f"Indian citation in/out ratio {fs['impact_ratio'].min():.2f}–{fs['impact_ratio'].max():.2f}: "
+    fw = R_flow_window(T)
+    if fw is not None:
+        tot = fw.groupby("scope")[["in_window", "out_window"]].sum()
+        r_ = (tot["in_window"] / tot["out_window"])
+        per_lab = ", ".join(f"{short(l)} {r_[l]:.1f}×" for l in labs if l in r_)
+        flow_line = (f"Same 2-year window: Indian works cite the labs {r_['ALL']:.1f}× as often as the labs cite them "
+                     f"({per_lab}); raw yearly in/out counts are biased by citation lag.")
+    else:
+        flow_line = None
+    flow_line = flow_line or (f"Indian citation in/out ratio {fs['impact_ratio'].min():.2f}–{fs['impact_ratio'].max():.2f}: "
                  + (f"{', '.join(gets)} receive more than they give" if gets else "")
                  + ("; " if gets and gives else "") + (f"{', '.join(gives)} give more than they receive" if gives else "") + ".")
     findings = [

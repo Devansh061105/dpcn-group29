@@ -83,7 +83,28 @@
       maxHeight: opts.maxHeight || 420, pagination: false, renderVertical: "basic", placeholder: "No rows for this selection" }, opts));
     t.on("tableBuilt", () => { t.built = true; });
     tables[id] = t;
+    csvButton(id);
     return t;
+  }
+
+  // a "Download CSV" button above every table: exports the rows currently shown (after filters and sorting)
+  function csvButton(id) {
+    const box = document.getElementById(id);
+    if (!box || box.previousElementSibling?.dataset?.csvFor === id) return;
+    const btn = document.createElement("button");
+    btn.type = "button"; btn.className = "csv-btn"; btn.dataset.csvFor = id; btn.textContent = "Download CSV";
+    btn.addEventListener("click", () => {
+      const t = tables[id]; if (!t) return;
+      const cols = t.getColumns().map((c) => c.getDefinition()).filter((c) => c.field);
+      const q = (v) => { const s = v == null ? "" : String(v); return /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s; };
+      const rows = t.getData("active").map((r) => cols.map((c) => q(r[c.field])).join(","));
+      const csv = "\ufeff" + [cols.map((c) => q(c.title || c.field)).join(","), ...rows].join("\n");
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(new Blob([csv], { type: "text/csv;charset=utf-8" }));
+      a.download = `group29_${id.replace(/^t-/, "")}.csv`;
+      document.body.append(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+    });
+    box.before(btn);
   }
 
   function kpis(id, items) {
@@ -282,7 +303,7 @@
       ["Largest component", fmt(cs.largest_wcc), `${pct(cs.largest_wcc / cs.nodes, 0)} of papers`],
       ["Never cited internally", pct(cs.share_indeg_0, 0), `max in-degree ${cs.max_indeg}`],
       ["Cites in (Indian)", fmt(sum("cites_in")), state.lab === "ALL" ? "all four labs" : short(state.lab)], ["Cites out (Indian)", fmt(sum("cites_out")), state.lab === "ALL" ? "all four labs" : short(state.lab)],
-      ["Impact ratio in/out", fmt(sum("cites_out") ? sum("cites_in") / sum("cites_out") : null, 2), "citations received ÷ given"],
+      ["Impact ratio in/out", fmt(sum("cites_out") ? sum("cites_in") / sum("cites_out") : null, 2), "received ÷ given, all years; lag-biased (same-window ratio on Findings)"],
     ]);
     const G = D.citation_graph;
     el("cit-n").textContent = String(G.nodes.length);
@@ -484,6 +505,21 @@
       "Conference ranks: CORE 2023 (portal.core.edu.au).",
       "Faculty lists: the websites of the four institutes, extended with scientists identified from lab-affiliated papers and confirmed by the team. Students are not on the roster.",
     ]);
+    const MW = (P2 && P2.manual) || {};
+    if (MW.roster) {
+      const R = MW.roster, O = MW.overrides || {}, W = MW.ownership || {}, cl = (P2.cleaning_log || []);
+      add("h3", "How the dataset was built: the team's manual work");
+      add("p", "Every number on this dashboard rests on decisions the team made and recorded by hand in data/manual/ (version-controlled, one row per decision with its source). The code only applies them.");
+      list([
+        `Faculty roster (${fmt(R.total)} scientists): ${fmt(R.website)} copied from the four institutes' websites, ${fmt(R.from_papers)} added from the lab-affiliated papers they lead (frequent last or corresponding author) and confirmed by the team, ${R.other ? fmt(R.other) + " added in review; " : ""}${fmt(R.designation)} designations filled and ${fmt(R.former)} scientists marked as former, with the source noted.`,
+        `Identity matching: ${fmt((O.accept || 0) + (O.reject || 0))} OpenAlex author profiles decided by hand (${fmt(O.accept || 0)} accepted, ${fmt(O.reject || 0)} rejected after reading the papers they carry); for ${fmt(R.profile_dois)} scientists the publication lists on their own lab pages were used to confirm the match.`,
+        `Cleaning: ${fmt(cl.filter((r) => r.action === "removed").length)} records removed as not research papers and ${fmt(cl.filter((r) => r.action !== "removed").length)} duplicate versions merged, each listed with its reason; ${fmt(MW.exclusions || 0)} items were judged one by one (commentaries, abstract books, meeting reports, and a letter kept out of the top-paper lists).`,
+        `Impact factors: the JCR export was supplied by a team member with access; ${fmt(MW.issn_aliases || 0)} journals whose ISSN differs between OpenAlex and JCR (for example The Lancet) were matched by hand.`,
+        `Ownership of citing institutions: ${fmt(W.total || 0)} institutions classified as government, government-aided or private; ${fmt(W.yes || 0)} confirmed and ${fmt(W.partial || 0)} partly confirmed against UGC lists, Acts or the institutions' own pages, with the evidence written down.`,
+        "Interpretation: the 'Team interpretation' boxes are our own reading of the results, checked against the numbers they quote.",
+        "AI tools were used as assistance, for parts of the code and first drafts of some text. The roster, the identity and exclusion decisions, the ownership classes and the conclusions were reviewed by the team, and each is traceable to its source in the repository.",
+      ]);
+    }
     if (P2) {
       const T = P2.summary.thresholds;
       add("h3", "Phase II definitions");

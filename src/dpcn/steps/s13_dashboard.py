@@ -89,6 +89,35 @@ def authorship_by_lab(cfg, main: pd.DataFrame, au_sum: dict) -> dict:
     return out
 
 
+def manual_work(cfg) -> dict:
+    """Counts of the hand-maintained inputs in data/manual, shown on the About tab."""
+    m, out = cfg.root / "data" / "manual", {}
+
+    def read(name):
+        f = m / name
+        return pd.read_csv(f, keep_default_na=False, na_values=[""]) if f.exists() else None
+    r = read("faculty_roster.csv")
+    if r is not None:
+        src = r["source"].fillna("")
+        out["roster"] = {"total": len(r), "website": int((src == "website").sum()),
+                         "from_papers": int(src.str.startswith("uncovered-author").sum()),
+                         "other": int((~src.isin(["website"]) & ~src.str.startswith("uncovered-author")).sum()),
+                         "designation": int(r["designation"].notna().sum()),
+                         "former": int((r["status"] == "former").sum()),
+                         "profile_dois": int(r["profile_dois"].notna().sum()) if "profile_dois" in r else 0}
+    o = read("faculty_match_overrides.csv")
+    if o is not None:
+        out["overrides"] = o["decision"].value_counts().to_dict()
+    w = read("institution_ownership.csv")
+    if w is not None:
+        out["ownership"] = {"total": len(w), **w["verified"].value_counts().to_dict()}
+    for key, name in (("exclusions", "work_exclusions.csv"), ("issn_aliases", "issn_aliases.csv")):
+        d = read(name)
+        if d is not None:
+            out[key] = len(d)
+    return out
+
+
 def phase2_bundle(cfg) -> dict | None:
     """Phase II tables (written by s16). Absent before s16 has run: the dashboard then shows the original tabs only."""
     st = cfg.paths.stats
@@ -100,6 +129,7 @@ def phase2_bundle(cfg) -> dict | None:
     T = {n: pd.read_csv(st / f"p2_{n}.csv", keep_default_na=False, na_values=[""]) for n in names}
     c = T["citers"]
     T["citers"] = c[c["cites_in"] >= 30]            # the long tail adds size, not information
+    T["citer_evidence"] = T["citer_evidence"].drop(columns=["top_citing_author"], errors="ignore")   # no individuals on the page
     notes_path = cfg.root / cfg.phase2.notes_file
     notes = (yaml.safe_load(notes_path.read_text(encoding="utf-8")) or {}) if notes_path.exists() else {}
     out = {n: records(df) for n, df in T.items()}
@@ -111,6 +141,7 @@ def phase2_bundle(cfg) -> dict | None:
                    ("cleaning_log", "cleaning_log.csv")):
         if (st / f).exists():
             out[key] = records(pd.read_csv(st / f, keep_default_na=False, na_values=[""]))
+    out["manual"] = manual_work(cfg)
     research = {}
     for f in sorted(st.glob("research_*.csv")):
         research[f.stem.replace("research_", "")] = records(pd.read_csv(f, keep_default_na=False, na_values=[""]))

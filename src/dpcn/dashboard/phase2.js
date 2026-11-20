@@ -386,8 +386,7 @@ if (P2) {
       { title: "Institution", field: "partner_inst", widthGrow: 3, frozen: true }, { title: "Ownership", field: "ownership" },
       { title: "Citations", field: "citations", hozAlign: "right", sorter: "number" }, { title: "Citing papers", field: "citing_papers", hozAlign: "right", sorter: "number" },
       { title: "Shared papers", field: "shared_papers", hozAlign: "right", sorter: "number" },
-      { title: "Top citing author", field: "top_citing_author", widthGrow: 2 },
-      { title: "Their share of citing papers", field: "top_citing_author_share", hozAlign: "right", sorter: "number", formatter: (c) => pct(c.getValue(), 0) },
+      { title: "Top citing author's share of citing papers", field: "top_citing_author_share", hozAlign: "right", sorter: "number", formatter: (c) => pct(c.getValue(), 0) },
       { title: "Citations on a paper sharing an author with the cited paper", field: "shared_author_share", hozAlign: "right", sorter: "number", formatter: (c) => pct(c.getValue(), 0) },
       { title: "Citing papers with a current or former lab scientist on them", field: "lab_member_paper_share", hozAlign: "right", sorter: "number", formatter: (c) => pct(c.getValue(), 0) },
       { title: "Review articles among citing papers", field: "review_share", hozAlign: "right", sorter: "number", formatter: (c) => pct(c.getValue(), 0) },
@@ -532,6 +531,12 @@ if (P2) {
     const imp = (R.lab_impact || []).filter((r) => r.term.startsWith("lab:") && r.model !== "lab only");
     const cov = (R.covid || []).filter((r) => LABS.includes(r.scope));
     const peak = LABS.map((l) => { const rr = cov.filter((r) => r.scope === l); return rr.reduce((a, b) => (b.covid_share > (a.covid_share || 0) ? b : a), {}); });
+    const fw = R.flow_window || [], fwAll = fw.filter((r) => r.scope === "ALL");
+    const fwTot = (sc) => { const rr = fw.filter((r) => r.scope === sc); const i = rr.reduce((a, r) => a + r.in_window, 0), o = rr.reduce((a, r) => a + r.out_window, 0); return o ? i / o : NaN; };
+    const firstAbove = (fwAll.find((r) => r.ratio_window > 1) || {}).cohort;
+    const fc = R.faculty_credit || [], top10 = fc.filter((r) => r.rank_citations <= 10).sort((a, b) => a.rank_citations - b.rank_citations);
+    const fracLead = fc.find((r) => r.rank_citations_frac === 1) || {};
+    const lc = R.lab_credit || [], lcOf = (sc) => lc.find((r) => r.scope === sc) || {};
     const items = [
       ["Most citations inside the corpus are self-citations.", `${pct(share("self (shared author)"), 0)} of the ${fmt(S.internal_citations)} citations between our papers have an author in common, and another ${pct(share("co-author network"), 0)} come from faculty who had already written together. Only ${pct(share("same lab, independent") + share("other lab, independent"), 0)} are independent.`,
         "Every internal-network measure (PageRank, in-degree, lab-to-lab flows) is mostly a measure of research groups building on their own work."],
@@ -547,6 +552,12 @@ if (P2) {
         "Collaboration grows by closing triangles inside each lab; ties that cross labs are often one-off."],
       ["Raw averages overstate CCMB and IGIB.", `On a log scale, which damps the few huge papers, and with year, field, team size and review type held equal, single-lab papers differ from CDRI's by ${imp.map((r) => `${short(r.term.replace("lab: ", ""))} ${r.pct_effect >= 0 ? "+" : ""}${fmt(r.pct_effect, 0)}% (${fmt(r.pct_low, 0)} to ${fmt(r.pct_high, 0)})`).join(", ")}.`,
         "Raw citations per paper (Overview) put CCMB and IGIB ahead because of a few very highly cited consortium papers; the typical CCMB or IGIB paper is cited less than a CDRI paper, and the typical IMTECH paper more."],
+      ["Indian institutions cite the labs more than the labs cite them, and have done so since " + (firstAbove || "the start") + ".", `Counted over the same two-year window, papers of each year receive ${fmt(fwTot("ALL"), 2)}× as many Indian citations as they give (2016–${fwAll.length ? fwAll[fwAll.length - 1].cohort : ""} cohorts): ${LABS.map((l) => `${short(l)} ${fmt(fwTot(l), 2)}×`).join(", ")}. The raw yearly counts suggest outflow led until 2022, but that is citation lag: recent papers have not yet been cited.`,
+        "The labs are net sources of knowledge for Indian science, IMTECH and IGIB most of all; comparisons of in and out flows need equal windows."],
+      ["Who leads depends on how credit is counted.", `Of the ten most cited faculty, ${top10.filter((r) => r.rank_citations_frac > 25).length} fall below rank 25 when each citation is divided among a paper's authors; ${fracLead.name || ""} leads under fractional counting (rank ${fmt(fracLead.rank_citations)} on full counts).`,
+        "Rankings by raw citations mostly reward membership of large consortia; report fractional counts beside them."],
+      ["A few papers carry CCMB's citations.", `CCMB's citations spread like ${fmt(lcOf("CSIR-CCMB").effective_papers, 0)} equally cited papers (its top paper alone is ${pct(lcOf("CSIR-CCMB").top_paper_share, 0)}), against ${fmt(lcOf("CSIR-CDRI").effective_papers, 0)} at CDRI. Field-and-year normalised, the four labs are close: MNCS ${LABS.map((l) => `${short(l)} ${fmt(lcOf(l).mncs, 2)}`).join(", ")}, with overlapping intervals.`,
+        "Totals and averages for CCMB depend on a handful of consortium and guideline papers; normalised and median measures are fairer."],
       ["COVID-19 reshaped the genomics labs.", `SARS-CoV-2 / COVID-19 papers peaked at ${peak.map((r, i) => `${short(LABS[i])} ${pct(r.covid_share, 0)} (${r.year})`).join(", ")} of each lab's yearly output.`,
         "A sudden, mission-driven shift that the 2021 output peak and the consortium papers both reflect."],
     ];
@@ -623,6 +634,33 @@ if (P2) {
         hovertemplate: `<b>%{y:.0%}</b> of papers<br>${short(l)} · %{x}<extra></extra>` }; }),
       { hovermode: "x unified", xaxis: { dtick: 1 }, yaxis: { tickformat: ".0%", title: "Share of the lab's papers" }, legend: { orientation: "h", y: -0.2 } });
 
+    plot("c-fd-flow", [...[...LABS, "ALL"].map((l) => { const rr = fw.filter((r) => r.scope === l);
+      return { name: l === "ALL" ? "All labs" : short(l), x: rr.map((r) => r.cohort), y: rr.map((r) => r.ratio_window), mode: "lines+markers",
+        line: { color: l === "ALL" ? css("--ink") : labColor(l), width: l === "ALL" ? 3 : 2 }, marker: { size: 6 },
+        hovertemplate: `<b>%{y:.2f}×</b> in ÷ out<br>${l === "ALL" ? "All labs" : short(l)} · papers of %{x}<extra></extra>` }; }),
+      { name: "All labs, raw yearly", x: fwAll.map((r) => r.cohort), y: fwAll.map((r) => r.ratio_raw), mode: "lines", line: { color: css("--muted"), dash: "dash", width: 2 },
+        hovertemplate: "<b>%{y:.2f}×</b> raw<br>%{x}<extra></extra>" }],
+      { xaxis: { dtick: 1, title: "Publication year of the labs' papers" }, yaxis: { title: "Citations in ÷ out" }, legend: { orientation: "h", y: -0.3 },
+        shapes: [{ type: "line", xref: "paper", yref: "y", x0: 0, x1: 1, y0: 1, y1: 1, line: { color: css("--muted"), dash: "dot", width: 1 } }] });
+
+    const rk = [["rank_citations", "full counting"], ["rank_citations_frac", "fractional"], ["rank_citations_lt100", "without 100+ author papers"]];
+    plot("c-fd-rank", rk.map(([f, nm], i) => ({ type: "scatter", mode: "markers", name: nm, x: top10.map((r) => r[f]), y: top10.map((r) => `${r.name} (${short(r.lab)})`),
+      marker: { size: 10, symbol: ["circle", "diamond", "square"][i], color: [css("--ink"), css("--lab-1"), css("--qna")][i] },
+      hovertemplate: `<b>rank %{x}</b> ${nm}<br>%{y}<extra></extra>` })),
+      { xaxis: { type: "log", title: { text: "Rank among faculty (log; 1 = most cited)", standoff: 8 }, autorange: "reversed" },
+        yaxis: { autorange: "reversed", type: "category", dtick: 1, automargin: true, tickfont: { size: 11 } },
+        legend: { orientation: "h", y: -0.3, x: 0 }, margin: { l: 10, r: 16, t: 10, b: 100 } });
+
+    table("t-fd-credit", lc.map((r) => ({ ...r, scope_l: r.scope === "ALL" ? "All labs" : short(r.scope),
+      mncs_ci: `${fmt(r.mncs, 2)} (${fmt(r.mncs_low, 2)}–${fmt(r.mncs_high, 2)})`, top10_ci: `${pct(r.top10_share, 1)} (${pct(r.top10_low, 1)}–${pct(r.top10_high, 1)})`,
+      gini_ci: `${fmt(r.gini_faculty_citations, 2)} (${fmt(r.gini_low, 2)}–${fmt(r.gini_high, 2)})` })), [
+      { title: "Lab", field: "scope_l" }, { title: "Papers", field: "papers", hozAlign: "right" },
+      { title: "MNCS (95% CI)", field: "mncs_ci", hozAlign: "right" }, { title: "Top 10% share (95% CI)", field: "top10_ci", hozAlign: "right" },
+      { title: "Effective papers", field: "effective_papers", hozAlign: "right", formatter: (c) => fmt(c.getValue(), 0) },
+      { title: "Top paper's share of citations", field: "top_paper_share", hozAlign: "right", formatter: (c) => pct(c.getValue(), 1) },
+      { title: "Gini of faculty citations (95% CI)", field: "gini_ci", hozAlign: "right" }, { title: "Faculty", field: "faculty", hozAlign: "right" }],
+      { layout: "fitColumns", maxHeight: 300 });
+
     const pr = (R.pagerank_independent || []).filter((r) => r.basis === "all citations");
     table("t-fd-pr", pr, [
       { title: "Rank (all)", field: "rank_all", hozAlign: "right", width: 90 }, { title: "Rank without self-citation", field: "rank_independent", hozAlign: "right", width: 120 },
@@ -639,6 +677,8 @@ if (P2) {
      "Distance lift: for each citing year, distances in the faculty co-authorship network built from earlier years; expected counts = (i's citing contributions × j's cited contributions) / total, summed over pairs at each distance.",
      "Lab-led = a lab-affiliated author in first, last or corresponding position. Normalised citations = citations ÷ mean of papers in the same OpenAlex field and year, within our corpus (a relative, not world, baseline).",
      "Lab impact: OLS on log(1 + citations) with heteroskedasticity-robust (HC1) errors; papers of one lab only; reference CDRI.",
+     "Same-window flow: for papers of year Y, citations from works with another Indian institution published in Y to Y+2, against references to such works published in Y−2 to Y; cohorts up to the last complete year minus two.",
+     "Fractional counting: each paper contributes citations ÷ number of authors to each faculty author. MNCS bootstrap: 1,000 resamples of papers; Gini interval: 500 resamples of faculty.",
      "Limits: OpenAlex coverage and author disambiguation; faculty lists cover 71–81% of each lab's output; the corpus-relative normalisation is not a world baseline; associations, not causal effects."]
       .forEach((t) => ul.append(txt("li", t)));
     mbox.append(ul);

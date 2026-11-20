@@ -68,6 +68,11 @@
       <div class="card"><h2>Lab differences in citations, with controls</h2><p class="note">Percent difference in citations per paper relative to CDRI (single-lab papers; log citations, OLS with robust errors). "With controls" adds publication year, OpenAlex field, number of authors and review vs article.</p><div id="c-fd-imp" class="chart"></div></div>
       <div class="card"><h2>The COVID-19 shock</h2><p class="note">Share of each lab's papers on SARS-CoV-2 / COVID-19 (title or OpenAlex topic), by year.</p><div id="c-fd-covid" class="chart"></div></div>
     </div>
+    <div class="grid2">
+      <div class="card"><h2>Indian citations in vs out, over the same window</h2><p class="note">For the papers of each year: citations received from other Indian institutions within two years, divided by references the papers make to Indian work of the previous two years. Dashed: the raw yearly ratio (citations in during a year ÷ references out of that year's papers), which favours outflow for recent years because citations take time to arrive. Above 1 = the lab receives more than it gives.</p><div id="c-fd-flow" class="chart"></div></div>
+      <div class="card"><h2>Who leads depends on how credit is counted</h2><p class="note">Rank among 274 faculty by citations: full counting (every author gets every citation), fractional counting (citations ÷ number of authors), and full counting without papers of 100+ authors. The ten most cited under full counting.</p><div id="c-fd-rank" class="chart tall"></div></div>
+    </div>
+    <div class="card"><h2>Normalised impact and concentration by lab</h2><p class="note">MNCS: mean of each paper's citations ÷ the average for papers of the same OpenAlex field and year in our corpus (1 = average), with a bootstrap 95% interval. Top 10%: share of papers among the 10% most cited of their field and year (Wilson interval). Effective papers: (Σc)² ÷ Σc², the number of equally cited papers that would give the same spread; low means a few papers carry the lab. Gini: inequality of citations across the lab's faculty (bootstrap interval).</p><div id="t-fd-credit"></div></div>
     <div class="card"><h2>Most influential papers, with and without self-citation</h2><p class="note">PageRank on the internal citation network. "Without" drops citations where the citing and cited paper share an author; papers that ranked high on their own authors' citations fall.</p><div id="t-fd-pr"></div></div>
     <div class="card team-note" data-note="research"></div>
     <div class="card prose"><h2>Methods</h2><div id="fd-methods"></div></div>
@@ -211,6 +216,7 @@
   </section>
 
   <section id="tab-flags" class="tab" hidden>
+    <div class="card banner"><h2>What a flag means, and what it does not</h2><p class="note">A flag marks a number that needs a closer look before it is compared: citations that come mostly from many-author papers, a profile that may merge two people, or an institution that cites the labs more than its size suggests. It is not a judgement of any person or institution and says nothing about misconduct. Consortium papers are legitimate science, heavy citation has ordinary causes (shared fields, former lab members, review articles), and OpenAlex itself makes identity errors. Individual citing authors are not named here.</p></div>
     <div class="kpis" id="kpis-flags"></div>
     <div class="grid2">
       <div class="card"><h2>Where citations come from, by author count</h2><p class="note">Share of all citations that arrive on papers of each author-count class.</p><div id="c-clsshare" class="chart"></div></div>

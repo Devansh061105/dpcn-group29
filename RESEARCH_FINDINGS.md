@@ -17,6 +17,9 @@ What the data on four CSIR biology labs (CCMB, IGIB, IMTECH, CDRI; 2016–2026; 
 | 9 | Lab citation impact differs after controls | OLS on log(1 + citations), year, field, team size, review, HC1 errors | vs CDRI: IMTECH +10.6% (1.8–20.0), CCMB −14.8%, IGIB −18.0%; doubling team size +29%; review +58% |
 | 10 | The middle-author citation premium is team size | normalised citations, lab-led vs middle-author papers, within team-size bands | overall 1.41 vs 0.88 (p = 0.003), but medians are similar within the 5–14 author bands |
 | 11 | COVID-19 work reshaped two labs' visibility | keyword classification of titles and topics | IGIB: 26% of 2021 papers, 33% of 2021 and 47% of 2022 citations; CCMB: 13% of 2021 papers, 33% of citations |
+| 12 | The labs are net sources for Indian science; the 2022 "crossover" is citation lag | in vs out over the same two-year window per publication cohort | ratio 1.53 overall, above 1 every cohort from 2017; IMTECH 1.98, IGIB 1.87, CCMB 1.72, CDRI 1.27 |
+| 13 | The citation leaders depend on full counting | fractional counting, rank shifts | 6 of the top 10 drop below rank 25; leader under fractional counting is rank 7 on full counts |
+| 14 | CCMB's totals rest on a few papers | effective number of papers, MNCS with bootstrap CI | CCMB 29 effective papers vs CDRI 518; MNCS 0.96–1.15 with overlapping intervals |
 
 ## What each result means
 
@@ -40,7 +43,9 @@ What the data on four CSIR biology labs (CCMB, IGIB, IMTECH, CDRI; 2016–2026; 
 
 - **Who cites the labs.** Once citations are divided by the citing institution's own output in the labs' fields, none of the 18 heavy non-government citers is an outlier (largest robust z 1.1, against 2). Government and private institutions have the same median rate (50 per 1,000 papers). The real outliers are five government institutes that also co-author with the labs (IIIT Delhi, THSTI, NEERI, NIPER Hyderabad and Raebareli). Raw citation counts mostly measure size (Spearman 0.35 with the size-adjusted rate).
 - **Students and staff.** 25% of lab papers (1,961; 22% of lab citations) have no roster scientist on them. Faculty-only counts therefore understate each lab's output by about a quarter, and more so at CCMB (29%) than at CDRI (19%).
-- **Flow direction.** Indian citations into the labs overtook those going out in 2022 and kept growing (5,701 vs 3,868 in 2025).
+- **Flow direction, corrected for citation lag.** Raw yearly counts make it look as if Indian citations into the labs overtook those going out only in 2022. Over the same two-year window (citations received within two years against references to Indian work of the previous two years), each year's papers receive 1.53× as many Indian citations as they give, and the ratio is above 1 for every cohort from 2017: IMTECH 1.98×, IGIB 1.87×, CCMB 1.72×, CDRI 1.27× (`research_flow_window.csv`).
+- **Credit counting.** With fractional counting (citations ÷ authors), 6 of the 10 most cited faculty fall below rank 25 (G. Swarup 1 → 75, Puran Singh Sijwali 2 → 148) and Ritushree Kukreti rises from 7 to 1 (`research_faculty_credit.csv`).
+- **Concentration.** CCMB's citations behave like 29 equally cited papers (top paper 16% of the total), IMTECH 58, IGIB 70, CDRI 518. Field-and-year normalised impact (MNCS) is close: CCMB 1.15 (0.95–1.40), IGIB 1.05, IMTECH 1.03, CDRI 0.96 (0.91–1.02); top-10% shares 11.9–13.8%. Gini of citations across faculty is highest at CCMB (0.68) and lowest at CDRI (0.55) (`research_lab_credit.csv`).
 - **Author-identity risk.** One faculty profile carries 117,443 lifetime citations but 8 in our window, which indicates a merged namesake profile; lifetime metrics from OpenAlex need this check before use.
 
 ## Paper-worthy directions

@@ -30,7 +30,7 @@
     "cross_lab_ratio_vs_permutation": 0.06752912615622526,
     "cross_lab_z_permutation": -34.355588826752886,
     "cross_lab_share_rewired": 0.5194679999999999,
-    "lab_assortativity": 0.9057322935395831,
+    "lab_assortativity": 0.9057322935395827,
     "dept_assortativity": 0.07341883165600516,
     "clustering_observed": 0.3231293809236079,
     "clustering_rewired": 0.1261756717760756,
@@ -187,6 +187,257 @@
       "pct_high": 108.08196348487084,
       "papers": 5958,
       "reference": "CSIR-CDRI"
+    }
+  ],
+  "flow_window_all": [
+    {
+      "scope": "ALL",
+      "cohort": 2016,
+      "in_window": 718,
+      "out_window": 748,
+      "ratio_window": 0.9598930481283422,
+      "raw_in_by_citing_year": 66,
+      "raw_out": 2512,
+      "ratio_raw": 0.026273885350318472
+    },
+    {
+      "scope": "ALL",
+      "cohort": 2017,
+      "in_window": 780,
+      "out_window": 622,
+      "ratio_window": 1.2540192926045015,
+      "raw_in_by_citing_year": 337,
+      "raw_out": 2429,
+      "ratio_raw": 0.13874022231370933
+    },
+    {
+      "scope": "ALL",
+      "cohort": 2018,
+      "in_window": 732,
+      "out_window": 506,
+      "ratio_window": 1.4466403162055337,
+      "raw_in_by_citing_year": 741,
+      "raw_out": 2199,
+      "ratio_raw": 0.3369713506139154
+    },
+    {
+      "scope": "ALL",
+      "cohort": 2019,
+      "in_window": 784,
+      "out_window": 407,
+      "ratio_window": 1.9262899262899262,
+      "raw_in_by_citing_year": 1216,
+      "raw_out": 2195,
+      "ratio_raw": 0.5539863325740318
+    },
+    {
+      "scope": "ALL",
+      "cohort": 2020,
+      "in_window": 882,
+      "out_window": 469,
+      "ratio_window": 1.8805970149253732,
+      "raw_in_by_citing_year": 1715,
+      "raw_out": 2240,
+      "ratio_raw": 0.765625
+    },
+    {
+      "scope": "ALL",
+      "cohort": 2021,
+      "in_window": 1394,
+      "out_window": 731,
+      "ratio_window": 1.9069767441860466,
+      "raw_in_by_citing_year": 2588,
+      "raw_out": 2873,
+      "ratio_raw": 0.9008005569091542
+    },
+    {
+      "scope": "ALL",
+      "cohort": 2022,
+      "in_window": 1128,
+      "out_window": 771,
+      "ratio_window": 1.4630350194552528,
+      "raw_in_by_citing_year": 3045,
+      "raw_out": 3089,
+      "ratio_raw": 0.9857559080608611
+    },
+    {
+      "scope": "ALL",
+      "cohort": 2023,
+      "in_window": 1218,
+      "out_window": 738,
+      "ratio_window": 1.6504065040650406,
+      "raw_in_by_citing_year": 3501,
+      "raw_out": 3071,
+      "ratio_raw": 1.1400195376098992
+    }
+  ],
+  "lab_credit": [
+    {
+      "scope": "CSIR-CCMB",
+      "papers": 1203,
+      "mncs": 1.150923840648562,
+      "mncs_low": 0.9489686468901029,
+      "mncs_high": 1.3976228103972066,
+      "top10_share": 0.11886949293433084,
+      "top10_low": 0.10178305180539463,
+      "top10_high": 0.13838235183995531,
+      "effective_papers": 29.20505025929269,
+      "top_paper_share": 0.16027131252905943,
+      "gini_faculty_citations": 0.6830874252153813,
+      "gini_low": 0.5724223301973428,
+      "gini_high": 0.7315573951948275,
+      "gini_faculty_papers": 0.44628110586350705,
+      "faculty": 54
+    },
+    {
+      "scope": "CSIR-IGIB",
+      "papers": 1392,
+      "mncs": 1.0520545848670453,
+      "mncs_low": 0.8919739845836548,
+      "mncs_high": 1.2445672628667248,
+      "top10_share": 0.1257183908045977,
+      "top10_low": 0.10932545915799483,
+      "top10_high": 0.14417149923613823,
+      "effective_papers": 69.563454680845,
+      "top_paper_share": 0.07177414921106164,
+      "gini_faculty_citations": 0.6083303498381724,
+      "gini_low": 0.5266912957926593,
+      "gini_high": 0.6586973966063769,
+      "gini_faculty_papers": 0.48672218079376917,
+      "faculty": 54
+    },
+    {
+      "scope": "CSIR-IMTECH",
+      "papers": 821,
+      "mncs": 1.0255834685666603,
+      "mncs_low": 0.8975693279627955,
+      "mncs_high": 1.2220170489792763,
+      "top10_share": 0.13763702801461633,
+      "top10_low": 0.11575252708599572,
+      "top10_high": 0.16289685238274113,
+      "effective_papers": 58.37498240591406,
+      "top_paper_share": 0.11399257803972931,
+      "gini_faculty_citations": 0.5916287956411153,
+      "gini_low": 0.4870553680387996,
+      "gini_high": 0.657681389671779,
+      "gini_faculty_papers": 0.44267269590051767,
+      "faculty": 49
+    },
+    {
+      "scope": "CSIR-CDRI",
+      "papers": 2684,
+      "mncs": 0.9617655936384906,
+      "mncs_low": 0.9109607327031437,
+      "mncs_high": 1.019235550938932,
+      "top10_share": 0.12853949329359166,
+      "top10_low": 0.11640618647857032,
+      "top10_high": 0.14173462062851516,
+      "effective_papers": 517.5103563461555,
+      "top_paper_share": 0.02450146574499656,
+      "gini_faculty_citations": 0.5493219104097447,
+      "gini_low": 0.4931132950258573,
+      "gini_high": 0.5957505229672613,
+      "gini_faculty_papers": 0.4570089408799086,
+      "faculty": 117
+    },
+    {
+      "scope": "ALL",
+      "papers": 6027,
+      "mncs": 1.0,
+      "mncs_low": 0.9390485688853247,
+      "mncs_high": 1.0651457605070918,
+      "top10_share": 0.12643106022896963,
+      "top10_low": 0.11827795169781595,
+      "top10_high": 0.1350600898783382,
+      "effective_papers": 299.5380335316732,
+      "top_paper_share": 0.04077911775144223,
+      "gini_faculty_citations": 0.6091864737477258,
+      "gini_low": 0.5642611263599889,
+      "gini_high": 0.6479301170610583,
+      "gini_faculty_papers": 0.46985158874985516,
+      "faculty": 274
+    }
+  ],
+  "top_rank_shifts": [
+    {
+      "name": "G. Swarup",
+      "lab": "CSIR-CCMB",
+      "rank_citations": 1,
+      "rank_citations_frac": 75,
+      "rank_citations_lt100": 110,
+      "rank_mncs": 1
+    },
+    {
+      "name": "Puran Singh Sijwali",
+      "lab": "CSIR-CCMB",
+      "rank_citations": 2,
+      "rank_citations_frac": 148,
+      "rank_citations_lt100": 146,
+      "rank_mncs": 4
+    },
+    {
+      "name": "G R Chandak",
+      "lab": "CSIR-CCMB",
+      "rank_citations": 3,
+      "rank_citations_frac": 122,
+      "rank_citations_lt100": 50,
+      "rank_mncs": 5
+    },
+    {
+      "name": "Lipi Thukral",
+      "lab": "CSIR-IGIB",
+      "rank_citations": 4,
+      "rank_citations_frac": 89,
+      "rank_citations_lt100": 46,
+      "rank_mncs": 3
+    },
+    {
+      "name": "Rajesh Pandey",
+      "lab": "CSIR-IGIB",
+      "rank_citations": 5,
+      "rank_citations_frac": 8,
+      "rank_citations_lt100": 2,
+      "rank_mncs": 44
+    },
+    {
+      "name": "Vinod Scaria",
+      "lab": "CSIR-IGIB",
+      "rank_citations": 6,
+      "rank_citations_frac": 10,
+      "rank_citations_lt100": 7,
+      "rank_mncs": 120
+    },
+    {
+      "name": "Ritushree Kukreti",
+      "lab": "CSIR-IGIB",
+      "rank_citations": 7,
+      "rank_citations_frac": 1,
+      "rank_citations_lt100": 1,
+      "rank_mncs": 28
+    },
+    {
+      "name": "K Thangaraj",
+      "lab": "CSIR-CCMB",
+      "rank_citations": 8,
+      "rank_citations_frac": 48,
+      "rank_citations_lt100": 3,
+      "rank_mncs": 76
+    },
+    {
+      "name": "Sridhar Sivasubbu",
+      "lab": "CSIR-IGIB",
+      "rank_citations": 9,
+      "rank_citations_frac": 43,
+      "rank_citations_lt100": 13,
+      "rank_mncs": 95
+    },
+    {
+      "name": "Gajendra P. S. Raghava",
+      "lab": "CSIR-IMTECH",
+      "rank_citations": 10,
+      "rank_citations_frac": 7,
+      "rank_citations_lt100": 4,
+      "rank_mncs": 17
     }
   ],
   "covid_peak": [

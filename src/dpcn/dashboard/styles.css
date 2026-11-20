@@ -98,3 +98,8 @@ main [hidden] { display: none !important; }
 .rqi p { margin: 0 0 6px; color: var(--ink-2); font-size: 12.5px; }
 .linkbtn { border: 0; background: none; color: var(--accent); padding: 0; cursor: pointer; font-size: 12.5px; }
 .linkbtn:hover { text-decoration: underline; }
+
+.csv-btn { float: right; margin: -4px 0 6px 8px; padding: 3px 10px; font: inherit; font-size: 12px; cursor: pointer;
+  color: var(--ink-2); background: transparent; border: 1px solid var(--axis); border-radius: 6px; }
+.csv-btn:hover { color: var(--ink); border-color: var(--accent); }
+body.shot .csv-btn { display: none; }
