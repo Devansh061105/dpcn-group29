@@ -64,6 +64,9 @@ phase2:
   faculty_flag_share_hyper: 0.25    # flag a faculty member when this share of citations comes from hyperauthored papers
   faculty_flag_share_multi: 0.60    # ... or this share from papers with multi_author_min or more authors
   faculty_flag_min_citations: 100   # ... but only for faculty with at least this many citations (small totals are noise)
+  lifetime_flag_citations: 100000   # "a lakh citations": flag lifetime OpenAlex citations at or above this
+  lifetime_gap_min: 25000           # ... or lifetime citations at least this large
+  lifetime_gap_share: 0.05          # ... of which under this share falls on 2016-2026 lab papers (a merged profile?)
   citer_min_cites: 150              # a citing institution is "heavy" from this many citations received by our labs
   citer_ratio_min: 15               # ... and "citation-heavy relative to collaboration" from this many citations per shared paper
   citer_detail_top: 40              # citing institutions examined in detail (authors, journals) through OpenAlex

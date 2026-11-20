@@ -133,3 +133,17 @@ def test_integrity_check_catches_bad_tables():
         check_integrity(cfg, works.assign(year=[2020, 2012]), auths, links)
     with pytest.raises(StepFailed, match="no faculty link"):
         check_integrity(cfg, works, auths, links.iloc[:1])
+
+
+def test_duplicate_groups_merge_versions_and_twins_but_not_lookalikes():
+    from dpcn.steps.s05_normalise import duplicate_groups
+    m = {w["work_id"]: w for w in [
+        meta("W1", doi="https://doi.org/10.7554/elife.92827", title="A translation proofreader of archaeal origin", year=2023),
+        meta("W2", doi="https://doi.org/10.7554/elife.92827.3", title="Reviewed preprint", year=2024),
+        meta("W3", doi="https://doi.org/10.1074/jbc.m117.794230", title="A conserved degron regulates squalene monooxygenase turnover", year=2017),
+        meta("W4", doi="https://doi.org/10.1096/fasebj.2018.32.1_supplement.539.4", title="A Conserved Degron Regulates Squalene Monooxygenase Turnover", year=2018),
+        meta("W5", doi="https://doi.org/10.1016/j.jsb.2025.108211", title="Structural characterization of PadR family protein Rv0047c of M. tuberculosis", year=2025),
+        meta("W6", doi="https://doi.org/10.1016/j.ijbiomac.2024.130455", title="Structural characterization of PadR family protein Rv1176c of M. tuberculosis", year=2024),
+        meta("W7", doi="https://doi.org/10.1/x", title="A conserved degron regulates squalene monooxygenase turnover", year=2025)]}
+    groups = sorted(sorted(w["work_id"] for w in g) for g in duplicate_groups(m) if len(g) > 1)
+    assert groups == [["W1", "W2"], ["W3", "W4"]]       # versions, abstract+paper; not Rv0047c/Rv1176c, not 8 years apart

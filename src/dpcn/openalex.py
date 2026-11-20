@@ -88,7 +88,13 @@ class OpenAlex:
             q["api_key"] = self.key
         url = f"{self.base}/{path.strip('/')}"
         for attempt in range(self.max_retries):
-            r = self.s.get(url, params=q, timeout=90)
+            try:
+                r = self.s.get(url, params=q, timeout=90)
+            except requests.exceptions.RequestException as e:     # timeouts, dropped connections: back off and retry
+                wait = 2 ** attempt
+                log.warning("%s from OpenAlex, retrying in %.0fs", type(e).__name__, wait)
+                time.sleep(wait)
+                continue
             if r.status_code == 200:
                 break
             if r.status_code in (429, 500, 502, 503, 504):

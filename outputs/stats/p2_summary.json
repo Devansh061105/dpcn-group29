@@ -1,6 +1,6 @@
 {
   "if_coverage": 1.0,
-  "papers": 6063,
+  "papers": 6027,
   "thresholds": {
     "if_thresholds": [
       5,
@@ -12,6 +12,9 @@
     "faculty_flag_share_hyper": 0.25,
     "faculty_flag_share_multi": 0.6,
     "faculty_flag_min_citations": 100,
+    "lifetime_flag_citations": 100000,
+    "lifetime_gap_min": 25000,
+    "lifetime_gap_share": 0.05,
     "citer_min_cites": 150,
     "citer_ratio_min": 15,
     "citer_detail_top": 40,
@@ -31,44 +34,47 @@
     "scimago_dir": "data/manual/sjr_full"
   },
   "if_sources": {
-    "JCR 2024": 1327,
-    "OpenAlex 2-year mean citedness (proxy)": 142,
-    "Scimago Cites/Doc (2y) 2025": 72,
-    "JCR 2025": 27
+    "JCR 2024": 1351,
+    "OpenAlex 2-year mean citedness (proxy)": 122,
+    "Scimago Cites/Doc (2y) 2025": 62,
+    "JCR 2025": 34,
+    "JCR 2024 (successor title)": 4
   },
-  "journals": 1568,
+  "journals": 1573,
   "tables": {
     "overview": 5,
     "yearly": 55,
     "faculty": 274,
     "journals": 100,
     "top30_papers": 150,
-    "faculty_top10": 2398,
+    "faculty_top10": 2401,
     "author_classes": 20,
     "if_histogram": 105,
-    "hyper_papers": 26,
+    "hyper_papers": 24,
     "temporal_network": 110,
     "temporal_citations": 55,
-    "citers": 8522,
-    "citer_evidence": 53,
-    "departments": 108
+    "citers": 9038,
+    "citer_evidence": 51,
+    "departments": 110,
+    "lab_corpus": 15,
+    "lab_corpus_yearly": 55
   },
   "flagged_faculty_hyper": 15,
   "flagged_faculty_multi": 37,
-  "hyperauthored_papers": 26,
-  "flagged_citers_non_government": 19,
+  "flagged_faculty_lifetime": 1,
+  "hyperauthored_papers": 24,
+  "flagged_citers_non_government": 18,
   "citer_normalised": {
-    "compared": 356,
+    "compared": 341,
     "min_cites": 30,
     "min_works": 300,
     "z": 2.0,
-    "flagged_before": 19,
-    "flagged_assessed": 19,
+    "flagged_before": 18,
+    "flagged_assessed": 18,
     "flagged_not_assessed": [],
     "flagged_still_outliers": 0,
     "still_outliers": [],
     "no_longer_outliers": [
-      "Amity University Gurugram",
       "Birla Institute of Technology, Mesra",
       "Chandigarh University",
       "Chitkara University",
@@ -80,7 +86,7 @@
       "Lovely Professional University",
       "Maharishi Markandeshwar University, Mullana",
       "Narsee Monjee Institute of Management Studies",
-      "SASTRA University",
+      "Parul University",
       "Saveetha University",
       "Sharda University",
       "Shri Vile Parle Kelavani Mandal",
@@ -89,36 +95,29 @@
       "Vellore Institute of Technology University"
     ],
     "new_outliers_any_ownership": [
-      "Ashoka University",
-      "Central Scientific Instruments Organisation",
-      "Centre for DNA Fingerprinting and Diagnostics",
-      "Indian Institute of Technology Jodhpur",
-      "Indian Institute of Toxicology Research",
       "Indraprastha Institute of Information Technology Delhi",
-      "National Institute of Pharmaceutical Education and Research (Guwahati)",
+      "National Environmental Engineering Research Institute",
       "National Institute of Pharmaceutical Education and Research (Hyderabad)",
-      "National Institute of Pharmaceutical Education and Research (Mohali)",
       "National Institute of Pharmaceutical Education and Research (Raebareli)",
-      "National JALMA Institute for Leprosy & Other Mycobacterial Diseases",
-      "Regional Centre for Biotechnology",
       "Translational Health Science and Technology Institute"
     ],
     "median_rate": {
-      "government": 69.86027944111777,
-      "government-aided": 142.0627802690583,
-      "private": 61.64238969812117,
-      "unclassified": 40.5709992486852
+      "government": 49.87980769230769,
+      "government-aided": 93.6945343103701,
+      "international": 83.0367734282325,
+      "private": 49.59803817038063,
+      "unclassified": 42.936288088642655
     },
     "n_by_ownership": {
-      "government": 143,
-      "government-aided": 1,
-      "private": 47,
-      "unclassified": 165
+      "government": 225,
+      "government-aided": 2,
+      "international": 1,
+      "private": 104,
+      "unclassified": 9
     },
-    "rank_corr_raw_vs_normalised": 0.4229088964586741,
+    "rank_corr_raw_vs_normalised": 0.345911743876433,
     "outliers_by_ownership": {
-      "government": 12,
-      "private": 1
+      "government": 5
     },
     "sensitivity_flagged_outliers": {
       "z>=1.5": 0,
@@ -132,26 +131,26 @@
     {
       "source": "As used: JCR, else Scimago, else OpenAlex",
       "journals_with_value_share": 1.0,
-      "q1_if_gt5": 1221,
-      "q1_if_gt10": 277
+      "q1_if_gt5": 1236,
+      "q1_if_gt10": 273
     },
     {
       "source": "OpenAlex 2-year mean citedness for every journal",
       "journals_with_value_share": 1.0,
-      "q1_if_gt5": 2008,
-      "q1_if_gt10": 282
+      "q1_if_gt5": 1979,
+      "q1_if_gt10": 339
     },
     {
       "source": "Scimago cites per document where listed, else OpenAlex",
       "journals_with_value_share": 1.0,
-      "q1_if_gt5": 1935,
-      "q1_if_gt10": 292
+      "q1_if_gt5": 1979,
+      "q1_if_gt10": 339
     },
     {
       "source": "JCR where listed, else no value",
-      "journals_with_value_share": 0.9713541666666666,
-      "q1_if_gt5": 1172,
-      "q1_if_gt10": 274
+      "journals_with_value_share": 0.9817518248175182,
+      "q1_if_gt5": 1192,
+      "q1_if_gt10": 272
     }
   ],
   "quality": {
@@ -159,65 +158,73 @@
       {
         "lab": "CSIR-CCMB",
         "roster": 56,
-        "current": 50,
-        "former": 6,
+        "current": 45,
+        "former": 11,
         "with_papers": 54,
         "without_papers": 2
       },
       {
         "lab": "CSIR-IGIB",
-        "roster": 60,
+        "roster": 59,
         "current": 52,
-        "former": 8,
-        "with_papers": 55,
+        "former": 7,
+        "with_papers": 54,
         "without_papers": 5
       },
       {
         "lab": "CSIR-IMTECH",
         "roster": 54,
-        "current": 51,
-        "former": 3,
+        "current": 50,
+        "former": 4,
         "with_papers": 49,
         "without_papers": 5
       },
       {
         "lab": "CSIR-CDRI",
-        "roster": 124,
+        "roster": 125,
         "current": 112,
-        "former": 12,
-        "with_papers": 116,
+        "former": 13,
+        "with_papers": 117,
         "without_papers": 8
       }
     ],
     "roster": 294,
     "faculty_with_papers": 274,
     "faculty_without_papers": 20,
-    "rows": 8107,
-    "affiliation_lineage_rows": 8091,
-    "affiliation_text_rows": 16,
-    "dept_from_website_rows": 5134,
-    "dept_from_openalex_rows": 2973,
-    "quartile_sjr_rows": 7807,
-    "quartile_none_rows": 299,
-    "roster_with_orcid": 85,
+    "rows": 8064,
+    "affiliation_lineage_rows": 8047,
+    "affiliation_text_rows": 17,
+    "dept_from_website_rows": 5169,
+    "dept_from_openalex_rows": 2895,
+    "quartile_sjr_rows": 7800,
+    "quartile_none_rows": 263,
+    "roster_with_orcid": 84,
     "roster_with_profile_dois": 68,
-    "manual_match_decisions": 67,
+    "manual_match_decisions": 74,
     "duplicate_roster_names": 0,
     "faculty_in_more_than_one_lab": 0,
     "openalex_ids_shared_by_two_faculty": 0,
     "faculty_without_openalex_id": 0
   },
   "meeting_abstracts": {
-    "papers": 8,
+    "papers": 16,
     "titles": [
       "241PMultisystemic manifestations in neuromuscular disorders",
       "257PSpectrum of dystrophin mutations in a dystrophinopathy cohort in north India",
       "390PClinical and genetic profile of a cohort of myotonic dystrophy from north India",
       "523PSpinal muscular atrophy in an adult neurology clinic: delay in diagnosis to treatment",
       "AB062. DNA damage is associated with infantile-pediatric cases of mitochondrial disorders: a pilot study from North India",
+      "Activation of p21 following DNA damage transcriptionally controlled by a telomeric shelterin protein TRF2 in a telomere\u2010length dependent fashion",
       "Complex sphingolipids: Vital determinants of drug susceptibility, membrane integrity and pathogenesis of Candida glabrata",
+      "Dysregulation of Insulin receptor expression affects proximal tubule gluconeogenesis",
+      "MicroRNA\u2010203 regulates cell junction and adhesion proteins by modulating Zeb1/Vimentin axis in breast cancer cells after PARP1 inhibition.",
+      "Non-Syndromic Autistic Spectral Disorders in Tamilian Chldren Commonly Associated with Brain imaging anomalies and Spectral EEG changes (4209)",
+      "Novel Regulators of Melanogenesis Identified by Genome\u2010wide Transcriptome Analysis",
       "P5108Demographic, clinical, coronary angiographic profile and telomere length in young patients of acute myocardial infarction among nondiabetics and nonsmokers",
-      "P5443Association of G allele of CTLA 4 1661 A/G polymorphism with susceptibility and severity of rheumatic heart disease"
+      "P5443Association of G allele of CTLA 4 1661 A/G polymorphism with susceptibility and severity of rheumatic heart disease",
+      "Rapid identification and tracking of SARS-CoV-2 variants of concern",
+      "Transcription by the telomeric shelterin protein TRF2 is telomere\u2010length dependent \u2010telomeric partitioning and global transcription",
+      "Tremor in Spinocerebellar Ataxia 12 (SCA12): Clinical and Electrophysiological Perspective (P18-11.002)"
     ]
   }
 }

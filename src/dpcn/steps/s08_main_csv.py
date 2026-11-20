@@ -58,6 +58,8 @@ def build(ctx) -> pd.DataFrame:
     # citing / cited partner institutions per work (any Indian institution; partner test per row below)
     cited_by: dict[str, set] = {}
     for c in ctx.inflow.itertuples():
+        if c.work_id in ctx.ours:     # a dataset paper's references come from its dataset record (as in s09), not the
+            continue                  # later in-flow fetch, whose reference list OpenAlex may have updated since
         for r in c.refs_ours:
             if r in ctx.ours and r != c.work_id:          # OpenAlex lists some papers among their own references
                 cited_by.setdefault(r, set()).update(c.inst_ids)

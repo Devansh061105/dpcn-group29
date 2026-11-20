@@ -519,7 +519,7 @@
   document.querySelectorAll("#tabs button").forEach((b) => b.addEventListener("click", () => show(b.dataset.tab)));
   el("compact").addEventListener("change", renderFaculty);
   if (P2) P2WIRE();
-  else document.querySelectorAll('#tabs button[data-tab="impact"], #tabs button[data-tab="compare"], #tabs button[data-tab="instnet"], #tabs button[data-tab="flags"]').forEach((b) => b.remove());
+  else document.querySelectorAll('#tabs button[data-tab="impact"], #tabs button[data-tab="compare"], #tabs button[data-tab="instnet"], #tabs button[data-tab="flags"], #tabs button[data-tab="findings"]').forEach((b) => b.remove());
   document.querySelectorAll('input[name="layer"]').forEach((r) => r.addEventListener("change", () => { state.layer = r.value; renderCollab(); }));
   document.querySelectorAll('input[name="colorby"]').forEach((r) => r.addEventListener("change", () => { state.colorby = r.value; renderCollab(); }));
   el("theme").addEventListener("click", () => {

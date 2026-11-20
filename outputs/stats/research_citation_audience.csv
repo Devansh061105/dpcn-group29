@@ -1,0 +1,21 @@
+citing_scope,class,citations,share
+CSIR-CCMB,self (shared author),1673,0.9505681818181818
+CSIR-CCMB,"same lab, independent",37,0.021022727272727273
+CSIR-CCMB,co-author network,25,0.014204545454545454
+CSIR-CCMB,"other lab, independent",25,0.014204545454545454
+CSIR-IGIB,self (shared author),1472,0.9108910891089109
+CSIR-IGIB,co-author network,63,0.038985148514851485
+CSIR-IGIB,"other lab, independent",50,0.03094059405940594
+CSIR-IGIB,"same lab, independent",31,0.019183168316831683
+CSIR-IMTECH,self (shared author),1163,0.9193675889328063
+CSIR-IMTECH,"same lab, independent",39,0.0308300395256917
+CSIR-IMTECH,co-author network,34,0.026877470355731226
+CSIR-IMTECH,"other lab, independent",29,0.02292490118577075
+CSIR-CDRI,self (shared author),4732,0.9197278911564626
+CSIR-CDRI,co-author network,262,0.050923226433430516
+CSIR-CDRI,"same lab, independent",104,0.02021379980563654
+CSIR-CDRI,"other lab, independent",47,0.00913508260447036
+ALL,self (shared author),8922,0.9236024844720497
+ALL,co-author network,380,0.039337474120082816
+ALL,"same lab, independent",210,0.021739130434782608
+ALL,"other lab, independent",148,0.015320910973084885

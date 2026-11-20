@@ -135,9 +135,9 @@ def test_temporal_faculty_network_excludes_students_and_tracks_new_links():
     assert allyear.loc[2020, "links"] == 1 and allyear.loc[2021, "links"] == 2          # duplicate rows collapse; student pair ignored
     assert allyear.loc[2021, "new_links"] == 2 and allyear.loc[2021, "cross_lab_links"] == 2
     cum = t[(t.scope == "ALL") & (t["mode"] == "cumulative")].set_index("year")
-    assert cum.loc[2021, "links"] == 3 and cum.loc[2021, "faculty_active"] == 3 and cum.loc[2021, "largest_component_share"] == 1
+    assert cum.loc[2021, "links"] == 3 and cum.loc[2021, "faculty_linked"] == 3 and cum.loc[2021, "largest_component_share"] == 1
     lab_a = t[(t.scope == "CSIR-A") & (t["mode"] == "cumulative")].set_index("year")
-    assert lab_a.loc[2021, "links"] == 1 and lab_a.loc[2021, "faculty_active"] == 2     # induced on lab A's two faculty
+    assert lab_a.loc[2021, "links"] == 1 and lab_a.loc[2021, "faculty_linked"] == 2     # induced on lab A's two faculty
 
 
 def test_temporal_citations():
@@ -358,3 +358,12 @@ def test_quality_summary_counts_checks_that_should_be_zero():
     assert q["roster_with_orcid"] == 1 and q["roster_with_profile_dois"] == 1
     lab_b = [r for r in q["per_lab"] if r["lab"] == "B"][0]
     assert lab_b["roster"] == 2 and lab_b["with_papers"] == 1 and lab_b["without_papers"] == 1
+
+
+def test_dashboard_json_has_no_nan():
+    import json
+    import math
+    from dpcn.steps.s13_dashboard import json_safe
+    out = json_safe({"a": float("nan"), "b": [1.0, math.inf, {"c": -math.inf}], "d": "x"})
+    assert out == {"a": None, "b": [1.0, None, {"c": None}], "d": "x"}
+    json.dumps(out, allow_nan=False)

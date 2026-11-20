@@ -227,6 +227,8 @@ def load(cfg):
         raise StepFailed(f"missing stats tables {missing} - run s09 to s12 first")
     T = {n: pd.read_csv(st / f"{n}.csv") for n in names}
     T["indeg"] = pd.read_csv(st / "citation_indegree_dist.csv")
+    rs = st / "research_summary.json"           # step s17 (tests against randomised baselines); optional
+    T["rs"] = json.loads(rs.read_text()) if rs.exists() else None
     T["cit"] = json.loads((st / "citation_network_summary.json").read_text())
     T["au"] = json.loads((st / "authorship_network_summary.json").read_text())
     T["meta"] = json.loads((cfg.paths.submission / "metadata.json").read_text())
@@ -379,7 +381,13 @@ def build(cfg, T) -> Presentation:
     same_lab = mv.trace() / mv.sum() if mv.sum() else 0
     d.bullets(s, [f"Mean in-degree {c['mean_indeg']:.2f}; maximum {c['max_indeg']}; reciprocity {c['reciprocity']:.3f}",
                   f"Heavy-tailed: the most-cited 10% of papers receive {pct(top10)} of internal citations",
-                  f"{pct(same_lab)} of lab-to-lab citations stay inside the citing lab (matrix diagonal)"],
+                  f"{pct(same_lab)} of lab-to-lab citations stay inside the citing lab (matrix diagonal)"]
+              if not T["rs"] else
+              [f"Heavy-tailed: the most-cited 10% of papers receive {pct(top10)} of internal citations",
+               f"{pct(T['rs']['citation_audience_shares'].get('self (shared author)', 0))} of internal citations share an author "
+               "with the cited paper (self-citation of research groups)",
+               "Independent citations stay in the citing lab {:.0%} of the time vs {:.0%} expected by chance (same fields, years, "
+               "citation counts)".format(*[T["rs"]["within_lab_share_independent"]["same cited year and fields"][k] for k in ("observed", "expected")])],
               0.6, 5.25, 6.2, 1.7, size=12)
     pr = T["citation_pagerank_top"]
     pr = pr[pr.scope == "ALL"].head(10)
@@ -431,7 +439,11 @@ def build(cfg, T) -> Presentation:
     single = cm[cm["size"] >= 3]["labs"].map(lambda x: x.count("(") == 1).mean()
     d.bullets(s, [f"{au['communities']} communities; the largest have {sizes[0]}, {sizes[1]} and {sizes[2]} faculty; "
                   f"{pct(single)} of communities with 3+ members sit within a single lab",
-                  f"{au['cross_lab_edges']} of {au['edges']} faculty links join two labs; {au['isolates']} faculty have no faculty co-author",
+                  (f"{au['cross_lab_edges']} of {au['edges']} faculty links join two labs; {au['isolates']} faculty have no faculty co-author"
+                   if not T["rs"] else
+                   f"Cross-lab links: {pct(T['rs']['homophily']['cross_lab_share_observed'], 1)} vs "
+                   f"{pct(T['rs']['homophily']['cross_lab_share_label_permutation'])} if lab labels were random; "
+                   f"clustering {T['rs']['homophily']['clustering_ratio']:.1f}× a degree-preserving random network"),
                   f"Hub author: {hub['name']} ({short(hub['lab'])}) co-authors with {int(hub['n_partner_insts'])} Indian partner institutions",
                   f"All-author graph: {T['au']['internal_graph']['nodes']:,} authors, Q = {T['au']['internal_graph']['modularity']:.2f}; "
                   f"{T['au']['papers_skipped_over_max_authors']} papers with > {T['au']['max_authors_for_pairs']} authors excluded from pairs"],
@@ -470,6 +482,23 @@ def build(cfg, T) -> Presentation:
         f"Collaboration is lab-bound: {au['cross_lab_edges']} of {au['edges']} faculty links and {pct(1 - same_lab)} of "
         "lab-to-lab citations cross between the four labs.",
     ]
+    R = T["rs"]
+    if R:                       # replace the descriptive list by the findings that were tested against a baseline (s17)
+        H, a_ = R["homophily"], R["citation_audience_shares"]
+        dl = R["distance_lift"]
+        mid = next((r for r in R["led_vs_middle_all"] if r["role"] != "lab-led"), {})
+        findings = [
+            f"{pct(a_.get('self (shared author)', 0))} of citations among our papers are self-citations (an author in common); "
+            f"only {pct(a_.get('same lab, independent', 0) + a_.get('other lab, independent', 0))} are independent.",
+            f"The labs are islands: {pct(H['cross_lab_share_observed'], 1)} of faculty co-author links cross labs vs "
+            f"{pct(H['cross_lab_share_label_permutation'])} expected by chance; same-lab pairs co-author far more even "
+            "at equal topic similarity.",
+            f"Citations follow social ties: independent citations between co-authors run at {dl.get('independent citations|1', float('nan')):.0f}× "
+            f"the volume-only expectation, {dl.get('independent citations|2', float('nan')):.1f}× at distance 2.",
+            f"Middle-author papers are {pct(mid.get('share_of_papers'))} of papers but {pct(mid.get('share_of_citations'))} of citations: "
+            "larger teams, cited about as often as lab-led papers of the same size.",
+            flow_line,
+        ]
     d.card(s, 6.5, 1.6, 6.3, 5.35)
     d.text(s, "Key findings", 6.75, 1.75, 5.8, 0.45, size=18, bold=True, font=HEAD)
     d.bullets(s, findings, 6.75, 2.3, 5.85, 4.5, size=15)

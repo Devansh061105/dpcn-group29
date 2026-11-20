@@ -1,22 +1,22 @@
 {
-  "nodes": 6063,
-  "internal_edges": 9634,
-  "density": 0.0002621218000611962,
-  "weak_components": 1867,
-  "largest_wcc": 3414,
-  "isolates": 1595,
-  "share_indeg_0": 0.4905162460827973,
-  "mean_indeg": 1.5889823519709714,
+  "nodes": 6027,
+  "internal_edges": 9660,
+  "density": 0.00026597866851078546,
+  "weak_components": 1837,
+  "largest_wcc": 3413,
+  "isolates": 1567,
+  "share_indeg_0": 0.4871411979425917,
+  "mean_indeg": 1.602787456445993,
   "max_indeg": 31,
-  "reciprocity": 0.006227942702927133,
+  "reciprocity": 0.006211180124223602,
   "exported_edges": {
-    "outflow": 29304,
-    "inflow": 25302,
-    "internal": 9634
+    "outflow": 29367,
+    "inflow": 26852,
+    "internal": 9660
   },
-  "cross_institute_edges": 60713,
+  "cross_institute_edges": 62357,
   "dropped_not_cross": {
-    "outflow": 6476,
-    "inflow": 729
+    "outflow": 6465,
+    "inflow": 792
   }
 }

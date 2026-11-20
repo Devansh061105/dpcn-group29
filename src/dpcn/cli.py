@@ -32,6 +32,7 @@ STEPS: list[tuple[str, str]] = [
     ("s11", "s11_connections"),
     ("s12", "s12_stats"),
     ("s16", "s16_phase2"),      # Phase II analyses; runs before the dashboard, which displays them
+    ("s17", "s17_research"),    # research analyses against randomised baselines (also shown in the dashboard)
     ("s13", "s13_dashboard"),
     ("s14", "s14_report"),
     ("s15", "s15_validate"),

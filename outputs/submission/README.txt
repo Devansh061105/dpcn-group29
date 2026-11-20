@@ -1,12 +1,12 @@
 DPCN Research Mapping Project - Group 29
 Institutions: CSIR-CCMB, CSIR-IGIB, CSIR-IMTECH, CSIR-CDRI
-Window: 2016-2026 (2026 is a partial year). Data collected from OpenAlex on 2026-10-13.
+Window: 2016-2026 (2026 is a partial year). Data collected from OpenAlex on 2026-11-20.
 
 FILES
-  group29_data.csv                 8107 rows
-  citation_network.csv            64240 rows
-  authorship_network.csv         127062 rows
-  indian_connections.csv           6182 rows
+  group29_data.csv                 8064 rows
+  citation_network.csv            65879 rows
+  authorship_network.csv         126944 rows
+  indian_connections.csv           6555 rows
   group29_dashboard.html
   group29_report.pptx
   group29_report.pdf

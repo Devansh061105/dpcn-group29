@@ -32,6 +32,17 @@ LIBS = {   # pinned versions (guide §8)
 }
 
 
+def json_safe(o):
+    """Replace NaN and infinity (invalid JSON) by None, recursively."""
+    if isinstance(o, float):
+        return o if o == o and o not in (float("inf"), float("-inf")) else None
+    if isinstance(o, dict):
+        return {k: json_safe(v) for k, v in o.items()}
+    if isinstance(o, (list, tuple)):
+        return [json_safe(v) for v in o]
+    return o
+
+
 def records(df: pd.DataFrame) -> list[dict]:
     """JSON-safe records (NaN -> null)."""
     return json.loads(df.to_json(orient="records", force_ascii=False))
@@ -95,6 +106,17 @@ def phase2_bundle(cfg) -> dict | None:
     out["inst_network"] = json.loads((cfg.paths.networks / "inst_network.json").read_text(encoding="utf-8"))
     out["summary"] = json.loads((st / "p2_summary.json").read_text(encoding="utf-8"))
     out["notes"] = {k: str(v or "").strip() for k, v in notes.items()}
+    # optional tables: lab totals including student papers (s16), the cleaning log (s05) and the research analyses (s17)
+    for key, f in (("lab_corpus", "p2_lab_corpus.csv"), ("lab_corpus_yearly", "p2_lab_corpus_yearly.csv"),
+                   ("cleaning_log", "cleaning_log.csv")):
+        if (st / f).exists():
+            out[key] = records(pd.read_csv(st / f, keep_default_na=False, na_values=[""]))
+    research = {}
+    for f in sorted(st.glob("research_*.csv")):
+        research[f.stem.replace("research_", "")] = records(pd.read_csv(f, keep_default_na=False, na_values=[""]))
+    if research and (st / "research_summary.json").exists():
+        research["summary"] = json.loads((st / "research_summary.json").read_text(encoding="utf-8"))
+        out["research"] = research
     return out
 
 
@@ -157,7 +179,7 @@ def run(cfg, oa, argv=()) -> None:
     ap = argparse.ArgumentParser(prog="s13")
     ap.add_argument("--cdn", action="store_true", help="load libraries from a CDN instead of inlining them")
     args, _ = ap.parse_known_args(list(argv))
-    data = json.dumps(bundle(cfg), ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
+    data = json.dumps(json_safe(bundle(cfg)), ensure_ascii=False, separators=(",", ":"), allow_nan=False).replace("</", "<\\/")
     html = (SRC / "template.html").read_text(encoding="utf-8")
     if args.cdn:
         head = "\n".join(f'<link rel="stylesheet" href="{u}">' if k == "css" else f'<script src="{u}"></script>'

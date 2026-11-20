@@ -20,6 +20,7 @@ from collections import Counter, defaultdict
 from datetime import datetime, timezone
 
 import pandas as pd
+from unidecode import unidecode
 
 from ..institutions import InstitutionRegistry
 from ..names import norm
@@ -32,20 +33,48 @@ log = logging.getLogger("dpcn.s05")
 
 # --------------------------------------------------------------------------- pure decision functions
 
-def classify_work(w: dict, include_types) -> tuple[str | None, str | None]:
-    """(kind, None) for a work to keep, ('journal'|'conference'); (None, reason) for one to drop (plan D7)."""
+# Non-research records that OpenAlex types as journal articles. Each removal is written to the cleaning log.
+CLEAN_PREFIX = "cleaning: "
+
+
+def doi_key(doi) -> str:
+    return (doi or "").lower().replace("https://doi.org/", "").strip()
+
+
+def classify_work(w: dict, include_types, exclusions: dict | None = None) -> tuple[str | None, str | None]:
+    """(kind, None) for a work to keep, ('journal'|'conference'); (None, reason) for one to drop (plan D7).
+
+    Also drops records that are not research papers although typed as articles: ChemInform abstract reprints of papers
+    published elsewhere, Nature news/briefing items (DOI prefix 10.1038/d41586), and the DOIs listed with scope `all`
+    in data/manual/work_exclusions.csv (`exclusions`: doi -> reason)."""
     if w.get("is_retracted"):
         return None, "retracted"
     wtype = w.get("type")
     if wtype not in include_types:
         return None, f"type: {wtype}"
     src = (w.get("primary_location") or {}).get("source") or {}
+    doi = doi_key(w.get("doi"))
+    if exclusions and doi in exclusions:
+        return None, CLEAN_PREFIX + exclusions[doi]
+    if (src.get("display_name") or "") == "ChemInform" or (w.get("title") or "").startswith("ChemInform"):
+        return None, CLEAN_PREFIX + "ChemInform abstract (reprint of a paper published elsewhere)"
+    if doi.startswith("10.1038/d41586"):
+        return None, CLEAN_PREFIX + "Nature news / briefing item"
     stype = src.get("type")
     if wtype == "conference-paper" or stype == "conference":
         return "conference", None
     if stype == "journal":
         return "journal", None
     return None, f"source: {stype or 'none'}"
+
+
+def load_exclusions(cfg) -> dict[str, str]:
+    """doi -> reason for rows of data/manual/work_exclusions.csv with scope `all` (scope `top_lists` is applied in s16)."""
+    path = cfg.paths.manual / "work_exclusions.csv"
+    if not path.exists():
+        return {}
+    x = pd.read_csv(path, dtype=str, keep_default_na=False)
+    return {doi_key(r.doi): r.reason for r in x.itertuples() if r.scope == "all"}
 
 
 def alias_regex(lab: dict) -> re.Pattern:
@@ -99,14 +128,60 @@ def dedupe_key(m: dict) -> str:
     return f"title:{t}|{m.get('year')}" if len(t) >= 25 else "id:" + m["work_id"]
 
 
+def title_key(title) -> str:
+    """Lower-case letters and digits only (unlike names.norm, digits are kept)."""
+    return re.sub(r"[^a-z0-9]+", " ", unidecode(title or "").lower()).strip()
+
+
+_VERSIONED = re.compile(r"^(10\.7554/elife\.\d+|10\.12688/f1000research\.\d+)(\.\d+)?$")
+
+
+def duplicate_groups(meta: dict[str, dict]) -> list[list[dict]]:
+    """Records that are one work: same DOI (or same long title and year, `dedupe_key`), plus two looser links found
+    in the data: versions of one eLife / F1000Research article (`elife.12345.3` = `elife.12345`) and the same long
+    title within two years (a conference abstract and its paper, a translated twin, a reviewed preprint)."""
+    parent = {k: k for k in meta}
+
+    def find(x):
+        while parent[x] != x:
+            parent[x] = parent[parent[x]]
+            x = parent[x]
+        return x
+
+    def union(ids):
+        ids = list(ids)
+        for x in ids[1:]:
+            parent[find(x)] = find(ids[0])
+    keyed: dict[str, list[str]] = defaultdict(list)
+    for m in meta.values():
+        keyed["k:" + dedupe_key(m)].append(m["work_id"])
+        v = _VERSIONED.match(doi_key(m.get("doi")))
+        if v:
+            keyed["v:" + v.group(1)].append(m["work_id"])
+    for ids in keyed.values():
+        if len(ids) > 1:
+            union(ids)
+    by_title: dict[str, list[dict]] = defaultdict(list)
+    for m in meta.values():
+        t = title_key(m.get("title"))     # keeps digits: 'Rv0047c' and 'Rv1176c' are different proteins
+        if len(t) >= 25:
+            by_title[t].append(m)
+    for g in by_title.values():
+        g = sorted(g, key=lambda m: m.get("year") or 0)
+        for a, b in zip(g, g[1:]):
+            if abs((b.get("year") or 0) - (a.get("year") or 0)) <= 2:
+                union([a["work_id"], b["work_id"]])
+    comps: dict[str, list[dict]] = defaultdict(list)
+    for m in meta.values():
+        comps[find(m["work_id"])].append(m)
+    return list(comps.values())
+
+
 def resolve_duplicates(meta: dict[str, dict]) -> dict[str, str]:
     """loser work_id -> winner work_id. Prefer a record that has a faculty link, then more citations,
     then the earlier date; so a duplicate never removes a paper that has a lab link."""
-    groups: dict[str, list[dict]] = defaultdict(list)
-    for m in meta.values():
-        groups[dedupe_key(m)].append(m)
     out = {}
-    for g in groups.values():
+    for g in duplicate_groups(meta):
         if len(g) < 2:
             continue
         pool = [m for m in g if m["dataset"]] or g
@@ -220,6 +295,7 @@ def run(cfg, oa, argv=()) -> None:
     seen: set[str] = set()
     drops: Counter = Counter()
     faculty_no_link = 0                        # faculty-collection papers with no lab-affiliated authorship by them
+    exclusions, cleaning = load_exclusions(cfg), []
 
     def handle(w: dict, lab: str | None, from_faculty: bool) -> None:
         nonlocal faculty_no_link
@@ -234,9 +310,12 @@ def run(cfg, oa, argv=()) -> None:
         if not y0 <= (w.get("publication_year") or 0) <= y1:
             drops["year outside window"] += 1
             return
-        kind, reason = classify_work(w, include_types)
+        kind, reason = classify_work(w, include_types, exclusions)
         if reason:
             drops[reason] += 1
+            if reason.startswith(CLEAN_PREFIX):
+                cleaning.append({"work_id": wid, "doi": w.get("doi"), "title": w.get("title"), "year": w.get("publication_year"),
+                                 "action": "removed", "reason": reason[len(CLEAN_PREFIX):], "kept_record": ""})
             return
         links = faculty_links(w, fac_by_author, labs)
         if not links:
@@ -289,6 +368,12 @@ def run(cfg, oa, argv=()) -> None:
         meta[winner]["in_lab"] |= meta[loser]["in_lab"]
         meta[winner]["in_fac"] |= meta[loser]["in_fac"]
     drop_ids = set(loser_to_winner)
+    for loser, winner in loser_to_winner.items():
+        if loser in work_rows:     # only dataset records matter for the log
+            m = meta[loser]
+            cleaning.append({"work_id": loser, "doi": m["doi"], "title": m["title"], "year": m["year"], "action": "merged",
+                             "reason": "duplicate record of the same work (version, abstract or translated twin)",
+                             "kept_record": f"{winner} {meta[winner]['doi'] or ''}".strip()})
     final = [wid for wid in work_rows if wid not in drop_ids]
     for wid in drop_ids:
         meta.pop(wid, None)
@@ -310,6 +395,11 @@ def run(cfg, oa, argv=()) -> None:
     unc = uncovered_authors(cfg, labs, set(meta), keep_ids, set(fac_by_author), s02)
     unc_path = cfg.paths.review / "uncovered_lab_authors.csv"
     unc_path.parent.mkdir(parents=True, exist_ok=True)
+    cfg.paths.stats.mkdir(parents=True, exist_ok=True)
+    pd.DataFrame(cleaning, columns=["work_id", "doi", "title", "year", "action", "reason", "kept_record"]).to_csv(
+        cfg.paths.stats / "cleaning_log.csv", index=False, encoding="utf-8", lineterminator="\n")
+    log.info("cleaning: %d records removed as non-research, %d merged as duplicates (outputs/stats/cleaning_log.csv)",
+             sum(c["action"] == "removed" for c in cleaning), sum(c["action"] == "merged" for c in cleaning))
     unc.to_csv(unc_path, index=False, encoding="utf-8", lineterminator="\n")
 
     out = cfg.paths.interim

@@ -23,6 +23,7 @@
 </header>
 <nav class="tabs" role="tablist" id="tabs">
   <button role="tab" data-tab="overview" aria-selected="true">Overview</button>
+  <button role="tab" data-tab="findings">Findings</button>
   <button role="tab" data-tab="journals">Journals</button>
   <button role="tab" data-tab="faculty">Faculty</button>
   <button role="tab" data-tab="research">Research</button>
@@ -45,6 +46,31 @@
       <div class="card"><h2>Citations received by publication year</h2><p class="note">Citation counts at collection date; recent papers have had less time to be cited.</p><div id="c-cites" class="chart"></div></div>
       <div class="card"><h2>Institution summary</h2><div id="t-summary"></div></div>
     </div>
+  </section>
+
+  <section id="tab-findings" class="tab" hidden>
+    <div class="card banner"><h2>What holds up against a baseline</h2>
+      <p class="note">Each result below compares what we observe with what chance or a controlled model predicts: citations reshuffled while every paper keeps its citation counts, cited year and field; lab labels shuffled across faculty; co-authorship links rewired with every person keeping their number of links. Figures cover all four labs (the lab selector does not change this tab unless a chart says so). Computed by step s17 from the submitted data; the methods are listed at the end of the tab.</p></div>
+    <div class="card"><h2>Findings</h2><div id="fd-list"></div></div>
+    <div class="grid2">
+      <div class="card"><h2>Who cites our papers inside the corpus</h2><p class="note">Every citation between two dataset papers, classed by the closest tie: the same author on both papers, faculty who had already co-written, the same lab, another of our labs.</p><div id="c-fd-aud" class="chart"></div></div>
+      <div class="card"><h2>Citations between labs against chance</h2><p class="note">Independent citations (no shared author), observed ÷ expected. Expected = mean of 1,000 reshuffles that keep each paper's citations given and received, the cited year and both fields. Blue above 1, orange below; * = significant after Benjamini–Hochberg correction (q < 0.05).</p><div id="c-fd-ex" class="chart"></div></div>
+    </div>
+    <div class="grid2">
+      <div class="card"><h2>Who writes with whom</h2><p class="note">Odds of two faculty co-authoring (logistic model over all faculty pairs). The same-lab effect is shown alone, then controlling for topic similarity (OpenAlex subfields of their papers) and output, then also for the same department. Bars are 95% intervals.</p><div id="c-fd-or" class="chart"></div></div>
+      <div class="card"><h2>Citations by co-authorship distance</h2><p class="note">Citations from faculty <i>i</i> to faculty <i>j</i> by their distance in the co-authorship network of the previous years, divided by what <i>i</i>'s citing volume and <i>j</i>'s cited volume alone predict (after Singh et al. 2020). 1 = co-authors, 2 = a shared co-author.</p><div id="c-fd-dist" class="chart"></div></div>
+    </div>
+    <div class="grid2">
+      <div class="card"><h2>Lab-led papers vs middle-author papers</h2><p class="note">Lab-led: a lab author is first, last or corresponding author. Bars: share of papers and share of citations; the dots give citations relative to the field-and-year average of the corpus (1 = average).</p><div id="c-fd-led" class="chart"></div></div>
+      <div class="card"><h2>Do new collaborations last?</h2><p class="note">Faculty pairs who first co-authored in 2016–2022: share who write together again within three years, with 95% intervals. Right: how much more likely an unlinked pair is to link in a year when they already share a co-author (triadic closure).</p><div id="c-fd-pers" class="chart"></div></div>
+    </div>
+    <div class="grid2">
+      <div class="card"><h2>Lab differences in citations, with controls</h2><p class="note">Percent difference in citations per paper relative to CDRI (single-lab papers; log citations, OLS with robust errors). "With controls" adds publication year, OpenAlex field, number of authors and review vs article.</p><div id="c-fd-imp" class="chart"></div></div>
+      <div class="card"><h2>The COVID-19 shock</h2><p class="note">Share of each lab's papers on SARS-CoV-2 / COVID-19 (title or OpenAlex topic), by year.</p><div id="c-fd-covid" class="chart"></div></div>
+    </div>
+    <div class="card"><h2>Most influential papers, with and without self-citation</h2><p class="note">PageRank on the internal citation network. "Without" drops citations where the citing and cited paper share an author; papers that ranked high on their own authors' citations fall.</p><div id="t-fd-pr"></div></div>
+    <div class="card team-note" data-note="research"></div>
+    <div class="card prose"><h2>Methods</h2><div id="fd-methods"></div></div>
   </section>
 
   <section id="tab-journals" class="tab" hidden>
@@ -136,6 +162,7 @@
       <div class="card"><h2>Collaborating institutions per year</h2><p class="note">Distinct co-author institutions, Indian and foreign (the lab's own institution and AcSIR excluded). One consortium paper can list over a thousand institutions, so dotted lines recount without papers that have 100+ authors.</p><div id="c-collab-year" class="chart"></div></div>
       <div class="card"><h2>Journal impact factor of the papers</h2><p class="note">Dashed lines mark the two thresholds.</p><div id="c-ifdist" class="chart"></div></div>
     </div>
+    <div class="card"><h2>All lab papers, including those with no roster scientist</h2><p class="note">Faculty statistics count papers with a roster scientist on them. The lab's full output also includes papers by students, postdocs, staff and scientists missing from the roster, counted here with the same rules (types, cleaning, duplicates, SJR quartile, JCR impact factor). Quartiles for journals outside our main dataset may be missing (see "Quartile known").</p><div id="t-corpus"></div><div id="c-corpus" class="chart"></div></div>
     <div class="card"><h2>Top 30 papers by journal impact factor</h2><p class="note">Ranked by the journal's impact factor, then by citations. Conference papers have no impact factor and are not ranked.</p><div id="t-top30"></div></div>
     <div class="card"><h2>Most frequently published journals</h2><div id="t-freqj"></div></div>
     <div class="card team-note" data-note="overview"></div>
@@ -149,7 +176,7 @@
       <div id="c-fcomp" class="chart tall"></div></div>
     <div class="grid2">
       <div class="card"><h2>Most productive faculty</h2><p class="note">Papers, 2016–2026.</p><div id="c-top-prod" class="chart"></div></div>
-      <div class="card"><h2>Most connected faculty</h2><p class="note">Distinct collaborating institutions.</p><div id="c-top-conn" class="chart"></div></div>
+      <div class="card"><h2>Most connected faculty</h2><p class="note">Co-author links with other faculty in the faculty network (papers with up to 50 authors). Partner-institution counts are in the table, without 100+ author papers, which add hundreds of institutions at once.</p><div id="c-top-conn" class="chart"></div></div>
     </div>
     <div class="card"><h2>Faculty comparison</h2>
       <p class="note">Sort by any column; type in a header to filter. "Citations excl." removes papers with the configured number of authors or more; "Flag" explains why a row is flagged.</p>
@@ -173,7 +200,7 @@
     <div class="grid2">
       <div class="card"><h2>Faculty co-authorship network over time</h2>
         <div class="row note"><label>Measure <select id="tnet-metric">
-          <option value="faculty_active">Faculty active</option><option value="links">Co-author links</option><option value="mean_degree">Mean links per faculty</option>
+          <option value="faculty_linked">Faculty with a faculty co-author</option><option value="links">Co-author links</option><option value="mean_degree">Mean links per faculty</option>
           <option value="density">Density</option><option value="largest_component_share">Share in the largest component</option>
           <option value="new_links">New links</option><option value="cross_lab_links">Links between labs</option></select></label>
           <label><input type="radio" name="tmode" value="year" checked> Each year</label><label><input type="radio" name="tmode" value="cumulative"> Cumulative</label></div>
@@ -191,9 +218,10 @@
     </div>
     <div class="card"><h2>Papers with 100 or more authors</h2><p class="note">Consortium-style papers collect citations for every co-author. Their citations are real, but they say little about any one author's contribution.</p><div id="t-hyper"></div></div>
     <div class="card"><h2>Flagged faculty</h2><p class="note">Flagged when 25% or more of the citations come from papers with 100+ authors, or 60% or more from papers with 10+ authors (faculty with at least 100 citations). "Without" columns recompute the citations and h-index leaving the 100+ author papers out.</p><div id="t-flagfac"></div></div>
+    <div class="card"><h2>Lifetime citations: the "one lakh" check</h2><p class="note">Lifetime OpenAlex citations of each faculty member (all their author profiles) against the citations of their 2016–2026 lab papers. A lifetime count of a lakh or more, or a large lifetime count with under 5% of it in the window, is flagged. In our data this usually means an OpenAlex profile that merges several people, or a long career before the window, so a flag is a prompt to check the profile, not a claim about the person.</p><div id="c-life" class="chart tall"></div><div id="t-life"></div></div>
     <div class="card team-note" data-note="hyperauthorship"></div>
     <div class="card"><h2>Institutions citing the labs</h2>
-      <div class="row note"><label>Ownership <select id="own-filter"><option value="all">All</option><option value="government">Government</option><option value="government-aided">Government-aided</option><option value="private">Private (non-government)</option><option value="unclassified">Unclassified</option></select></label></div>
+      <div class="row note"><label>Ownership <select id="own-filter"><option value="all">All</option><option value="government">Government</option><option value="government-aided">Government-aided</option><option value="private">Private (non-government)</option><option value="international">International</option><option value="unclassified">Unclassified</option></select></label></div>
       <p class="note">Each point is an institution: citations it gave the lab(s) against papers it co-authored with them. Above the dashed diagonal an institution cites far more than it collaborates. Ownership comes from a hand-made file (data/manual/institution_ownership.csv) that the team must verify; heavy = at least 150 citations.</p>
       <div id="c-citers2" class="chart tall"></div><div id="t-citers"></div></div>
     <div class="card"><h2>Do they still stand out once size is taken into account?</h2>

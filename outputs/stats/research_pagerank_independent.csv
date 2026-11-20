@@ -1,0 +1,31 @@
+basis,rank,work_id,title,year,labs,pagerank,in_degree,citations,rank_all,rank_independent
+all citations,1,W2507533461,Nitric oxide-mediated apoptosis of neutrophils through caspase-8 and caspase-3-dependent mechanism,2016,CSIR-CDRI,0.0025946255318000694,12,120,1,512
+all citations,2,W2295842821,"Theophylline, a methylxanthine drug induces osteopenia and alters calciotropic hormones, and prophylactic vitamin D treatment protects against these changes in rats",2016,CSIR-CDRI,0.002365974065697648,23,35,2,135
+all citations,3,W2571984714,Altered glucose and lipid homeostasis in liver and adipose tissue pre-dispose inducible NOS knockout mice to insulin resistance,2017,CSIR-CDRI,0.0022331591435671497,13,42,3,10
+all citations,4,W3154109978,Computational Analysis and Phylogenetic Clustering of SARS-CoV-2 Genomes,2021,CSIR-IGIB,0.0021717300511704175,6,15,4,350
+all citations,5,W2522993044,The Simons Genome Diversity Project: 300 genomes from 142 diverse populations,2016,CSIR-CCMB,0.0020649821270014575,12,1595,5,1
+all citations,6,W3131334373,High throughput detection and genetic epidemiology of SARS-CoV-2 using COVIDSeq next-generation sequencing,2021,CSIR-IGIB,0.0019428721678955876,15,146,6,49
+all citations,7,W2889317324,An F-type lectin domain directs the activity of Streptosporangium roseum alpha-l-fucosidase,2018,CSIR-IMTECH,0.001919213457359301,9,18,7,512
+all citations,8,W2239187015,Skp2 inhibits osteogenesis by promoting ubiquitin–proteasome degradation of Runx2,2016,CSIR-CDRI,0.0018565710658971471,10,52,8,512
+all citations,9,W2494167329,Drug Repurposing: A new Front in the War Against Staphylococcus Aureus,2016,CSIR-CDRI,0.0018129469677825771,4,23,9,512
+all citations,10,W2747708914,Globular adiponectin reverses osteo-sarcopenia and altered body composition in ovariectomized rats,2017,CSIR-CDRI,0.0017312395470516747,28,52,10,26
+all citations,11,W2891582887,Nature-inspired engineering of an F-type lectin for increased binding strength,2018,CSIR-IMTECH,0.001678748272869752,2,14,11,512
+all citations,12,W2519281549,Small molecule adiponectin receptor agonist GTDF protects against skeletal muscle atrophy,2016,CSIR-CDRI,0.0016666363746757288,14,42,12,51
+all citations,13,W3198233589,SARS-CoV-2 B.1.617.2 Delta variant replication and immune evasion,2021,CSIR-CCMB;CSIR-IGIB,0.0016624683726067905,17,1337,13,25
+all citations,14,W3094333956,IndiGenomes: a comprehensive resource of genetic variants from over 1000 Indian genomes,2020,CSIR-IGIB,0.00160599023346103,31,126,14,7
+all citations,15,W2727995915,Repurposing Ivacaftor for treatment of Staphylococcus aureus infections,2017,CSIR-CDRI,0.0015936486244891926,22,51,15,56
+independent citations,1,W2522993044,The Simons Genome Diversity Project: 300 genomes from 142 diverse populations,2016,CSIR-CCMB,0.0013720435415143098,7,1595,5,1
+independent citations,2,W2950617339,The promise of discovering population-specific disease-associated genes in South Asia,2017,CSIR-CCMB,0.0011419370633575696,9,170,25,2
+independent citations,3,W2761253844,Modulation of Alpha-synuclein Expression and Associated Effects by MicroRNA Let-7 in Transgenic C. elegans,2017,CSIR-CDRI,0.0010882238509134909,3,44,671,3
+independent citations,4,W2343320059,Thiol reductive stress induces cellulose-anchored biofilm formation in Mycobacterium tuberculosis,2016,CSIR-IMTECH,0.0009001952608092367,7,176,29,4
+independent citations,5,W2894914194,Basal and starvation-induced autophagy mediates parasite survival during intraerythrocytic stages of Plasmodium falciparum,2018,CSIR-IGIB,0.0008861849488695906,7,27,752,5
+independent citations,6,W2752326209,Guidelines for the use and interpretation of assays for monitoring autophagy (3rd edition),2016,CSIR-CCMB,0.0008299937575446518,5,5860,21,6
+independent citations,7,W3094333956,IndiGenomes: a comprehensive resource of genetic variants from over 1000 Indian genomes,2020,CSIR-IGIB,0.0008027228514971306,5,126,14,7
+independent citations,8,W2937074474,Oxidative Stress: A Key Modulator in Neurodegenerative Diseases,2019,CSIR-IGIB,0.0007931827187822276,5,2251,125,8
+independent citations,9,W2486527580,Hyaluronic acid anchored paclitaxel nanocrystals improves chemotherapeutic efficacy and inhibits lung metastasis in tumor-bearing rat model,2016,CSIR-CDRI,0.0007692227611155648,3,49,126,9
+independent citations,10,W2571984714,Altered glucose and lipid homeostasis in liver and adipose tissue pre-dispose inducible NOS knockout mice to insulin resistance,2017,CSIR-CDRI,0.0007645623206375185,3,42,3,10
+independent citations,11,W2913120261,Aggregation of Respiratory Complex Subunits Marks the Onset of Proteotoxicity in Proteasome Inhibited Cells,2019,CSIR-CCMB,0.0007275074338416452,3,21,161,11
+independent citations,12,W2886156086,Bonsai Gelsolin Survives Heat Induced Denaturation by Forming β-Amyloids which Leach Out Functional Monomer,2018,CSIR-IMTECH,0.0007186609798592538,4,16,705,12
+independent citations,13,W2736494706,Inclusion of Population-specific Reference Panel from India to the 1000 Genomes Phase 3 Panel Improves Imputation Accuracy,2017,CSIR-CCMB,0.0006900405817145448,3,18,229,13
+independent citations,14,W2922266901,"Oral dosing of pentoxifylline, a pan-phosphodiesterase inhibitor restores bone mass and quality in osteopenic rabbits by an osteogenic mechanism: A comparative study with human parathyroid hormone",2019,CSIR-CDRI,0.0006886376822969458,4,20,259,14
+independent citations,15,W2460976208,Plasma proteomic analysis of stable coronary artery disease indicates impairment of reverse cholesterol pathway,2016,CSIR-IGIB,0.0006727596390809891,4,29,138,15

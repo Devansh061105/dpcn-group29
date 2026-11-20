@@ -27,7 +27,8 @@ log = logging.getLogger("dpcn.s11")
 
 COLUMNS = ["your_inst", "partner_inst", "shared_papers", "total_citations", "cites_in", "cites_out",
            "shared_papers_citations", "partner_openalex_id", "partner_cluster", "cross_cluster", "pair_label",
-           "partner_in_group", "partner_is_csir_academy", "jaccard_topics", "jaccard_subfields"]
+           "partner_in_group", "partner_is_csir_academy", "jaccard_topics", "jaccard_subfields", "cites_in_external",
+           "cites_out_external"]
 
 
 def jaccard(a: set, b: set) -> float | None:
@@ -59,18 +60,26 @@ def run(cfg, oa, argv=()) -> None:
     cites_in, cites_out = Counter(), Counter()
     flow_rows = []                                   # one row per (lab, direction, edge) for flow statistics
     citing_papers = defaultdict(Counter)             # lab -> citing work -> number of the lab's papers it cites
+    cites_in_ext, cites_out_ext = Counter(), Counter()
+
+    def carries(w, lab):                             # the work has an author at `lab` (it is partly the lab's own work)
+        return lab in ctx.labs_of.get(w, ()) or any(reg.our_lab(i) == lab for i in ctx.inst.get(w, []))
     for s, t, year in edges[["src", "tgt", "year"]].itertuples(index=False):
         for lab in ctx.labs_of.get(t, ()):           # s cites a paper of lab
             ps = set(ctx.partners(s, lab))
+            ext = not carries(s, lab)
             for p in ps:
                 cites_in[lab, p] += 1
+                cites_in_ext[lab, p] += ext
             if ps:
                 flow_rows.append((lab, "in", year))
                 citing_papers[lab][s] += 1
         for lab in ctx.labs_of.get(s, ()):           # a paper of lab cites t
             ps = set(ctx.partners(t, lab))
+            ext = not carries(t, lab)
             for p in ps:
                 cites_out[lab, p] += 1
+                cites_out_ext[lab, p] += ext
             if ps:
                 flow_rows.append((lab, "out", year))
 
@@ -82,6 +91,7 @@ def run(cfg, oa, argv=()) -> None:
         rows.append({"your_inst": lab, "partner_inst": reg.label(p), "shared_papers": shared[lab, p],
                      "total_citations": cites_in[lab, p] + cites_out[lab, p], "cites_in": cites_in[lab, p],
                      "cites_out": cites_out[lab, p], "shared_papers_citations": shared_cit[lab, p],
+                     "cites_in_external": cites_in_ext[lab, p], "cites_out_external": cites_out_ext[lab, p],
                      "partner_openalex_id": p, "partner_cluster": cl, "cross_cluster": cl != cfg.cluster_label,
                      "pair_label": f"{cfg.cluster_label}↔{cl}", "partner_in_group": p in in_group or bool(reg.our_lab(p)),
                      "partner_is_csir_academy": reg.is_academy(p), "jaccard_topics": None, "jaccard_subfields": None})

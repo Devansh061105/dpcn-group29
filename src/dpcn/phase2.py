@@ -24,7 +24,9 @@ def norm_issn(x) -> str:
 
 
 def norm_title(x) -> str:
-    return re.sub(r"[^a-z0-9]+", " ", str(x or "").lower()).strip()
+    """Lower-case words only; '&' reads as 'and' and a leading 'The' is dropped ('The Lancet' = 'LANCET')."""
+    t = re.sub(r"[^a-z0-9]+", " ", str(x or "").lower().replace("&", " and ")).strip()
+    return re.sub(r"^the ", "", t)
 
 
 def h_index(cites) -> int:
@@ -63,15 +65,18 @@ def class_order(p2) -> list[str]:
 # Conference and poster abstracts that a journal prints in a supplement. They count as publications (OpenAlex lists them
 # as journal papers), but they inherit the journal's impact factor, so they are kept out of the IF-ranked lists.
 _ABSTRACT_TITLE = re.compile(r"^(?:[A-Z]{1,2})?\d{3,5}[A-Z]?(?=[A-Z][a-z])|^[A-Z]{1,3}\d{2,4}\.\s")   # "P5108Title...", "241PTitle...", "AB062. Title"
-_ABSTRACT_DOI = re.compile(r"\.(?:p|po|op|s)\d{2,5}$", re.I)                                       # ".../ehy566.p5108", ".../acmi.cc2021.po0042"
+_ABSTRACT_DOI = re.compile(r"\.(?:p|po|op|s)\d{2,5}$|_supplement\.", re.I)                        # ".../ehy566.p5108", ".../acmi.cc2021.po0042", FASEB "..._supplement.539.4"
 
 
 def is_meeting_abstract(title, doi) -> bool:
     return bool(_ABSTRACT_TITLE.search(str(title or "").strip()) or _ABSTRACT_DOI.search(str(doi or "").strip()))
 
 
-def prepare(main: pd.DataFrame, impact: pd.DataFrame, labs: list[str], p2) -> pd.DataFrame:
-    """Typed copy of the dataset with impact factor, author class and collaborating-institution sets added."""
+def prepare(main: pd.DataFrame, impact: pd.DataFrame, labs: list[str], p2, not_ranked: set | None = None) -> pd.DataFrame:
+    """Typed copy of the dataset with impact factor, author class and collaborating-institution sets added.
+
+    `not_ranked`: DOIs (lower case, no https://doi.org/) of items that count as publications but are kept out of the
+    impact-factor-ranked lists, like meeting abstracts (data/manual/work_exclusions.csv, scope `top_lists`)."""
     d = main.copy()
     for c in ("year", "citations", "n_authors"):
         d[c] = pd.to_numeric(d[c], errors="coerce")
@@ -79,7 +84,9 @@ def prepare(main: pd.DataFrame, impact: pd.DataFrame, labs: list[str], p2) -> pd
     imp = impact.drop_duplicates("issn_n")[["issn_n", "impact_factor", "if_source"]]
     d = d.merge(imp, on="issn_n", how="left")
     d["is_journal"] = d["type"] == "journal"
-    d["is_abstract"] = [is_meeting_abstract(a, b) for a, b in zip(d["title"], d["doi"])]
+    nr = not_ranked or set()
+    d["is_abstract"] = [is_meeting_abstract(a, b) or str(b).lower().replace("https://doi.org/", "") in nr
+                        for a, b in zip(d["title"], d["doi"])]
     d["is_q1"] = d["quartile"] == "Q1"
     d["author_class"] = d["n_authors"].map(lambda n: author_class(n, p2))
     lab_set = set(labs)
@@ -219,7 +226,9 @@ def faculty_table(d, labs, p2, fm: pd.DataFrame) -> pd.DataFrame:
              "h_all": h_index(g["citations"]), "h_excl_hyper": h_index(g.loc[g["n_authors"] < p2.hyper_author_min, "citations"]),
              "collab_inst_all": len(set().union(*g["collab_all"])) if len(g) else 0,
              "collab_inst_indian": len(set().union(*g["collab_in"])) if len(g) else 0,
-             "collab_inst_foreign": len(set().union(*g["collab_foreign"])) if len(g) else 0}
+             "collab_inst_foreign": len(set().union(*g["collab_foreign"])) if len(g) else 0,
+             "collab_inst_excl_hyper": len(set().union(*g.loc[g["n_authors"] < p2.hyper_author_min, "collab_all"]))
+             if (g["n_authors"] < p2.hyper_author_min).any() else 0}
         for x in t:
             r[f"q1_if_gt{x}"] = int((j["is_q1"] & (j["impact_factor"] > x)).sum())
         r["mean_if"] = float(j["impact_factor"].mean()) if j["impact_factor"].notna().any() else float("nan")
@@ -236,7 +245,10 @@ def faculty_table(d, labs, p2, fm: pd.DataFrame) -> pd.DataFrame:
         f"{100 * m:.0f}% from papers with {p2.multi_author_min}+ authors" if fm_ and not fh else "") if x))
         for fh, fm_, h, m in zip(f["flag_hyper"], f["flag_multi"], f["cit_share_hyper"], f["cit_share_multi"])]
     f["rank_productive"] = f["papers"].rank(ascending=False, method="min").astype(int)
-    f["rank_connected"] = f["collab_inst_all"].rank(ascending=False, method="min").astype(int)
+    # "most connected" = most co-author links with other faculty (faculty network degree); the count of partner
+    # institutions is reported too, but without 100+ author papers, which add hundreds of institutions per paper
+    f["rank_connected"] = f["degree"].fillna(0).rank(ascending=False, method="min").astype(int) if "degree" in f else 0
+    f["rank_collab_inst"] = f["collab_inst_excl_hyper"].rank(ascending=False, method="min").astype(int)
     return f.sort_values(["lab", "papers"], ascending=[True, False]).reset_index(drop=True)
 
 
@@ -354,7 +366,7 @@ def temporal_faculty_network(pairs: pd.DataFrame, fac_lab: dict[str, str], labs:
                 n, m = G.number_of_nodes(), G.number_of_edges()
                 comp = max((len(c) for c in nx.connected_components(G)), default=0)
                 new = len(edges - seen) if mode == "year" else float("nan")
-                rows.append({"scope": scope, "mode": mode, "year": int(y), "faculty_active": n, "links": m,
+                rows.append({"scope": scope, "mode": mode, "year": int(y), "faculty_linked": n, "links": m,
                              "mean_degree": 2 * m / n if n else 0.0, "density": 2 * m / (n * (n - 1)) if n > 1 else 0.0,
                              "largest_component_share": comp / n if n else 0.0, "new_links": new,
                              "cross_lab_links": int(sum(1 for a, b in edges if lab_of(a) != lab_of(b)))})
@@ -426,12 +438,18 @@ def institution_network(pairs: pd.DataFrame, partner_cluster: dict[str, str], la
 def citer_table(ic: pd.DataFrame, ownership: dict, p2, labs: list[str]) -> pd.DataFrame:
     """Institutions citing our labs, with ownership and two flags. `ic` is the submitted indian_connections.csv."""
     x = ic[(ic["partner_is_csir_academy"] != "TRUE") & (ic["partner_in_group"] != "TRUE")].copy()
-    for c in ("shared_papers", "cites_in", "cites_out"):
-        x[c] = pd.to_numeric(x[c], errors="coerce").fillna(0).astype(int)
+    for c in ("shared_papers", "cites_in", "cites_out", "cites_in_external", "cites_out_external"):
+        if c in x:
+            x[c] = pd.to_numeric(x[c], errors="coerce").fillna(0).astype(int)
+    # A citation from a paper the lab co-wrote with the institution is partly the lab citing itself. The comparison uses
+    # citations from the institution's own papers only; the all-inclusive count is kept as cites_in_total.
+    if "cites_in_external" in x:
+        x["cites_in_total"], x["cites_out_total"] = x["cites_in"], x["cites_out"]
+        x["cites_in"], x["cites_out"] = x["cites_in_external"], x["cites_out_external"]
     parts = []
     for scope, g in [*((l, x[x["your_inst"] == l]) for l in labs), ("ALL", x)]:
         a = g.groupby(["partner_openalex_id", "partner_inst", "partner_cluster"], as_index=False)[
-            ["cites_in", "cites_out", "shared_papers"]].sum()
+            [c for c in ("cites_in", "cites_out", "shared_papers", "cites_in_total", "cites_out_total") if c in g]].sum()
         a.insert(0, "scope", scope)
         parts.append(a)
     t = pd.concat(parts, ignore_index=True)
@@ -450,25 +468,31 @@ def citer_table(ic: pd.DataFrame, ownership: dict, p2, labs: list[str]) -> pd.Da
     return t.sort_values(["scope", "cites_in"], ascending=[True, False]).reset_index(drop=True)
 
 
-def citer_evidence(edges: pd.DataFrame, works: dict, cited_authors: dict, cited_title: dict, ids: dict) -> pd.DataFrame:
+def citer_evidence(edges: pd.DataFrame, works: dict, cited_authors: dict, cited_title: dict, ids: dict,
+                   lab_member_ids: set | None = None) -> pd.DataFrame:
     """Indicators for why an institution cites us so much, from its citing papers.
 
     edges: columns partner, citing_doi, cited_doi (one row per citation to one of our papers).
     works: citing_doi -> {'authors': [(id, name)], 'journal': str, 'type': str, 'year': int}
     cited_authors: our paper doi -> set of OpenAlex author ids on it.
+    lab_member_ids: OpenAlex ids of every roster scientist; a citing paper with one of them on it was (co-)written by a
+    current or former member of our labs, now at or collaborating with the citing institution.
     """
+    members = lab_member_ids or set()
     rows = []
     for partner, g in edges.groupby("partner"):
         cp = g.drop_duplicates("citing_doi")
         ws = [works[x] for x in cp["citing_doi"] if x in works]
         n = len(cp)
-        au = Counter(); jr = Counter(); yr = Counter(); rev = 0
+        au = Counter(); jr = Counter(); yr = Counter(); rev = 0; chap = 0; alum = 0
         for w in ws:
             for aid, nm in w["authors"]:
                 au[(aid, nm)] += 1
             jr[w.get("journal") or "?"] += 1
             yr[w.get("year")] += 1
             rev += int(w.get("type") == "review")
+            chap += int(w.get("type") in ("book-chapter", "book"))
+            alum += int(bool({a for a, _ in w["authors"]} & members))
         shared = 0
         for _, r in g.drop_duplicates(["citing_doi", "cited_doi"]).iterrows():
             w = works.get(r["citing_doi"])
@@ -488,7 +512,8 @@ def citer_evidence(edges: pd.DataFrame, works: dict, cited_authors: dict, cited_
                      "citations_with_shared_author": shared, "shared_author_share": shared / len(g) if len(g) else np.nan,
                      "top_citing_journal": tj, "top_citing_journal_share": tjn / n if n else np.nan,
                      "top_citing_year": ty, "top_citing_year_share": tyn / n if n else np.nan,
-                     "review_share": rev / n if n else np.nan, "citing_papers_found": len(ws)})
+                     "review_share": rev / n if n else np.nan, "book_chapter_share": chap / n if n else np.nan,
+                     "lab_member_paper_share": alum / n if n else np.nan, "citing_papers_found": len(ws)})
     return pd.DataFrame(rows)
 
 
@@ -663,3 +688,40 @@ def quality_summary(main: pd.DataFrame, roster: pd.DataFrame, overrides: pd.Data
         "openalex_ids_shared_by_two_faculty": int(sum(len(v) > 1 for v in owner.values())),
         "faculty_without_openalex_id": int(sum(1 for s in ids.values() if not s)),
     }
+
+
+# --------------------------------------------------------------------------- lifetime citations (merged-profile check)
+
+def lifetime_flags(fac: pd.DataFrame, main: pd.DataFrame, cand: pd.DataFrame, p2) -> pd.DataFrame:
+    """Adds lifetime OpenAlex citations per faculty member (summed over their distinct author IDs) and flags the cases the
+    instructor asked about: about a lakh (1,00,000) or more lifetime citations, or a lifetime count far above the
+    2016-2026 count. The usual cause in our data is an OpenAlex profile that merges several people, so a flag means
+    "check this profile", not "this scientist has a lakh citations"."""
+    ids = main.drop_duplicates("faculty_id").set_index("faculty_id")["author_openalex_ids"].map(
+        lambda s: sorted({i for i in str(s).split(";") if i}))
+    c = cand.drop_duplicates("author_id").set_index("author_id")
+    life, top_id, top_share, merged = {}, {}, {}, {}
+    for fid, aids in ids.items():
+        vals = {a: float(c.at[a, "cited_by_count"]) for a in aids if a in c.index}
+        tot = sum(vals.values())
+        life[fid] = tot
+        if vals:
+            a, v = max(vals.items(), key=lambda kv: kv[1])
+            top_id[fid], top_share[fid] = a, (v / tot if tot else np.nan)
+        merged[fid] = any(bool(c.at[a, "suspect_merged"]) for a in aids if a in c.index)
+    f = fac.copy()
+    f["lifetime_citations"] = f["faculty_id"].map(life)
+    f["lifetime_top_profile"] = f["faculty_id"].map(top_id).fillna("")
+    f["lifetime_top_profile_share"] = f["faculty_id"].map(top_share)
+    f["profile_suspect_merged"] = f["faculty_id"].map(merged).fillna(False)
+    f["window_share_of_lifetime"] = f["citations"] / f["lifetime_citations"].where(f["lifetime_citations"] > 0)
+    big = f["lifetime_citations"] >= p2.lifetime_flag_citations
+    gap = (f["lifetime_citations"] >= p2.lifetime_gap_min) & (f["window_share_of_lifetime"] < p2.lifetime_gap_share)
+    f["flag_lifetime"] = big | gap
+    f["flag_lifetime_reason"] = [("; ".join(x for x in (
+        f"{v:,.0f} lifetime citations" if b else "",
+        f"only {100 * w:.1f}% of lifetime citations fall on 2016-2026 lab papers" if g else "",
+        "OpenAlex marks a profile as possibly merged" if m and (b or g) else "") if x))
+        for v, w, b, g, m in zip(f["lifetime_citations"].fillna(0), f["window_share_of_lifetime"].fillna(1), big, gap,
+                                 f["profile_suspect_merged"])]
+    return f

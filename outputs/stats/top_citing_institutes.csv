@@ -1,41 +1,41 @@
 your_inst,partner_inst,partner_cluster,cites_in,cites_out,shared_papers
-CSIR-IGIB,All India Institute of Medical Sciences,Medical,711,816,250
-CSIR-CDRI,Jamia Hamdard,University (other),545,372,10
-CSIR-IGIB,University of Delhi,Central University,505,862,170
-CSIR-CDRI,SRM Institute of Science and Technology,University (other),496,433,54
-CSIR-CDRI,National Institute of Pharmaceutical Education and Research (Hyderabad),NIPER,449,490,77
-CSIR-CDRI,Saveetha University,University (other),385,109,10
-CSIR-CDRI,National Institute of Pharmaceutical Education and Research (Mohali),NIPER,371,681,69
-CSIR-CDRI,Banaras Hindu University,Central University,355,740,43
+CSIR-IGIB,All India Institute of Medical Sciences,Medical,693,817,250
+CSIR-CDRI,Jamia Hamdard,University (other),559,373,10
+CSIR-IGIB,University of Delhi,Central University,513,861,170
+CSIR-CDRI,SRM Institute of Science and Technology,University (other),489,433,54
+CSIR-CDRI,National Institute of Pharmaceutical Education and Research (Hyderabad),NIPER,451,492,77
+CSIR-CDRI,Saveetha University,University (other),408,110,10
+CSIR-CDRI,Banaras Hindu University,Central University,363,746,43
+CSIR-CDRI,National Institute of Pharmaceutical Education and Research (Mohali),NIPER,354,682,69
+CSIR-CDRI,"Birla Institute of Technology and Science, Pilani",University (other),350,270,25
 CSIR-IGIB,Maharshi Dayanand University,University (other),343,77,24
-CSIR-CDRI,"Birla Institute of Technology and Science, Pilani",University (other),329,267,25
-CSIR-IMTECH,Indraprastha Institute of Information Technology Delhi,University (other),327,22,10
-CSIR-CCMB,Indian Institute of Chemical Technology,CSIR,318,594,106
-CSIR-CDRI,Jawaharlal Nehru University,Central University,312,391,53
-CSIR-CDRI,King George's Medical University,Medical,312,495,138
-CSIR-CDRI,Central Institute of Medicinal and Aromatic Plants,CSIR,299,464,85
-CSIR-IMTECH,Panjab University,University (other),260,295,83
-CSIR-CCMB,National Institute of Pharmaceutical Education and Research (Hyderabad),NIPER,221,310,55
-CSIR-IGIB,Jawaharlal Nehru University,Central University,213,142,36
-CSIR-CCMB,National Chemical Laboratory,CSIR,192,241,21
-CSIR-CCMB,Banaras Hindu University,Central University,190,166,26
-CSIR-IGIB,Indian Institute of Technology Jodhpur,IIT,175,22,12
-CSIR-IGIB,Banaras Hindu University,Central University,168,129,20
-CSIR-IMTECH,National Institute of Pharmaceutical Education and Research (Mohali),NIPER,167,243,41
-CSIR-IGIB,Manipal Academy of Higher Education,University (other),157,154,16
-CSIR-CCMB,Manipal Academy of Higher Education,University (other),156,207,42
-CSIR-IGIB,Jamia Millia Islamia,Central University,146,114,32
-CSIR-IGIB,Indian Council of Medical Research,ICMR,145,165,21
-CSIR-IGIB,Jamia Hamdard,University (other),143,109,31
-CSIR-CCMB,Indian Institute of Science Bangalore,IISc/TIFR/IISER,140,391,24
-CSIR-CCMB,National Centre for Biological Sciences,IISc/TIFR/IISER,139,284,26
-CSIR-IMTECH,Translational Health Science and Technology Institute,Government,136,144,16
-CSIR-CCMB,All India Institute of Medical Sciences,Medical,132,160,27
-CSIR-IMTECH,Indian Institute of Science Bangalore,IISc/TIFR/IISER,125,158,12
-CSIR-CCMB,Centre for DNA Fingerprinting and Diagnostics,Other,123,122,54
-CSIR-IMTECH,Post Graduate Institute of Medical Education and Research,Medical,118,161,43
-CSIR-CCMB,CSIR-IGIB,CSIR,118,145,31
-CSIR-IMTECH,National Institute of Pharmaceutical Education and Research (Hyderabad),NIPER,117,62,18
-CSIR-IMTECH,Thapar Institute of Engineering & Technology,University (other),111,77,14
-CSIR-IMTECH,Indian Institute of Technology Ropar,IIT,101,39,20
-CSIR-IMTECH,University of Delhi,Central University,100,172,7
+CSIR-IMTECH,Indraprastha Institute of Information Technology Delhi,University (other),329,22,10
+CSIR-CCMB,Indian Institute of Chemical Technology,CSIR,323,592,106
+CSIR-CDRI,King George's Medical University,Medical,322,494,140
+CSIR-CDRI,Jawaharlal Nehru University,Central University,321,394,54
+CSIR-CDRI,Central Institute of Medicinal and Aromatic Plants,CSIR,299,462,85
+CSIR-IMTECH,Panjab University,University (other),269,297,83
+CSIR-CCMB,National Institute of Pharmaceutical Education and Research (Hyderabad),NIPER,222,310,55
+CSIR-CCMB,Banaras Hindu University,Central University,214,169,27
+CSIR-IGIB,Jawaharlal Nehru University,Central University,214,141,36
+CSIR-CCMB,National Chemical Laboratory,CSIR,191,240,21
+CSIR-IGIB,Banaras Hindu University,Central University,177,126,20
+CSIR-CCMB,Manipal Academy of Higher Education,University (other),168,208,44
+CSIR-IGIB,Manipal Academy of Higher Education,University (other),162,152,16
+CSIR-IMTECH,National Institute of Pharmaceutical Education and Research (Mohali),NIPER,157,244,41
+CSIR-IGIB,Amity University,University (other),153,50,8
+CSIR-IGIB,Indian Institute of Science Bangalore,IISc/TIFR/IISER,151,250,15
+CSIR-CCMB,National Centre for Biological Sciences,IISc/TIFR/IISER,150,285,27
+CSIR-CCMB,Indian Institute of Science Bangalore,IISc/TIFR/IISER,150,393,25
+CSIR-IGIB,Jamia Millia Islamia,Central University,150,112,33
+CSIR-IGIB,Indian Council of Medical Research,ICMR,146,162,22
+CSIR-CCMB,All India Institute of Medical Sciences,Medical,133,161,27
+CSIR-IMTECH,Translational Health Science and Technology Institute,Government,131,147,16
+CSIR-CCMB,Centre for DNA Fingerprinting and Diagnostics,Other,128,124,56
+CSIR-IMTECH,Post Graduate Institute of Medical Education and Research,Medical,122,161,43
+CSIR-IMTECH,Indian Institute of Science Bangalore,IISc/TIFR/IISER,121,159,11
+CSIR-CCMB,CSIR-IGIB,CSIR,120,147,32
+CSIR-IMTECH,National Institute of Pharmaceutical Education and Research (Hyderabad),NIPER,117,63,18
+CSIR-IMTECH,Thapar Institute of Engineering & Technology,University (other),115,77,14
+CSIR-IMTECH,University of Delhi,Central University,104,175,7
+CSIR-IMTECH,Amity University,University (other),104,46,7

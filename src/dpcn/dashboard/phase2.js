@@ -8,7 +8,7 @@ const CLUSTER_COLORS = { "IIT": "#8e6bc4", "NIT": "#b08968", "IIIT": "#c46b8a", 
   "University (other)": "#7fb069", "Medical": "#d9778b", "IISc/TIFR/IISER": "#6b8fc4", "Premier Science": "#a58fd0",
   "DAE": "#9a9a6b", "ICMR": "#c9a227", "DBT": "#6fb3b8", "NIPER": "#c07f4d", "Government": "#8a8f98",
   "Industry": "#b0556b", "Other": "#a8a69f" };
-const ownColor = (o) => o === "government" ? css("--lab-1") : o === "government-aided" ? css("--lab-3") : o === "private" ? css("--lab-2") : css("--qna");
+const ownColor = (o) => o === "government" ? css("--lab-1") : o === "government-aided" ? css("--lab-3") : o === "private" ? css("--lab-2") : o === "international" ? css("--lab-4") : css("--qna");
 let cyInst = null;
 
 if (P2) {
@@ -105,6 +105,7 @@ if (P2) {
         annotations: [IF1, IF2].map((x) => ({ x, y: 1, yref: "paper", text: `IF ${x}`, showarrow: false, yanchor: "bottom", font: { size: 11, color: css("--ink-2") } })),
         margin: { l: 50, r: 16, t: 28, b: 40 }, legend: { orientation: "h", y: -0.25 } });
 
+    renderLabCorpus();
     table("t-top30", P2.top30_papers.filter((r) => r.scope === state.lab), [
       { title: "#", field: "rank", hozAlign: "right", width: 44 }, { title: "Title", field: "title", widthGrow: 4, formatter: "textarea" },
       { title: "Journal", field: "journal_name", widthGrow: 2, formatter: "textarea" },
@@ -120,9 +121,29 @@ if (P2) {
     renderNotes();
   }
 
+  function renderLabCorpus() {   // publication statistics over every lab paper, including those with no roster scientist
+    const C = P2.lab_corpus;
+    if (!C) return;
+    const rows = C.filter((r) => r.scope === state.lab);
+    table("t-corpus", rows, [
+      { title: "Counted over", field: "basis", widthGrow: 3 }, { title: "Papers", field: "papers", hozAlign: "right" },
+      { title: "Share", field: "share_of_lab_papers", hozAlign: "right", formatter: (c) => pct(c.getValue(), 0) },
+      { title: "Citations", field: "citations", hozAlign: "right" }, { title: "Q1", field: "q1_papers", hozAlign: "right" },
+      { title: "Q1 share", field: "q1_share", hozAlign: "right", formatter: (c) => pct(c.getValue(), 0) },
+      { title: "Quartile known", field: "quartile_known_share", hozAlign: "right", formatter: (c) => pct(c.getValue(), 0) },
+      { title: `Q1, IF>${IF1}`, field: `q1_if_gt${IF1}`, hozAlign: "right" }, { title: `Q1, IF>${IF2}`, field: `q1_if_gt${IF2}`, hozAlign: "right" },
+      { title: `<${MULTI} authors`, field: `papers_lt${MULTI}`, hozAlign: "right" }, { title: `${MULTI}+ authors`, field: `papers_ge${MULTI}`, hozAlign: "right" }],
+      { layout: "fitColumns", maxHeight: 200 });
+    const y = (P2.lab_corpus_yearly || []).filter((r) => r.scope === state.lab);
+    plot("c-corpus", [
+      { type: "bar", name: "With a roster scientist (faculty-attributed)", x: y.map((r) => r.year), y: y.map((r) => r.papers_faculty), marker: { color: css("--lab-1") } },
+      { type: "bar", name: "Without one (students, postdocs, staff, unlisted scientists)", x: y.map((r) => r.year), y: y.map((r) => r.papers_without_roster_scientist), marker: { color: css("--qna") } }],
+      { barmode: "stack", xaxis: { dtick: 1 }, yaxis: { title: "Lab-affiliated papers" }, legend: { orientation: "h", y: -0.2 } });
+  }
+
   // ---------------------------------------------------------------- tab: faculty comparison
   const CMP = [["papers", "Papers"], ["q1_papers", "Q1 papers"], ["citations", "Citations"],
-    ["citations_excl_hyper", `Citations excluding ${HYPER}+ author papers`], ["collab_inst_all", "Collaborating institutions"],
+    ["citations_excl_hyper", `Citations excluding ${HYPER}+ author papers`], ["collab_inst_excl_hyper", `Collaborating institutions (without ${HYPER}+ author papers)`],
     ["h_all", "h-index (2016–26)"], ["h_excl_hyper", `h-index excluding ${HYPER}+ author papers`],
     ["degree", "Co-author links (faculty network)"], ["mean_if", "Mean journal IF"]];
   const cmpLabel = (k) => (CMP.find((c) => c[0] === k) || [k, k])[1];
@@ -148,7 +169,7 @@ if (P2) {
         customdata: t.map((r) => short(r.lab)), hovertemplate: "<b>%{x:,}</b><br>%{y} · %{customdata}<extra></extra>" }],
         { margin: { l: 150, r: 50, t: 10, b: 40 }, showlegend: false, yaxis: { automargin: true } });
     };
-    top("papers", "c-top-prod"); top("collab_inst_all", "c-top-conn");
+    top("papers", "c-top-prod"); top("degree", "c-top-conn");
 
     table("t-fcomp", rows.map((r) => ({ ...r, lab: short(r.lab) })), [
       { title: "Name", field: "name", headerFilter: "input", frozen: true, minWidth: 150 }, { title: "Lab", field: "lab", headerFilter: "input" },
@@ -159,7 +180,7 @@ if (P2) {
       { title: `Cit. excl. ${HYPER}+`, field: "citations_excl_hyper", hozAlign: "right", sorter: "number" },
       { title: `% cit. from ${HYPER}+`, field: "cit_share_hyper", hozAlign: "right", sorter: "number", formatter: (c) => pct(c.getValue(), 0) },
       { title: "h", field: "h_all", hozAlign: "right", sorter: "number" }, { title: `h excl. ${HYPER}+`, field: "h_excl_hyper", hozAlign: "right", sorter: "number" },
-      { title: "Collab. inst.", field: "collab_inst_all", hozAlign: "right", sorter: "number" },
+      { title: `Collab. inst. excl. ${HYPER}+`, field: "collab_inst_excl_hyper", hozAlign: "right", sorter: "number" },
       { title: "Co-author links", field: "degree", hozAlign: "right", sorter: "number" },
       { title: "Mean IF", field: "mean_if", hozAlign: "right", sorter: "number", formatter: ifFmt },
       { title: "Flag", field: "flag", widthGrow: 3, formatter: "textarea" }], { maxHeight: 520, initialSort: [{ column: "papers", dir: "desc" }] });
@@ -254,6 +275,7 @@ if (P2) {
       [`Papers with ${HYPER}+ authors`, fmt((o[`papers_${HYPER}-999`] || 0) + (o["papers_1000+"] || 0)), `${pct(((o[`papers_${HYPER}-999`] || 0) + (o["papers_1000+"] || 0)) / o.papers, 1)} of papers`],
       ["Their share of citations", pct(hyperShare, 1), `${fmt((o[`citations_${HYPER}-999`] || 0) + (o["citations_1000+"] || 0))} citations`],
       ["Faculty flagged", fmt(fac.filter((r) => r.flag_hyper || r.flag_multi).length), `of ${fmt(fac.length)} (rules below)`],
+      ["Lifetime-citation flags", fmt(fac.filter((r) => r.flag_lifetime).length), `≥ ${fmt(TH.lifetime_flag_citations)} lifetime, or a large lifetime count mostly outside 2016–26`],
       ["Heavy citing institutions", fmt(cit.filter((r) => r.flag_heavy).length), `≥ ${TH.citer_min_cites} citations into the lab`],
       ["Heavy, few shared papers", fmt(cit.filter((r) => r.flag_citation_heavy_vs_collab).length), `≥ ${TH.citer_ratio_min} citations per shared paper`],
       ["Flagged non-government", fmt(cit.filter((r) => r.flag_non_government).length), "private, heavy, few shared papers"],
@@ -294,14 +316,40 @@ if (P2) {
       { title: "h", field: "h_all", hozAlign: "right" }, { title: "h without", field: "h_excl_hyper", hozAlign: "right" },
       { title: "Top paper share", field: "top_paper_share", hozAlign: "right", formatter: (c) => pct(c.getValue(), 0) }],
       { maxHeight: 420, initialSort: [{ column: "cit_share_hyper", dir: "desc" }] });
+    renderLifetime(fac);
     renderCiters();
     renderNotes();
+  }
+
+  function renderLifetime(fac) {   // "a few top faculty got 1 lakh citations": lifetime OpenAlex citations vs the 2016-26 count
+    if (!fac.length || fac[0].lifetime_citations === undefined) return;
+    const pts = fac.filter((r) => r.lifetime_citations > 0);
+    plot("c-life", scopes().map((lab) => {
+      const rr = pts.filter((r) => r.lab === lab);
+      return { type: "scatter", mode: "markers+text", name: short(lab), x: rr.map((r) => Math.max(r.citations, 1)), y: rr.map((r) => r.lifetime_citations),
+        text: rr.map((r) => r.flag_lifetime ? r.name : ""), textposition: "middle right", textfont: { size: 10, color: css("--ink-2") },
+        customdata: rr.map((r) => [r.name, r.flag_lifetime_reason || "", r.window_share_of_lifetime]),
+        marker: { size: rr.map((r) => r.flag_lifetime ? 12 : 7), color: labColor(lab), opacity: 0.8, symbol: rr.map((r) => r.flag_lifetime ? "diamond" : "circle"),
+          line: { color: rr.map((r) => r.flag_lifetime ? css("--ink") : css("--surface")), width: rr.map((r) => r.flag_lifetime ? 2 : 1) } },
+        hovertemplate: "<b>%{customdata[0]}</b><br>%{x:,} citations on 2016–26 lab papers<br>%{y:,} lifetime citations (OpenAlex)<br>%{customdata[2]:.1%} of lifetime in the window<br><i>%{customdata[1]}</i><extra>" + short(lab) + "</extra>" };
+    }), { xaxis: { type: "log", title: "Citations on 2016–2026 lab papers" }, yaxis: { type: "log", title: "Lifetime citations (all OpenAlex profiles of the person)" },
+      shapes: [{ type: "line", xref: "paper", yref: "y", x0: 0, x1: 1, y0: TH.lifetime_flag_citations, y1: TH.lifetime_flag_citations, line: { color: css("--muted"), width: 1, dash: "dash" } }],
+      annotations: [{ x: 0, xref: "paper", y: Math.log10(TH.lifetime_flag_citations), yref: "y", text: "1 lakh", showarrow: false, xanchor: "left", yanchor: "bottom", font: { size: 10, color: css("--muted") } }],
+      hovermode: "closest", legend: { orientation: "h", y: -0.2 } });
+    table("t-life", fac.filter((r) => r.flag_lifetime).map((r) => ({ ...r, lab: short(r.lab) })), [
+      { title: "Name", field: "name", frozen: true, minWidth: 150 }, { title: "Lab", field: "lab" },
+      { title: "Lifetime citations", field: "lifetime_citations", hozAlign: "right", sorter: "number", formatter: (c) => fmt(c.getValue()) },
+      { title: "2016–26 citations", field: "citations", hozAlign: "right", sorter: "number" },
+      { title: "Share in the window", field: "window_share_of_lifetime", hozAlign: "right", formatter: (c) => pct(c.getValue(), 1) },
+      { title: "Largest profile", field: "lifetime_top_profile" },
+      { title: "Its share", field: "lifetime_top_profile_share", hozAlign: "right", formatter: (c) => pct(c.getValue(), 0) },
+      { title: "Why flagged", field: "flag_lifetime_reason", widthGrow: 3, formatter: "textarea" }], { maxHeight: 360, initialSort: [{ column: "lifetime_citations", dir: "desc" }] });
   }
 
   function renderCiters() {
     const own = el("own-filter").value;
     const rows = P2.citers.filter((r) => r.scope === state.lab && (own === "all" || r.ownership === own));
-    const owners = ["government", "government-aided", "private", "unclassified"];
+    const owners = ["government", "government-aided", "private", "international", "unclassified"];
     // label only what matters, so the points stay readable: the 10 largest flagged institutions and the 4 largest overall
     const labelled = new Set([...rows.filter((r) => r.flag_non_government).sort((a, b) => b.cites_in - a.cites_in).slice(0, 10),
       ...[...rows].sort((a, b) => b.cites_in - a.cites_in).slice(0, 4)].map((r) => r.partner_inst));
@@ -341,7 +389,9 @@ if (P2) {
       { title: "Top citing author", field: "top_citing_author", widthGrow: 2 },
       { title: "Their share of citing papers", field: "top_citing_author_share", hozAlign: "right", sorter: "number", formatter: (c) => pct(c.getValue(), 0) },
       { title: "Citations on a paper sharing an author with the cited paper", field: "shared_author_share", hozAlign: "right", sorter: "number", formatter: (c) => pct(c.getValue(), 0) },
+      { title: "Citing papers with a current or former lab scientist on them", field: "lab_member_paper_share", hozAlign: "right", sorter: "number", formatter: (c) => pct(c.getValue(), 0) },
       { title: "Review articles among citing papers", field: "review_share", hozAlign: "right", sorter: "number", formatter: (c) => pct(c.getValue(), 0) },
+      { title: "Book chapters", field: "book_chapter_share", hozAlign: "right", sorter: "number", formatter: (c) => pct(c.getValue(), 0) },
       { title: "Top citing journal", field: "top_citing_journal", widthGrow: 2 },
       { title: "Its share", field: "top_citing_journal_share", hozAlign: "right", formatter: (c) => pct(c.getValue(), 0) },
       { title: "Share on one of our papers", field: "top_cited_paper_share", hozAlign: "right", formatter: (c) => pct(c.getValue(), 0) }],
@@ -356,7 +406,7 @@ if (P2) {
     const lr = ng.map((r) => Math.log10(r.rate_per_1000)), med = q(lr, 0.5), mad = 1.4826 * q(lr.map((v) => Math.abs(v - med)), 0.5);
     const thr = Math.pow(10, med + TH.citer_norm_z * mad);
     const jit = (s) => { let h = 0; for (const ch of s) h = (h * 31 + ch.charCodeAt(0)) | 0; return ((h >>> 0) % 1000) / 1000 - 0.5; };
-    const order = ["government", "government-aided", "private", "unclassified"], groups = order.filter((ow) => ng.some((r) => r.ownership === ow));
+    const order = ["government", "government-aided", "private", "international", "unclassified"], groups = order.filter((ow) => ng.some((r) => r.ownership === ow));
     // a few labels only, placed on alternating sides so neighbours in a dense row do not print over each other
     const namedList = [...new Set([...ng.filter((r) => r.flag_non_government).sort((a, b) => b.rate_per_1000 - a.rate_per_1000).slice(0, 2),
       ...[...ng].sort((a, b) => b.rate_per_1000 - a.rate_per_1000).slice(0, 4)].map((r) => r.partner_inst))];
@@ -459,6 +509,142 @@ if (P2) {
     });
   }
 
+  // ---------------------------------------------------------------- tab: research findings (step s17)
+  function renderFindings() {
+    const R = P2.research;
+    if (!R) { el("fd-list").textContent = "Run step s17 to compute the research analyses."; return; }
+    const S = R.summary, H = S.homophily;
+    const aud = (R.citation_audience || []).filter((r) => r.citing_scope === "ALL");
+    const share = (cls) => (aud.find((r) => r.class === cls) || {}).share || 0;
+    const exAll = (R.lab_exchange_null || []).filter((r) => r.basis.startsWith("independent") && r.null.includes("fields"));
+    const within = exAll.find((r) => r.cited_lab === "within-lab share") || {};
+    const withinYear = (R.lab_exchange_null || []).find((r) => r.basis.startsWith("independent") && r.null === "same cited year" && r.cited_lab === "within-lab share") || {};
+    const diag = exAll.filter((r) => r.citing_lab === r.cited_lab);
+    const offd = exAll.filter((r) => LABS.includes(r.citing_lab) && r.citing_lab !== r.cited_lab);
+    const orSame = (R.coauthor_model || []).filter((r) => r.term === "same_lab");
+    const orFull = orSame.find((r) => r.model.includes("department")) || {}, orTopic = orSame.find((r) => r.model === "same lab + topic similarity + size") || {};
+    const dl = (R.distance_lift || []).filter((r) => r.basis === "independent citations");
+    const lift = (d) => (dl.find((r) => r.distance === d) || {}).lift;
+    const led = (R.led_vs_middle || []).filter((r) => r.scope === "ALL");
+    const L = led.find((r) => r.role === "lab-led") || {}, M = led.find((r) => r.role !== "lab-led") || {};
+    const pers = R.tie_persistence || [];
+    const same = pers.find((r) => r.pair_type === "same lab") || {}, cross = pers.find((r) => r.pair_type === "cross-lab") || {};
+    const imp = (R.lab_impact || []).filter((r) => r.term.startsWith("lab:") && r.model !== "lab only");
+    const cov = (R.covid || []).filter((r) => LABS.includes(r.scope));
+    const peak = LABS.map((l) => { const rr = cov.filter((r) => r.scope === l); return rr.reduce((a, b) => (b.covid_share > (a.covid_share || 0) ? b : a), {}); });
+    const items = [
+      ["Most citations inside the corpus are self-citations.", `${pct(share("self (shared author)"), 0)} of the ${fmt(S.internal_citations)} citations between our papers have an author in common, and another ${pct(share("co-author network"), 0)} come from faculty who had already written together. Only ${pct(share("same lab, independent") + share("other lab, independent"), 0)} are independent.`,
+        "Every internal-network measure (PageRank, in-degree, lab-to-lab flows) is mostly a measure of research groups building on their own work."],
+      ["Labs cite their own work far more than chance predicts, even among independent citations.", `Among independent citations, ${pct(within.observed, 0)} stay inside the citing lab against ${pct(within.expected, 0)} expected when every paper keeps its citation counts, year and field. Within-lab citation runs at ${diag.map((r) => `${short(r.citing_lab)} ${fmt(r.obs_exp, 1)}×`).join(", ")} the chance level; ${offd.filter((r) => r.obs_exp < 1 && r.q_bh < 0.05).length} of 12 cross-lab cells are significantly below it.`,
+        `Topic explains only part of it: keeping just the year, chance would give ${pct(withinYear.expected, 0)}; holding fields as well raises that to ${pct(within.expected, 0)}, still well below what we observe.`],
+      ["The four labs barely co-author, and topic does not explain it.", `${pct(H.cross_lab_share_observed, 1)} of faculty co-author links cross labs, against ${pct(H.cross_lab_share_label_permutation, 0)} if lab labels were shuffled (z = ${fmt(H.cross_lab_z_permutation, 0)}). Same-lab pairs are ${fmt(orTopic.odds_ratio, 0)}× more likely to co-author after controlling for topic similarity and output (95% CI ${fmt(orTopic.or_low, 0)}–${fmt(orTopic.or_high, 0)}), and still ${fmt(orFull.odds_ratio, 0)}× within the same department.`,
+        "Institutional boundaries shape collaboration between CSIR labs far more than research interests do; sharing a department adds little once the lab is known."],
+      ["Citations follow co-authorship distance.", `Independent citations between faculty who are co-authors are ${fmt(lift("1"), 1)}× what citation volumes predict; at distance 2 (a shared co-author) ${fmt(lift("2"), 1)}×, at 3 ${fmt(lift("3"), 1)}×, and between unconnected faculty ${fmt(lift("not connected"), 2)}×.`,
+        "The same distance decay Singh et al. (2020) found in physics: knowledge flows along social ties, but only for about two steps."],
+      ["A third of citations come from papers the labs do not lead.", `Middle-author papers are ${pct(M.share_of_papers, 0)} of papers but ${pct(M.share_of_citations, 0)} of citations, at ${fmt(M.mean_norm_citations, 2)}× the field-and-year average against ${fmt(L.mean_norm_citations, 2)}× for lab-led papers (median authors ${fmt(M.median_authors)} vs ${fmt(L.median_authors)}).`,
+        "Middle-author papers have larger teams; compared within the same team size they are cited about as often as lab-led papers. Headline counts therefore depend heavily on taking part in large collaborations."],
+      ["Cross-lab collaborations are less durable.", `${pct(same.share, 0)} of new same-lab pairs (2016–2022) wrote together again within three years, against ${pct(cross.share, 0)} of cross-lab pairs${cross.fisher_p_cross_vs_same !== undefined ? ` (Fisher p = ${Number(cross.fisher_p_cross_vs_same).toPrecision(2)})` : ""}. A shared co-author makes a new link ${fmt(S.triadic_closure_mean_lift, 0)}× more likely in a given year.`,
+        "Collaboration grows by closing triangles inside each lab; ties that cross labs are often one-off."],
+      ["Raw averages overstate CCMB and IGIB.", `On a log scale, which damps the few huge papers, and with year, field, team size and review type held equal, single-lab papers differ from CDRI's by ${imp.map((r) => `${short(r.term.replace("lab: ", ""))} ${r.pct_effect >= 0 ? "+" : ""}${fmt(r.pct_effect, 0)}% (${fmt(r.pct_low, 0)} to ${fmt(r.pct_high, 0)})`).join(", ")}.`,
+        "Raw citations per paper (Overview) put CCMB and IGIB ahead because of a few very highly cited consortium papers; the typical CCMB or IGIB paper is cited less than a CDRI paper, and the typical IMTECH paper more."],
+      ["COVID-19 reshaped the genomics labs.", `SARS-CoV-2 / COVID-19 papers peaked at ${peak.map((r, i) => `${short(LABS[i])} ${pct(r.covid_share, 0)} (${r.year})`).join(", ")} of each lab's yearly output.`,
+        "A sudden, mission-driven shift that the 2021 output peak and the consortium papers both reflect."],
+    ];
+    const box = el("fd-list"); box.replaceChildren();
+    items.forEach(([h, a, so]) => { const d = document.createElement("div"); d.className = "rqi";
+      d.append(txt("h3", h), txt("p", a), txt("p", so, "muted")); box.append(d); });
+
+    const classes = ["self (shared author)", "co-author network", "same lab, independent", "other lab, independent"];
+    const cc = [css("--lab-2"), css("--lab-4"), css("--lab-1"), css("--lab-3")], scs = [...LABS, "ALL"];
+    plot("c-fd-aud", classes.map((c, i) => ({ type: "bar", orientation: "h", name: c, y: scs.map(scopeLabel),
+      x: scs.map((s) => ((R.citation_audience || []).find((r) => r.citing_scope === s && r.class === c) || {}).share || 0),
+      marker: { color: cc[i], line: { color: css("--surface"), width: 1 } },
+      hovertemplate: `<b>%{x:.1%}</b> of citations<br>%{y} · ${c}<extra></extra>` })),
+      { barmode: "stack", xaxis: { tickformat: ".0%", range: [0, 1] }, yaxis: { autorange: "reversed" }, margin: { l: 70, r: 10, t: 10, b: 50 }, legend: { orientation: "h", y: -0.25, traceorder: "normal" } });
+
+    const z = LABS.map((a) => LABS.map((b) => (exAll.find((r) => r.citing_lab === a && r.cited_lab === b) || {}).obs_exp));
+    const tx = LABS.map((a) => LABS.map((b) => { const r = exAll.find((x) => x.citing_lab === a && x.cited_lab === b) || {}; return `${fmt(r.obs_exp, 2)}${r.q_bh < 0.05 ? "*" : ""}<br>${fmt(r.observed, 0)} vs ${fmt(r.expected, 0)}`; }));
+    plot("c-fd-ex", [{ type: "heatmap", x: LABS.map(short), y: LABS.map(short), z: z.map((row) => row.map((v) => Math.log2(v || 1))), text: tx, texttemplate: "%{text}",
+      colorscale: [[0, css("--lab-2")], [0.5, css("--surface")], [1, css("--lab-1")]], zmid: 0, showscale: false,
+      hovertemplate: "%{y} cites %{x}<br>%{text}<extra></extra>" }],
+      { xaxis: { title: "Cited lab", side: "bottom" }, yaxis: { title: "Citing lab", autorange: "reversed" }, margin: { l: 80, r: 10, t: 10, b: 50 } });
+
+    const orR = (R.coauthor_model || []).filter((r) => r.term !== "log_papers_product");
+    const lab_ = orR.map((r) => `${r.term.replace(/_/g, " ")} · ${r.model.replace("same lab only", "alone").replace("same lab + ", "+ ").replace(" + size", "")}`);
+    plot("c-fd-or", [{ type: "scatter", mode: "markers", x: orR.map((r) => r.odds_ratio), y: lab_,
+      error_x: { type: "data", symmetric: false, array: orR.map((r) => r.or_high - r.odds_ratio), arrayminus: orR.map((r) => r.odds_ratio - r.or_low), color: css("--ink-2") },
+      marker: { size: 10, color: orR.map((r) => r.term === "same_lab" ? css("--lab-1") : r.term === "same_department" ? css("--lab-3") : css("--lab-4")) },
+      hovertemplate: "<b>odds ratio %{x:.2f}</b><br>%{y}<extra></extra>" }],
+      { xaxis: { type: "log", title: "Odds ratio (log scale)" }, yaxis: { automargin: true, autorange: "reversed" }, margin: { l: 260, r: 20, t: 10, b: 50 }, showlegend: false,
+        shapes: [{ type: "line", xref: "x", yref: "paper", x0: 1, x1: 1, y0: 0, y1: 1, line: { color: css("--muted"), dash: "dash", width: 1 } }] });
+
+    const dists = ["1", "2", "3", "4+", "not connected"];
+    plot("c-fd-dist", ["all citations", "independent citations"].map((b, i) => ({ type: "bar", name: b, x: dists.map((d) => d === "not connected" ? "not connected" : `distance ${d}`),
+      y: dists.map((d) => ((R.distance_lift || []).find((r) => r.basis === b && r.distance === d) || {}).lift),
+      text: dists.map((d) => fmt(((R.distance_lift || []).find((r) => r.basis === b && r.distance === d) || {}).lift, 1) + "×"), textposition: "outside", cliponaxis: false,
+      marker: { color: i ? css("--lab-1") : css("--qna") }, hovertemplate: "<b>%{y:.2f}×</b> expected<br>%{x} · " + b + "<extra></extra>" })),
+      { barmode: "group", yaxis: { type: "log", title: "Observed ÷ expected (log)" }, legend: { orientation: "h", y: -0.2 },
+        shapes: [{ type: "line", xref: "paper", yref: "y", x0: 0, x1: 1, y0: 1, y1: 1, line: { color: css("--muted"), dash: "dash", width: 1 } }] });
+
+    const ledAll = (R.led_vs_middle || []).filter((r) => scs.includes(r.scope));
+    const roles = ["lab-led", "middle author only"];
+    plot("c-fd-led", [
+      ...roles.map((ro, i) => ({ type: "bar", name: `${ro}: share of citations`, x: scs.map(scopeLabel), y: scs.map((s) => (ledAll.find((r) => r.scope === s && r.role === ro) || {}).share_of_citations),
+        marker: { color: i ? css("--lab-4") : css("--lab-1") }, hovertemplate: `<b>%{y:.0%}</b> of citations<br>%{x} · ${ro}<extra></extra>` })),
+      ...roles.map((ro, i) => ({ type: "scatter", mode: "markers", name: `${ro}: citations vs field-year average`, yaxis: "y2", x: scs.map(scopeLabel),
+        y: scs.map((s) => (ledAll.find((r) => r.scope === s && r.role === ro) || {}).mean_norm_citations),
+        marker: { size: 11, symbol: "diamond", color: i ? css("--lab-4") : css("--lab-1"), line: { color: css("--ink"), width: 1 } },
+        hovertemplate: `<b>%{y:.2f}×</b> field-and-year average<br>%{x} · ${ro}<extra></extra>` }))],
+      { barmode: "group", yaxis: { tickformat: ".0%", title: "Share of citations" }, yaxis2: { overlaying: "y", side: "right", title: "× average", rangemode: "tozero", showgrid: false },
+        legend: { orientation: "h", y: -0.3 }, margin: { l: 55, r: 55, t: 10, b: 60 } });
+
+    const tri = R.triadic_closure || [];
+    plot("c-fd-pers", [
+      { type: "bar", name: "Repeat within 3 years", x: pers.map((r) => r.pair_type), y: pers.map((r) => r.share),
+        error_y: { type: "data", symmetric: false, array: pers.map((r) => r.ci_high - r.share), arrayminus: pers.map((r) => r.share - r.ci_low), color: css("--ink-2") },
+        marker: { color: pers.map((r) => r.pair_type === "same lab" ? css("--lab-1") : css("--lab-2")) }, customdata: pers.map((r) => r.new_pairs_2016_2022),
+        hovertemplate: "<b>%{y:.0%}</b> repeat<br>%{x} · %{customdata} new pairs<extra></extra>", xaxis: "x", yaxis: "y" },
+      { type: "scatter", mode: "lines+markers", name: "Triadic-closure lift", x: tri.map((r) => r.year), y: tri.map((r) => r.lift), xaxis: "x2", yaxis: "y2",
+        line: { color: css("--ink"), width: 2 }, marker: { size: 7 }, hovertemplate: "<b>%{y:.0f}×</b> more likely with a shared co-author<br>%{x}<extra></extra>" }],
+      { grid: { rows: 1, columns: 2, pattern: "independent" }, yaxis: { tickformat: ".0%", title: "Share", range: [0, 1] }, yaxis2: { title: "Lift (×)", rangemode: "tozero" },
+        xaxis2: { dtick: 2 }, showlegend: false, margin: { l: 55, r: 16, t: 10, b: 40 } });
+
+    const impAll = (R.lab_impact || []).filter((r) => r.term.startsWith("lab:"));
+    plot("c-fd-imp", ["lab only", "lab + year + field + team size + review"].map((m, i) => {
+      const rr = impAll.filter((r) => r.model === m);
+      return { type: "scatter", mode: "markers", name: i ? "with controls" : "raw", x: rr.map((r) => r.pct_effect), y: rr.map((r) => short(r.term.replace("lab: ", ""))),
+        error_x: { type: "data", symmetric: false, array: rr.map((r) => r.pct_high - r.pct_effect), arrayminus: rr.map((r) => r.pct_effect - r.pct_low), color: css("--ink-2") },
+        marker: { size: 10, color: i ? css("--lab-1") : css("--qna"), symbol: i ? "circle" : "diamond" }, hovertemplate: `<b>%{x:+.0f}%</b> vs CDRI<br>%{y} · ${i ? "with controls" : "raw"}<extra></extra>` };
+    }), { xaxis: { title: "% difference in citations per paper vs CDRI", zeroline: true }, legend: { orientation: "h", y: -0.25 },
+      shapes: [{ type: "line", xref: "x", yref: "paper", x0: 0, x1: 0, y0: 0, y1: 1, line: { color: css("--muted"), dash: "dash", width: 1 } }] });
+
+    plot("c-fd-covid", LABS.map((l) => { const rr = cov.filter((r) => r.scope === l);
+      return { name: short(l), x: rr.map((r) => r.year), y: rr.map((r) => r.covid_share), mode: "lines+markers", line: { color: labColor(l), width: 2 }, marker: { size: 7 },
+        hovertemplate: `<b>%{y:.0%}</b> of papers<br>${short(l)} · %{x}<extra></extra>` }; }),
+      { hovermode: "x unified", xaxis: { dtick: 1 }, yaxis: { tickformat: ".0%", title: "Share of the lab's papers" }, legend: { orientation: "h", y: -0.2 } });
+
+    const pr = (R.pagerank_independent || []).filter((r) => r.basis === "all citations");
+    table("t-fd-pr", pr, [
+      { title: "Rank (all)", field: "rank_all", hozAlign: "right", width: 90 }, { title: "Rank without self-citation", field: "rank_independent", hozAlign: "right", width: 120 },
+      { title: "Title", field: "title", widthGrow: 4, formatter: "textarea" }, { title: "Year", field: "year" },
+      { title: "Labs", field: "labs", formatter: (c) => String(c.getValue() || "").split(";").map((x) => short(x)).join(", ") },
+      { title: "Cited inside corpus", field: "in_degree", hozAlign: "right" }, { title: "Citations (all)", field: "citations", hozAlign: "right" }],
+      { layout: "fitColumns", maxHeight: 420 });
+
+    const mbox = el("fd-methods"); mbox.replaceChildren();
+    const ul = document.createElement("ul");
+    ["Citation classes: 'self' = an OpenAlex author on both papers; 'co-author network' = no shared author, but a faculty member on the citing paper had co-written with one on the cited paper by that year.",
+     "Lab exchange null: the cited paper of each citation is reshuffled within strata (cited year; and cited year × citing field × cited field), 1,000 times. This keeps each paper's number of citations given and received. A paper shared by two labs counts half for each. Two-sided Monte Carlo p-values, Benjamini–Hochberg across the 16 cells.",
+     "Co-authorship: faculty pairs who co-wrote a paper with at most 50 authors (as in the networks). Cross-lab share compared with 2,000 shuffles of lab labels (lab sizes fixed) and 200 degree-preserving rewirings; the logistic model uses all faculty pairs, with topic similarity = cosine of their papers' OpenAlex subfield profiles.",
+     "Distance lift: for each citing year, distances in the faculty co-authorship network built from earlier years; expected counts = (i's citing contributions × j's cited contributions) / total, summed over pairs at each distance.",
+     "Lab-led = a lab-affiliated author in first, last or corresponding position. Normalised citations = citations ÷ mean of papers in the same OpenAlex field and year, within our corpus (a relative, not world, baseline).",
+     "Lab impact: OLS on log(1 + citations) with heteroskedasticity-robust (HC1) errors; papers of one lab only; reference CDRI.",
+     "Limits: OpenAlex coverage and author disambiguation; faculty lists cover 71–81% of each lab's output; the corpus-relative normalisation is not a world baseline; associations, not causal effects."]
+      .forEach((t) => ul.append(txt("li", t)));
+    mbox.append(ul);
+    renderNotes();
+  }
+
   // ---------------------------------------------------------------- author and affiliation checks (About tab)
   function renderQualityPanel(add, list) {
     const Q = P2.summary.quality, M = P2.summary.meeting_abstracts || { papers: 0 };
@@ -492,5 +678,5 @@ if (P2) {
   };
 
   Object.assign(P2API, { questions: renderQuestions, quality: renderQualityPanel });
-  Object.assign(P2REG, { impact: renderImpact, compare: renderCompare, instnet: renderInstNet, flags: renderFlags });
+  Object.assign(P2REG, { impact: renderImpact, compare: renderCompare, instnet: renderInstNet, flags: renderFlags, findings: renderFindings });
 }

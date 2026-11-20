@@ -1,0 +1,239 @@
+{
+  "internal_citations": 9660,
+  "citation_audience_shares": {
+    "self (shared author)": 0.9236024844720497,
+    "co-author network": 0.039337474120082816,
+    "same lab, independent": 0.021739130434782608,
+    "other lab, independent": 0.015320910973084885
+  },
+  "within_lab_share_independent": {
+    "same cited year": {
+      "observed": 0.736449864498645,
+      "expected": 0.3831358401084011
+    },
+    "same cited year and fields": {
+      "observed": 0.736449864498645,
+      "expected": 0.5473651761517615
+    }
+  },
+  "within_lab_obs_exp_independent_fields_null": {
+    "CSIR-CCMB": 1.6881178884536467,
+    "CSIR-IGIB": 1.552712742843213,
+    "CSIR-IMTECH": 1.4752724224643756,
+    "CSIR-CDRI": 1.2586002892326569
+  },
+  "homophily": {
+    "faculty_nodes": 274,
+    "faculty_links": 1250,
+    "cross_lab_share_observed": 0.048,
+    "cross_lab_share_label_permutation": 0.7108044,
+    "cross_lab_ratio_vs_permutation": 0.06752912615622526,
+    "cross_lab_z_permutation": -34.355588826752886,
+    "cross_lab_share_rewired": 0.5194679999999999,
+    "lab_assortativity": 0.9057322935395831,
+    "dept_assortativity": 0.07341883165600516,
+    "clustering_observed": 0.3231293809236079,
+    "clustering_rewired": 0.1261756717760756,
+    "clustering_ratio": 2.56094836964345,
+    "rich_club_degree_threshold": 24,
+    "rich_club_observed": 0.6956521739130435,
+    "rich_club_rewired": 0.43586956521739123,
+    "rich_club_normalised": 1.5960099750623444
+  },
+  "distance_lift": {
+    "all citations|1": 2.870308468996198,
+    "all citations|2": 0.7239650375192747,
+    "all citations|3": 0.2812423721551666,
+    "all citations|4+": 0.16379290442868705,
+    "all citations|not connected": 0.7651525028626337,
+    "independent citations|1": 2.015596297952547,
+    "independent citations|2": 1.4312211341845384,
+    "independent citations|3": 0.5436404435761147,
+    "independent citations|4+": 0.3134417514519716,
+    "independent citations|not connected": 0.9349946398109317
+  },
+  "tie_persistence": [
+    {
+      "pair_type": "same lab",
+      "new_pairs_2016_2022": 825,
+      "repeat_within_3y": 277,
+      "share": 0.33575757575757575,
+      "ci_low": 0.3043586622033837,
+      "ci_high": 0.3686789845556592,
+      "fisher_p_cross_vs_same": null
+    },
+    {
+      "pair_type": "cross-lab",
+      "new_pairs_2016_2022": 34,
+      "repeat_within_3y": 4,
+      "share": 0.11764705882352941,
+      "ci_low": 0.04671370973436122,
+      "ci_high": 0.26621174796298774,
+      "fisher_p_cross_vs_same": 0.008008894916125673
+    }
+  ],
+  "triadic_closure_mean_lift": 15.947768331570781,
+  "led_vs_middle_all": [
+    {
+      "scope": "ALL",
+      "role": "middle author only",
+      "papers": 1389,
+      "share_of_papers": 0.2304629168740667,
+      "citations": 48790,
+      "share_of_citations": 0.33952442919673487,
+      "mean_norm_citations": 1.4055790794066683,
+      "median_authors": 8.0,
+      "share_10plus_authors": 0.38948884089272856,
+      "mannwhitney_p_led_vs_middle": null
+    },
+    {
+      "scope": "ALL",
+      "role": "lab-led",
+      "papers": 4638,
+      "share_of_papers": 0.7695370831259333,
+      "citations": 94911,
+      "share_of_citations": 0.6604755708032651,
+      "mean_norm_citations": 0.8787904457139217,
+      "median_authors": 6.0,
+      "share_10plus_authors": 0.18736524363949977,
+      "mannwhitney_p_led_vs_middle": 0.0026630781404937427
+    }
+  ],
+  "lab_impact": [
+    {
+      "model": "lab only",
+      "term": "lab: CSIR-CCMB",
+      "coef": -0.19934469483472528,
+      "se": 0.04696035369276247,
+      "pct_effect": -18.073255260048214,
+      "pct_low": -25.277354566667075,
+      "pct_high": -10.174600152859764,
+      "papers": 5958,
+      "reference": "CSIR-CDRI"
+    },
+    {
+      "model": "lab only",
+      "term": "lab: CSIR-IGIB",
+      "coef": -0.16006676310908663,
+      "se": 0.04389324785145126,
+      "pct_effect": -14.791310090343549,
+      "pct_low": -21.815403136873094,
+      "pct_high": -7.136173524939339,
+      "papers": 5958,
+      "reference": "CSIR-CDRI"
+    },
+    {
+      "model": "lab only",
+      "term": "lab: CSIR-IMTECH",
+      "coef": 0.09736707794678012,
+      "se": 0.0530946949718627,
+      "pct_effect": 10.226491650944167,
+      "pct_low": -0.6676139095127493,
+      "pct_high": 22.315389168318987,
+      "papers": 5958,
+      "reference": "CSIR-CDRI"
+    },
+    {
+      "model": "lab + year + field + team size + review",
+      "term": "lab: CSIR-CCMB",
+      "coef": -0.16066641837065765,
+      "se": 0.04013115896838033,
+      "pct_effect": -14.842390612696796,
+      "pct_low": -21.283979723183606,
+      "pct_high": -7.873665220136495,
+      "papers": 5958,
+      "reference": "CSIR-CDRI"
+    },
+    {
+      "model": "lab + year + field + team size + review",
+      "term": "lab: CSIR-IGIB",
+      "coef": -0.198918127421981,
+      "se": 0.036922652393580266,
+      "pct_effect": -18.03830052576468,
+      "pct_low": -23.760198183430788,
+      "pct_high": -11.886966903881657,
+      "papers": 5958,
+      "reference": "CSIR-CDRI"
+    },
+    {
+      "model": "lab + year + field + team size + review",
+      "term": "lab: CSIR-IMTECH",
+      "coef": 0.10048985497187846,
+      "se": 0.04195637223115135,
+      "pct_effect": 10.571242416353895,
+      "pct_low": 1.8423013185112007,
+      "pct_high": 20.048344265703076,
+      "papers": 5958,
+      "reference": "CSIR-CDRI"
+    },
+    {
+      "model": "lab + year + field + team size + review",
+      "term": "log authors",
+      "coef": 0.36849689882715364,
+      "se": 0.02646043321356091,
+      "pct_effect": 44.556015768986555,
+      "pct_low": 37.25007621865542,
+      "pct_high": 52.25085676246193,
+      "papers": 5958,
+      "reference": "CSIR-CDRI"
+    },
+    {
+      "model": "lab + year + field + team size + review",
+      "term": "review",
+      "coef": 0.45750914042545815,
+      "se": 0.140435066777616,
+      "pct_effect": 58.013318916420474,
+      "pct_low": 19.992182584329484,
+      "pct_high": 108.08196348487084,
+      "papers": 5958,
+      "reference": "CSIR-CDRI"
+    }
+  ],
+  "covid_peak": [
+    {
+      "scope": "ALL",
+      "year": 2021,
+      "papers": 615,
+      "covid_papers": 70,
+      "covid_share": 0.11382113821138211,
+      "citations": 19319,
+      "covid_citation_share": 0.20233966561416222
+    },
+    {
+      "scope": "CSIR-CCMB",
+      "year": 2021,
+      "papers": 157,
+      "covid_papers": 21,
+      "covid_share": 0.1337579617834395,
+      "citations": 6533,
+      "covid_citation_share": 0.3317005969692331
+    },
+    {
+      "scope": "CSIR-CDRI",
+      "year": 2021,
+      "papers": 228,
+      "covid_papers": 8,
+      "covid_share": 0.03508771929824561,
+      "citations": 4534,
+      "covid_citation_share": 0.050727834142037936
+    },
+    {
+      "scope": "CSIR-IGIB",
+      "year": 2021,
+      "papers": 167,
+      "covid_papers": 43,
+      "covid_share": 0.25748502994011974,
+      "citations": 9230,
+      "covid_citation_share": 0.3339111592632719
+    },
+    {
+      "scope": "CSIR-IMTECH",
+      "year": 2023,
+      "papers": 69,
+      "covid_papers": 8,
+      "covid_share": 0.11594202898550725,
+      "citations": 916,
+      "covid_citation_share": 0.19978165938864628
+    }
+  ]
+}
