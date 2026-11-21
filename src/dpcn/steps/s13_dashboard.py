@@ -118,6 +118,21 @@ def manual_work(cfg) -> dict:
     return out
 
 
+def findings_doc(md: str) -> list[dict]:
+    """Table rows and explanation paragraphs of RESEARCH_FINDINGS.md as searchable sentences, each with its section."""
+    import re
+    out, section = [], ""
+    for line in md.splitlines():
+        if line.startswith("## "):
+            section = line[3:].strip()
+        m = re.match(r"^\| (\d+) \| (.+?) \| (.+?) \| (.+?) \|$", line)
+        if m:
+            out.append({"section": section, "text": f"Finding {m[1]}: {m[2]}. Test: {m[3]}. Result: {m[4]}."})
+        elif line.startswith("**") and len(line) > 80:
+            out.append({"section": section, "text": re.sub(r"\*\*|\*|`", "", line)})
+    return out
+
+
 def phase2_bundle(cfg) -> dict | None:
     """Phase II tables (written by s16). Absent before s16 has run: the dashboard then shows the original tabs only."""
     st = cfg.paths.stats
@@ -152,9 +167,40 @@ def phase2_bundle(cfg) -> dict | None:
         out["research"] = research
     if (st / "explorer.json").exists():                    # paper- and faculty-level data for Explorer, People, Compare
         out["explorer"] = json.loads((st / "explorer.json").read_text(encoding="utf-8"))
+    doc = cfg.root / "RESEARCH_FINDINGS.md"                # every tested result, for the chatbot's search
+    if doc.exists():
+        out["findings_doc"] = findings_doc(doc.read_text(encoding="utf-8"))
     ctx = cfg.paths.manual / "science_context.yaml"
     if ctx.exists():
         out["science"] = yaml.safe_load(ctx.read_text(encoding="utf-8"))
+    netmodels = {}     # course network models (step s18)
+    for f in sorted(st.glob("netmodel_*.csv")):
+        if f.stem == "netmodel_robustness":       # keep the attack curves light: every second removal step
+            df = pd.read_csv(f, keep_default_na=False, na_values=[""])
+            df = df[df["removed"] % 2 == 0]
+        else:
+            df = pd.read_csv(f, keep_default_na=False, na_values=[""])
+        netmodels[f.stem.replace("netmodel_", "")] = records(df)
+    if netmodels and (st / "netmodel_summary.json").exists():
+        netmodels["summary"] = json.loads((st / "netmodel_summary.json").read_text(encoding="utf-8"))
+        out["netmodels"] = netmodels
+    ext = {}           # robustness checks and dynamics extensions (step s19)
+    for f in sorted(st.glob("ext_*.csv")):
+        if f.stem == "ext_technique_papers":     # per-paper tags: an input, not a result
+            continue
+        ext[f.stem.replace("ext_", "")] = records(pd.read_csv(f, keep_default_na=False, na_values=[""]))
+    if ext and (st / "ext_summary.json").exists():
+        ext["summary"] = json.loads((st / "ext_summary.json").read_text(encoding="utf-8"))
+        out["ext"] = ext
+    dyn = {}           # teams, ties, brokerage, sensitivity, temporal paths, communities, OpenAlex extras (s20-s21), RSiena (s22)
+    for f in sorted(st.glob("dyn_*.csv")):
+        dyn[f.stem.replace("dyn_", "")] = records(pd.read_csv(f, keep_default_na=False, na_values=[""]))
+    if (st / "siena_estimates.csv").exists():
+        dyn["siena"] = records(pd.read_csv(st / "siena_estimates.csv", keep_default_na=False, na_values=[""]))
+        dyn["siena_fit"] = json.loads((st / "siena_fit.json").read_text(encoding="utf-8"))
+    if dyn and (st / "dyn_summary.json").exists():
+        dyn["summary"] = json.loads((st / "dyn_summary.json").read_text(encoding="utf-8"))
+        out["dyn"] = dyn
     return out
 
 

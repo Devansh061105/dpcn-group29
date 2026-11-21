@@ -33,6 +33,11 @@ STEPS: list[tuple[str, str]] = [
     ("s12", "s12_stats"),
     ("s16", "s16_phase2"),      # Phase II analyses; runs before the dashboard, which displays them
     ("s17", "s17_research"),    # research analyses against randomised baselines (also shown in the dashboard)
+    ("s18", "s18_netmodels"),   # course network models: heavy tails, small world, robustness, spreading, link prediction, tie formation
+    ("s19", "s19_extensions"),  # robustness (specification curve, test-wide BH) and dynamics extensions for the paper
+    ("s20", "s20_enrich_extra"),  # extra OpenAlex data: funders, countries, careers, pre-2016 ties, world citers
+    ("s21", "s21_dynamics"),    # team assembly, tie dissolution, brokerage and impact, error sensitivity, temporal paths, communities
+    ("s22", "s22_rsiena"),      # stochastic actor-oriented model of the faculty network (R / RSiena)
     ("s23", "s23_spreading"),    # epidemic (SIS/SIR) and random-walk processes on the faculty network
     ("s24", "s24_structure"),   # null-model table, communities, students, growth laws, link prediction
     ("s25", "s25_benchmark"),   # peer biology institutes from OpenAlex, specialisation, gravity model

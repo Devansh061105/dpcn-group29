@@ -47,6 +47,9 @@ python -m dpcn run s13
 | Null-model table with bipartite null, communities vs labels, students as glue, growth laws, link prediction, twins, contagion, main path | Networks → Structure | s24 |
 | 13 Indian biology peer institutes, RCA vs India, gravity model | Benchmark | s25 |
 | Journal re-grading, Q1/IF signal, partner payoff, citers vs collaborators, laws, fragility, jumps, productivity random walk, filtered h-index, explorer data | Findings → More results, Explore | s26 |
+| Course network models (heavy tails, small world, robustness, SI/SIS, link prediction, tie formation) | Networks → Network models | s18 |
+| Specification curve, test-wide BH, method diffusion, simplicial closure, generative model | Findings → Robustness & dynamics | s19 |
+| Extra OpenAlex data, team assembly, tie survival, brokerage, RSiena | Dynamics → Teams, ties & careers | s20–s22 |
 | Verdict for every research question; "not done" and "blind spots" lists | Findings → Verdicts | – |
 | Filter & find, Person profile, Compare, Ask-the-data chatbot | Explore, bottom-right button | – |
 
@@ -136,7 +139,7 @@ python -m dpcn run s13
 - **Re-run:** `s13`.
 
 **T-09 · `RESEARCH_FINDINGS.md`.**
-- It lists 28 tested results.
+- It lists 54 tested results, from both sets of Phase III work.
 - Read each one, open the matching dashboard chart, and check that the number and the sentence agree.
 - Rewrite the explanations in your voice.
 - Mark anything you would not defend in a viva.

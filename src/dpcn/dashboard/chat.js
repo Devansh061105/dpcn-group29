@@ -32,6 +32,10 @@ const GLOSS = {
   "q1": "A journal in the top quarter of its Scimago subject category in the publication year.",
   "wilson interval": "A 95% confidence interval for a proportion that behaves well for small samples.",
   "bootstrap": "Resampling the data many times to see how much a number could vary: the source of most confidence intervals here.",
+  "scale-free": "A network whose degree distribution follows a power law with no typical scale. Our faculty network has heavy tails but is not scale-free (see Network models).",
+  "small world": "High clustering with short paths between any two people (Watts & Strogatz 1998).",
+  "rsiena": "A stochastic actor-oriented model: each faculty member is an actor who adds or drops ties to improve an objective (same lab, shared co-authors, output); fitted in R.",
+  "specification curve": "Re-running the same test under every reasonable combination of analysis choices to see whether the result depends on them.",
   "laplace": "A peaked, heavy-tailed distribution. Zhang et al. (P1) found yearly changes in scientists' output follow it.",
 };
 const LAB_ALIAS = Object.fromEntries(LABS.map((l) => [short(l).toLowerCase(), l]));
@@ -54,6 +58,8 @@ function chatKB() {
     ((RJ[k] || {}).caveats || []).forEach((s) => add(`Caveat: ${s}`, tab, "caveat")); });
   const noteTab = { overview: "overview", research: "findings", faculty: "compare", networks: "instnet", hyperauthorship: "flags", citers: "flags" };
   Object.entries((D.p2 || {}).notes || {}).forEach(([k, s]) => { if (typeof s === "string" && s.length > 20) s.split(/\n+/).forEach((p) => add(`Team interpretation: ${p}`, noteTab[k] || "findings", "note")); });
+  const secTab = (sec) => /network models/i.test(sec) ? "models" : /robustness/i.test(sec) ? "extensions" : /teams/i.test(sec) ? "teams" : /more tested/i.test(sec) ? "extras" : "findings";
+  ((D.p2 || {}).findings_doc || []).forEach((r) => add(r.text, /spread|epidemic|SIS|SIR|walk/i.test(r.text) && /more tested/i.test(r.section) ? "epidemics" : secTab(r.section), "doc"));
   (SCI.items || []).forEach((it) => add(`${it.claim} Source: ${it.source}`, "science", "science"));
   (R3.laws || []).forEach((r) => add(`${r.law}: ${r.statement}. Expected ${r.expected}; our data: ${r.observed}.`, "extras", "law"));
   Object.entries(SECTX).forEach(([k, m]) => add(`The ${m[0]} page: ${m[1]}. ${m[2]}`, k, "page"));
@@ -75,7 +81,8 @@ function bm25(q) {
   return kb.map((d) => { const tf = {}; d.t.forEach((w) => { tf[w] = (tf[w] || 0) + 1; });
     let s = 0; qt.forEach((w) => { const f = tf[w] || (w.length > 4 ? Object.keys(tf).filter((x) => x.startsWith(w.slice(0, -1))).reduce((a, x) => a + tf[x], 0) * 0.6 : 0);
       if (f) s += (CHAT.idf[w] || 0.6) * f * (k1 + 1) / (f + k1 * (1 - b + b * d.t.length / CHAT.avg)); });
-    return [s, d]; }).filter(([s]) => s > 0).sort((a, b2) => b2[0] - a[0]);
+    const boost = { doc: 1.35, finding: 1.3, verdict: 1.3, law: 1.1, page: 0.8, method: 0.85, science: 0.9, caveat: 0.85 }[d.kind] || 1;
+    return [s * boost, d]; }).filter(([s]) => s > 0).sort((a, b2) => b2[0] - a[0]);
 }
 function findPeople(q) {
   if (!XF.length) return [];

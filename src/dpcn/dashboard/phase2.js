@@ -443,7 +443,7 @@ if (P2) {
         marker: { size: rr.map((r) => 8 + 26 * Math.sqrt((r.cites_per_paper || 0) / maxC)), color: labColor(lab), opacity: 0.78, line: { color: css("--surface"), width: 1 } },
         hovertemplate: "<b>%{customdata[0]}</b><br>%{customdata[1]} faculty · %{customdata[2]} papers<br>%{x:.1f} papers per faculty<br>Q1 share %{y:.0%}<br>%{customdata[3]:.1f} citations per paper<br>%{customdata[4]} collaborating institutions · %{customdata[5]} faculty flagged<extra>" + short(lab) + "</extra>" };
     }), { xaxis: { title: "Papers per faculty member, 2016–2026", rangemode: "tozero" }, yaxis: { title: "Share of journal papers in Q1 journals", tickformat: ".0%", range: [0, 1] }, hovermode: "closest" });
-    table("t-dept", rows.map((r) => ({ ...r, lab: short(r.lab) })), [
+    table("t-dept2", rows.map((r) => ({ ...r, lab: short(r.lab) })), [
       { title: "Lab", field: "lab", headerFilter: "input", frozen: true }, { title: "Department", field: "department", headerFilter: "input", widthGrow: 3, minWidth: 220 },
       { title: "Faculty", field: "faculty", hozAlign: "right", sorter: "number" }, { title: "Papers", field: "papers", hozAlign: "right", sorter: "number" },
       { title: "Papers / faculty", field: "papers_per_faculty", hozAlign: "right", sorter: "number", formatter: (c) => fmt(c.getValue(), 1) },
@@ -687,6 +687,403 @@ if (P2) {
     renderNotes();
   }
 
+  // ---------------------------------------------------------------- page: course network models (step s18)
+  function renderModels() {
+    const N = P2.netmodels;
+    if (!N) { el("nm-list").textContent = "Run step s18 to compute the network models."; return; }
+    const S = N.summary, tails = N.degree_fits || [], sw = N.small_world || [], rs = N.robustness_summary || [];
+    const swF = sw.find((r) => r.network.startsWith("faculty")) || {}, swA = sw.find((r) => r.network.startsWith("all")) || {};
+    const rsOf = (s) => rs.find((r) => r.strategy === s) || {};
+    const si = N.si || [], siOf = (n) => si.find((r) => r.network === n) || {};
+    const lpAll = (S.link_prediction_mean_auc_all || {}), lpX = (S.link_prediction_mean_auc_cross_lab || {});
+    const coef = N.tie_formation || [], m4 = (t) => coef.find((r) => r.model === "4 + seniority" && r.term === t) || {};
+    const m5 = (t) => coef.find((r) => r.model.startsWith("5") && r.term === t) || {};
+    const perm = (N.tie_permutation || []).find((r) => r.term === "same_lab") || {};
+    const tailOf = (d) => tails.find((r) => r.distribution === d) || {};
+    const verdict = (d) => tails.filter((r) => r.distribution === d).map((r) => `${r.alternative}: ${r.verdict}`).join("; ");
+    const cuts = N.lab_cuts || [], iso = cuts.filter((r) => r.side_b.includes("+"));
+    const sis = S.sis || {}, hold = S.tie_formation_holdout || {};
+    const sameLabCN = Math.exp(Math.log(m5("log_cn").odds_ratio) + Math.log(m5("same_lab_x_log_cn").odds_ratio));
+    const items = [
+      ["Heavy tails, but not a clean power law.", `Faculty degree: a power-law tail is ${tailOf("faculty co-authorship degree").power_law_plausible ? "plausible" : "rejected"} only above ${fmt(tailOf("faculty co-authorship degree").xmin)} links (${fmt(tailOf("faculty co-authorship degree").n_tail)} faculty, bootstrap p = ${fmt(tailOf("faculty co-authorship degree").gof_p, 2)}); ${verdict("faculty co-authorship degree")}. All-author degree: α = ${fmt(tailOf("all-author co-authorship degree").alpha, 2)} above ${fmt(tailOf("all-author co-authorship degree").xmin)} (p = ${fmt(tailOf("all-author co-authorship degree").gof_p, 2)}); ${verdict("all-author co-authorship degree")}. Paper citations: α = ${fmt(tailOf("paper citations").alpha, 2)} above ${fmt(tailOf("paper citations").xmin)} (p = ${fmt(tailOf("paper citations").gof_p, 2)}); ${verdict("paper citations")}.`,
+        "Like most real networks (Broido & Clauset 2019), ours is heavy-tailed but better described by a power law with a cutoff or a log-normal than by a pure scale-free law; 'scale-free' should not be claimed."],
+      ["The faculty network is a small world.", `Average path ${fmt(swF.path_length, 2)} steps against ${fmt(swF.er_path_length, 2)} in a random graph of the same size, while clustering is ${fmt(swF.clustering, 2)} against ${fmt(swF.er_clustering, 3)} (σ = ${fmt(swF.sigma_er, 1)}; ${fmt(swF.sigma_degree_preserving, 1)} against degree-preserving graphs). The all-author network: L = ${fmt(swA.path_length, 2)} vs ${fmt(swA.er_path_length, 2)}, C = ${fmt(swA.clustering, 2)} vs ${fmt(swA.er_clustering, 4)}.`,
+        "Any two connected faculty are about three and a half co-authors apart, yet their collaborators mostly know each other: tight lab groups joined by a few long links."],
+      ["Robust to chance, fragile to losing brokers.", `Random departures halve the largest group only after ${pct(rsOf("random").share_to_halve_lcc, 0)} of faculty leave (configuration-model theory: ${pct(S.molloy_reed.fc_random_theory, 0)}); removing by betweenness halves it after ${fmt(rsOf("betweenness").removed_to_halve_lcc)} people (${pct(rsOf("betweenness").share_to_halve_lcc, 0)}). Taking out the ${fmt(rsOf("brokers").removed_until_no_lab_pair_joined)} faculty with the most cross-lab co-authors leaves no two labs connected; at random that takes ${fmt(rsOf("random").removed_until_no_lab_pair_joined)}. Cutting a lab off needs ${iso.map((r) => `${short(r.side_a)} ${r.min_edge_cut}`).join(", ")} links.`,
+        "The labs' connection to one another rests on a couple of dozen people; their departure, not random turnover, is what would split the network."],
+      ["Lab walls slow spreading.", `From a random start, something passed along joint papers reaches another lab in a median ${fmt(siOf("observed").median_t_other_lab)} steps and all four in ${fmt(siOf("observed").median_t_all_labs)}, against ${fmt(siOf("degree-preserving null").median_t_other_lab)} and ${fmt(siOf("degree-preserving null").median_t_all_labs)} with the same degrees but random mixing. Without the five main brokers it takes ${fmt(siOf("five brokers removed").median_t_all_labs)} steps. SIS: outbreaks persist from λ ≈ ${fmt(sis.threshold_empirical, 3)}, near the mean-field thresholds 1/Λmax = ${fmt(sis.threshold_qmf, 3)} and ⟨k⟩/⟨k²⟩ = ${fmt(sis.threshold_hmf, 3)}.`,
+        "Ideas, methods or reagents that travel through collaboration would move between labs two to three times slower than the same network without lab boundaries."],
+      ["Next year's collaborations are predictable, except across labs.", `Mean AUC over test years: logistic model ${fmt(lpAll["logistic model (all features)"], 2)}, same lab alone ${fmt(lpAll.same_lab, 2)}, Katz ${fmt(lpAll.katz, 2)}, Adamic–Adar ${fmt(lpAll.adamic_adar, 2)}, topic similarity ${fmt(lpAll.topic_similarity, 2)}. For cross-lab pairs only: model ${fmt(lpX["logistic model (all features)"], 2)}, Katz ${fmt(lpX.katz, 2)}, topic ${fmt(lpX.topic_similarity, 2)}. Trained on ${hold.train_years} and tested on ${hold.test_years}, the tie model reaches AUC ${fmt(hold.auc, 2)} (lab alone ${fmt(hold.auc_same_lab_only, 2)}).`,
+        "Within a lab, new ties follow the network (shared colleagues); across labs, they are rare and close to unpredictable from the network, closer to chance meetings."],
+      ["Lab, not department or seniority, drives new ties; shared colleagues matter most across labs.", `With topic, network position, output, seniority and year held equal, a same-lab pair is ${fmt(m4("same_lab").odds_ratio, 0)}× more likely to start collaborating (95% CI ${fmt(m4("same_lab").or_low, 0)}–${fmt(m4("same_lab").or_high, 0)}; permutation p = ${fmt(perm.p_one_sided, 3)}); same department ${fmt(m4("same_department").odds_ratio, 2)}× (${fmt(m4("same_department").or_low, 2)}–${fmt(m4("same_department").or_high, 2)}); each e-fold more shared co-authors ${fmt(m4("log_cn").odds_ratio, 2)}×; seniority level ${fmt(m4("seniority_sum").odds_ratio, 2)}× per grade. Shared co-authors raise the odds ${fmt(m5("log_cn").odds_ratio, 1)}× per e-fold across labs, against ${fmt(sameLabCN, 1)}× within a lab.`,
+        "A cross-lab collaboration almost always comes through a colleague who already works with both sides, so brokers are the lever for joint work between labs."],
+    ];
+    const box = el("nm-list"); box.replaceChildren();
+    items.forEach(([h, a, so]) => { const d = document.createElement("div"); d.className = "rqi"; d.append(txt("h3", h), txt("p", a), txt("p", so, "muted")); box.append(d); });
+
+    // tails: complementary CDF on log-log axes with the fitted power law above x_min
+    const cc = N.ccdf || [], dists = [...new Set(cc.map((r) => r.distribution))];
+    const dc = [css("--lab-1"), css("--lab-2"), css("--lab-4")];
+    plot("c-nm-tails", dists.flatMap((d, i) => { const rr = cc.filter((r) => r.distribution === d), ff = rr.filter((r) => r.fit !== null && r.fit !== undefined && r.fit !== "");
+      const t = tailOf(d);
+      return [{ name: d, x: rr.map((r) => r.x), y: rr.map((r) => r.ccdf), mode: "markers", marker: { size: 4, color: dc[i] }, legendgroup: d,
+                hovertemplate: `<b>%{y:.3g}</b> have at least %{x}<br>${d}<extra></extra>` },
+              { name: `fit α = ${fmt(t.alpha, 2)}, p = ${fmt(t.gof_p, 2)}`, x: ff.map((r) => r.x), y: ff.map((r) => r.fit), mode: "lines", line: { color: dc[i], width: 2, dash: "dash" },
+                legendgroup: d, hoverinfo: "skip" }]; }),
+      { xaxis: { type: "log", title: "x (links or citations)" }, yaxis: { type: "log", title: "P(X ≥ x)" }, legend: { orientation: "h", y: 1.02, yanchor: "bottom", x: 0, font: { size: 10 } } });
+    table("t-nm-tails", tails.map((r) => ({ ...r })), [
+      { title: "Distribution", field: "distribution", widthGrow: 2 }, { title: "x min", field: "xmin", hozAlign: "right" },
+      { title: "α", field: "alpha", hozAlign: "right", formatter: (c) => fmt(c.getValue(), 2) }, { title: "Tail size", field: "n_tail", hozAlign: "right" },
+      { title: "Bootstrap p", field: "gof_p", hozAlign: "right", formatter: (c) => fmt(c.getValue(), 2) },
+      { title: "Alternative", field: "alternative" }, { title: "R", field: "llr", hozAlign: "right", formatter: (c) => fmt(c.getValue(), 1) },
+      { title: "p", field: "p", hozAlign: "right", formatter: (c) => Number(c.getValue()).toPrecision(2) }, { title: "Verdict", field: "verdict", widthGrow: 2 }],
+      { layout: "fitColumns", maxHeight: 360 });
+
+    const swNames = sw.map((r) => r.network);
+    plot("c-nm-sw", [
+      ...[["clustering", "observed", css("--lab-1")], ["degree_preserving_clustering", "degree-preserving", css("--lab-4")], ["er_clustering", "Erdős–Rényi", css("--qna")]].map(([f, n, c]) => ({
+        type: "bar", name: `C ${n}`, x: swNames, y: sw.map((r) => r[f]), marker: { color: c }, hovertemplate: `<b>C = %{y:.3f}</b><br>%{x} · ${n}<extra></extra>` })),
+      ...[["path_length", "observed", css("--lab-1")], ["degree_preserving_path_length", "degree-preserving", css("--lab-4")], ["er_path_length", "Erdős–Rényi", css("--qna")]].map(([f, n, c]) => ({
+        type: "scatter", mode: "markers", name: `L ${n}`, yaxis: "y2", x: swNames, y: sw.map((r) => r[f]),
+        marker: { size: 12, symbol: "diamond", color: c, line: { color: css("--ink"), width: 1 } }, hovertemplate: `<b>L = %{y:.2f}</b><br>%{x} · ${n}<extra></extra>` }))],
+      { barmode: "group", yaxis: { title: "Clustering C" }, yaxis2: { overlaying: "y", side: "right", title: "Path length L", rangemode: "tozero", showgrid: false },
+        legend: { orientation: "h", y: 1.02, yanchor: "bottom", x: 0 }, margin: { l: 55, r: 55, t: 10, b: 50 } });
+
+    const rob = N.robustness || [], strats = ["random", "degree", "betweenness", "brokers"];
+    const sc = { random: css("--muted"), degree: css("--lab-1"), betweenness: css("--lab-2"), brokers: css("--lab-4") };
+    const half = (r) => r.removed_share <= 0.5;
+    plot("c-nm-rob", strats.map((s) => { const rr = rob.filter((r) => r.strategy === s && half(r));
+      return { name: s, x: rr.map((r) => r.removed_share), y: rr.map((r) => r.lcc_share), mode: "lines", line: { color: sc[s], width: 2 },
+        hovertemplate: `<b>%{y:.0%}</b> in the largest group<br>${s} · %{x:.0%} removed<extra></extra>` }; }),
+      { xaxis: { tickformat: ".0%", title: "Faculty removed" }, yaxis: { tickformat: ".0%", title: "Largest group", range: [0, 1] }, legend: { orientation: "h", y: 1.02, yanchor: "bottom", x: 0 } });
+    plot("c-nm-labs", strats.map((s) => { const rr = rob.filter((r) => r.strategy === s && half(r));
+      return { name: s, x: rr.map((r) => r.removed_share), y: rr.map((r) => r.lab_pairs_joined), mode: "lines", line: { color: sc[s], width: 2, shape: "hv" },
+        hovertemplate: `<b>%{y:.1f}</b> of 6 lab pairs joined<br>${s} · %{x:.0%} removed<extra></extra>` }; }),
+      { xaxis: { tickformat: ".0%", title: "Faculty removed" }, yaxis: { title: "Lab pairs joined", range: [0, 6.3], dtick: 1 }, legend: { orientation: "h", y: 1.02, yanchor: "bottom", x: 0 } });
+
+    const nets = ["observed", "degree-preserving null", "five brokers removed"];
+    plot("c-nm-si", [["median_t_other_lab", "another lab"], ["median_t_all_labs", "all four labs"], ["median_t50", "half the network"], ["median_t90", "90% of the network"]].map(([f, nm], i) => ({
+      type: "bar", name: nm, x: nets, y: nets.map((n) => siOf(n)[f]), marker: { color: [css("--lab-1"), css("--lab-3"), css("--lab-2"), css("--lab-4")][i] },
+      hovertemplate: `<b>%{y} steps</b> to reach ${nm}<br>%{x}<extra></extra>` })),
+      { barmode: "group", yaxis: { title: "Median steps (SI, β = 0.05)" }, legend: { orientation: "h", y: 1.02, yanchor: "bottom", x: 0 } });
+
+    const sisR = N.sis || [];
+    plot("c-nm-sis", ["observed", "degree-preserving null"].map((n, i) => { const rr = sisR.filter((r) => r.network === n);
+      return { name: n, x: rr.map((r) => r.lambda_over_qmf), y: rr.map((r) => r.prevalence), mode: "lines+markers",
+        error_y: { type: "data", array: rr.map((r) => r.prevalence_sd), visible: true, color: css("--ink-2") },
+        line: { color: i ? css("--qna") : css("--lab-1"), width: 2 }, marker: { size: 6 }, hovertemplate: `<b>%{y:.1%}</b> infected<br>λ = %{x:.2f} × threshold · ${n}<extra></extra>` }; }),
+      { xaxis: { title: "λ ÷ (1 / Λmax)" }, yaxis: { tickformat: ".0%", title: "Stationary prevalence" }, legend: { orientation: "h", y: 1.02, yanchor: "bottom", x: 0 },
+        shapes: [{ type: "line", xref: "x", yref: "paper", x0: 1, x1: 1, y0: 0, y1: 1, line: { color: css("--muted"), dash: "dash", width: 1 } }] });
+
+    const lp = (N.linkpred || []).filter((r) => r.subset === "all pairs");
+    const meths = ["logistic model (all features)", "same_lab", "katz", "adamic_adar", "preferential_attachment", "topic_similarity"];
+    const mc = [css("--ink"), css("--lab-1"), css("--lab-2"), css("--lab-3"), css("--lab-4"), css("--qna")];
+    plot("c-nm-lp", meths.map((m, i) => { const rr = lp.filter((r) => r.method === m);
+      return { name: m.replace(/_/g, " "), x: rr.map((r) => r.test_year), y: rr.map((r) => r.auc), mode: "lines+markers", line: { color: mc[i], width: i ? 2 : 3 }, marker: { size: 6 },
+        customdata: rr.map((r) => r.new_links), hovertemplate: `<b>AUC %{y:.2f}</b><br>${m} · %{x} · %{customdata} new links<extra></extra>` }; }),
+      { xaxis: { dtick: 1, title: "Test year" }, yaxis: { title: "AUC", range: [0.4, 1] }, legend: { orientation: "h", y: 1.02, yanchor: "bottom", x: 0 },
+        shapes: [{ type: "line", xref: "paper", yref: "y", x0: 0, x1: 1, y0: 0.5, y1: 0.5, line: { color: css("--muted"), dash: "dash", width: 1 } }] });
+
+    const NAMES = { same_lab: "same lab", same_department: "same department", topic_similarity: "topic similarity", log_cn: "shared co-authors (log)",
+      log_pa: "degree product (log)", log_output_product: "output (log)", seniority_sum: "seniority (sum of grades)", seniority_gap: "seniority gap",
+      seniority_missing: "grade unknown", same_lab_x_log_cn: "same lab × shared co-authors" };
+    const h4 = coef.filter((r) => r.model === "4 + seniority");
+    plot("c-nm-haz", [{ type: "scatter", mode: "markers", x: h4.map((r) => r.odds_ratio), y: h4.map((r) => NAMES[r.term] || r.term),
+      error_x: { type: "data", symmetric: false, array: h4.map((r) => r.or_high - r.odds_ratio), arrayminus: h4.map((r) => r.odds_ratio - r.or_low), color: css("--ink-2") },
+      marker: { size: 10, color: h4.map((r) => r.term === "same_lab" ? css("--lab-1") : r.term.startsWith("log_cn") ? css("--lab-4") : css("--lab-3")) },
+      hovertemplate: "<b>odds ratio %{x:.2f}</b><br>%{y}<extra></extra>" }],
+      { xaxis: { type: "log", title: "Odds ratio (log scale)" }, yaxis: { automargin: true, autorange: "reversed" }, margin: { l: 200, r: 20, t: 10, b: 50 }, showlegend: false,
+        shapes: [{ type: "line", xref: "x", yref: "paper", x0: 1, x1: 1, y0: 0, y1: 1, line: { color: css("--muted"), dash: "dash", width: 1 } }] });
+    table("t-nm-haz", coef.map((r) => ({ ...r, term_l: NAMES[r.term] || r.term, or_ci: `${fmt(r.odds_ratio, 2)} (${fmt(r.or_low, 2)}–${fmt(r.or_high, 2)})` })), [
+      { title: "Model", field: "model", widthGrow: 2 }, { title: "Term", field: "term_l", widthGrow: 2 }, { title: "Odds ratio (95% CI)", field: "or_ci", hozAlign: "right", widthGrow: 2 },
+      { title: "SE naive", field: "se_naive", hozAlign: "right", formatter: (c) => fmt(c.getValue(), 3) }, { title: "SE dyadic", field: "se_dyadic", hozAlign: "right", formatter: (c) => fmt(c.getValue(), 3) },
+      { title: "p", field: "p", hozAlign: "right", formatter: (c) => Number(c.getValue()).toPrecision(2) }],
+      { layout: "fitColumns", maxHeight: 380 });
+
+    const mbox = el("nm-methods"); mbox.replaceChildren();
+    const ul = document.createElement("ul");
+    ["Power laws: discrete maximum-likelihood α for every candidate x_min, keeping the x_min with the smallest Kolmogorov–Smirnov distance; goodness of fit from a semi-parametric bootstrap; Vuong likelihood-ratio tests against a discretised log-normal, a discrete exponential and a power law with exponential cutoff (Clauset, Shalizi & Newman 2009).",
+     "Small world: average clustering and mean shortest path of the largest component; Erdős–Rényi G(n, m) with the same n and m; degree-preserving nulls by double-edge swaps (faculty network) or a simplified configuration model (all-author network, paths from a sample of 300 sources).",
+     "Robustness: one faculty member removed at a time, the next chosen after recomputing degree, betweenness or cross-lab ties; random order averaged over 100 runs. Lab cuts: maximum flow between all members of each side, one unit per co-author link. Molloy–Reed: κ = ⟨k²⟩/⟨k⟩ and f_c = 1 − 1/(κ − 1) for a configuration-model graph.",
+     "Spreading: discrete-time SI on the weighted largest component (infection probability 1 − (1 − β)^(joint papers with infected colleagues)); one run from each node; 10 rewired networks with the link weights shuffled. SIS on the unweighted component, recovery 0.2, 10 runs of 600 steps (last 300 averaged) per λ; empirical threshold = first λ with prevalence ≥ 1%.",
+     "Link prediction and tie formation: a pair is at risk in year t when both faculty have a paper before t and one in t or later and they have not co-authored yet; the outcome is a first joint paper (≤ 50 authors) in t; all features use the network up to t − 1. AUC by the rank-sum formula. The tie model is a logistic hazard with year effects, dyadic-robust errors (Aronow, Samii & Assenova 2015) and a lab-label permutation test (200 shuffles). It stands in for a stochastic actor-oriented model (RSiena), which would also model each person's choices but needs R.",
+     "Limits: seniority is the current CSIR grade, not the grade in each year; papers with more than 50 authors are left out of the network, as in the submitted files; faculty who left the labs are kept with their dates of activity from their papers; associations, not causal effects."]
+      .forEach((t) => ul.append(txt("li", t)));
+    mbox.append(ul);
+  }
+
+  // ---------------------------------------------------------------- page: robustness and dynamics (step s19)
+  function renderExtensions() {
+    const E = P2.ext;
+    if (!E) { el("ex-list").textContent = "Run step s19 to compute the robustness checks and extensions."; return; }
+    const S = E.summary, sc = S.spec_curve || {}, sh = S.diffusion_shuffle || {}, cl = S.simplicial_closure || {}, cb = S.citation_before_collab || {}, tr = S.test_registry || {};
+    const dm = E.diffusion_models || [], dmOf = (m, t) => dm.find((r) => r.model === m && r.term === t) || {};
+    const dose = (E.diffusion_dose || []).filter((r) => r.deg_band === "all");
+    const doseOf = (k) => dose.find((r) => String(r.k_band) === k) || {};
+    const clos = E.simplicial_closure || [], cOf = (c, l = "all") => clos.find((r) => r.configuration === c && r.labs === l) || {};
+    const gen = E.generative || [], gOf = (v, s) => gen.find((r) => r.variant === v && r.statistic === s) || {};
+    const cov = E.covid_ties || [], covOf = (pairs, f, o) => cov.find((r) => r.pairs === pairs && r.formed_on === f && r.outcome === o) || {};
+    const cit = E.citation_before_collab || [], citOf = (m, t) => cit.find((r) => r.model === m && r.term === t) || {};
+    const pc = citOf("model 4 + any prior citation", "any_prior_citation");
+    const items = [
+      ["The same-lab effect survives every analysis choice.", `Across ${fmt(sc.specifications)} specifications the odds ratio for a same-lab pair starting to collaborate runs from ${fmt(sc.same_lab_or_min, 1)} to ${fmt(sc.same_lab_or_max, 1)} (median ${fmt(sc.same_lab_or_median, 1)}); the lowest lower bound is ${fmt(sc.same_lab_low_min, 1)}. Same department: ${fmt(sc.same_department_or_range && sc.same_department_or_range[0], 2)}–${fmt(sc.same_department_or_range && sc.same_department_or_range[1], 2)}, significant in ${fmt(sc.same_department_significant_specs)} of 24 full-model specifications.`,
+        "The headline does not depend on the author cap, on using future activity to define who is at risk, on the pandemic years, on the most connected people or on the controls. Dropping hubs and adding controls shrink it the most, never below about 20×."],
+      ["Faculty take up methods their co-authors use, but the shuffle test does not show influence.", `Adoption rates: ${pct(doseOf("0").rate, 1)} a year with no adopting co-author, ${pct(doseOf("1").rate, 1)} with one, ${pct(doseOf("2").rate, 1)} with two, ${pct(doseOf("3+").rate, 1)} with three or more; simple contagion predicts ${pct(doseOf("2").simple_contagion_pred, 1)} and ${pct(doseOf("3+").simple_contagion_pred, 1)} for the last two. Same-lab exposure OR ${fmt(dmOf("same vs cross lab", "same-lab adopting co-authors (log)").odds_ratio, 2)}, cross-lab ${fmt(dmOf("same vs cross lab", "cross-lab adopting co-authors (log)").odds_ratio, 2)} (n.s.). But shuffling adoption years among the adopters gives OR ${fmt(sh.shuffle_or_mean, 2)} against ${fmt(sh.or_observed, 2)} observed (p = ${fmt(sh.p_one_sided, 2)}).`,
+        "Co-authors share methods because they belong to the same research groups (homophily and shared projects), not because one passes the method on to the other at a measurable time. The dose-response matches simple contagion for two adopting co-authors and falls below it for three or more, as expected when exposures come from one group and overlap; there is no sign of complex contagion (extra co-authors never add more than independent exposure would)."],
+      ["Groups close when every pair has worked together repeatedly.", `Of faculty triples who never shared a paper in ${cl.train_years}, ${pct(cOf("3 pairwise ties, all repeated").closure_rate, 0)} with three repeated pairwise ties wrote one together in ${cl.test_years}, against ${pct(cOf("3 pairwise ties, some single").closure_rate, 1)} with three ties not all repeated, ${pct(cOf("2 pairwise ties").closure_rate, 1)} with two, ${pct(cOf("1 pairwise ties").closure_rate, 2)} with one and ${pct(cOf("0 pairwise ties").closure_rate, 3)} with none. Open wedges close at ${pct(cOf("2 pairwise ties", "one lab").closure_rate, 1)} inside a lab and ${pct(cOf("2 pairwise ties", "mixed labs").closure_rate, 1)} across labs.`,
+        "As Benson et al. (2018) found for other collaboration systems, tie strength, not just the presence of ties, drives the formation of groups; and groups that span labs almost never form."],
+      ["The tie model reproduces the lab structure, but not the clustering.", `Grown from 2016, the full model gives a cross-lab share of ${pct(gOf("full model", "cross_lab_share").sim_mean, 1)} (real ${pct(gOf("full model", "cross_lab_share").observed, 1)}), path length ${fmt(gOf("full model", "path_length").sim_mean, 2)} (${fmt(gOf("full model", "path_length").observed, 2)}) and lab modularity ${fmt(gOf("full model", "lab_modularity").sim_mean, 2)} (${fmt(gOf("full model", "lab_modularity").observed, 2)}); without the lab term the cross-lab share jumps to ${pct(gOf("without lab", "cross_lab_share").sim_mean, 0)}. Clustering stays at ${fmt(gOf("full model", "clustering").sim_mean, 2)} against ${fmt(gOf("full model", "clustering").observed, 2)}.`,
+        "Lab preference alone explains the division into labs. The missing clustering shows that links arrive in groups (a paper links several people at once), which a pair-by-pair model cannot produce: the network has to be modelled as a hypergraph."],
+      ["Pandemic collaborations did not outlast the pandemic.", `Of pairs whose first joint paper (2020–22) was on COVID-19, ${pct(covOf("all pairs", "COVID-19 paper", "later_non_covid").share, 0)} later wrote a non-COVID paper together, against ${pct(covOf("all pairs", "other paper", "later_non_covid").share, 0)} of pairs formed on other topics. Only ${fmt(covOf("cross-lab", "COVID-19 paper", "later_any").new_pairs)} cross-lab pairs formed on COVID-19 work, and ${fmt(covOf("cross-lab", "COVID-19 paper", "later_non_covid").continued)} continued on other topics.`,
+        "A mission-driven shock created ties, mostly within labs, but they stayed tied to the mission; it did not build lasting bridges between labs."],
+      ["Reading each other's work comes before writing together.", `${pct(cb.share_new_links_with_prior_citation, 1)} of new links had an earlier independent citation between the two faculty, against ${pct(cb.share_unlinked_pairs_with_prior_citation, 1)} of pairs that did not link; for new cross-lab links ${pct(cb.cross_lab_new_links_with_prior_citation, 0)}. With lab, topic, network position, output and seniority held equal, a prior citation raises the odds of a new collaboration ${fmt(pc.odds_ratio, 2)}× (${fmt(pc.or_low, 2)}–${fmt(pc.or_high, 2)}).`,
+        "Citation is an early signal of collaboration, and more so across labs, where it may be the main way people find each other."],
+      ["Almost every reported result survives a paper-wide correction.", `${fmt(tr.tests)} tests across the Findings pages (steps s17–s22): ${fmt(tr.p_below_05)} have p < 0.05 and ${fmt(tr.q_below_05)} keep q < 0.05 after Benjamini–Hochberg across all of them (${fmt(tr.lost_after_correction)} lost).`,
+        "Multiple testing does not explain the findings; the tests lost are secondary control terms and borderline cells."],
+    ];
+    const box = el("ex-list"); box.replaceChildren();
+    items.forEach(([h, a, so]) => { const d = document.createElement("div"); d.className = "rqi"; d.append(txt("h3", h), txt("p", a), txt("p", so, "muted")); box.append(d); });
+
+    const spec = [...(E.spec_curve || [])].sort((a, b) => a.same_lab_or - b.same_lab_or);
+    const xs = spec.map((_, i) => i + 1);
+    const flags = [["author cap 20", (r) => r.author_cap === 20], ["author cap 100", (r) => r.author_cap === 100], ["no look-ahead", (r) => r.risk_set === "no look-ahead"],
+      ["without 2020–22", (r) => r.years !== "all years"], ["top 5% hubs dropped", (r) => r.hubs !== "hubs kept"], ["full controls", (r) => r.controls === "full model"]];
+    plot("c-ex-spec", [
+      { type: "scatter", mode: "markers", x: xs, y: spec.map((r) => r.same_lab_or), xaxis: "x", yaxis: "y", name: "same-lab odds ratio",
+        error_y: { type: "data", symmetric: false, array: spec.map((r) => r.same_lab_high - r.same_lab_or), arrayminus: spec.map((r) => r.same_lab_or - r.same_lab_low), color: css("--ink-2"), thickness: 1 },
+        marker: { size: 7, color: spec.map((r) => r.controls === "full model" ? css("--lab-1") : css("--lab-4")) },
+        customdata: spec.map((r) => `cap ${r.author_cap} · ${r.risk_set} · ${r.years} · ${r.hubs} · ${r.controls} · ${r.new_links} new links`),
+        hovertemplate: "<b>OR %{y:.1f}</b><br>%{customdata}<extra></extra>" },
+      ...flags.map(([nm, f]) => ({ type: "scatter", mode: "markers", x: xs, y: spec.map(() => nm), xaxis: "x", yaxis: "y2", showlegend: false,
+        marker: { size: 7, symbol: "square", color: spec.map((r) => f(r) ? css("--ink") : "rgba(0,0,0,0)"), line: { color: css("--muted"), width: 0.5 } }, hoverinfo: "skip" }))],
+      { grid: { rows: 2, columns: 1, roworder: "top to bottom" }, showlegend: false,
+        yaxis: { type: "log", title: "Same-lab odds ratio", domain: [0.42, 1], tickvals: [10, 15, 20, 30, 50, 80], ticktext: ["10×", "15×", "20×", "30×", "50×", "80×"] }, yaxis2: { domain: [0, 0.34], type: "category", automargin: true, autorange: "reversed" },
+        xaxis: { title: "Specification (sorted)", anchor: "y2" }, margin: { l: 140, r: 16, t: 10, b: 50 } });
+
+    const kb = ["0", "1", "2", "3+"];
+    plot("c-ex-dose", [
+      { type: "bar", name: "observed", x: kb.map((k) => `${k} adopting co-author${k === "1" ? "" : "s"}`), y: kb.map((k) => doseOf(k).rate), marker: { color: css("--lab-1") },
+        error_y: { type: "data", symmetric: false, array: kb.map((k) => doseOf(k).rate_high - doseOf(k).rate), arrayminus: kb.map((k) => doseOf(k).rate - doseOf(k).rate_low), color: css("--ink-2") },
+        customdata: kb.map((k) => doseOf(k).faculty_years), hovertemplate: "<b>%{y:.1%}</b> adopt a year<br>%{x} · %{customdata} faculty-years<extra></extra>" },
+      { type: "scatter", mode: "markers", name: "simple contagion prediction", x: kb.map((k) => `${k} adopting co-author${k === "1" ? "" : "s"}`), y: kb.map((k) => doseOf(k).simple_contagion_pred),
+        marker: { size: 12, symbol: "diamond", color: css("--lab-4"), line: { color: css("--ink"), width: 1 } }, hovertemplate: "<b>%{y:.1%}</b> predicted<br>%{x}<extra></extra>" }],
+      { yaxis: { tickformat: ".1%", title: "Yearly adoption rate" }, legend: { orientation: "h", y: 1.02, yanchor: "bottom", x: 0 } });
+
+    const coefs = (sh.shuffle_coefs || []).map((c) => Math.exp(c));
+    plot("c-ex-shuffle", [{ type: "histogram", x: coefs, nbinsx: 30, name: "shuffled", marker: { color: css("--qna") }, hovertemplate: "OR %{x:.2f}: %{y} shuffles<extra></extra>" }],
+      { xaxis: { title: "Odds ratio for having an adopting co-author" }, yaxis: { title: "Shuffled data sets" }, showlegend: false,
+        shapes: [{ type: "line", xref: "x", yref: "paper", x0: sh.or_observed, x1: sh.or_observed, y0: 0, y1: 1, line: { color: css("--lab-1"), width: 3 } }],
+        annotations: [{ x: sh.or_observed, y: 1, xref: "x", yref: "paper", text: `observed ${fmt(sh.or_observed, 2)}`, showarrow: false, yanchor: "bottom", font: { color: css("--lab-1") } }] });
+    table("t-ex-diff", dm.map((r) => ({ ...r, or_ci: `${fmt(r.odds_ratio, 2)} (${fmt(r.or_low, 2)}–${fmt(r.or_high, 2)})` })), [
+      { title: "Model", field: "model", widthGrow: 3 }, { title: "Term", field: "term", widthGrow: 3 }, { title: "Odds ratio (95% CI)", field: "or_ci", hozAlign: "right", widthGrow: 2 },
+      { title: "p", field: "p", hozAlign: "right", formatter: (c) => Number(c.getValue()).toPrecision(2) }, { title: "Adoptions", field: "adoptions", hozAlign: "right" }],
+      { layout: "fitColumns", maxHeight: 340 });
+
+    const cfgs = ["0 pairwise ties", "1 pairwise ties", "2 pairwise ties", "3 pairwise ties, some single", "3 pairwise ties, all repeated"];
+    plot("c-ex-closure", [["all", "all triples", css("--ink")], ["one lab", "one lab", css("--lab-1")], ["mixed labs", "spanning labs", css("--lab-4")]].map(([l, nm, c]) => ({
+      type: "bar", name: nm, x: cfgs.map((x) => x.replace("pairwise ties", "ties")), y: cfgs.map((x) => cOf(x, l).closure_rate || null), marker: { color: c },
+      customdata: cfgs.map((x) => `${fmt(cOf(x, l).closed)} of ${fmt(cOf(x, l).triples)}`), hovertemplate: `<b>%{y:.2%}</b> close · %{customdata}<br>%{x} · ${nm}<extra></extra>` })),
+      { barmode: "group", yaxis: { type: "log", tickformat: ".2%", title: "Share writing a paper together" }, legend: { orientation: "h", y: 1.02, yanchor: "bottom", x: 0 } });
+
+    const gstats = [["cross_lab_share", "cross-lab share"], ["lab_modularity", "lab modularity"], ["clustering", "clustering"], ["transitivity", "transitivity"], ["path_length", "path length"], ["degree_sd", "degree spread"], ["max_degree", "max degree"]];
+    const vars = ["full model", "without lab", "without shared co-authors", "without degree", "random (no terms)"];
+    plot("c-ex-gen", vars.map((v, i) => ({ type: "scatter", mode: "markers", name: v, y: gstats.map(([, n]) => n), x: gstats.map(([s]) => gOf(v, s).ratio_to_observed),
+      marker: { size: 11, symbol: ["circle", "x", "diamond", "triangle-up", "square"][i], color: [css("--lab-1"), css("--lab-2"), css("--lab-3"), css("--lab-4"), css("--qna")][i] },
+      hovertemplate: `<b>%{x:.2f}×</b> the real value<br>%{y} · ${v}<extra></extra>` })),
+      { xaxis: { type: "log", title: "Simulated ÷ real (log)", tickvals: [0.1, 0.2, 0.5, 1, 2, 5, 10], ticktext: ["0.1×", "0.2×", "0.5×", "1×", "2×", "5×", "10×"] }, yaxis: { automargin: true, autorange: "reversed" }, legend: { orientation: "h", y: 1.02, yanchor: "bottom", x: 0 }, margin: { l: 120, r: 16, t: 10, b: 50 },
+        shapes: [{ type: "line", xref: "x", yref: "paper", x0: 1, x1: 1, y0: 0, y1: 1, line: { color: css("--muted"), dash: "dash", width: 1 } }] });
+
+    const grp = ["all pairs", "same lab", "cross-lab"];
+    plot("c-ex-covid", [["COVID-19 paper", "later_any", "formed on COVID-19: any later paper", css("--lab-2")], ["other paper", "later_any", "formed on other topics: any later paper", css("--lab-1")],
+      ["COVID-19 paper", "later_non_covid", "formed on COVID-19: later non-COVID paper", css("--lab-4")], ["other paper", "later_non_covid", "formed on other topics: later non-COVID paper", css("--lab-3")]].map(([f, o, nm, c]) => ({
+      type: "bar", name: nm, x: grp, y: grp.map((g) => covOf(g, f, o).share), marker: { color: c },
+      error_y: { type: "data", symmetric: false, array: grp.map((g) => covOf(g, f, o).high - covOf(g, f, o).share), arrayminus: grp.map((g) => covOf(g, f, o).share - covOf(g, f, o).low), color: css("--ink-2") },
+      customdata: grp.map((g) => `${fmt(covOf(g, f, o).continued)} of ${fmt(covOf(g, f, o).new_pairs)}`), hovertemplate: `<b>%{y:.0%}</b> · %{customdata}<br>%{x}<extra></extra>` })),
+      { barmode: "group", yaxis: { tickformat: ".0%", title: "Share continuing", range: [0, 1] }, legend: { orientation: "h", y: -0.18, yanchor: "top", x: 0, font: { size: 10 } }, margin: { l: 55, r: 16, t: 10, b: 120 } });
+
+    const cr = cit.filter((r) => r.model !== "prior citation only" || r.term === "any_prior_citation");
+    const CN = { any_prior_citation: "prior citation (any)", log_prior_citations: "prior citations (log)", same_lab: "same lab", topic_similarity: "topic similarity", log_cn: "shared co-authors (log)" };
+    plot("c-ex-cite", [{ type: "scatter", mode: "markers", x: cr.map((r) => r.odds_ratio), y: cr.map((r) => `${CN[r.term] || r.term} · ${r.model === "prior citation only" ? "alone" : r.model.includes("log") ? "full, log citations" : "full model"}`),
+      error_x: { type: "data", symmetric: false, array: cr.map((r) => r.or_high - r.odds_ratio), arrayminus: cr.map((r) => r.odds_ratio - r.or_low), color: css("--ink-2") },
+      marker: { size: 10, color: cr.map((r) => r.term.includes("citation") ? css("--lab-4") : css("--lab-1")) }, hovertemplate: "<b>odds ratio %{x:.2f}</b><br>%{y}<extra></extra>" }],
+      { xaxis: { type: "log", title: "Odds ratio (log scale)" }, yaxis: { automargin: true, autorange: "reversed" }, margin: { l: 10, r: 16, t: 10, b: 50 }, showlegend: false,
+        shapes: [{ type: "line", xref: "x", yref: "paper", x0: 1, x1: 1, y0: 0, y1: 1, line: { color: css("--muted"), dash: "dash", width: 1 } }] });
+
+    table("t-ex-reg", E.test_registry || [], [
+      { title: "Source", field: "source", widthGrow: 2 }, { title: "Test", field: "test", widthGrow: 5, formatter: "textarea" },
+      { title: "Effect", field: "effect", hozAlign: "right", formatter: (c) => (c.getValue() === null || c.getValue() === "" ? "" : fmt(c.getValue(), 2)) },
+      { title: "p", field: "p", hozAlign: "right", formatter: (c) => Number(c.getValue()).toPrecision(2) },
+      { title: "q (BH, all tests)", field: "q_bh_all", hozAlign: "right", formatter: (c) => Number(c.getValue()).toPrecision(2) },
+      { title: "q < 0.05", field: "significant_q05", hozAlign: "center", formatter: (c) => (String(c.getValue()) === "true" ? "✓" : "") }],
+      { layout: "fitColumns", maxHeight: 420 });
+
+    const mbox = el("ex-methods"); mbox.replaceChildren();
+    const ul = document.createElement("ul");
+    ["Specification curve: the s18 discrete-time tie model re-estimated for 3 author caps × 2 risk sets × 2 year sets × 2 hub choices × 2 control sets; 'no look-ahead' counts a faculty member as at risk only with a paper in the previous three years, so no future information enters.",
+     "Methods: a paper uses a method when its title or OpenAlex topics match a fixed pattern (CRISPR / genome editing, genome or exome sequencing, molecular docking / simulation, machine learning, metagenomics, nanoparticles, proteomics / mass spectrometry, zebrafish). Adoption = first such paper of a faculty member in the window; faculty whose first use is in 2016 are treated as earlier adopters. Exposure = co-authors in the network of earlier years who had adopted. Shuffle test: adoption years permuted among each method's adopters, 200 times.",
+     "Simplicial closure: papers with at most 50 authors as hyperedges of faculty; triples active in both periods and never on one 2016–2020 paper; closed = on one 2021–2025 paper. Triples with no tie are counted in full, not sampled.",
+     "Generative model: starts from the 2016 network; each year adds the real number of new links among active unlinked pairs, sampled without replacement with weights exp(x′b), with x recomputed on the simulated network; b from a logit with year effects fitted to the real pair-years; 40 simulations per variant.",
+     "COVID-19: a paper is on COVID-19 when its title or OpenAlex topics mention SARS-CoV-2, COVID, coronavirus or pandemic; pairs are faculty whose first joint paper (≤ 50 authors) is in 2020–22.",
+     "Citation before collaboration: citations between dataset papers where the citing and cited papers share no faculty author, counted for a pair up to the year before; added to the s18 model 4.",
+     "Test registry: p-values from s17 (lab exchange, co-author model, led vs middle, persistence, lab impact), s18 (power-law fits, likelihood ratios, tie models, permutation) and s19, with Benjamini–Hochberg across all.",
+     "Limits: method detection uses titles and topics, not full text; the shuffle test cannot rule out influence that is simultaneous with collaboration (a method adopted on a joint paper); the COVID comparison has few cross-lab pairs; associations, not causal effects."]
+      .forEach((t) => ul.append(txt("li", t)));
+    mbox.append(ul);
+  }
+
+  // ---------------------------------------------------------------- page: teams, ties and careers (steps s20-s22)
+  function renderTeams() {
+    const Y = P2.dyn;
+    if (!Y) { el("dy-list").textContent = "Run steps s20-s22 to compute this page."; return; }
+    const S = Y.summary || {}, ta = S.team_assembly || {}, tp = S.temporal_paths || {}, cm = S.communities || {}, ox = S.openalex_extras || {};
+    const tm = Y.team_model || [], tOf = (v, s) => tm.find((r) => r.variant === v && r.statistic === s) || {};
+    const rep = Y.tie_repeat || [], rOf = (t) => rep.find((r) => r.term === t) || {};
+    const life = Y.tie_life_table || [], lOf = (p, k) => life.find((r) => r.pairs === p && r.years_since_formation === k) || {};
+    const bi = Y.brokerage_impact || [], bOf = (m, o, t) => bi.find((r) => r.model === m && r.outcome === o && r.term === t) || {};
+    const es = Y.error_sensitivity || [], eOf = (sc, rate) => es.find((r) => r.scenario === sc && (rate === null ? true : Math.abs((r.rate || 0) - rate) < 1e-9)) || {};
+    const tps = Y.temporal_paths || [];
+    const tObs = (h) => tps.find((r) => r.network === "observed" && r.hops === h) || {};
+    const tNull = (h) => { const v = tps.filter((r) => r.network !== "observed" && r.hops === h).map((r) => r.share_reaching_other_lab).sort((a, b) => a - b);
+      return v.length ? { mean: v.reduce((a, b) => a + b, 0) / v.length, low: v[Math.floor(0.025 * (v.length - 1))], high: v[Math.ceil(0.975 * (v.length - 1))] } : {}; };
+    const comm = Y.communities || [], cOf = (p) => comm.find((r) => r.partition === p) || {};
+    const intl = Y.international || [], iOf = (l) => intl.find((r) => r.lab === l) || {};
+    const tx = Y.tie_extras || [], xOf = (m, t) => tx.find((r) => r.model === m && r.term === t) || {};
+    const si = Y.siena || [], sf = Y.siena_fit || {};
+    const m3 = si.filter((r) => String(r.model).startsWith("3"));
+    const sOf = (sh, inter) => m3.find((r) => r.short === sh && (inter === undefined || r.interaction === inter)) || {};
+    const conv = Object.entries(sf).filter(([k]) => !k.startsWith("_")).map(([k, v]) => `${k.replace(/^\d /, "")}: ${fmt(v.tconv_max, 2)}`).join("; ");
+    const design = sf._design || {};
+    const india = ox.india_share_of_citing_country_mentions || {};
+    const items = [
+      ["Papers as groups reproduce the clustering that pairs could not.", `Faculty slots are almost always filled by people already publishing (p = ${fmt(ta.p, 2)}), ${pct(ta.q, 0)} of incumbent pairs repeat a past collaboration and ${pct(ta.h, 0)} of a paper's faculty come from its lead lab. Growing the network paper by paper with these values gives clustering ${fmt(tOf("team model (q, h)", "clustering").sim_mean, 2)} (real ${fmt(tOf("team model (q, h)", "clustering").observed, 2)}), a cross-lab share of ${pct(tOf("team model (q, h)", "cross_lab_share").sim_mean, 1)} (${pct(tOf("team model (q, h)", "cross_lab_share").observed, 1)}) and lab modularity ${fmt(tOf("team model (q, h)", "lab_modularity").sim_mean, 2)} (${fmt(tOf("team model (q, h)", "lab_modularity").observed, 2)}); without lab preference the cross-lab share becomes ${pct(tOf("no lab preference (h = 0)", "cross_lab_share").sim_mean, 0)}.`,
+        "Treating papers as groups closes the clustering gap of the pair-by-pair model. The team model gives too few cross-lab links, though: the real ones are not random lapses in lab preference but concentrated in particular people."],
+      ["Strong first collaborations last; cross-lab ones fade.", `Five years after their first joint paper, ${pct(1 - (lOf("same lab", 5).share_not_yet_repeated || 0), 0)} of same-lab pairs have written again against ${pct(1 - (lOf("cross-lab", 5).share_not_yet_repeated || 0), 0)} of cross-lab pairs. In the repeat model, each e-fold more papers in the first year multiplies the odds of repeating by ${fmt(rOf("log_first_year_papers").odds_ratio, 1)}; same lab ${fmt(rOf("same_lab").odds_ratio, 2)}× (${fmt(rOf("same_lab").or_low, 2)}–${fmt(rOf("same_lab").or_high, 2)}).`,
+        "Ties that start strong survive; most cross-lab ties start as a single paper and are not renewed."],
+      ["Brokerage does not pay off in citations.", `Comparing each faculty member with themselves over time, gaining a cross-lab tie changes next-year field-normalised citations by ${fmt(bOf("degree + cross-lab ties", "log_norm_cit", "any_cross_lab").coef, 3)} log points (${fmt(bOf("degree + cross-lab ties", "log_norm_cit", "any_cross_lab").low, 2)} to ${fmt(bOf("degree + cross-lab ties", "log_norm_cit", "any_cross_lab").high, 2)}), and brokerage (1 − Burt's constraint) by ${fmt(bOf("degree + brokerage (1 - constraint)", "log_norm_cit", "brokerage").coef, 2)} (${fmt(bOf("degree + brokerage (1 - constraint)", "log_norm_cit", "brokerage").low, 2)} to ${fmt(bOf("degree + brokerage (1 - constraint)", "log_norm_cit", "brokerage").high, 2)}).`,
+        "Within a person, spanning labs brings no measurable citation gain in the following year, which may be one reason cross-lab ties are rarely renewed."],
+      ["The results survive plausible data errors.", `With 20% of faculty–paper links dropped the same-lab odds ratio (all faculty pairs) averages ${fmt(eOf("drop links", 0.2).same_lab_or_mean, 0)} (observed ${fmt(eOf("observed", 0).same_lab_or_mean, 0)}); with 5% reassigned to a random faculty member of any lab it is ${fmt(eOf("misassign to any lab", 0.05).same_lab_or_mean, 0)}, with 20% ${fmt(eOf("misassign to any lab", 0.2).same_lab_or_mean, 1)} (95% range ${fmt(eOf("misassign to any lab", 0.2).same_lab_or_low, 1)}–${fmt(eOf("misassign to any lab", 0.2).same_lab_or_high, 1)}). Resampling faculty gives ${fmt(eOf("faculty bootstrap", null).same_lab_or_low, 0)}–${fmt(eOf("faculty bootstrap", null).same_lab_or_high, 0)}; leaving out any one lab keeps it between ${fmt(Math.min(...es.filter((r) => String(r.scenario).startsWith("without")).map((r) => r.same_lab_or_mean)), 0)} and ${fmt(Math.max(...es.filter((r) => String(r.scenario).startsWith("without")).map((r) => r.same_lab_or_mean)), 0)}.`,
+        "Dropped links and mix-ups inside a lab leave the effect unchanged; only errors that move papers to people in other labs shrink it, and even 20% of such errors leaves it far above 1. Our affiliation rule makes such cross-lab mix-ups rare."],
+      ["In time order, fewer people can reach another lab, but timing is not special.", `The aggregated network joins ${pct(tp.static_share_reaching_other_lab, 0)} of early faculty to every other lab; respecting the order of joint papers with one hop per year, ${pct(tObs("one per year").share_reaching_other_lab, 0)} are reached by 2025 (shuffled years: ${pct(tNull("one per year").mean, 0)}, ${pct(tNull("one per year").low, 0)}–${pct(tNull("one per year").high, 0)}).`,
+        "Static networks overstate how far information could have travelled by about seven points, but the real timing of joint papers is no more or less favourable than random timing."],
+      ["The network's communities are the labs.", `Louvain runs agree with the lab partition at NMI ${fmt(cm.nmi_runs_mean, 2)}; the consensus has ${fmt(cm.consensus_communities)} communities with a weighted lab purity of ${pct(cm.consensus_mean_lab_purity_weighted, 0)}. The degree-corrected block model compresses the network better with labs (description length ${fmt(cOf("labs").description_length, 0)}) than with departments (${fmt(cOf("lab departments").description_length, 0)}); Louvain consensus ${fmt(cOf("Louvain consensus").description_length, 0)}.`,
+        "Data-driven communities and the official labs largely coincide, while departments are too fine a split."],
+      ["The actor-oriented model confirms the lab effect and closure, and finds no department effect.", `RSiena on ${fmt(design.actors)} faculty over three waves (ties ${(design.ties_per_wave || []).join(", ")}; Jaccard ${(design.jaccard_between_waves || []).map((j) => fmt(j, 2)).join(", ")}): same lab ${fmt(sOf("sameX", "lab").estimate, 2)} (s.e. ${fmt(sOf("sameX", "lab").se, 2)}; ${fmt(Math.exp(sOf("sameX", "lab").estimate), 1)}× the odds per tie change), same department ${fmt(sOf("sameX", "dept").estimate, 2)} (${fmt(sOf("sameX", "dept").se, 2)}), transitive triads ${fmt(sOf("transTriads").estimate, 2)} (${fmt(sOf("transTriads").se, 2)}), topic similarity ${fmt(sOf("X", "topicSim").estimate, 2)} (${fmt(sOf("X", "topicSim").se, 2)}). Convergence (max ratio, good below 0.25): ${conv}.`,
+        "A model in which each faculty member creates and ends ties, with dependence between ties built in and ties allowed to dissolve between waves, gives the same picture as the dyadic models: a large lab effect, no department effect, triadic closure, topic similarity and output."],
+      ["Old ties predict new collaborations; shared funders do not.", `Within the tie model, a funder both faculty had already named raises the odds ${fmt(xOf("all extras", "shared_funder").odds_ratio, 2)}× (${fmt(xOf("all extras", "shared_funder").or_low, 2)}–${fmt(xOf("all extras", "shared_funder").or_high, 2)}); a joint paper before 2016 ${fmt(xOf("all extras", "tie_before_2016").odds_ratio, 2)}× (${fmt(xOf("all extras", "tie_before_2016").or_low, 2)}–${fmt(xOf("all extras", "tie_before_2016").or_high, 2)}); career age (sum, per decade) ${fmt(xOf("all extras", "career_age_sum_dec").odds_ratio, 2)}×. The same-lab odds ratio stays ${fmt(xOf("all extras", "same_lab").odds_ratio, 0)}.`,
+        `Most pairs share a funder (${pct(ox.shared_funder_share_unlinked, 0)} of unlinked pairs, ${pct(ox.shared_funder_share_new_links, 0)} of new links), so funder data cannot separate them; past collaboration and career stage explain part of who collaborates, but not the lab boundary.`],
+      ["The labs reach abroad more easily than to each other.", `${LABS.map((l) => `${short(l)} ${pct(iOf(l).international_share, 0)}`).join(", ")} of papers have a foreign co-author, against ${LABS.map((l) => `${short(l)} ${pct(iOf(l).another_of_our_labs_share, 1)}`).join(", ")} with another of our labs. India's share of country mentions among citing works: ${Object.entries(india).map(([l, v]) => `${short(l)} ${pct(v, 0)}`).join(", ")}.`,
+        "The boundary is between the four CSIR labs, not between the labs and the world."],
+    ];
+    const box = el("dy-list"); box.replaceChildren();
+    items.forEach(([h, a, so]) => { const d = document.createElement("div"); d.className = "rqi"; d.append(txt("h3", h), txt("p", a), txt("p", so, "muted")); box.append(d); });
+
+    const gstats = [["cross_lab_share", "cross-lab share"], ["lab_modularity", "lab modularity"], ["clustering", "clustering"], ["transitivity", "transitivity"], ["path_length", "path length"], ["lcc_share", "largest component"], ["links", "links"], ["max_degree", "max degree"]];
+    const tv = ["team model (q, h)", "no repeat collaborators (q = 0)", "no lab preference (h = 0)", "neither (q = 0, h = 0)"];
+    plot("c-dy-team", tv.map((v, i) => ({ type: "scatter", mode: "markers", name: v, y: gstats.map(([, n]) => n), x: gstats.map(([s]) => tOf(v, s).ratio_to_observed),
+      marker: { size: 11, symbol: ["circle", "diamond", "x", "square"][i], color: [css("--lab-1"), css("--lab-3"), css("--lab-2"), css("--qna")][i] },
+      hovertemplate: `<b>%{x:.2f}×</b> the real value<br>%{y} · ${v}<extra></extra>` })),
+      { xaxis: { type: "log", title: "Simulated ÷ real (log)", tickvals: [0.1, 0.2, 0.5, 1, 2, 5, 10, 20], ticktext: ["0.1×", "0.2×", "0.5×", "1×", "2×", "5×", "10×", "20×"] },
+        yaxis: { automargin: true, autorange: "reversed" }, legend: { orientation: "h", y: 1.02, yanchor: "bottom", x: 0 }, margin: { l: 120, r: 16, t: 10, b: 50 },
+        shapes: [{ type: "line", xref: "x", yref: "paper", x0: 1, x1: 1, y0: 0, y1: 1, line: { color: css("--muted"), dash: "dash", width: 1 } }] });
+
+    const pq = (Y.team_params || []).filter((r) => r.lab === "ALL");
+    plot("c-dy-pq", [["all authors", "incumbent_share_p", "p · all authors", css("--lab-1"), "solid"], ["faculty only", "incumbent_share_p", "p · faculty", css("--lab-1"), "dot"],
+      ["all authors", "repeat_share_q", "q · all authors", css("--lab-4"), "solid"], ["faculty only", "repeat_share_q", "q · faculty", css("--lab-4"), "dot"]].map(([t, f, nm, c, d]) => {
+      const rr = pq.filter((r) => r.team === t); return { name: nm, x: rr.map((r) => r.year), y: rr.map((r) => r[f]), mode: "lines+markers", line: { color: c, dash: d, width: 2 }, marker: { size: 6 },
+        hovertemplate: `<b>%{y:.0%}</b><br>${nm} · %{x}<extra></extra>` }; }),
+      { xaxis: { dtick: 1 }, yaxis: { tickformat: ".0%", range: [0, 1.02] }, legend: { orientation: "h", y: 1.02, yanchor: "bottom", x: 0 } });
+
+    plot("c-dy-life", ["same lab", "cross-lab"].map((p, i) => { const rr = [{ years_since_formation: 0, share_not_yet_repeated: 1 }, ...life.filter((r) => r.pairs === p)];
+      return { name: p, x: rr.map((r) => r.years_since_formation), y: rr.map((r) => r.share_not_yet_repeated), mode: "lines+markers", line: { color: i ? css("--lab-2") : css("--lab-1"), width: 3, shape: "hv" },
+        customdata: rr.map((r) => r.at_risk ?? ""), hovertemplate: `<b>%{y:.0%}</b> not yet repeated<br>${p} · year %{x} · %{customdata} at risk<extra></extra>` }; }),
+      { xaxis: { title: "Years since first joint paper", dtick: 1 }, yaxis: { tickformat: ".0%", range: [0, 1.02], title: "Not yet written again" }, legend: { orientation: "h", y: 1.02, yanchor: "bottom", x: 0 } });
+
+    const BN = { any_cross_lab: "any cross-lab tie", brokerage: "brokerage (1 − constraint)", betweenness_x100: "betweenness (×100)", log_degree: "degree (log)" };
+    const bsel = bi.filter((r) => r.term !== "log_degree");
+    plot("c-dy-broker", ["log_norm_cit", "log_papers"].map((o, i) => { const rr = bsel.filter((r) => r.outcome === o);
+      return { type: "scatter", mode: "markers", name: o === "log_norm_cit" ? "next-year normalised citations (log)" : "next-year papers (log)", x: rr.map((r) => r.coef), y: rr.map((r) => BN[r.term] || r.term),
+        error_x: { type: "data", symmetric: false, array: rr.map((r) => r.high - r.coef), arrayminus: rr.map((r) => r.coef - r.low), color: css("--ink-2") },
+        marker: { size: 10, color: i ? css("--lab-3") : css("--lab-1"), symbol: i ? "diamond" : "circle" }, hovertemplate: "<b>%{x:.3f}</b><br>%{y}<extra></extra>" }; }),
+      { xaxis: { title: "Within-person effect (log points)", zeroline: true }, yaxis: { automargin: true }, legend: { orientation: "h", y: 1.02, yanchor: "bottom", x: 0 }, margin: { l: 10, r: 16, t: 10, b: 50 },
+        shapes: [{ type: "line", xref: "x", yref: "paper", x0: 0, x1: 0, y0: 0, y1: 1, line: { color: css("--muted"), dash: "dash", width: 1 } }] });
+
+    const scen = es.filter((r) => r.scenario !== "observed").map((r) => ({ ...r, label: r.rate ? `${r.scenario} ${pct(r.rate, 0)}` : r.scenario }));
+    const obsOR = eOf("observed", 0).same_lab_or_mean;
+    plot("c-dy-err", [{ type: "scatter", mode: "markers", x: scen.map((r) => r.same_lab_or_mean), y: scen.map((r) => r.label),
+      error_x: { type: "data", symmetric: false, array: scen.map((r) => r.same_lab_or_high - r.same_lab_or_mean), arrayminus: scen.map((r) => r.same_lab_or_mean - r.same_lab_or_low), color: css("--ink-2") },
+      marker: { size: 9, color: scen.map((r) => String(r.scenario).startsWith("misassign") ? css("--lab-2") : String(r.scenario).startsWith("drop") ? css("--lab-3") : css("--lab-1")) },
+      hovertemplate: "<b>OR %{x:.1f}</b><br>%{y}<extra></extra>" }],
+      { xaxis: { type: "log", title: "Same-lab odds ratio (log)", tickvals: [5, 10, 20, 50, 100], ticktext: ["5×", "10×", "20×", "50×", "100×"] }, yaxis: { automargin: true, autorange: "reversed" }, showlegend: false,
+        margin: { l: 10, r: 16, t: 10, b: 50 }, shapes: [{ type: "line", xref: "x", yref: "paper", x0: obsOR, x1: obsOR, y0: 0, y1: 1, line: { color: css("--ink"), dash: "dash", width: 1 } }] });
+
+    const hops = ["one per year", "several per year"];
+    plot("c-dy-temp", [
+      { type: "bar", name: "observed", x: hops, y: hops.map((h) => tObs(h).share_reaching_other_lab), marker: { color: css("--lab-1") }, hovertemplate: "<b>%{y:.0%}</b> reached<br>%{x} · observed<extra></extra>" },
+      { type: "bar", name: "shuffled contact years", x: hops, y: hops.map((h) => tNull(h).mean), marker: { color: css("--qna") },
+        error_y: { type: "data", symmetric: false, array: hops.map((h) => tNull(h).high - tNull(h).mean), arrayminus: hops.map((h) => tNull(h).mean - tNull(h).low), color: css("--ink-2") },
+        hovertemplate: "<b>%{y:.0%}</b> reached<br>%{x} · shuffled<extra></extra>" }],
+      { barmode: "group", yaxis: { tickformat: ".0%", range: [0, 1], title: "Early faculty × other lab reached" }, legend: { orientation: "h", y: 1.02, yanchor: "bottom", x: 0 },
+        shapes: [{ type: "line", xref: "paper", yref: "y", x0: 0, x1: 1, y0: tp.static_share_reaching_other_lab, y1: tp.static_share_reaching_other_lab, line: { color: css("--ink"), dash: "dash", width: 1 } }],
+        annotations: [{ xref: "paper", yref: "y", x: 1, y: tp.static_share_reaching_other_lab, text: "static network", showarrow: false, xanchor: "right", yanchor: "bottom", font: { size: 11 } }] });
+
+    table("t-dy-comm", comm, [
+      { title: "Partition", field: "partition", widthGrow: 2 }, { title: "Blocks", field: "blocks", hozAlign: "right" },
+      { title: "Description length (nats)", field: "description_length", hozAlign: "right", formatter: (c) => fmt(c.getValue(), 0) },
+      { title: "NMI with labs", field: "nmi_with_labs", hozAlign: "right", formatter: (c) => fmt(c.getValue(), 2) },
+      { title: "ARI with labs", field: "ari_with_labs", hozAlign: "right", formatter: (c) => fmt(c.getValue(), 2) },
+      { title: "NMI with departments", field: "nmi_with_departments", hozAlign: "right", formatter: (c) => fmt(c.getValue(), 2) },
+      { title: "Modularity", field: "modularity", hozAlign: "right", formatter: (c) => fmt(c.getValue(), 3) }], { layout: "fitColumns" });
+
+    const SN = (r) => ({ density: "degree (density)", transTriads: "transitive triads", degPlus: "degree of alter", sameX: `same ${r.interaction === "lab" ? "lab" : "department"}`, X: "topic similarity",
+      egoPlusAltX: r.interaction === "senior" ? "seniority (both)" : "output (both)", Rate: "rate" })[r.short] || r.effect;
+    const m3e = m3.filter((r) => r.type === "eval" && r.short !== "Rate");
+    plot("c-dy-siena", [{ type: "scatter", mode: "markers", x: m3e.map((r) => r.estimate), y: m3e.map((r) => SN(r)),
+      error_x: { type: "data", array: m3e.map((r) => 1.96 * r.se), color: css("--ink-2") },
+      marker: { size: 10, color: m3e.map((r) => r.short === "sameX" && r.interaction === "lab" ? css("--lab-1") : css("--lab-3")) },
+      hovertemplate: "<b>%{x:.2f}</b><br>%{y}<extra></extra>" }],
+      { xaxis: { title: "Estimate (log-odds)", zeroline: true }, yaxis: { automargin: true, autorange: "reversed" }, showlegend: false, margin: { l: 10, r: 16, t: 10, b: 50 },
+        shapes: [{ type: "line", xref: "x", yref: "paper", x0: 0, x1: 0, y0: 0, y1: 1, line: { color: css("--muted"), dash: "dash", width: 1 } }] });
+    table("t-dy-siena", si.map((r) => ({ ...r, eff: SN(r), conv: fmt((sf[r.model] || {}).tconv_max, 3) })), [
+      { title: "Model", field: "model", widthGrow: 2 }, { title: "Effect", field: "eff", widthGrow: 2 },
+      { title: "Estimate", field: "estimate", hozAlign: "right", formatter: (c) => fmt(c.getValue(), 3) }, { title: "s.e.", field: "se", hozAlign: "right", formatter: (c) => fmt(c.getValue(), 3) },
+      { title: "p", field: "p", hozAlign: "right", formatter: (c) => Number(c.getValue()).toPrecision(2) },
+      { title: "Convergence t", field: "t_conv", hozAlign: "right", formatter: (c) => fmt(c.getValue(), 3) }, { title: "Model max ratio", field: "conv", hozAlign: "right" }],
+      { layout: "fitColumns", maxHeight: 380 });
+
+    const XN = { shared_funder: "shared funder", tie_before_2016: "joint paper before 2016", career_age_sum_dec: "career age, sum (per decade)", career_age_gap_dec: "career age gap (per decade)", same_lab: "same lab" };
+    const xe = tx.filter((r) => r.model === "all extras" && XN[r.term]);
+    plot("c-dy-extra", [{ type: "scatter", mode: "markers", x: xe.map((r) => r.odds_ratio), y: xe.map((r) => XN[r.term]),
+      error_x: { type: "data", symmetric: false, array: xe.map((r) => r.or_high - r.odds_ratio), arrayminus: xe.map((r) => r.odds_ratio - r.or_low), color: css("--ink-2") },
+      marker: { size: 10, color: xe.map((r) => r.term === "same_lab" ? css("--lab-1") : css("--lab-4")) }, hovertemplate: "<b>odds ratio %{x:.2f}</b><br>%{y}<extra></extra>" }],
+      { xaxis: { type: "log", title: "Odds ratio (log)" }, yaxis: { automargin: true, autorange: "reversed" }, showlegend: false, margin: { l: 10, r: 16, t: 10, b: 50 },
+        shapes: [{ type: "line", xref: "x", yref: "paper", x0: 1, x1: 1, y0: 0, y1: 1, line: { color: css("--muted"), dash: "dash", width: 1 } }] });
+
+    const sc = [...LABS, "ALL"];
+    plot("c-dy-intl", [["international_share", "foreign co-author", css("--lab-1")], ["other_indian_institution_share", "another Indian institution", css("--lab-3")], ["another_of_our_labs_share", "another of our four labs", css("--lab-2")]].map(([f, nm, c]) => ({
+      type: "bar", name: nm, x: sc.map(scopeLabel), y: sc.map((l) => iOf(l)[f]), marker: { color: c }, hovertemplate: `<b>%{y:.1%}</b> of papers<br>%{x} · ${nm}<extra></extra>` })),
+      { barmode: "group", yaxis: { tickformat: ".0%", title: "Share of papers" }, legend: { orientation: "h", y: 1.02, yanchor: "bottom", x: 0 } });
+
+    const wc = (Y.world_citers || []).filter((r) => r.kind === "country");
+    const topC = [...new Set(wc.sort((a, b) => b.citing_works - a.citing_works).map((r) => r.name))].slice(0, 8);
+    plot("c-dy-world", LABS.map((l) => ({ type: "bar", name: short(l), x: topC, y: topC.map((c) => (wc.find((r) => r.lab === l && r.name === c) || {}).share_of_country_mentions || 0),
+      marker: { color: labColor(l) }, hovertemplate: `<b>%{y:.1%}</b> of country mentions<br>%{x} · ${short(l)}<extra></extra>` })),
+      { barmode: "group", yaxis: { tickformat: ".0%", title: "Share of citing country mentions" }, legend: { orientation: "h", y: 1.02, yanchor: "bottom", x: 0 } });
+
+    const mbox = el("dy-methods"); mbox.replaceChildren();
+    const ul = document.createElement("ul");
+    ["Team assembly: full author teams rebuilt from the submitted authorship network (papers with ≤ 50 authors) and faculty teams from the main file; incumbent = appeared on a paper in an earlier year of the window (2016 is burn-in).",
+     "Tie survival: pairs whose first joint paper is in 2016–2024, followed for up to five years; discrete-time logit of a second joint paper with years-since and cohort effects, dyadic-robust errors.",
+     "Brokerage: faculty network of the previous three years; Burt's constraint, effective size and betweenness; outcomes = mean field-and-year normalised citations and log papers in the year; faculty and year fixed effects by within-faculty demeaning; errors clustered by faculty.",
+     "Error sensitivity: static all-pairs logit (same lab, topic similarity, output) re-estimated after random drops or reassignments of faculty–paper rows (20 runs per rate), 200 faculty bootstraps and leave-one-lab-out.",
+     "Temporal paths: earliest-arrival search from faculty with a paper by 2017 through yearly contact lists; null = contact years permuted across contacts (100 runs).",
+     "Communities: 100 Louvain runs, consensus by clustering the co-occurrence matrix (Lancichinetti & Fortunato 2012); degree-corrected SBM log-likelihood (Karrer & Newman 2011) plus block-matrix and partition costs as description length.",
+     "RSiena: actors = faculty with a paper by 2018 and in 2022–25; three waves; modelType 2 (one actor can create or end a tie); effects degree, transitive triads, degree of alter, same lab, same department, topic similarity, seniority and output of both actors; estimates repeated from the previous answer until the maximum convergence ratio is below 0.25 (up to four runs).",
+     "OpenAlex extras (step s20, 698 calls): funders on each paper; author countries; each faculty member's publication years anywhere (first years before 1960 treated as merged profiles); faculty pairs on papers before 2016; citing works 2016–2026 grouped by author country and field (works citing papers in several batches can be counted more than once).",
+     "Limits: OpenAlex funder and country coverage is incomplete; the brokerage panel is short (2017–2025); RSiena uses a fixed set of continuously active faculty; associations, not causal effects."]
+      .forEach((t) => ul.append(txt("li", t)));
+    mbox.append(ul);
+  }
+
   // ---------------------------------------------------------------- author and affiliation checks (About tab)
   function renderQualityPanel(add, list) {
     const Q = P2.summary.quality, M = P2.summary.meeting_abstracts || { papers: 0 };
@@ -720,5 +1117,5 @@ if (P2) {
   };
 
   Object.assign(P2API, { questions: renderQuestions, quality: renderQualityPanel });
-  Object.assign(P2REG, { impact: renderImpact, compare: renderCompare, instnet: renderInstNet, flags: renderFlags, findings: renderFindings });
+  Object.assign(P2REG, { impact: renderImpact, compare: renderCompare, instnet: renderInstNet, flags: renderFlags, findings: renderFindings, models: renderModels, extensions: renderExtensions, teams: renderTeams });
 }
