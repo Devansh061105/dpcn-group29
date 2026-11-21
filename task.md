@@ -61,11 +61,11 @@ python -m dpcn run s13
 |---|---|---|---|
 | T-01 | Precision audit of the faculty–paper matching | Deepraj | ◐ evidence pre-filled; 55 verdicts to confirm |
 | T-02 | Check the "glue people" (top non-faculty bridges) | Aman | ☐ |
-| T-03 | Verify the peer-institute list | Devansh | ☐ |
+| T-03 | Verify the peer-institute list | Devansh | ☑ done by Deepraj |
 | T-04 | Verify every source in the Science context page | Aman | ☐ |
 | T-05 | Classify the remaining citing institutions by ownership | Devansh | ☐ |
 | T-06 | Collect joining years for faculty (enables career-stage analysis) | Deepraj | ◐ worksheet built; years to decide |
-| T-07 | Fill the 6 unknown departments and check merged-profile flags | Devansh | ☐ |
+| T-07 | Fill the 6 unknown departments and check merged-profile flags | Devansh | ◐ evidence and merged profiles done (Deepraj); roster decision open |
 | T-17 | Check the "Only here" coverage map against our reviews of the other groups | everyone | ◐ firsts checked (Deepraj); rest open |
 
 **T-01 · Precision audit (about 2–3 hours).**
@@ -90,6 +90,10 @@ python -m dpcn run s13
 - **Commit:** `Roles of glue authors`.
 
 **T-03 · Peer institutes (1 hour).**
+- **Status (done by Deepraj):** all 13 OpenAlex IDs resolve to the intended Indian institute, and every city matches except one.
+  - **THSTI:** OpenAlex places it in Gurugram, but it is in the NCR Biotech Science Cluster, Faridabad. The CSV is right; the gravity distance changes by about 30 km.
+  - **inStem:** OpenAlex uses the older name.
+  - The result is recorded in the `checked` column. No peers were added (NBRI, CFTRI and NIPER Mohali remain optional).
 - **File:** `data/manual/peer_institutes.csv` lists the 13 peers and why each was chosen.
 - **What to check:**
   - each city (OpenAlex places THSTI in Gurugram; it is in Faridabad);
@@ -122,6 +126,14 @@ python -m dpcn run s13
 - **Commit:** `Joining years for N faculty`.
 
 **T-07 · Departments and merged profiles (1 hour).**
+- **Status (Deepraj):**
+  - **Departments:** the 6 profile pages were read; the evidence is in `data/manual/department_review.csv`. Only Imtiyaz Yaseen heads a research group (host epigenetics in infection). Four IMTECH "faculty" are support scientists: patents, science communication, website, and one blank profile. IGIB-035's page is a 404.
+  - **Team decision needed:** keep these four in the faculty roster, or drop them (this changes faculty counts). Then copy the departments into `faculty_roster.csv` and re-run `all --from s06`.
+  - **Merged profiles:** one lifetime flag (Ashish Awasthi, CDRI-097). His profile is coherent: a biostatistician whose lifetime citations come from Global Burden of Disease consortium papers before CDRI. It is not a merge; keep the flag as "long career outside the window".
+  - Two suspect-merged profiles were checked by hand and recorded in `data/manual/merged_profiles.csv`. Their papers stay but their lifetime metrics are excluded (wired into s12 and s16):
+    - **Vivek Rao (IGIB-041):** linked to a Toronto cardiac surgeon; lifetime h was 72, now 13.
+    - **Manoj Kumar (IMTECH-013):** a namesake merge; lifetime citations now shown as unknown.
+  - Chattopadhyay and A. B. Patel are coherent profiles with a stray early paper.
 - **Departments:** the 6 faculty with an unknown department (Explore → Faculty list, filter "Department") need one from the lab websites. Put it in `faculty_roster.csv`.
 - **Merged profiles:** Flags → "Lifetime citations" flags OpenAlex profiles that may merge several people. For each flagged person, look at the OpenAlex profile and record in `faculty_match_overrides.csv` whether it is merged. There is already a decision column.
 
@@ -181,7 +193,7 @@ python -m dpcn run s13
 |---|---|---|---|
 | T-12 | Chatbot test: 30 questions | Aman | ☐ |
 | T-13 | Device and browser check | everyone | ☐ |
-| T-14 | Live simulator sanity check | Devansh | ☐ |
+| T-14 | Live simulator sanity check | Devansh | ☑ done by Deepraj |
 
 **T-12 · Chatbot test.**
 - Open "Ask the data" and ask 30 questions a viva examiner might ask. Mix in:
@@ -203,6 +215,12 @@ python -m dpcn run s13
 - Note anything cut off or unreadable, with a screenshot.
 
 **T-14 · Simulator.**
+- **Status (done by Deepraj):** SIS, seeded at the best-connected person, μ = 0.2, 10 random seeds each:
+  - λ = 0.025 (below the 0.054 threshold): 8 of 10 died out within 80 steps;
+  - λ = 0.25: none died out, and about 230 of 253 faculty were infected;
+  - the same seed gives an identical run.
+  - SIR seeded once per lab reaches every lab; "Run 100 seeds" draws its histogram.
+- **Caution:** the task's example (β = 0.02, μ = 0.2) is λ = 0.1, which is above this network's threshold, so it should spread, and it does.
 - On Dynamics → Epidemics → "Run it yourself", check that:
   - β = 0.02, μ = 0.2 (below the threshold) dies out quickly;
   - β = 0.3 spreads;

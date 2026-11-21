@@ -6,6 +6,7 @@ deliverable files. Journal impact factors come from step s16 (JCR file if suppli
 from __future__ import annotations
 
 import re
+from pathlib import Path
 from collections import Counter, defaultdict
 from types import SimpleNamespace
 
@@ -700,11 +701,14 @@ def lifetime_flags(fac: pd.DataFrame, main: pd.DataFrame, cand: pd.DataFrame, p2
     ids = main.drop_duplicates("faculty_id").set_index("faculty_id")["author_openalex_ids"].map(
         lambda s: sorted({i for i in str(s).split(";") if i}))
     c = cand.drop_duplicates("author_id").set_index("author_id")
+    mp = Path(__file__).resolve().parents[2] / "data/manual/merged_profiles.csv"   # hand-checked namesake merges
+    if mp.exists():
+        c = c.drop(index=[a for a in pd.read_csv(mp, dtype=str)["author_id"] if a in c.index])
     life, top_id, top_share, merged = {}, {}, {}, {}
     for fid, aids in ids.items():
         vals = {a: float(c.at[a, "cited_by_count"]) for a in aids if a in c.index}
         tot = sum(vals.values())
-        life[fid] = tot
+        life[fid] = tot if vals else np.nan          # no trusted profile left: unknown, not zero
         if vals:
             a, v = max(vals.items(), key=lambda kv: kv[1])
             top_id[fid], top_share[fid] = a, (v / tot if tot else np.nan)

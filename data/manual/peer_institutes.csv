@@ -1,14 +1,14 @@
-short,name,city,type,openalex_id,why_chosen
-CSIR-IICB,Indian Institute of Chemical Biology,Kolkata,CSIR lab,I160344538,CSIR sister lab in biology and chemical biology; same funder and governance as our four labs
-CSIR-IITR,Indian Institute of Toxicology Research,Lucknow,CSIR lab,I85145500,CSIR life-science lab in the same city as CSIR-CDRI
-CSIR-CIMAP,Central Institute of Medicinal and Aromatic Plants,Lucknow,CSIR lab,I68145777,CSIR plant and natural-products lab; overlaps CSIR-CDRI's drug-discovery remit
-CSIR-IHBT,Institute of Himalayan Bioresource Technology,Palampur,CSIR lab,I4210128326,CSIR bioresource and biotechnology lab of similar size
-NCBS,National Centre for Biological Sciences,Bengaluru,TIFR centre (DAE),I194223965,Leading non-CSIR basic biology institute; widely used national benchmark
-NII,National Institute of Immunology,New Delhi,DBT autonomous institute (BRIC),I4210156726,DBT institute in immunology and infection biology; overlaps CSIR-IGIB and CSIR-IMTECH
-CDFD,Centre for DNA Fingerprinting and Diagnostics,Hyderabad,DBT autonomous institute (BRIC),I78270026,DBT molecular biology institute in the same city as CSIR-CCMB
-NIBMG,National Institute of Biomedical Genomics,Kalyani,DBT autonomous institute (BRIC),I4210158866,DBT genomics institute; closest mission match to CSIR-IGIB
-ICGEB-ND,International Centre for Genetic Engineering and Biotechnology (New Delhi),New Delhi,International intergovernmental centre,I4210142124,Molecular biology and infectious disease centre in Delhi; India component only (not Trieste or Cape Town)
-THSTI,Translational Health Science and Technology Institute,Faridabad,DBT autonomous institute (BRIC),I2801880299,DBT translational and clinical biology institute; overlaps CSIR-CDRI and CSIR-IGIB
-NIPGR,National Institute of Plant Genome Research,New Delhi,DBT autonomous institute (BRIC),I4210153536,DBT plant genomics institute; peer for the plant-biology parts of CSIR-CCMB and CSIR-IMTECH
-inStem,Institute for Stem Cell Science and Regenerative Medicine,Bengaluru,DBT autonomous institute,I4210087873,DBT cell biology and stem-cell institute; peer for CSIR-CCMB
-RGCB,Rajiv Gandhi Centre for Biotechnology,Thiruvananthapuram,DBT autonomous institute (BRIC),I89324447,DBT molecular medicine and biotechnology institute in the south
+short,name,city,type,openalex_id,why_chosen,checked
+CSIR-IICB,Indian Institute of Chemical Biology,Kolkata,CSIR lab,I160344538,CSIR sister lab in biology and chemical biology; same funder and governance as our four labs,"2026-11-21: OpenAlex ID resolves to this institute, country IN, city matches"
+CSIR-IITR,Indian Institute of Toxicology Research,Lucknow,CSIR lab,I85145500,CSIR life-science lab in the same city as CSIR-CDRI,"2026-11-21: OpenAlex ID resolves to this institute, country IN, city matches"
+CSIR-CIMAP,Central Institute of Medicinal and Aromatic Plants,Lucknow,CSIR lab,I68145777,CSIR plant and natural-products lab; overlaps CSIR-CDRI's drug-discovery remit,"2026-11-21: OpenAlex ID resolves to this institute, country IN, city matches"
+CSIR-IHBT,Institute of Himalayan Bioresource Technology,Palampur,CSIR lab,I4210128326,CSIR bioresource and biotechnology lab of similar size,"2026-11-21: OpenAlex ID resolves to this institute, country IN, city matches"
+NCBS,National Centre for Biological Sciences,Bengaluru,TIFR centre (DAE),I194223965,Leading non-CSIR basic biology institute; widely used national benchmark,"2026-11-21: OpenAlex ID resolves to this institute, country IN, city matches"
+NII,National Institute of Immunology,New Delhi,DBT autonomous institute (BRIC),I4210156726,DBT institute in immunology and infection biology; overlaps CSIR-IGIB and CSIR-IMTECH,"2026-11-21: OpenAlex ID resolves to this institute, country IN, city matches"
+CDFD,Centre for DNA Fingerprinting and Diagnostics,Hyderabad,DBT autonomous institute (BRIC),I78270026,DBT molecular biology institute in the same city as CSIR-CCMB,"2026-11-21: OpenAlex ID resolves to this institute, country IN, city matches"
+NIBMG,National Institute of Biomedical Genomics,Kalyani,DBT autonomous institute (BRIC),I4210158866,DBT genomics institute; closest mission match to CSIR-IGIB,"2026-11-21: OpenAlex ID resolves to this institute, country IN, city matches"
+ICGEB-ND,International Centre for Genetic Engineering and Biotechnology (New Delhi),New Delhi,International intergovernmental centre,I4210142124,Molecular biology and infectious disease centre in Delhi; India component only (not Trieste or Cape Town),"2026-11-21: OpenAlex ID resolves to this institute, country IN, city matches"
+THSTI,Translational Health Science and Technology Institute,Faridabad,DBT autonomous institute (BRIC),I2801880299,DBT translational and clinical biology institute; overlaps CSIR-CDRI and CSIR-IGIB,"2026-11-21: ID correct; OpenAlex geo says Gurugram but THSTI is in the NCR Biotech Science Cluster, Faridabad (CSV kept); affects only the gravity distance by ~30 km"
+NIPGR,National Institute of Plant Genome Research,New Delhi,DBT autonomous institute (BRIC),I4210153536,DBT plant genomics institute; peer for the plant-biology parts of CSIR-CCMB and CSIR-IMTECH,"2026-11-21: OpenAlex ID resolves to this institute, country IN, city matches"
+inStem,Institute for Stem Cell Science and Regenerative Medicine,Bengaluru,DBT autonomous institute,I4210087873,DBT cell biology and stem-cell institute; peer for CSIR-CCMB,"2026-11-21: ID correct; OpenAlex names it 'Institute for Stem Cell Biology and Regenerative Medicine', the older name"
+RGCB,Rajiv Gandhi Centre for Biotechnology,Thiruvananthapuram,DBT autonomous institute (BRIC),I89324447,DBT molecular medicine and biotechnology institute in the south,"2026-11-21: OpenAlex ID resolves to this institute, country IN, city matches"

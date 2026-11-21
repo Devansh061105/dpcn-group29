@@ -133,6 +133,9 @@ def build_tables(cfg, df: pd.DataFrame) -> dict[str, pd.DataFrame]:
     # ---- faculty level
     cand = pd.read_parquet(cfg.paths.interim / "author_candidates.parquet")
     life_h = cand.groupby("author_id")["h_index"].max().to_dict()
+    mp = cfg.paths.manual / "merged_profiles.csv"          # profiles that merge namesakes: papers kept, lifetime metrics not
+    for a in (pd.read_csv(mp, dtype=str)["author_id"] if mp.exists() else []):
+        life_h.pop(a, None)
     cent_path = cfg.paths.stats / "authorship_centrality.csv"
     cent = pd.read_csv(cent_path).set_index("faculty_id") if cent_path.exists() else pd.DataFrame()
     fac_rows = []
