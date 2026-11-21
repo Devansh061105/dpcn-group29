@@ -1,0 +1,52 @@
+{
+ "1 lab and structure": {
+  "tconv_max": 0.1928,
+  "runs": 2,
+  "nodes": 185,
+  "waves": 3,
+  "ties": [
+   386,
+   407,
+   438
+  ]
+ },
+ "2 + department, topic": {
+  "tconv_max": 0.196449,
+  "runs": 2,
+  "nodes": 185,
+  "waves": 3,
+  "ties": [
+   386,
+   407,
+   438
+  ]
+ },
+ "3 + seniority, output": {
+  "tconv_max": 0.130313,
+  "runs": 2,
+  "nodes": 185,
+  "waves": 3,
+  "ties": [
+   386,
+   407,
+   438
+  ]
+ },
+ "_design": {
+  "actors": 185,
+  "ties_per_wave": [
+   386,
+   407,
+   438
+  ],
+  "jaccard_between_waves": [
+   0.2468553459119497,
+   0.22819767441860464
+  ],
+  "waves": [
+   "2016-2018",
+   "2019-2021",
+   "2022-2025"
+  ]
+ }
+}
