@@ -147,7 +147,7 @@ def phase2_bundle(cfg) -> dict | None:
         research[f.stem.replace("research_", "")] = records(pd.read_csv(f, keep_default_na=False, na_values=[""]))
     if research and (st / "research_summary.json").exists():
         research["summary"] = json.loads((st / "research_summary.json").read_text(encoding="utf-8"))
-        research["json"] = {f.stem.replace("research_", ""): json.loads(f.read_text(encoding="utf-8"))   # s18-s21 summaries
+        research["json"] = {f.stem.replace("research_", ""): json.loads(f.read_text(encoding="utf-8"))   # s23-s26 summaries
                             for f in sorted(st.glob("research_*.json")) if f.stem != "research_summary"}
         out["research"] = research
     if (st / "explorer.json").exists():                    # paper- and faculty-level data for Explorer, People, Compare

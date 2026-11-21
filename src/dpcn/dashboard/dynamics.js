@@ -1,4 +1,4 @@
-/* Dynamics pages: Epidemics (s18 results + a live SIS/SIR simulator), Random walks (s18 + s21) and Structure (s19).
+/* Dynamics pages: Epidemics (s23 results + a live SIS/SIR simulator), Random walks (s23 + s26) and Structure (s24).
    Inlined into app.js's closure after phase3.js; shares D, state, plot(), table(), kpis(), mk(), R3, RJ, findingCards(). */
 const DYREG = {};
 const DY = RJ.dynamics || null;
@@ -6,7 +6,7 @@ const NET = (D.authorship && D.authorship.faculty) || { nodes: [], edges: [] };
 
 // ------------------------------------------------------------------ Epidemics: precomputed results
 function renderEpidemics() {
-  if (!DY) { findingCards("ep-list", null, "Run step s18 to simulate the epidemic models."); return; }
+  if (!DY) { findingCards("ep-list", null, "Run step s23 to simulate the epidemic models."); return; }
   findingCards("ep-list", DY.findings);
   const tn = DY.threshold_numeric || {}, cr = DY.crosslab_reach || {};
   kpis("ep-kpis", [["Epidemic threshold", fmt(tn.observed, 3), `λ = β/μ on the real network (rewired ${fmt(tn.rewired, 3)}, random ${fmt(tn.ER, 3)})`],
@@ -153,7 +153,7 @@ function simMany() {
 
 // ------------------------------------------------------------------ Random walks
 function renderWalks() {
-  if (!DY) findingCards("rw-list", null, "Run step s18 to compute the random walks.");
+  if (!DY) findingCards("rw-list", null, "Run step s23 to compute the random walks.");
   else findingCards("rw-list", (DY.findings || []).filter((s) => /walk|first-passage|spectral|step/i.test(s)).concat(((RJ.extras || {}).findings || []).filter((s) => /Laplace|random walk|Matthew|persists/i.test(s))));
   const rw = (DY || {}).random_walk || {}, mr = (DY || {}).mfpt_ratio || {}, W = (RJ.extras || {}).walk || {};
   kpis("rw-kpis", [["Steps to leave a lab", fmt(mr.mfpt_obs_mean, 0), `mean first-passage time; ${fmt(mr.mfpt_null_mean, 0)} on rewired networks`],
@@ -175,14 +175,14 @@ function renderWalks() {
   if (W.faculty) {
     const big = mk("div", null, "bigstat"); big.append(mk("b", pct(W.top_decile_persistence, 0)), mk("span", `of the faculty in the top 10% by output in 2016–20 are again in the top 10% in 2021–25. If ranks were reshuffled at random, ${pct(W.top_decile_null, 0)} would be (p ${W.top_decile_p < 0.001 ? "< 0.001" : "= " + fmt(W.top_decile_p, 3)}, 2,000 permutations).`));
     b.append(big, mk("p", `Rank correlation between the two periods: Spearman ${fmt(W.rank_rho, 2)}. This is the Matthew effect (Merton 1968) in output: success persists. Yet a simple truncated random walk with Laplace steps reproduces the share of years with no paper (${pct(W.zero_years_random_walk, 0)} vs ${pct(W.zero_years_observed, 0)}) and much of the inequality (Gini ${fmt(W.gini_random_walk, 2)} vs ${fmt(W.gini_observed, 2)}), so luck explains a lot of the spread, while persistence explains who stays on top.`, "note"));
-  } else b.append(mk("p", "Run step s21.", "muted"));
+  } else b.append(mk("p", "Run step s26.", "muted"));
 }
 DYREG.walks = renderWalks;
 
-// ------------------------------------------------------------------ Structure (s19)
+// ------------------------------------------------------------------ Structure (s24)
 function renderStructure() {
   const S = RJ.structure;
-  if (!S) { findingCards("st-list", null, "Run step s19 to compute the structural analyses."); return; }
+  if (!S) { findingCards("st-list", null, "Run step s24 to compute the structural analyses."); return; }
   findingCards("st-list", S.findings);
   const nt = R3.null_table || [];
   table("t-st-null", nt.map((r) => Object.assign({}, r, { model: r.model.replace("Erdos-Renyi", "Erdős–Rényi") })), [

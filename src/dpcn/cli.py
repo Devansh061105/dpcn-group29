@@ -33,10 +33,10 @@ STEPS: list[tuple[str, str]] = [
     ("s12", "s12_stats"),
     ("s16", "s16_phase2"),      # Phase II analyses; runs before the dashboard, which displays them
     ("s17", "s17_research"),    # research analyses against randomised baselines (also shown in the dashboard)
-    ("s18", "s18_dynamics"),    # epidemic (SIS/SIR) and random-walk processes on the faculty network
-    ("s19", "s19_structure"),   # null-model table, communities, students, growth laws, link prediction
-    ("s20", "s20_benchmark"),   # peer biology institutes from OpenAlex, specialisation, gravity model
-    ("s21", "s21_extras"),      # journal re-grading, citers vs collaborators, completeness, fragility, explorer data
+    ("s23", "s23_spreading"),    # epidemic (SIS/SIR) and random-walk processes on the faculty network
+    ("s24", "s24_structure"),   # null-model table, communities, students, growth laws, link prediction
+    ("s25", "s25_benchmark"),   # peer biology institutes from OpenAlex, specialisation, gravity model
+    ("s26", "s26_extras"),      # journal re-grading, citers vs collaborators, completeness, fragility, explorer data
     ("s13", "s13_dashboard"),
     ("s14", "s14_report"),
     ("s15", "s15_validate"),

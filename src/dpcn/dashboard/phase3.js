@@ -1,10 +1,10 @@
-/* Phase III pages: Explorer (filter & find), Person profile, Compare anything, More results (s21), Questions & verdicts,
-   Science context and Benchmark (s20). Inlined into app.js's closure after phase2.js, so it shares D, state, plot(),
-   table(), kpis(), show() and the other helpers. Data: D.explorer (s21), D.p2.research.* (s17-s21), D.science. */
+/* Phase III pages: Explorer (filter & find), Person profile, Compare anything, More results (s26), Questions & verdicts,
+   Science context and Benchmark (s25). Inlined into app.js's closure after phase2.js, so it shares D, state, plot(),
+   table(), kpis(), show() and the other helpers. Data: D.explorer (s26), D.p2.research.* (s17 and s23-s26), D.science. */
 const R3 = (D.p2 && D.p2.research) || {};
 const X = D.explorer || (D.p2 && D.p2.explorer) || null;
 const SCI = D.science || (D.p2 && D.p2.science) || {};
-const RJ = R3.json || {};      // s18-s21 summary JSONs: dynamics, structure, benchmark, extras
+const RJ = R3.json || {};      // s23-s26 summary JSONs: dynamics, structure, benchmark, extras
 const P3REG = {};
 const P3API = {};
 const mk = (tag, text, cls) => { const e = document.createElement(tag); if (text !== undefined && text !== null) e.textContent = text; if (cls) e.className = cls; return e; };
@@ -83,7 +83,7 @@ function paperPass(p, F) {
 }
 const roleOk = (r, F) => !F.role || (F.role === "led" ? r > 0 : r === 0);
 function renderExplorer() {
-  if (!X) { missing("t-ex-people", "s21"); return; }
+  if (!X) { missing("t-ex-people", "s26"); return; }
   const F = exRead();
   const pass = XP.map((p) => paperPass(p, F));
   const people = [];
@@ -151,7 +151,7 @@ state.person = null;
 P3API.openPerson = (id) => { state.person = id; delete rendered.person; show("person"); window.scrollTo(0, 0); };
 let cyEgo = null;
 function renderPerson() {
-  if (!X) { missing("pp-head", "s21"); return; }
+  if (!X) { missing("pp-head", "s26"); return; }
   if (!state.person || !personById(state.person)) {
     const pool = XF.filter((p) => state.lab === "ALL" || p.lab === state.lab);
     state.person = (pool.sort((a, b) => b.citations - a.citations)[0] || XF[0]).id;
@@ -210,10 +210,10 @@ function renderPerson() {
       layout: { name: "concentric", concentric: (n) => (n.id() === `f${P.i}` ? 2 : 1), levelWidth: () => 1, minNodeSpacing: 18, animate: false } });
     cyEgo.on("tap", "node", (e) => { const k = +e.target.id().slice(1); if (k !== P.i) P3API.openPerson(XF[k].id); });
   } else { el("g-pp-ego").replaceChildren(mk("p", "No faculty co-authors on papers with up to 50 authors.", "muted pad")); }
-  // related (random walk with restart, s18)
+  // related (random walk with restart, s23)
   const rel = (R3.rw_related || []).filter((r) => r.faculty_id === P.id).sort((a, b) => a.rank - b.rank);
   const rb = el("pp-related"); rb.replaceChildren();
-  if (!R3.rw_related) rb.append(mk("p", "Run step s18 to compute this.", "muted"));
+  if (!R3.rw_related) rb.append(mk("p", "Run step s23 to compute this.", "muted"));
   else if (!rel.length) rb.append(mk("p", "Not in the connected part of the faculty network.", "muted"));
   else { const ul = mk("ol", null, "rel-list"); rel.forEach((r) => { const li = mk("li"); const b = mk("button", r.related_name, "linkbtn"); b.type = "button";
     b.addEventListener("click", () => P3API.openPerson(r.related_id)); li.append(b, mk("span", ` · ${short(r.related_lab)}`, "muted")); ul.append(li); }); rb.append(ul); }
@@ -246,7 +246,7 @@ function labAgg(l) {
     years: ps.map((p) => p.year) };
 }
 function renderVersus() {
-  if (!X) { missing("t-vs", "s21"); return; }
+  if (!X) { missing("t-vs", "s26"); return; }
   state.cmpKind = el("vs-kind").value;
   el("vs-q").hidden = state.cmpKind === "labs";
   const chips = el("vs-chips"); chips.replaceChildren();
@@ -280,10 +280,10 @@ function renderVersus() {
 P3REG.versus = renderVersus;
 P3API.addCompare = (id) => { if (!state.cmp.includes(id)) state.cmp = [...state.cmp, id].slice(-6); el("vs-kind").value = "people"; delete rendered.versus; show("versus"); };
 
-// ------------------------------------------------------------------ More results (s21)
+// ------------------------------------------------------------------ More results (s26)
 function renderExtras() {
   const E = RJ.extras;
-  if (!E) { findingCards("x-list", null, "Run step s21 to compute these analyses."); return; }
+  if (!E) { findingCards("x-list", null, "Run step s26 to compute these analyses."); return; }
   findingCards("x-list", E.findings);
   const scope = state.lab;
   const rg = (R3.regrading || []).filter((r) => r.scope === scope && r.year < D.meta.partial_year);
@@ -526,7 +526,7 @@ function renderScience() {
 }
 P3REG.science = renderScience;
 
-// ------------------------------------------------------------------ Benchmark (s20)
+// ------------------------------------------------------------------ Benchmark (s25)
 const BMM = [["mean_fwci", "Mean FWCI", (v) => fmt(v, 2), "mean_fwci_lo", "mean_fwci_hi"], ["median_fwci", "Median FWCI", (v) => fmt(v, 2)],
   ["top10_share", "Top-10% share", (v) => pct(v, 1), "top10_lo", "top10_hi"], ["top1_share", "Top-1% share", (v) => pct(v, 1), "top1_lo", "top1_hi"],
   ["citations_per_paper", "Citations per paper", (v) => fmt(v, 1)], ["papers", "Papers 2016–2026", (v) => fmt(v)], ["cagr", "Growth (CAGR)", (v) => pct(v, 1)],
@@ -535,7 +535,7 @@ const BMM = [["mean_fwci", "Mean FWCI", (v) => fmt(v, 2), "mean_fwci_lo", "mean_
 function renderBenchmark() {
   const tab = Array.isArray(R3.benchmark) ? R3.benchmark : null, J = RJ.benchmark || null;
   const inst = tab || [];
-  if (!inst.length) { findingCards("bm-list", null, "Run step s20 to fetch the peer institutes."); return; }
+  if (!inst.length) { findingCards("bm-list", null, "Run step s25 to fetch the peer institutes."); return; }
   findingCards("bm-list", (J || {}).findings);
   const ours = (r) => r.group === "ours";
   const col = (r) => ours(r) ? labColor(r.short) : css("--muted");
@@ -591,7 +591,7 @@ P3API.about = function () {
     table("t-ab-audit", pr, [{ title: "Matched by", field: "method" }, { title: "Checked", field: "checked", hozAlign: "right" }, { title: "Correct", field: "correct", hozAlign: "right" },
       { title: "Precision", field: "precision", hozAlign: "right", formatter: (c) => pct(c.getValue(), 0) }], { layout: "fitColumns" });
   } else {
-    box.append(mk("p", `${a.sample || 50} links sampled; ${a.checked || 0} checked so far. Each row in data/manual/precision_audit.csv gets a verdict (correct, wrong or unsure) and the checker's name; re-running step s21 then shows the measured precision here.`, "note"));
+    box.append(mk("p", `${a.sample || 50} links sampled; ${a.checked || 0} checked so far. Each row in data/manual/precision_audit.csv gets a verdict (correct, wrong or unsure) and the checker's name; re-running step s26 then shows the measured precision here.`, "note"));
   }
 };
 

@@ -39,7 +39,7 @@ from scipy import stats
 from . import StepFailed
 from .s17_research import SEED, Data, json_safe, topic_vectors
 
-log = logging.getLogger("dpcn.s18")
+log = logging.getLogger("dpcn.s23")
 
 MU = 0.2                 # recovery probability per step (SIS and SIR)
 N_LAMBDA = 25            # lambda values in the SIS sweep

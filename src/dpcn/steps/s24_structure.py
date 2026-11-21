@@ -44,7 +44,7 @@ from scipy.special import gammaln
 from . import StepFailed
 from .s17_research import SEED, Data, json_safe, logit, ols_hc1, pair, topic_vectors, wilson
 
-log = logging.getLogger("dpcn.s19")
+log = logging.getLogger("dpcn.s24")
 N_NULL = 100          # draws per null model
 N_LOUVAIN = 50        # Louvain seeds for stability
 N_PERM = 1000         # label permutations

@@ -1,6 +1,6 @@
 # Research findings · Group 29
 
-What the data on four CSIR biology labs (CCMB, IGIB, IMTECH, CDRI; 2016–2026; 6,027 papers, 274 faculty) shows beyond descriptive counts. Each result below is tested against a randomised baseline or a model with controls. All numbers come from `outputs/stats/research_*.csv` and the `research_*.json` summaries (steps `s17`–`s21`), and the Findings, More results, Dynamics, Structure and Benchmark pages of the dashboard draw them. They are observational associations from OpenAlex data, not causal effects.
+What the data on four CSIR biology labs (CCMB, IGIB, IMTECH, CDRI; 2016–2026; 6,027 papers, 274 faculty) shows beyond descriptive counts. Each result below is tested against a randomised baseline or a model with controls. All numbers come from `outputs/stats/research_*.csv` and the `research_*.json` summaries (steps `s17`–`s26`), and the Findings, More results, Dynamics, Structure and Benchmark pages of the dashboard draw them. They are observational associations from OpenAlex data, not causal effects.
 
 ## Headline results
 
@@ -39,23 +39,23 @@ What the data on four CSIR biology labs (CCMB, IGIB, IMTECH, CDRI; 2016–2026; 
 
 **11. COVID-19.** IGIB's genomic surveillance and CCMB's sequencing made COVID-19 work a quarter of IGIB's 2021 output and almost half of its 2022 citations, and drove the 2021 jump in faculty links and partner institutions.
 
-## More tested results (steps s18–s21)
+## More tested results (steps s23–s26)
 
 | # | Finding | Test | Result |
 |---|---|---|---|
-| 15 | Lab walls slow spreading between labs | SIR outbreaks from each lab, 1,000 runs, real vs degree-preserving rewired networks (s18) | an outbreak reaches another lab in 5% of runs vs 23% rewired; IGIB → CDRI 4% vs 31% |
+| 15 | Lab walls slow spreading between labs | SIR outbreaks from each lab, 1,000 runs, real vs degree-preserving rewired networks (s23) | an outbreak reaches another lab in 5% of runs vs 23% rewired; IGIB → CDRI 4% vs 31% |
 | 16 | Hubs lower the epidemic threshold | SIS with many random seeds, susceptibility peak, vs rewired and Erdős–Rényi | λc = 0.054 vs 0.063 rewired and 0.100 random; mean-field ⟨k⟩/⟨k²⟩ = 0.049 |
 | 17 | Core members spread best | SIR from every faculty member as the first case | Spearman with outbreak size: eigenvector 0.95, k-shell 0.92, degree 0.87, betweenness 0.51 (k-shell beats degree, as in Kitsak et al. 2010) |
 | 18 | A random walker is trapped in its lab | exact mean first-passage times, real vs rewired | 147 steps to reach another lab vs 10 (21×); relaxation time 60 vs 7 steps |
-| 19 | Clustering is mostly what multi-faculty papers produce | bipartite (paper-reshuffle) null, 100 draws (s19) | clustering 0.32 vs 0.28 bipartite (z = 4.3), 0.13 rewired, 0.03 random; 46% of triangles are one paper |
+| 19 | Clustering is mostly what multi-faculty papers produce | bipartite (paper-reshuffle) null, 100 draws (s24) | clustering 0.32 vs 0.28 bipartite (z = 4.3), 0.13 rewired, 0.03 random; 46% of triangles are one paper |
 | 20 | Communities follow labs, not departments | Louvain vs labels, label-permutation null | NMI 0.64 with lab (z = 70), AMI 0.30 with department; the main core (k = 15) is 28 CDRI faculty |
 | 21 | Students and staff are the glue | faculty network with and without links through non-faculty lab authors | cross-lab share of links 4.8% → 11.1%; largest component 243 → 256; 7 of 23 isolates connected |
 | 22 | Topics do not spread through co-authors | new-subfield adoption after a prior co-author vs future co-authors (placebo) | relative risk 5.2 vs 5.6 for the placebo: homophily, not influence |
 | 23 | New collaborations are predictable | time split 2016–20 → 2021–26 | AUC 0.88 (same lab + topic + Adamic-Adar); topic similarity alone 0.58 |
-| 24 | The Q1 decline is journal re-grading | quartile frozen at 2017 vs year-matched; JCR IF > 5 share (s21) | Q1 74% → 62% year-matched but 75% → 70% frozen; IF > 5 share rose 19% → 23% |
+| 24 | The Q1 decline is journal re-grading | quartile frozen at 2017 vs year-matched; JCR IF > 5 share (s26) | Q1 74% → 62% year-matched but 75% → 70% frozen; IF > 5 share rose 19% → 23% |
 | 25 | Medical partners do not bring more citations | OLS on log citations with year, field, lab, team size, review | Indian hospital/medical partner −16% (−25% to −5%); foreign partner +23%; industry +64% (79 papers) |
 | 26 | Output is a random walk with persistent levels; success persists | Laplace vs normal fit of yearly changes; top-decile persistence vs 2,000 permutations (course paper P1) | Laplace fits better (AIC 10,129 vs 10,740); lag-1 autocorrelation −0.39 (between 0 and −0.50); 62% stay in the top 10% vs 11% by chance |
-| 27 | Collaboration decays with distance faster than citation | Poisson gravity model, 2,151 Indian partners (s20) | elasticity −0.58 (joint papers) vs −0.30 (citations), difference −0.27 (p < 10⁻⁴³) |
+| 27 | Collaboration decays with distance faster than citation | Poisson gravity model, 2,151 Indian partners (s25) | elasticity −0.58 (joint papers) vs −0.30 (citations), difference −0.27 (p < 10⁻⁴³) |
 | 28 | Against 13 Indian biology peers, impact is mid-table | identical OpenAlex query, FWCI and top-10% share | mean FWCI ranks CCMB 4, IGIB 9, IMTECH 11, CDRI 14 of 17; top-10% share 13.3–14.3% vs peer median 17.8%; output shrinking 1–3.5% a year vs +0.8% for the median peer |
 
 ### What the new results mean

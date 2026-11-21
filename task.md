@@ -13,7 +13,7 @@ git pull
 source .venv/bin/activate
 ```
 ```bash
-python -m dpcn run s21
+python -m dpcn run s26
 ```
 ```bash
 python -m dpcn run s13
@@ -30,11 +30,11 @@ python -m dpcn run s13
 
 | File you edit | Re-run |
 |---|---|
-| `data/manual/precision_audit.csv` | `s21`, `s13` |
+| `data/manual/precision_audit.csv` | `s26`, `s13` |
 | `data/manual/phase2_notes.yaml` | `s13` |
 | `data/manual/science_context.yaml` | `s13` |
-| `data/manual/peer_institutes.csv` | `s20`, `s13` |
-| `data/manual/institution_ownership.csv` | `s16`, `s17`, `s21`, `s13` |
+| `data/manual/peer_institutes.csv` | `s25`, `s13` |
+| `data/manual/institution_ownership.csv` | `s16`, `s17`, `s26`, `s13` |
 | `data/manual/faculty_roster.csv`, `faculty_match_overrides.csv` | `all --from s01` (slow; the cache makes it free of API cost) |
 
 ## What is already done (for reference)
@@ -43,10 +43,10 @@ python -m dpcn run s13
 |---|---|---|
 | Phase II directions (overview, faculty and department comparison, top papers, journals, networks, flags) | Overview, Publications, Explore, Networks, Flags | s16 |
 | 14 tested findings (self-citation, lab walls, distance decay, persistence, credit, flow window…) | Findings | s17 |
-| Epidemics (SIS/SIR, many seeds, thresholds, super-spreaders, lab walls, interventions, live simulator), random walks | Dynamics | s18 |
-| Null-model table with bipartite null, communities vs labels, students as glue, growth laws, link prediction, twins, contagion, main path | Networks → Structure | s19 |
-| 13 Indian biology peer institutes, RCA vs India, gravity model | Benchmark | s20 |
-| Journal re-grading, Q1/IF signal, partner payoff, citers vs collaborators, laws, fragility, jumps, productivity random walk, filtered h-index, explorer data | Findings → More results, Explore | s21 |
+| Epidemics (SIS/SIR, many seeds, thresholds, super-spreaders, lab walls, interventions, live simulator), random walks | Dynamics | s23 |
+| Null-model table with bipartite null, communities vs labels, students as glue, growth laws, link prediction, twins, contagion, main path | Networks → Structure | s24 |
+| 13 Indian biology peer institutes, RCA vs India, gravity model | Benchmark | s25 |
+| Journal re-grading, Q1/IF signal, partner payoff, citers vs collaborators, laws, fragility, jumps, productivity random walk, filtered h-index, explorer data | Findings → More results, Explore | s26 |
 | Verdict for every research question; "not done" and "blind spots" lists | Findings → Verdicts | – |
 | Filter & find, Person profile, Compare, Ask-the-data chatbot | Explore, bottom-right button | – |
 
@@ -72,7 +72,7 @@ python -m dpcn run s13
   - confirm that the paper lists their lab (the `raw_affiliation` column shows what OpenAlex has).
 - **What to record:** set `verdict` to `correct`, `wrong` or `unsure`, put your name in `checked_by`, and give a reason in `notes` when it is not `correct`.
 - **Ideally two people:** split the rows, then each re-checks five of the other person's rows.
-- **Check:** re-run `s21` and `s13`. About → "Hand-checked precision" then shows the precision with a 95% interval.
+- **Check:** re-run `s26` and `s13`. About → "Hand-checked precision" then shows the precision with a 95% interval.
 - **Commit:** `Precision audit of 55 links`.
 
 **T-02 · Glue people (about 1 hour).**
@@ -88,7 +88,7 @@ python -m dpcn run s13
   - each city (OpenAlex places THSTI in Gurugram; it is in Faridabad);
   - each choice.
 - **Possible additions:** CSIR-NBRI, CSIR-CFTRI and NIPER Mohali, if the team wants more CSIR sister labs.
-- **Re-run:** `s20` and `s13`. The step fetches from OpenAlex; with the key in `.env` it costs a few cents.
+- **Re-run:** `s25` and `s13`. The step fetches from OpenAlex; with the key in `.env` it costs a few cents.
 - **Commit:** `Peer list checked`.
 
 **T-04 · Science context sources (1 hour).**
@@ -100,14 +100,14 @@ python -m dpcn run s13
 **T-05 · Ownership of citing institutions (2 hours).**
 - **Where:** Flags → "Institutions citing the labs" still has unclassified institutions.
 - **What to record:** for those with 30 or more citations, add rows to `data/manual/institution_ownership.csv` with ownership (`government`, `government-aided`, `private`, `international`), source and date checked.
-- **Re-run:** `s16`, `s17`, `s21` and `s13`.
+- **Re-run:** `s16`, `s17`, `s26` and `s13`.
 - **Commit:** `Ownership for N more institutions`.
 
 **T-06 · Joining years (3 hours, can be shared).**
 - **Why:** course paper P1 studies how output changes with career stage. We could not do this because the roster has no joining years.
 - **Where to look:** lab websites, CVs and annual reports.
 - **What to record:** add a column `joined_year` to `data/manual/faculty_roster.csv` for as many current faculty as possible (leave blank when unknown). Add a source URL in `notes`.
-- **Then:** tell the team, and the career-stage analysis can be added to `s21`.
+- **Then:** tell the team, and the career-stage analysis can be added to `s26`.
 - **Commit:** `Joining years for N faculty`.
 
 **T-07 · Departments and merged profiles (1 hour).**
@@ -142,7 +142,7 @@ python -m dpcn run s13
 - Mark anything you would not defend in a viva.
 
 **T-10 · Report slides.**
-- `python -m dpcn run s14` builds `outputs/report/`. It covers Phase II and s17, but not s18–s21 yet.
+- `python -m dpcn run s14` builds `outputs/report/`. It covers Phase II and s17, but not s23–s26 yet.
 - Add three slides:
   - **Dynamics:** lab walls cut cross-lab outbreak reach from 23% to 5%; a random walker needs 147 steps to leave its lab, against 10 by chance.
   - **Structure:** students and staff more than double cross-lab links (4.8% → 11.1%); topic contagion is homophily.

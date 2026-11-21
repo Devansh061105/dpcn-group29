@@ -33,7 +33,7 @@ from ..openalex import batches, short_id
 from . import StepFailed
 from .s17_research import SEED, gini, json_safe, wilson
 
-log = logging.getLogger("dpcn.s20")
+log = logging.getLogger("dpcn.s25")
 
 PEER_FILE = "peer_institutes.csv"
 WORK_TYPES = "article|review"

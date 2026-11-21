@@ -1,9 +1,9 @@
-"""Unit tests for the Phase III helpers (s21) and the dashboard wiring."""
+"""Unit tests for the Phase III helpers (s26) and the dashboard wiring."""
 from pathlib import Path
 
 import numpy as np
 
-from dpcn.steps.s21_extras import gini_np, h_index, lotka_mle
+from dpcn.steps.s26_extras import gini_np, h_index, lotka_mle
 
 DASH = Path(__file__).resolve().parents[1] / "src" / "dpcn" / "dashboard"
 

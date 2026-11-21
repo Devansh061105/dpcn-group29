@@ -39,7 +39,7 @@ from . import StepFailed
 from .s06_enrich import issn_norm, load_sjr, sjr_quartile
 from .s17_research import COVID, SEED, json_safe, ols_hc1, wilson
 
-log = logging.getLogger("dpcn.s21")
+log = logging.getLogger("dpcn.s26")
 FREEZE_YEAR = 2017
 
 
@@ -468,13 +468,13 @@ def laws(I: Inputs, cfg) -> pd.DataFrame:
                  "value": zones[1] / zones[0], "holds": bool(zones[2] / zones[1] > 0.5 * zones[1] / zones[0])})
     c = np.sort(I.p["citations"].to_numpy())[::-1]
     s15 = c[: int(0.15 * len(c))].sum() / c.sum()
-    s20 = c[: int(0.2 * len(c))].sum() / c.sum()
+    s25 = c[: int(0.2 * len(c))].sum() / c.sum()
     rows.append({"law": "Seglen (1997)", "statement": "the most cited 15% of papers receive about half of all citations",
                  "expected": "≈ 50%", "observed": f"top 15% of papers: {s15:.0%} of citations", "value": s15,
                  "holds": bool(0.4 <= s15 <= 0.65)})
     rows.append({"law": "Pareto 80/20", "statement": "20% of the papers receive 80% of the citations",
-                 "expected": "80%", "observed": f"top 20% of papers: {s20:.0%} of citations", "value": s20,
-                 "holds": bool(abs(s20 - 0.8) < 0.1)})
+                 "expected": "80%", "observed": f"top 20% of papers: {s25:.0%} of citations", "value": s25,
+                 "holds": bool(abs(s25 - 0.8) < 0.1)})
     zero = (I.p.loc[I.p["year"] <= 2023, "citations"] == 0).mean()
     rows.append({"law": "Uncitedness", "statement": "a share of papers is never cited",
                  "expected": "varies by field", "observed": f"{zero:.1%} of 2016–2023 papers have no citations yet",
