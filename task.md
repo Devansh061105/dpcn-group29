@@ -59,16 +59,19 @@ python -m dpcn run s13
 
 | # | Task | Owner (suggested) | Done |
 |---|---|---|---|
-| T-01 | Precision audit of the faculty–paper matching | Deepraj | ☐ |
+| T-01 | Precision audit of the faculty–paper matching | Deepraj | ◐ evidence pre-filled; 55 verdicts to confirm |
 | T-02 | Check the "glue people" (top non-faculty bridges) | Aman | ☐ |
 | T-03 | Verify the peer-institute list | Devansh | ☐ |
 | T-04 | Verify every source in the Science context page | Aman | ☐ |
 | T-05 | Classify the remaining citing institutions by ownership | Devansh | ☐ |
-| T-06 | Collect joining years for faculty (enables career-stage analysis) | Deepraj | ☐ |
+| T-06 | Collect joining years for faculty (enables career-stage analysis) | Deepraj | ◐ worksheet built; years to decide |
 | T-07 | Fill the 6 unknown departments and check merged-profile flags | Devansh | ☐ |
-| T-17 | Check the "Only here" coverage map against our reviews of the other groups | everyone | ☐ |
+| T-17 | Check the "Only here" coverage map against our reviews of the other groups | everyone | ◐ firsts checked (Deepraj); rest open |
 
 **T-01 · Precision audit (about 2–3 hours).**
+- **Status (Deepraj):** the sample was regenerated with raw affiliations (the first version had none). `python -m dpcn.audit_precheck` added evidence columns. `precheck_byline` checks Crossref's author list, a second source. `precheck_affiliation` checks the OpenAlex raw affiliation text. `precheck_name` compares names.
+  - 53 of 55 rows are consistent on all three. The 2 flagged rows are spelling variants, explained in `precheck_note`.
+  - **Still to do by hand:** open each DOI, then fill `verdict` and `checked_by`. The evidence makes this about 1 minute a row.
 - **File:** `data/manual/precision_audit.csv` holds 55 randomly chosen (paper, faculty) links, stratified by how the affiliation was matched.
 - **What to check for each row:**
   - open the DOI;
@@ -108,6 +111,10 @@ python -m dpcn run s13
 - **Commit:** `Ownership for N more institutions`.
 
 **T-06 · Joining years (3 hours, can be shared).**
+- **Status (Deepraj):** `python -m dpcn.joining_worksheet` built `data/manual/joining_years.csv` (294 rows). It holds the OpenAlex first year at the lab (274 faculty) and the first paper year (272). For 29 CCMB faculty it also has PhD year, last postdoc year and experience, read from the CCMB website.
+  - IGIB, IMTECH and CDRI pages do not give these.
+  - Fill `joined_year`, `source_url` and `checked_by` there instead of in the roster. Re-running the script keeps what you typed.
+  - A first-paper year far before the PhD (e.g. 1969) means a merged OpenAlex profile: note it.
 - **Why:** course paper P1 studies how output changes with career stage. We could not do this because the roster has no joining years.
 - **Where to look:** lab websites, CVs and annual reports.
 - **What to record:** add a column `joined_year` to `data/manual/faculty_roster.csv` for as many current faculty as possible (leave blank when unknown). Add a source URL in `notes`.
@@ -119,7 +126,12 @@ python -m dpcn run s13
 - **Merged profiles:** Flags → "Lifetime citations" flags OpenAlex profiles that may merge several people. For each flagged person, look at the OpenAlex profile and record in `faculty_match_overrides.csv` whether it is merged. There is already a decision column.
 
 **T-17 · "Only here" map (1–2 hours, split by theme).**
-- **File:** `data/manual/novelty_map.csv` matches each of the 154 items in our catalogue of the other groups' projects to what we did (`ours` = yes / partial / no, `page`, `what_we_did`), plus 17 "firsts" (`other_groups` = 0) and 23 baseline rows (`other_groups` = −1).
+- **Status (Deepraj):** every "first" was searched for in all 30 review files. Three turned out to be done by one other group each and are now "rare":
+  - k-shell spreading test (Group 3);
+  - pair survival (Group 31);
+  - h-index leaderboard with filters (Group 21).
+  The other 14 firsts hold. The `yes`/`partial` rows by theme are still open for everyone.
+- **File:** `data/manual/novelty_map.csv` matches each of the 154 items in our catalogue of the other groups' projects to what we did (`ours` = yes / partial / no, `page`, `what_we_did`), plus 14 "firsts" (`other_groups` = 0) and 23 baseline rows (`other_groups` = −1).
 - **What to check:** open your own reviews (`reviews/groupNN.md` in the shared folder). Is any "first" actually done by a group? Is any item marked `yes` not really on our dashboard? Fix the row; the page and the chatbot update after `s13`.
 - **Why it matters:** the examiner will ask "what did you do that others did not?". These numbers must be ones we can defend.
 
@@ -130,7 +142,7 @@ python -m dpcn run s13
 | T-08 | Team interpretation for the new pages | everyone, one section each | ☐ |
 | T-09 | Read and rewrite `RESEARCH_FINDINGS.md` in our own words | Devansh | ☐ |
 | T-10 | Update the report slides with the new results | Aman | ☐ |
-| T-11 | Check each verdict's wording on Findings → Verdicts | Deepraj | ☐ |
+| T-11 | Check each verdict's wording on Findings → Verdicts | Deepraj | ☑ |
 
 **T-08 · Team interpretation.**
 - Each new page has an empty "Team interpretation" box. Fill it in `data/manual/phase2_notes.yaml` under these keys:
@@ -159,6 +171,7 @@ python -m dpcn run s13
 - Use screenshots from the dashboard (`#tab=epidemics&shot=1` hides the toolbars).
 
 **T-11 · Verdict wording.**
+- **Status (Deepraj, done):** two verdicts that stated their evidence without numbers (middle-author papers; "most cited labs") now compute it from the data. Six verdicts were added for the methods no other group used (P1, P8, P6, P3, P9, P10).
 - Every verdict on Findings → Verdicts is computed, but the question text and the "why" lines are ours: check them.
 - If you disagree with a verdict, change the logic in `src/dpcn/dashboard/phase3.js` (`verdictItems`) or note it in the team interpretation.
 
@@ -212,7 +225,7 @@ Likely questions:
 - **What is FWCI, and why is it fairer than citations?**
 - **Why does fractional counting change the leaders?**
 - **What would you need to study career stages or gender?** Joining years (T-06). Gender is not collected, and inferring it from names would be wrong.
-- **What did you do that other groups did not?** Overview → Only here: 17 firsts, the rare items, and the baseline we kept.
+- **What did you do that other groups did not?** Overview → Only here: 14 firsts, the rare items, and the baseline we kept.
 - **What did the team do by hand?** See the About tab: the roster, identity decisions, exclusions, ownership, the precision audit, these notes.
 - **How was AI used?** As assistance only. Every number comes from the pipeline, and the team checked the data and wrote the interpretations.
 

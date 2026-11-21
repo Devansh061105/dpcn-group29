@@ -168,7 +168,7 @@ These complement the course network models above. Rows 41–44 extend the SI/SIS
 
 ## Methods no other group used (step `s27`)
 
-Our team reviewed the projects of all 29 other groups and catalogued 154 methods and features with who used each (Phase III planning notes). Six methods from the instructor's papers were used by none of them; these are they. The dashboard's "Only here" page sets all of our work against that catalogue: 17 firsts, 16 of the 38 rare items, 104 of 154 items fully and 22 partly, and all 50 items that six or more groups did.
+Our team reviewed the projects of all 29 other groups and catalogued 154 methods and features with who used each (Phase III planning notes). Six methods from the instructor's papers were used by none of them; these are they. The dashboard's "Only here" page sets all of our work against that catalogue: 14 firsts (checked against the review files; three earlier candidates were done by one other group each and count as rare), 16 of the 38 rare items, 104 of 154 items fully and 22 partly, and all 50 items that six or more groups did.
 
 | # | Finding | Test | Result |
 |---|---|---|---|

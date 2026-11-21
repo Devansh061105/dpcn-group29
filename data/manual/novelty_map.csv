@@ -161,15 +161,15 @@ P9,Instructor papers nobody did,"Early partner diversity → later success, with
 P10,Instructor papers nobody did,"Stock-flow decomposition of lab composition (entry, exit, within-person change)",0,yes,extras,step s27
 new,New methods,"Live, seedable SIS/SIR outbreak simulator on the real faculty network",0,yes,epidemics,dashboard feature
 new,New methods,Random-walk first-passage times between labs against rewired networks,0,yes,walks,step s23
-new,New methods,k-shell vs degree as predictors of spreading power (Kitsak et al. test) over every faculty member,0,yes,epidemics,step s23
+new,New methods,k-shell vs degree as predictors of spreading power (Kitsak et al. test) over every faculty member,1,yes,epidemics,"step s23; Group 3 also ran this test (k-core wins), checked against reviews/group03.md"
 new,New methods,Stochastic actor-oriented model of the faculty network (RSiena),0,yes,teams,step s22
 new,New methods,Specification curve: the same-lab effect under 48 analysis choices,0,yes,extensions,step s19
 new,New methods,Team assembly with papers as groups (Guimerà et al. 2005),0,yes,teams,step s21
-new,New methods,Tie survival life table for new collaborations,0,yes,teams,step s21
-new,New methods,Sensitivity of the main result to author-matching errors,0,yes,teams,step s21
+new,New methods,Tie survival life table for new collaborations,1,yes,teams,step s21; Group 31 did survival-style persistence of pairs (reviews/group31.md)
+new,New methods,Sensitivity of the main result to author-matching errors,0,yes,teams,"step s21; Group 30 only discusses misattribution in words, no perturbation test"
 new,New methods,Time-respecting paths: can information reach another lab in time?,0,yes,teams,step s21
-new,New methods,Disparity-filter backbone of Indian partner institutions,0,yes,extras,step s26
-new,New methods,"Live h-index recomputed in the browser for any author, IF, citation or year threshold",0,yes,explorer,dashboard feature
+new,New methods,Disparity-filter backbone of Indian partner institutions,0,yes,extras,"step s26; Group 7 used a different (BiWCM) backbone on topic similarity, not partner institutions"
+new,New methods,"Live h-index recomputed in the browser for any author, IF, citation or year threshold",1,yes,explorer,dashboard feature; Group 21 has an h-index leaderboard with period filters (reviews/group21.md)
 B1,Common baseline,"Corpus by OpenAlex institution ID, journal and conference papers, 2016–2026 with 2026 partial",-1,yes,overview,kept: what nearly every group has
 B2,Common baseline,Truncated author lists re-fetched one by one,-1,yes,about,kept: what nearly every group has
 B3,Common baseline,Indian citing and cited works (in-flow and out-flow),-1,yes,citation,kept: what nearly every group has

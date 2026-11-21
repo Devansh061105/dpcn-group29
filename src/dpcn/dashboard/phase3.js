@@ -393,12 +393,16 @@ function verdictItems() {
     `${pct(share("self (shared author)"), 0)} share an author`, share("self (shared author)") > 0.5 ? "yes" : "no", "findings");
   add("Do citations fall with co-authorship distance (Singh et al.)?", "Observed ÷ volume-only expectation by network distance",
     `${fmt(lift("1"), 1)}× at distance 1, ${fmt(lift("2"), 1)}× at 2, ${fmt(lift("3"), 1)}× at 3`, lift("1") > lift("2") && lift("2") > (lift("3") || 0) ? "yes" : "partly", "findings");
-  add("Are middle-author papers better papers?", "Field-and-year normalised citations within team-size bands",
-    "Premium disappears within the same team size", "no", "findings", "The premium is team size: big consortia, not better work by the lab.");
+  const lvm = (R3.led_vs_middle || []).filter((r) => r.scope === "ALL"), Ld = lvm.find((r) => r.role === "lab-led") || {}, Md = lvm.find((r) => r.role !== "lab-led") || {};
+  add("Are middle-author papers better papers?", "Field-and-year normalised citations, overall and within team-size bands",
+    `${fmt(Md.mean_norm_citations, 2)}× vs ${fmt(Ld.mean_norm_citations, 2)}× the field average overall (median ${fmt(Md.median_authors)} vs ${fmt(Ld.median_authors)} authors); similar within the same team size`,
+    "no", "findings", "The premium is team size: big consortia, not better work by the lab.");
   add("Are cross-lab collaborations as durable as same-lab ones?", "Repeat within 3 years of the first joint paper; Fisher test",
     `${pct(cross.share, 0)} vs ${pct(same.share, 0)} repeat`, cross.share < same.share ? "no" : "yes", "findings");
-  add("Are CCMB and IGIB the most cited labs?", "OLS on log citations with year, field, team size and review",
-    "Ahead on raw averages; behind CDRI and IMTECH once controlled", "partly", "findings");
+  const li = (R3.lab_impact || []).filter((r) => r.term.startsWith("lab:") && r.model !== "lab only");
+  add("Are CCMB and IGIB the most cited labs?", "Raw citations per paper vs OLS on log citations with year, field, team size and review",
+    `Ahead on raw averages; with controls vs CDRI: ${li.map((r) => `${short(r.term.replace("lab: ", ""))} ${signed(r.pct_effect, 0)}%`).join(", ")}`,
+    li.some((r) => /CCMB|IGIB/.test(r.term) && r.pct_high < 0) ? "no" : "partly", "findings", "A few huge consortium papers lift their averages; the typical paper is cited less than CDRI's.");
   add("Did Indian citations into the labs overtake those going out only in 2022?", "Same two-year window both ways, per cohort",
     `Labs receive ${fmt(fwr, 2)}× what they give, every cohort since 2017`, "no", "findings", "The 2022 crossover was citation lag.");
   add("Do faculty rankings survive fractional counting?", "Citations ÷ authors; rank shifts", `${drop} of the top 10 fall below rank 25`, drop >= 3 ? "no" : "partly", "findings");
@@ -421,6 +425,24 @@ function verdictItems() {
     const n = (rk[0] || [])[3] || 17, top = rk.filter((x) => x[1] <= n / 2).length;
     add("Do our labs match other Indian biology institutes on normalised impact?", "Mean FWCI and top-10% share, identical OpenAlex query for 13 peers",
       `Mean FWCI ranks ${rk.map((x) => `${x[0]} ${x[1]}`).join(", ")} of ${n}; top-10% share ranks ${rk.map((x) => x[2]).join(", ")}`, top === rk.length ? "yes" : top ? "partly" : "no", "benchmark"); }
+  const F1 = ((D.p2 || {}).firsts || {}).summary;
+  if (F1) {
+    const c1 = ((D.p2 || {}).firsts || {}).p1_career || [], a = c1[0] || {}, z = c1[c1.length - 1] || {};
+    add("Does output become steadier over a career, as Zhang et al. (P1) found?", "Laplace scale of yearly changes by career age; faculty bootstrap; permutation",
+      `absolute ${fmt(a.laplace_alpha, 2)} → ${fmt(z.laplace_alpha, 2)} papers, relative ${fmt(a.relative_alpha, 2)} → ${fmt(z.relative_alpha, 2)} from the first decade to 30+ years`,
+      z.relative_alpha < a.relative_alpha ? "yes" : "no", "novelty", "Unlike the computer scientists in P1, swings grow with seniority in these labs.");
+    add("Do research groups grow in proportion to their size (Gibrat's law, P8)?", "Log growth on log size of each PI's yearly group",
+      `slope ${fmt(F1.p8.gibrat_slope, 2)} (95% CI ${fmt(F1.p8.gibrat_ci[0], 2)} to ${fmt(F1.p8.gibrat_ci[1], 2)}); 0 would be Gibrat`, F1.p8.gibrat_ci[1] < 0 || F1.p8.gibrat_ci[0] > 0 ? "no" : "yes", "novelty", "Large groups grow more slowly than small ones.");
+    add("Does writing together make people cite each other, beyond shared topics (P6)?", "Logistic model over all ordered faculty pairs",
+      `odds ratio ${fmt(F1.p6.or_coauthor_alone, 0)} alone, ${fmt(F1.p6.or_coauthor_full, 1)} with topic, distance, output and lab`, F1.p6.or_coauthor_full > 1.5 ? "yes" : "no", "novelty");
+    add("Does a first joint paper change how a pair cites each other (P3)?", "Event study vs distance-2 pairs, difference in differences",
+      `${signed(F1.p3.did, 2)} citations a year (95% CI ${signed(F1.p3.did_ci[0], 2)} to ${signed(F1.p3.did_ci[1], 2)})`, F1.p3.did_ci[0] > 0 ? "yes" : "partly", "novelty");
+    const p9 = (((D.p2 || {}).firsts || {}).p9_diversity || []);
+    add("Does early partner diversity predict later success (P9)?", "Spearman against 2,000 reshuffles within lab and early-output tercile",
+      p9.map((r) => `${r.outcome === "late_papers" ? "output" : "impact"} ρ ${fmt(r.spearman, 2)} vs ${fmt(r.null_mean, 2)} (p = ${fmt(r.p, 2)})`).join("; "), p9.every((r) => r.p >= 0.05) ? "no" : "partly", "novelty");
+    add("Do labs change mainly through who joins and leaves (P10)?", "Entry / exit / within-person decomposition of the share of internationally collaborative faculty",
+      `${pct(F1.p10.share_from_within, 0)} within-person, ${pct(F1.p10.share_from_entry, 0)} joiners, ${pct(F1.p10.share_from_exit, 0)} leavers`, F1.p10.share_from_within > 0.5 ? "no" : "yes", "novelty");
+  }
   if (DY.crosslab_reach) {
     const cr = DY.crosslab_reach, is = DY.influence_spearman || {}, mr = DY.mfpt_ratio || {}, tn = DY.threshold_numeric || {};
     add("Do the lab walls slow the spread of ideas between labs?", "SIR outbreaks from each lab, real vs degree-preserving rewired networks",
