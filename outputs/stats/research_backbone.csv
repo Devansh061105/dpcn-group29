@@ -1,0 +1,271 @@
+a,b,w,p,a_name,b_name,a_type,b_type,a_ours,b_ours
+I177828482,I63739035,244,9.938581304764437e-33,Institute of Genomics and Integrative Biology,All India Institute of Medical Sciences,facility,education,True,False
+I110166357,I177828482,170,9.20402371502306e-25,University of Delhi,Institute of Genomics and Integrative Biology,education,facility,False,True
+I185249246,I280994,139,6.312531441168448e-21,Central Drug Research Institute,King George's Medical University,facility,education,True,False
+I185638415,I55664587,103,1.1045371093549253e-11,Centre for Cellular and Molecular Biology,Indian Institute of Chemical Technology,facility,facility,True,False
+I185249246,I68145777,83,2.071515659449234e-15,Central Drug Research Institute,Central Institute of Medicinal and Aromatic Plants,facility,facility,True,False
+I4210147764,I51452335,82,8.418322247118068e-13,Institute of Microbial Technology,Panjab University,facility,education,True,False
+I185249246,I4210146715,77,3.017729913952376e-06,Central Drug Research Institute,National Institute of Pharmaceutical Education and Research,facility,education,True,False
+I185249246,I4210152674,69,1.1550892589852348e-05,Central Drug Research Institute,National Institute of Pharmaceutical Education and Research,facility,government,True,False
+I185249246,I4210103783,64,2.6657612612342015e-05,Central Drug Research Institute,National Institute of Pharmaceutical Education and Research,facility,education,True,False
+I4210146715,I4210152674,63,0.00011538625264849866,National Institute of Pharmaceutical Education and Research,National Institute of Pharmaceutical Education and Research,education,government,False,False
+I161370692,I185249246,56,4.119004747243975e-11,Sanjay Gandhi Post Graduate Institute of Medical Sciences,Central Drug Research Institute,facility,facility,False,True
+I4210103783,I4210152674,55,0.00040309422328737064,National Institute of Pharmaceutical Education and Research,National Institute of Pharmaceutical Education and Research,education,government,False,False
+I185638415,I4210146715,55,1.7555507866313828e-06,Centre for Cellular and Molecular Biology,National Institute of Pharmaceutical Education and Research,facility,education,True,False
+I145286018,I185249246,54,6.0761995047118e-12,SRM Institute of Science and Technology,Central Drug Research Institute,education,facility,False,True
+I152429107,I185249246,54,1.8619559556631086e-09,Jawaharlal Nehru University,Central Drug Research Institute,education,facility,False,True
+I185249246,I85145500,53,8.622378290750026e-08,Central Drug Research Institute,Indian Institute of Toxicology Research,facility,facility,True,False
+I185638415,I78270026,53,2.8994453694919954e-10,Centre for Cellular and Molecular Biology,Centre for DNA Fingerprinting and Diagnostics,facility,facility,True,False
+I185249246,I94234084,49,7.879667912306881e-10,Central Drug Research Institute,Indian Institute of Technology Kanpur,facility,education,True,False
+I177828482,I4210156726,44,2.7969814564137196e-07,Institute of Genomics and Integrative Biology,National Institute of Immunology,facility,government,True,False
+I164861460,I185638415,43,2.549498243521162e-07,Manipal Academy of Higher Education,Centre for Cellular and Molecular Biology,education,facility,False,True
+I185249246,I91357014,42,1.8693456634063834e-07,Central Drug Research Institute,Banaras Hindu University,facility,education,True,False
+I4210147764,I45294948,42,1.5682044651550517e-09,Institute of Microbial Technology,Post Graduate Institute of Medical Education and Research,facility,education,True,False
+I185249246,I186246823,42,4.192120710923775e-10,Central Drug Research Institute,University of Lucknow,facility,education,True,False
+I4210147764,I4210152674,42,3.1566222767798886e-05,Institute of Microbial Technology,National Institute of Pharmaceutical Education and Research,facility,government,True,False
+I185249246,I55664587,40,0.0006117219971320082,Central Drug Research Institute,Indian Institute of Chemical Technology,facility,facility,True,False
+I177828482,I863896202,39,5.649215393427319e-06,Institute of Genomics and Integrative Biology,Delhi Technological University,facility,education,True,False
+I177828482,I2802464703,39,0.00013365718214298589,Institute of Genomics and Integrative Biology,Max Super Speciality Hospital,facility,healthcare,True,False
+I51317819,I91357014,37,1.363590984804815e-06,Institute of Medical Sciences,Banaras Hindu University,education,education,False,False
+I2802464703,I307255591,36,0.0003066065701311473,Max Super Speciality Hospital,Max Healthcare,healthcare,healthcare,False,False
+I177828482,I307255591,36,0.001438795097322828,Institute of Genomics and Integrative Biology,Max Healthcare,facility,healthcare,True,False
+I177828482,I59475050,35,1.9231208731662095e-07,Institute of Genomics and Integrative Biology,Jamia Millia Islamia,facility,education,True,False
+I185249246,I2801880299,35,7.846377169233378e-07,Central Drug Research Institute,Translational Health Science and Technology Institute,facility,government,True,False
+I119939252,I177828482,34,1.5393684483102356e-05,Indraprastha Institute of Information Technology Delhi,Institute of Genomics and Integrative Biology,education,facility,False,True
+I152429107,I177828482,33,9.491900931374235e-06,Jawaharlal Nehru University,Institute of Genomics and Integrative Biology,education,facility,False,True
+I185249246,I63739035,31,0.0004045754009926727,Central Drug Research Institute,All India Institute of Medical Sciences,facility,education,True,False
+I177828482,I3125981224,30,3.570956055758629e-05,Institute of Genomics and Integrative Biology,National Chemical Laboratory,facility,facility,True,False
+I177828482,I19716509,30,2.431967743474744e-05,Institute of Genomics and Integrative Biology,Jamia Hamdard,facility,education,True,False
+I185249246,I191972202,29,9.933769475059781e-08,Central Drug Research Institute,Amity University,facility,education,True,False
+I170396143,I185249246,28,5.471336945096165e-07,National Botanical Research Institute,Central Drug Research Institute,facility,facility,False,True
+I185638415,I4210156726,28,9.966798049623995e-05,Centre for Cellular and Molecular Biology,National Institute of Immunology,facility,government,True,False
+I185249246,I4210154014,28,0.010367263516096712,Central Drug Research Institute,National Institute of Pharmaceutical Education and Research,facility,education,True,False
+I185638415,I91357014,27,6.407509558435174e-05,Centre for Cellular and Molecular Biology,Banaras Hindu University,facility,education,True,False
+I185638415,I4210156799,26,8.787923701985599e-07,Centre for Cellular and Molecular Biology,Tata Institute for Genetics and Society,facility,nonprofit,True,False
+I185638415,I194223965,26,8.257921480290868e-06,Centre for Cellular and Molecular Biology,National Centre for Biological Sciences,facility,facility,True,False
+I42095658,I4210147764,26,6.830298678658402e-06,Central Scientific Instruments Organisation,Institute of Microbial Technology,facility,facility,False,True
+I110166357,I63739035,25,0.001671823195200006,University of Delhi,All India Institute of Medical Sciences,education,education,False,False
+I185249246,I74796645,25,0.0005030087839454242,Central Drug Research Institute,"Birla Institute of Technology and Science, Pilani",facility,education,True,False
+I185638415,I59270414,24,1.762212983990169e-05,Centre for Cellular and Molecular Biology,Indian Institute of Science Bangalore,facility,education,True,False
+I185249246,I4405269473,24,4.030384466833637e-06,Central Drug Research Institute,Sophisticated Analytical Instrument Facility,facility,facility,True,False
+I177828482,I905734797,24,2.303974710711284e-06,Institute of Genomics and Integrative Biology,Maharshi Dayanand University,facility,education,True,False
+I177828482,I4210118052,24,0.00011705499617092336,Institute of Genomics and Integrative Biology,Institute of Human Behaviour and Allied Sciences,facility,facility,True,False
+I185638415,I4210142124,24,6.252074834689968e-05,Centre for Cellular and Molecular Biology,International Centre for Genetic Engineering and Biotechnology,facility,facility,True,False
+I185638415,I4210087873,24,5.650448946785623e-05,Centre for Cellular and Molecular Biology,Institute for Stem Cell Biology and Regenerative Medicine,facility,facility,True,False
+I4210146715,I55664587,24,0.01354979830367323,National Institute of Pharmaceutical Education and Research,Indian Institute of Chemical Technology,education,facility,False,False
+I185638415,I36893310,24,9.579666887651571e-05,Centre for Cellular and Molecular Biology,University of Hyderabad,facility,education,True,False
+I185249246,I51317819,23,0.0006874642373157205,Central Drug Research Institute,Institute of Medical Sciences,facility,education,True,False
+I185638415,I2801255070,23,0.0001318630002134431,Centre for Cellular and Molecular Biology,L V Prasad Eye Institute,facility,funder,True,False
+I4210103783,I4210146715,23,0.047980017804041056,National Institute of Pharmaceutical Education and Research,National Institute of Pharmaceutical Education and Research,education,education,False,False
+I185638415,I63739035,22,0.004052897920331797,Centre for Cellular and Molecular Biology,All India Institute of Medical Sciences,facility,education,True,False
+I177828482,I45294948,22,3.605481738744038e-05,Institute of Genomics and Integrative Biology,Post Graduate Institute of Medical Education and Research,facility,education,True,False
+I177828482,I185638415,22,0.005284302602188257,Institute of Genomics and Integrative Biology,Centre for Cellular and Molecular Biology,facility,facility,True,True
+I177828482,I4210089305,22,3.635579253432112e-06,Institute of Genomics and Integrative Biology,"Dr. D. Y. Patil Medical College, Hospital and Research Centre",facility,healthcare,True,False
+I185638415,I8975392,22,4.9299696957090505e-06,Centre for Cellular and Molecular Biology,Osmania University,facility,education,True,False
+I171210897,I185249246,21,1.4928215430413367e-06,Aligarh Muslim University,Central Drug Research Institute,education,facility,False,True
+I177828482,I2801880299,21,0.00031798625317664835,Institute of Genomics and Integrative Biology,Translational Health Science and Technology Institute,facility,government,True,False
+I185249246,I8977528,21,9.862159330419343e-07,Central Drug Research Institute,Dr. Hari Singh Gour University,facility,education,True,False
+I165916956,I4210147764,20,2.83924577405784e-05,Indian Institute of Science Education and Research Mohali,Institute of Microbial Technology,education,facility,False,True
+I185249246,I4210108071,20,0.00017608860623420403,Central Drug Research Institute,Indian Institute of Integrative Medicine,facility,facility,True,False
+I185249246,I59270414,20,0.00012052843238883589,Central Drug Research Institute,Indian Institute of Science Bangalore,facility,education,True,False
+I185638415,I699696,20,3.0374247048515296e-05,Centre for Cellular and Molecular Biology,National Institute of Mental Health and Neurosciences,facility,healthcare,True,False
+I185638415,I3125981224,19,0.0021162224250417827,Centre for Cellular and Molecular Biology,National Chemical Laboratory,facility,facility,True,False
+I4210146715,I4210147764,19,0.009884103787747518,National Institute of Pharmaceutical Education and Research,Institute of Microbial Technology,education,facility,False,True
+I185638415,I4210152674,19,0.010850209773988243,Centre for Cellular and Molecular Biology,National Institute of Pharmaceutical Education and Research,facility,government,True,False
+I177828482,I39190216,19,2.359788816517793e-05,Institute of Genomics and Integrative Biology,Maulana Azad Medical College,facility,education,True,False
+I154549908,I185249246,19,0.00031634307353774676,Indian Institute of Technology Jodhpur,Central Drug Research Institute,education,facility,False,True
+I119241673,I4210147764,19,0.0002787345039156899,Indian Institute of Technology Ropar,Institute of Microbial Technology,education,facility,False,True
+I177828482,I37048141,19,8.093936650112144e-05,Institute of Genomics and Integrative Biology,Indian Council of Medical Research,facility,government,True,False
+I11947397,I185638415,19,0.00017973725431045758,Tata Institute of Fundamental Research,Centre for Cellular and Molecular Biology,education,facility,False,True
+I177828482,I699696,18,9.260787466110273e-05,Institute of Genomics and Integrative Biology,National Institute of Mental Health and Neurosciences,facility,healthcare,True,False
+I177828482,I91357014,18,0.0017943749086453667,Institute of Genomics and Integrative Biology,Banaras Hindu University,facility,education,True,False
+I114724429,I4210147764,18,8.507059173023466e-05,Central University of Punjab,Institute of Microbial Technology,education,facility,False,True
+I168893459,I185249246,18,0.0014916215086620303,University of Allahabad,Central Drug Research Institute,education,facility,False,True
+I165831266,I4210147764,18,0.0004770460688339757,Nirma University,Institute of Microbial Technology,education,facility,False,True
+I4210101034,I74796645,18,0.0049372153045462094,Birla Institute of Technology and Science - Hyderabad Campus,"Birla Institute of Technology and Science, Pilani",education,education,False,False
+I160344538,I177828482,17,0.0010453022536171367,Indian Institute of Chemical Biology,Institute of Genomics and Integrative Biology,facility,facility,False,True
+I185249246,I24676775,17,1.3451549181287648e-05,Central Drug Research Institute,Indian Institute of Technology Madras,facility,education,True,False
+I185249246,I4210156726,17,0.004313606962151967,Central Drug Research Institute,National Institute of Immunology,facility,government,True,False
+I177828482,I4210156823,17,3.9951838961898445e-05,Institute of Genomics and Integrative Biology,Govind Ballabh Pant Hospital,facility,healthcare,True,False
+I185638415,I4405261827,17,0.0010149592268982985,Centre for Cellular and Molecular Biology,Birbal Sahni Institute of Palaeosciences,facility,facility,True,False
+I185638415,I4210147764,16,0.02064684276221446,Centre for Cellular and Molecular Biology,Institute of Microbial Technology,facility,facility,True,True
+I4210098996,I4210147764,16,0.006196397759436972,Government Medical College and Hospital,Institute of Microbial Technology,healthcare,facility,False,True
+I164861460,I177828482,16,0.0050549962787037024,Manipal Academy of Higher Education,Institute of Genomics and Integrative Biology,education,facility,False,True
+I177828482,I59270414,16,0.0007907960115164292,Institute of Genomics and Integrative Biology,Indian Institute of Science Bangalore,facility,education,True,False
+I185249246,I189949046,16,0.0007947329583031048,Central Drug Research Institute,Integral University,facility,education,True,False
+I45294948,I51452335,16,0.0006356948938148975,Post Graduate Institute of Medical Education and Research,Panjab University,education,education,False,False
+I11947397,I194223965,16,0.0008144573811464234,Tata Institute of Fundamental Research,National Centre for Biological Sciences,education,facility,False,False
+I2801880299,I4210147764,16,0.002380245566768688,Translational Health Science and Technology Institute,Institute of Microbial Technology,government,facility,False,True
+I177828482,I4210094671,16,0.001490439923231917,Institute of Genomics and Integrative Biology,Regional Centre for Biotechnology,facility,government,True,False
+I185249246,I4210147764,15,0.026376155714874467,Central Drug Research Institute,Institute of Microbial Technology,facility,facility,True,True
+I177828482,I347237974,15,0.00037331654948927814,Institute of Genomics and Integrative Biology,Ashoka University,facility,education,True,False
+I177828482,I248710770,15,9.256183768989402e-05,Institute of Genomics and Integrative Biology,Government Medical College,facility,education,True,False
+I177828482,I68891433,15,3.813956264330389e-05,Institute of Genomics and Integrative Biology,Indian Institute of Technology Delhi,facility,education,True,False
+I164861460,I78270026,14,0.005571994094531586,Manipal Academy of Higher Education,Centre for DNA Fingerprinting and Diagnostics,education,facility,False,False
+I177828482,I2800585909,14,0.002378408954200495,Institute of Genomics and Integrative Biology,Atal Bihari Vajpayee Institute of Medical Sciences and Dr. Ram Manohar Lohia Hospital,facility,funder,True,False
+I162030827,I4210147764,14,0.03368445252620435,Thapar Institute of Engineering & Technology,Institute of Microbial Technology,education,facility,False,True
+I4210147764,I75093019,14,0.03368445252620435,Institute of Microbial Technology,National Institute of Oceanography,facility,facility,True,False
+I181996519,I185638415,14,0.003186303136647951,Indian Institute of Science Education and Research Pune,Centre for Cellular and Molecular Biology,education,facility,False,True
+I177828482,I94234084,14,0.006588902311957626,Institute of Genomics and Integrative Biology,Indian Institute of Technology Kanpur,facility,education,True,False
+I152429107,I63739035,14,0.009386342965267651,Jawaharlal Nehru University,All India Institute of Medical Sciences,education,education,False,False
+I185249246,I36893310,14,0.006360165618825876,Central Drug Research Institute,University of Hyderabad,facility,education,True,False
+I154851008,I185249246,13,0.0005258051376661264,Indian Institute of Technology Roorkee,Central Drug Research Institute,education,facility,False,True
+I185638415,I4210094671,13,0.005478152766719737,Centre for Cellular and Molecular Biology,Regional Centre for Biotechnology,facility,government,True,False
+I110166357,I185249246,13,0.03794512997897787,University of Delhi,Central Drug Research Institute,education,facility,False,True
+I185249246,I4387152206,13,0.00038957379961144253,Central Drug Research Institute,All India Institute of Medical Sciences Rishikesh,facility,government,True,False
+I177828482,I74796645,13,0.023290306885025435,Institute of Genomics and Integrative Biology,"Birla Institute of Technology and Science, Pilani",facility,education,True,False
+I185249246,I4210161010,13,0.005547715888503781,Central Drug Research Institute,Centre of Biomedical Research,facility,facility,True,False
+I185638415,I31888360,13,0.0015224388403474475,Centre for Cellular and Molecular Biology,Wildlife Institute of India,facility,education,True,False
+I164861460,I2801255070,13,0.009690691467593545,Manipal Academy of Higher Education,L V Prasad Eye Institute,education,funder,False,False
+I143247161,I185249246,13,0.0003633804689781764,Babasaheb Bhimrao Ambedkar University,Central Drug Research Institute,education,facility,False,True
+I139669409,I185638415,13,8.720566379758995e-05,Nizam's Institute of Medical Sciences,Centre for Cellular and Molecular Biology,education,facility,False,True
+I185249246,I185638415,13,0.04554936100806889,Central Drug Research Institute,Centre for Cellular and Molecular Biology,facility,facility,True,True
+I4210147764,I59270414,12,0.0049859469357904865,Institute of Microbial Technology,Indian Institute of Science Bangalore,facility,education,True,False
+I147481903,I185249246,12,0.0034141084852000853,Jawaharlal Nehru Centre for Advanced Scientific Research,Central Drug Research Institute,facility,facility,False,True
+I45294948,I63739035,12,0.0041620124987621476,Post Graduate Institute of Medical Education and Research,All India Institute of Medical Sciences,education,education,False,False
+I185638415,I4210148958,12,0.0003494601419599052,Centre for Cellular and Molecular Biology,King Edward Memorial Hospital Research Centre,facility,healthcare,True,False
+I4210147764,I85145500,12,0.04851536903096782,Institute of Microbial Technology,Indian Institute of Toxicology Research,facility,facility,True,False
+I185638415,I37048141,12,0.0029718225641771896,Centre for Cellular and Molecular Biology,Indian Council of Medical Research,facility,government,True,False
+I1298986040,I185638415,12,0.005324659147286277,Indian Institute of Rice Research,Centre for Cellular and Molecular Biology,facility,facility,False,True
+I185249246,I3125981224,12,0.023013174846854195,Central Drug Research Institute,National Chemical Laboratory,facility,facility,True,False
+I161370692,I280994,11,0.023674263346734985,Sanjay Gandhi Post Graduate Institute of Medical Sciences,King George's Medical University,facility,education,False,False
+I154549908,I177828482,11,0.012186711378013675,Indian Institute of Technology Jodhpur,Institute of Genomics and Integrative Biology,education,facility,False,True
+I185249246,I4210132386,11,0.002029404381368262,Central Drug Research Institute,National JALMA Institute for Leprosy & Other Mycobacterial Diseases,facility,facility,True,False
+I161370692,I4210161010,11,0.014496377396800509,Sanjay Gandhi Post Graduate Institute of Medical Sciences,Centre of Biomedical Research,facility,facility,False,False
+I147481903,I177828482,11,0.00569281145585776,Jawaharlal Nehru Centre for Advanced Scientific Research,Institute of Genomics and Integrative Biology,facility,facility,False,True
+I185638415,I4210162192,11,0.0016705244917600002,Centre for Cellular and Molecular Biology,CSI Holdsworth Memorial Hospital,facility,healthcare,True,False
+I4210147764,I4210164849,11,0.004228674466216595,Institute of Microbial Technology,BRIC-National Agri-Food and Biomanufacturing Institute,facility,facility,True,False
+I164861460,I4210087873,11,0.01595958341312477,Manipal Academy of Higher Education,Institute for Stem Cell Biology and Regenerative Medicine,education,facility,False,False
+I112754052,I185638415,11,0.013681218348303844,Sambalpur University,Centre for Cellular and Molecular Biology,education,facility,False,True
+I164135366,I177828482,11,0.0006834306579921067,SMS Medical College,Institute of Genomics and Integrative Biology,education,facility,False,True
+I1312996466,I177828482,11,0.002297972829094315,Safdarjang Hospital,Institute of Genomics and Integrative Biology,healthcare,facility,False,True
+I177828482,I51317819,11,0.03773073843266528,Institute of Genomics and Integrative Biology,Institute of Medical Sciences,facility,education,True,False
+I102117144,I185249246,10,0.005138231086172633,Banasthali University,Central Drug Research Institute,education,facility,False,True
+I19716509,I63739035,10,0.039864527201701375,Jamia Hamdard,All India Institute of Medical Sciences,education,education,False,False
+I37048141,I63739035,10,0.008078359142263288,Indian Council of Medical Research,All India Institute of Medical Sciences,government,education,False,False
+I177828482,I4210158866,10,0.011111513879187247,Institute of Genomics and Integrative Biology,National Institute of Biomedical Genomics,facility,healthcare,True,False
+I185249246,I37048141,10,0.008078359142263288,Central Drug Research Institute,Indian Council of Medical Research,facility,government,True,False
+I185249246,I85461943,10,0.005637710113660432,Central Drug Research Institute,Saveetha University,facility,education,True,False
+I177828482,I4210108071,10,0.018727405402150357,Institute of Genomics and Integrative Biology,Indian Institute of Integrative Medicine,facility,facility,True,False
+I164861460,I185249246,10,0.038408749919625076,Manipal Academy of Higher Education,Central Drug Research Institute,education,facility,False,True
+I4210164849,I51452335,10,0.007428367508143064,BRIC-National Agri-Food and Biomanufacturing Institute,Panjab University,facility,education,False,False
+I185249246,I19716509,10,0.039864527201701375,Central Drug Research Institute,Jamia Hamdard,facility,education,True,False
+I177828482,I191972202,9,0.010151418100617147,Institute of Genomics and Integrative Biology,Amity University,facility,education,True,False
+I160344538,I4210147764,9,0.03141054524757859,Indian Institute of Chemical Biology,Institute of Microbial Technology,facility,facility,False,True
+I4210118052,I63739035,9,0.04861538373327089,Institute of Human Behaviour and Allied Sciences,All India Institute of Medical Sciences,facility,education,False,False
+I63739035,I78270026,9,0.03711285863533269,All India Institute of Medical Sciences,Centre for DNA Fingerprinting and Diagnostics,education,facility,False,False
+I185638415,I4210092980,9,0.016269262807163672,Centre for Cellular and Molecular Biology,National Institute of Animal Biotechnology,facility,facility,True,False
+I78270026,I91357014,9,0.03711285863533269,Centre for DNA Fingerprinting and Diagnostics,Banaras Hindu University,facility,education,False,False
+I152869788,I185249246,9,0.0078125,Motilal Nehru National Institute of Technology,Central Drug Research Institute,education,facility,False,True
+I1312996466,I17972996,9,0.00642180289803694,Safdarjang Hospital,Vardhman Mahavir Medical College & Safdarjung Hospital,healthcare,healthcare,False,False
+I185638415,I4210104670,9,0.019619734592061736,Centre for Cellular and Molecular Biology,National Centre for Cell Science,facility,facility,True,False
+I185638415,I2801880299,9,0.03592629893848396,Centre for Cellular and Molecular Biology,Translational Health Science and Technology Institute,facility,government,True,False
+I177828482,I4210142124,9,0.033684257883467454,Institute of Genomics and Integrative Biology,International Centre for Genetic Engineering and Biotechnology,facility,facility,True,False
+I185249246,I64295750,9,0.0066254217785977065,Central Drug Research Institute,Indian Institute of Technology Indore,facility,education,True,False
+I114546181,I177828482,9,0.01479871707075416,Lady Hardinge Medical College,Institute of Genomics and Integrative Biology,education,facility,False,True
+I185638415,I4210153536,9,0.04035360699999998,Centre for Cellular and Molecular Biology,National Institute of Plant Genome Research,facility,facility,True,False
+I162827531,I185249246,9,0.004139765985312825,Indian Institute of Technology Bombay,Central Drug Research Institute,education,facility,False,True
+I4210142124,I4210156726,9,0.033684257883467454,International Centre for Genetic Engineering and Biotechnology,National Institute of Immunology,facility,government,False,False
+I4210156726,I59270414,9,0.019346179165989488,National Institute of Immunology,Indian Institute of Science Bangalore,government,education,False,False
+I185249246,I4210125823,9,0.0021728950974573436,Central Drug Research Institute,KLE Academy of Higher Education and Research,facility,education,True,False
+I1317621060,I185638415,9,0.006105298198903005,Indian Institute of Technology Guwahati,Centre for Cellular and Molecular Biology,education,facility,False,True
+I177828482,I4210113434,9,0.0012121138559127562,Institute of Genomics and Integrative Biology,Sir Ganga Ram Hospital,facility,healthcare,True,False
+I160344538,I185638415,9,0.03141054524757859,Indian Institute of Chemical Biology,Centre for Cellular and Molecular Biology,facility,facility,False,True
+I145286018,I85461943,8,0.018014398509482003,SRM Institute of Science and Technology,Saveetha University,education,education,False,False
+I4210104670,I878213199,8,0.01956097240023651,National Centre for Cell Science,Savitribai Phule Pune University,facility,education,False,False
+I164861460,I699696,8,0.018837008129031312,Manipal Academy of Higher Education,National Institute of Mental Health and Neurosciences,education,healthcare,False,False
+I158688498,I4405268903,8,0.009539407288332987,Yenepoya University,Yenepoya Research Centre,education,facility,False,False
+I185638415,I4210115612,8,0.02156713518706411,Centre for Cellular and Molecular Biology,Indian Institute of Science Education and Research Berhampur,facility,education,True,False
+I185638415,I53421241,8,0.016577493408388124,Centre for Cellular and Molecular Biology,National Institute of Nutrition,facility,facility,True,False
+I119241673,I185249246,8,0.04944108481922536,Indian Institute of Technology Ropar,Central Drug Research Institute,education,facility,False,True
+I177828482,I181996519,8,0.0435455124846901,Institute of Genomics and Integrative Biology,Indian Institute of Science Education and Research Pune,facility,education,True,False
+I172917736,I177828482,8,0.002942568477403564,"Christian Medical College, Vellore",Institute of Genomics and Integrative Biology,education,facility,False,True
+I164861460,I4210094671,8,0.04392278904709705,Manipal Academy of Higher Education,Regional Centre for Biotechnology,education,government,False,False
+I185249246,I4210128326,8,0.04019381370947948,Central Drug Research Institute,Institute of Himalayan Bioresource Technology,facility,facility,True,False
+I177828482,I878213199,8,0.01956097240023651,Institute of Genomics and Integrative Biology,Savitribai Phule Pune University,facility,education,True,False
+I185638415,I80883720,8,0.026012294873748946,Centre for Cellular and Molecular Biology,Nature Conservation Foundation,facility,nonprofit,True,False
+I194223965,I4210087873,8,0.035824020181431895,National Centre for Biological Sciences,Institute for Stem Cell Biology and Regenerative Medicine,facility,facility,False,False
+I4210128326,I4210147764,8,0.04019381370947948,Institute of Himalayan Bioresource Technology,Institute of Microbial Technology,facility,facility,False,True
+I185638415,I878213199,8,0.01956097240023651,Centre for Cellular and Molecular Biology,Savitribai Phule Pune University,facility,education,True,False
+I177828482,I17972996,8,0.011840097168039652,Institute of Genomics and Integrative Biology,Vardhman Mahavir Medical College & Safdarjung Hospital,facility,healthcare,True,False
+I164861460,I4210148697,8,0.019754244650629853,Manipal Academy of Higher Education,Institute of Bioinformatics,education,nonprofit,False,False
+I177828482,I4210089010,8,0.00390625,Institute of Genomics and Integrative Biology,Tata Medical Center,facility,funder,True,False
+I106542073,I185638415,8,0.014785850472038472,University of Calcutta,Centre for Cellular and Molecular Biology,education,facility,False,True
+I119311299,I185249246,7,0.00751694681821391,Kumaun University,Central Drug Research Institute,education,facility,False,True
+I179420787,I185249246,7,0.015487950635892991,Indian Council of Agricultural Research,Central Drug Research Institute,government,facility,False,True
+I147481903,I185638415,7,0.040885316587141986,Jawaharlal Nehru Centre for Advanced Scientific Research,Centre for Cellular and Molecular Biology,facility,facility,False,True
+I185638415,I4210140410,7,0.0043239652951300115,Centre for Cellular and Molecular Biology,"Indian Institute of Science Education and Research, Tirupati",facility,education,True,False
+I185249246,I288749910,7,0.026789390314642145,Central Drug Research Institute,"Indian Institute of Science Education and Research, Bhopal",facility,education,True,False
+I152429107,I4210158866,7,0.04877292122630362,Jawaharlal Nehru University,National Institute of Biomedical Genomics,education,healthcare,False,False
+I1286858202,I4210147764,7,0.014335360832968509,Energy and Resources Institute,Institute of Microbial Technology,nonprofit,facility,False,True
+I4210098996,I45294948,7,0.042005124387657515,Government Medical College and Hospital,Post Graduate Institute of Medical Education and Research,healthcare,education,False,False
+I4210147764,I82571370,7,0.03848128407304246,Institute of Microbial Technology,GLA University,facility,education,True,False
+I185638415,I45294948,7,0.042005124387657515,Centre for Cellular and Molecular Biology,Post Graduate Institute of Medical Education and Research,facility,education,True,False
+I185249246,I45294948,7,0.042005124387657515,Central Drug Research Institute,Post Graduate Institute of Medical Education and Research,facility,education,True,False
+I4210158866,I63739035,7,0.04877292122630362,National Institute of Biomedical Genomics,All India Institute of Medical Sciences,healthcare,education,False,False
+I185638415,I4210148697,7,0.03351949823713586,Centre for Cellular and Molecular Biology,Institute of Bioinformatics,facility,nonprofit,True,False
+I4210156823,I63739035,7,0.02096138323725714,Govind Ballabh Pant Hospital,All India Institute of Medical Sciences,healthcare,education,False,False
+I185638415,I4210127825,7,0.0467034137200327,Centre for Cellular and Molecular Biology,Institute of Reproductive Medicine,facility,healthcare,True,False
+I185638415,I4210118921,7,0.006379206028074003,Centre for Cellular and Molecular Biology,Institute of Life Sciences,facility,education,True,False
+I177828482,I81556334,7,0.013650397170617551,Institute of Genomics and Integrative Biology,Amrita Vishwa Vidyapeetham,facility,education,True,False
+I2800373951,I63739035,7,0.00636268544113595,Sree Chitra Thirunal Institute for Medical Sciences and Technology,All India Institute of Medical Sciences,facility,education,False,False
+I172917736,I185638415,7,0.006398133236430326,"Christian Medical College, Vellore",Centre for Cellular and Molecular Biology,education,facility,False,True
+I177828482,I4210148958,7,0.011883024700116023,Institute of Genomics and Integrative Biology,King Edward Memorial Hospital Research Centre,facility,healthcare,True,False
+I4387152206,I63739035,6,0.032784060409100896,All India Institute of Medical Sciences Rishikesh,All India Institute of Medical Sciences,government,education,False,False
+I177828482,I4210100047,6,0.03299491491557923,Institute of Genomics and Integrative Biology,Institute of Post Graduate Medical Education and Research,facility,education,True,False
+I4210132386,I85145500,6,0.04912334088260087,National JALMA Institute for Leprosy & Other Mycobacterial Diseases,Indian Institute of Toxicology Research,facility,facility,False,False
+I185249246,I2800857658,6,0.014316579670304462,Central Drug Research Institute,North East Institute of Science and Technology,facility,facility,True,False
+I185638415,I200207707,6,0.013350265119917347,Centre for Cellular and Molecular Biology,Homi Bhabha National Institute,facility,education,True,False
+I177828482,I85332549,6,0.006560455740607775,Institute of Genomics and Integrative Biology,National Brain Research Centre,facility,government,True,False
+I185638415,I4210137328,6,0.030899223932099717,Centre for Cellular and Molecular Biology,Asian Institute of Gastroenterology,facility,healthcare,True,False
+I177828482,I55215948,6,0.015924467683650568,Institute of Genomics and Integrative Biology,Tata Consultancy Services (India),facility,company,True,False
+I177828482,I216021267,6,0.007871013416839358,Institute of Genomics and Integrative Biology,All India Institute of Medical Sciences Jodhpur,facility,education,True,False
+I154549908,I64295750,6,0.04138847796694679,Indian Institute of Technology Jodhpur,Indian Institute of Technology Indore,education,education,False,False
+I177828482,I288749910,6,0.046514047453459814,Institute of Genomics and Integrative Biology,"Indian Institute of Science Education and Research, Bhopal",facility,education,True,False
+I1302839792,I177828482,6,0.04139739548230255,Indraprastha Apollo Hospitals,Institute of Genomics and Integrative Biology,healthcare,facility,False,True
+I177828482,I55016150,6,0.04526613752481193,Institute of Genomics and Integrative Biology,Manav Rachna International Institute of Research and Studies,facility,education,True,False
+I177828482,I6498739,6,0.037133262473195504,Institute of Genomics and Integrative Biology,Indian Statistical Institute,facility,education,True,False
+I185638415,I19008122,6,0.019773267429999988,Centre for Cellular and Molecular Biology,Mangalore University,facility,education,True,False
+I177828482,I2800373951,6,0.01354979830367323,Institute of Genomics and Integrative Biology,Sree Chitra Thirunal Institute for Medical Sciences and Technology,facility,facility,True,False
+I106542073,I91357014,6,0.04602028699751639,University of Calcutta,Banaras Hindu University,education,education,False,False
+I110360157,I177828482,6,0.020816593766278924,Lovely Professional University,Institute of Genomics and Integrative Biology,education,facility,False,True
+I185638415,I887998513,6,0.007279580562775079,Centre for Cellular and Molecular Biology,Bharati Vidyapeeth (Deemed to be University),facility,education,True,False
+I101407740,I4210147764,6,0.012598984341693797,Chandigarh University,Institute of Microbial Technology,education,facility,False,True
+I105454292,I177828482,6,0.03125,Guru Gobind Singh Indraprastha University,Institute of Genomics and Integrative Biology,education,facility,False,True
+I177828482,I67357951,6,0.026415336703894787,Institute of Genomics and Integrative Biology,KIIT University,facility,education,True,False
+I185638415,I191972202,6,0.04861607622416488,Centre for Cellular and Molecular Biology,Amity University,facility,education,True,False
+I177828482,I26604189,6,0.020816593766278924,Institute of Genomics and Integrative Biology,Shiv Nadar University,facility,education,True,False
+I138272832,I177828482,6,0.034815425545478486,Devi Ahilya Vishwavidyalaya,Institute of Genomics and Integrative Biology,education,facility,False,True
+I1337315214,I185249246,5,0.0205671008435638,Dr. Ram Manohar Lohia Avadh University,Central Drug Research Institute,education,facility,False,True
+I185249246,I229991691,5,0.0205671008435638,Central Drug Research Institute,Chhatrapati Shahu Ji Maharaj University,facility,education,True,False
+I185249246,I4405278187,5,0.03125,Central Drug Research Institute,Gaya College,facility,education,True,False
+I185249246,I197465736,5,0.04537339921837715,Central Drug Research Institute,North Eastern Hill University,facility,education,True,False
+I185249246,I68891433,5,0.04664743683404506,Central Drug Research Institute,Indian Institute of Technology Delhi,facility,education,True,False
+I177828482,I2799982174,5,0.027885556711727755,Institute of Genomics and Integrative Biology,Open Source Drug Discovery,facility,healthcare,True,False
+I185249246,I76777374,5,0.029168613783242453,Central Drug Research Institute,Central University of Rajasthan,facility,education,True,False
+I177828482,I2800857658,5,0.03067313048066773,Institute of Genomics and Integrative Biology,North East Institute of Science and Technology,facility,facility,True,False
+I185249246,I39238937,5,0.03476312275348473,Central Drug Research Institute,Delhi Pharmaceutical Science and Research University,facility,education,True,False
+I185638415,I81556334,5,0.04925149730918947,Centre for Cellular and Molecular Biology,Amrita Vishwa Vidyapeetham,facility,education,True,False
+I185638415,I4405262955,5,0.0421705994456537,Centre for Cellular and Molecular Biology,Amity University Gurugram,facility,education,True,False
+I185638415,I2802469017,5,0.04131242592433414,Centre for Cellular and Molecular Biology,CARE Hospitals,facility,healthcare,True,False
+I145894827,I4210147764,5,0.035424252759376954,Indian Institute of Technology Kharagpur,Institute of Microbial Technology,education,facility,False,True
+I13268429,I185638415,5,0.02561493255519928,Madurai Kamaraj University,Centre for Cellular and Molecular Biology,education,facility,False,True
+I185249246,I65674248,5,0.0270624659821891,Central Drug Research Institute,Visvesvaraya Technological University,facility,education,True,False
+I116943215,I185249246,5,0.0323314637668702,Dr. A.P.J. Abdul Kalam Technical University,Central Drug Research Institute,education,facility,False,True
+I185249246,I4210140595,5,0.03675182306201505,Central Drug Research Institute,National Institute of Research in Tuberculosis,facility,facility,True,False
+I177828482,I886702836,5,0.04717852373687213,Institute of Genomics and Integrative Biology,Deen Dayal Upadhyaya Gorakhpur University,facility,education,True,False
+I155125381,I4210147764,5,0.04327559566411909,Galgotias University,Institute of Microbial Technology,education,facility,False,True
+I4210140595,I55664587,5,0.03675182306201505,National Institute of Research in Tuberculosis,Indian Institute of Chemical Technology,facility,facility,False,False
+I63739035,I81556334,5,0.04925149730918947,All India Institute of Medical Sciences,Amrita Vishwa Vidyapeetham,education,education,False,False
+I185249246,I932239252,5,0.03280463033619622,Central Drug Research Institute,SASTRA University,facility,education,True,False
+I163389970,I185249246,5,0.043980465111040035,National Institute of Science Education and Research,Central Drug Research Institute,education,facility,False,True
+I145894827,I185249246,5,0.035424252759376954,Indian Institute of Technology Kharagpur,Central Drug Research Institute,education,facility,False,True
+I158338959,I185249246,5,0.039018442310623416,University of Kerala,Central Drug Research Institute,education,facility,False,True
+I185638415,I33585257,5,0.018846039936826767,Centre for Cellular and Molecular Biology,"Anna University, Chennai",facility,education,True,False
+I185249246,I2800084889,5,0.03798332936094084,Central Drug Research Institute,Lilavati Hospital & Research Centre,facility,healthcare,True,False
+I126601174,I185638415,4,0.04665599999999999,Tezpur University,Centre for Cellular and Molecular Biology,education,facility,False,True
+I216021267,I63739035,4,0.04336103923388789,All India Institute of Medical Sciences Jodhpur,All India Institute of Medical Sciences,education,education,False,False
+I185638415,I4076070,4,0.04497946246578947,Centre for Cellular and Molecular Biology,Bharathidasan University,facility,education,True,False
+I177828482,I61923386,4,0.026980972763565533,Institute of Genomics and Integrative Biology,Jawaharlal Institute of Post Graduate Medical Education and Research,facility,education,True,False
+I106826634,I185249246,4,0.03279935479278939,Jain University,Central Drug Research Institute,education,facility,False,True
+I1329621470,I185249246,4,0.04226077761620709,Bhabha Atomic Research Centre,Central Drug Research Institute,facility,facility,False,True

@@ -1,0 +1,21 @@
+scope,metric,year,previous,value,change,drivers
+CSIR-CCMB,papers,2021,105,157,0.49523809523809526,COVID-19 papers are 13% of the year's papers
+CSIR-CCMB,citations,2017,11767,3309,-0.7187898359819835,"one paper carries 21% (“Chitosan as biomaterial in drug delivery and tissue engineering”, 6 authors)"
+CSIR-CCMB,citations,2021,2343,6533,1.7883055911224925,"COVID-19 papers are 33% of the year's citations; one paper carries 20% (“SARS-CoV-2 B.1.617.2 Delta variant replication and immune evasion”, 261 authors); papers with 100+ authors carry 36%"
+CSIR-CCMB,citations,2024,2392,1117,-0.5330267558528428,"one paper carries 52% (“Genetic drivers of heterogeneity in type 2 diabetes pathophysiology”, 369 authors); papers with 100+ authors carry 52%; recent papers have had little time to be cited"
+CSIR-CCMB,citations,2025,1117,397,-0.6445837063563116,"one paper carries 17% (“Advancing precision oncology with AI-powered genomic analysis”, 1 authors); recent papers have had little time to be cited"
+CSIR-IGIB,papers,2021,105,167,0.5904761904761904,COVID-19 papers are 26% of the year's papers
+CSIR-IGIB,citations,2019,2903,4794,0.6513951085084395,"one paper carries 47% (“Oxidative Stress: A Key Modulator in Neurodegenerative Diseases”, 4 authors)"
+CSIR-IGIB,citations,2021,2796,9230,2.3011444921316166,"COVID-19 papers are 33% of the year's citations; one paper carries 28% (“Guidelines for the use and interpretation of assays for monitoring aut”, 2930 authors); papers with 100+ authors carry 54%"
+CSIR-IGIB,citations,2022,9230,3700,-0.5991332611050921,"COVID-19 papers are 47% of the year's citations; one paper carries 31% (“Altered TMPRSS2 usage by SARS-CoV-2 Omicron impacts infectivity and fu”, 222 authors); papers with 100+ authors carry 31%"
+CSIR-IGIB,citations,2023,3700,1465,-0.604054054054054,COVID-19 papers are 11% of the year's citations; recent papers have had little time to be cited
+CSIR-IGIB,citations,2025,1196,467,-0.6095317725752508,recent papers have had little time to be cited
+CSIR-IMTECH,papers,2019,91,66,-0.27472527472527475,no single driver: a broad change
+CSIR-IMTECH,citations,2021,1964,4348,1.213849287169043,"one paper carries 60% (“Guidelines for the use and interpretation of assays for monitoring aut”, 2930 authors); papers with 100+ authors carry 61%"
+CSIR-IMTECH,citations,2022,4348,1353,-0.6888224471021159,no single driver: a broad change
+CSIR-IMTECH,citations,2025,723,226,-0.6874135546334716,recent papers have had little time to be cited
+CSIR-CDRI,papers,2022,228,290,0.27192982456140347,no single driver: a broad change
+CSIR-CDRI,citations,2025,2373,930,-0.6080910240202275,recent papers have had little time to be cited
+ALL,papers,2021,479,615,0.28392484342379953,COVID-19 papers are 11% of the year's papers
+ALL,citations,2021,12393,19319,0.5588638747680141,COVID-19 papers are 20% of the year's citations; papers with 100+ authors carry 26%
+ALL,citations,2025,5348,1982,-0.6293941660433807,recent papers have had little time to be cited

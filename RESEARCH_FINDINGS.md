@@ -1,6 +1,6 @@
 # Research findings · Group 29
 
-What the data on four CSIR biology labs (CCMB, IGIB, IMTECH, CDRI; 2016–2026; 6,027 papers, 274 faculty) shows beyond descriptive counts. Each result below is tested against a randomised baseline or a model with controls. All numbers come from `outputs/stats/research_*.csv` and `research_summary.json` (step `s17`), and the Findings tab of the dashboard draws them. They are observational associations from OpenAlex data, not causal effects.
+What the data on four CSIR biology labs (CCMB, IGIB, IMTECH, CDRI; 2016–2026; 6,027 papers, 274 faculty) shows beyond descriptive counts. Each result below is tested against a randomised baseline or a model with controls. All numbers come from `outputs/stats/research_*.csv` and the `research_*.json` summaries (steps `s17`–`s21`), and the Findings, More results, Dynamics, Structure and Benchmark pages of the dashboard draw them. They are observational associations from OpenAlex data, not causal effects.
 
 ## Headline results
 
@@ -31,13 +31,44 @@ What the data on four CSIR biology labs (CCMB, IGIB, IMTECH, CDRI; 2016–2026; 
 
 **5. Knowledge travels two steps.** Independent citations are twice as likely as chance between direct co-authors and still 43% more likely at distance two, then fall below chance. This matches the "distance decay" reported for physics by Singh et al. (2020) and gives a concrete radius for informal knowledge flow inside an institution. That distance 3–4 sits below the unconnected baseline suggests that pairs who are connected but far apart sit in different research programmes of the same lab.
 
-**6–7. Cross-lab ties are short-lived; new ties come through friends.** Only 12% of new cross-lab pairs repeat within three years, against 34% of same-lab pairs. New links are about 16 times more likely between faculty who already share a co-author. Together these explain why the 94 cross-lab links are scattered and do not build into bridges: they are rarely renewed and rarely seed further links. The 2021 spike (23 cross-lab links, COVID genomics) did not carry over.
+**6–7. Cross-lab ties are short-lived; new ties come through friends.** Only 12% of new cross-lab pairs repeat within three years, against 34% of same-lab pairs. New links are about 16 times more likely between faculty who already share a co-author. Together these explain why the 60 cross-lab faculty links are scattered (78% rest on a single joint paper) and do not build into bridges: they are rarely renewed and rarely seed further links. The 2021 spike (23 cross-lab links, COVID genomics) did not carry over.
 
 **9. Impact with controls.** Raw citations per paper favour CCMB and IGIB, but those labs also write larger, more consortium-heavy papers. With year, field, team size and review controls, IMTECH papers draw 11% more citations than CDRI's, while IGIB's draw 18% fewer and CCMB's 15% fewer. Team size is the strongest single predictor (each doubling about +29%).
 
 **10. A caution on "borrowed" citations.** Papers where the lab only provides a middle author are 23% of papers but 34% of citations (54% at CCMB), and their field-normalised citations are higher (1.41 vs 0.88). Split by team size, the gap disappears: for 7–9 authors, medians 0.54 vs 0.59; 10–14 authors, 0.52 vs 0.65. The premium is a team-size effect, which is itself the policy-relevant point: a large share of the labs' visibility comes from being part of big collaborations rather than leading them.
 
 **11. COVID-19.** IGIB's genomic surveillance and CCMB's sequencing made COVID-19 work a quarter of IGIB's 2021 output and almost half of its 2022 citations, and drove the 2021 jump in faculty links and partner institutions.
+
+## More tested results (steps s18–s21)
+
+| # | Finding | Test | Result |
+|---|---|---|---|
+| 15 | Lab walls slow spreading between labs | SIR outbreaks from each lab, 1,000 runs, real vs degree-preserving rewired networks (s18) | an outbreak reaches another lab in 5% of runs vs 23% rewired; IGIB → CDRI 4% vs 31% |
+| 16 | Hubs lower the epidemic threshold | SIS with many random seeds, susceptibility peak, vs rewired and Erdős–Rényi | λc = 0.054 vs 0.063 rewired and 0.100 random; mean-field ⟨k⟩/⟨k²⟩ = 0.049 |
+| 17 | Core members spread best | SIR from every faculty member as the first case | Spearman with outbreak size: eigenvector 0.95, k-shell 0.92, degree 0.87, betweenness 0.51 (k-shell beats degree, as in Kitsak et al. 2010) |
+| 18 | A random walker is trapped in its lab | exact mean first-passage times, real vs rewired | 147 steps to reach another lab vs 10 (21×); relaxation time 60 vs 7 steps |
+| 19 | Clustering is mostly what multi-faculty papers produce | bipartite (paper-reshuffle) null, 100 draws (s19) | clustering 0.32 vs 0.28 bipartite (z = 4.3), 0.13 rewired, 0.03 random; 46% of triangles are one paper |
+| 20 | Communities follow labs, not departments | Louvain vs labels, label-permutation null | NMI 0.64 with lab (z = 70), AMI 0.30 with department; the main core (k = 15) is 28 CDRI faculty |
+| 21 | Students and staff are the glue | faculty network with and without links through non-faculty lab authors | cross-lab share of links 4.8% → 11.1%; largest component 243 → 256; 7 of 23 isolates connected |
+| 22 | Topics do not spread through co-authors | new-subfield adoption after a prior co-author vs future co-authors (placebo) | relative risk 5.2 vs 5.6 for the placebo: homophily, not influence |
+| 23 | New collaborations are predictable | time split 2016–20 → 2021–26 | AUC 0.88 (same lab + topic + Adamic-Adar); topic similarity alone 0.58 |
+| 24 | The Q1 decline is journal re-grading | quartile frozen at 2017 vs year-matched; JCR IF > 5 share (s21) | Q1 74% → 62% year-matched but 75% → 70% frozen; IF > 5 share rose 19% → 23% |
+| 25 | Medical partners do not bring more citations | OLS on log citations with year, field, lab, team size, review | Indian hospital/medical partner −16% (−25% to −5%); foreign partner +23%; industry +64% (79 papers) |
+| 26 | Output is a random walk with persistent levels; success persists | Laplace vs normal fit of yearly changes; top-decile persistence vs 2,000 permutations (course paper P1) | Laplace fits better (AIC 10,129 vs 10,740); lag-1 autocorrelation −0.39 (between 0 and −0.50); 62% stay in the top 10% vs 11% by chance |
+| 27 | Collaboration decays with distance faster than citation | Poisson gravity model, 2,151 Indian partners (s20) | elasticity −0.58 (joint papers) vs −0.30 (citations), difference −0.27 (p < 10⁻⁴³) |
+| 28 | Against 13 Indian biology peers, impact is mid-table | identical OpenAlex query, FWCI and top-10% share | mean FWCI ranks CCMB 4, IGIB 9, IMTECH 11, CDRI 14 of 17; top-10% share 13.3–14.3% vs peer median 17.8%; output shrinking 1–3.5% a year vs +0.8% for the median peer |
+
+### What the new results mean
+
+**15–18. Dynamics.** Spreading processes turn the "lab wall" into something you can feel: an idea, technique or rumour that starts in one lab almost never reaches another (5% of outbreaks, against 23% if the same people kept their number of co-authors but links were random), and a random walker needs about 150 steps to leave its lab. The network is not hostile to spreading in general: hubs give it a lower epidemic threshold than a random network. It is the partition into labs that blocks flow. Simulated interventions show that a few extra cross-lab links help only slightly (5% → 10% reach with 40 hub-to-hub links), because the walls are thick.
+
+**19–23. Structure.** The right baseline for co-authorship is the bipartite null: much of the clustering is what papers with three or more faculty create mechanically, but some (z = 4.3) is genuine triadic closure. Communities reproduce labs far better than departments. Students, postdocs and staff more than double the share of links that cross labs, which supports the instructor's point that excluding them hides part of the collaboration structure. Topic contagion vanishes against the future-co-author placebo, a textbook case of homophily masquerading as influence.
+
+**24–25. Journals and partners.** The fall in the share of Q1 papers is mostly Scimago re-grading journals: with every journal frozen at its 2017 grade, the share falls far less, and the share in journals with JCR IF > 5 rose. Hospital partnerships do not raise citations once team size is held equal; foreign and industry partners do.
+
+**26. Productivity.** As in Zhang et al. (course paper P1), yearly changes in output are Laplace-distributed, and a truncated random walk reproduces the share of years with no paper and the inequality of total output. But scientists' levels persist: 62% of the 2016–20 top decile are top-decile again in 2021–25.
+
+**27–28. Geography and peers.** Distance matters twice as much for writing together as for citing. Against other Indian biology institutes, our labs have world-average-plus impact (FWCI 1.4–2.1) but rank in the lower half on top-10% papers, international co-authorship and growth.
 
 ## Other results from the Phase II analysis
 

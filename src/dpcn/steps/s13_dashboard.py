@@ -147,7 +147,14 @@ def phase2_bundle(cfg) -> dict | None:
         research[f.stem.replace("research_", "")] = records(pd.read_csv(f, keep_default_na=False, na_values=[""]))
     if research and (st / "research_summary.json").exists():
         research["summary"] = json.loads((st / "research_summary.json").read_text(encoding="utf-8"))
+        research["json"] = {f.stem.replace("research_", ""): json.loads(f.read_text(encoding="utf-8"))   # s18-s21 summaries
+                            for f in sorted(st.glob("research_*.json")) if f.stem != "research_summary"}
         out["research"] = research
+    if (st / "explorer.json").exists():                    # paper- and faculty-level data for Explorer, People, Compare
+        out["explorer"] = json.loads((st / "explorer.json").read_text(encoding="utf-8"))
+    ctx = cfg.paths.manual / "science_context.yaml"
+    if ctx.exists():
+        out["science"] = yaml.safe_load(ctx.read_text(encoding="utf-8"))
     return out
 
 
@@ -221,7 +228,10 @@ def run(cfg, oa, argv=()) -> None:
     html = (html.replace("/*__STYLES__*/", (SRC / "styles.css").read_text(encoding="utf-8"))
                 .replace("<!--__LIBS__-->", head)
                 .replace("/*__APP__*/", (SRC / "app.js").read_text(encoding="utf-8")
-                         .replace("/*__PHASE2__*/", (SRC / "phase2.js").read_text(encoding="utf-8")))
+                         .replace("/*__PHASE2__*/", (SRC / "phase2.js").read_text(encoding="utf-8"))
+                         .replace("/*__PHASE3__*/", (SRC / "phase3.js").read_text(encoding="utf-8"))
+                         .replace("/*__DYNAMICS__*/", (SRC / "dynamics.js").read_text(encoding="utf-8"))
+                         .replace("/*__CHAT__*/", (SRC / "chat.js").read_text(encoding="utf-8")))
                 .replace("__DATA__", data))
     out = cfg.paths.submission / f"group{cfg.group}_dashboard.html"
     out.write_text(html, encoding="utf-8")

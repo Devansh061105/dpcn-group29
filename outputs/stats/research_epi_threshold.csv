@@ -1,0 +1,10 @@
+network,method,lambda_c
+observed,numeric (chi peak),0.054234731698532386
+observed,heterogeneous mean-field <k>/<k2>,0.048634712293448956
+observed,quenched mean-field 1/Lambda_max,0.039297078262062426
+rewired,numeric (chi peak),0.0632455532033676
+rewired,heterogeneous mean-field <k>/<k2>,0.048634712293448956
+rewired,quenched mean-field 1/Lambda_max,0.04948136118416009
+ER,numeric (chi peak),0.1002968964498079
+ER,heterogeneous mean-field <k>/<k2>,0.08911576047628973
+ER,quenched mean-field 1/Lambda_max,0.08843348794032788

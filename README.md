@@ -26,11 +26,35 @@ Step `s16` adds the analyses the instructor asked for and step `s17` tests the m
 - **Flags**: papers with 100 or more authors and the faculty whose citations depend on them; faculty whose OpenAlex lifetime totals look like a merged namesake profile; institutions that cite the labs heavily, split by government and private ownership, with evidence on why (concentration in one author or journal, shared authors, review articles). Citation counts are also divided by each institution's own output (papers in the labs' fields, 2016-2026, from OpenAlex) to show which institutions cite the labs more than their size explains. Citations a lab paper makes to its own or another lab's paper are not counted as an institution citing the labs.
 - **Findings**: results tested against null models: who cites whom (self, co-author, same lab, other lab), lab-to-lab citation exchange against a permutation null, lab versus department as the unit of collaboration (label permutation, degree-preserving rewiring, logistic model), citation lift by co-authorship distance, tie persistence and triadic closure, lab-led versus middle-author papers, lab citation impact with controls, the COVID-19 peak, Indian citation flow in and out over the same two-year window (so recent years are not biased by citation lag), fractional counting with rank shifts, field-and-year normalised citations (MNCS, top-10% share) and how concentrated each lab's citations are. `outputs/stats/research_*.csv` hold every number, and `RESEARCH_FINDINGS.md` explains them.
 
+### Phase III: dynamics, structure, peers and an interactive explorer
+
+Steps `s18`–`s21` add network dynamics, structural tests, a peer benchmark and the remaining checks from our improvement plan. The dashboard now has nine sections.
+
+- **Explore**: *Filter & find* recomputes everything in the browser for any thresholds (years, author count, impact factor, citations, quartile, field, role, COVID-19, title words), including each person's h-index on the matching papers; presets include "h-index above 10 on papers with fewer than 100 authors" and "impact factor above 10 with fewer than 100 authors". *Person profile* shows every number for one scientist (output by role, standing in their lab, papers, co-author network, credit counted three ways, people they might connect with). *Compare* puts up to six people, or the four labs, side by side.
+- **Dynamics** (`s18`): SIS and SIR epidemic models on the faculty network with many random seeds (threshold against rewired and random networks, super-spreaders, seeding strategies, whether lab walls slow spreading, simulated new cross-lab links) and a live simulator where you seed an outbreak yourself; random walks (first-passage times between labs, how long a walker stays home) and productivity as a random walk (course paper P1).
+- **Networks → Structure** (`s19`): null-model table including the bipartite null, communities against labs and departments, students and staff as glue, densification and preferential attachment, early position against later output, fragility of cross-lab links, link prediction, cross-lab "twins" who never wrote together, topic contagion with a placebo, the citation main path and research breadth.
+- **Benchmark** (`s20`): our labs against 13 Indian biology institutes from identical OpenAlex queries (FWCI, top-10% share, growth, openness, specialisation against India, a gravity model of distance), and a *Science context* page setting classic results (Lotka, Price, Bradford, Seglen, Newman, Kitsak…) beside our data (`data/manual/science_context.yaml`). Peers are listed in `data/manual/peer_institutes.csv`.
+- **Findings → More results and Verdicts** (`s21`): journal re-grading, the Q1 and impact-factor signal, which partners pay off, citers against collaborators, rising citers, heavy-citer mechanisms, local against global impact, the partner backbone, bibliometric laws, fragility of the headlines and automatic "why did it jump" notes; every research question with a verdict, plus what we did not do and what the numbers cannot show.
+- **Ask the data**: a chatbot (bottom right) that answers from the dashboard's own numbers in the browser, with no external service: people, labs, peer institutes, thresholds, top lists, definitions and every finding, each answer linking to its evidence.
+- **About** adds data completeness and the hand-checked precision audit (`data/manual/precision_audit.csv`, a seeded sample the team fills in).
+
 ```bash
 python -m dpcn run s16
 ```
 ```bash
 python -m dpcn run s17
+```
+```bash
+python -m dpcn run s18
+```
+```bash
+python -m dpcn run s19
+```
+```bash
+python -m dpcn run s20
+```
+```bash
+python -m dpcn run s21
 ```
 ```bash
 python -m dpcn run s13
@@ -46,7 +70,7 @@ python -m dpcn run s13
 
 **Our interpretation** of each result is written in `data/manual/phase2_notes.yaml` and shown on the dashboard; the dashboard itself only reports numbers.
 
-**Layout.** The dashboard has seven sections (Overview, Findings, Publications, Faculty, Networks, Flags, About); sections with several pages show a pill switcher. Links such as `#tab=citation&lab=CSIR-IGIB` open a page directly, and the lab selector at the top right filters every page.
+**Layout.** The dashboard has nine sections (Overview, Findings, Explore, Publications, Networks, Dynamics, Benchmark, Flags, About); sections with several pages show a pill switcher. Links such as `#tab=citation&lab=CSIR-IGIB` or `#tab=person&person=CCMB-016` open a page directly, the browser's back button works, and the lab selector at the top right filters every page. Long tables page 25 rows at a time, every chart has a "How to read this chart" note where it helps, and every table has a CSV download.
 
 **Hosting.** The dashboard is one self-contained file and is served by GitHub Pages from `index.html`.
 
@@ -65,7 +89,7 @@ Copy `.env.example` to `.env` and add a free OpenAlex API key. Then run:
 python -m dpcn run all
 ```
 
-The pipeline runs in steps `s00` to `s17`, from building the faculty roster through to validating the final files. `python -m dpcn list` shows every step, and `pytest -q` runs our tests. API responses are cached in `data/cache/`, so re-runs are free.
+The pipeline runs in steps `s00` to `s21`, from building the faculty roster through to validating the final files. `python -m dpcn list` shows every step, and `pytest -q` runs our tests. API responses are cached in `data/cache/`, so re-runs are free.
 
 ## Repository
 

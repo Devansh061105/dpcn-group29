@@ -1,0 +1,7 @@
+law,statement,expected,observed,value,holds
+Lotka (1926),"the number of authors with n papers falls as 1/n^a, with a close to 2",a ≈ 2,"a = 1.75 ± 0.02 (6,492 lab authors)",1.7504974763484642,True
+Price (1963),the √N most productive authors write half of the papers,50%,top 17 of 274 faculty: 24% of faculty-paper links,0.2421875,False
+Bradford (1934),journals split into three zones with equal papers grow as 1 : n : n²,1 : n : n²,"59 : 254 : 1259 journals (n ≈ 4.3, n² ≈ 19)",4.305084745762712,True
+Seglen (1997),the most cited 15% of papers receive about half of all citations,≈ 50%,top 15% of papers: 63% of citations,0.6342196644421403,True
+Pareto 80/20,20% of the papers receive 80% of the citations,80%,top 20% of papers: 70% of citations,0.702611672848484,True
+Uncitedness,a share of papers is never cited,varies by field,4.4% of 2016–2023 papers have no citations yet,0.04448438553134127,

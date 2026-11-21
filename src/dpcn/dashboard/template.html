@@ -17,9 +17,11 @@
     <nav class="tabs" role="tablist" id="tabs" aria-label="Sections">
       <button role="tab" data-group="overview" aria-selected="true">Overview</button>
       <button role="tab" data-group="findings">Findings</button>
+      <button role="tab" data-group="explore">Explore</button>
       <button role="tab" data-group="publications">Publications</button>
-      <button role="tab" data-group="people">Faculty</button>
       <button role="tab" data-group="networks">Networks</button>
+      <button role="tab" data-group="dynamics">Dynamics</button>
+      <button role="tab" data-group="benchmark">Benchmark</button>
       <button role="tab" data-group="flags">Flags</button>
       <button role="tab" data-group="about">About</button>
     </nav>
@@ -224,6 +226,212 @@
     <div class="card team-note" data-note="networks"></div>
   </section>
 
+
+  <section id="tab-extras" class="tab" hidden>
+    <div class="card banner"><h2>More tested results</h2><p class="note">Journal grading, partners, citers, bibliometric laws, productivity dynamics and how fragile the headlines are. Computed by step s21; each chart says what it is compared with. The lab selector applies where a chart says so.</p></div>
+    <div class="card"><h2>What these analyses show</h2><div id="x-list" class="fd-cards"></div></div>
+    <div class="grid2">
+      <div class="card"><h2>Did the labs choose weaker journals, or were the journals re-graded?</h2><p class="note">Share of journal papers in Q1 each year with the quartile of the publication year (as everywhere else), with each journal's quartile frozen at its 2017 grade, and the share in journals with a JCR impact factor above 5 (one fixed yardstick). If the frozen line stays flat while the year-matched line falls, Scimago re-graded the journals. Follows the lab selector.</p><div id="c-x-regrade" class="chart"></div></div>
+      <div class="card"><h2>Is a Q1 journal a sign of a better-cited paper?</h2><p class="note">Extra citations of Q1 papers (or per doubling of the impact factor) after year, field and lab, then also team size and review. Below: how well a journal's impact factor predicts the citations of one paper in it.</p><div id="c-x-q1" class="chart small"></div><div id="x-q1-note" class="note"></div></div>
+    </div>
+    <div class="grid2">
+      <div class="card"><h2>Which partners pay off?</h2><p class="note">Percent difference in citations for papers with each kind of partner, against papers without one, holding year, field and lab fixed (light), then also team size and review (dark). 95% intervals. Partner types from OpenAlex institution types.</p><div id="c-x-payoff" class="chart"></div></div>
+      <div class="card"><h2>Kinds of Indian partners</h2><p class="note">Indian partner institutions by OpenAlex type: joint papers as a share of each lab's papers. Follows the lab selector.</p><div id="c-x-types" class="chart"></div></div>
+    </div>
+    <div class="grid2">
+      <div class="card"><h2>Citers are not the same as collaborators</h2><p class="note">Each point is an Indian institution: external citations to the labs against joint papers (log scales, +1). Points far above the trend cite much more than they collaborate. Colour = ownership.</p><div id="c-x-cc" class="chart tall"></div></div>
+      <div class="card"><h2>Fastest-rising citing institutions</h2><p class="note">Citing papers from each Indian institution (not our labs, not umbrella bodies) in 2025 against 2022.</p><div id="t-x-rising"></div></div>
+    </div>
+    <div class="card"><h2>How heavy citers cite</h2><p class="note">Institutions with at least 30 citations: citing papers, our papers cited per citing paper, the share of their citations from papers that cite five or more of ours at once ("stacked"), the most common journal of the citing papers, and joint papers. Indicators, not judgements.</p><div id="t-x-mech"></div></div>
+    <div class="grid2">
+      <div class="card"><h2>Cited mostly in India, or mostly abroad</h2><p class="note">Papers with at least 20 citations: the share of citations from Indian institutions outside the four labs. Locally important work ("hidden gems") and globally visible work India cites little.</p><div id="t-x-local"></div></div>
+      <div class="card"><h2>The backbone of Indian partnerships</h2><p class="note">Disparity filter (Serrano et al. 2009): institution pairs whose joint papers are a significant share of either side's links (α = 0.05). Strongest links first.</p><div id="t-x-backbone"></div></div>
+    </div>
+    <div class="card"><h2>Bibliometric laws, tested on our data</h2><p class="note">Classic regularities of science and whether our data follow them.</p><div id="t-x-laws"></div></div>
+    <div class="grid2">
+      <div class="card"><h2>Productivity as a random walk: yearly changes</h2><p class="note">Change in a faculty member's papers from one year to the next (papers with fewer than 100 authors). Bars: observed; lines: best Laplace and normal fits (log scale). Zhang et al. (course paper P1) found Laplace-shaped changes for computer scientists.</p><div id="c-x-walk-d" class="chart"></div></div>
+      <div class="card"><h2>Can luck alone produce the spread?</h2><p class="note">Quantiles of total 2016–2025 output per faculty member, observed against 200 simulated truncated random walks that start at each person's first-year output. Points on the diagonal = the random walk reproduces that part of the distribution.</p><div id="c-x-walk-c" class="chart"></div><div id="x-walk-note" class="note"></div></div>
+    </div>
+    <div class="grid2">
+      <div class="card"><h2>Do the headlines survive?</h2><p class="note">Each headline recomputed after removing a lab's most cited paper, the ten most cited papers, or one year at a time.</p><div id="t-x-frag"></div></div>
+      <div class="card"><h2>Why did it jump?</h2><p class="note">Year-on-year changes above 25% (papers) or 50% (citations), with the drivers found automatically. Follows the lab selector.</p><div id="t-x-jumps"></div></div>
+    </div>
+    <div class="card"><h2>Faculty with h-index above 10 on papers with fewer than 100 authors</h2><p class="note">The h-index recomputed without consortium papers of 100 or more authors, with the number of their papers in journals with impact factor above 10 that have fewer than 100 authors. Use the Explorer to change any threshold. Follows the lab selector.</p><div id="t-x-h"></div></div>
+    <div class="card team-note" data-note="extras"></div>
+  </section>
+
+  <section id="tab-verdicts" class="tab" hidden>
+    <div class="card banner"><h2>Every question, with a verdict</h2><p class="note">Each research question we asked, the test we used, the number that decides it and our verdict: <b>supported</b> (the pattern survives its baseline), <b>partly</b> (it holds only in part or with caveats), <b>not supported</b> (the baseline explains it). Click a question to open its evidence.</p></div>
+    <div id="vd-list" class="vd-list"></div>
+    <div class="grid2">
+      <div class="card"><h2>What we did not do, and why</h2><ul id="vd-notdone" class="plainlist"></ul></div>
+      <div class="card"><h2>Blind spots: what the numbers cannot show</h2><ul id="vd-blind" class="plainlist"></ul></div>
+    </div>
+    <div class="card team-note" data-note="verdicts"></div>
+  </section>
+
+  <section id="tab-explorer" class="tab" hidden>
+    <div class="card"><h2>Filter &amp; find</h2>
+      <p class="note">Set any thresholds: every table and chart below is recomputed in your browser, including each person's h-index on the papers that pass the filters. The lab selector at the top applies too. Click a person to open their profile.</p>
+      <div class="presets" id="ex-presets"></div>
+      <div class="filters">
+        <label>Years <input type="number" id="ex-y0" min="2016" max="2026" value="2016"> – <input type="number" id="ex-y1" min="2016" max="2026" value="2026"></label>
+        <label>Authors fewer than <input type="number" id="ex-na" min="2" max="5000" value="100"></label>
+        <label>Impact factor at least <input type="number" id="ex-if" min="0" step="0.5" value="0"></label>
+        <label>Citations at least <input type="number" id="ex-c" min="0" value="0"></label>
+        <label>Quartile <select id="ex-q"><option value="">any</option><option value="Q1">Q1</option><option value="Q12">Q1 or Q2</option></select></label>
+        <label>Field <select id="ex-f"><option value="">any</option></select></label>
+        <label>Role <select id="ex-role"><option value="">any</option><option value="led">lab-led (first, last or corresponding)</option><option value="middle">middle author</option></select></label>
+        <label>Topic <select id="ex-cov"><option value="">all</option><option value="1">COVID-19 only</option><option value="0">exclude COVID-19</option></select></label>
+        <label>Person h-index above <input type="number" id="ex-h" min="0" value="0"></label>
+        <label>Title contains <input type="search" id="ex-t" placeholder="e.g. tuberculosis"></label>
+        <button type="button" id="ex-reset" class="ghost">Reset</button>
+      </div>
+      <p id="ex-desc" class="desc-line"></p>
+    </div>
+    <div class="kpis" id="ex-kpis"></div>
+    <div class="grid2">
+      <div class="card"><h2>People matching the filters</h2><p class="note">Papers, citations and h-index counted on the matching papers only.</p><div id="t-ex-people"></div></div>
+      <div class="card"><h2>Impact factor against citations</h2><p class="note">Each matching paper; size = authors. Click a point to open the paper.</p><div id="c-ex-scatter" class="chart tall"></div></div>
+    </div>
+    <div class="grid2">
+      <div class="card"><h2>Matching papers per year</h2><div id="c-ex-year" class="chart small"></div></div>
+      <div class="card"><h2>Fields of the matching papers</h2><div id="c-ex-field" class="chart small"></div></div>
+    </div>
+    <div class="card"><h2>Matching papers</h2><div id="t-ex-papers"></div></div>
+  </section>
+
+  <section id="tab-person" class="tab" hidden>
+    <div class="card person-pick"><h2>Find a person</h2>
+      <div class="row"><input type="search" id="pp-q" list="pp-names" placeholder="Type a name, e.g. Thangaraj" autocomplete="off"><datalist id="pp-names"></datalist>
+        <button type="button" id="pp-cmp" class="ghost">+ Add to compare</button><button type="button" id="pp-rand" class="ghost">Random person</button></div></div>
+    <div id="pp-head" class="person-head"></div>
+    <div class="kpis" id="pp-kpis"></div>
+    <div class="grid2">
+      <div class="card"><h2>Papers per year</h2><p class="note">Lab-led = first, last or corresponding author.</p><div id="c-pp-year" class="chart"></div></div>
+      <div class="card"><h2>Where this person stands in their lab</h2><p class="note">Percentile among the lab's faculty on each measure (100 = highest).</p><div id="c-pp-pct" class="chart"></div></div>
+    </div>
+    <div class="grid2">
+      <div class="card"><h2>Papers: journal impact factor against citations</h2><p class="note">Size = number of authors; hollow = 100+ authors. Click a point to open the paper.</p><div id="c-pp-papers" class="chart"></div></div>
+      <div class="card"><h2>Co-authors among the faculty</h2><p class="note">Faculty this person has written with (papers with up to 50 authors); width = joint papers. Click a name to open their profile.</p><div id="g-pp-ego" class="graph small"></div></div>
+    </div>
+    <div class="grid2">
+      <div class="card"><h2>People they might connect with</h2><p class="note">Random walk with restart on the faculty network: faculty this person is close to but has never written with.</p><div id="pp-related"></div></div>
+      <div class="card"><h2>Credit, counted three ways</h2><div id="pp-credit"></div></div>
+    </div>
+    <div class="card"><h2>All papers</h2><div id="t-pp-papers"></div></div>
+  </section>
+
+  <section id="tab-versus" class="tab" hidden>
+    <div class="card"><h2>Compare anything</h2>
+      <p class="note">Pick up to six people or labs. Profiles have an "Add to compare" button too.</p>
+      <div class="row"><label>Compare <select id="vs-kind"><option value="people">people</option><option value="labs">our four labs</option></select></label>
+        <input type="search" id="vs-q" list="pp-names" placeholder="Add a person…" autocomplete="off"><button type="button" id="vs-clear" class="ghost">Clear</button></div>
+      <div id="vs-chips" class="chips"></div></div>
+    <div class="grid2">
+      <div class="card"><h2>Profile shape</h2><p class="note">Percentile among all 274 faculty on each measure (labs: share of the best lab's value).</p><div id="c-vs-radar" class="chart tall"></div></div>
+      <div class="card"><h2>Papers per year</h2><div id="c-vs-year" class="chart tall"></div></div>
+    </div>
+    <div class="card"><h2>Side by side</h2><div id="t-vs"></div></div>
+  </section>
+
+  <section id="tab-structure" class="tab" hidden>
+    <div class="card"><h2>What the structure shows</h2><div id="st-list" class="fd-cards"></div></div>
+    <div class="card"><h2>The faculty network against three random baselines</h2><p class="note">Observed value, mean of the random networks and z-score. Erdős–Rényi keeps only the number of links; rewiring keeps every person's number of co-authors; the bipartite null keeps every paper's number of faculty and every person's number of papers, then reshuffles who wrote what (the right baseline for co-authorship).</p><div id="t-st-null"></div></div>
+    <div class="grid2">
+      <div class="card"><h2>Students and staff are the glue</h2><p class="note">The faculty-only network against the same network with links through a shared non-faculty lab author (students, postdocs, staff).</p><div id="t-st-glue"></div><div id="c-st-glue" class="chart small"></div></div>
+      <div class="card"><h2>Do the communities just reproduce the labs?</h2><p class="note">Agreement (NMI, ARI, AMI: 1 = identical, 0 = unrelated) between Louvain communities and the lab and department labels, against shuffled labels.</p><div id="t-st-comm"></div><div id="st-kcore" class="note"></div></div>
+    </div>
+    <div class="grid2">
+      <div class="card"><h2>How the network grew</h2><p class="note">Cumulative links against cumulative connected faculty, log–log. A slope above 1 means the network densifies as it grows (Leskovec et al.).</p><div id="c-st-grow" class="chart"></div></div>
+      <div class="card"><h2>Do the well-connected get more new links?</h2><p class="note">Rate of new links in a year against the number of links at the end of the previous year (preferential attachment kernel).</p><div id="c-st-pa" class="chart"></div></div>
+    </div>
+    <div class="grid2">
+      <div class="card"><h2>Does early network position predict later output?</h2><p class="note">Standardised effect of 2016–20 network position on 2021–26 output and normalised citations, with lab fixed effects and earlier output controlled (95% intervals).</p><div id="c-st-pos" class="chart"></div></div>
+      <div class="card"><h2>Predicting new collaborations</h2><p class="note">Trained on 2016–20, tested on links new in 2021–26. AUC: 0.5 = chance, 1 = perfect.</p><div id="c-st-lp" class="chart"></div></div>
+    </div>
+    <div class="grid2">
+      <div class="card"><h2>How fragile are the links between labs?</h2><div id="t-st-frag"></div><div id="t-st-fragp"></div></div>
+      <div class="card"><h2>Topic contagion</h2><p class="note">When a faculty member starts publishing in a new subfield, was a co-author already working in it? Compared with future co-authors (placebo) and random lab colleagues.</p><div id="c-st-cont" class="chart small"></div></div>
+    </div>
+    <div class="card"><h2>Cross-lab "twins" who have never written together</h2><p class="note">Faculty pairs in different labs with the most similar research (cosine over OpenAlex subfields) and no joint paper: collaboration opportunities.</p><div id="t-st-twins"></div></div>
+    <div class="grid2">
+      <div class="card"><h2>The main path of knowledge inside the corpus</h2><p class="note">Search path count main path through the internal citation network: the chain of papers that carries the most citation paths.</p><div id="t-st-main"></div></div>
+      <div class="card"><h2>How broad is each lab's research?</h2><p class="note">Shannon entropy of the lab's subfields per year (higher = more spread out).</p><div id="c-st-ent" class="chart"></div></div>
+    </div>
+    <div class="card team-note" data-note="structure"></div>
+  </section>
+
+  <section id="tab-epidemics" class="tab" hidden>
+    <div class="card banner"><h2>Spreading on the co-authorship network</h2><p class="note">An idea, a technique or a rumour can spread between people who write together. We simulate the two classic epidemic models on the faculty network: <b>SIS</b> (susceptible → infected → susceptible again, like an idea that has to be kept alive) and <b>SIR</b> (infected people recover for good, like news that spreads once). Each simulation is repeated with many random seeds and compared with networks that keep everyone's number of co-authors but scramble who is linked to whom. Computed by step s18.</p></div>
+    <div class="card"><h2>What the simulations show</h2><div id="ep-list" class="fd-cards"></div></div>
+    <div class="kpis" id="ep-kpis"></div>
+    <div class="card sim"><h2>Run it yourself</h2>
+      <p class="note">Click a person to seed the outbreak there (or pick a strategy), set the transmission and recovery probabilities and press Run. Every step, each infected person infects each co-author with probability β and recovers with probability μ. The same random seed gives the same run.</p>
+      <div class="filters">
+        <label>Model <select id="sim-model"><option value="SIS">SIS</option><option value="SIR">SIR</option></select></label>
+        <label>β <input type="range" id="sim-b" min="0.01" max="0.6" step="0.01" value="0.15"><span id="sim-bv"></span></label>
+        <label>μ <input type="range" id="sim-m" min="0.02" max="1" step="0.02" value="0.2"><span id="sim-mv"></span></label>
+        <label>Seed <select id="sim-seed"><option value="click">the person I click</option><option value="degree">best-connected person</option><option value="random">a random person</option><option value="lab">one person per lab</option></select></label>
+        <label>Random seed <input type="number" id="sim-rng" value="42" min="1"></label>
+        <button type="button" id="sim-run">▶ Run</button><button type="button" id="sim-step" class="ghost">Step</button><button type="button" id="sim-reset" class="ghost">Reset</button><button type="button" id="sim-many" class="ghost">Run 100 seeds</button>
+      </div>
+      <p id="sim-status" class="desc-line"></p>
+      <div class="netwrap"><div id="g-sim" class="graph"></div><aside class="info"><div id="c-sim-curve" class="chart small"></div><div id="sim-labs"></div></aside></div>
+      <div id="c-sim-many" class="chart small" hidden></div>
+    </div>
+    <div class="grid2">
+      <div class="card"><h2>SIS: the epidemic threshold</h2><p class="note">Long-run share of faculty infected against λ = β/μ, mean and 95% band over random seeds, on the real network and two random ones. The dotted lines mark thresholds; below one an outbreak dies out.</p><div id="c-ep-sis" class="chart"></div></div>
+      <div class="card"><h2>Where to start an outbreak</h2><p class="note">SIR final size by seeding strategy, over many random seeds (mean and 95% range).</p><div id="c-ep-strat" class="chart"></div></div>
+    </div>
+    <div class="grid2">
+      <div class="card"><h2>Who are the super-spreaders?</h2><p class="note">Each faculty member as the single seed: mean SIR outbreak size against their k-shell (how deep in the network core they sit) and degree. Kitsak et al. (2010) found k-shell predicts spreading better than degree.</p><div class="row note"><label>x-axis <select id="ep-x"><option value="kshell">k-shell</option><option value="degree">degree</option><option value="betweenness">betweenness</option><option value="eigenvector">eigenvector</option></select></label></div><div id="c-ep-spread" class="chart"></div></div>
+      <div class="card"><h2>Do lab walls slow spreading?</h2><p class="note">Probability that an outbreak started in one lab reaches another, real network against rewired networks (which remove lab structure).</p><div id="c-ep-cross" class="chart"></div></div>
+    </div>
+    <div class="grid2">
+      <div class="card"><h2>What if we added links between labs?</h2><p class="note">Simulated interventions: add k cross-lab links at random, between the best-connected people, or between the most similar researchers who have never collaborated. Effect on the chance an outbreak crosses labs.</p><div id="c-ep-int" class="chart"></div></div>
+      <div class="card"><h2>Top spreaders</h2><div id="t-ep-spread"></div></div>
+    </div>
+    <div class="card team-note" data-note="dynamics"></div>
+  </section>
+
+  <section id="tab-walks" class="tab" hidden>
+    <div class="card banner"><h2>Random walks</h2><p class="note">A random walker moves from person to person along co-authorship links, choosing links in proportion to joint papers. How long it takes to reach another lab, and how long it stays home, measure how open the labs are. The lower half treats each person's yearly output as a random walk (course paper P1).</p></div>
+    <div class="card"><h2>What the walks show</h2><div id="rw-list" class="fd-cards"></div></div>
+    <div class="kpis" id="rw-kpis"></div>
+    <div class="grid2">
+      <div class="card"><h2>Steps to reach another lab</h2><p class="note">Mean first-passage time from a lab to the first person of another lab, divided by the same on rewired networks. Above 1 = harder to reach than chance.</p><div id="c-rw-mfpt" class="chart"></div></div>
+      <div class="card"><h2>How long a walker stays home</h2><p class="note">Probability that a walker started in a lab is in that lab after t steps: solid = real network, dashed = rewired.</p><div id="c-rw-ret" class="chart"></div></div>
+    </div>
+    <div class="grid2">
+      <div class="card"><h2>Productivity as a random walk</h2><p class="note">Year-on-year changes in each faculty member's papers (log scale) with Laplace and normal fits.</p><div id="c-rw-delta" class="chart"></div></div>
+      <div class="card"><h2>Rank persistence (the Matthew effect)</h2><div id="rw-matthew"></div></div>
+    </div>
+    <div class="card team-note" data-note="walks"></div>
+  </section>
+
+  <section id="tab-benchmark" class="tab" hidden>
+    <div class="card banner"><h2>How the four labs compare with other Indian biology institutes</h2><p class="note">Every institute queried identically from OpenAlex (articles and reviews, 2016–2026). These are whole-institute counts that include students and all affiliates, so they are larger than our faculty dataset. FWCI = field-weighted citation impact: 1 = the world average for papers of the same field, year and type. Computed by step s20.</p></div>
+    <div class="card"><h2>What the comparison shows</h2><div id="bm-list" class="fd-cards"></div></div>
+    <div class="card"><h2>Size against impact</h2><div class="row note"><label>y-axis <select id="bm-y"><option value="mean_fwci">mean FWCI</option><option value="top10_share">top-10% share</option><option value="citations_per_paper">citations per paper</option><option value="intl_share">international share</option><option value="oa_share">open-access share</option></select></label></div><p class="note">Each bubble is an institute; size = top-10% papers. Our four labs are outlined.</p><div id="c-bm-scatter" class="chart tall"></div></div>
+    <div class="grid2">
+      <div class="card"><h2>Ranked</h2><div class="row note"><label>Measure <select id="bm-m"></select></label></div><div id="c-bm-rank" class="chart tall"></div></div>
+      <div class="card"><h2>Impact over time</h2><p class="note">Mean FWCI by publication year; our labs in colour.</p><div id="c-bm-year" class="chart tall"></div></div>
+    </div>
+    <div class="grid2">
+      <div class="card"><h2>What each institute specialises in</h2><p class="note">Revealed comparative advantage against all Indian papers: 2 = twice India's share in that subfield. Top subfields of the chosen institute.</p><div class="row note"><label>Institute <select id="bm-inst"></select></label></div><div id="c-bm-rca" class="chart"></div></div>
+      <div class="card"><h2>Distance: collaboration against citation</h2><p class="note">Gravity model: how joint papers and citations from Indian institutions fall with distance from the lab (Poisson, controlling for the partner's size). An elasticity of −0.5 means doubling the distance cuts the count by about 30%.</p><div id="c-bm-grav" class="chart small"></div><div id="bm-grav-note" class="note"></div></div>
+    </div>
+    <div class="card"><h2>All institutes</h2><div id="t-bm"></div></div>
+    <div class="card"><h2>Caveats</h2><ul id="bm-cav" class="plainlist"></ul></div>
+    <div class="card team-note" data-note="benchmark"></div>
+  </section>
+
+  <section id="tab-science" class="tab" hidden>
+    <div class="card banner"><h2>Our data against the science of science</h2><p class="note">Well-known results from the literature on how science works, each set beside what our own data show. Sources are listed with each item (data/manual/science_context.yaml).</p></div>
+    <div id="sc-list" class="sc-list"></div>
+  </section>
+
   <section id="tab-flags" class="tab" hidden>
     <div class="card banner"><h2>What a flag means, and what it does not</h2><p class="note">A flag marks a number that needs a closer look before it is compared: citations that come mostly from many-author papers, a profile that may merge two people, or an institution that cites the labs more than its size suggests. It is not a judgement of any person or institution and says nothing about misconduct. Consortium papers are legitimate science, heavy citation has ordinary causes (shared fields, former lab members, review articles), and OpenAlex itself makes identity errors. Individual citing authors are not named here.</p></div>
     <div class="kpis" id="kpis-flags"></div>
@@ -250,9 +458,20 @@
 
   <section id="tab-about" class="tab" hidden>
     <div class="card prose" id="about"></div>
+    <div class="grid2">
+      <div class="card"><h2>How complete is the data?</h2><p class="note">Share of papers (or roster faculty) with each piece of information. Follows the lab selector.</p><div id="c-ab-complete" class="chart"></div></div>
+      <div class="card"><h2>Hand-checked precision of the faculty–paper matching</h2><p class="note">A seeded random sample of paper–faculty links, stratified by how the affiliation was matched, for the team to check one by one against the paper and the lab website (data/manual/precision_audit.csv).</p><div id="ab-audit"></div></div>
+    </div>
   </section>
 </main>
 <div id="tip" class="tip" hidden></div>
+<button id="chat-open" class="chat-open" type="button" aria-label="Ask the data">Ask the data</button>
+<div id="chat" class="chat" hidden role="dialog" aria-label="Ask the data">
+  <div class="chat-head"><b>Ask the data</b><span class="muted">answers come only from this dashboard's numbers</span><button type="button" id="chat-close" aria-label="Close">×</button></div>
+  <div id="chat-log" class="chat-log" aria-live="polite"></div>
+  <div id="chat-sugg" class="chat-sugg"></div>
+  <form id="chat-form" class="chat-form"><input id="chat-in" type="text" placeholder="e.g. h-index of Thangaraj, compare CCMB and IGIB, what is SIS?" autocomplete="off"><button type="submit">Ask</button></form>
+</div>
 <script id="data" type="application/json">__DATA__</script>
 <script>/*__APP__*/</script>
 </body>

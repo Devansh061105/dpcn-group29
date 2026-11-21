@@ -1,0 +1,275 @@
+faculty_id,name,lab,core_number,degree
+CDRI-085,Kalyan Mitra,CSIR-CDRI,15,51
+CDRI-081,Rabi S Bhatta,CSIR-CDRI,15,46
+CDRI-082,Jiaur R Gayen,CSIR-CDRI,15,46
+CDRI-004,Mohammad I Siddiqi,CSIR-CDRI,15,44
+CDRI-095,Madhav N Mugale,CSIR-CDRI,15,41
+CDRI-106,Naibedya Chattopadhyay,CSIR-CDRI,15,41
+CDRI-103,Srikanta Kumar Rath,CSIR-CDRI,15,39
+CDRI-079,Manish K Chourasia,CSIR-CDRI,15,38
+CDRI-072,Manoj K Barthwal,CSIR-CDRI,15,36
+CDRI-028,Koneni V Sashidhara,CSIR-CDRI,15,35
+CDRI-006,Ravishankar Ramachandran,CSIR-CDRI,15,34
+CDRI-074,Kumaravelu J,CSIR-CDRI,15,34
+CDRI-087,Sanjeev Kanojiya,CSIR-CDRI,15,33
+CDRI-091,Aamir Nazir,CSIR-CDRI,15,33
+CDRI-013,Dipak Datta,CSIR-CDRI,15,32
+CDRI-080,Prabhat R Mishra,CSIR-CDRI,15,31
+CDRI-024,Rajdeep Guha,CSIR-CDRI,15,28
+CDRI-067,Prem N Yadav,CSIR-CDRI,15,28
+CDRI-110,Muhammad Wahajuddin,CSIR-CDRI,15,28
+CDRI-093,Smrati Bhadauria,CSIR-CDRI,15,27
+CDRI-099,Raj K Tripathi,CSIR-CDRI,15,27
+CDRI-092,Sarika Singh,CSIR-CDRI,15,26
+CDRI-001,Sabyasachi Sanyal,CSIR-CDRI,15,24
+CDRI-014,Arun K Trivedi,CSIR-CDRI,15,24
+CDRI-068,Shubha Shukla,CSIR-CDRI,15,24
+CDRI-073,Kashif Hanif,CSIR-CDRI,15,24
+CDRI-078,Baisakhi Moharana,CSIR-CDRI,15,22
+CDRI-112,Rakesh Maurya,CSIR-CDRI,15,22
+CDRI-020,Durga P Mishra,CSIR-CDRI,14,22
+CDRI-044,Kinshuk R Srivastava,CSIR-CDRI,13,22
+CDRI-031,Narender Tadigoppula,CSIR-CDRI,13,21
+CDRI-069,Aravind S Kshatri,CSIR-CDRI,13,19
+CDRI-124,Jimut Kanti Ghosh,CSIR-CDRI,13,19
+CDRI-125,,CSIR-CDRI,13,19
+CDRI-071,Anil N Gaikwad,CSIR-CDRI,12,21
+CDRI-076,Amit Lahiri,CSIR-CDRI,12,20
+CDRI-029,Atul Goel,CSIR-CDRI,12,18
+CDRI-094,Vivek V Bhosale,CSIR-CDRI,12,18
+CDRI-008,Akhilesh K Tamrakar,CSIR-CDRI,12,14
+CDRI-018,Ritu Trivedi,CSIR-CDRI,12,12
+CDRI-059,Sidharth Chopra,CSIR-CDRI,11,26
+CDRI-088,Sanjeev K Shukla,CSIR-CDRI,11,18
+CDRI-015,Jayanta Sarkar,CSIR-CDRI,11,17
+CDRI-030,Gautam Panda,CSIR-CDRI,11,17
+CDRI-063,Niti Kumar,CSIR-CDRI,11,17
+CDRI-117,Renu Tripathi,CSIR-CDRI,11,17
+CDRI-002,Saman Habib,CSIR-CDRI,11,15
+CDRI-102,Sanjay Batra,CSIR-CDRI,11,15
+CDRI-057,Mrigank Srivastava,CSIR-CDRI,11,14
+CDRI-115,Neena Goyal,CSIR-CDRI,11,14
+CDRI-016,Dibyendu Banerjee,CSIR-CDRI,11,13
+CDRI-045,Damodara Reddy N,CSIR-CDRI,11,13
+CDRI-009,Amogh A Sahasrabuddhe,CSIR-CDRI,11,12
+CDRI-075,Sachin Kumar,CSIR-CDRI,10,14
+CDRI-084,Yuvraj Singh,CSIR-CDRI,10,13
+CDRI-070,Sonia Verma,CSIR-CDRI,10,11
+CDRI-123,Madhu Dikshit,CSIR-CDRI,10,11
+CDRI-046,Nayan Ghosh,CSIR-CDRI,9,11
+CDRI-119,Nilanjana Majumdar,CSIR-CDRI,9,10
+CDRI-032,Prem P Yadav,CSIR-CDRI,9,9
+CDRI-022,Rajender Singh,CSIR-CDRI,8,14
+CDRI-023,Rajesh K Jha,CSIR-CDRI,8,11
+CDRI-021,Monika Sachdev,CSIR-CDRI,8,10
+CDRI-056,Manju Y Krishnan,CSIR-CDRI,8,10
+CDRI-040,Ravindra . Kumar,CSIR-CDRI,8,9
+CDRI-035,Dipankar Koley,CSIR-CDRI,8,8
+IGIB-028,Rajesh Pandey,CSIR-IGIB,7,30
+IGIB-043,Vinod Scaria,CSIR-IGIB,7,24
+IGIB-046,Sridhar Sivasubbu,CSIR-IGIB,7,23
+IGIB-032,Shantanu Sengupta,CSIR-IGIB,7,21
+IGIB-012,Debasis Dash,CSIR-IGIB,7,20
+IGIB-038,Souvik Maiti,CSIR-IGIB,7,18
+IGIB-021,Mohammed Faruq,CSIR-IGIB,7,16
+IGIB-018,Lipi Thukral,CSIR-IGIB,7,14
+IGIB-042,Vivek T Natarajan,CSIR-IGIB,7,14
+IGIB-058,Sivaprakash Ramalingam,CSIR-IGIB,7,12
+IGIB-011,Chetana Sachidanandan,CSIR-IGIB,7,11
+IGIB-008,Bhavana Prasher,CSIR-IGIB,7,9
+CDRI-042,Chandra B Tripathi,CSIR-CDRI,7,8
+IGIB-033,Sheetal Gandotra,CSIR-IGIB,7,8
+CDRI-105,Arun K. Sinha,CSIR-CDRI,7,7
+CDRI-012,Ashish Arora,CSIR-CDRI,6,13
+CDRI-050,Sathish Kumar Mudedla,CSIR-CDRI,6,10
+CDRI-118,Kishore Kumar Srivastava,CSIR-CDRI,6,9
+IGIB-009,Bhupesh Taneja,CSIR-IGIB,6,9
+CDRI-003,J Venkatesh Pratap,CSIR-CDRI,6,8
+CDRI-010,Tejender S Thakur,CSIR-CDRI,6,8
+CDRI-058,Mukesh P,CSIR-CDRI,6,7
+CDRI-061,Satish Mishra,CSIR-CDRI,6,7
+IGIB-004,Archana Singh,CSIR-IGIB,6,7
+IGIB-010,Binukumar B. K,CSIR-IGIB,6,7
+IGIB-041,Vivek Rao,CSIR-IGIB,6,7
+CDRI-007,Shakil Ahmed,CSIR-CDRI,6,6
+CDRI-120,Vinita Chaturvedi,CSIR-CDRI,6,6
+IMTECH-034,P. Anil Kumar,CSIR-IMTECH,5,21
+CCMB-008,Divya Tej Sowpati,CSIR-CCMB,5,17
+IMTECH-052,Manoj Raje,CSIR-IMTECH,5,15
+CCMB-019,Krishnan H Harshan,CSIR-CCMB,5,14
+IMTECH-040,Krishan Gopal,CSIR-IMTECH,5,13
+CCMB-016,K Thangaraj,CSIR-CCMB,5,12
+CCMB-031,Rakesh Kumar Mishra,CSIR-CCMB,5,12
+IMTECH-041,Neeraj Khatri,CSIR-IMTECH,5,12
+IMTECH-042,Hemraj S. Nandanwar,CSIR-IMTECH,5,12
+IMTECH-021,Prabhu B. Patil,CSIR-IMTECH,5,11
+IMTECH-026,Ashwani Kumar,CSIR-IMTECH,5,11
+IGIB-045,Ritushree Kukreti,CSIR-IGIB,5,10
+IGIB-054,Srinivasan Ramachandran,CSIR-IGIB,5,10
+IGIB-022,Munia Ganguli,CSIR-IGIB,5,9
+CCMB-009,G R Chandak,CSIR-CCMB,5,8
+IGIB-001,Aastha Mishra,CSIR-IGIB,5,8
+IGIB-037,Soumya Sinha Roy,CSIR-IGIB,5,8
+IMTECH-033,Suresh Korpole,CSIR-IMTECH,5,8
+IMTECH-049,Gajendra P. S. Raghava,CSIR-IMTECH,5,8
+CDRI-089,Vineeta Tripathi,CSIR-CDRI,5,7
+IGIB-030,Rakesh Sharma,CSIR-IGIB,5,7
+IGIB-040,Viren Sardana,CSIR-IGIB,5,7
+IGIB-049,Shantanu Chowdhury,CSIR-IGIB,5,7
+IGIB-002,Ajay Pratap Singh,CSIR-IGIB,5,6
+IGIB-007,Beena Pillai,CSIR-IGIB,5,6
+IGIB-013,Debojyoti Chakraborty,CSIR-IGIB,5,6
+IGIB-017,Kumardeep Chaudhary,CSIR-IGIB,5,6
+CDRI-017,Abhishek B Sharma,CSIR-CDRI,5,5
+CDRI-062,Bidyut Purkait,CSIR-CDRI,5,5
+CDRI-086,Dipak K Mishra,CSIR-CDRI,5,5
+CDRI-116,Anila Dwivedi,CSIR-CDRI,5,5
+CDRI-121,Neeraj Kumar Jain,CSIR-CDRI,5,5
+IGIB-015,Kausik Chakraborty,CSIR-IGIB,5,5
+IGIB-060,Samir Kumar Brahmachari,CSIR-IGIB,5,5
+IMTECH-020,Saumya Ray Chaudhuri,CSIR-IMTECH,4,9
+IMTECH-053,Shanmugam Mayilraj,CSIR-IMTECH,4,9
+CCMB-005,B Kiran Kumar,CSIR-CCMB,4,8
+IMTECH-017,Srinivasan Krishnamurthi,CSIR-IMTECH,4,8
+IMTECH-029,Mani Shankar Bhattacharyya,CSIR-IMTECH,4,8
+CCMB-004,Anant Bahadur Patel,CSIR-CCMB,4,6
+CCMB-020,M Mohammed Idris,CSIR-CCMB,4,6
+CCMB-034,Santosh Chauhan,CSIR-CCMB,4,6
+CCMB-039,Swasti Raychaudhuri,CSIR-CCMB,4,6
+IMTECH-001,Vijayender Bhalla,CSIR-IMTECH,4,6
+IMTECH-005,Vinod Chaudhari,CSIR-IMTECH,4,6
+IMTECH-013,Manoj Kumar,CSIR-IMTECH,4,6
+IMTECH-015,Srikrishna Subramanian,CSIR-IMTECH,4,6
+CCMB-046,Jyotsna Dhawan,CSIR-CCMB,4,5
+IGIB-051,Dwaipayan Bharadwaj,CSIR-IGIB,4,5
+IGIB-053,Hemant Kumar Gautam,CSIR-IGIB,4,5
+IMTECH-054,C. Raman Suri,CSIR-IMTECH,4,5
+CCMB-041,Vinay K Nandicoori,CSIR-CCMB,4,4
+CDRI-033,Kishor M,CSIR-CDRI,4,4
+CDRI-041,Richa Pandey,CSIR-CDRI,4,4
+CDRI-077,Shashi K Gupta,CSIR-CDRI,4,4
+CDRI-114,Md. Sohail Akhtar,CSIR-CDRI,4,4
+CDRI-122,Shrikant R. Mulay,CSIR-CDRI,4,4
+IGIB-019,Malabika Dutta,CSIR-IGIB,4,4
+IGIB-025,Pradeep Kumar,CSIR-IGIB,4,4
+IGIB-057,Pradip Nahar,CSIR-IGIB,4,4
+IMTECH-046,Anirban Roy Choudhury,CSIR-IMTECH,4,4
+CCMB-028,Puran Singh Sijwali,CSIR-CCMB,3,5
+CCMB-030,Rajan Sankaranarayanan,CSIR-CCMB,3,5
+CCMB-054,Yogendra Sharma,CSIR-CCMB,3,5
+IMTECH-028,Pawan Gupta,CSIR-IMTECH,3,5
+IMTECH-050,Javed Naim Agrewala,CSIR-IMTECH,3,5
+CCMB-047,Ramakrishnan Nagaraj,CSIR-CCMB,3,4
+CCMB-049,Arvind Kumar,CSIR-CCMB,3,4
+CCMB-051,Vegesna Radha,CSIR-CCMB,3,4
+CDRI-036,Asif Ali,CSIR-CDRI,3,4
+IGIB-020,Mary Krishna Ekka,CSIR-IGIB,3,4
+IGIB-023,Neeru Saini,CSIR-IGIB,3,4
+IGIB-055,Qadar Pasha,CSIR-IGIB,3,4
+IMTECH-006,Anshu Bhardwaj,CSIR-IMTECH,3,4
+IMTECH-010,Dipak Dutta,CSIR-IMTECH,3,4
+CCMB-011,Hitendra Kumar Patel,CSIR-CCMB,3,3
+CCMB-023,Megha Kumar,CSIR-CCMB,3,3
+CCMB-027,P Chandra shekar,CSIR-CCMB,3,3
+CCMB-035,Santosh Kumar,CSIR-CCMB,3,3
+CDRI-038,Namrata Rastogi,CSIR-CDRI,3,3
+CDRI-065,Prem Prakash,CSIR-CDRI,3,3
+CDRI-108,Brijesh Kumar,CSIR-CDRI,3,3
+CDRI-109,Maddi Sridhar Reddy,CSIR-CDRI,3,3
+CDRI-111,Anil Kumar Saxena,CSIR-CDRI,3,3
+CDRI-113,Prashant Kesharwani,CSIR-CDRI,3,3
+IMTECH-004,Amit Tuli,CSIR-IMTECH,3,3
+IMTECH-009,Sachin Raut,CSIR-IMTECH,3,3
+IMTECH-019,Charu Sharma,CSIR-IMTECH,3,3
+IMTECH-044,Vemuluri Venkata Ramana,CSIR-IMTECH,3,3
+CCMB-042,Narayana Nagesh,CSIR-CCMB,2,4
+IMTECH-031,Balvinder Singh,CSIR-IMTECH,2,4
+CCMB-013,Ira Bhatnagar,CSIR-CCMB,2,3
+CCMB-021,Mandar V Deshmukh,CSIR-CCMB,2,3
+CCMB-029,Raghunand R Tirumalai,CSIR-CCMB,2,3
+CCMB-044,G. Swarup,CSIR-CCMB,2,3
+CCMB-053,Ch. Mohan Rao,CSIR-CCMB,2,3
+IMTECH-035,Ravi Pratap Narayan Mishra,CSIR-IMTECH,2,3
+IMTECH-043,Deepak Sharma,CSIR-IMTECH,2,3
+IMTECH-051,Rajeev Kumar Tyagi,CSIR-IMTECH,2,3
+CCMB-003,Amitabha Chattopadhyay,CSIR-CCMB,2,2
+CCMB-006,C B Tripura,CSIR-CCMB,2,2
+CCMB-012,Imran Siddiqi,CSIR-CCMB,2,2
+CCMB-038,Suman S. Thakur,CSIR-CCMB,2,2
+CDRI-047,Valmik S Shinde,CSIR-CDRI,2,2
+CDRI-055,Arunava Dasgupta,CSIR-CDRI,2,2
+CDRI-060,Sudheer K Singh,CSIR-CDRI,2,2
+CDRI-090,Vineeta Rai,CSIR-CDRI,2,2
+CDRI-096,Virendrakumar M Prajapati,CSIR-CDRI,2,2
+CDRI-100,Chetan D Meshram,CSIR-CDRI,2,2
+CDRI-107,Arun Kumar Shaw,CSIR-CDRI,2,2
+IGIB-052,Abhay Sharma,CSIR-IGIB,2,2
+IMTECH-002,Dibyendu Sarkar,CSIR-IMTECH,2,2
+IMTECH-012,Mohit Paul,CSIR-IMTECH,2,2
+IMTECH-014,Raman Parkesh,CSIR-IMTECH,2,2
+IMTECH-045,Rashmi Kumar,CSIR-IMTECH,2,2
+IMTECH-047,Ramya T. N. C,CSIR-IMTECH,2,2
+CCMB-010,G Umapathy,CSIR-CCMB,1,2
+CCMB-018,Karthikeyan Vasudevan,CSIR-CCMB,1,2
+CCMB-037,Sriram Varahan,CSIR-CCMB,1,2
+CCMB-001,A S Sreedhar,CSIR-CCMB,1,1
+CCMB-002,Ajay Gaur,CSIR-CCMB,1,1
+CCMB-015,Jahnavi Joshi,CSIR-CCMB,1,1
+CCMB-022,Manjula Reddy,CSIR-CCMB,1,1
+CCMB-025,Nitin C Tupperwar,CSIR-CCMB,1,1
+CCMB-026,P Anuradha Reddy,CSIR-CCMB,1,1
+CCMB-032,Regalla Kumaraswamy,CSIR-CCMB,1,1
+CCMB-045,Lekha Dinesh Kumar,CSIR-CCMB,1,1
+CCMB-050,Meghna Krishnadas,CSIR-CCMB,1,1
+CCMB-052,Medicharla Venkata Jagannadham,CSIR-CCMB,1,1
+CDRI-005,Mohd. S Akhtar,CSIR-CDRI,1,1
+CDRI-011,Arun K Haldar,CSIR-CDRI,1,1
+CDRI-019,Divya Singh,CSIR-CDRI,1,1
+CDRI-025,Dhananjoy Hansda,CSIR-CDRI,1,1
+CDRI-027,Shishir K Gupta,CSIR-CDRI,1,1
+CDRI-034,Pintu K Mandal,CSIR-CDRI,1,1
+CDRI-043,Malleswara R Kuram,CSIR-CDRI,1,1
+CDRI-066,Suresh K Kalangi,CSIR-CDRI,1,1
+CDRI-097,Ashish Awasthi,CSIR-CDRI,1,1
+CDRI-104,Atul Kumar,CSIR-CDRI,1,1
+IGIB-005,Arpan Parichha,CSIR-IGIB,1,1
+IGIB-014,Jitendra Narayan,CSIR-IGIB,1,1
+IGIB-016,Krishnendu Chakraborty,CSIR-IGIB,1,1
+IGIB-027,Priya Sharma,CSIR-IGIB,1,1
+IGIB-034,Sherry Bhalla,CSIR-IGIB,1,1
+IGIB-039,Swarnendu Bag,CSIR-IGIB,1,1
+IGIB-047,Laxman S. Meena,CSIR-IGIB,1,1
+IGIB-048,Naveen Arora,CSIR-IGIB,1,1
+IGIB-050,Vipin Chandra Kalia,CSIR-IGIB,1,1
+IGIB-059,Ulaganathan Mabalirajan,CSIR-IGIB,1,1
+IMTECH-007,Kailash T. Bhamare,CSIR-IMTECH,1,1
+IMTECH-023,S. Kumaran,CSIR-IMTECH,1,1
+IMTECH-027,Pradip Sen,CSIR-IMTECH,1,1
+IMTECH-030,Alka Rao,CSIR-IMTECH,1,1
+IMTECH-036,Barnali Chaudhuri,CSIR-IMTECH,1,1
+IMTECH-038,Beena Krishnan,CSIR-IMTECH,1,1
+IMTECH-039,B. Devadatha,CSIR-IMTECH,1,1
+IMTECH-048,G. Rajamohan,CSIR-IMTECH,1,1
+CCMB-007,Dhananjay Chaturvedi,CSIR-CCMB,0,0
+CCMB-014,Ishwariya Venkatesh,CSIR-CCMB,0,0
+CCMB-024,Mukesh Lodha,CSIR-CCMB,0,0
+CCMB-033,Saikat Chowdhury,CSIR-CCMB,0,0
+CCMB-036,Sonal Nagarkar Jaiswal,CSIR-CCMB,0,0
+CCMB-043,Ruby Srivastava,CSIR-CCMB,0,0
+CCMB-048,PD Gupta,CSIR-CCMB,0,0
+CCMB-055,Janesh Kumar,CSIR-CCMB,0,0
+CCMB-056,Purnima Bhargava,CSIR-CCMB,0,0
+CDRI-048,Ramesh . Chintakunta,CSIR-CDRI,0,0
+CDRI-049,Ashok K Pandey,CSIR-CDRI,0,0
+CDRI-064,Mohammad Zeeshan,CSIR-CDRI,0,0
+CDRI-083,Varun Kushwah,CSIR-CDRI,0,0
+CDRI-101,Rahul Shukla,CSIR-CDRI,0,0
+IGIB-006,Arya Sidharthan,CSIR-IGIB,0,0
+IGIB-031,Shamita Sanga,CSIR-IGIB,0,0
+IGIB-036,Shruthy Suresh Aggarwal,CSIR-IGIB,0,0
+IGIB-044,Sagarika Biswas,CSIR-IGIB,0,0
+IMTECH-003,Nithya Vadakedath,CSIR-IMTECH,0,0
+IMTECH-016,Easa Nagamalleswari,CSIR-IMTECH,0,0
+IMTECH-022,E. Senthil Prasad,CSIR-IMTECH,0,0
+IMTECH-024,Amit Kumar,CSIR-IMTECH,0,0
+IMTECH-037,Karthikeyan Subramanian,CSIR-IMTECH,0,0

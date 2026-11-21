@@ -1,0 +1,26 @@
+a_id,a_name,a_lab,b_id,b_name,b_lab,cosine,a_papers,b_papers,shared_subfields
+CCMB-029,Raghunand R Tirumalai,CSIR-CCMB,IMTECH-002,Dibyendu Sarkar,CSIR-IMTECH,0.9938976396951439,11,11,Infectious Diseases; Genetics
+CDRI-114,Md. Sohail Akhtar,CSIR-CDRI,IGIB-013,Debojyoti Chakraborty,CSIR-IGIB,0.9935946389284791,19,30,Molecular Biology; Infectious Diseases; Surgery
+CCMB-003,Amitabha Chattopadhyay,CSIR-CCMB,CDRI-114,Md. Sohail Akhtar,CSIR-CDRI,0.9935763517374012,91,19,Molecular Biology; Infectious Diseases; Surgery
+CCMB-003,Amitabha Chattopadhyay,CSIR-CCMB,IGIB-013,Debojyoti Chakraborty,CSIR-IGIB,0.992127984958805,91,30,Molecular Biology; Infectious Diseases; Surgery
+CCMB-041,Vinay K Nandicoori,CSIR-CCMB,IMTECH-002,Dibyendu Sarkar,CSIR-IMTECH,0.990917430168623,24,11,Infectious Diseases; Genetics
+CCMB-056,Purnima Bhargava,CSIR-CCMB,IMTECH-047,Ramya T. N. C,CSIR-IMTECH,0.9897782665572894,9,21,Molecular Biology
+CCMB-041,Vinay K Nandicoori,CSIR-CCMB,CDRI-118,Kishore Kumar Srivastava,CSIR-CDRI,0.9887183728920897,24,21,Infectious Diseases; Molecular Biology; Genetics
+CCMB-056,Purnima Bhargava,CSIR-CCMB,CDRI-114,Md. Sohail Akhtar,CSIR-CDRI,0.9869275424396534,9,19,Molecular Biology
+CCMB-001,A S Sreedhar,CSIR-CCMB,IGIB-038,Souvik Maiti,CSIR-IGIB,0.9868373187588834,16,57,Molecular Biology; Cancer Research; Infectious Diseases
+CCMB-025,Nitin C Tupperwar,CSIR-CCMB,CDRI-061,Satish Mishra,CSIR-CDRI,0.9867327524392889,8,41,"Public Health, Environmental and Occupational Health"
+CCMB-003,Amitabha Chattopadhyay,CSIR-CCMB,IMTECH-047,Ramya T. N. C,CSIR-IMTECH,0.9859296973934427,91,21,Molecular Biology
+CCMB-056,Purnima Bhargava,CSIR-CCMB,IGIB-013,Debojyoti Chakraborty,CSIR-IGIB,0.9858435728860858,9,30,Molecular Biology
+CCMB-041,Vinay K Nandicoori,CSIR-CCMB,CDRI-056,Manju Y Krishnan,CSIR-CDRI,0.9856459551907683,24,15,Infectious Diseases; Molecular Biology; Organic Chemistry
+IGIB-033,Sheetal Gandotra,CSIR-IGIB,IMTECH-002,Dibyendu Sarkar,CSIR-IMTECH,0.9854600935188663,21,11,Infectious Diseases
+CCMB-001,A S Sreedhar,CSIR-CCMB,IGIB-013,Debojyoti Chakraborty,CSIR-IGIB,0.9842195312408902,16,30,Molecular Biology; Infectious Diseases; Cancer Research
+CCMB-031,Rakesh Kumar Mishra,CSIR-CCMB,IGIB-013,Debojyoti Chakraborty,CSIR-IGIB,0.9830454383436267,71,30,Molecular Biology; Infectious Diseases; Genetics
+CCMB-041,Vinay K Nandicoori,CSIR-CCMB,IGIB-033,Sheetal Gandotra,CSIR-IGIB,0.9822103605043588,24,21,Infectious Diseases; Molecular Biology
+CDRI-056,Manju Y Krishnan,CSIR-CDRI,IMTECH-026,Ashwani Kumar,CSIR-IMTECH,0.9820104751006575,15,25,Infectious Diseases; Molecular Biology; Microbiology
+IGIB-041,Vivek Rao,CSIR-IGIB,IMTECH-002,Dibyendu Sarkar,CSIR-IMTECH,0.9814986384101424,16,11,Infectious Diseases
+IGIB-033,Sheetal Gandotra,CSIR-IGIB,IMTECH-026,Ashwani Kumar,CSIR-IMTECH,0.981135957428001,21,25,Infectious Diseases; Molecular Biology; Epidemiology
+CCMB-041,Vinay K Nandicoori,CSIR-CCMB,IGIB-041,Vivek Rao,CSIR-IGIB,0.9805108471005105,24,16,Infectious Diseases; Molecular Biology
+CDRI-118,Kishore Kumar Srivastava,CSIR-CDRI,IMTECH-002,Dibyendu Sarkar,CSIR-IMTECH,0.9801269462883524,21,11,Infectious Diseases; Genetics
+CCMB-028,Puran Singh Sijwali,CSIR-CCMB,CDRI-009,Amogh A Sahasrabuddhe,CSIR-CDRI,0.9794763524499202,26,30,"Public Health, Environmental and Occupational Health; Molecular Biology; Epidemiology"
+CCMB-029,Raghunand R Tirumalai,CSIR-CCMB,IGIB-033,Sheetal Gandotra,CSIR-IGIB,0.9783701461698909,11,21,Infectious Diseases
+CCMB-031,Rakesh Kumar Mishra,CSIR-CCMB,CDRI-114,Md. Sohail Akhtar,CSIR-CDRI,0.9783111947777596,71,19,Molecular Biology; Infectious Diseases

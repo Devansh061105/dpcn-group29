@@ -1,0 +1,1093 @@
+{
+  "scope": "Whole-institute output: every OpenAlex article or review with an author whose affiliation lineage includes the institute (students, postdocs, staff, visiting and honorary affiliates), not the faculty-only corpus used elsewhere in this project.",
+  "window": {
+    "start": 2016,
+    "end": 2026,
+    "partial_year": 2026,
+    "cagr": "2016->2025"
+  },
+  "query": "authorships.institutions.lineage:<id>,publication_year:2016-2026,type:article|review,is_retracted:false",
+  "select": [
+    "id",
+    "publication_year",
+    "cited_by_count",
+    "fwci",
+    "citation_normalized_percentile",
+    "countries_distinct_count",
+    "institutions_distinct_count",
+    "open_access",
+    "primary_topic",
+    "type"
+  ],
+  "institutes": [
+    {
+      "group": "ours",
+      "short": "CSIR-CCMB",
+      "name": "Centre for Cellular and Molecular Biology",
+      "city": "Hyderabad",
+      "type": "CSIR lab",
+      "openalex_id": "I185638415",
+      "oa_display_name": "Centre for Cellular and Molecular Biology",
+      "papers": 1698
+    },
+    {
+      "group": "ours",
+      "short": "CSIR-IGIB",
+      "name": "Institute of Genomics and Integrative Biology",
+      "city": "New Delhi",
+      "type": "CSIR lab",
+      "openalex_id": "I177828482",
+      "oa_display_name": "Institute of Genomics and Integrative Biology",
+      "papers": 1913
+    },
+    {
+      "group": "ours",
+      "short": "CSIR-IMTECH",
+      "name": "Institute of Microbial Technology",
+      "city": "Chandigarh",
+      "type": "CSIR lab",
+      "openalex_id": "I4210147764",
+      "oa_display_name": "Institute of Microbial Technology",
+      "papers": 1320
+    },
+    {
+      "group": "ours",
+      "short": "CSIR-CDRI",
+      "name": "Central Drug Research Institute",
+      "city": "Lucknow",
+      "type": "CSIR lab",
+      "openalex_id": "I185249246",
+      "oa_display_name": "Central Drug Research Institute",
+      "papers": 3386
+    },
+    {
+      "group": "peer",
+      "short": "CSIR-IICB",
+      "name": "Indian Institute of Chemical Biology",
+      "city": "Kolkata",
+      "type": "CSIR lab",
+      "openalex_id": "I160344538",
+      "oa_display_name": "Indian Institute of Chemical Biology",
+      "papers": 2141
+    },
+    {
+      "group": "peer",
+      "short": "CSIR-IITR",
+      "name": "Indian Institute of Toxicology Research",
+      "city": "Lucknow",
+      "type": "CSIR lab",
+      "openalex_id": "I85145500",
+      "oa_display_name": "Indian Institute of Toxicology Research",
+      "papers": 1510
+    },
+    {
+      "group": "peer",
+      "short": "CSIR-CIMAP",
+      "name": "Central Institute of Medicinal and Aromatic Plants",
+      "city": "Lucknow",
+      "type": "CSIR lab",
+      "openalex_id": "I68145777",
+      "oa_display_name": "Central Institute of Medicinal and Aromatic Plants",
+      "papers": 2037
+    },
+    {
+      "group": "peer",
+      "short": "CSIR-IHBT",
+      "name": "Institute of Himalayan Bioresource Technology",
+      "city": "Palampur",
+      "type": "CSIR lab",
+      "openalex_id": "I4210128326",
+      "oa_display_name": "Institute of Himalayan Bioresource Technology",
+      "papers": 2093
+    },
+    {
+      "group": "peer",
+      "short": "NCBS",
+      "name": "National Centre for Biological Sciences",
+      "city": "Bengaluru",
+      "type": "TIFR centre (DAE)",
+      "openalex_id": "I194223965",
+      "oa_display_name": "National Centre for Biological Sciences",
+      "papers": 2278
+    },
+    {
+      "group": "peer",
+      "short": "NII",
+      "name": "National Institute of Immunology",
+      "city": "New Delhi",
+      "type": "DBT autonomous institute (BRIC)",
+      "openalex_id": "I4210156726",
+      "oa_display_name": "National Institute of Immunology",
+      "papers": 1074
+    },
+    {
+      "group": "peer",
+      "short": "CDFD",
+      "name": "Centre for DNA Fingerprinting and Diagnostics",
+      "city": "Hyderabad",
+      "type": "DBT autonomous institute (BRIC)",
+      "openalex_id": "I78270026",
+      "oa_display_name": "Centre for DNA Fingerprinting and Diagnostics",
+      "papers": 683
+    },
+    {
+      "group": "peer",
+      "short": "NIBMG",
+      "name": "National Institute of Biomedical Genomics",
+      "city": "Kalyani",
+      "type": "DBT autonomous institute (BRIC)",
+      "openalex_id": "I4210158866",
+      "oa_display_name": "National Institute of Biomedical Genomics",
+      "papers": 445
+    },
+    {
+      "group": "peer",
+      "short": "ICGEB-ND",
+      "name": "International Centre for Genetic Engineering and Biotechnology (New Delhi)",
+      "city": "New Delhi",
+      "type": "International intergovernmental centre",
+      "openalex_id": "I4210142124",
+      "oa_display_name": "International Centre for Genetic Engineering and Biotechnology",
+      "papers": 1874
+    },
+    {
+      "group": "peer",
+      "short": "THSTI",
+      "name": "Translational Health Science and Technology Institute",
+      "city": "Faridabad",
+      "type": "DBT autonomous institute (BRIC)",
+      "openalex_id": "I2801880299",
+      "oa_display_name": "Translational Health Science and Technology Institute",
+      "papers": 1358
+    },
+    {
+      "group": "peer",
+      "short": "NIPGR",
+      "name": "National Institute of Plant Genome Research",
+      "city": "New Delhi",
+      "type": "DBT autonomous institute (BRIC)",
+      "openalex_id": "I4210153536",
+      "oa_display_name": "National Institute of Plant Genome Research",
+      "papers": 1246
+    },
+    {
+      "group": "peer",
+      "short": "inStem",
+      "name": "Institute for Stem Cell Science and Regenerative Medicine",
+      "city": "Bengaluru",
+      "type": "DBT autonomous institute",
+      "openalex_id": "I4210087873",
+      "oa_display_name": "Institute for Stem Cell Biology and Regenerative Medicine",
+      "papers": 953
+    },
+    {
+      "group": "peer",
+      "short": "RGCB",
+      "name": "Rajiv Gandhi Centre for Biotechnology",
+      "city": "Thiruvananthapuram",
+      "type": "DBT autonomous institute (BRIC)",
+      "openalex_id": "I89324447",
+      "oa_display_name": "Rajiv Gandhi Centre for Biotechnology",
+      "papers": 1097
+    }
+  ],
+  "peers_skipped": [],
+  "ranks_of_our_labs": {
+    "CSIR-CCMB": {
+      "mean_fwci": {
+        "value": 2.050662345315262,
+        "rank": 4,
+        "of": 17
+      },
+      "top10_share": {
+        "value": 0.13965822038892162,
+        "rank": 10,
+        "of": 17
+      },
+      "citations_per_paper": {
+        "value": 30.243227326266197,
+        "rank": 10,
+        "of": 17
+      },
+      "intl_share": {
+        "value": 0.28857479387514723,
+        "rank": 6,
+        "of": 17
+      },
+      "oa_share": {
+        "value": 0.6413427561837456,
+        "rank": 7,
+        "of": 17
+      },
+      "cagr": {
+        "value": -0.01142705258808796,
+        "rank": 11,
+        "of": 17
+      }
+    },
+    "CSIR-IGIB": {
+      "mean_fwci": {
+        "value": 1.7608142782426779,
+        "rank": 9,
+        "of": 17
+      },
+      "top10_share": {
+        "value": 0.14330543933054393,
+        "rank": 9,
+        "of": 17
+      },
+      "citations_per_paper": {
+        "value": 30.984840564558287,
+        "rank": 8,
+        "of": 17
+      },
+      "intl_share": {
+        "value": 0.2472556194458965,
+        "rank": 12,
+        "of": 17
+      },
+      "oa_share": {
+        "value": 0.6278097229482488,
+        "rank": 8,
+        "of": 17
+      },
+      "cagr": {
+        "value": -0.019186155686132356,
+        "rank": 13,
+        "of": 17
+      }
+    },
+    "CSIR-IMTECH": {
+      "mean_fwci": {
+        "value": 1.6576086363636366,
+        "rank": 11,
+        "of": 17
+      },
+      "top10_share": {
+        "value": 0.13712121212121212,
+        "rank": 12,
+        "of": 17
+      },
+      "citations_per_paper": {
+        "value": 30.42651515151515,
+        "rank": 9,
+        "of": 17
+      },
+      "intl_share": {
+        "value": 0.28484848484848485,
+        "rank": 7,
+        "of": 17
+      },
+      "oa_share": {
+        "value": 0.6636363636363637,
+        "rank": 5,
+        "of": 17
+      },
+      "cagr": {
+        "value": -0.03538539435138621,
+        "rank": 16,
+        "of": 17
+      }
+    },
+    "CSIR-CDRI": {
+      "mean_fwci": {
+        "value": 1.388658050221566,
+        "rank": 14,
+        "of": 17
+      },
+      "top10_share": {
+        "value": 0.1329394387001477,
+        "rank": 13,
+        "of": 17
+      },
+      "citations_per_paper": {
+        "value": 22.753691671588896,
+        "rank": 14,
+        "of": 17
+      },
+      "intl_share": {
+        "value": 0.16391021854695806,
+        "rank": 15,
+        "of": 17
+      },
+      "oa_share": {
+        "value": 0.325457767277023,
+        "rank": 17,
+        "of": 17
+      },
+      "cagr": {
+        "value": -0.026941023447330847,
+        "rank": 15,
+        "of": 17
+      }
+    }
+  },
+  "fwci_coverage": {
+    "CSIR-CCMB": 0.9994110718492344,
+    "CSIR-IGIB": 0.9994772608468374,
+    "CSIR-IMTECH": 1.0,
+    "CSIR-CDRI": 0.9997046662728883,
+    "CSIR-IICB": 0.9990658570761326,
+    "CSIR-IITR": 0.9993377483443708,
+    "CSIR-CIMAP": 0.9995090819833088,
+    "CSIR-IHBT": 1.0,
+    "NCBS": 0.9991220368744512,
+    "NII": 0.9990689013035382,
+    "CDFD": 0.9985358711566618,
+    "NIBMG": 0.9977528089887641,
+    "ICGEB-ND": 1.0,
+    "THSTI": 1.0,
+    "NIPGR": 1.0,
+    "inStem": 1.0,
+    "RGCB": 1.0
+  },
+  "percentile_coverage": {
+    "CSIR-CCMB": 0.9994110718492344,
+    "CSIR-IGIB": 0.9994772608468374,
+    "CSIR-IMTECH": 1.0,
+    "CSIR-CDRI": 0.9997046662728883,
+    "CSIR-IICB": 0.9990658570761326,
+    "CSIR-IITR": 0.9993377483443708,
+    "CSIR-CIMAP": 0.9995090819833088,
+    "CSIR-IHBT": 1.0,
+    "NCBS": 0.9991220368744512,
+    "NII": 0.9990689013035382,
+    "CDFD": 0.9985358711566618,
+    "NIBMG": 0.9977528089887641,
+    "ICGEB-ND": 1.0,
+    "THSTI": 1.0,
+    "NIPGR": 1.0,
+    "inStem": 1.0,
+    "RGCB": 1.0
+  },
+  "peer_medians": {
+    "papers": 1358.0,
+    "cagr": 0.00826821355230245,
+    "citations_per_paper": 32.52256033578174,
+    "mean_fwci": 1.9778322140608602,
+    "median_fwci": 0.8579,
+    "top10_share": 0.17773530817009078,
+    "top1_share": 0.014941302027748132,
+    "intl_share": 0.27894257064721967,
+    "oa_share": 0.6043755697356427,
+    "h_index": 88.0,
+    "review_share": 0.0944386149003148
+  },
+  "gravity": {
+    "distance_elasticity_joint_papers": {
+      "outcome": "joint_papers",
+      "term": "log_distance",
+      "coef": -0.5779402072215906,
+      "se": 0.03387884084113326,
+      "ci_lo": -0.6443427352702118,
+      "ci_hi": -0.5115376791729693,
+      "p": 2.9948009224456645e-65,
+      "n": 8604,
+      "se_model": 0.006738656557009703,
+      "dispersion": 10.219427694703711,
+      "total_count": 6663.0
+    },
+    "distance_elasticity_citations": {
+      "outcome": "citations",
+      "term": "log_distance",
+      "coef": -0.30359060047342745,
+      "se": 0.02123419731366505,
+      "ci_lo": -0.34520962720821097,
+      "ci_hi": -0.26197157373864394,
+      "p": 2.2763233760267164e-46,
+      "n": 8604,
+      "se_model": 0.00275439886310977,
+      "dispersion": 21.335929949633766,
+      "total_count": 60266.0
+    },
+    "difference": {
+      "outcome": "joint_papers - citations",
+      "term": "log_distance",
+      "coef": -0.2743496067481631,
+      "se": 0.019673447589185874,
+      "ci_lo": -0.31290956402296743,
+      "ci_hi": -0.2357896494733588,
+      "p": 3.366363986493184e-44,
+      "n": 8604,
+      "se_model": null,
+      "dispersion": null,
+      "total_count": null
+    },
+    "partners": 2151,
+    "pairs": 8604,
+    "candidates_in_institutions_parquet": 2706,
+    "partners_without_geo": 0,
+    "joint_papers_total": 6663,
+    "citations_total": 60266,
+    "median_distance_km": 1081.5752019249012,
+    "reference": "inspiration: another group reported -0.70 (joint papers) vs -0.17 (citations)"
+  },
+  "rca_top5": {
+    "CSIR-CCMB": [
+      {
+        "subfield": "Genetics",
+        "papers": 153,
+        "share": 0.09813983322642719,
+        "india_share": 0.006321610259293317,
+        "rca": 15.524499170468964
+      },
+      {
+        "subfield": "Molecular Biology",
+        "papers": 395,
+        "share": 0.25336754329698524,
+        "india_share": 0.018032861023003072,
+        "rca": 14.050324181713851
+      },
+      {
+        "subfield": "Cell Biology",
+        "papers": 46,
+        "share": 0.029506093649775498,
+        "india_share": 0.0023729315547578785,
+        "rca": 12.434447841790425
+      },
+      {
+        "subfield": "Nature and Landscape Conservation",
+        "papers": 16,
+        "share": 0.010262989095574085,
+        "india_share": 0.0008898493330342044,
+        "rca": 11.533400896733145
+      },
+      {
+        "subfield": "Reproductive Medicine",
+        "papers": 43,
+        "share": 0.027581783194355357,
+        "india_share": 0.003346578358615932,
+        "rca": 8.241786158493701
+      }
+    ],
+    "CSIR-IGIB": [
+      {
+        "subfield": "Immunology and Allergy",
+        "papers": 26,
+        "share": 0.014484679665738161,
+        "india_share": 0.00036755610218503013,
+        "rca": 39.40807833043805
+      },
+      {
+        "subfield": "Cell Biology",
+        "papers": 79,
+        "share": 0.04401114206128134,
+        "india_share": 0.0023729315547578785,
+        "rca": 18.54716035657927
+      },
+      {
+        "subfield": "Cellular and Molecular Neuroscience",
+        "papers": 67,
+        "share": 0.03732590529247911,
+        "india_share": 0.00226519194941293,
+        "rca": 16.478031939921415
+      },
+      {
+        "subfield": "Molecular Biology",
+        "papers": 344,
+        "share": 0.1916434540389972,
+        "india_share": 0.018032861023003072,
+        "rca": 10.627456940666988
+      },
+      {
+        "subfield": "Cancer Research",
+        "papers": 61,
+        "share": 0.033983286908077996,
+        "india_share": 0.00352392750321667,
+        "rca": 9.643582870833118
+      }
+    ],
+    "CSIR-IMTECH": [
+      {
+        "subfield": "Structural Biology",
+        "papers": 16,
+        "share": 0.0149812734082397,
+        "india_share": 0.0002598164968400816,
+        "rca": 57.66097838452787
+      },
+      {
+        "subfield": "Microbiology",
+        "papers": 37,
+        "share": 0.03464419475655431,
+        "india_share": 0.0018408841209556636,
+        "rca": 18.819324020552344
+      },
+      {
+        "subfield": "Microbiology (medical)",
+        "papers": 40,
+        "share": 0.03745318352059925,
+        "india_share": 0.002334358115807218,
+        "rca": 16.0443178220956
+      },
+      {
+        "subfield": "Molecular Biology",
+        "papers": 260,
+        "share": 0.24344569288389514,
+        "india_share": 0.018032861023003072,
+        "rca": 13.500114739050616
+      },
+      {
+        "subfield": "Biotechnology",
+        "papers": 19,
+        "share": 0.017790262172284643,
+        "india_share": 0.0020195633841409073,
+        "rca": 8.808964507866813
+      }
+    ],
+    "CSIR-CDRI": [
+      {
+        "subfield": "Organic Chemistry",
+        "papers": 689,
+        "share": 0.21949665498566423,
+        "india_share": 0.02005552801717449,
+        "rca": 10.944446578404664
+      },
+      {
+        "subfield": "Molecular Medicine",
+        "papers": 15,
+        "share": 0.004778591908251036,
+        "india_share": 0.0005679606355838645,
+        "rca": 8.413597015114675
+      },
+      {
+        "subfield": "Pharmacology",
+        "papers": 62,
+        "share": 0.019751513220770945,
+        "india_share": 0.0023551966402978047,
+        "rca": 8.386354193454288
+      },
+      {
+        "subfield": "Reproductive Medicine",
+        "papers": 81,
+        "share": 0.02580439630455559,
+        "india_share": 0.003346578358615932,
+        "rca": 7.710680444138083
+      },
+      {
+        "subfield": "Microbiology",
+        "papers": 43,
+        "share": 0.0136986301369863,
+        "india_share": 0.0018408841209556636,
+        "rca": 7.441332119196558
+      }
+    ],
+    "CSIR-IICB": [
+      {
+        "subfield": "Cellular and Molecular Neuroscience",
+        "papers": 62,
+        "share": 0.03118712273641851,
+        "india_share": 0.00226519194941293,
+        "rca": 13.767982331255098
+      },
+      {
+        "subfield": "Spectroscopy",
+        "papers": 73,
+        "share": 0.036720321931589535,
+        "india_share": 0.003050848659994201,
+        "rca": 12.036100778482842
+      },
+      {
+        "subfield": "Molecular Biology",
+        "papers": 401,
+        "share": 0.2017102615694165,
+        "india_share": 0.018032861023003072,
+        "rca": 11.185704881333633
+      },
+      {
+        "subfield": "Cancer Research",
+        "papers": 67,
+        "share": 0.03370221327967807,
+        "india_share": 0.00352392750321667,
+        "rca": 9.563821403509127
+      },
+      {
+        "subfield": "Cell Biology",
+        "papers": 35,
+        "share": 0.017605633802816902,
+        "india_share": 0.0023729315547578785,
+        "rca": 7.419360144424093
+      }
+    ],
+    "CSIR-IITR": [
+      {
+        "subfield": "Health, Toxicology and Mutagenesis",
+        "papers": 89,
+        "share": 0.06330014224751067,
+        "india_share": 0.0038382788620214786,
+        "rca": 16.49180388476851
+      },
+      {
+        "subfield": "Pollution",
+        "papers": 115,
+        "share": 0.08179231863442389,
+        "india_share": 0.005388753758693433,
+        "rca": 15.178336642766807
+      },
+      {
+        "subfield": "Toxicology",
+        "papers": 36,
+        "share": 0.025604551920341393,
+        "india_share": 0.0022953413039950555,
+        "rca": 11.155008571394815
+      },
+      {
+        "subfield": "Environmental Chemistry",
+        "papers": 27,
+        "share": 0.019203413940256046,
+        "india_share": 0.0017597468873008259,
+        "rca": 10.912600032900784
+      },
+      {
+        "subfield": "Cancer Research",
+        "papers": 53,
+        "share": 0.03769559032716927,
+        "india_share": 0.00352392750321667,
+        "rca": 10.69703911126447
+      }
+    ],
+    "CSIR-CIMAP": [
+      {
+        "subfield": "Aging",
+        "papers": 17,
+        "share": 0.009229098805646038,
+        "india_share": 0.00013921907851157956,
+        "rca": 66.29191131212959
+      },
+      {
+        "subfield": "Food Science",
+        "papers": 182,
+        "share": 0.0988056460369164,
+        "india_share": 0.010830712260767088,
+        "rca": 9.12272837261383
+      },
+      {
+        "subfield": "Pharmacology",
+        "papers": 31,
+        "share": 0.016829533116178068,
+        "india_share": 0.0023551966402978047,
+        "rca": 7.145701903706029
+      },
+      {
+        "subfield": "Plant Science",
+        "papers": 557,
+        "share": 0.30238870792616723,
+        "india_share": 0.04613649322215907,
+        "rca": 6.554219595106371
+      },
+      {
+        "subfield": "Pharmacology (medical)",
+        "papers": 38,
+        "share": 0.02062975027144408,
+        "india_share": 0.003179426789829736,
+        "rca": 6.488512437975917
+      }
+    ],
+    "CSIR-IHBT": [
+      {
+        "subfield": "Biochemistry (medical)",
+        "papers": 36,
+        "share": 0.01948051948051948,
+        "india_share": 0.0013975112594538177,
+        "rca": 13.93943651526139
+      },
+      {
+        "subfield": "Pharmacology",
+        "papers": 38,
+        "share": 0.020562770562770564,
+        "india_share": 0.0023551966402978047,
+        "rca": 8.730808379622387
+      },
+      {
+        "subfield": "Biotechnology",
+        "papers": 32,
+        "share": 0.017316017316017316,
+        "india_share": 0.0020195633841409073,
+        "rca": 8.574139069858061
+      },
+      {
+        "subfield": "Drug Discovery",
+        "papers": 66,
+        "share": 0.03571428571428571,
+        "india_share": 0.00518613236098709,
+        "rca": 6.8864971482309265
+      },
+      {
+        "subfield": "Food Science",
+        "papers": 133,
+        "share": 0.07196969696969698,
+        "india_share": 0.010830712260767088,
+        "rca": 6.644964360321738
+      }
+    ],
+    "NCBS": [
+      {
+        "subfield": "Structural Biology",
+        "papers": 31,
+        "share": 0.014797136038186158,
+        "india_share": 0.0002598164968400816,
+        "rca": 56.95225752848893
+      },
+      {
+        "subfield": "Nature and Landscape Conservation",
+        "papers": 55,
+        "share": 0.026252983293556086,
+        "india_share": 0.0008898493330342044,
+        "rca": 29.50272851701622
+      },
+      {
+        "subfield": "Cellular and Molecular Neuroscience",
+        "papers": 124,
+        "share": 0.05918854415274463,
+        "india_share": 0.00226519194941293,
+        "rca": 26.12959319764691
+      },
+      {
+        "subfield": "Sensory Systems",
+        "papers": 29,
+        "share": 0.013842482100238664,
+        "india_share": 0.0006544183435767243,
+        "rca": 21.152344270459412
+      },
+      {
+        "subfield": "Cell Biology",
+        "papers": 102,
+        "share": 0.0486873508353222,
+        "india_share": 0.0023729315547578785,
+        "rca": 20.517806650470373
+      }
+    ],
+    "NII": [
+      {
+        "subfield": "Structural Biology",
+        "papers": 21,
+        "share": 0.020854021847070508,
+        "india_share": 0.0002598164968400816,
+        "rca": 80.26442547220651
+      },
+      {
+        "subfield": "Immunology",
+        "papers": 95,
+        "share": 0.09433962264150944,
+        "india_share": 0.0038334017605449583,
+        "rca": 24.609897040402586
+      },
+      {
+        "subfield": "Virology",
+        "papers": 19,
+        "share": 0.018867924528301886,
+        "india_share": 0.0013890871750852829,
+        "rca": 13.582966473751723
+      },
+      {
+        "subfield": "Cell Biology",
+        "papers": 30,
+        "share": 0.029791459781529295,
+        "india_share": 0.0023729315547578785,
+        "rca": 12.554706738926171
+      },
+      {
+        "subfield": "Molecular Biology",
+        "papers": 185,
+        "share": 0.18371400198609733,
+        "india_share": 0.018032861023003072,
+        "rca": 10.1877345891896
+      }
+    ],
+    "CDFD": [
+      {
+        "subfield": "Genetics",
+        "papers": 121,
+        "share": 0.19516129032258064,
+        "india_share": 0.006321610259293317,
+        "rca": 30.872085167806187
+      },
+      {
+        "subfield": "Genetics (clinical)",
+        "papers": 28,
+        "share": 0.04516129032258064,
+        "india_share": 0.0015544652524254713,
+        "rca": 29.052621312772573
+      },
+      {
+        "subfield": "Cell Biology",
+        "papers": 28,
+        "share": 0.04516129032258064,
+        "india_share": 0.0023729315547578785,
+        "rca": 19.031855441438832
+      },
+      {
+        "subfield": "Molecular Biology",
+        "papers": 150,
+        "share": 0.24193548387096775,
+        "india_share": 0.018032861023003072,
+        "rca": 13.416367129006877
+      },
+      {
+        "subfield": "Cellular and Molecular Neuroscience",
+        "papers": 17,
+        "share": 0.027419354838709678,
+        "india_share": 0.00226519194941293,
+        "rca": 12.104649606324072
+      }
+    ],
+    "NIBMG": [
+      {
+        "subfield": "Cancer Research",
+        "papers": 45,
+        "share": 0.11306532663316583,
+        "india_share": 0.00352392750321667,
+        "rca": 32.085031979221725
+      },
+      {
+        "subfield": "Genetics",
+        "papers": 41,
+        "share": 0.10301507537688442,
+        "india_share": 0.006321610259293317,
+        "rca": 16.295701751850853
+      },
+      {
+        "subfield": "Immunology",
+        "papers": 15,
+        "share": 0.03768844221105527,
+        "india_share": 0.0038334017605449583,
+        "rca": 9.83159203372867
+      },
+      {
+        "subfield": "Molecular Biology",
+        "papers": 67,
+        "share": 0.16834170854271358,
+        "india_share": 0.018032861023003072,
+        "rca": 9.33527454839105
+      },
+      {
+        "subfield": "Oncology",
+        "papers": 27,
+        "share": 0.0678391959798995,
+        "india_share": 0.012598883232436449,
+        "rca": 5.384540417458917
+      }
+    ],
+    "ICGEB-ND": [
+      {
+        "subfield": "Structural Biology",
+        "papers": 15,
+        "share": 0.008751458576429404,
+        "india_share": 0.0002598164968400816,
+        "rca": 33.68322905922318
+      },
+      {
+        "subfield": "Public Health, Environmental and Occupational Health",
+        "papers": 346,
+        "share": 0.20186697782963828,
+        "india_share": 0.016332969472004993,
+        "rca": 12.35947805912709
+      },
+      {
+        "subfield": "Molecular Biology",
+        "papers": 235,
+        "share": 0.1371061843640607,
+        "india_share": 0.018032861023003072,
+        "rca": 7.603129874353567
+      },
+      {
+        "subfield": "Drug Discovery",
+        "papers": 65,
+        "share": 0.037922987164527425,
+        "india_share": 0.00518613236098709,
+        "rca": 7.312383202905652
+      },
+      {
+        "subfield": "Virology",
+        "papers": 16,
+        "share": 0.009334889148191364,
+        "india_share": 0.0013890871750852829,
+        "rca": 6.72016077581182
+      }
+    ],
+    "THSTI": [
+      {
+        "subfield": "Virology",
+        "papers": 34,
+        "share": 0.027823240589198037,
+        "india_share": 0.0013890871750852829,
+        "rca": 20.02987363805287
+      },
+      {
+        "subfield": "Microbiology",
+        "papers": 45,
+        "share": 0.036824877250409165,
+        "india_share": 0.0018408841209556636,
+        "rca": 20.003908356432646
+      },
+      {
+        "subfield": "Immunology",
+        "papers": 52,
+        "share": 0.0425531914893617,
+        "india_share": 0.0038334017605449583,
+        "rca": 11.100634409713507
+      },
+      {
+        "subfield": "Infectious Diseases",
+        "papers": 245,
+        "share": 0.20049099836333878,
+        "india_share": 0.019220656918966517,
+        "rca": 10.431016963083021
+      },
+      {
+        "subfield": "Microbiology (medical)",
+        "papers": 24,
+        "share": 0.019639934533551555,
+        "india_share": 0.002334358115807218,
+        "rca": 8.41341968936077
+      }
+    ],
+    "NIPGR": [
+      {
+        "subfield": "Plant Science",
+        "papers": 793,
+        "share": 0.6865800865800866,
+        "india_share": 0.04613649322215907,
+        "rca": 14.881497023929128
+      },
+      {
+        "subfield": "Molecular Biology",
+        "papers": 140,
+        "share": 0.12121212121212122,
+        "india_share": 0.018032861023003072,
+        "rca": 6.721735450492335
+      },
+      {
+        "subfield": "Genetics",
+        "papers": 44,
+        "share": 0.0380952380952381,
+        "india_share": 0.006321610259293317,
+        "rca": 6.026192146096761
+      },
+      {
+        "subfield": "Agronomy and Crop Science",
+        "papers": 17,
+        "share": 0.01471861471861472,
+        "india_share": 0.0036241297699160873,
+        "rca": 4.06128247415255
+      },
+      {
+        "subfield": "Insect Science",
+        "papers": 19,
+        "share": 0.01645021645021645,
+        "india_share": 0.005173274548003536,
+        "rca": 3.179846013887838
+      }
+    ],
+    "inStem": [
+      {
+        "subfield": "Structural Biology",
+        "papers": 21,
+        "share": 0.024110218140068886,
+        "india_share": 0.0002598164968400816,
+        "rca": 92.79710269863598
+      },
+      {
+        "subfield": "Cell Biology",
+        "papers": 45,
+        "share": 0.05166475315729047,
+        "india_share": 0.0023729315547578785,
+        "rca": 21.772542513373114
+      },
+      {
+        "subfield": "Cellular and Molecular Neuroscience",
+        "papers": 28,
+        "share": 0.03214695752009185,
+        "india_share": 0.00226519194941293,
+        "rca": 14.1917145381094
+      },
+      {
+        "subfield": "Molecular Biology",
+        "papers": 218,
+        "share": 0.2502870264064294,
+        "india_share": 0.018032861023003072,
+        "rca": 13.879496220103862
+      },
+      {
+        "subfield": "Rheumatology",
+        "papers": 40,
+        "share": 0.045924225028702644,
+        "india_share": 0.0034769299798974745,
+        "rca": 13.208268585856546
+      }
+    ],
+    "RGCB": [
+      {
+        "subfield": "Microbiology",
+        "papers": 42,
+        "share": 0.04054054054054054,
+        "india_share": 0.0018408841209556636,
+        "rca": 22.02232073113576
+      },
+      {
+        "subfield": "Cancer Research",
+        "papers": 41,
+        "share": 0.03957528957528957,
+        "india_share": 0.00352392750321667,
+        "rca": 11.230449417351782
+      },
+      {
+        "subfield": "Molecular Biology",
+        "papers": 188,
+        "share": 0.18146718146718147,
+        "india_share": 0.018032861023003072,
+        "rca": 10.063138690843253
+      },
+      {
+        "subfield": "Cell Biology",
+        "papers": 21,
+        "share": 0.02027027027027027,
+        "india_share": 0.0023729315547578785,
+        "rca": 8.542290328445038
+      },
+      {
+        "subfield": "Immunology",
+        "papers": 30,
+        "share": 0.02895752895752896,
+        "india_share": 0.0038334017605449583,
+        "rca": 7.5540031456062
+      }
+    ]
+  },
+  "india_reference_works": 2255438,
+  "findings": [
+    "Among our labs, CSIR-CCMB has the highest mean FWCI (2.05, 95% CI 1.57-2.63), ranking 4 of 17 institutes; the peer median is 1.98.",
+    "1 of our 4 labs has a mean FWCI above the peer median; the top mean belongs to NIBMG (3.77, citation Gini 0.90, i.e. driven by a few very highly cited papers), while on the outlier-robust median FWCI the leader is NIPGR (1.31) and our labs rank CSIR-CDRI 7, CSIR-IGIB 13, CSIR-CCMB 14, CSIR-IMTECH 16 of 17.",
+    "Our labs' share of papers in the global top 10% by citations ranges from 13.3% (CSIR-CDRI) to 14.3% (CSIR-IGIB), against a peer median of 17.8%.",
+    "CSIR-CDRI has the largest output of all 17 institutes (3,386 articles and reviews, 314 a year, 2.5 times the median peer), yet ranks 14 of 17 on mean FWCI.",
+    "Output growth from the first year to the last complete year runs from -3.5% a year (CSIR-IMTECH) to -1.1% a year (CSIR-CCMB) in our labs, against a peer median of 0.8%; a log-linear trend over all complete years gives -2.2% to 0.2% for our labs vs 2.7% for the median peer.",
+    "International co-authorship is 16.4%-28.9% of papers in our labs and 27.9% at the median peer; open access is 32.5%-66.4% vs 60.4%.",
+    "Citations are concentrated everywhere (Gini 0.61-0.90); in CSIR-CCMB (Gini 0.76) a few papers carry the totals, the citation weight of only 49 'effective' papers out of 1,698.",
+    "Relative to all Indian output, the strongest specialisations are CSIR-CCMB in Genetics (RCA 15.5); CSIR-IGIB in Immunology and Allergy (RCA 39.4); CSIR-IMTECH in Structural Biology (RCA 57.7); CSIR-CDRI in Organic Chemistry (RCA 10.9).",
+    "Within India, joint papers fall with distance with elasticity -0.58 (95% CI -0.64 to -0.51) and citations with -0.30 (-0.35 to -0.26): collaboration decays with distance more steeply than citation (difference -0.27, p = 3.4e-44)."
+  ],
+  "caveats": [
+    "FWCI and citation percentiles are OpenAlex's own field-and-year normalisations; they are missing for a few papers (FWCI coverage 99.8%-100.0% across institutes), are recomputed by OpenAlex over time, and recent years have had little time to accumulate citations.",
+    "Lineage counts include students, postdocs, project staff and every affiliate rolled up to the institute, and child institutions in the OpenAlex hierarchy; output is not comparable with our faculty-only corpus.",
+    "Peers differ in size, mission (basic vs translational vs plant or toxicology) and field mix; FWCI and percentiles normalise by field, raw citations and h-index do not, and h-index grows with output.",
+    "RCA is measured against ALL Indian output, which is dominated by engineering, physical and computer sciences, so most life-science subfields have RCA far above 1 and small niche subfields (a few dozen papers) can top the list; compare institutes within a subfield rather than reading the absolute level.",
+    "2026 is a partial year: it is counted in totals but excluded from CAGR, papers per year and RCA.",
+    "Gravity model: partner institutions are those already linked to our faculty corpus by co-authorship or citation (zeros only arise across labs), coordinates are OpenAlex's city-level geocodes, and partner size is OpenAlex's all-time works count; standard errors are robust (sandwich) because counts are overdispersed.",
+    "OpenAlex affiliation parsing is imperfect: missing or wrong institution links move papers between institutes."
+  ],
+  "methods": {
+    "works_query": "authorships.institutions.lineage:<id>, publication_year window, type article|review, is_retracted:false; identical for all institutes",
+    "papers_per_year": "mean over 2016-2025",
+    "trend_growth": "exp(slope) - 1 of log(papers) on year, 2016-2025",
+    "cagr": "(papers 2025 / papers 2016)^(1/9) - 1",
+    "fwci": "mean and median over papers with FWCI; mean CI = percentile bootstrap, 1000 resamples, seed 42",
+    "top_shares": "citation_normalized_percentile.is_in_top_10_percent / is_in_top_1_percent over papers with a percentile; Wilson 95% CI",
+    "intl_share": "countries_distinct_count > 1; Wilson CI",
+    "oa_share": "open_access.is_oa; Wilson CI",
+    "concentration": "Gini of paper citations; effective papers = (sum c)^2 / sum c^2",
+    "diversity": "distinct primary-topic subfields; Shannon entropy (natural log) of subfield shares",
+    "ranks": "1 = highest among all institutes (ours + peers), ties share the lower rank",
+    "rca": "(institute share of subfield) / (India share), 2016-2025, primary topic subfield; India = institutions.country_code:IN with the same type and retraction filters (group_by paged by cursor); subfields with >= 15 institute papers",
+    "gravity": "Poisson GLM by IRLS: count ~ log(distance_km + 10) + log(partner works_count) + lab fixed effects, over every (lab, partner) pair for Indian partner institutions (not our labs or their children, not umbrella or academy rows) that co-author with or cite any lab; joint papers = faculty-corpus papers of the lab with an author at the partner; citations = (citing paper, cited lab paper) links from inflow works with an author at the partner; robust sandwich SEs; difference test uses the cross-score covariance of the two fits"
+  },
+  "openalex": "OpenAlex calls: 0 live, 186 cached"
+}

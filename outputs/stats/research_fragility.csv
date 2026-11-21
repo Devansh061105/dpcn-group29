@@ -1,0 +1,11 @@
+headline,removed,full,without,holds
+Lab order by MNCS,CCMB's most cited paper,CCMB > IGIB > IMTECH > CDRI,CCMB > IGIB > IMTECH > CDRI,True
+Lab order by MNCS,IGIB's most cited paper,CCMB > IGIB > IMTECH > CDRI,CCMB > IGIB > CDRI > IMTECH,False
+Lab order by MNCS,IMTECH's most cited paper,CCMB > IGIB > IMTECH > CDRI,CCMB > IGIB > CDRI > IMTECH,False
+Lab order by MNCS,CDRI's most cited paper,CCMB > IGIB > IMTECH > CDRI,CCMB > IGIB > IMTECH > CDRI,True
+CCMB citations,its most cited paper,"36,563","30,703 (84%)",True
+IGIB citations,its most cited paper,"36,378","33,767 (93%)",True
+IMTECH citations,its most cited paper,"22,905","20,294 (89%)",True
+CDRI citations,its most cited paper,"55,262","53,908 (98%)",True
+Middle-author share of citations,the 10 most cited papers,40%,32%,True
+Cross-lab share of faculty links,one year at a time (jackknife),4.8%,4.1% to 5.2%,True

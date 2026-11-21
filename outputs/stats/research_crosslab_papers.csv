@@ -1,0 +1,21 @@
+work_id,title,year,n_authors,n_faculty,labs,cross_lab_pairs,pairs_only_on_this_paper,cited_by_count
+W4224882692,Detection of SARS-CoV-2 in the air in Indian hospitals and houses of COVID-19 patients,2022,21,4,CSIR-CCMB; CSIR-IMTECH,4,4,22
+W4318779510,"Molecular determinants associated with temporal succession of SARS-CoV-2 variants in Uttar Pradesh, India",2023,12,5,CSIR-CDRI; CSIR-IGIB,4,3,1
+W4327618916,"G4-binding drugs, chlorpromazine and prochlorperazine, repurposed against COVID-19 infection in hamsters",2023,17,5,CSIR-CCMB; CSIR-IGIB,4,4,7
+W3087717799,A Distinct Phylogenetic Cluster of Indian Severe Acute Respiratory Syndrome Coronavirus 2 Isolates,2020,18,4,CSIR-CCMB; CSIR-IGIB,3,3,76
+W2901550406,"Purification, Characterization and in vitro Evaluation of Polymyxin A From Paenibacillus dendritiformis: An Underexplored Member of the Polymyxin Family",2018,11,4,CSIR-CDRI; CSIR-IMTECH,3,2,24
+W4386365877,Maternal-Periconceptional Vitamin B12 Deficiency in Wistar Rats Leads to Sex-Specific Programming for Cardiometabolic Disease Risk in the Next Generation,2023,12,4,CSIR-CCMB; CSIR-IGIB,3,2,7
+W3140318909,Rapid and accurate nucleobase detection using FnCas9 and its application in COVID-19 diagnosis,2021,26,3,CSIR-CCMB; CSIR-IGIB,2,2,240
+W4294044397,Exome sequencing and functional analyses revealedCETN1variants leads to impaired cell division and male fertility,2022,16,3,CSIR-CCMB; CSIR-CDRI,2,1,15
+W4387776888,The heparin-binding hemagglutinin protein of Mycobacterium tuberculosis is a nucleoid-associated protein,2023,20,3,CSIR-CCMB; CSIR-IGIB,2,2,6
+W4307223452,Mycobacterium tuberculosis exploits MPT64 to generate myeloid-derived suppressor cells to evade the immune system,2022,7,3,CSIR-CDRI; CSIR-IMTECH,2,1,27
+W4205275650,Spatio-temporal dynamics of intra-host variability in SARS-CoV-2 genomes,2022,27,3,CSIR-CCMB; CSIR-IGIB,2,2,28
+W2564113516,"Nanotized Curcumin and Miltefosine, a Potential Combination for Treatment of Experimental Visceral Leishmaniasis",2016,6,3,CSIR-CDRI; CSIR-IGIB,2,2,78
+W2299181839,"Is MTHFR 677 C>T Polymorphism Clinically Important in Polycystic Ovarian Syndrome (PCOS)? A Case-Control Study, Meta-Analysis and Trial Sequential Analysis",2016,11,3,CSIR-CCMB; CSIR-CDRI,2,1,17
+W4404062244,"Xanthomonas protegens sp. nov., a novel rice seed-associated bacterium, provides in vivo protection against X. oryzae pv. oryzae, the bacterial leaf blight pathogen",2024,7,3,CSIR-CCMB; CSIR-IMTECH,2,1,3
+W4412047830,Impact of IMT-P8 on the Efficacy of Conventional Antibiotics for the Treatment of Drug-Resistant and Intracellular Staphylococcus aureus,2025,6,3,CSIR-CDRI; CSIR-IMTECH,2,2,2
+W7126168068,"Targeting Mycobacterium tuberculosis GAPDH elicits potent bactericidal responses by dysregulating enzyme activity, redox dynamics and iron acquisition",2026,19,3,CSIR-CDRI; CSIR-IMTECH,2,1,0
+W2898334176,Genome-wide differential methylation analyses identifies methylation signatures of male infertility,2018,9,2,CSIR-CDRI; CSIR-IGIB,1,0,78
+W2750954161,Mutations in the prostate specific antigen (PSA/KLK3) correlate with male infertility,2017,9,2,CSIR-CCMB; CSIR-CDRI,1,0,37
+W3023185278,Novel p.P298L SURF1 mutation in thiamine deficient Leigh syndrome patients compromises cytochrome c oxidase activity,2020,5,2,CSIR-CCMB; CSIR-CDRI,1,1,3
+W2946041267,Array-based DNA methylation profiling reveals peripheral blood differential methylation in male infertility,2019,8,2,CSIR-CDRI; CSIR-IGIB,1,0,31

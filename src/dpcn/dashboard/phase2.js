@@ -29,6 +29,8 @@ if (P2) {
         t ? txt("p", t, "note-body") : txt("p", "To be written by the team. The dashboard reports the numbers; our reading of them goes here (data/manual/phase2_notes.yaml).", "muted"));
     });
   }
+  P2API.notes = renderNotes;
+
 
   // ---------------------------------------------------------------- tab: impact factor and author counts
   function renderImpact() {

@@ -1,0 +1,117 @@
+{
+ "h_filtered": {
+  "faculty_h_gt10_all": 132,
+  "faculty_h_gt10_lt100": 130,
+  "by_lab": {
+   "CSIR-CDRI": 63,
+   "CSIR-IGIB": 28,
+   "CSIR-IMTECH": 20,
+   "CSIR-CCMB": 19
+  },
+  "if10_lt100_papers": 262,
+  "lost": [
+   "Amit Tuli",
+   "Mrigank Srivastava"
+  ]
+ },
+ "backbone": {
+  "nodes": 751,
+  "edges": 4742,
+  "backbone_edges": 270,
+  "backbone_nodes": 172,
+  "weight_kept": 0.41892578786851914,
+  "alpha": 0.05
+ },
+ "q1_signal": {
+  "if_citation_spearman_median": 0.4140223981946175,
+  "if_citation_spearman_years": 10,
+  "share_q1_beats_median_nonq1": 0.7156917885264342,
+  "share_nonq1_beats_median_q1": 0.28234649122807015,
+  "top10_papers_in_q1": 0.812,
+  "papers_in_q1": 0.6364692218350755
+ },
+ "walk": {
+  "faculty": 245,
+  "years": [
+   2016,
+   2025
+  ],
+  "laplace_mu": 0.0,
+  "laplace_alpha": 1.8272108843537416,
+  "normal_mean": -0.019501133786848073,
+  "normal_sd": 2.7617231932307518,
+  "aic_laplace": 10129.086041408227,
+  "aic_normal": 10740.438732967554,
+  "ks_laplace": 0.1380952380952381,
+  "ks_normal": 0.1442150911863228,
+  "lag1_autocorr": -0.39179960078432013,
+  "lag1_ci": [
+   -0.4413158385550537,
+   -0.34517229821904555
+  ],
+  "lag1_null_mean": -0.49843836700237537,
+  "lag1_null_ci": [
+   -0.5532520793029093,
+   -0.4451328534633434
+  ],
+  "zero_years_observed": 0.24040816326530612,
+  "zero_years_random_walk": 0.23602244897959185,
+  "cum_ks": 0.23610204081632657,
+  "cum_ks_p": 1.8947820344633756e-12,
+  "gini_observed": 0.4309170672877446,
+  "gini_random_walk": 0.46009212518402487,
+  "rank_rho": 0.5034921526246857,
+  "top_decile_persistence": 0.6153846153846154,
+  "top_decile_null": 0.10523076923076924,
+  "top_decile_p": 0.0
+ },
+ "precision_audit": {
+  "sample": 55,
+  "checked": 0,
+  "unsure": 0,
+  "checkers": []
+ },
+ "citers_collab_spearman": 0.5491489068249624,
+ "regrading": {
+  "q1_actual": [
+   0.7415675955146717,
+   0.6242979242979243
+  ],
+  "q1_frozen": [
+   0.753344669232873,
+   0.7019835493287251
+  ],
+  "if5": [
+   0.19400048680268192,
+   0.2324877820507539
+  ]
+ },
+ "findings": [
+  "130 faculty have an h-index above 10 on papers with fewer than 100 authors (132 on all papers); 262 papers are in journals with impact factor above 10 and have fewer than 100 authors.",
+  "The Q1 share moved from 74% (2016–18) to 62% (2023–25) with year-matched quartiles, and from 75% to 70% with each journal's 2017 quartile frozen; on the fixed JCR yardstick the share in IF > 5 journals went from 19% to 23%.",
+  "Citing an institution and co-authoring with it go together only loosely (Spearman 0.55 between external citations and joint papers across 2495 Indian institutions).",
+  "The Indian partner backbone keeps 270 of 4742 institution links (42% of joint-paper weight) at α = 0.05.",
+  "A journal's impact factor says little about one paper: the median within-year Spearman correlation between IF and a paper's citations is 0.41; 28% of non-Q1 papers beat the median Q1 paper on normalised citations.",
+  "Of the classic bibliometric laws, these hold in our data: Lotka (1926), Bradford (1934), Seglen (1997), Pareto 80/20; see the table for the observed values.",
+  "Papers with an Indian hospital or medical partner get -16% citations (95% CI -25% to -5%) after year, field, lab and team size; foreign partners +23%.",
+  "Year-on-year changes in a faculty member's output follow a Laplace distribution better than a normal one (AIC 10,129 vs 10,740; 245 faculty), as Zhang et al. found for computer scientists. Their lag-1 autocorrelation is -0.39 (95% CI -0.44 to -0.35): between a pure random walk (0) and noise around a fixed personal level (-0.50), so each person's level drifts slowly.",
+  "A truncated random walk with those steps reproduces the share of zero-output years (24% vs 24% observed) and the inequality of total output (Gini 0.46 vs 0.43): luck alone produces most of the spread between faculty.",
+  "Rank persists (Matthew effect): 62% of the top 10% by 2016–20 output are again in the top 10% in 2021–25, against 11% by chance (p = 0.000); Spearman 0.50."
+ ],
+ "methods": {
+  "h_filtered": "h-index recomputed on the faculty member's papers with fewer than 100 authors (all years).",
+  "regrading": "Each paper's journal quartile frozen at its 2017 Scimago value vs the year-matched quartile; JCR 2024 IF used as one fixed yardstick.",
+  "citers": "External citations (citing institution not one of our labs) vs joint papers per Indian institution; rising = citing papers in 2025 minus 2022.",
+  "completeness": "Share of papers (or roster faculty) with each field present in OpenAlex or the roster.",
+  "precision": "Seeded random sample of 50 paper–faculty links, stratified by how the affiliation was matched; checked by hand by the team.",
+  "local_global": "Indian share = citations from Indian institutions outside our labs ÷ all citations; papers with ≥ 20 citations.",
+  "mechanisms": "For each Indian institution with ≥ 30 citations: citing papers, our papers cited per citing paper, the share from citing papers that cite ≥ 5 of ours (stacking), and the most common citing journal.",
+  "backbone": "Disparity filter (Serrano, Boguñá & Vespignani 2009, α = 0.05) on Indian institution co-authorship from our papers with ≤ 50 authors.",
+  "payoff": "OLS of log(1 + citations) on partner-type indicators with lab, year and field fixed effects, then adding log2 authors and review; HC1 errors; papers to 2025.",
+  "q1": "OLS of log(1 + citations) on Q1 (or log2 IF) with controls; within-year Spearman of IF vs citations.",
+  "laws": "Lotka exponent by discrete maximum likelihood; Price's square-root rule; Bradford zones of equal papers; citation shares of the top papers.",
+  "fragility": "Headline recomputed after removing the named paper(s) or year.",
+  "walk": "Faculty-by-year paper counts (papers < 100 authors, 2016-2025, faculty with >= 3 papers); Laplace vs normal fit of yearly changes (AIC, KS); lag-1 autocorrelation with a faculty-block bootstrap and a within-person year-shuffle null; 200 truncated random walks per person (Zhang et al. 2026, course paper P1); top-decile persistence vs 2,000 permutations.",
+  "jumps": "Year-on-year changes above 25% (papers) or 50% (citations), with automatic drivers."
+ }
+}

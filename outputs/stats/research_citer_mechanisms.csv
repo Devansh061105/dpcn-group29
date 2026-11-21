@@ -1,0 +1,350 @@
+partner_openalex_id,partner_inst,ownership,citations,citing_papers,refs_per_citing_paper,stacked_share,top_journal,top_journal_share,joint_papers
+I85461943,Saveetha University,private,1449,1180,1.2279661016949153,0.014492753623188406,International Journal of Dentistry and Oral Science,0.13728813559322034,16
+I63739035,All India Institute of Medical Sciences,government,1352,791,1.709228824273072,0.23372781065088757,Springer eBooks,0.02781289506953224,314
+I110166357,University of Delhi,government,1331,871,1.5281285878300803,0.1457550713749061,Springer eBooks,0.05166475315729047,202
+I91357014,Banaras Hindu University,government,1132,805,1.4062111801242236,0.08745583038869258,Elsevier eBooks,0.05341614906832298,94
+I19716509,Jamia Hamdard,government-aided,1094,696,1.5718390804597702,0.1416819012797075,Elsevier eBooks,0.09339080459770115,48
+I4210146715,National Institute of Pharmaceutical Education and Research (Hyderabad),government,956,530,1.8037735849056604,0.2175732217573222,Bioorganic Chemistry,0.045283018867924525,151
+I152429107,Jawaharlal Nehru University,government,906,503,1.8011928429423458,0.25496688741721857,bioRxiv (Cold Spring Harbor Laboratory),0.027833001988071572,109
+I55664587,Indian Institute of Chemical Technology,government,904,507,1.7830374753451677,0.21460176991150443,Organic & Biomolecular Chemistry,0.027613412228796843,157
+I191972202,Amity University,private,879,655,1.3419847328244274,0.06257110352673492,Elsevier eBooks,0.061068702290076333,50
+I164861460,Manipal Academy of Higher Education,private,857,686,1.249271137026239,0.0338389731621937,Elsevier eBooks,0.03206997084548105,73
+I145286018,SRM Institute of Science and Technology,private,825,578,1.4273356401384083,0.11878787878787879,International Journal of Biological Macromolecules,0.04152249134948097,59
+I4210152674,National Institute of Pharmaceutical Education and Research (Mohali),government,754,441,1.709750566893424,0.22546419098143236,International Journal of Biological Macromolecules,0.047619047619047616,130
+I51452335,Panjab University,government,727,497,1.4627766599597585,0.13480055020632736,Elsevier eBooks,0.05835010060362173,98
+I119939252,Indraprastha Institute of Information Technology Delhi,government,695,201,3.45771144278607,0.6028776978417266,bioRxiv (Cold Spring Harbor Laboratory),0.13930348258706468,45
+I59270414,Indian Institute of Science Bangalore,government,675,489,1.3803680981595092,0.07851851851851852,bioRxiv (Cold Spring Harbor Laboratory),0.05521472392638037,71
+I110360157,Lovely Professional University,private,643,528,1.2178030303030303,0.03732503888024884,Elsevier eBooks,0.07196969696969698,10
+I74796645,"Birla Institute of Technology and Science, Pilani",private,631,415,1.5204819277108435,0.1648177496038035,Elsevier eBooks,0.04578313253012048,47
+I37048141,Indian Council of Medical Research,government,615,432,1.4236111111111112,0.08455284552845528,Frontiers in Immunology,0.041666666666666664,47
+I2801880299,Translational Health Science and Technology Institute,government,568,283,2.0070671378091873,0.301056338028169,Frontiers in Immunology,0.045936395759717315,85
+I905734797,Maharshi Dayanand University,government,562,252,2.2301587301587302,0.4483985765124555,Elsevier eBooks,0.1349206349206349,26
+I876193797,Vellore Institute of Technology University,private,550,456,1.206140350877193,0.038181818181818185,Springer eBooks,0.02631578947368421,5
+I101407740,Chandigarh University,private,496,408,1.2156862745098038,0.020161290322580645,Elsevier eBooks,0.07352941176470588,8
+I45294948,Post Graduate Institute of Medical Education and Research,government,496,372,1.3333333333333333,0.06048387096774194,Springer eBooks,0.026881720430107527,81
+I280994,King George's Medical University,government,487,224,2.174107142857143,0.3203285420944558,Springer eBooks,0.03571428571428571,144
+I4210094671,Regional Centre for Biotechnology,government,475,245,1.9387755102040816,0.2631578947368421,bioRxiv (Cold Spring Harbor Laboratory),0.036734693877551024,36
+I68891433,Indian Institute of Technology Delhi,government,469,341,1.3753665689149561,0.13859275053304904,Springer eBooks,0.02932551319648094,23
+I74319210,Chitkara University,private,452,385,1.174025974025974,0.022123893805309734,Elsevier eBooks,0.025974025974025976,3
+I878213199,Savitribai Phule Pune University,government,452,360,1.2555555555555555,0.05530973451327434,Elsevier eBooks,0.06111111111111111,25
+I59475050,Jamia Millia Islamia,government,447,314,1.4235668789808917,0.09395973154362416,International Journal of Biological Macromolecules,0.06369426751592357,41
+I3125981224,National Chemical Laboratory,government,437,237,1.8438818565400843,0.2906178489702517,Organic & Biomolecular Chemistry,0.03375527426160337,78
+I94234084,Indian Institute of Technology Kanpur,government,424,249,1.7028112449799198,0.21933962264150944,bioRxiv (Cold Spring Harbor Laboratory),0.04417670682730924,69
+I179420787,Indian Council of Agricultural Research,government,424,343,1.2361516034985423,0.04716981132075472,Springer eBooks,0.07871720116618076,17
+I56404289,Indian Institute of Technology BHU,government,406,328,1.2378048780487805,0.027093596059113302,Springer eBooks,0.03353658536585366,6
+I68145777,Central Institute of Medicinal and Aromatic Plants,government,402,225,1.7866666666666666,0.2263681592039801,Current Topics in Medicinal Chemistry,0.04888888888888889,93
+I186246823,University of Lucknow,government,399,255,1.5647058823529412,0.07769423558897243,Journal of Molecular Structure,0.07058823529411765,46
+I4210103783,National Institute of Pharmaceutical Education and Research (Raebareli),government,386,229,1.685589519650655,0.16839378238341968,Elsevier eBooks,0.08296943231441048,70
+I1317621060,Indian Institute of Technology Guwahati,government,384,300,1.28,0.026041666666666668,Springer eBooks,0.06,20
+I171210897,Aligarh Muslim University,government,383,276,1.3876811594202898,0.13315926892950392,Elsevier eBooks,0.05434782608695652,24
+I82571370,GLA University,private,383,292,1.3116438356164384,0.09138381201044386,Journal of Drug Delivery Science and Technology,0.0410958904109589,11
+I189949046,Integral University,private,365,269,1.3568773234200744,0.07671232876712329,Elsevier eBooks,0.05204460966542751,17
+I85145500,Indian Institute of Toxicology Research,government,360,223,1.6143497757847534,0.17777777777777778,Chemosphere,0.053811659192825115,79
+I36893310,University of Hyderabad,government,341,250,1.364,0.05865102639296188,International Journal of Biological Macromolecules,0.036,42
+I4210108071,Indian Institute of Integrative Medicine,government,330,234,1.4102564102564104,0.06060606060606061,Springer eBooks,0.042735042735042736,49
+I8977528,Dr. Hari Singh Gour University,government,316,188,1.6808510638297873,0.18670886075949367,Elsevier eBooks,0.06382978723404255,22
+I114724429,Central University of Punjab,government,314,239,1.3138075313807531,0.06687898089171974,ChemistrySelect,0.04184100418410042,22
+I126824641,JSS Academy of Higher Education and Research,private,306,250,1.224,0.0,Elsevier eBooks,0.028,13
+I51317819,Institute of Medical Sciences,government,301,207,1.4541062801932367,0.059800664451827246,Elsevier eBooks,0.03864734299516908,40
+I162827531,Indian Institute of Technology Bombay,government,301,236,1.2754237288135593,0.11627906976744186,bioRxiv (Cold Spring Harbor Laboratory),0.03389830508474576,16
+I161370692,Sanjay Gandhi Post Graduate Institute of Medical Sciences,government,296,184,1.608695652173913,0.17905405405405406,International Journal of Biological Macromolecules,0.043478260869565216,65
+I154851008,Indian Institute of Technology Roorkee,government,283,212,1.3349056603773586,0.0353356890459364,International Journal of Biological Macromolecules,0.04716981132075472,16
+I4210101034,Birla Institute of Technology and Science - Hyderabad Campus,private,283,171,1.654970760233918,0.2332155477031802,Journal of Molecular Structure,0.04678362573099415,18
+I145894827,Indian Institute of Technology Kharagpur,government,277,186,1.489247311827957,0.16606498194945848,Springer eBooks,0.03225806451612903,14
+I106542073,University of Calcutta,government,274,197,1.3908629441624365,0.072992700729927,The Journal of Organic Chemistry,0.04568527918781726,17
+I226983648,Narsee Monjee Institute of Management Studies,private,273,206,1.325242718446602,0.09523809523809523,Journal of Drug Delivery Science and Technology,0.07281553398058252,5
+I4210156726,National Institute of Immunology,government,273,180,1.5166666666666666,0.12454212454212454,bioRxiv (Cold Spring Harbor Laboratory),0.05555555555555555,92
+I74885063,Sharda University,private,272,217,1.2534562211981566,0.0625,Elsevier eBooks,0.03686635944700461,4
+I194223965,National Centre for Biological Sciences,government,272,147,1.8503401360544218,0.23897058823529413,bioRxiv (Cold Spring Harbor Laboratory),0.06802721088435375,41
+I4210154014,National Institute of Pharmaceutical Education and Research (Guwahati),government,270,164,1.646341463414634,0.15185185185185185,Springer eBooks,0.06097560975609756,40
+I160344538,Indian Institute of Chemical Biology,government,264,167,1.5808383233532934,0.17424242424242425,Chemical Communications,0.04790419161676647,50
+I4210142124,International Centre for Genetic Engineering and Biotechnology,international,263,175,1.502857142857143,0.155893536121673,bioRxiv (Cold Spring Harbor Laboratory),0.06857142857142857,47
+I4210132590,Shri Vile Parle Kelavani Mandal,private,262,205,1.278048780487805,0.09923664122137404,Springer eBooks,0.03902439024390244,5
+I81556334,Amrita Vishwa Vidyapeetham,private,256,195,1.3128205128205128,0.1484375,ACS Omega,0.03076923076923077,14
+I143247161,Babasaheb Bhimrao Ambedkar University,government,254,197,1.2893401015228427,0.047244094488188976,Springer eBooks,0.06598984771573604,20
+I885392262,GITAM University,private,252,202,1.2475247524752475,0.06746031746031746,Elsevier eBooks,0.039603960396039604,3
+I200207707,Homi Bhabha National Institute,government,246,199,1.236180904522613,0.06910569105691057,International Journal of Biological Macromolecules,0.04020100502512563,11
+I168893459,University of Allahabad,government,244,170,1.4352941176470588,0.1721311475409836,Journal of Molecular Structure,0.041176470588235294,25
+I155284866,"Maharishi Markandeshwar University, Mullana",private,244,197,1.2385786802030456,0.040983606557377046,Naunyn-Schmiedeberg s Archives of Pharmacology,0.03553299492385787,7
+I24676775,Indian Institute of Technology Madras,government,240,181,1.3259668508287292,0.0625,bioRxiv (Cold Spring Harbor Laboratory),0.04419889502762431,25
+I60054993,Graphic Era University,private,239,202,1.183168316831683,0.04184100418410042,Elsevier eBooks,0.06435643564356436,3
+I699696,National Institute of Mental Health and Neurosciences,government,236,164,1.4390243902439024,0.17372881355932204,Annals of Indian Academy of Neurology,0.042682926829268296,47
+I193073490,Siksha O Anusandhan University,private,232,208,1.1153846153846154,0.0,Elsevier eBooks,0.0673076923076923,1
+I3132702812,Uttaranchal University,private,231,202,1.1435643564356435,0.0,Elsevier eBooks,0.04455445544554455,2
+I9694494,Parul University,private,227,173,1.3121387283236994,0.022026431718061675,Elsevier eBooks,0.057803468208092484,1
+I65181880,Indian Institute of Technology Hyderabad,government,226,147,1.5374149659863945,0.1902654867256637,bioRxiv (Cold Spring Harbor Laboratory),0.061224489795918366,8
+I170396143,National Botanical Research Institute,government,223,157,1.4203821656050954,0.10762331838565023,Springer eBooks,0.08917197452229299,31
+I4405262955,Amity University Gurugram,private,222,149,1.4899328859060403,0.11711711711711711,Springer eBooks,0.040268456375838924,8
+I78270026,Centre for DNA Fingerprinting and Diagnostics,government,222,119,1.865546218487395,0.22972972972972974,bioRxiv (Cold Spring Harbor Laboratory),0.06722689075630252,63
+I154549908,Indian Institute of Technology Jodhpur,government,219,105,2.085714285714286,0.4429223744292237,bioRxiv (Cold Spring Harbor Laboratory),0.047619047619047616,34
+I4210133503,Central University of Haryana,government,218,157,1.3885350318471337,0.05045871559633028,Springer eBooks,0.050955414012738856,8
+I170979836,Jadavpur University,government,217,177,1.2259887005649717,0.0,Elsevier eBooks,0.07344632768361582,5
+I39238937,Delhi Pharmaceutical Science and Research University,government,217,166,1.3072289156626506,0.055299539170506916,Elsevier eBooks,0.12650602409638553,6
+I4210133311,Shoolini University,private,216,175,1.2342857142857142,0.023148148148148147,Elsevier eBooks,0.05714285714285714,4
+I4210104670,National Centre for Cell Science,government,216,164,1.3170731707317074,0.05092592592592592,Springer eBooks,0.054878048780487805,28
+I106826634,Jain University,private,214,172,1.244186046511628,0.0,Medical Oncology,0.040697674418604654,9
+I932239252,SASTRA University,private,213,158,1.3481012658227849,0.07981220657276995,New Journal of Chemistry,0.03164556962025317,9
+I119241673,Indian Institute of Technology Ropar,government,213,74,2.8783783783783785,0.5352112676056338,Frontiers in Immunology,0.04054054054054054,30
+I288749910,"Indian Institute of Science Education and Research, Bhopal",government,209,112,1.8660714285714286,0.31100478468899523,eLife,0.125,15
+I115715567,"Birla Institute of Technology, Mesra",private,208,157,1.3248407643312101,0.10576923076923077,Elsevier eBooks,0.03821656050955414,4
+I8975392,Osmania University,government,203,162,1.2530864197530864,0.0,Asian Journal of Chemistry,0.04938271604938271,26
+I175691731,Pondicherry University,government,199,164,1.2134146341463414,0.06532663316582915,Springer eBooks,0.036585365853658534,14
+I15896350,Guru Jambheshwar University of Science and Technology,government,198,148,1.337837837837838,0.06565656565656566,Journal of Molecular Structure,0.10810810810810811,6
+I158688498,Yenepoya University,private,197,158,1.2468354430379747,0.050761421319796954,OMICS A Journal of Integrative Biology,0.05063291139240506,10
+I5847235,University of Petroleum and Energy Studies,private,196,171,1.1461988304093567,0.0,Elsevier eBooks,0.04678362573099415,2
+I67357951,KIIT University,private,192,154,1.2467532467532467,0.036458333333333336,Elsevier eBooks,0.06493506493506493,12
+I135388327,University of Kashmir,government,192,151,1.271523178807947,0.11458333333333333,Elsevier eBooks,0.0728476821192053,4
+I162030827,Thapar Institute of Engineering & Technology,private,192,118,1.6271186440677967,0.03125,Journal of Molecular Liquids,0.03389830508474576,15
+I887998513,Bharati Vidyapeeth (Deemed to be University),private,189,160,1.18125,0.026455026455026454,Elsevier eBooks,0.06875,9
+I11947397,Tata Institute of Fundamental Research,government,187,112,1.6696428571428572,0.28342245989304815,bioRxiv (Cold Spring Harbor Laboratory),0.05357142857142857,31
+I76414455,"Kasturba Medical College, Manipal",private,187,152,1.230263157894737,0.026737967914438502,American Journal of Medical Genetics Part A,0.07894736842105263,1
+I185790649,Indian Veterinary Research Institute,government,186,154,1.2077922077922079,0.0,Springer eBooks,0.11038961038961038,8
+I76777374,Central University of Rajasthan,government,184,154,1.1948051948051948,0.0,Elsevier eBooks,0.08441558441558442,8
+I4210125823,KLE Academy of Higher Education and Research,private,184,94,1.9574468085106382,0.43478260869565216,bioRxiv (Cold Spring Harbor Laboratory),0.09574468085106383,11
+I16292982,National Institute of Technology Rourkela,government,180,150,1.2,0.027777777777777776,Elsevier eBooks,0.08,7
+I165831266,Nirma University,private,179,113,1.584070796460177,0.16201117318435754,Pharmaceutics,0.035398230088495575,22
+I165916956,Indian Institute of Science Education and Research Mohali,government,179,117,1.5299145299145298,0.1340782122905028,European Journal of Organic Chemistry,0.042735042735042736,31
+I45509622,Indian Agricultural Research Institute,government,179,157,1.1401273885350318,0.0,Springer eBooks,0.05732484076433121,3
+I229991691,Chhatrapati Shahu Ji Maharaj University,government,174,89,1.9550561797752808,0.3390804597701149,Elsevier eBooks,0.0898876404494382,5
+I165682329,Guru Nanak Dev University,government,172,138,1.2463768115942029,0.029069767441860465,Elsevier eBooks,0.036231884057971016,4
+I181996519,Indian Institute of Science Education and Research Pune,government,172,126,1.3650793650793651,0.12209302325581395,bioRxiv (Cold Spring Harbor Laboratory),0.07142857142857142,28
+I4076070,Bharathidasan University,government,168,144,1.1666666666666667,0.05952380952380952,Journal of Molecular Structure,0.041666666666666664,4
+I4210092980,National Institute of Animal Biotechnology,government,167,102,1.6372549019607843,0.059880239520958084,Springer eBooks,0.06862745098039216,9
+I102117144,Banasthali University,private,164,119,1.3781512605042017,0.0975609756097561,Wiley eBooks,0.04201680672268908,13
+I1281160679,Graphic Era Hill University,unclassified,164,120,1.3666666666666667,0.03048780487804878,Elsevier eBooks,0.058333333333333334,0
+I204743663,University of Mysore,government,161,141,1.1418439716312057,0.0,Journal of Molecular Structure,0.07092198581560284,6
+I4210161501,National Institute of Pharmaceutical Education and Research (Kolkata),government,159,103,1.5436893203883495,0.0880503144654088,New Journal of Chemistry,0.038834951456310676,16
+I2800857658,North East Institute of Science and Technology,government,159,110,1.4454545454545455,0.10062893081761007,ACS Omega,0.06363636363636363,26
+I167751958,Institute of Chemical Technology,government,159,138,1.1521739130434783,0.0,Elsevier eBooks,0.06521739130434782,1
+I863896202,Delhi Technological University,government,158,119,1.3277310924369747,0.03164556962025317,ChemistrySelect,0.04201680672268908,40
+I195459967,Mizoram University,government,154,108,1.4259259259259258,0.07142857142857142,Elsevier eBooks,0.10185185185185185,7
+I111575329,Bharathiar University,government,153,138,1.108695652173913,0.0,Springer eBooks,0.057971014492753624,4
+I152754861,Bose Institute,government,152,123,1.2357723577235773,0.0,Elsevier eBooks,0.032520325203252036,11
+I4210128326,Institute of Himalayan Bioresource Technology,government,151,125,1.208,0.0728476821192053,Springer eBooks,0.056,30
+I4210092982,Indo Soviet Friendship College of Pharmacy,private,149,132,1.128787878787879,0.0,Elsevier eBooks,0.06060606060606061,1
+I155125381,Galgotias University,private,146,119,1.226890756302521,0.07534246575342465,Current Pharmaceutical Design,0.03361344537815126,8
+I172917736,"Christian Medical College, Vellore",private,144,113,1.2743362831858407,0.034722222222222224,Clinical & Experimental Allergy,0.04424778761061947,16
+I147481903,Jawaharlal Nehru Centre for Advanced Scientific Research,government,142,101,1.4059405940594059,0.08450704225352113,ACS Infectious Diseases,0.04950495049504951,34
+I1329621470,Bhabha Atomic Research Centre,government,141,110,1.2818181818181817,0.1276595744680851,bioRxiv (Cold Spring Harbor Laboratory),0.02727272727272727,4
+I43814544,Sathyabama Institute of Science and Technology,private,141,129,1.0930232558139534,0.0,Springer eBooks,0.03875968992248062,1
+I121750182,National Institute of Technology Warangal,government,140,102,1.3725490196078431,0.12142857142857143,ChemistrySelect,0.09803921568627451,4
+I64128412,Dibrugarh University,government,140,113,1.238938053097345,0.07857142857142857,Elsevier eBooks,0.07079646017699115,6
+I2801255070,L V Prasad Eye Institute,private,140,97,1.443298969072165,0.05714285714285714,Experimental Eye Research,0.08247422680412371,33
+I215927,University of Madras,government,140,130,1.0769230769230769,0.0,Journal of Molecular Structure,0.05384615384615385,3
+I4210164849,BRIC-National Agri-Food and Biomanufacturing Institute,government,138,87,1.5862068965517242,0.15217391304347827,Scientific Reports,0.04597701149425287,15
+I126601174,Tezpur University,government,137,106,1.2924528301886793,0.0,Toxicon,0.08490566037735849,6
+I4405261827,Birbal Sahni Institute of Palaeosciences,government,135,46,2.9347826086956523,0.5185185185185185,Human Genetics,0.06521739130434782,18
+I347237974,Ashoka University,private,133,75,1.7733333333333334,0.2706766917293233,bioRxiv (Cold Spring Harbor Laboratory),0.04,22
+I4210098333,National Institute of Pharmaceutical Education and Research (Hājīpur),government,131,95,1.3789473684210527,0.06870229007633588,Springer eBooks,0.042105263157894736,14
+I65220239,Karpagam Academy of Higher Education,private,126,107,1.1775700934579438,0.0,Elsevier eBooks,0.06542056074766354,0
+I244572783,Symbiosis International University,private,125,97,1.288659793814433,0.04,Elsevier eBooks,0.07216494845360824,4
+I53421241,National Institute of Nutrition,government,124,86,1.441860465116279,0.0,Nutrients,0.046511627906976744,14
+I178000100,Kurukshetra University,government,124,98,1.2653061224489797,0.04032258064516129,ChemistrySelect,0.061224489795918366,3
+I127439422,Indian Institute of Science Education and Research Kolkata,government,124,101,1.2277227722772277,0.04032258064516129,Organic Letters,0.04950495049504951,5
+I119311299,Kumaun University,government,123,75,1.64,0.2601626016260163,Elsevier eBooks,0.08,8
+I4210102411,National Institute of Pharmaceutical Education and Research - Ahmedabad,government,123,100,1.23,0.0,Elsevier eBooks,0.25,3
+I19008122,Mangalore University,government,122,77,1.5844155844155845,0.22131147540983606,Journal of Molecular Structure,0.06493506493506493,6
+I4210089305,"Dr. D. Y. Patil Medical College, Hospital and Research Centre",private,121,73,1.6575342465753424,0.15702479338842976,Experimental Dermatology,0.0410958904109589,25
+I26285277,Guru Ghasidas Vishwavidyalaya,government,121,109,1.110091743119266,0.049586776859504134,Elsevier eBooks,0.11926605504587157,3
+I131155284,Alagappa University,government,121,111,1.09009009009009,0.0,Journal of Biomolecular Structure and Dynamics,0.06306306306306306,5
+I170347488,National Environmental Engineering Research Institute,government,118,68,1.7352941176470589,0.288135593220339,Springer eBooks,0.10294117647058823,9
+I4210132386,National JALMA Institute for Leprosy & Other Mycobacterial Diseases,government,117,56,2.0892857142857144,0.37606837606837606,Tuberculosis,0.08928571428571429,12
+I64295750,Indian Institute of Technology Indore,government,117,99,1.1818181818181819,0.0,Journal of Materials Chemistry C,0.030303030303030304,15
+I187279525,National Dairy Research Institute,government,117,88,1.3295454545454546,0.1111111111111111,Springer eBooks,0.11363636363636363,5
+I4405268903,Yenepoya Research Centre,private,117,94,1.2446808510638299,0.042735042735042736,OMICS A Journal of Integrative Biology,0.06382978723404255,8
+I134900695,Tamil Nadu Agricultural University,government,116,99,1.1717171717171717,0.0,Plant Science Today,0.1414141414141414,1
+I1333540553,Nitte University,private,115,93,1.2365591397849462,0.0,Chemosphere,0.021505376344086023,0
+I89324447,Rajiv Gandhi Centre for Biotechnology,government,114,78,1.4615384615384615,0.18421052631578946,Scientific Reports,0.0641025641025641,4
+I150037166,Central Food Technological Research Institute,government,114,89,1.2808988764044944,0.043859649122807015,Elsevier eBooks,0.07865168539325842,13
+I110116418,Maharaja Sayajirao University of Baroda,government,114,84,1.3571428571428572,0.05263157894736842,Elsevier eBooks,0.07142857142857142,4
+I33585257,"Anna University, Chennai",government,114,101,1.1287128712871286,0.0,Environmental Science and Pollution Research,0.039603960396039604,7
+I1286858202,Energy and Resources Institute,private,113,64,1.765625,0.1504424778761062,Indian Journal of Microbiology,0.125,8
+I163389970,National Institute of Science Education and Research,government,113,96,1.1770833333333333,0.0,International Journal of Biological Macromolecules,0.0625,8
+I4210153536,National Institute of Plant Genome Research,government,112,73,1.5342465753424657,0.10714285714285714,bioRxiv (Cold Spring Harbor Laboratory),0.0684931506849315,20
+I38335241,National Institute of Technology Raipur,government,111,100,1.11,0.0,Elsevier eBooks,0.08,2
+I875944469,Koneru Lakshmaiah Education Foundation,private,109,78,1.3974358974358974,0.1926605504587156,International Journal of Applied Pharmaceutics,0.02564102564102564,0
+I49278261,Assam University,government,109,97,1.1237113402061856,0.0,Elsevier eBooks,0.1134020618556701,3
+I158338959,University of Kerala,government,108,75,1.44,0.046296296296296294,Journal of Molecular Structure,0.04,8
+I4210140410,"Indian Institute of Science Education and Research, Tirupati",government,107,66,1.621212121212121,0.09345794392523364,bioRxiv (Cold Spring Harbor Laboratory),0.13636363636363635,10
+I4210158866,National Institute of Biomedical Genomics,government,105,48,2.1875,0.4095238095238095,Journal of Human Genetics,0.0625,15
+I112754052,Sambalpur University,government,105,67,1.5671641791044777,0.09523809523809523,Langmuir,0.11940298507462686,12
+I185052938,Hemwati Nandan Bahuguna Garhwal University,government,105,74,1.4189189189189189,0.1619047619047619,ChemistrySelect,0.05405405405405406,2
+I4405263076,Amity University Jaipur,private,104,66,1.5757575757575757,0.17307692307692307,Springer eBooks,0.06060606060606061,3
+I220840466,Chettinad Academy of Research and Education,private,104,96,1.0833333333333333,0.0,Elsevier eBooks,0.052083333333333336,0
+I3130021832,Shree Guru Gobind Singh Tricentenary University,private,104,72,1.4444444444444444,0.04807692307692308,Elsevier eBooks,0.08333333333333333,4
+I4405270214,JSS College of Pharmacy,private,102,86,1.186046511627907,0.0,Journal of Drug Delivery Science and Technology,0.046511627906976744,3
+I4210087873,Institute for Stem Cell Biology and Regenerative Medicine,government,102,74,1.3783783783783783,0.09803921568627451,bioRxiv (Cold Spring Harbor Laboratory),0.08108108108108109,30
+I9579091,Indian Institute of Technology Mandi,government,102,71,1.4366197183098592,0.09803921568627451,Journal of Materials Chemistry B,0.056338028169014086,10
+I4210118921,Institute of Life Sciences,government,102,67,1.5223880597014925,0.11764705882352941,bioRxiv (Cold Spring Harbor Laboratory),0.05970149253731343,15
+I296362101,Indira Gandhi National Tribal University,government,101,65,1.5538461538461539,0.13861386138613863,Elsevier eBooks,0.12307692307692308,1
+I302410947,M S Ramaiah University of Applied Sciences,private,101,50,2.02,0.27722772277227725,Journal of Drug Delivery Science and Technology,0.06,1
+I31888360,Wildlife Institute of India,government,98,74,1.3243243243243243,0.05102040816326531,PeerJ,0.04054054054054054,13
+I165998391,Indian Association for the Cultivation of Science,government,97,88,1.1022727272727273,0.0,Organic & Biomolecular Chemistry,0.09090909090909091,1
+I48018076,Christ University,private,97,83,1.1686746987951808,0.061855670103092786,Springer eBooks,0.060240963855421686,0
+I65674248,Visvesvaraya Technological University,government,96,63,1.5238095238095237,0.07291666666666667,Inorganic Chemistry Communications,0.07936507936507936,5
+I4210114149,KR Mangalam University,private,96,63,1.5238095238095237,0.052083333333333336,ChemistrySelect,0.047619047619047616,1
+I4405259702,Rungta College,private,96,53,1.8113207547169812,0.22916666666666666,Springer eBooks,0.07547169811320754,1
+I43218427,Mohanlal Sukhadia University,government,96,72,1.3333333333333333,0.13541666666666666,Elsevier eBooks,0.08333333333333333,3
+I20107917,Sri Ramachandra Institute of Higher Education and Research,private,95,88,1.0795454545454546,0.0,Pharmacognosy Journal,0.022727272727272728,2
+I133978751,Rashtrasant Tukadoji Maharaj Nagpur University,government,94,79,1.1898734177215189,0.06382978723404255,Elsevier eBooks,0.06329113924050633,5
+I3132999081,Marwadi University,private,94,72,1.3055555555555556,0.0,Medical Oncology,0.08333333333333333,0
+I3130357712,Lalit Narayan Mithila University,government,93,26,3.576923076923077,0.7419354838709677,Organic & Biomolecular Chemistry,0.11538461538461539,3
+I4210156799,Tata Institute for Genetics and Society,private,93,41,2.268292682926829,0.11827956989247312,International Journal of Biological Macromolecules,0.07317073170731707,28
+I1306687154,Sher-e-Kashmir University of Agricultural Sciences and Technology of Kashmir,government,93,87,1.0689655172413792,0.0,Springer eBooks,0.06896551724137931,0
+I27674431,Indian Institute of Technology Gandhinagar,government,93,73,1.273972602739726,0.0,bioRxiv (Cold Spring Harbor Laboratory),0.0410958904109589,2
+I56090587,North Bengal University,government,93,67,1.3880597014925373,0.11827956989247312,BENTHAM SCIENCE PUBLISHERS eBooks,0.05970149253731343,1
+I169877490,University of Mumbai,government,93,80,1.1625,0.0,Elsevier eBooks,0.05,4
+I3132145264,Bhagwant University,private,92,27,3.4074074074074074,0.33695652173913043,Asian Journal of Research in Chemistry,0.18518518518518517,0
+I146682468,National Institute for Interdisciplinary Science and Technology,government,91,68,1.338235294117647,0.0,Systematic and Applied Microbiology,0.04411764705882353,23
+I4210161010,Centre of Biomedical Research,government,91,60,1.5166666666666666,0.25274725274725274,International Journal of Biological Macromolecules,0.1,13
+I3130244785,Adamas University,private,91,70,1.3,0.0,Elsevier eBooks,0.04285714285714286,2
+I1282879092,Amrita Institute of Medical Sciences and Research Centre,private,91,69,1.318840579710145,0.054945054945054944,European Journal of Human Genetics,0.07246376811594203,4
+I223959643,Sam Higginbottom Institute of Agriculture,government,89,83,1.072289156626506,0.0,Inflammopharmacology,0.04819277108433735,2
+I197081775,Annamalai University,government,89,80,1.1125,0.0,Journal of Molecular Structure,0.05,2
+I89095802,Central University of Gujarat,government,88,74,1.1891891891891893,0.056818181818181816,Springer eBooks,0.0945945945945946,3
+I24927338,Chaudhary Charan Singh Haryana Agricultural University,government,88,69,1.2753623188405796,0.11363636363636363,Elsevier eBooks,0.057971014492753624,1
+I47639616,Centurion University of Technology and Management,private,87,72,1.2083333333333333,0.0,Elsevier eBooks,0.09722222222222222,0
+I114173286,Gujarat University,government,87,75,1.16,0.0,Springer eBooks,0.05333333333333334,2
+I4210133319,Institute of Medical Sciences and Sum Hospital,private,86,78,1.1025641025641026,0.0,Elsevier eBooks,0.0641025641025641,2
+I4210140595,National Institute of Research in Tuberculosis,government,86,63,1.3650793650793651,0.0,Frontiers in Immunology,0.06349206349206349,10
+I130291710,Visva-Bharati University,government,86,76,1.131578947368421,0.05813953488372093,Elsevier eBooks,0.07894736842105263,2
+I20497027,Cochin University of Science and Technology,government,86,63,1.3650793650793651,0.0,Journal of Genetic Engineering and Biotechnology,0.047619047619047616,2
+I1340206300,Defence Research and Development Organisation,government,86,71,1.2112676056338028,0.05813953488372093,Elsevier eBooks,0.07042253521126761,10
+I13268429,Madurai Kamaraj University,government,85,77,1.103896103896104,0.0,Elsevier eBooks,0.06493506493506493,8
+I899646,Punjab Agricultural University,government,85,74,1.1486486486486487,0.07058823529411765,Springer eBooks,0.05405405405405406,2
+I149313025,"Vignan's Foundation for Science, Technology & Research",private,85,75,1.1333333333333333,0.0,Elsevier eBooks,0.05333333333333334,2
+I77501641,University of Kalyani,government,85,78,1.0897435897435896,0.0,Elsevier eBooks,0.08974358974358974,3
+I216021267,All India Institute of Medical Sciences Jodhpur,government,84,68,1.2352941176470589,0.05952380952380952,Indian Journal of Clinical Biochemistry,0.04411764705882353,8
+I154970844,Jaypee Institute of Information Technology,private,84,70,1.2,0.05952380952380952,Elsevier eBooks,0.05714285714285714,5
+I1298986040,Indian Institute of Rice Research,government,83,60,1.3833333333333333,0.08433734939759036,Springer eBooks,0.16666666666666666,13
+I4210107565,Era's Lucknow Medical College and Hospital,private,83,47,1.7659574468085106,0.21686746987951808,Chemistry & Biodiversity,0.0425531914893617,4
+I42095658,Central Scientific Instruments Organisation,government,83,55,1.509090909090909,0.0,Journal of Photochemistry and Photobiology B Biology,0.05454545454545454,38
+I138537684,Gauhati University,government,82,65,1.2615384615384615,0.0,Elsevier eBooks,0.06153846153846154,4
+I145846420,University of Jammu,government,82,57,1.4385964912280702,0.06097560975609756,Elsevier eBooks,0.10526315789473684,6
+I165259314,Dr. Babasaheb Ambedkar Marathwada University,government,82,68,1.2058823529411764,0.0,Polycyclic aromatic compounds,0.1323529411764706,0
+I110083240,Karnatak University,government,82,72,1.1388888888888888,0.0,Elsevier eBooks,0.09722222222222222,0
+I4210106490,All India Institute of Medical Sciences Bhopal,government,81,63,1.2857142857142858,0.0,Elsevier eBooks,0.06349206349206349,2
+I70971781,Dr. B. R. Ambedkar National Institute of Technology Jalandhar,government,80,57,1.4035087719298245,0.1,Asian Journal of Organic Chemistry,0.10526315789473684,1
+I10926426,Veer Narmad South Gujarat University,government,80,56,1.4285714285714286,0.075,Journal of Molecular Structure,0.05357142857142857,3
+I57085157,Sardar Patel University,government,80,64,1.25,0.0,ACS Omega,0.046875,3
+I4210113434,Sir Ganga Ram Hospital,private,79,59,1.3389830508474576,0.06329113924050633,bioRxiv (Cold Spring Harbor Laboratory),0.05084745762711865,12
+I177436651,Mahatma Gandhi University (Kottayam),government,79,70,1.1285714285714286,0.0,ChemistrySelect,0.05714285714285714,1
+I60374024,ICMR-National Institute of Virology,government,79,55,1.4363636363636363,0.0,The Indian Journal of Medical Research,0.09090909090909091,3
+I4210131147,SRM University,private,78,64,1.21875,0.0,Preprints.org,0.078125,10
+I86826812,JSS Medical College and Hospital,private,76,59,1.2881355932203389,0.0,Clinical & Experimental Allergy,0.11864406779661017,5
+I128420443,Central Salt and Marine Chemicals Research Institute,government,76,62,1.2258064516129032,0.0,Elsevier eBooks,0.08064516129032258,16
+I2800157045,NIMS University,private,76,69,1.1014492753623188,0.0,Molecular Neurobiology,0.057971014492753624,0
+I39190216,Maulana Azad Medical College,government,76,61,1.2459016393442623,0.0,Elsevier eBooks,0.06557377049180328,19
+I4405266173,SRM Medical College Hospital and Research Centre,private,76,42,1.8095238095238095,0.2631578947368421,International Journal of Peptide Research and Therapeutics,0.047619047619047616,3
+I49068896,Assam Down Town University,private,74,66,1.121212121212121,0.0,Springer eBooks,0.045454545454545456,1
+I139669409,Nizam's Institute of Medical Sciences,government,74,51,1.4509803921568627,0.0,Indian Journal of Cardiovascular Disease in Women,0.0784313725490196,15
+I61923386,Jawaharlal Institute of Post Graduate Medical Education and Research,government,74,61,1.2131147540983607,0.08108108108108109,Indian Journal of Psychiatry,0.04918032786885246,7
+I72677176,Tripura University,government,73,50,1.46,0.0684931506849315,Springer eBooks,0.16,3
+I4210153885,Institute of Bioinformatics and Applied Biotechnology,government,73,45,1.6222222222222222,0.1095890410958904,bioRxiv (Cold Spring Harbor Laboratory),0.08888888888888889,6
+I157674215,Presidency University,government,72,64,1.125,0.06944444444444445,Chemistry & Biodiversity,0.046875,1
+I114546181,Lady Hardinge Medical College,government,72,56,1.2857142857142858,0.06944444444444445,Indian Journal of Dermatology Venereology and Leprology,0.07142857142857142,10
+I114796046,Gurukul Kangri Vishwavidyalaya,government-aided,72,52,1.3846153846153846,0.06944444444444445,Wiley eBooks,0.09615384615384616,0
+I4210096895,Emami (India),private,72,38,1.894736842105263,0.25,Elsevier eBooks,0.13157894736842105,0
+I9223067,Jaipur National University,private,71,46,1.5434782608695652,0.23943661971830985,Elsevier eBooks,0.13043478260869565,7
+I4210124368,Ministry of AYUSH,government,71,60,1.1833333333333333,0.0,ACS Chemical Neuroscience,0.05,4
+I4405263094,Amity University Madhya Pradesh,private,71,51,1.392156862745098,0.11267605633802817,Elsevier eBooks,0.1568627450980392,0
+I4210103194,"Dr. D.Y. Patil Vidyapeeth, Pune",private,71,65,1.0923076923076922,0.0,Medical Journal of Dr D Y Patil Vidyapeeth,0.046153846153846156,4
+I132359460,University of Burdwan,government,71,63,1.126984126984127,0.0,Elsevier eBooks,0.047619047619047616,2
+I134705546,Teerthanker Mahaveer University,private,71,59,1.2033898305084745,0.0,Elsevier eBooks,0.06779661016949153,0
+I100887729,Andhra University,government,70,55,1.2727272727272727,0.07142857142857142,Asian Journal of Chemistry,0.05454545454545454,3
+I4210148697,Institute of Bioinformatics,private,70,64,1.09375,0.0,OMICS A Journal of Integrative Biology,0.046875,12
+I91894341,Gyan Vihar University,private,70,59,1.1864406779661016,0.0,Chemico-Biological Interactions,0.1016949152542373,1
+I152869788,Motilal Nehru National Institute of Technology,government,69,45,1.5333333333333334,0.07246376811594203,Elsevier eBooks,0.06666666666666667,9
+I1312996466,Safdarjang Hospital,government,69,54,1.2777777777777777,0.15942028985507245,Scientific Reports,0.07407407407407407,12
+I76782289,National Institute of Malaria Research,government,69,51,1.3529411764705883,0.0,Elsevier eBooks,0.0784313725490196,2
+I38192578,Pandit Ravishankar Shukla University,government,68,42,1.619047619047619,0.23529411764705882,Elsevier eBooks,0.11904761904761904,0
+I79161377,Punjabi University,government,67,61,1.098360655737705,0.0,Elsevier eBooks,0.06557377049180328,0
+I933318745,Dehradun Institute of Technology University,private,67,57,1.1754385964912282,0.0,ACS Omega,0.07017543859649122,1
+I4387152206,All India Institute of Medical Sciences Rishikesh,government,67,51,1.3137254901960784,0.0,Cureus,0.0392156862745098,16
+I141641110,Shivaji University,government,66,55,1.2,0.0,Journal of Molecular Structure,0.07272727272727272,0
+I4210100047,Institute of Post Graduate Medical Education and Research,government,66,47,1.4042553191489362,0.10606060606060606,Parasite Immunology,0.0425531914893617,7
+I10874241,"Jawaharlal Nehru Technological University, Hyderabad",government,65,54,1.2037037037037037,0.07692307692307693,Chemistry & Biodiversity,0.05555555555555555,3
+I114845381,National Institute of Technology Calicut,government,64,54,1.1851851851851851,0.0,New Journal of Chemistry,0.07407407407407407,5
+I143929237,National Institute for Research in Reproductive Health,government,64,47,1.3617021276595744,0.0,Journal of Assisted Reproduction and Genetics,0.0851063829787234,2
+I4210130476,Datta Meghe Institute of Higher Education and Research,private,63,59,1.0677966101694916,0.0,Cureus,0.23728813559322035,0
+I4405287327,"Pranveer Singh Institute of Technology (Pharmacy), Kanpur",unclassified,63,52,1.2115384615384615,0.0,Elsevier eBooks,0.07692307692307693,0
+I138876546,Vels University,private,63,55,1.1454545454545455,0.0,International Journal of Environmental Sciences,0.05454545454545454,0
+I138272832,Devi Ahilya Vishwavidyalaya,government,63,47,1.3404255319148937,0.0,Elsevier eBooks,0.10638297872340426,6
+I206040828,Sher-i-Kashmir Institute of Medical Sciences,government,62,41,1.5121951219512195,0.08064516129032258,The Indian Journal of Medical Research,0.04878048780487805,0
+I50557253,Indian Institute of Science Education and Research Thiruvananthapuram,government,62,56,1.1071428571428572,0.0,Angewandte Chemie International Edition,0.05357142857142857,3
+I116943215,Dr. A.P.J. Abdul Kalam Technical University,government,62,48,1.2916666666666667,0.0967741935483871,ChemistrySelect,0.0625,7
+I4210148816,Institute of Advanced Study in Science and Technology,government,62,50,1.24,0.0,Wiley eBooks,0.1,0
+I80883720,Nature Conservation Foundation,private,61,42,1.4523809523809523,0.0,Biological Conservation,0.11904761904761904,8
+I189109744,Indian Institute of Technology Dhanbad,government,61,55,1.1090909090909091,0.0,Elsevier eBooks,0.09090909090909091,3
+I99552915,University of Rajasthan,government,61,56,1.0892857142857142,0.0,Vegetos,0.03571428571428571,3
+I252758333,Govind Ballabh Pant University of Agriculture and Technology,unclassified,60,57,1.0526315789473684,0.0,3 Biotech,0.08771929824561403,0
+I2801192375,IFTM University,private,60,53,1.1320754716981132,0.0,Journal of Drug Delivery Science and Technology,0.05660377358490566,1
+I112576028,Central Leather Research Institute,government,60,47,1.2765957446808511,0.08333333333333333,International Journal of Biological Macromolecules,0.1276595744680851,16
+I4405260680,Noida Institute of Engineering and Technology Pharmacy Institute,private,59,52,1.1346153846153846,0.0,Current Organic Synthesis,0.057692307692307696,0
+I141431873,Periyar University,government,59,56,1.0535714285714286,0.0,Journal of Photochemistry and Photobiology A Chemistry,0.03571428571428571,0
+I2800098698,Tata Memorial Hospital,government,59,50,1.18,0.0847457627118644,International Journal of Pharmaceutics,0.04,5
+I4405260775,Noida Institute of Engineering and Technology,private,59,48,1.2291666666666667,0.0,Indian Journal of Pharmaceutical Education and Research,0.0625,0
+I4210148827,"Birla Institute of Technology and Science, Pilani - Goa Campus",private,58,47,1.2340425531914894,0.0,ACS Omega,0.10638297872340426,5
+I164135366,SMS Medical College,government,58,30,1.9333333333333333,0.43103448275862066,Biomolecules,0.1,14
+I33459947,Charotar University of Science and Technology,private,58,51,1.1372549019607843,0.0,Elsevier eBooks,0.0784313725490196,1
+I221342038,Kerala University of Fisheries and Ocean Studies,government,58,31,1.8709677419354838,0.3103448275862069,Reference series in phytochemistry,0.0967741935483871,3
+I2800084889,Lilavati Hospital & Research Centre,private,57,33,1.7272727272727273,0.08771929824561403,The World Journal of Men s Health,0.48484848484848486,9
+I4405268608,Nitte Meenakshi Institute of Technology,private,57,35,1.6285714285714286,0.0,Inorganic Chemistry Communications,0.14285714285714285,2
+I35340524,Central University of Kerala,government,57,52,1.0961538461538463,0.0,Elsevier eBooks,0.09615384615384616,0
+I2800373951,Sree Chitra Thirunal Institute for Medical Sciences and Technology,government,57,41,1.3902439024390243,0.08771929824561403,Diagnostic Microbiology and Infectious Disease,0.04878048780487805,11
+I904467727,Himachal Pradesh University,government,57,42,1.3571428571428572,0.12280701754385964,Elsevier eBooks,0.11904761904761904,0
+I4210098748,Department of Science and Technology,government,56,20,2.8,0.5535714285714286,Elsevier eBooks,0.15,7
+I4210096777,National Institute of Pathology,government,56,43,1.302325581395349,0.08928571428571429,Scientific Reports,0.11627906976744186,2
+I153954893,Jaypee University of Information Technology,private,56,46,1.2173913043478262,0.0,Elsevier eBooks,0.10869565217391304,0
+I13567498,Odisha University of Agriculture and Technology,government,56,50,1.12,0.0,Elsevier eBooks,0.06,0
+I4210157422,"Advanced Centre for Treatment, Research and Education in Cancer",government,55,42,1.3095238095238095,0.09090909090909091,RSC Advances,0.047619047619047616,8
+I4210161040,DR. B.R.A. Institute Rotary Cancer Hospital,government,55,27,2.037037037037037,0.43636363636363634,Springer eBooks,0.07407407407407407,3
+I45372603,Ganpat University,private,55,49,1.1224489795918366,0.0,Springer eBooks,0.08163265306122448,1
+I4210148958,King Edward Memorial Hospital Research Centre,private,55,28,1.9642857142857142,0.18181818181818182,Diabetologia,0.14285714285714285,24
+I4400573291,Dayananda Sagar University,private,55,48,1.1458333333333333,0.0,Springer eBooks,0.0625,6
+I4210153931,D.Y. Patil University,private,54,41,1.3170731707317074,0.0,Biomedical and Biotechnology Research Journal (BBRJ),0.024390243902439025,2
+I41549804,Vidyasagar University,government,53,47,1.127659574468085,0.0,Scientific Reports,0.0425531914893617,3
+I1302839792,Indraprastha Apollo Hospitals,private,53,34,1.5588235294117647,0.18867924528301888,The Indian Journal of Medical Research,0.08823529411764706,8
+I1330855593,Vel Tech Rangarajan Dr. Sagunthala R&D Institute of Science and Technology,private,53,48,1.1041666666666667,0.0,Elsevier eBooks,0.0625,0
+I4210088227,MIT World Peace University,private,52,46,1.1304347826086956,0.0,Elsevier eBooks,0.13043478260869565,1
+I4387153738,Siddaganga Institute of Technology,private,52,29,1.793103448275862,0.0,Inorganic Chemistry Communications,0.13793103448275862,2
+I182997119,Manonmaniam Sundaranar University,government,52,48,1.0833333333333333,0.0,Journal of Molecular Structure,0.08333333333333333,0
+I4210114989,Institute of Nuclear Medicine & Allied Sciences,government,52,41,1.2682926829268293,0.0,Elsevier eBooks,0.12195121951219512,10
+I4405260859,Mahaveer University,private,51,45,1.1333333333333333,0.0,Elsevier eBooks,0.08888888888888889,0
+I105454292,Guru Gobind Singh Indraprastha University,government,51,45,1.1333333333333333,0.0,Springer eBooks,0.06666666666666667,7
+I148776243,Government of Tamil Nadu,government,50,46,1.0869565217391304,0.0,Chemical Physics Impact,0.043478260869565216,2
+I134315084,Rajendra Memorial National Institute of Health Research,government,50,43,1.1627906976744187,0.0,International Journal of Biological Macromolecules,0.09302325581395349,4
+I151205615,Agharkar Research Institute,government,50,43,1.1627906976744187,0.0,Elsevier eBooks,0.13953488372093023,3
+I68428275,"Medical College and Hospital, Kolkata",government,50,40,1.25,0.0,Indian Journal of Dermatology Venereology and Leprology,0.1,5
+I83205935,Malaviya National Institute of Technology Jaipur,government,50,40,1.25,0.0,Springer eBooks,0.1,0
+I83737708,REVA University,private,50,44,1.1363636363636365,0.0,Elsevier eBooks,0.06818181818181818,2
+I94948490,B.S. Abdur Rahman Crescent Institute of Science & Technology,private,49,44,1.1136363636363635,0.0,Computational Biology and Chemistry,0.045454545454545456,0
+I94616015,Punjab Technical University,government,49,44,1.1136363636363635,0.0,Letters in Drug Design & Discovery,0.06818181818181818,2
+I860813019,Bharath University,unclassified,49,44,1.1136363636363635,0.0,International Journal of Biological Macromolecules,0.045454545454545456,0
+I28210344,Kakatiya University,government,49,44,1.1136363636363635,0.0,Journal of Molecular Structure,0.09090909090909091,2
+I139858224,M.J.P. Rohilkhand University,government,49,38,1.2894736842105263,0.10204081632653061,European Journal of Medicinal Chemistry,0.10526315789473684,0
+I4405266258,Chaitanya,private,48,36,1.3333333333333333,0.10416666666666667,ChemistrySelect,0.16666666666666666,1
+I340869894,Baba Farid University of Health Sciences,government,48,32,1.5,0.22916666666666666,Elsevier eBooks,0.125,0
+I4210107015,Institute of Minerals and Materials Technology,government,46,42,1.0952380952380953,0.0,International Journal of Biological Macromolecules,0.21428571428571427,11
+I4210136518,Maharaja Ranjit Singh Punjab Technical University,government,46,43,1.069767441860465,0.0,AAPS PharmSciTech,0.09302325581395349,1
+I175548057,Vinayaka Missions University,private,46,42,1.0952380952380953,0.0,Elsevier eBooks,0.047619047619047616,1
+I112471378,Central University of Tamil Nadu,government,45,36,1.25,0.0,Elsevier eBooks,0.1111111111111111,2
+I170558118,Sri Venkateswara University,government,45,39,1.1538461538461537,0.0,Elsevier eBooks,0.1794871794871795,1
+I4210092311,Madras Diabetes Research Foundation,private,44,30,1.4666666666666666,0.0,Diabetes,0.06666666666666667,1
+I155837530,National Institute of Technology Durgapur,government,43,39,1.1025641025641026,0.0,Elsevier eBooks,0.05128205128205128,2
+I4405279234,Uttar Pradesh University of Medical Sciences,government,43,26,1.6538461538461537,0.2558139534883721,Elsevier eBooks,0.11538461538461539,0
+I4405255153,Ramaiah Institute of Technology,private,43,35,1.2285714285714286,0.0,Applied Physics A,0.05714285714285714,1
+I2800701874,Tamil Nadu Dr. M.G.R. Medical University,unclassified,41,35,1.1714285714285715,0.0,Current Bioactive Compounds,0.05714285714285714,0
+I119668213,Karunya University,unclassified,41,39,1.0512820512820513,0.0,International Journal of Biological Macromolecules,0.07692307692307693,0
+I4210101909,National Institute of Cholera and Enteric Diseases,government,40,38,1.0526315789473684,0.0,Scientific Reports,0.10526315789473684,1
+I4210100069,National Institute of Epidemiology,government,40,25,1.6,0.0,PLoS ONE,0.08,2
+I2802584695,Government of Karnataka,government,40,31,1.2903225806451613,0.2,Next research.,0.06451612903225806,2
+I2802952153,Regional Medical Research Center,government,40,35,1.1428571428571428,0.0,Frontiers in Microbiology,0.11428571428571428,3
+I4210137848,Dr. Mohan's Diabetes Specialities Centre,private,39,26,1.5,0.0,Diabetes Care,0.07692307692307693,0
+I197181853,Saurashtra University,government,38,32,1.1875,0.0,Springer eBooks,0.09375,0
+I1331084196,National Forensic Sciences University,unclassified,38,30,1.2666666666666666,0.13157894736842105,Molecular Genetics and Genomics,0.1,2
+I132153292,Indian Institute of Technology Patna,government,37,26,1.4230769230769231,0.16216216216216217,Crystal Growth & Design,0.07692307692307693,1
+I4210125057,Vivekananda Global University,unclassified,37,30,1.2333333333333334,0.0,Current Topics in Medicinal Chemistry,0.06666666666666667,0
+I70699430,Utkal University,government,35,31,1.1290322580645162,0.0,Elsevier eBooks,0.0967741935483871,1
+I4210163968,G.B. Pant Institute of Himalayan Environment and Development,government,35,28,1.25,0.14285714285714285,Reference series in phytochemistry,0.07142857142857142,1
+I4210100463,"SRM University, Andhra Pradesh",unclassified,32,25,1.28,0.1875,Frontiers in Immunology,0.04,0

@@ -1,0 +1,41 @@
+scope,item,share,n
+CSIR-CCMB,DOI,1.0,1203
+CSIR-CCMB,Reference list,0.9443059019118869,1203
+CSIR-CCMB,OpenAlex subfield,0.99833748960931,1203
+CSIR-CCMB,Journal quartile,0.9310058187863675,1203
+CSIR-CCMB,Impact factor (journal papers),1.0,1203
+CSIR-CCMB,Raw affiliation text for every faculty author,0.999168744804655,1203
+CSIR-CCMB,Corresponding author marked,0.8586866167913549,1203
+CSIR-CCMB,Faculty with ORCID on the roster,0.25925925925925924,54
+CSIR-IGIB,DOI,1.0,1392
+CSIR-IGIB,Reference list,0.9461206896551724,1392
+CSIR-IGIB,OpenAlex subfield,1.0,1392
+CSIR-IGIB,Journal quartile,0.9489942528735632,1392
+CSIR-IGIB,Impact factor (journal papers),1.0,1392
+CSIR-IGIB,Raw affiliation text for every faculty author,0.9978448275862069,1392
+CSIR-IGIB,Corresponding author marked,0.860632183908046,1392
+CSIR-IGIB,Faculty with ORCID on the roster,0.7962962962962963,54
+CSIR-IMTECH,DOI,1.0,821
+CSIR-IMTECH,Reference list,0.9853836784409257,821
+CSIR-IMTECH,OpenAlex subfield,1.0,821
+CSIR-IMTECH,Journal quartile,0.9805115712545676,821
+CSIR-IMTECH,Impact factor (journal papers),1.0,821
+CSIR-IMTECH,Raw affiliation text for every faculty author,1.0,821
+CSIR-IMTECH,Corresponding author marked,0.8124238733252132,821
+CSIR-IMTECH,Faculty with ORCID on the roster,0.10204081632653061,49
+CSIR-CDRI,DOI,1.0,2684
+CSIR-CDRI,Reference list,0.9679582712369598,2684
+CSIR-CDRI,OpenAlex subfield,0.9996274217585693,2684
+CSIR-CDRI,Journal quartile,0.9791356184798807,2684
+CSIR-CDRI,Impact factor (journal papers),1.0,2684
+CSIR-CDRI,Raw affiliation text for every faculty author,0.9996274217585693,2684
+CSIR-CDRI,Corresponding author marked,0.9124441132637854,2684
+CSIR-CDRI,Faculty with ORCID on the roster,0.18803418803418803,117
+ALL,DOI,1.0,6027
+ALL,Reference list,0.960179193628671,6027
+ALL,OpenAlex subfield,0.9995022399203584,6027
+ALL,Journal quartile,0.9625020740003318,6027
+ALL,Impact factor (journal papers),1.0,6027
+ALL,Raw affiliation text for every faculty author,0.9995022399203584,6027
+ALL,Corresponding author marked,0.8778828604612576,6027
+ALL,Faculty with ORCID on the roster,0.30656934306569344,274

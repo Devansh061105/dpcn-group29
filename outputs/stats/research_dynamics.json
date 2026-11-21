@@ -1,0 +1,281 @@
+{
+  "n": 274,
+  "m": 1250,
+  "isolates": 23,
+  "lcc_n": 243,
+  "lcc_m": 1245,
+  "k_mean": 9.124087591240876,
+  "k2_mean": 186.90510948905109,
+  "lcc_k_mean": 10.246913580246913,
+  "lcc_k2_mean": 210.69135802469137,
+  "thresholds": {
+    "observed|numeric (chi peak)": 0.054234731698532386,
+    "observed|heterogeneous mean-field <k>/<k2>": 0.048634712293448956,
+    "observed|quenched mean-field 1/Lambda_max": 0.039297078262062426,
+    "rewired|numeric (chi peak)": 0.0632455532033676,
+    "rewired|heterogeneous mean-field <k>/<k2>": 0.048634712293448956,
+    "rewired|quenched mean-field 1/Lambda_max": 0.04948136118416009,
+    "ER|numeric (chi peak)": 0.1002968964498079,
+    "ER|heterogeneous mean-field <k>/<k2>": 0.08911576047628973,
+    "ER|quenched mean-field 1/Lambda_max": 0.08843348794032788
+  },
+  "threshold_numeric": {
+    "observed": 0.054234731698532386,
+    "rewired": 0.0632455532033676,
+    "ER": 0.1002968964498079
+  },
+  "threshold_hmf_observed": 0.048634712293448956,
+  "threshold_qmf_observed": 0.039297078262062426,
+  "sis_mu": 0.2,
+  "chosen_lambda": 0.08135209754779858,
+  "chosen_beta": 0.01627041950955972,
+  "chosen_mu": 0.2,
+  "sir_transmissibility": 0.07638108815996163,
+  "sir_transmissibility_threshold": 0.051322056166858275,
+  "influence_spearman": {
+    "degree": {
+      "rho_sir": 0.8659428096253989,
+      "p_sir": 6.91513760809666e-77,
+      "rho_sis_survival": 0.7928377297291785,
+      "p_sis_survival": 1.7771881059807493e-55
+    },
+    "strength": {
+      "rho_sir": 0.8054924689764771,
+      "p_sir": 1.641186902756052e-58,
+      "rho_sis_survival": 0.726029937208946,
+      "p_sis_survival": 2.2256894144083298e-42
+    },
+    "kshell": {
+      "rho_sir": 0.9150207259319408,
+      "p_sir": 3.729979446076153e-100,
+      "rho_sis_survival": 0.853319692956822,
+      "p_sis_survival": 2.2118555565301055e-72
+    },
+    "betweenness": {
+      "rho_sir": 0.5055722062450152,
+      "p_sir": 1.082368737802769e-17,
+      "rho_sis_survival": 0.411081239989967,
+      "p_sis_survival": 1.181594211887163e-11
+    },
+    "eigenvector": {
+      "rho_sir": 0.9486850688392132,
+      "p_sir": 1.67599827747561e-126,
+      "rho_sis_survival": 0.9544374347996214,
+      "p_sis_survival": 8.962215511882109e-133
+    }
+  },
+  "best_centrality": "eigenvector",
+  "top_spreaders": [
+    {
+      "faculty_id": "CDRI-106",
+      "name": "Naibedya Chattopadhyay",
+      "lab": "CSIR-CDRI",
+      "degree": 41,
+      "kshell": 15,
+      "sir_size_mean": 38.68
+    },
+    {
+      "faculty_id": "CDRI-082",
+      "name": "Jiaur R Gayen",
+      "lab": "CSIR-CDRI",
+      "degree": 46,
+      "kshell": 15,
+      "sir_size_mean": 36.84
+    },
+    {
+      "faculty_id": "CDRI-103",
+      "name": "Srikanta Kumar Rath",
+      "lab": "CSIR-CDRI",
+      "degree": 39,
+      "kshell": 15,
+      "sir_size_mean": 36.19
+    },
+    {
+      "faculty_id": "CDRI-085",
+      "name": "Kalyan Mitra",
+      "lab": "CSIR-CDRI",
+      "degree": 51,
+      "kshell": 15,
+      "sir_size_mean": 35.38
+    },
+    {
+      "faculty_id": "CDRI-028",
+      "name": "Koneni V Sashidhara",
+      "lab": "CSIR-CDRI",
+      "degree": 35,
+      "kshell": 15,
+      "sir_size_mean": 34.15
+    }
+  ],
+  "strategies": [
+    {
+      "strategy": "random node",
+      "seeds": 1,
+      "runs": 1000,
+      "size_mean": 10.103,
+      "size_lo": 1.0,
+      "size_hi": 63.0,
+      "size_median": 1.0,
+      "t_half_median": 16.0,
+      "t_half_median_all": 0.0,
+      "p_major_outbreak": 0.16
+    },
+    {
+      "strategy": "highest degree",
+      "seeds": 1,
+      "runs": 1000,
+      "size_mean": 33.896,
+      "size_lo": 1.0,
+      "size_hi": 74.0,
+      "size_median": 41.0,
+      "t_half_median": 13.0,
+      "t_half_median_all": 10.0,
+      "p_major_outbreak": 0.618
+    },
+    {
+      "strategy": "highest k-shell",
+      "seeds": 1,
+      "runs": 1000,
+      "size_mean": 29.93,
+      "size_lo": 1.0,
+      "size_hi": 73.0,
+      "size_median": 33.0,
+      "t_half_median": 14.0,
+      "t_half_median_all": 10.0,
+      "p_major_outbreak": 0.53
+    },
+    {
+      "strategy": "highest betweenness",
+      "seeds": 1,
+      "runs": 1000,
+      "size_mean": 13.88,
+      "size_lo": 1.0,
+      "size_hi": 69.02499999999998,
+      "size_median": 5.0,
+      "t_half_median": 17.0,
+      "t_half_median_all": 3.0,
+      "p_major_outbreak": 0.158
+    },
+    {
+      "strategy": "one seed per lab",
+      "seeds": 4,
+      "runs": 1000,
+      "size_mean": 24.986,
+      "size_lo": 4.0,
+      "size_hi": 79.02499999999998,
+      "size_median": 9.0,
+      "t_half_median": 15.0,
+      "t_half_median_all": 1.0,
+      "p_major_outbreak": 0.336
+    }
+  ],
+  "best_strategy": "highest degree",
+  "crosslab_reach": {
+    "observed": 0.04833333333333333,
+    "rewired": 0.23366666666666666
+  },
+  "crosslab_t_first_median": {
+    "observed": 8.0,
+    "rewired": 7.0
+  },
+  "crosslab_largest_gap": {
+    "seed_lab": "CSIR-IGIB",
+    "target_lab": "CSIR-CDRI",
+    "observed": 0.038,
+    "rewired": 0.307
+  },
+  "mfpt_ratio": {
+    "mean": 21.018942232693874,
+    "min": 4.988102026369459,
+    "max": 40.85191157967681,
+    "mfpt_obs_mean": 146.66020488915925,
+    "mfpt_null_mean": 9.51849096317377
+  },
+  "retention_t5": {
+    "CSIR-CCMB": {
+      "observed": 0.5996782432030057,
+      "null": 0.07279935098475607
+    },
+    "CSIR-IGIB": {
+      "observed": 0.8568690373982806,
+      "null": 0.16492429481433343
+    },
+    "CSIR-IMTECH": {
+      "observed": 0.7819001006433951,
+      "null": 0.0930519041223499
+    },
+    "CSIR-CDRI": {
+      "observed": 0.9670337167264754,
+      "null": 0.6692889078549011
+    }
+  },
+  "random_walk": {
+    "stationary_vs_strength_pearson": 0.9999999999999999,
+    "spectral_gap_obs": 0.016745038319877614,
+    "relaxation_time_obs": 59.719182536174024,
+    "spectral_gap_null_mean": 0.16879991149978163,
+    "spectral_gap_null_sd": 0.05703940764804671,
+    "relaxation_time_null_mean": 6.751696859484101
+  },
+  "intervention_baseline": {
+    "reach": 0.0539,
+    "mfpt": 146.66020488915927,
+    "efficiency": 0.26298886202437
+  },
+  "best_intervention": {
+    "5": {
+      "by_reach": "hub-to-hub",
+      "reach_mean": 0.0613,
+      "reach_gain": 0.007399999999999997,
+      "by_mfpt": "hub-to-hub",
+      "mfpt_mean": 134.6678942280154,
+      "by_efficiency": "hub-to-hub"
+    },
+    "10": {
+      "by_reach": "hub-to-hub",
+      "reach_mean": 0.06789999999999999,
+      "reach_gain": 0.013999999999999985,
+      "by_mfpt": "hub-to-hub",
+      "mfpt_mean": 126.76911439516452,
+      "by_efficiency": "random cross-lab"
+    },
+    "20": {
+      "by_reach": "hub-to-hub",
+      "reach_mean": 0.07813333333333332,
+      "reach_gain": 0.024233333333333315,
+      "by_mfpt": "random cross-lab",
+      "mfpt_mean": 114.71284453870393,
+      "by_efficiency": "random cross-lab"
+    },
+    "40": {
+      "by_reach": "hub-to-hub",
+      "reach_mean": 0.10086666666666666,
+      "reach_gain": 0.04696666666666666,
+      "by_mfpt": "random cross-lab",
+      "mfpt_mean": 94.96196930559702,
+      "by_efficiency": "random cross-lab"
+    }
+  },
+  "topic_cos_top40_min": 0.9794763524499203,
+  "findings": [
+    "An SIS infection (recovery 0.2 per step) becomes endemic on the faculty network once beta/mu exceeds about 0.054 (susceptibility peak; mean-field predictions: quenched 1/Lambda_max = 0.039, heterogeneous <k>/<k2> = 0.049), lower than 0.063 on degree-preserving rewired networks and 0.100 on Erdos-Renyi networks.",
+    "At beta/mu = 0.081 (1.5x the threshold), a single infected faculty member's outbreak size correlates best with eigenvector centrality (Spearman rho = 0.95); k-shell gives 0.92 and degree 0.87.",
+    "Seeding the most-connected faculty member reaches 34 faculty on average versus 10 from a random faculty member, with a major outbreak (>= 10% of faculty) in 62% vs 16% of runs.",
+    "An outbreak started in one lab reaches a given other lab in 5% of runs on the observed network vs 23% on degree-preserving rewired networks; the largest gap is IGIB -> CDRI: 4% vs 31%.",
+    "A random walker on the co-authorship network takes on average 147 steps to first reach another lab vs 10 on rewired networks (mean ratio 21.0x, range 5.0-40.9x).",
+    "After 5 steps a walker started in a lab is still inside it with probability CCMB 0.60, IGIB 0.86, IMTECH 0.78, CDRI 0.97 vs 0.07, 0.16, 0.09, 0.67 on rewired networks.",
+    "The walk's spectral gap is 0.017 (relaxation time 60 steps) vs 0.169 (7 steps) after rewiring: walks mix more slowly on the real network, as expected if labs act as communities.",
+    "Adding 40 cross-lab collaborations raises cross-lab outbreak reach from 5% to 8% (random cross-lab), 10% (hub-to-hub), 7% (topic-similar), and lowers the mean cross-lab first-passage time from 147 to 95, 101, 100 steps."
+  ],
+  "methods": {
+    "network": "faculty co-authorship graph, weight = joint papers with <= 50 authors; SIS sweep and random walks on the largest connected component",
+    "nulls": "degree-preserving double-edge-swap rewiring (10 x E swaps; connected swaps with shuffled weights for random walks) and Erdos-Renyi G(n, m)",
+    "sis": "discrete-time SIS, mu = 0.2, 25 lambda values, 100 replicas per lambda from one random seed, 500 burn-in + 500 measured steps, reactivation at one random node when extinct (quasi-stationary); survival = never went extinct",
+    "threshold": "numeric = lambda at the peak of chi = N(<rho^2>-<rho>^2)/<rho>; HMF = <k>/<k^2>; QMF = 1/largest adjacency eigenvalue",
+    "sir": "discrete-time SIR at beta = 0.0163, mu = 0.2 (beta/mu = 1.5 x observed numeric SIS threshold); 100 runs per seed node, 1000 per strategy",
+    "crosslab": "SIR from a random node of each lab, 1000 runs per lab observed and over 10 rewired networks; reach = any new infection in the target lab",
+    "random_walk": "weighted walk P = S^-1 W on the LCC; MFPT solved exactly; retention from the stationary distribution restricted to the lab; 20 connected rewired nulls; RWR restart 0.15 on the full graph",
+    "interventions": "add k cross-lab edges (weight 1): random pairs (10 draws), largest degree product, or highest subfield cosine among never-co-authored pairs; 250 SIR runs per seed lab per draw"
+  },
+  "runtime_seconds": 130.6650631427765
+}

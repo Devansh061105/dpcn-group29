@@ -1,0 +1,16 @@
+name,lab,n_pairs,n_cross_lab_pairs,n_faculty,n_papers,first_year,last_year,active_years,short_tenure
+Ruchir Kant,CSIR-CDRI,388,0,31,123,2016,2026,11,False
+Amol Chhatrapati Bisen,CSIR-CDRI,211,0,26,56,2020,2026,7,False
+Akhilesh Kumar,CSIR-CDRI,194,0,29,19,2021,2026,6,True
+Divya Ramesh Singh,CSIR-CDRI,156,0,23,25,2016,2026,11,False
+Rituraj Konwar,CSIR-CDRI,155,0,21,19,2016,2021,6,True
+Sharad Sharma,CSIR-CDRI,140,0,26,9,2018,2024,7,False
+Suriya P. Singh,CSIR-CDRI,120,0,21,19,2016,2026,11,False
+Himangsu Kousik Bora,CSIR-CDRI,111,0,25,11,2017,2023,7,False
+Anurag Agrawal,CSIR-IGIB,102,16,18,29,2016,2023,8,False
+Ravi Sankar Ampapathi,CSIR-CDRI,97,0,19,18,2016,2026,11,False
+Alka Raj Pandey,CSIR-CDRI,84,0,18,13,2019,2026,8,False
+Sristi Agrawal,CSIR-CDRI,83,0,18,36,2019,2026,8,False
+Jawahar Lal,CSIR-CDRI,83,0,18,23,2016,2020,5,True
+Konica Porwal,CSIR-CDRI,82,0,21,37,2016,2026,11,False
+Mohammed Riyazuddin,CSIR-CDRI,81,0,21,25,2016,2025,10,False

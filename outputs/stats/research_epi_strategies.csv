@@ -1,0 +1,6 @@
+strategy,seeds,runs,size_mean,size_lo,size_hi,size_median,t_half_median,t_half_median_all,p_major_outbreak
+random node,1,1000,10.103,1.0,63.0,1.0,16.0,0.0,0.16
+highest degree,1,1000,33.896,1.0,74.0,41.0,13.0,10.0,0.618
+highest k-shell,1,1000,29.93,1.0,73.0,33.0,14.0,10.0,0.53
+highest betweenness,1,1000,13.88,1.0,69.02499999999998,5.0,17.0,3.0,0.158
+one seed per lab,4,1000,24.986,4.0,79.02499999999998,9.0,15.0,1.0,0.336

@@ -1,0 +1,226 @@
+{
+  "null": {
+    "faculty_nodes": 274,
+    "faculty_links": 1250,
+    "incidences": 7950,
+    "bipartite_lost_incidences_mean": 0.0,
+    "triangles": 3229,
+    "filled_triangles": 1478,
+    "filled_triangle_share": 0.4577268504180861
+  },
+  "communities": {
+    "louvain_stability_mean_pairwise_nmi": 0.9504195485676294,
+    "louvain_stability_min_nmi": 0.8489555937170278,
+    "best_modularity_weighted": 0.5490682267554012,
+    "n_communities_best": 11,
+    "communities_size5plus": 7,
+    "communities_size5plus_mixed_labs": 2,
+    "kcore_max": 15,
+    "main_core_size": 28,
+    "main_core_by_lab": {
+      "CSIR-CDRI": 28
+    }
+  },
+  "students": {
+    "nonfaculty_lab_authors": 4500,
+    "nonfaculty_authors_bridging": 1035,
+    "mediated_pairs": 3766,
+    "mediated_pairs_cross_lab": 496,
+    "mediated_pairs_2plus_mediators": 1895,
+    "isolates_faculty_only": 23,
+    "isolates_connected_by_students": 7,
+    "bridging_authors_short_tenure": 666,
+    "mediated_pairs_short_tenure": 2190,
+    "lcc_short_tenure_only": 255,
+    "top5_glue_share_of_mediated_pairs": 0.29314922995220394
+  },
+  "growth": {
+    "densification_alpha": 2.6482393981585814,
+    "densification_alpha_ci": [
+      2.5112967683699745,
+      2.7851820279471884
+    ],
+    "pa_gamma": 0.3950154392069565,
+    "pa_gamma_ci": [
+      0.30770031168431394,
+      0.49864565651752113
+    ],
+    "pa_gamma_direct_fit": 0.4361020766443652,
+    "pa_k_max_used": 24,
+    "pa_node_years": 2269,
+    "pa_rate_k0": 0.5294117647058824
+  },
+  "position": {
+    "position_model_n": 211,
+    "spearman_degree_papers_early": 0.6341315779984359
+  },
+  "fragility": {
+    "cross_lab_links": 60,
+    "cross_lab_single_paper_share": 0.7833333333333333,
+    "cross_lab_left_after_top1": 56,
+    "cross_lab_left_after_top5": 44,
+    "cross_lab_left_after_top10": 36,
+    "min_node_cut": {
+      "CSIR-CCMB - CSIR-IGIB": 13.0,
+      "CSIR-CCMB - CSIR-IMTECH": 12.0,
+      "CSIR-CCMB - CSIR-CDRI": 12.0,
+      "CSIR-IGIB - CSIR-IMTECH": 12.0,
+      "CSIR-IGIB - CSIR-CDRI": 11.0,
+      "CSIR-IMTECH - CSIR-CDRI": 11.0
+    }
+  },
+  "link_prediction": {
+    "link_prediction": {
+      "common neighbours": {
+        "auc": 0.7281943434024045,
+        "auc_lo": 0.7064785688952654,
+        "auc_hi": 0.7475354440915664,
+        "precision_at_50": 0.42
+      },
+      "Jaccard": {
+        "auc": 0.7227714259264034,
+        "auc_lo": 0.7018079424609205,
+        "auc_hi": 0.7430734779827927,
+        "precision_at_50": 0.14
+      },
+      "Adamic-Adar": {
+        "auc": 0.7278497413159386,
+        "auc_lo": 0.7060902310465682,
+        "auc_hi": 0.7487881532042033,
+        "precision_at_50": 0.48
+      },
+      "preferential attachment": {
+        "auc": 0.7092193317036033,
+        "auc_lo": 0.6872860461518235,
+        "auc_hi": 0.7344757637193015,
+        "precision_at_50": 0.22
+      },
+      "topic cosine (subfields)": {
+        "auc": 0.5764645060273661,
+        "auc_lo": 0.5535137830266563,
+        "auc_hi": 0.5978075252353816,
+        "precision_at_50": 0.04
+      },
+      "same lab": {
+        "auc": 0.8379933945630482,
+        "auc_lo": 0.8263010514759934,
+        "auc_hi": 0.8484615114724341,
+        "precision_at_50": 0.04
+      },
+      "logistic (same lab + topic + log AA), fit 2016-18 -> 2019-20": {
+        "auc": 0.8839984494596993,
+        "auc_lo": 0.8727896895833536,
+        "auc_hi": 0.8944125933631971,
+        "precision_at_50": 0.38
+      }
+    },
+    "logit_coefficients_2016_18": {
+      "const": -8.3751644285574,
+      "same_lab": 4.069710221798202,
+      "topic_cosine": 1.2799519024729034,
+      "log1p_AA": 1.3732122060623595
+    },
+    "twin_backtest": {
+      "cross_lab_pairs": 16263,
+      "top_decile_threshold": 0.6552105127060911,
+      "top_decile_linked": 8,
+      "top_decile_pairs": 1627,
+      "top_decile_rate": 0.004917025199754148,
+      "top_decile_ci": [
+        0.002493585284453704,
+        0.009672893667272812
+      ],
+      "other_linked": 31,
+      "other_pairs": 14636,
+      "other_rate": 0.0021180650450942883,
+      "other_ci": [
+        0.001492612874919403,
+        0.00300481283493254
+      ],
+      "ratio": 2.3214703491484423,
+      "fisher_p": 0.052826147392945166
+    }
+  },
+  "contagion": {
+    "contagion": {
+      "prior co-authors (linked before the year)": {
+        "rr": 5.187655405629414,
+        "rr_lo": 4.534985411495299,
+        "rr_hi": 5.808226175568422,
+        "share_of_adoptions_exposed": 0.5190126751167445
+      },
+      "placebo: future co-authors (linked after the year)": {
+        "rr": 5.566504650363052,
+        "rr_lo": 4.952388825680282,
+        "rr_hi": 6.289342443120561,
+        "share_of_adoptions_exposed": 0.3275517011340894
+      },
+      "placebo: random same-lab non-co-authors (size-matched)": {
+        "rr": 4.09153548381388,
+        "rr_lo": 3.7191521147444484,
+        "rr_hi": 4.473189715377852,
+        "share_of_adoptions_exposed": 0.36801200800533695
+      }
+    },
+    "rr_ratio_prior_vs_future": 0.9319412686183727,
+    "rr_ratio_prior_vs_future_ci": [
+      0.7964314016386599,
+      1.0699492186357384
+    ],
+    "adoption_events": 1499,
+    "faculty_years_subfield_rows": 200199
+  },
+  "main_path": {
+    "citation_dag_nodes": 4442,
+    "citation_dag_edges": 9554,
+    "citation_edges_dropped_order": 106,
+    "main_path_length": 18,
+    "main_path_years": [
+      2016,
+      2026
+    ],
+    "main_path_labs": {
+      "CSIR-CDRI": 18
+    }
+  },
+  "runtime_seconds": {
+    "null models": 72.4,
+    "communities": 74.1,
+    "students": 74.8,
+    "growth": 75.7,
+    "position model": 76.0,
+    "fragility": 76.2,
+    "link prediction": 79.4,
+    "contagion": 81.2,
+    "main path and entropy": 83.2
+  },
+  "findings": [
+    "Faculty clustering is 0.32, against 0.03 in a random graph, 0.13 after degree-preserving rewiring and 0.28 when papers are reshuffled among faculty keeping team sizes (z = 4.3); much of the clustering is what multi-faculty papers produce mechanically, so the paper-level null is the fair baseline.",
+    "Only 46% of the 3229 faculty triangles are 'filled' (all three on one paper); the rest close through separate papers, i.e. genuine triadic closure.",
+    "Louvain modularity is 0.49 vs 0.20 under the bipartite null, and the best partition matches lab membership with NMI 0.64 (ARI 0.50; permutation z = 70) but departments only with NMI 0.52 (AMI 0.30): communities follow the lab wall more than the department chart.",
+    "Adding links through non-faculty lab authors (students, postdocs, staff) raises the faculty LCC from 243 to 256 of 274 faculty, connects 7 of 23 isolates, and moves the cross-lab share of links from 4.8% to 11.1%; counting only short-tenure authors (a proxy for students and postdocs) the LCC is 255 and the cross-lab share 8.2%.",
+    "The network densifies with E ~ N^2.65 (95% CI 2.51-2.79; inflated because the roster fixes the node pool, so N saturates) and new links attach with kernel A(k) ~ k^0.40 (CI 0.31-0.50), i.e. sub-linear preferential attachment.",
+    "Of 60 cross-lab faculty links, 78% rest on a single joint paper, and removing the 10 papers that create the most cross-lab pairs leaves only 36 (60%) of them.",
+    "Early collaboration (2016-20 degree) predicts 2021-26 output by +0.25 log-papers per SD (p = 0.023) beside early papers (+0.32, p = 0.00064); its association with later field-normalised citations is +0.11 per SD (p = 0.079, not significant at 5%). Brokerage (betweenness, constraint) adds nothing once degree and output are controlled.",
+    "For future co-authorship, logistic (same lab + topic + log AA), fit 2016-18 -> 2019-20 works best (AUC 0.88, precision@50 38%); cross-lab pairs in the top decile of 2016-20 topic similarity linked in 2021-26 at 0.5% vs 0.2% for other cross-lab pairs (2.3x, 8 of 1627 pairs; Fisher p = 0.053).",
+    "Faculty start publishing in a new subfield 5.2x as often when a prior co-author already works there (CI 4.5-5.8), vs 5.6x for future co-authors and 4.1x for random same-lab colleagues (ratio prior/future 0.93, CI 0.80-1.07), so the co-author effect is not distinguishable from shared interest (homophily), not evidence of influence.",
+    "The internal citation main path runs 18 papers from 2016 to 2026 and is dominated by CSIR-CDRI; subfield entropy changed CSIR-CCMB 3.47->4.13, CSIR-CDRI 3.95->3.86, CSIR-IGIB 3.99->4.44, CSIR-IMTECH 3.36->3.76 bits (2016 vs 2025, rarefied), with mean top-10 subfield turnover Jaccard CSIR-CCMB 0.41, CSIR-CDRI 0.59, CSIR-IGIB 0.45, CSIR-IMTECH 0.48."
+  ],
+  "methods": {
+    "network": "Faculty co-authorship on papers with <= 50 authors; all 274 faculty with papers are nodes.",
+    "null_models": "100 draws each: G(n,m); double-edge-swap rewiring (10 m swaps); faculty-paper incidence shuffled keeping paper and faculty degrees (duplicates repaired by swaps), then projected. Metrics unweighted; Louvain seed 42.",
+    "filled_triangles": "A triangle is filled when one paper (<= author cap) carries all three faculty.",
+    "communities": "Weighted Louvain on non-isolated faculty over 50 seeds; best-modularity partition compared with lab and lab|department labels by NMI/ARI/AMI; z from 1000 label permutations.",
+    "kcore": "Unweighted core numbers on the full faculty graph; main core = highest k.",
+    "students": "Non-faculty authors affiliated with our labs (not matched to any roster author ID) on papers within the author cap; a faculty pair is mediated when both wrote (on any papers) with the same such author but never with each other. 'Short tenure' = active in our corpus for <= 6 calendar years (a censored proxy for students and postdocs).",
+    "growth": "Cumulative network per year; alpha from OLS of log E on log N (t interval); effective diameter = 90th percentile of LCC shortest paths.",
+    "preferential_attachment": "Node-years (degree at end of t-1, new links in t); A(k) = links gained / node-years at k; gamma from log cumulative kernel ~ (gamma+1) log k over k = 1..95th percentile; CI from 500 faculty-cluster bootstraps.",
+    "position_model": "Faculty with >= 2 papers 2016-20; network measures on the 2016-20 graph (isolate constraint set to 1); OLS with HC1 errors and lab fixed effects; ncs = citations / mean of dataset papers with the same subfield and year.",
+    "fragility": "Node cut via node-splitting max-flow between all faculty of two labs within the LCC (cut may include their own faculty); top papers ranked by cross-lab faculty pairs created.",
+    "link_prediction": "Candidates = unlinked pairs of faculty active 2016-20 and 2021-26; scores from the 2016-20 graph and subfield vectors; AUC CI from 500 stratified bootstraps; precision@50 with random tie-breaking; logistic weights fitted on 2016-18 -> 2019-20.",
+    "twins": "Cross-lab pairs, each with >= 5 papers, never on any paper together, ranked by all-years subfield cosine.",
+    "contagion": "Rows = (faculty active in year t with earlier papers, t in 2018-2026, subfield not yet used); adoption = first paper in that subfield in t; exposure = a qualifying alter published there before t; relative risk with 500 faculty-cluster bootstraps; random placebo averages 20 size-matched draws.",
+    "main_path": "Internal citations ordered by (year, publication date, id), backward edges dropped; SPC edge weight = paths into citing paper x paths out of cited paper; global main path maximises summed SPC.",
+    "entropy": "Shannon entropy (bits) of each lab's subfield distribution per year, also rarefied to a common sample size; turnover = Jaccard of top-10 subfields vs previous year."
+  }
+}

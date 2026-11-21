@@ -87,8 +87,10 @@
     if (document.body.classList.contains("shot")) return plainTable(id, rows, columns, opts);
     // tables are small: rebuild on every render (updating a Tabulator that is still building throws)
     if (tables[id]) { try { tables[id].destroy(); } catch (e) { /* not built yet */ } }
+    const big = rows.length > 250;          // long tables page through 25 rows at a time so the page stays fast
     const t = new Tabulator(`#${id}`, Object.assign({ data: rows, columns, layout: "fitDataStretch",
-      maxHeight: opts.maxHeight || 420, pagination: false, renderVertical: "basic", placeholder: "No rows for this selection" }, opts));
+      maxHeight: opts.maxHeight || 420, pagination: big, paginationSize: 25, paginationCounter: big ? "rows" : undefined,
+      renderVertical: "basic", placeholder: "No rows for this selection" }, opts, big ? { maxHeight: undefined } : {}));
     t.on("tableBuilt", () => { t.built = true; });
     tables[id] = t;
     csvButton(id);
@@ -541,15 +543,20 @@
   }
 
   /*__PHASE2__*/
+  /*__PHASE3__*/
+  /*__DYNAMICS__*/
+  /*__CHAT__*/
 
   // ------------------------------------------------------------------ wiring
   const RENDER = { overview: renderOverview, journals: renderJournals, faculty: renderFaculty, research: renderResearch,
-    citation: renderCitation, collab: renderCollab, about: renderAbout, ...P2REG };
-  function render() { heroStats(); RENDER[state.tab](); rendered[state.tab] = state.lab; }
+    citation: renderCitation, collab: renderCollab, about: () => { renderAbout(); P3API.about(); }, ...P2REG, ...P3REG, ...DYREG };
+  function render() { heroStats(); RENDER[state.tab](); rendered[state.tab] = state.lab; if (P2 && P2API.notes) P2API.notes(); }
   // seven top-level sections; a section with several pages gets a pill switcher underneath
   const GROUPS = [
-    ["overview", ["overview"]], ["findings", ["findings"]], ["publications", ["impact", "journals", "research"]],
-    ["people", ["faculty", "compare"]], ["networks", ["citation", "collab", "instnet"]], ["flags", ["flags"]], ["about", ["about"]]];
+    ["overview", ["overview"]], ["findings", ["findings", "extras", "verdicts"]],
+    ["explore", ["explorer", "person", "versus", "faculty", "compare"]], ["publications", ["impact", "journals", "research"]],
+    ["networks", ["citation", "collab", "instnet", "structure"]], ["dynamics", ["epidemics", "walks"]],
+    ["benchmark", ["benchmark", "science"]], ["flags", ["flags"]], ["about", ["about"]]];
   const SECT = {
     overview: ["Overview", "The four labs at a glance", "Output, citations and the questions we asked of the data. Pick a lab at the top right to see it alone."],
     findings: ["Findings", "What holds up against a baseline", "Each result is compared with what chance or a controlled model would give, so a pattern is only reported when it is real."],
@@ -557,12 +564,22 @@
     journals: ["Journals", "Where the labs publish", "Quartiles, the journals used most and the conference papers."],
     research: ["Research areas", "What the labs work on", "Fields and subfields of the papers, from OpenAlex topics."],
     faculty: ["Faculty list", "Every scientist and their output", "Papers, citations and h-index for each faculty member on the roster."],
-    compare: ["Compare faculty", "Faculty and departments side by side", "Most productive, most connected, and each person's top papers by impact factor."],
+    compare: ["Rankings", "Faculty and departments side by side", "Most productive, most connected, and each person's top papers by impact factor."],
     citation: ["Citation network", "Which papers cite which", "Citations among the labs' own papers and to and from other Indian institutions."],
     collab: ["Co-authorship", "Who writes with whom", "The faculty co-authorship network, its communities and its brokers."],
     instnet: ["Institutions & time", "Partners across India, and how the networks grew", "The partner-institution network with a year range, and the faculty network year by year."],
     flags: ["Flags", "Numbers that need a closer look", "Many-author papers, merged author profiles and heavy citing institutions, each with the evidence."],
     about: ["About", "Data, methods and the team's work", "Sources, definitions, checks, and the manual work behind every number."],
+    extras: ["More results", "Journals, partners, citers and the laws of science", "Re-graded journals, which partners pay off, who cites and how, productivity as a random walk, and whether the headlines survive."],
+    verdicts: ["Verdicts", "Every question, with a verdict", "What we asked, how we tested it, and whether the answer held up. Also what we did not do and what the numbers cannot show."],
+    explorer: ["Filter & find", "Set any threshold, see who and what matches", "Years, author count, impact factor, citations, quartile, field, role and h-index: everything recomputes as you type."],
+    person: ["Person profile", "Every number for one scientist", "Output, impact, credit, co-authors and papers for any of the 274 faculty, with their standing in the lab."],
+    versus: ["Compare", "Anyone against anyone", "Pick up to six people, or the four labs, and compare their profiles and output over time."],
+    structure: ["Structure", "The network against random baselines", "Null models, communities, the students between faculty, growth laws, link prediction and collaboration opportunities."],
+    epidemics: ["Epidemics", "How ideas would spread between the labs", "SIS and SIR models on the faculty network with many random seeds, super-spreaders, lab walls and what extra links would change. Run your own outbreak."],
+    walks: ["Random walks", "Walking the network, and output as a walk", "How quickly a random walker leaves its lab, and whether scientists' yearly output behaves like a random walk."],
+    benchmark: ["Peer institutes", "Against other Indian biology institutes", "Field-weighted impact, top-10% papers, growth, openness and specialisation for our labs and 13 peers, from identical OpenAlex queries."],
+    science: ["Science context", "Our data against the science of science", "Classic laws and results from the literature, each beside what our own data show."],
   };
   const groupOf = (tab) => (GROUPS.find(([, ts]) => ts.includes(tab)) || GROUPS[0])[0];
   const available = (tabs) => tabs.filter((t) => RENDER[t] && el(`tab-${t}`));
@@ -604,7 +621,7 @@
     if (rendered[tab] !== state.lab) render();
     afterShow(tab);
     const th = document.documentElement.dataset.theme;
-    history.replaceState(null, "", `#tab=${tab}${state.lab !== "ALL" ? `&lab=${state.lab}` : ""}${th ? `&theme=${th}` : ""}`);
+    history.replaceState(null, "", `#tab=${tab}${state.lab !== "ALL" ? `&lab=${state.lab}` : ""}${tab === "person" && state.person ? `&person=${state.person}` : ""}${th ? `&theme=${th}` : ""}`);
     window.dispatchEvent(new Event("resize"));
     Object.values(tables).forEach((t) => { if (t.built && t.element.offsetParent) t.redraw(true); });
   }
@@ -617,6 +634,7 @@
   document.querySelectorAll("[data-go]").forEach((b) => b.addEventListener("click", () => { show(b.dataset.go); window.scrollTo(0, 0); }));
   el("compact").addEventListener("change", renderFaculty);
   if (P2) P2WIRE();
+  P3WIRE(); DYWIRE(); CHATWIRE();
   document.querySelectorAll("#tabs button").forEach((b) => {    // drop sections with nothing to show (no Phase II data)
     if (!available(GROUPS.find(([k]) => k === b.dataset.group)[1]).length) b.remove(); });
   document.querySelectorAll('input[name="layer"]').forEach((r) => r.addEventListener("change", () => { state.layer = r.value; renderCollab(); }));
@@ -647,6 +665,7 @@
     if (r) { r.checked = true; state[k] = r.value; }
   }
   if (LABS.includes(hp.get("lab"))) { state.lab = hp.get("lab"); sel.value = state.lab; }
+  if (hp.get("person")) state.person = hp.get("person");
   if (hp.get("focus")) {        // show only the panels holding these element ids (for screenshots and links)
     const ids = hp.get("focus").split(",").map((x) => document.getElementById(x)).filter(Boolean);
     document.querySelectorAll("main .card, main .kpis").forEach((c) => { if (!ids.some((e) => c.contains(e))) c.hidden = true; });
@@ -718,4 +737,10 @@
       c.style.setProperty("--fd", `${(i % 7) * 0.6}s`); svg.append(c); });
   })();
   show(RENDER[hp.get("tab")] ? hp.get("tab") : "overview");
+  window.addEventListener("hashchange", () => {     // links like #tab=person&person=CCMB-016 and back/forward
+    const q = new URLSearchParams(location.hash.slice(1));
+    if (q.get("person")) { state.person = q.get("person"); delete rendered.person; }
+    if (RENDER[q.get("tab")] && q.get("tab") !== state.tab) { show(q.get("tab")); window.scrollTo(0, 0); }
+    else if (q.get("person") && state.tab === "person") render();
+  });
 })();
