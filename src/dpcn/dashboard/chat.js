@@ -36,6 +36,8 @@ const GLOSS = {
   "small world": "High clustering with short paths between any two people (Watts & Strogatz 1998).",
   "rsiena": "A stochastic actor-oriented model: each faculty member is an actor who adds or drops ties to improve an objective (same lab, shared co-authors, output); fitted in R.",
   "specification curve": "Re-running the same test under every reasonable combination of analysis choices to see whether the result depends on them.",
+  "gibrat": "Gibrat's law: a group's growth rate does not depend on its size. A negative slope of growth on size means large groups grow more slowly.",
+  "difference in differences": "Compare the change before and after an event in a treated group with the change in a similar control group over the same time.",
   "laplace": "A peaked, heavy-tailed distribution. Zhang et al. (P1) found yearly changes in scientists' output follow it.",
 };
 const LAB_ALIAS = Object.fromEntries(LABS.map((l) => [short(l).toLowerCase(), l]));
@@ -60,6 +62,8 @@ function chatKB() {
   Object.entries((D.p2 || {}).notes || {}).forEach(([k, s]) => { if (typeof s === "string" && s.length > 20) s.split(/\n+/).forEach((p) => add(`Team interpretation: ${p}`, noteTab[k] || "findings", "note")); });
   const secTab = (sec) => /network models/i.test(sec) ? "models" : /robustness/i.test(sec) ? "extensions" : /teams/i.test(sec) ? "teams" : /more tested/i.test(sec) ? "extras" : "findings";
   ((D.p2 || {}).findings_doc || []).forEach((r) => add(r.text, /spread|epidemic|SIS|SIR|walk/i.test(r.text) && /more tested/i.test(r.section) ? "epidemics" : secTab(r.section), "doc"));
+  ((((D.p2 || {}).firsts || {}).summary || {}).findings || []).forEach((t) => add(`${t} (A method no other group in the course used.)`, "novelty", "finding"));
+  ((D.p2 || {}).novelty || []).filter((r) => r.other_groups === 0).forEach((r) => add(`First in the course: ${r.item}. No other group did this.`, r.page || "novelty", "finding"));
   (SCI.items || []).forEach((it) => add(`${it.claim} Source: ${it.source}`, "science", "science"));
   (R3.laws || []).forEach((r) => add(`${r.law}: ${r.statement}. Expected ${r.expected}; our data: ${r.observed}.`, "extras", "law"));
   Object.entries(SECTX).forEach(([k, m]) => add(`The ${m[0]} page: ${m[1]}. ${m[2]}`, k, "page"));
@@ -142,6 +146,11 @@ function answer(q) {
   if (/^(hi|hello|hey|help)\b/.test(n)) return { text: "Ask me about any scientist, lab, peer institute, finding or method. For example: “h-index of Thangaraj”, “compare CCMB and IGIB”, “top 5 by fractional citations in CDRI”, “faculty with h-index above 10 and fewer than 100 authors”, “what is SIS?”, “do lab walls slow spreading?”." };
   const def = n.match(/^(what is|what are|what's|define|meaning of|explain)\s+(an? |the )?(.+?)\??$/);
   if (def) { const key = Object.keys(GLOSS).find((g) => def[3].includes(g) || g.includes(def[3].trim())); if (key) return { text: `${key}: ${GLOSS[key]}` }; }
+  if (/no other group|nobody else|only (we|us)|unique|novel|first(s)? in the course|other groups|stand out|different from/.test(n) && NOV.length) {
+    const f = NOV.filter((r) => r.other_groups === 0), cat = NOV.filter((r) => /^\d/.test(r.id));
+    const rare = cat.filter((r) => r.other_groups > 0 && r.other_groups <= 2 && r.ours === "yes");
+    return { text: `${f.length} things no other group in the course did: ${f.map((r) => r.item.split(":")[0]).join("; ")}.\n\nWe also did ${rare.length} rare items (only 1–2 of the 29 groups did them), cover ${cat.filter((r) => r.ours === "yes").length} of the ${cat.length} catalogued methods and features (plus ${cat.filter((r) => r.ours === "partial").length} in part), and kept every common and baseline item.`, tab: "novelty" };
+  }
   if (/who cites|citing institution|citers?\b|cite (us|the labs|our)/.test(n)) {
     const C = (R3.citers_collab || []).slice().sort((a, b) => b.cites_in - a.cites_in).slice(0, 8);
     if (C.length) return { text: `Indian institutions citing the labs most (external citations, our own labs excluded): ${C.map((r, i) => `${i + 1}. ${r.partner_inst} (${fmt(r.cites_in)}; ${fmt(r.shared_papers)} joint papers)`).join("; ")}. Big institutions cite more simply because they publish more; the Flags tab divides by each institution's output.`, tab: "flags" };
@@ -190,7 +199,7 @@ function CHATWIRE() {
   open.addEventListener("click", () => toggle(box.hidden));
   el("chat-close").addEventListener("click", () => toggle(false));
   document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !box.hidden) toggle(false); });
-  ["h-index of Thangaraj", "compare CCMB and IGIB", "faculty with h-index above 10 and fewer than 100 authors", "top 5 spreaders", "what is SIS?", "do lab walls slow spreading?", "how does NCBS compare?", "did the labs move to weaker journals?"]
+  ["what did we do that no other group did?", "h-index of Thangaraj", "compare CCMB and IGIB", "faculty with h-index above 10 and fewer than 100 authors", "top 5 spreaders", "what is SIS?", "do lab walls slow spreading?", "how does NCBS compare?", "did the labs move to weaker journals?"]
     .forEach((s) => { const b = mk("button", s, "chip-btn"); b.type = "button"; b.addEventListener("click", () => { el("chat-in").value = s; el("chat-form").requestSubmit(); }); sugg.append(b); });
   el("chat-form").addEventListener("submit", (e) => {
     e.preventDefault(); const q = el("chat-in").value.trim(); if (!q) return;

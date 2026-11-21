@@ -437,3 +437,15 @@ body.shot .chat-open { display: none; }
 .tabs { justify-content: safe center; }
 @media (max-width: 1560px) { .tabs button { padding: 8px 11px; font-size: 14.5px; } .brand-grp { display: none; } #lab { max-width: 200px; } }
 @media (max-width: 1280px) { .tabs button { padding: 7px 9px; font-size: 14px; } #lab { max-width: 150px; } }
+/* Only here */
+.nv-firsts { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(360px, 100%), 1fr)); gap: 14px; }
+.nv-first { display: flex; flex-direction: column; gap: 8px; text-align: left; padding: 16px 18px; border-radius: var(--radius-s); border: 1px solid var(--ring);
+  background: linear-gradient(135deg, color-mix(in srgb, var(--sec, #2a78d6) 9%, var(--surface)), var(--surface)); cursor: pointer; transition: transform .2s, border-color .2s, box-shadow .2s; }
+.nv-first:hover { transform: translateY(-2px); border-color: var(--sec, var(--accent)); box-shadow: 0 10px 26px -18px rgba(0,0,0,.45); }
+.nv-first h3 { margin: 0; font-size: 16.5px; line-height: 1.35; color: var(--ink); }
+.nv-first p { margin: 0; font-size: 14.5px; color: var(--ink-2); line-height: 1.5; }
+.nv-tag { align-self: flex-start; font-size: 11.5px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 3px 9px; border-radius: 999px; color: #fff; background: linear-gradient(120deg, #e11d48, #7c3aed); }
+.nv-go { margin-top: auto; font-size: 13.5px; color: var(--accent); font-weight: 500; }
+.nv-sub { font-size: clamp(20px, 2vw, 26px); margin: 8px 0 16px; }
+.hero-cta { margin-top: 18px; border: 0; border-radius: 999px; padding: 11px 20px; font-weight: 600; font-size: 15px; color: #0b1020; background: linear-gradient(100deg, #7fb2ff, #5eead4 55%, #fbbf24); box-shadow: 0 10px 30px -12px rgba(94,234,212,.6); }
+.hero-cta:hover { filter: brightness(1.06); transform: translateY(-1px); }

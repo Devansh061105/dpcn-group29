@@ -553,7 +553,7 @@
   function render() { heroStats(); RENDER[state.tab](); rendered[state.tab] = state.lab; if (P2 && P2API.notes) P2API.notes(); }
   // seven top-level sections; a section with several pages gets a pill switcher underneath
   const GROUPS = [
-    ["overview", ["overview"]], ["findings", ["findings", "extras", "extensions", "verdicts"]],
+    ["overview", ["overview", "novelty"]], ["findings", ["findings", "extras", "extensions", "verdicts"]],
     ["explore", ["explorer", "person", "versus", "faculty", "compare"]], ["publications", ["impact", "journals", "research"]],
     ["networks", ["citation", "collab", "instnet", "structure", "models"]], ["dynamics", ["epidemics", "walks", "teams"]],
     ["benchmark", ["benchmark", "science"]], ["flags", ["flags"]], ["about", ["about"]]];
@@ -573,6 +573,7 @@
     instnet: ["Institutions & time", "Partners across India, and how the networks grew", "The partner-institution network with a year range, and the faculty network year by year."],
     flags: ["Flags", "Numbers that need a closer look", "Many-author papers, merged author profiles and heavy citing institutions, each with the evidence."],
     about: ["About", "Data, methods and the team's work", "Sources, definitions, checks, and the manual work behind every number."],
+    novelty: ["Only here", "What no other group did, and the baseline we kept", "Every method and feature of the 29 other groups' projects, matched to ours: the firsts, the rare ones, and the common ground we cover too."],
     extras: ["More results", "Journals, partners, citers and the laws of science", "Re-graded journals, which partners pay off, who cites and how, productivity as a random walk, and whether the headlines survive."],
     verdicts: ["Verdicts", "Every question, with a verdict", "What we asked, how we tested it, and whether the answer held up. Also what we did not do and what the numbers cannot show."],
     explorer: ["Filter & find", "Set any threshold, see who and what matches", "Years, author count, impact factor, citations, quartile, field, role and h-index: everything recomputes as you type."],

@@ -66,6 +66,7 @@ python -m dpcn run s13
 | T-05 | Classify the remaining citing institutions by ownership | Devansh | ☐ |
 | T-06 | Collect joining years for faculty (enables career-stage analysis) | Deepraj | ☐ |
 | T-07 | Fill the 6 unknown departments and check merged-profile flags | Devansh | ☐ |
+| T-17 | Check the "Only here" coverage map against our reviews of the other groups | everyone | ☐ |
 
 **T-01 · Precision audit (about 2–3 hours).**
 - **File:** `data/manual/precision_audit.csv` holds 55 randomly chosen (paper, faculty) links, stratified by how the affiliation was matched.
@@ -117,6 +118,11 @@ python -m dpcn run s13
 - **Departments:** the 6 faculty with an unknown department (Explore → Faculty list, filter "Department") need one from the lab websites. Put it in `faculty_roster.csv`.
 - **Merged profiles:** Flags → "Lifetime citations" flags OpenAlex profiles that may merge several people. For each flagged person, look at the OpenAlex profile and record in `faculty_match_overrides.csv` whether it is merged. There is already a decision column.
 
+**T-17 · "Only here" map (1–2 hours, split by theme).**
+- **File:** `data/manual/novelty_map.csv` matches each of the 154 items in our catalogue of the other groups' projects to what we did (`ours` = yes / partial / no, `page`, `what_we_did`), plus 17 "firsts" (`other_groups` = 0) and 23 baseline rows (`other_groups` = −1).
+- **What to check:** open your own reviews (`reviews/groupNN.md` in the shared folder). Is any "first" actually done by a group? Is any item marked `yes` not really on our dashboard? Fix the row; the page and the chatbot update after `s13`.
+- **Why it matters:** the examiner will ask "what did you do that others did not?". These numbers must be ones we can defend.
+
 ### B. Writing (our own words)
 
 | # | Task | Owner (suggested) | Done |
@@ -139,7 +145,7 @@ python -m dpcn run s13
 - **Re-run:** `s13`.
 
 **T-09 · `RESEARCH_FINDINGS.md`.**
-- It lists 54 tested results, from both sets of Phase III work.
+- It lists 60 tested results, from both sets of Phase III work and the methods no other group used.
 - Read each one, open the matching dashboard chart, and check that the number and the sentence agree.
 - Rewrite the explanations in your voice.
 - Mark anything you would not defend in a viva.
@@ -206,6 +212,7 @@ Likely questions:
 - **What is FWCI, and why is it fairer than citations?**
 - **Why does fractional counting change the leaders?**
 - **What would you need to study career stages or gender?** Joining years (T-06). Gender is not collected, and inferring it from names would be wrong.
+- **What did you do that other groups did not?** Overview → Only here: 17 firsts, the rare items, and the baseline we kept.
 - **What did the team do by hand?** See the About tab: the roster, identity decisions, exclusions, ownership, the precision audit, these notes.
 - **How was AI used?** As assistance only. Every number comes from the pipeline, and the team checked the data and wrote the interpretations.
 

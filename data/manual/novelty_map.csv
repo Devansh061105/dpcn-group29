@@ -1,0 +1,195 @@
+id,theme,item,other_groups,ours,page,what_we_did
+1.1,Data quality,Golden-set recall audit (independent ground truth),1,no,,
+1.2,Data quality,"Seeded random-sample precision audit, per confidence tier and discovery channel",4,partial,about,seeded 55-link sample ready; the team checks it by hand
+1.3,Data quality,Validate the name matcher against hidden ORCID ground truth,1,no,,
+1.4,Data quality,Publication-evidence identity confirmation,1,yes,about,67 manual identity decisions with evidence
+1.5,Data quality,Evidence tiers / match status per person and per record,5,partial,about,match method and score per faculty member
+1.6,Data quality,The verification chain (scoped candidate pool → name → display-name guard → ORCID conflict → per-paper affiliation),3,yes,about,"scoped candidate pool, name match, manual overrides"
+1.7,Data quality,Department → field plausibility rule,3,no,,
+1.8,Data quality,Common-surname / name-ambiguity guard,4,partial,flags,suspect-merged profiles flagged
+1.9,Data quality,Split-profile merging and conflated-profile detection,8,yes,flags,lifetime-citation check for merged profiles
+1.10,Data quality,Tenure-window paper crediting,7,partial,about,affiliation-on-byline rule
+1.11,Data quality,Recovering former faculty (Wayback rosters and publication-pattern rules),8,yes,about,62 former or unlisted scientists recovered
+1.12,Data quality,Role-based heuristic as an audit of the roster (not as the roster),4,no,,
+1.13,Data quality,Multi-source corpus and fuzzy deduplication,3,partial,about,"duplicate versions merged, with a log"
+1.14,Data quality,Affiliation search with rare tokens plus a sweep for completeness,1,no,,
+1.15,Data quality,Raw-affiliation verification and foreign-namesake rejection,4,yes,about,raw affiliation strings checked
+1.16,Data quality,"Lower bounds for truncated bylines, and orphan big papers",3,yes,about,truncated author lists re-fetched
+1.17,Data quality,Document-type cleaning and deduplication rules (with a published log),9,yes,about,cleaning log of 61 removals and 26 merges
+1.18,Data quality,"Umbrella and parent affiliations (CSIR, AcSIR, HBNI)",5,yes,about,AcSIR excluded as a partner
+1.19,Data quality,Child-unit handling,4,partial,about,OpenAlex lineage
+1.20,Data quality,Cross-source checks of citation counts and DOIs,3,partial,about,Crossref check of the top 10
+1.21,Data quality,Completeness / data-availability audit table,6,yes,about,completeness chart per lab
+1.22,Data quality,"""Unknown is not low""",4,yes,journals,unknown quartile shown as unknown
+1.23,Data quality,Journal-metric sourcing and validation,8,yes,impact,real JCR 2024 with labelled fallbacks and a sensitivity table
+1.24,Data quality,"OpenAlex funder-mapping bug for Indian ""CSIR""",1,partial,teams,funders fetched (s20)
+1.25,Data quality,PhD-alumni lists to identify students and research groups,1,no,,
+2.1,Impact metrics,Same-year / field-year-normalised citation scores computed inside the corpus,6,yes,findings,MNCS with bootstrap CI
+2.2,Impact metrics,"FWCI and the world top-10% flag, with proper intervals",6,yes,benchmark,"FWCI and top-10% with Wilson CI, 17 institutes"
+2.3,Impact metrics,"Fractional counting, single-author equivalents and fractional h variants",6,yes,findings,fractional counting and rank shifts
+2.4,Impact metrics,Effective number of cited papers (inverse Herfindahl) and a concentration-adjusted index,1,yes,findings,effective papers per lab
+2.5,Impact metrics,Inequality with uncertainty and named laws,7,yes,extras,"Gini with CI; Lotka, Price, Bradford, Seglen tested"
+2.6,Impact metrics,"Local vs global impact, and ""hidden gems""",2,yes,extras,cited mostly in India vs abroad
+2.7,Impact metrics,Led vs middle-author analysis (where does the impact come from?),7,yes,findings,lab-led vs middle-author
+2.8,Impact metrics,Journal re-grading counterfactual,1,yes,extras,"frozen 2017 quartiles, cross-checked with real JCR"
+2.9,Impact metrics,Is Q1 a reliable quality signal? (Q1 premium and quartile efficiency),5,yes,extras,Q1 premium with controls; IF vs paper citations
+2.10,Impact metrics,"Institute-level impact factors with and without self-citation; ""impact ratio"" per paper",3,partial,findings,self-citation split
+2.11,Impact metrics,Window (tenure) h-index vs career h-index,7,yes,person,window vs lifetime h-index
+2.12,Impact metrics,Composite rankings with robustness checks,2,no,,
+2.13,Impact metrics,"Citation weighting by closeness tier, with fitted weights",1,partial,findings,citation audiences by tie
+2.14,Impact metrics,Science-of-science paper metrics,5,no,,
+2.15,Impact metrics,Productivity dynamics: random walk or mean reversion?,3,yes,walks,"Laplace fit, autocorrelation, simulated random walk"
+2.16,Impact metrics,Matthew-effect rank persistence with a permutation null,1,yes,walks,"top-decile persistence vs 2,000 permutations"
+2.17,Impact metrics,Per-active-faculty normalisation,4,partial,explorer,per-faculty figures
+2.18,Impact metrics,"Count-model trends instead of ""% growth 2016→2025""",3,no,,
+2.19,Impact metrics,"Topic-adoption and AI diffusion as ""tool vs topic""",1,yes,extensions,technique diffusion (s19)
+2.20,Impact metrics,LLM-vocabulary excess,1,no,,
+2.21,Impact metrics,Rising faculty,1,no,,
+3.1,Team size,A global team-size switch backed by precomputed datasets,7,yes,explorer,"any author threshold, recomputed live"
+3.2,Team size,Team-size-corrected rankings: does the ranking reverse?,5,yes,findings,rankings with and without 100+ author papers
+3.3,Team size,Hyper-authorship-aware partner and citer lists,5,yes,impact,partners with and without consortium papers
+3.4,Team size,"Projection sensitivity: fractional edges, partner entropy, rank shifts",3,partial,findings,rank shifts
+3.5,Team size,"Rule-based faculty flags (big-team dependence, conflation, hyperprolific)",8,yes,flags,big-team dependence and merged-profile flags
+3.6,Team size,Honorary-authorship screen on large papers,1,no,,
+3.7,Team size,A note on thresholds,2,yes,flags,thresholds stated
+4.1,Citations and citers,Self-citation-aware internal citation network,7,yes,findings,PageRank with and without self-citation
+4.2,Citations and citers,Layered citation classification (self → prior co-author → same lab → CSIR → Indian → foreign),5,yes,findings,self / co-author / same lab / other lab
+4.3,Citations and citers,"Self-citation over time with a fixed age window, linked to policy",2,no,,
+4.4,Citations and citers,"Partner-level citation anomaly screen (robust z, multiple checks, cross-validation)",3,yes,flags,robust z on size-normalised rates
+4.5,Citations and citers,Citation stacking / dumping at the citing-paper level,3,yes,extras,stacked-citation share per citer
+4.6,Citations and citers,"Normalise citers by their own size (per 1,000 own papers)",6,yes,flags,"citations per 1,000 own papers"
+4.7,Citations and citers,Diagnosing heavy non-governmental citers with cheap signals,7,yes,flags,evidence table per heavy citer
+4.8,Citations and citers,Citers ≠ collaborators,4,yes,extras,citers vs collaborators scatter
+4.9,Citations and citers,Mutual citation and reciprocity checks,5,partial,flags,in/out ratios
+4.10,Citations and citers,Watchlist of the fastest-rising citers,1,yes,extras,fastest-rising citers 2022→2025
+4.11,Citations and citers,Ethics conventions for integrity analyses,5,yes,flags,'a flag is not a judgement'; no citing authors named
+4.12,Citations and citers,"Retractions, delisted journals and duplicate publication",5,partial,about,retracted works excluded
+5.1,Network science,"Null-model table: Erdős–Rényi plus degree-preserving rewiring, many draws, with z-scores and bands",9,yes,structure,"ER, rewired and bipartite nulls with z"
+5.2,Network science,Bipartite (author–paper) null and filled vs hollow triangles,1,yes,structure,"bipartite null, filled vs hollow triangles"
+5.3,Network science,Comparison against generative models (ER / BA / Holme–Kim),1,yes,extensions,generative model and team assembly
+5.4,Network science,Heavy tails done properly (Clauset–Shalizi–Newman),10,yes,models,Clauset–Shalizi–Newman fits
+5.5,Network science,Normalised rich club,9,yes,findings,rich club vs rewiring
+5.6,Network science,Assortativity and mixing matrices against permutation nulls,8,yes,findings,lab mixing vs label permutation
+5.7,Network science,"Community validation: NMI/ARI/AMI against the org chart, nulls, stability, SBM",11,yes,structure,NMI/ARI/AMI vs labs and departments; SBM (s21)
+5.8,Network science,Topic-named communities,2,no,,
+5.9,Network science,Core–periphery and k-core / corona,6,yes,structure,k-core by lab
+5.10,Network science,Robustness and structural risk: who and what holds the network together,14,yes,models,"random and targeted removal, lab cuts"
+5.11,Network science,"Spreading processes on the network (the ""dynamical processes"" in DPCN)",7,yes,epidemics,"SIS/SIR with many seeds, thresholds, super-spreaders"
+5.12,Network science,Friendship paradox,1,no,,
+5.13,Network science,Multilayer analysis: mutually connected giant component and layer overlap,4,no,,
+5.14,Network science,Signed topic-similarity network and structural balance,1,no,,
+5.15,Network science,"Higher-order structure: hypergraphs, recurring teams, triangles as teams",5,yes,extensions,"simplicial closure, papers as groups"
+5.16,Network science,Other centralities and citation-graph structure,5,yes,collab,"degree, betweenness and more"
+5.17,Network science,"Faculty-only vs faculty + students networks; ""students are the glue""",5,yes,structure,students and staff as glue
+5.18,Network science,Brokerage roles,4,yes,teams,brokerage and impact panel
+5.19,Network science,Journal co-usage network with participation coefficient,2,no,,
+5.20,Network science,Simulated edge interventions,3,yes,epidemics,simulated cross-lab links
+5.21,Network science,"PageRank done carefully: self-citation-free, age-rescaled, quality-weighted, validated",12,yes,findings,self-citation-free PageRank
+6.1,Dynamics and prediction,Link prediction with a time split and honest baselines,9,yes,structure,time-split link prediction with AUC CIs
+6.2,Dynamics and prediction,Bibliographic coupling predicts future co-authorship,3,no,,
+6.3,Dynamics and prediction,"Triadic closure by number of common co-authors, and new links classified by mechanism",5,yes,findings,triadic closure lift by year
+6.4,Dynamics and prediction,Simplicial closure (does a trio form after its pairs?),2,yes,extensions,simplicial closure
+6.5,Dynamics and prediction,"Collaboration persistence with equal follow-up, and partner retention",5,yes,findings,"3-year persistence, same vs cross lab"
+6.6,Dynamics and prediction,"Network growth laws: densification, effective diameter, giant-component emergence",8,yes,structure,"densification, effective diameter"
+6.7,Dynamics and prediction,Community life-cycle events,1,no,,
+6.8,Dynamics and prediction,Measured preferential attachment,7,yes,structure,attachment kernel exponent
+6.9,Dynamics and prediction,"Topic contagion through co-authorship, with placebo nulls",5,yes,structure,topic contagion with future-co-author placebo
+6.10,Dynamics and prediction,Selection vs influence: difference-in-differences around the first joint paper,3,yes,extras,event study around the first joint paper (s27)
+6.11,Dynamics and prediction,Citations by co-authorship distance (two-layer test),7,yes,findings,citation lift by distance
+6.12,Dynamics and prediction,"Time-ordered ""does network position predict later output?""",4,yes,structure,2016–20 position → 2021–26 output
+6.13,Dynamics and prediction,Event studies and difference-in-differences on a faculty-year panel,3,yes,teams,faculty fixed-effects panel
+6.14,Dynamics and prediction,Newcomer integration,3,partial,teams,newcomers in team assembly
+6.15,Dynamics and prediction,"Key-person bursts, exits and ""no recent output""",3,no,,
+6.16,Dynamics and prediction,"Automatic ""why did it jump?"" annotations",1,yes,extras,automatic 'why did it jump' notes
+6.17,Dynamics and prediction,The impact ratio over time and the citation-lag bias,6,yes,findings,same-window in/out ratio
+6.18,Dynamics and prediction,Trickle-down: who cites first?,1,no,,
+6.19,Dynamics and prediction,"Mentor-institution dependence (""weaning off"")",2,no,,
+7.1,Institutions and geography,Gravity model of collaboration and citation: Poisson with zeros,5,yes,benchmark,"Poisson gravity, joint papers vs citations"
+7.2,Institutions and geography,"Distance bands, observed vs expected partner shares, and reach",4,no,,
+7.3,Institutions and geography,"Partner typology, sector flows and Sankey ribbons",8,yes,extras,partner types by lab
+7.4,Institutions and geography,Who leads joint papers with partners,2,no,,
+7.5,Institutions and geography,"""Does collaborating with partner X pay off?""",3,yes,extras,partner payoff with controls
+7.6,Institutions and geography,"Collaboration opportunity scores (""partners worth approaching"", ""missed collaborations"")",8,yes,structure,cross-lab twins
+7.7,Institutions and geography,Directed inter-lab citation and co-authorship matrices,5,yes,citation,lab-to-lab matrices
+7.8,Institutions and geography,Peer benchmarking with an identical pipeline,5,yes,benchmark,"13 peer institutes, identical queries"
+7.9,Institutions and geography,Correlation with external rankings (NIRF) and scaling laws,5,no,,
+7.10,Institutions and geography,"Beyond academia: patents, industry, health, mission agencies, regional relevance",6,partial,extras,industry partners and funders
+7.11,Institutions and geography,"Career mobility: returnees, training abroad, past ties",5,partial,teams,career start years (s20)
+7.12,Institutions and geography,"International dimension: readers by country, country blocs",4,yes,teams,world citers and international share
+8.1,Statistics,"Regressions that remove a confound: ""the premium disappears""",5,yes,findings,lab impact with controls; middle-author premium disappears
+8.2,Statistics,Fair comparison designs (choose the right control group),5,yes,extras,fair comparison of partner types
+8.3,Statistics,Placebos and falsification tests,4,yes,structure,placebo exposures
+8.4,Statistics,Stratified permutation nulls with multiple-testing correction,6,yes,findings,"year × field strata, Benjamini–Hochberg"
+8.5,Statistics,Effect sizes alongside significance,4,yes,findings,odds ratios and % effects with CIs
+8.6,Statistics,Two-proportion tests of profile shifts,3,yes,findings,Fisher tests
+8.7,Statistics,"Evidence grading and ""partial"" status",5,yes,verdicts,supported / partly / not supported
+8.8,Statistics,Hypothesis → claims → verdict → recommendation → who acts,6,yes,verdicts,question → test → number → verdict
+8.9,Statistics,Fragility of a headline,3,yes,extras,headline fragility table
+8.10,Statistics,"Explicit ""not estimated / not done"" lists",4,yes,verdicts,what we did not do
+9.1,Research portfolio,Specialisation and comparative advantage,7,yes,benchmark,RCA against all Indian papers
+9.2,Research portfolio,"Portfolio entropy, turnover and persistent core",1,yes,structure,rarefied entropy and turnover
+9.3,Research portfolio,Topic prominence as an open SciVal stand-in,1,no,,
+9.4,Research portfolio,Research-direction index (with a validation that it does not forecast),1,no,,
+9.5,Research portfolio,Main path through the citation DAG,2,yes,structure,SPC main path
+9.6,Research portfolio,"Journal ecosystem: loyalty, first-use heatmap, venue drift",3,partial,journals,top journals per lab
+10.1,Dashboard,Titles that state the conclusion; one number per finding,7,partial,findings,finding titles state the result
+10.2,Dashboard,"An ""Explain"" panel on every chart, with live numbers and filter scope",10,yes,findings,'How to read this chart' notes
+10.3,Dashboard,"""Not in the numbers"" and a ""Blind spots"" chapter",1,yes,verdicts,blind spots list
+10.4,Dashboard,"Text generated from the data, so numbers never drift",7,yes,findings,every sentence computed from data
+10.5,Dashboard,"Shareable state, cross-filtering and scope signalling",8,yes,overview,"deep links, back button"
+10.6,Dashboard,Network interaction patterns,20,yes,collab,"click, hover, layers"
+10.7,Dashboard,Assistants over the dashboard's own data,2,yes,overview,"'Ask the data' chatbot, no external service"
+10.8,Dashboard,Onboarding and navigation for a grader,7,yes,overview,"hero, sections, how-to-read banners"
+10.9,Dashboard,Games from the data,2,partial,epidemics,outbreak simulator you can play with
+10.10,Dashboard,Comparison widgets,12,yes,versus,compare up to six people or labs
+10.11,Dashboard,Faculty pages and drill-downs,5,yes,person,full profile per faculty member
+10.12,Dashboard,Downloads and accessibility,8,yes,overview,"CSV on every table, light/dark"
+10.13,Dashboard,Performance lessons from the reviews (what to avoid),12,yes,overview,"paged tables, lazy rendering"
+10.14,Dashboard,Literature on the page,4,yes,science,science-of-science page
+11.1,Reproducibility,A decisions page / decision log,4,partial,about,decisions in the About tab and docs
+11.2,Reproducibility,"Automated self-checks and ""every number counted twice""",7,yes,about,"s15 validation, 189 tests"
+11.3,Reproducibility,"Snapshots, caching, cost and provenance",8,yes,about,"snapshot date, cached API"
+11.4,Reproducibility,A one-command staged pipeline,3,yes,about,python -m dpcn run all
+11.5,Reproducibility,Seeds and disclosure of approximations,6,yes,about,seeds fixed and stated
+11.6,Reproducibility,"Making-of diary, incident log and ethical collection",3,partial,about,QA log; Scimago bot check not bypassed
+11.7,Reproducibility,Limitations chapters with numbers,6,yes,verdicts,limits with numbers
+P1,Instructor papers nobody did,"Productivity as a random walk, full model: Laplace steps, simulation, variance by career age, lognormal output",0,yes,walks,"step s26, s27"
+P3,Instructor papers nobody did,"Citations around the first joint paper: event study vs distance-2 pairs, Weibull decay",0,yes,extras,step s27
+P6,Instructor papers nobody did,"Does co-authorship predict citation once topic similarity is controlled? (logistic model over 74,802 pairs)",0,yes,extras,step s27
+P8,Instructor papers nobody did,Research-group size per PI and Gibrat's law; department size vs output,0,yes,extras,step s27
+P9,Instructor papers nobody did,"Early partner diversity → later success, with a stratified reshuffling null",0,yes,extras,step s27
+P10,Instructor papers nobody did,"Stock-flow decomposition of lab composition (entry, exit, within-person change)",0,yes,extras,step s27
+new,New methods,"Live, seedable SIS/SIR outbreak simulator on the real faculty network",0,yes,epidemics,dashboard feature
+new,New methods,Random-walk first-passage times between labs against rewired networks,0,yes,walks,step s23
+new,New methods,k-shell vs degree as predictors of spreading power (Kitsak et al. test) over every faculty member,0,yes,epidemics,step s23
+new,New methods,Stochastic actor-oriented model of the faculty network (RSiena),0,yes,teams,step s22
+new,New methods,Specification curve: the same-lab effect under 48 analysis choices,0,yes,extensions,step s19
+new,New methods,Team assembly with papers as groups (Guimerà et al. 2005),0,yes,teams,step s21
+new,New methods,Tie survival life table for new collaborations,0,yes,teams,step s21
+new,New methods,Sensitivity of the main result to author-matching errors,0,yes,teams,step s21
+new,New methods,Time-respecting paths: can information reach another lab in time?,0,yes,teams,step s21
+new,New methods,Disparity-filter backbone of Indian partner institutions,0,yes,extras,step s26
+new,New methods,"Live h-index recomputed in the browser for any author, IF, citation or year threshold",0,yes,explorer,dashboard feature
+B1,Common baseline,"Corpus by OpenAlex institution ID, journal and conference papers, 2016–2026 with 2026 partial",-1,yes,overview,kept: what nearly every group has
+B2,Common baseline,Truncated author lists re-fetched one by one,-1,yes,about,kept: what nearly every group has
+B3,Common baseline,Indian citing and cited works (in-flow and out-flow),-1,yes,citation,kept: what nearly every group has
+B4,Common baseline,Scimago quartile matched by ISSN and publication year,-1,yes,journals,kept: what nearly every group has
+B5,Common baseline,CORE ranks for conferences,-1,yes,journals,kept: what nearly every group has
+B6,Common baseline,"Impact factor (we use real Clarivate JCR 2024, not a stand-in)",-1,yes,impact,kept: what nearly every group has
+B7,Common baseline,"Output trend, quartile mix, top journals, most-cited papers",-1,yes,overview,kept: what nearly every group has
+B8,Common baseline,h-index histogram,-1,yes,faculty,kept: what nearly every group has
+B9,Common baseline,Research areas from OpenAlex fields and subfields,-1,yes,research,kept: what nearly every group has
+B10,Common baseline,Faculty table,-1,yes,faculty,kept: what nearly every group has
+B11,Common baseline,Co-authorship graph with Louvain communities and centralities,-1,yes,collab,kept: what nearly every group has
+B12,Common baseline,Citation graph with PageRank and in-degree distribution,-1,yes,citation,kept: what nearly every group has
+B13,Common baseline,Institution co-authorship network,-1,yes,instnet,kept: what nearly every group has
+B14,Common baseline,Impact ratio (received ÷ given) with Indian institutions,-1,yes,findings,kept: what nearly every group has
+B15,Common baseline,Top citing institutions,-1,yes,flags,kept: what nearly every group has
+B16,Common baseline,"Partners grouped into course clusters (IIT, NIT, CSIR, DAE, university…)",-1,yes,collab,kept: what nearly every group has
+B17,Common baseline,Topic Jaccard between the labs and each partner,-1,yes,collab,kept: what nearly every group has
+B18,Common baseline,Lorenz curve / Gini and top-10% share,-1,yes,findings,kept: what nearly every group has
+B19,Common baseline,Hyper-authorship threshold with a with/without view,-1,yes,flags,kept: what nearly every group has
+B20,Common baseline,"Institute selector, year range, light/dark theme",-1,yes,overview,kept: what nearly every group has
+B21,Common baseline,CSV download of tables,-1,yes,overview,kept: what nearly every group has
+B22,Common baseline,Methods and limitations page,-1,yes,about,kept: what nearly every group has
+B23,Common baseline,Key findings text generated from the data,-1,yes,findings,kept: what nearly every group has

@@ -39,3 +39,15 @@ def test_every_page_has_a_renderer_and_a_section():
 def test_chatbot_has_no_external_calls():
     js = (DASH / "chat.js").read_text(encoding="utf-8")
     assert "fetch(" not in js and "XMLHttpRequest" not in js and "api_key" not in js.lower()
+
+
+def test_novelty_map_is_consistent():
+    import csv
+    rows = list(csv.DictReader(open(Path(__file__).resolve().parents[1] / "data" / "manual" / "novelty_map.csv", encoding="utf-8")))
+    assert rows and all(r["ours"] in ("yes", "partial", "no") for r in rows)
+    firsts = [r for r in rows if r["other_groups"] == "0"]
+    assert firsts and all(r["ours"] == "yes" and r["page"] for r in firsts)
+    html = (DASH / "template.html").read_text(encoding="utf-8")
+    pages = {r["page"] for r in rows if r["page"]}
+    missing = [p for p in pages if f'id="tab-{p}"' not in html]
+    assert not missing, missing

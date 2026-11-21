@@ -166,6 +166,19 @@ These complement the course network models above. Rows 41–44 extend the SI/SIS
 
 **53–54. Geography and peers.** Distance matters twice as much for writing together as for citing. Against other Indian biology institutes, our labs have world-average-plus impact (FWCI 1.4–2.1) but rank in the lower half on top-10% papers, international co-authorship and growth.
 
+## Methods no other group used (step `s27`)
+
+Our team reviewed the projects of all 29 other groups and catalogued 154 methods and features with who used each (Phase III planning notes). Six methods from the instructor's papers were used by none of them; these are they. The dashboard's "Only here" page sets all of our work against that catalogue: 17 firsts, 16 of the 38 rare items, 104 of 154 items fully and 22 partly, and all 50 items that six or more groups did.
+
+| # | Finding | Test | Result |
+|---|---|---|---|
+| 55 | Output swings grow over a career, unlike in computer science (P1) | Laplace scale of yearly changes by years since first paper; faculty bootstrap; permutation of career ages; lognormal vs power law | 1.01 papers in the first decade vs 2.07 after 30 years (relative to output 0.48 vs 0.61); Spearman 0.14, p < 0.001; cumulative output lognormal (R = 127) |
+| 56 | Research groups do not follow Gibrat's law (P8) | log growth on log size of each PI's yearly group (non-faculty lab co-authors), HC1 | slope -0.49 (95% CI -0.54 to -0.45); median group 7; department size unrelated to papers per faculty (p = 0.55) |
+| 57 | Writing together makes people cite each other, beyond shared topics (P6) | logistic model over 74,802 ordered faculty pairs, independent citations only | odds ratio 18 alone, 10.2 with topic, distance, output and lab |
+| 58 | A first joint paper raises mutual citation (P3) | event study vs distance-2 pairs that never co-author, difference in differences, Weibull fit | +0.06 citations a year (95% CI +0.03 to +0.10), largest straight after the first paper (Weibull shape 0.9) |
+| 59 | Early partner diversity does not predict later success (P9) | Spearman vs 2,000 reshuffles within lab × early-output tercile | no difference from the reshuffled range for output or impact (p > 0.3) |
+| 60 | Labs change mostly because the same people change (P10) | entry / exit / within decomposition of the share of internationally collaborative faculty | 70% within-person, 21% entrants, 10% leavers |
+
 ## Paper-worthy directions
 
 1. **"Walls between labs, not departments: co-authorship homophily in Indian national laboratories."** Results 1, 6, 7 and 8, extended to more CSIR labs (other groups in the course cover many of them), would test whether the 55× lab effect is general. Data and code are in this repository.

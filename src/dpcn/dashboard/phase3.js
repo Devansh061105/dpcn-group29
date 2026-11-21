@@ -576,6 +576,107 @@ function renderBenchmark() {
 }
 P3REG.benchmark = renderBenchmark;
 
+
+// ------------------------------------------------------------------ Only here: firsts against the 29 other groups
+const NOV = (D.p2 && D.p2.novelty) || [];
+const FIRST = (D.p2 && D.p2.firsts) || null;
+const tierOf = (r) => r.other_groups < 0 ? "baseline" : r.other_groups === 0 ? "first" : r.other_groups <= 2 ? "rare" : r.other_groups <= 5 ? "uncommon" : "common";
+const TIER = { first: ["First", "nobody else"], rare: ["Rare", "1–2 groups"], uncommon: ["Uncommon", "3–5 groups"], common: ["Common", "6+ groups"], baseline: ["Baseline", "nearly all groups"] };
+const DOCKEY = [[/RSiena/, "Finding 40:"], [/Specification curve/, "Finding 22:"], [/Guimerà/, "Finding 31:"], [/Tie survival/, "Finding 32:"],
+  [/author-matching errors/, "Finding 34:"], [/Time-respecting/, "Finding 35:"], [/first-passage/, "Finding 44:"], [/k-shell/, "Finding 43:"], [/outbreak simulator/, "Finding 41:"]];
+function docResult(item) {
+  const bb = ((RJ.extras || {}).backbone) || {}, hf = ((RJ.extras || {}).h_filtered) || {};
+  if (/backbone/.test(item) && bb.edges) return `Keeps ${fmt(bb.backbone_edges)} of ${fmt(bb.edges)} institution links, carrying ${pct(bb.weight_kept, 0)} of the joint-paper weight.`;
+  if (/h-index recomputed/.test(item) && hf.faculty_h_gt10_lt100 !== undefined) return `e.g. ${hf.faculty_h_gt10_lt100} faculty keep an h-index above 10 on papers with fewer than 100 authors (${hf.faculty_h_gt10_all} on all papers); any threshold works.`;
+  const k = DOCKEY.find(([re]) => re.test(item)); if (!k) return "";
+  const row = (((D.p2 || {}).findings_doc) || []).find((r) => r.text.startsWith(k[1])); if (!row) return "";
+  const m = row.text.match(/Result: (.*)\.$/); return m ? m[1].charAt(0).toUpperCase() + m[1].slice(1) + "." : "";
+}
+function renderNovelty() {
+  if (!NOV.length) { el("nv-firsts").replaceChildren(mk("p", "Add data/manual/novelty_map.csv.", "muted")); return; }
+  const cat = NOV.filter((r) => /^\d/.test(r.id)), firsts = NOV.filter((r) => r.other_groups === 0), base = NOV.filter((r) => r.other_groups < 0);
+  const yes = (r) => r.ours === "yes", part = (r) => r.ours === "partial";
+  const common = cat.filter((r) => r.other_groups >= 6), rare = cat.filter((r) => r.other_groups > 0 && r.other_groups <= 2);
+  kpis("nv-kpis", [["Firsts", fmt(firsts.length), "methods and features no other group did"],
+    ["Rare, and we did them", fmt(rare.filter(yes).length), `of ${rare.length} items only 1–2 groups did`],
+    ["Catalogue covered", `${fmt(cat.filter(yes).length)} / ${fmt(cat.length)}`, `plus ${fmt(cat.filter(part).length)} in part`],
+    ["Common ground kept", `${fmt(common.filter((r) => yes(r) || part(r)).length)} / ${fmt(common.length)}`, "items 6+ groups did"],
+    ["Baseline kept", `${fmt(base.filter(yes).length)} / ${fmt(base.length)}`, "what nearly every group has"]]);
+  const fs = (FIRST && FIRST.summary && FIRST.summary.findings) || [];
+  const resOf = (code) => { const t = (fs.find((x) => x.startsWith(code + " ")) || "").replace(/^P\d+ [^:]*: /, ""); return t.charAt(0).toUpperCase() + t.slice(1); };
+  const box = el("nv-firsts"); box.replaceChildren();
+  firsts.forEach((r) => {
+    const c = mk("button", null, "nv-first"); c.type = "button";
+    c.append(mk("span", r.id === "new" ? "new method" : `course paper ${r.id}`, "nv-tag"), mk("h3", r.item));
+    const res = r.id.startsWith("P") ? resOf(r.id) : docResult(r.item); if (res) c.append(mk("p", pretty(res)));
+    c.append(mk("span", `${r.what_we_did} · open →`, "nv-go"));
+    c.addEventListener("click", () => { show(r.page); window.scrollTo(0, 0); }); box.append(c); });
+  // strip: every catalogue item by number of other groups
+  const jit = (i) => ((i * 9301 + 49297) % 233280) / 233280 - 0.5;
+  const ST = { yes: ["we did it", css("--lab-1"), "circle"], partial: ["partly", css("--lab-4"), "circle"], no: ["not done", css("--muted"), "circle-open"] };
+  const themes = [...new Set(cat.map((r) => r.theme))];
+  plot("c-nv-strip", Object.entries(ST).map(([k, [name, col, sym]]) => { const rr = cat.filter((r) => r.ours === k);
+    return { type: "scatter", mode: "markers", name, x: rr.map((r, i) => Math.min(r.other_groups, 12) + 0.55 * jit(i + 7 * r.other_groups)), y: rr.map((r, i) => themes.indexOf(r.theme) + 0.6 * jit(i * 3 + 1)),
+      customdata: rr.map((r) => [r.item, r.other_groups, r.what_we_did || "", r.page]), marker: { size: 11, color: col, symbol: sym, line: { width: 1.5, color: col }, opacity: 0.85 },
+      hovertemplate: "<b>%{customdata[0]}</b><br>%{customdata[1]} other groups<br>%{customdata[2]}<extra></extra>" }; }),
+    { xaxis: { title: "Other groups that did it (of 29)", range: [0.3, 12.6], dtick: 1 }, yaxis: { tickvals: themes.map((_, i) => i), ticktext: themes, autorange: "reversed", automargin: true, zeroline: false },
+      margin: { l: 10, r: 10, t: 40, b: 50 },
+      shapes: [{ type: "rect", xref: "x", yref: "paper", x0: 0.3, x1: 2.5, y0: 0, y1: 1, fillcolor: css("--lab-2"), opacity: 0.07, line: { width: 0 } }],
+      annotations: [{ xref: "x", yref: "paper", x: 1.4, y: 1.0, yanchor: "bottom", showarrow: false, text: "rare", font: { size: 12, color: css("--muted") } }] });
+  el("c-nv-strip").on?.("plotly_click", (ev) => { const pg = ev.points[0].customdata[3]; if (pg) { show(pg); window.scrollTo(0, 0); } });
+  const th = [...themes, "Common baseline"];
+  const cnt = (t, f) => NOV.filter((r) => r.theme === t && f(r)).length;
+  plot("c-nv-theme", [["first or rare, done", (r) => r.other_groups >= 0 && r.other_groups <= 2 && r.ours !== "no" && /^\d/.test(r.id), css("--lab-2")],
+    ["common or baseline, done", (r) => (r.other_groups > 2 || r.other_groups < 0) && r.ours !== "no", css("--lab-1")],
+    ["not done", (r) => r.ours === "no", css("--axis")]].map(([n, f, c]) => ({ type: "bar", orientation: "h", name: n, y: th, x: th.map((t) => cnt(t, f)), marker: { color: c },
+      hovertemplate: `%{y}: %{x} ${n}<extra></extra>` })), { barmode: "stack", yaxis: { autorange: "reversed", automargin: true }, xaxis: { title: "Catalogue items" }, margin: { l: 10, r: 10, t: 40, b: 50 } });
+  // the firsts' results
+  if (FIRST) {
+    const P1 = FIRST.p1_career || [];
+    plot("c-nv-p1", [{ type: "bar", name: "absolute swing (papers)", x: P1.map((r) => r.career_age), y: P1.map((r) => r.laplace_alpha), marker: { color: css("--lab-3") },
+      error_y: { type: "data", symmetric: false, array: P1.map((r) => r.alpha_hi - r.laplace_alpha), arrayminus: P1.map((r) => r.laplace_alpha - r.alpha_lo), color: css("--ink-2") },
+      customdata: P1.map((r) => [r.faculty, r.faculty_years]), hovertemplate: "career age %{x}: %{y:.2f} papers<br>%{customdata[0]} faculty, %{customdata[1]} faculty-years<extra></extra>" },
+      { type: "scatter", mode: "lines+markers", name: "relative to mean output", x: P1.map((r) => r.career_age), y: P1.map((r) => r.relative_alpha), yaxis: "y2", line: { color: css("--lab-2"), width: 3 } }],
+      { xaxis: { title: "Years since first paper" }, yaxis: { title: "Laplace scale (papers)" }, yaxis2: { overlaying: "y", side: "right", title: "relative", rangemode: "tozero", showgrid: false }, margin: { l: 60, r: 60, t: 40, b: 50 } });
+    const P3 = FIRST.p3_event || [];
+    plot("c-nv-p3", ["first joint paper", "distance-2 control"].map((g, i) => { const rr = P3.filter((r) => r.group === g);
+      return { type: "scatter", mode: "lines+markers", name: g === "first joint paper" ? "pairs who start writing together" : "pairs with a shared co-author who never do",
+        x: rr.map((r) => r.tau), y: rr.map((r) => r.mean), line: { color: i ? css("--muted") : css("--lab-1"), width: 3, dash: i ? "dash" : "solid" },
+        error_y: { type: "data", symmetric: false, array: rr.map((r) => r.hi - r.mean), arrayminus: rr.map((r) => r.mean - r.lo), color: i ? css("--muted") : css("--lab-1"), thickness: 1 } }; }),
+      { xaxis: { title: "Years from the first joint paper", zeroline: true }, yaxis: { title: "Citations between the pair per year" }, margin: { l: 60, r: 10, t: 40, b: 50 },
+        shapes: [{ type: "line", x0: 0, x1: 0, yref: "paper", y0: 0, y1: 1, line: { dash: "dot", color: css("--muted") } }] });
+    const P6 = (FIRST.p6_citation_model || []).filter((r) => r.term === "coauthor" || r.term === "topic");
+    plot("c-nv-p6", ["coauthor", "topic"].map((t, i) => { const rr = P6.filter((r) => r.term === t);
+      return { type: "scatter", mode: "markers", name: t === "coauthor" ? "co-authored before" : "topic similarity", y: rr.map((r) => r.model), x: rr.map((r) => r.odds_ratio),
+        error_x: { type: "data", symmetric: false, array: rr.map((r) => r.or_hi - r.odds_ratio), arrayminus: rr.map((r) => r.odds_ratio - r.or_lo), color: i ? css("--lab-3") : css("--lab-1") },
+        marker: { size: 13, color: i ? css("--lab-3") : css("--lab-1") }, hovertemplate: "%{y}: odds ratio %{x:.1f}<extra></extra>" }; }),
+      { xaxis: { type: "log", title: "Odds ratio of citing (log)" }, yaxis: { automargin: true, autorange: "reversed" }, margin: { l: 10, r: 10, t: 40, b: 50 },
+        shapes: [{ type: "line", x0: 1, x1: 1, yref: "paper", y0: 0, y1: 1, line: { dash: "dash", color: css("--muted") } }] });
+    const P10 = (FIRST.p10_flows || []).filter((r) => state.lab === "ALL" || r.lab === state.lab);
+    const agg = (k) => { const ys = [...new Set(P10.map((r) => r.year))].sort(); return [ys, ys.map((y) => P10.filter((r) => r.year === y).reduce((a, r) => a + r[k], 0) / Math.max(1, P10.filter((r) => r.year === y).length))]; };
+    plot("c-nv-p10", [["within", "same people changing", css("--lab-1")], ["entry", "people joining", css("--lab-2")], ["exit", "people leaving", css("--lab-3")]].map(([k, n, c]) => { const [x, y] = agg(k);
+      return { type: "bar", name: n, x, y, marker: { color: c }, hovertemplate: `${n}: %{y:+.1%}<extra></extra>` }; }),
+      { barmode: "relative", yaxis: { tickformat: "+.0%", title: `Change in share (${state.lab === "ALL" ? "mean of the four labs" : short(state.lab)})` }, margin: { l: 60, r: 10, t: 40, b: 40 } });
+    const P8 = FIRST.p8_group_sizes || [], s8 = (FIRST.summary || {}).p8 || {};
+    plot("c-nv-p8", [{ type: "bar", x: P8.map((r) => r.group_size), y: P8.map((r) => r.faculty_years), marker: { color: css("--lab-4") }, hovertemplate: "group of %{x}: %{y} PI-years<extra></extra>" }],
+      { xaxis: { title: "Group size (students, postdocs, staff)", range: [0, 40] }, yaxis: { title: "PI-years" }, showlegend: false, margin: { l: 56, r: 10, t: 10, b: 50 } });
+    el("nv-p8").textContent = s8.gibrat_slope !== undefined ? `Gibrat slope ${fmt(s8.gibrat_slope, 2)} (95% CI ${fmt(s8.gibrat_ci[0], 2)} to ${fmt(s8.gibrat_ci[1], 2)}): below 0, so large groups grow more slowly than small ones (mean reversion), not proportionally. Median group ${fmt(s8.median_group)}, largest ${fmt(s8.max_group)}. Department size and papers per faculty: slope ${fmt(s8.dept_size_slope, 2)} (p = ${fmt(s8.dept_size_p, 2)}).` : "";
+    const P9 = FIRST.p9_diversity || [];
+    plot("c-nv-p9", [{ type: "scatter", mode: "markers", y: P9.map((r) => r.outcome === "late_papers" ? "2021–26 papers" : "2021–26 normalised impact"), x: P9.map((r) => r.spearman), marker: { size: 14, color: css("--lab-1") }, name: "observed",
+      error_x: { type: "data", symmetric: false, array: P9.map((r) => r.null_hi - r.spearman), arrayminus: P9.map((r) => r.spearman - r.null_lo), color: css("--axis"), thickness: 6, width: 0 },
+      customdata: P9.map((r) => [r.null_mean, r.p]), hovertemplate: "Spearman %{x:.2f}<br>reshuffled mean %{customdata[0]:.2f}, p = %{customdata[1]:.2f}<extra></extra>" }],
+      { xaxis: { title: "Spearman with early partner diversity (grey: reshuffled 95% range)", zeroline: true }, yaxis: { automargin: true }, showlegend: false, margin: { l: 10, r: 10, t: 10, b: 50 } });
+  }
+  const t = table("t-nv", NOV.map((r) => Object.assign({}, r, { tier: TIER[tierOf(r)][0], groups: r.other_groups < 0 ? "most" : r.other_groups })), [
+    { title: "Item", field: "item", formatter: "textarea", widthGrow: 4, minWidth: 240, headerFilter: "input" }, { title: "Theme", field: "theme", headerFilter: "input", widthGrow: 2 },
+    { title: "Other groups", field: "groups", hozAlign: "right", sorter: (a, b) => (a === "most" ? 99 : a) - (b === "most" ? 99 : b) },
+    { title: "Tier", field: "tier", headerFilter: "input", formatter: (c) => mk("span", c.getValue(), `badge ${{ First: "ok", Rare: "ok", Uncommon: "mid", Common: "mid", Baseline: "mid" }[c.getValue()]}`) },
+    { title: "Ours", field: "ours", headerFilter: "input", formatter: (c) => mk("span", { yes: "done", partial: "partly", no: "not done" }[c.getValue()], `badge ${{ yes: "ok", partial: "mid", no: "no" }[c.getValue()]}`) },
+    { title: "What we did", field: "what_we_did", formatter: "textarea", widthGrow: 3 }], { layout: "fitColumns", initialSort: [{ column: "groups", dir: "asc" }] });
+  if (t) t.on("rowClick", (e, row) => { const pg = row.getData().page; if (pg) { show(pg); window.scrollTo(0, 0); } });
+}
+P3REG.novelty = renderNovelty;
+
 // ------------------------------------------------------------------ About: completeness and the precision audit
 P3API.about = function () {
   const cm = (R3.completeness || []).filter((r) => r.scope === state.lab);

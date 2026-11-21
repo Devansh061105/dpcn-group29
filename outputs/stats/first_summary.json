@@ -1,0 +1,74 @@
+{
+ "p1": {
+  "faculty": 245,
+  "rho_age_variability": 0.14455361234103417,
+  "p_perm": 0.0,
+  "first_year_exp_rate": 0.22068095838587642,
+  "cumulative_lognormal_mu": 3.0691096241749953,
+  "cumulative_lognormal_sigma": 0.8423824256150519,
+  "lognormal_vs_powerlaw_R": 127.24338216621382,
+  "lognormal_vs_powerlaw_p": 9.77929258716654e-22
+ },
+ "p8": {
+  "gibrat_slope": -0.49034959753963286,
+  "gibrat_se": 0.023058603703616027,
+  "gibrat_ci": [
+   -0.5355444607987203,
+   -0.44515473428054547
+  ],
+  "transitions": 1322,
+  "median_group": 7.0,
+  "max_group": 82,
+  "dept_size_slope": 0.07892743420794877,
+  "dept_size_p": 0.5508914820579658,
+  "departments": 36
+ },
+ "p6": {
+  "pairs": 74802,
+  "citing_pairs": 1076,
+  "or_coauthor_alone": 18.273775348443394,
+  "or_coauthor_full": 10.208719595882746,
+  "or_topic_full": 8.39008322979158,
+  "share_of_effect_left": 0.799610604645241
+ },
+ "p3": {
+  "treated_pairs": 533,
+  "control_pairs": 1599,
+  "did": 0.06284135918282258,
+  "did_ci": [
+   0.033544402751719826,
+   0.09689701897018968
+  ],
+  "pre_treated": 0.018754186202277295,
+  "pre_control": 0.014512167894619335,
+  "weibull_shape": 0.9409078427906159,
+  "weibull_scale": 26.172573390127795,
+  "weibull_peak_years": 0.0
+ },
+ "p9": {
+  "faculty": 202,
+  "median_entropy_bits": 1.5828108407800885
+ },
+ "p10": {
+  "share_from_within": 0.6951710663175694,
+  "share_from_entry": 0.20778976787279704,
+  "share_from_exit": 0.09703916580963357
+ },
+ "findings": [
+  "P1 by career age: in absolute terms yearly output swings grow with seniority (Laplace scale 1.01 papers in the first decade of a career, 2.07 after 30 years; Spearman with career age 0.14, permutation p = 0.000). This is not only because senior faculty publish more: relative to output the swings also grow (0.48 vs 0.61 of the mean), the opposite of Zhang et al.'s computer scientists, whose variability falls over a career. Cumulative output is lognormal rather than power-law (likelihood ratio 127, p = 0.000).",
+  "P8 research groups: a PI's group (distinct students, postdocs and staff on their papers that year) has median size 7; its growth follows Gibrat's law only partly: large groups grow more slowly (slope -0.49, 95% CI -0.54 to -0.45; 0 = Gibrat). Across 36 departments, papers per faculty member show no clear relation to department size (log–log slope 0.08, p = 0.55).",
+  "P6 co-authorship and citation: having written together multiplies the odds that one faculty member cites the other (independent citations only) by 18 alone and still 10.2 after topic similarity, network distance, output and lab are held equal, so citation follows the social tie, not just shared interests (1,076 citing pairs of 74,802).",
+  "P3 around the first joint paper: pairs who start writing together cite each other +0.06 times more per year afterwards than distance-2 pairs who never do (difference in differences, 95% CI +0.03 to +0.10; 533 new pairs); the extra citations are largest right after the first paper and fade slowly (Weibull shape 0.9 < 1, scale 26.2 years).",
+  "P9 early diversity: faculty whose 2016–20 partners spanned more sectors (universities, hospitals, industry, government, abroad) did not clearly have more 2021–26 output (Spearman 0.16 vs 0.11 in a reshuffle within lab and early-output tercile, p = 0.351).",
+  "P9 early diversity: faculty whose 2016–20 partners spanned more sectors (universities, hospitals, industry, government, abroad) did not clearly have more field-normalised impact in 2021–26 (Spearman 0.10 vs 0.05 in a reshuffle within lab and early-output tercile, p = 0.398).",
+  "P10 stock and flow: changes in each lab's share of internationally collaborative faculty come 70% from the same people changing, 21% from who joins and 10% from who leaves."
+ ],
+ "methods": {
+  "p1": "Faculty-year paper counts (< 100 authors, 2016–2025), career age from the first OpenAlex paper (s20); Laplace scale per career-age bin with a 1,000-draw faculty bootstrap; permutation of career ages across faculty; lognormal vs power-law likelihood ratio (Vuong).",
+  "p8": "Group = distinct non-roster lab co-authors on a PI's papers (≤ 50 authors) in a year; Gibrat regression of log growth on log size with HC1 errors; log–log regression of papers per faculty on department size (departments with ≥ 2 faculty).",
+  "p6": "Logistic regression over all ordered faculty pairs: cites (any independent citation, no shared author) on co-authorship, distance 2 and 3+, topic cosine, log output, same lab.",
+  "p3": "Event study of yearly citations between a pair from 3 years before to 6 after its first joint paper (2018–2022), against 3 random distance-2 pairs per new pair that never co-author; pair-bootstrap difference in differences; Weibull curve fitted to the excess.",
+  "p9": "Shannon entropy of partner sectors on 2016–20 papers (faculty with ≥ 3); Spearman with 2021–26 log papers and mean normalised citations; 2,000 reshuffles within lab × early-output tercile.",
+  "p10": "Faculty active in a 3-year window; attribute = at least a third of their papers in that window with a foreign co-author (s20 countries); change in the share split into entrants, leavers and within-person change."
+ }
+}
