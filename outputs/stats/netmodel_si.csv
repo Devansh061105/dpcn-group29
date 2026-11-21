@@ -1,0 +1,4 @@
+network,runs,share_reaching_all_labs,median_t_other_lab,median_t_all_labs,median_t50,median_t90,beta
+degree-preserving null,2430.0,0.9975308641975309,2.0,4.0,8.0,17.0,0.05
+five brokers removed,238.0,0.9915966386554622,7.0,14.0,15.0,31.0,0.05
+observed,243.0,1.0,6.0,10.0,12.0,27.0,0.05

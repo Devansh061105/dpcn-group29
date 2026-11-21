@@ -148,6 +148,34 @@ def phase2_bundle(cfg) -> dict | None:
     if research and (st / "research_summary.json").exists():
         research["summary"] = json.loads((st / "research_summary.json").read_text(encoding="utf-8"))
         out["research"] = research
+    netmodels = {}     # course network models (step s18)
+    for f in sorted(st.glob("netmodel_*.csv")):
+        if f.stem == "netmodel_robustness":       # keep the attack curves light: every second removal step
+            df = pd.read_csv(f, keep_default_na=False, na_values=[""])
+            df = df[df["removed"] % 2 == 0]
+        else:
+            df = pd.read_csv(f, keep_default_na=False, na_values=[""])
+        netmodels[f.stem.replace("netmodel_", "")] = records(df)
+    if netmodels and (st / "netmodel_summary.json").exists():
+        netmodels["summary"] = json.loads((st / "netmodel_summary.json").read_text(encoding="utf-8"))
+        out["netmodels"] = netmodels
+    ext = {}           # robustness checks and dynamics extensions (step s19)
+    for f in sorted(st.glob("ext_*.csv")):
+        if f.stem == "ext_technique_papers":     # per-paper tags: an input, not a result
+            continue
+        ext[f.stem.replace("ext_", "")] = records(pd.read_csv(f, keep_default_na=False, na_values=[""]))
+    if ext and (st / "ext_summary.json").exists():
+        ext["summary"] = json.loads((st / "ext_summary.json").read_text(encoding="utf-8"))
+        out["ext"] = ext
+    dyn = {}           # teams, ties, brokerage, sensitivity, temporal paths, communities, OpenAlex extras (s20-s21), RSiena (s22)
+    for f in sorted(st.glob("dyn_*.csv")):
+        dyn[f.stem.replace("dyn_", "")] = records(pd.read_csv(f, keep_default_na=False, na_values=[""]))
+    if (st / "siena_estimates.csv").exists():
+        dyn["siena"] = records(pd.read_csv(st / "siena_estimates.csv", keep_default_na=False, na_values=[""]))
+        dyn["siena_fit"] = json.loads((st / "siena_fit.json").read_text(encoding="utf-8"))
+    if dyn and (st / "dyn_summary.json").exists():
+        dyn["summary"] = json.loads((st / "dyn_summary.json").read_text(encoding="utf-8"))
+        out["dyn"] = dyn
     return out
 
 

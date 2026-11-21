@@ -548,11 +548,14 @@
   function render() { heroStats(); RENDER[state.tab](); rendered[state.tab] = state.lab; }
   // seven top-level sections; a section with several pages gets a pill switcher underneath
   const GROUPS = [
-    ["overview", ["overview"]], ["findings", ["findings"]], ["publications", ["impact", "journals", "research"]],
+    ["overview", ["overview"]], ["findings", ["findings", "models", "extensions", "teams"]], ["publications", ["impact", "journals", "research"]],
     ["people", ["faculty", "compare"]], ["networks", ["citation", "collab", "instnet"]], ["flags", ["flags"]], ["about", ["about"]]];
   const SECT = {
     overview: ["Overview", "The four labs at a glance", "Output, citations and the questions we asked of the data. Pick a lab at the top right to see it alone."],
     findings: ["Findings", "What holds up against a baseline", "Each result is compared with what chance or a controlled model would give, so a pattern is only reported when it is real."],
+    models: ["Network models", "The course's network models on our data", "Heavy-tail fits, small-world tests, robustness to removing people, spreading on the network, link prediction and a model of how new collaborations form."],
+    extensions: ["Robustness & dynamics", "Does it hold up, and how do things spread?", "The main result under 48 alternative analysis choices, every p-value corrected together, and how methods, groups and ties spread through the network."],
+    teams: ["Teams, ties & careers", "How teams form, how ties last, and what more data shows", "Team assembly with papers as groups, tie survival, brokerage and impact, sensitivity to data errors, time-respecting paths, communities, an actor-oriented model (RSiena) and extra OpenAlex data."],
     impact: ["Impact & authors", "Impact factors, author counts and growth", "Q1 papers in high-impact journals, how many authors papers have, and the top papers by journal impact factor."],
     journals: ["Journals", "Where the labs publish", "Quartiles, the journals used most and the conference papers."],
     research: ["Research areas", "What the labs work on", "Fields and subfields of the papers, from OpenAlex topics."],

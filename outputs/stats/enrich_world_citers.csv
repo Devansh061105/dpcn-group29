@@ -1,0 +1,817 @@
+lab,kind,key,name,citing_works,citing_works_total_batches
+CSIR-CCMB,country,US,United States,9727,37639
+CSIR-CCMB,country,CN,China,7643,37639
+CSIR-CCMB,country,GB,United Kingdom,3640,37639
+CSIR-CCMB,country,DE,Germany,2666,37639
+CSIR-CCMB,country,IN,India,6197,37639
+CSIR-CCMB,country,FR,France,1888,37639
+CSIR-CCMB,country,IT,Italy,1685,37639
+CSIR-CCMB,country,AU,Australia,1499,37639
+CSIR-CCMB,country,CA,Canada,1524,37639
+CSIR-CCMB,country,ES,Spain,1438,37639
+CSIR-CCMB,country,JP,Japan,1139,37639
+CSIR-CCMB,country,SE,Sweden,888,37639
+CSIR-CCMB,country,NL,Netherlands,927,37639
+CSIR-CCMB,country,CH,Switzerland,846,37639
+CSIR-CCMB,country,KR,South Korea,957,37639
+CSIR-CCMB,country,DK,Denmark,709,37639
+CSIR-CCMB,country,AT,Austria,589,37639
+CSIR-CCMB,country,RU,Russia,801,37639
+CSIR-CCMB,country,BR,Brazil,1182,37639
+CSIR-CCMB,country,FI,Finland,561,37639
+CSIR-CCMB,country,ZA,South Africa,579,37639
+CSIR-CCMB,country,EE,Estonia,249,37639
+CSIR-CCMB,country,PL,Poland,609,37639
+CSIR-CCMB,country,SG,Singapore,406,37639
+CSIR-CCMB,country,PT,Portugal,426,37639
+CSIR-CCMB,country,BE,Belgium,472,37639
+CSIR-CCMB,country,MX,Mexico,495,37639
+CSIR-CCMB,country,NO,Norway,448,37639
+CSIR-CCMB,country,IE,Ireland,264,37639
+CSIR-CCMB,country,NZ,New Zealand,227,37639
+CSIR-CCMB,country,TR,Turkey,469,37639
+CSIR-CCMB,country,CZ,Czechia,321,37639
+CSIR-CCMB,country,TW,Taiwan,431,37639
+CSIR-CCMB,country,SA,Saudi Arabia,553,37639
+CSIR-CCMB,country,IL,Israel,304,37639
+CSIR-CCMB,country,IR,Iran,658,37639
+CSIR-CCMB,country,MY,Malaysia,346,37639
+CSIR-CCMB,country,PK,Pakistan,421,37639
+CSIR-CCMB,country,GR,Greece,317,37639
+CSIR-CCMB,country,HK,Hong Kong,359,37639
+CSIR-CCMB,country,AR,Argentina,238,37639
+CSIR-CCMB,country,HU,Hungary,239,37639
+CSIR-CCMB,country,ID,Indonesia,276,37639
+CSIR-CCMB,country,EG,Egypt,416,37639
+CSIR-CCMB,country,HR,Croatia,160,37639
+CSIR-CCMB,country,CL,Chile,230,37639
+CSIR-CCMB,country,AE,United Arab Emirates,174,37639
+CSIR-CCMB,country,NG,Nigeria,227,37639
+CSIR-CCMB,country,QA,Qatar,117,37639
+CSIR-CCMB,country,RO,Romania,162,37639
+CSIR-CCMB,country,IS,Iceland,103,37639
+CSIR-CCMB,country,PE,Peru,94,37639
+CSIR-CCMB,country,CO,Colombia,170,37639
+CSIR-CCMB,country,TH,Thailand,226,37639
+CSIR-CCMB,country,UA,Ukraine,120,37639
+CSIR-CCMB,country,AM,Armenia,45,37639
+CSIR-CCMB,country,BG,Bulgaria,73,37639
+CSIR-CCMB,country,KZ,Kazakhstan,91,37639
+CSIR-CCMB,country,RS,Serbia,92,37639
+CSIR-CCMB,country,VN,Vietnam,102,37639
+CSIR-CCMB,country,EC,Ecuador,90,37639
+CSIR-CCMB,country,UG,Uganda,71,37639
+CSIR-CCMB,country,KW,Kuwait,77,37639
+CSIR-CCMB,country,PG,Papua New Guinea,18,37639
+CSIR-CCMB,country,BD,Bangladesh,162,37639
+CSIR-CCMB,country,TZ,Tanzania,51,37639
+CSIR-CCMB,country,CM,Cameroon,39,37639
+CSIR-CCMB,country,ET,Ethiopia,61,37639
+CSIR-CCMB,country,GH,Ghana,63,37639
+CSIR-CCMB,country,LT,Lithuania,57,37639
+CSIR-CCMB,country,IQ,Iraq,123,37639
+CSIR-CCMB,country,LB,Lebanon,47,37639
+CSIR-CCMB,country,TN,Tunisia,69,37639
+CSIR-CCMB,country,KE,Kenya,84,37639
+CSIR-CCMB,country,MA,Morocco,62,37639
+CSIR-CCMB,country,MN,Mongolia,42,37639
+CSIR-CCMB,country,BW,Botswana,18,37639
+CSIR-CCMB,country,CY,Cyprus,50,37639
+CSIR-CCMB,country,PH,Philippines,97,37639
+CSIR-CCMB,country,GL,Greenland,13,37639
+CSIR-CCMB,country,SI,Slovenia,87,37639
+CSIR-CCMB,country,GE,Georgia,25,37639
+CSIR-CCMB,country,LK,Sri Lanka,102,37639
+CSIR-CCMB,country,MW,Malawi,21,37639
+CSIR-CCMB,country,NP,Nepal,42,37639
+CSIR-CCMB,country,UZ,Uzbekistan,52,37639
+CSIR-CCMB,country,BO,Bolivia,10,37639
+CSIR-CCMB,country,KG,Kyrgyzstan,28,37639
+CSIR-CCMB,country,MT,Malta,13,37639
+CSIR-CCMB,country,PR,Puerto Rico,35,37639
+CSIR-CCMB,country,UY,Uruguay,37,37639
+CSIR-CCMB,country,ZM,Zambia,17,37639
+CSIR-CCMB,country,BF,Burkina Faso,11,37639
+CSIR-CCMB,country,BY,Belarus,26,37639
+CSIR-CCMB,country,CU,Cuba,16,37639
+CSIR-CCMB,country,DZ,Algeria,32,37639
+CSIR-CCMB,country,SK,Slovakia,68,37639
+CSIR-CCMB,country,CR,Costa Rica,36,37639
+CSIR-CCMB,country,JO,Jordan,63,37639
+CSIR-CCMB,country,LV,Latvia,25,37639
+CSIR-CCMB,country,MO,Macao,74,37639
+CSIR-CCMB,country,VU,Vanuatu,9,37639
+CSIR-CCMB,country,AZ,Azerbaijan,13,37639
+CSIR-CCMB,country,CD,DR Congo,16,37639
+CSIR-CCMB,country,CI,Ivory Coast,10,37639
+CSIR-CCMB,country,MD,Moldova,16,37639
+CSIR-CCMB,country,MK,North Macedonia,9,37639
+CSIR-CCMB,country,ML,Mali,9,37639
+CSIR-CCMB,country,MZ,Mozambique,8,37639
+CSIR-CCMB,country,NA,Namibia,9,37639
+CSIR-CCMB,country,OM,Oman,35,37639
+CSIR-CCMB,country,PA,Panama,46,37639
+CSIR-CCMB,country,TJ,Tajikistan,10,37639
+CSIR-CCMB,country,AL,Albania,12,37639
+CSIR-CCMB,country,BN,Brunei,7,37639
+CSIR-CCMB,country,BZ,Belize,3,37639
+CSIR-CCMB,country,CG,Congo,7,37639
+CSIR-CCMB,country,FJ,Fiji,5,37639
+CSIR-CCMB,country,GA,Gabon,6,37639
+CSIR-CCMB,country,GP,Guadeloupe,7,37639
+CSIR-CCMB,country,GU,Guam,3,37639
+CSIR-CCMB,country,HN,Honduras,5,37639
+CSIR-CCMB,country,JE,Jersey,9,37639
+CSIR-CCMB,country,LA,Laos,8,37639
+CSIR-CCMB,country,LU,Luxembourg,39,37639
+CSIR-CCMB,country,ME,Montenegro,9,37639
+CSIR-CCMB,country,MG,Madagascar,20,37639
+CSIR-CCMB,country,MU,Mauritius,2,37639
+CSIR-CCMB,country,PS,Palestine,9,37639
+CSIR-CCMB,country,SD,Sudan,31,37639
+CSIR-CCMB,country,SN,Senegal,14,37639
+CSIR-CCMB,country,SZ,Eswatini,3,37639
+CSIR-CCMB,country,YE,Yemen,10,37639
+CSIR-CCMB,country,AO,Angola,3,37639
+CSIR-CCMB,country,BA,Bosnia & Herzegovina,20,37639
+CSIR-CCMB,country,BB,Barbados,5,37639
+CSIR-CCMB,country,BH,Bahrain,8,37639
+CSIR-CCMB,country,BS,Bahamas,4,37639
+CSIR-CCMB,country,BT,Bhutan,3,37639
+CSIR-CCMB,country,CW,Curaçao,3,37639
+CSIR-CCMB,country,DO,Dominican Rep.,4,37639
+CSIR-CCMB,country,FO,Faroe Islands,7,37639
+CSIR-CCMB,country,GI,Gibraltar,1,37639
+CSIR-CCMB,country,GM,Gambia,41,37639
+CSIR-CCMB,country,GT,Guatemala,5,37639
+CSIR-CCMB,country,HT,Haiti,1,37639
+CSIR-CCMB,country,JM,Jamaica,5,37639
+CSIR-CCMB,country,KH,Cambodia,12,37639
+CSIR-CCMB,country,KN,St. Kitts & Nevis,6,37639
+CSIR-CCMB,country,LY,Libya,14,37639
+CSIR-CCMB,country,MC,Monaco,4,37639
+CSIR-CCMB,country,MM,Myanmar,5,37639
+CSIR-CCMB,country,RE,Réunion,9,37639
+CSIR-CCMB,country,SC,Seychelles,3,37639
+CSIR-CCMB,country,SY,Syria,6,37639
+CSIR-CCMB,country,TC,Turks & Caicos Islands,2,37639
+CSIR-CCMB,country,VE,Venezuela,20,37639
+CSIR-CCMB,country,WS,Samoa,9,37639
+CSIR-CCMB,country,BJ,Benin,16,37639
+CSIR-CCMB,country,GF,French Guiana,6,37639
+CSIR-CCMB,country,TT,Trinidad & Tobago,8,37639
+CSIR-CCMB,country,PF,French Polynesia,3,37639
+CSIR-CCMB,country,LR,Liberia,3,37639
+CSIR-CCMB,country,RW,Rwanda,9,37639
+CSIR-CCMB,country,AF,Afghanistan,1,37639
+CSIR-CCMB,country,AG,Antigua and Barbuda,2,37639
+CSIR-CCMB,country,LC,Saint Lucia,4,37639
+CSIR-CCMB,country,PY,Paraguay,3,37639
+CSIR-CCMB,country,TG,Togo,5,37639
+CSIR-CCMB,country,DM,Dominica,1,37639
+CSIR-CCMB,country,GD,Grenada,2,37639
+CSIR-CCMB,country,GN,Guinea,3,37639
+CSIR-CCMB,country,ZW,Zimbabwe,8,37639
+CSIR-CCMB,country,AS,American Samoa,2,37639
+CSIR-CCMB,country,SL,Sierra Leone,2,37639
+CSIR-CCMB,country,BI,Burundi,1,37639
+CSIR-CCMB,country,CF,Central African Republic,1,37639
+CSIR-CCMB,country,CV,Cabo Verde,1,37639
+CSIR-CCMB,country,FK,Falkland Islands,1,37639
+CSIR-CCMB,country,GY,Guyana,1,37639
+CSIR-CCMB,country,MR,Mauritania,2,37639
+CSIR-CCMB,country,NC,New Caledonia,1,37639
+CSIR-CCMB,country,NE,Niger,1,37639
+CSIR-CCMB,country,NI,Nicaragua,3,37639
+CSIR-CCMB,country,PW,Palau,1,37639
+CSIR-CCMB,country,TD,Chad,1,37639
+CSIR-CCMB,country,TO,Tonga,1,37639
+CSIR-CCMB,country,XK,Kosovo,3,37639
+CSIR-CCMB,country,LI,Liechtenstein,2,37639
+CSIR-CCMB,country,SR,Suriname,1,37639
+CSIR-CCMB,country,GW,Guinea-Bissau,1,37639
+CSIR-CCMB,country,SV,El Salvador,1,37639
+CSIR-CCMB,country,MV,Maldives,1,37639
+CSIR-CCMB,field,13,"Biochemistry, Genetics and Molecular Biology",15606,37639
+CSIR-CCMB,field,27,Medicine,9232,37639
+CSIR-CCMB,field,33,Social Sciences,682,37639
+CSIR-CCMB,field,11,Agricultural and Biological Sciences,2894,37639
+CSIR-CCMB,field,29,Nursing,342,37639
+CSIR-CCMB,field,28,Neuroscience,1217,37639
+CSIR-CCMB,field,16,Chemistry,1312,37639
+CSIR-CCMB,field,12,Arts and Humanities,376,37639
+CSIR-CCMB,field,24,Immunology and Microbiology,1031,37639
+CSIR-CCMB,field,23,Environmental Science,1525,37639
+CSIR-CCMB,field,25,Materials Science,954,37639
+CSIR-CCMB,field,30,"Pharmacology, Toxicology and Pharmaceutics",853,37639
+CSIR-CCMB,field,22,Engineering,566,37639
+CSIR-CCMB,field,32,Psychology,125,37639
+CSIR-CCMB,field,17,Computer Science,145,37639
+CSIR-CCMB,field,19,Earth and Planetary Sciences,130,37639
+CSIR-CCMB,field,26,Mathematics,154,37639
+CSIR-CCMB,field,35,Dentistry,101,37639
+CSIR-CCMB,field,34,Veterinary,41,37639
+CSIR-CCMB,field,31,Physics and Astronomy,117,37639
+CSIR-CCMB,field,18,Decision Sciences,12,37639
+CSIR-CCMB,field,36,Health Professions,44,37639
+CSIR-CCMB,field,20,"Economics, Econometrics and Finance",24,37639
+CSIR-CCMB,field,15,Chemical Engineering,16,37639
+CSIR-CCMB,field,21,Energy,55,37639
+CSIR-CCMB,field,14,"Business, Management and Accounting",28,37639
+CSIR-CDRI,country,IN,India,16234,58523
+CSIR-CDRI,country,CN,China,15153,58523
+CSIR-CDRI,country,US,United States,6476,58523
+CSIR-CDRI,country,BR,Brazil,1977,58523
+CSIR-CDRI,country,DE,Germany,1509,58523
+CSIR-CDRI,country,FR,France,1304,58523
+CSIR-CDRI,country,GB,United Kingdom,1576,58523
+CSIR-CDRI,country,EG,Egypt,1470,58523
+CSIR-CDRI,country,IR,Iran,1785,58523
+CSIR-CDRI,country,IT,Italy,1575,58523
+CSIR-CDRI,country,JP,Japan,1129,58523
+CSIR-CDRI,country,KR,South Korea,1335,58523
+CSIR-CDRI,country,ES,Spain,1175,58523
+CSIR-CDRI,country,SA,Saudi Arabia,2157,58523
+CSIR-CDRI,country,TR,Turkey,1136,58523
+CSIR-CDRI,country,AU,Australia,903,58523
+CSIR-CDRI,country,PT,Portugal,630,58523
+CSIR-CDRI,country,RU,Russia,894,58523
+CSIR-CDRI,country,PL,Poland,892,58523
+CSIR-CDRI,country,CA,Canada,938,58523
+CSIR-CDRI,country,ZA,South Africa,581,58523
+CSIR-CDRI,country,NL,Netherlands,431,58523
+CSIR-CDRI,country,MX,Mexico,524,58523
+CSIR-CDRI,country,ID,Indonesia,638,58523
+CSIR-CDRI,country,MY,Malaysia,974,58523
+CSIR-CDRI,country,CZ,Czechia,244,58523
+CSIR-CDRI,country,IQ,Iraq,527,58523
+CSIR-CDRI,country,PK,Pakistan,790,58523
+CSIR-CDRI,country,CH,Switzerland,348,58523
+CSIR-CDRI,country,RO,Romania,322,58523
+CSIR-CDRI,country,TW,Taiwan,478,58523
+CSIR-CDRI,country,AT,Austria,244,58523
+CSIR-CDRI,country,BE,Belgium,307,58523
+CSIR-CDRI,country,AM,Armenia,43,58523
+CSIR-CDRI,country,GR,Greece,304,58523
+CSIR-CDRI,country,TH,Thailand,410,58523
+CSIR-CDRI,country,AR,Argentina,232,58523
+CSIR-CDRI,country,SE,Sweden,306,58523
+CSIR-CDRI,country,HK,Hong Kong,319,58523
+CSIR-CDRI,country,HU,Hungary,207,58523
+CSIR-CDRI,country,NO,Norway,113,58523
+CSIR-CDRI,country,BD,Bangladesh,243,58523
+CSIR-CDRI,country,NG,Nigeria,439,58523
+CSIR-CDRI,country,IE,Ireland,169,58523
+CSIR-CDRI,country,VN,Vietnam,211,58523
+CSIR-CDRI,country,SG,Singapore,280,58523
+CSIR-CDRI,country,SK,Slovakia,103,58523
+CSIR-CDRI,country,BG,Bulgaria,97,58523
+CSIR-CDRI,country,DK,Denmark,265,58523
+CSIR-CDRI,country,RS,Serbia,173,58523
+CSIR-CDRI,country,TN,Tunisia,107,58523
+CSIR-CDRI,country,CL,Chile,211,58523
+CSIR-CDRI,country,FI,Finland,199,58523
+CSIR-CDRI,country,IL,Israel,201,58523
+CSIR-CDRI,country,MA,Morocco,165,58523
+CSIR-CDRI,country,CO,Colombia,189,58523
+CSIR-CDRI,country,JO,Jordan,206,58523
+CSIR-CDRI,country,NZ,New Zealand,114,58523
+CSIR-CDRI,country,AE,United Arab Emirates,327,58523
+CSIR-CDRI,country,CM,Cameroon,54,58523
+CSIR-CDRI,country,EE,Estonia,29,58523
+CSIR-CDRI,country,HR,Croatia,118,58523
+CSIR-CDRI,country,MO,Macao,122,58523
+CSIR-CDRI,country,MU,Mauritius,27,58523
+CSIR-CDRI,country,NP,Nepal,58,58523
+CSIR-CDRI,country,QA,Qatar,109,58523
+CSIR-CDRI,country,CY,Cyprus,68,58523
+CSIR-CDRI,country,GH,Ghana,74,58523
+CSIR-CDRI,country,LK,Sri Lanka,53,58523
+CSIR-CDRI,country,PH,Philippines,49,58523
+CSIR-CDRI,country,SI,Slovenia,69,58523
+CSIR-CDRI,country,AZ,Azerbaijan,43,58523
+CSIR-CDRI,country,BF,Burkina Faso,14,58523
+CSIR-CDRI,country,BH,Bahrain,33,58523
+CSIR-CDRI,country,CR,Costa Rica,8,58523
+CSIR-CDRI,country,EC,Ecuador,63,58523
+CSIR-CDRI,country,KW,Kuwait,58,58523
+CSIR-CDRI,country,KZ,Kazakhstan,60,58523
+CSIR-CDRI,country,LT,Lithuania,50,58523
+CSIR-CDRI,country,LV,Latvia,27,58523
+CSIR-CDRI,country,SD,Sudan,36,58523
+CSIR-CDRI,country,YE,Yemen,38,58523
+CSIR-CDRI,country,CI,Ivory Coast,12,58523
+CSIR-CDRI,country,ET,Ethiopia,92,58523
+CSIR-CDRI,country,LB,Lebanon,61,58523
+CSIR-CDRI,country,MK,North Macedonia,10,58523
+CSIR-CDRI,country,ML,Mali,2,58523
+CSIR-CDRI,country,OM,Oman,77,58523
+CSIR-CDRI,country,UA,Ukraine,150,58523
+CSIR-CDRI,country,UG,Uganda,50,58523
+CSIR-CDRI,country,UY,Uruguay,22,58523
+CSIR-CDRI,country,UZ,Uzbekistan,63,58523
+CSIR-CDRI,country,BA,Bosnia & Herzegovina,20,58523
+CSIR-CDRI,country,BO,Bolivia,13,58523
+CSIR-CDRI,country,BW,Botswana,7,58523
+CSIR-CDRI,country,BY,Belarus,22,58523
+CSIR-CDRI,country,CD,DR Congo,7,58523
+CSIR-CDRI,country,CG,Congo,1,58523
+CSIR-CDRI,country,GE,Georgia,33,58523
+CSIR-CDRI,country,IS,Iceland,8,58523
+CSIR-CDRI,country,KE,Kenya,52,58523
+CSIR-CDRI,country,LA,Laos,3,58523
+CSIR-CDRI,country,LY,Libya,19,58523
+CSIR-CDRI,country,PR,Puerto Rico,6,58523
+CSIR-CDRI,country,PS,Palestine,42,58523
+CSIR-CDRI,country,RW,Rwanda,10,58523
+CSIR-CDRI,country,SN,Senegal,7,58523
+CSIR-CDRI,country,TD,Chad,6,58523
+CSIR-CDRI,country,TZ,Tanzania,31,58523
+CSIR-CDRI,country,VE,Venezuela,21,58523
+CSIR-CDRI,country,XK,Kosovo,4,58523
+CSIR-CDRI,country,DZ,Algeria,118,58523
+CSIR-CDRI,country,PA,Panama,13,58523
+CSIR-CDRI,country,CU,Cuba,29,58523
+CSIR-CDRI,country,MZ,Mozambique,2,58523
+CSIR-CDRI,country,BN,Brunei,11,58523
+CSIR-CDRI,country,JM,Jamaica,8,58523
+CSIR-CDRI,country,KH,Cambodia,6,58523
+CSIR-CDRI,country,LU,Luxembourg,28,58523
+CSIR-CDRI,country,MC,Monaco,1,58523
+CSIR-CDRI,country,MT,Malta,7,58523
+CSIR-CDRI,country,PY,Paraguay,6,58523
+CSIR-CDRI,country,PE,Peru,78,58523
+CSIR-CDRI,country,ZM,Zambia,18,58523
+CSIR-CDRI,country,KN,St. Kitts & Nevis,2,58523
+CSIR-CDRI,country,KP,North Korea,1,58523
+CSIR-CDRI,country,MN,Mongolia,13,58523
+CSIR-CDRI,country,MW,Malawi,4,58523
+CSIR-CDRI,country,NE,Niger,1,58523
+CSIR-CDRI,country,PG,Papua New Guinea,2,58523
+CSIR-CDRI,country,TG,Togo,5,58523
+CSIR-CDRI,country,SY,Syria,15,58523
+CSIR-CDRI,country,BB,Barbados,26,58523
+CSIR-CDRI,country,RE,Réunion,7,58523
+CSIR-CDRI,country,GD,Grenada,3,58523
+CSIR-CDRI,country,GF,French Guiana,2,58523
+CSIR-CDRI,country,GN,Guinea,1,58523
+CSIR-CDRI,country,GP,Guadeloupe,4,58523
+CSIR-CDRI,country,MM,Myanmar,3,58523
+CSIR-CDRI,country,SO,Somalia,1,58523
+CSIR-CDRI,country,SR,Suriname,1,58523
+CSIR-CDRI,country,ZW,Zimbabwe,6,58523
+CSIR-CDRI,country,AF,Afghanistan,2,58523
+CSIR-CDRI,country,BJ,Benin,2,58523
+CSIR-CDRI,country,GT,Guatemala,1,58523
+CSIR-CDRI,country,NA,Namibia,3,58523
+CSIR-CDRI,country,TT,Trinidad & Tobago,6,58523
+CSIR-CDRI,country,KM,Comoros,3,58523
+CSIR-CDRI,country,DJ,Djibouti,2,58523
+CSIR-CDRI,country,ER,Eritrea,2,58523
+CSIR-CDRI,country,KG,Kyrgyzstan,23,58523
+CSIR-CDRI,country,MD,Moldova,11,58523
+CSIR-CDRI,country,AL,Albania,5,58523
+CSIR-CDRI,country,GW,Guinea-Bissau,1,58523
+CSIR-CDRI,country,LS,Lesotho,1,58523
+CSIR-CDRI,country,SZ,Eswatini,1,58523
+CSIR-CDRI,country,AO,Angola,1,58523
+CSIR-CDRI,country,SV,El Salvador,3,58523
+CSIR-CDRI,country,AG,Antigua and Barbuda,3,58523
+CSIR-CDRI,country,SS,South Sudan,2,58523
+CSIR-CDRI,country,FJ,Fiji,1,58523
+CSIR-CDRI,country,GA,Gabon,2,58523
+CSIR-CDRI,country,WS,Samoa,1,58523
+CSIR-CDRI,country,CW,Curaçao,2,58523
+CSIR-CDRI,country,MV,Maldives,2,58523
+CSIR-CDRI,country,SL,Sierra Leone,4,58523
+CSIR-CDRI,country,ME,Montenegro,2,58523
+CSIR-CDRI,country,GM,Gambia,2,58523
+CSIR-CDRI,country,BI,Burundi,1,58523
+CSIR-CDRI,country,HN,Honduras,1,58523
+CSIR-CDRI,country,MG,Madagascar,1,58523
+CSIR-CDRI,country,SC,Seychelles,1,58523
+CSIR-CDRI,country,MQ,Martinique,2,58523
+CSIR-CDRI,country,AW,Aruba,1,58523
+CSIR-CDRI,field,27,Medicine,17573,58523
+CSIR-CDRI,field,16,Chemistry,10550,58523
+CSIR-CDRI,field,13,"Biochemistry, Genetics and Molecular Biology",9726,58523
+CSIR-CDRI,field,25,Materials Science,4515,58523
+CSIR-CDRI,field,24,Immunology and Microbiology,2886,58523
+CSIR-CDRI,field,11,Agricultural and Biological Sciences,4023,58523
+CSIR-CDRI,field,30,"Pharmacology, Toxicology and Pharmaceutics",4329,58523
+CSIR-CDRI,field,22,Engineering,1045,58523
+CSIR-CDRI,field,29,Nursing,396,58523
+CSIR-CDRI,field,28,Neuroscience,1641,58523
+CSIR-CDRI,field,23,Environmental Science,918,58523
+CSIR-CDRI,field,34,Veterinary,50,58523
+CSIR-CDRI,field,35,Dentistry,155,58523
+CSIR-CDRI,field,21,Energy,124,58523
+CSIR-CDRI,field,36,Health Professions,50,58523
+CSIR-CDRI,field,26,Mathematics,39,58523
+CSIR-CDRI,field,31,Physics and Astronomy,94,58523
+CSIR-CDRI,field,15,Chemical Engineering,114,58523
+CSIR-CDRI,field,19,Earth and Planetary Sciences,13,58523
+CSIR-CDRI,field,17,Computer Science,43,58523
+CSIR-CDRI,field,33,Social Sciences,91,58523
+CSIR-CDRI,field,14,"Business, Management and Accounting",16,58523
+CSIR-CDRI,field,18,Decision Sciences,16,58523
+CSIR-CDRI,field,20,"Economics, Econometrics and Finance",15,58523
+CSIR-CDRI,field,32,Psychology,40,58523
+CSIR-CDRI,field,12,Arts and Humanities,19,58523
+CSIR-IGIB,country,US,United States,7162,38105
+CSIR-IGIB,country,CN,China,8236,38105
+CSIR-IGIB,country,IN,India,7749,38105
+CSIR-IGIB,country,GB,United Kingdom,2323,38105
+CSIR-IGIB,country,DE,Germany,1660,38105
+CSIR-IGIB,country,CA,Canada,1205,38105
+CSIR-IGIB,country,IT,Italy,1627,38105
+CSIR-IGIB,country,FR,France,1238,38105
+CSIR-IGIB,country,KR,South Korea,1093,38105
+CSIR-IGIB,country,AU,Australia,1078,38105
+CSIR-IGIB,country,ES,Spain,1065,38105
+CSIR-IGIB,country,JP,Japan,984,38105
+CSIR-IGIB,country,NL,Netherlands,684,38105
+CSIR-IGIB,country,BR,Brazil,1077,38105
+CSIR-IGIB,country,SE,Sweden,504,38105
+CSIR-IGIB,country,SG,Singapore,445,38105
+CSIR-IGIB,country,SA,Saudi Arabia,912,38105
+CSIR-IGIB,country,IR,Iran,907,38105
+CSIR-IGIB,country,FI,Finland,324,38105
+CSIR-IGIB,country,CH,Switzerland,553,38105
+CSIR-IGIB,country,PL,Poland,566,38105
+CSIR-IGIB,country,DK,Denmark,361,38105
+CSIR-IGIB,country,RU,Russia,674,38105
+CSIR-IGIB,country,MX,Mexico,428,38105
+CSIR-IGIB,country,AT,Austria,325,38105
+CSIR-IGIB,country,ZA,South Africa,479,38105
+CSIR-IGIB,country,MY,Malaysia,448,38105
+CSIR-IGIB,country,NO,Norway,267,38105
+CSIR-IGIB,country,TW,Taiwan,437,38105
+CSIR-IGIB,country,PK,Pakistan,548,38105
+CSIR-IGIB,country,GR,Greece,276,38105
+CSIR-IGIB,country,IL,Israel,265,38105
+CSIR-IGIB,country,BE,Belgium,357,38105
+CSIR-IGIB,country,HK,Hong Kong,408,38105
+CSIR-IGIB,country,TR,Turkey,610,38105
+CSIR-IGIB,country,ID,Indonesia,329,38105
+CSIR-IGIB,country,PT,Portugal,331,38105
+CSIR-IGIB,country,CZ,Czechia,196,38105
+CSIR-IGIB,country,TH,Thailand,260,38105
+CSIR-IGIB,country,NZ,New Zealand,106,38105
+CSIR-IGIB,country,EE,Estonia,89,38105
+CSIR-IGIB,country,NG,Nigeria,293,38105
+CSIR-IGIB,country,EG,Egypt,607,38105
+CSIR-IGIB,country,QA,Qatar,155,38105
+CSIR-IGIB,country,KW,Kuwait,90,38105
+CSIR-IGIB,country,RO,Romania,190,38105
+CSIR-IGIB,country,BD,Bangladesh,216,38105
+CSIR-IGIB,country,IE,Ireland,139,38105
+CSIR-IGIB,country,IQ,Iraq,279,38105
+CSIR-IGIB,country,CO,Colombia,133,38105
+CSIR-IGIB,country,HU,Hungary,144,38105
+CSIR-IGIB,country,AE,United Arab Emirates,285,38105
+CSIR-IGIB,country,IS,Iceland,66,38105
+CSIR-IGIB,country,HR,Croatia,104,38105
+CSIR-IGIB,country,CL,Chile,199,38105
+CSIR-IGIB,country,MO,Macao,90,38105
+CSIR-IGIB,country,UA,Ukraine,107,38105
+CSIR-IGIB,country,SI,Slovenia,71,38105
+CSIR-IGIB,country,AR,Argentina,143,38105
+CSIR-IGIB,country,CY,Cyprus,46,38105
+CSIR-IGIB,country,SK,Slovakia,67,38105
+CSIR-IGIB,country,BG,Bulgaria,66,38105
+CSIR-IGIB,country,JO,Jordan,98,38105
+CSIR-IGIB,country,LT,Lithuania,38,38105
+CSIR-IGIB,country,LU,Luxembourg,36,38105
+CSIR-IGIB,country,VN,Vietnam,97,38105
+CSIR-IGIB,country,KZ,Kazakhstan,34,38105
+CSIR-IGIB,country,LB,Lebanon,44,38105
+CSIR-IGIB,country,MA,Morocco,73,38105
+CSIR-IGIB,country,PH,Philippines,91,38105
+CSIR-IGIB,country,RS,Serbia,97,38105
+CSIR-IGIB,country,VE,Venezuela,20,38105
+CSIR-IGIB,country,ET,Ethiopia,64,38105
+CSIR-IGIB,country,GL,Greenland,6,38105
+CSIR-IGIB,country,LK,Sri Lanka,80,38105
+CSIR-IGIB,country,LV,Latvia,16,38105
+CSIR-IGIB,country,UY,Uruguay,28,38105
+CSIR-IGIB,country,GH,Ghana,68,38105
+CSIR-IGIB,country,TN,Tunisia,55,38105
+CSIR-IGIB,country,TZ,Tanzania,21,38105
+CSIR-IGIB,country,BH,Bahrain,15,38105
+CSIR-IGIB,country,BY,Belarus,25,38105
+CSIR-IGIB,country,KG,Kyrgyzstan,13,38105
+CSIR-IGIB,country,MT,Malta,13,38105
+CSIR-IGIB,country,OM,Oman,52,38105
+CSIR-IGIB,country,PA,Panama,13,38105
+CSIR-IGIB,country,UG,Uganda,48,38105
+CSIR-IGIB,country,CM,Cameroon,33,38105
+CSIR-IGIB,country,EC,Ecuador,48,38105
+CSIR-IGIB,country,KE,Kenya,44,38105
+CSIR-IGIB,country,PE,Peru,57,38105
+CSIR-IGIB,country,PR,Puerto Rico,12,38105
+CSIR-IGIB,country,PS,Palestine,20,38105
+CSIR-IGIB,country,SD,Sudan,40,38105
+CSIR-IGIB,country,AG,Antigua and Barbuda,2,38105
+CSIR-IGIB,country,AL,Albania,6,38105
+CSIR-IGIB,country,AZ,Azerbaijan,17,38105
+CSIR-IGIB,country,BN,Brunei,8,38105
+CSIR-IGIB,country,CD,DR Congo,16,38105
+CSIR-IGIB,country,CR,Costa Rica,12,38105
+CSIR-IGIB,country,FO,Faroe Islands,1,38105
+CSIR-IGIB,country,GM,Gambia,8,38105
+CSIR-IGIB,country,HT,Haiti,1,38105
+CSIR-IGIB,country,KP,North Korea,1,38105
+CSIR-IGIB,country,LY,Libya,21,38105
+CSIR-IGIB,country,MC,Monaco,1,38105
+CSIR-IGIB,country,MK,North Macedonia,11,38105
+CSIR-IGIB,country,MM,Myanmar,4,38105
+CSIR-IGIB,country,MN,Mongolia,5,38105
+CSIR-IGIB,country,MU,Mauritius,2,38105
+CSIR-IGIB,country,NP,Nepal,37,38105
+CSIR-IGIB,country,TG,Togo,3,38105
+CSIR-IGIB,country,TT,Trinidad & Tobago,7,38105
+CSIR-IGIB,country,UZ,Uzbekistan,20,38105
+CSIR-IGIB,country,WS,Samoa,5,38105
+CSIR-IGIB,country,YE,Yemen,15,38105
+CSIR-IGIB,country,CU,Cuba,15,38105
+CSIR-IGIB,country,AF,Afghanistan,7,38105
+CSIR-IGIB,country,AM,Armenia,6,38105
+CSIR-IGIB,country,DZ,Algeria,44,38105
+CSIR-IGIB,country,GE,Georgia,17,38105
+CSIR-IGIB,country,KN,St. Kitts & Nevis,3,38105
+CSIR-IGIB,country,ME,Montenegro,4,38105
+CSIR-IGIB,country,ZW,Zimbabwe,15,38105
+CSIR-IGIB,country,BA,Bosnia & Herzegovina,25,38105
+CSIR-IGIB,country,SO,Somalia,7,38105
+CSIR-IGIB,country,AO,Angola,4,38105
+CSIR-IGIB,country,BB,Barbados,4,38105
+CSIR-IGIB,country,LI,Liechtenstein,1,38105
+CSIR-IGIB,country,ZM,Zambia,12,38105
+CSIR-IGIB,country,RW,Rwanda,12,38105
+CSIR-IGIB,country,BT,Bhutan,1,38105
+CSIR-IGIB,country,ML,Mali,15,38105
+CSIR-IGIB,country,MV,Maldives,1,38105
+CSIR-IGIB,country,MW,Malawi,8,38105
+CSIR-IGIB,country,NI,Nicaragua,3,38105
+CSIR-IGIB,country,CI,Ivory Coast,7,38105
+CSIR-IGIB,country,BF,Burkina Faso,5,38105
+CSIR-IGIB,country,BI,Burundi,2,38105
+CSIR-IGIB,country,BW,Botswana,9,38105
+CSIR-IGIB,country,GT,Guatemala,1,38105
+CSIR-IGIB,country,LS,Lesotho,1,38105
+CSIR-IGIB,country,MP,Northern Mariana Is.,1,38105
+CSIR-IGIB,country,RE,Réunion,2,38105
+CSIR-IGIB,country,SN,Senegal,17,38105
+CSIR-IGIB,country,SY,Syria,7,38105
+CSIR-IGIB,country,SL,Sierra Leone,3,38105
+CSIR-IGIB,country,BJ,Benin,5,38105
+CSIR-IGIB,country,TJ,Tajikistan,1,38105
+CSIR-IGIB,country,BO,Bolivia,2,38105
+CSIR-IGIB,country,MD,Moldova,5,38105
+CSIR-IGIB,country,DJ,Djibouti,3,38105
+CSIR-IGIB,country,LR,Liberia,2,38105
+CSIR-IGIB,country,MG,Madagascar,3,38105
+CSIR-IGIB,country,VC,St. Vincent & Grenadines,1,38105
+CSIR-IGIB,country,DO,Dominican Rep.,5,38105
+CSIR-IGIB,country,NE,Niger,4,38105
+CSIR-IGIB,country,CG,Congo,9,38105
+CSIR-IGIB,country,GN,Guinea,4,38105
+CSIR-IGIB,country,HN,Honduras,4,38105
+CSIR-IGIB,country,PY,Paraguay,3,38105
+CSIR-IGIB,country,SZ,Eswatini,2,38105
+CSIR-IGIB,country,TD,Chad,2,38105
+CSIR-IGIB,country,XK,Kosovo,6,38105
+CSIR-IGIB,country,AS,American Samoa,2,38105
+CSIR-IGIB,country,JM,Jamaica,5,38105
+CSIR-IGIB,country,MZ,Mozambique,7,38105
+CSIR-IGIB,country,CF,Central African Republic,2,38105
+CSIR-IGIB,country,CV,Cabo Verde,1,38105
+CSIR-IGIB,country,FJ,Fiji,1,38105
+CSIR-IGIB,country,GA,Gabon,3,38105
+CSIR-IGIB,country,GD,Grenada,2,38105
+CSIR-IGIB,country,GF,French Guiana,1,38105
+CSIR-IGIB,country,JE,Jersey,1,38105
+CSIR-IGIB,country,KH,Cambodia,1,38105
+CSIR-IGIB,country,LA,Laos,3,38105
+CSIR-IGIB,country,MR,Mauritania,1,38105
+CSIR-IGIB,country,NA,Namibia,3,38105
+CSIR-IGIB,country,SC,Seychelles,1,38105
+CSIR-IGIB,country,BS,Bahamas,2,38105
+CSIR-IGIB,country,CW,Curaçao,1,38105
+CSIR-IGIB,country,SR,Suriname,1,38105
+CSIR-IGIB,country,MQ,Martinique,1,38105
+CSIR-IGIB,country,PG,Papua New Guinea,1,38105
+CSIR-IGIB,field,13,"Biochemistry, Genetics and Molecular Biology",11923,38105
+CSIR-IGIB,field,27,Medicine,14402,38105
+CSIR-IGIB,field,24,Immunology and Microbiology,1429,38105
+CSIR-IGIB,field,30,"Pharmacology, Toxicology and Pharmaceutics",1378,38105
+CSIR-IGIB,field,16,Chemistry,787,38105
+CSIR-IGIB,field,25,Materials Science,2049,38105
+CSIR-IGIB,field,11,Agricultural and Biological Sciences,1332,38105
+CSIR-IGIB,field,23,Environmental Science,755,38105
+CSIR-IGIB,field,28,Neuroscience,1430,38105
+CSIR-IGIB,field,21,Energy,349,38105
+CSIR-IGIB,field,22,Engineering,613,38105
+CSIR-IGIB,field,29,Nursing,443,38105
+CSIR-IGIB,field,15,Chemical Engineering,41,38105
+CSIR-IGIB,field,35,Dentistry,155,38105
+CSIR-IGIB,field,17,Computer Science,154,38105
+CSIR-IGIB,field,26,Mathematics,240,38105
+CSIR-IGIB,field,32,Psychology,76,38105
+CSIR-IGIB,field,33,Social Sciences,172,38105
+CSIR-IGIB,field,36,Health Professions,140,38105
+CSIR-IGIB,field,31,Physics and Astronomy,46,38105
+CSIR-IGIB,field,18,Decision Sciences,15,38105
+CSIR-IGIB,field,12,Arts and Humanities,29,38105
+CSIR-IGIB,field,34,Veterinary,36,38105
+CSIR-IGIB,field,19,Earth and Planetary Sciences,8,38105
+CSIR-IGIB,field,14,"Business, Management and Accounting",42,38105
+CSIR-IGIB,field,20,"Economics, Econometrics and Finance",22,38105
+CSIR-IMTECH,country,IN,India,5261,23930
+CSIR-IMTECH,country,CN,China,5651,23930
+CSIR-IMTECH,country,US,United States,3725,23930
+CSIR-IMTECH,country,GB,United Kingdom,989,23930
+CSIR-IMTECH,country,DE,Germany,849,23930
+CSIR-IMTECH,country,FR,France,812,23930
+CSIR-IMTECH,country,IR,Iran,653,23930
+CSIR-IMTECH,country,KR,South Korea,680,23930
+CSIR-IMTECH,country,BR,Brazil,724,23930
+CSIR-IMTECH,country,IT,Italy,825,23930
+CSIR-IMTECH,country,ES,Spain,626,23930
+CSIR-IMTECH,country,CA,Canada,609,23930
+CSIR-IMTECH,country,AU,Australia,489,23930
+CSIR-IMTECH,country,JP,Japan,524,23930
+CSIR-IMTECH,country,SA,Saudi Arabia,602,23930
+CSIR-IMTECH,country,MX,Mexico,350,23930
+CSIR-IMTECH,country,PK,Pakistan,402,23930
+CSIR-IMTECH,country,RU,Russia,408,23930
+CSIR-IMTECH,country,MY,Malaysia,329,23930
+CSIR-IMTECH,country,ZA,South Africa,295,23930
+CSIR-IMTECH,country,EG,Egypt,403,23930
+CSIR-IMTECH,country,PT,Portugal,287,23930
+CSIR-IMTECH,country,PL,Poland,322,23930
+CSIR-IMTECH,country,NL,Netherlands,282,23930
+CSIR-IMTECH,country,TR,Turkey,341,23930
+CSIR-IMTECH,country,BD,Bangladesh,216,23930
+CSIR-IMTECH,country,SE,Sweden,223,23930
+CSIR-IMTECH,country,TW,Taiwan,252,23930
+CSIR-IMTECH,country,TH,Thailand,213,23930
+CSIR-IMTECH,country,ID,Indonesia,231,23930
+CSIR-IMTECH,country,CH,Switzerland,229,23930
+CSIR-IMTECH,country,SG,Singapore,146,23930
+CSIR-IMTECH,country,EC,Ecuador,63,23930
+CSIR-IMTECH,country,AR,Argentina,114,23930
+CSIR-IMTECH,country,CZ,Czechia,107,23930
+CSIR-IMTECH,country,FI,Finland,115,23930
+CSIR-IMTECH,country,VN,Vietnam,93,23930
+CSIR-IMTECH,country,DK,Denmark,169,23930
+CSIR-IMTECH,country,BE,Belgium,168,23930
+CSIR-IMTECH,country,NZ,New Zealand,72,23930
+CSIR-IMTECH,country,IE,Ireland,87,23930
+CSIR-IMTECH,country,IQ,Iraq,120,23930
+CSIR-IMTECH,country,CL,Chile,106,23930
+CSIR-IMTECH,country,HK,Hong Kong,132,23930
+CSIR-IMTECH,country,IL,Israel,110,23930
+CSIR-IMTECH,country,NG,Nigeria,177,23930
+CSIR-IMTECH,country,NO,Norway,107,23930
+CSIR-IMTECH,country,CO,Colombia,74,23930
+CSIR-IMTECH,country,AT,Austria,114,23930
+CSIR-IMTECH,country,EE,Estonia,33,23930
+CSIR-IMTECH,country,MO,Macao,76,23930
+CSIR-IMTECH,country,RS,Serbia,72,23930
+CSIR-IMTECH,country,TN,Tunisia,71,23930
+CSIR-IMTECH,country,RO,Romania,83,23930
+CSIR-IMTECH,country,UA,Ukraine,41,23930
+CSIR-IMTECH,country,GH,Ghana,44,23930
+CSIR-IMTECH,country,GR,Greece,85,23930
+CSIR-IMTECH,country,HU,Hungary,90,23930
+CSIR-IMTECH,country,PE,Peru,56,23930
+CSIR-IMTECH,country,QA,Qatar,44,23930
+CSIR-IMTECH,country,RE,Réunion,15,23930
+CSIR-IMTECH,country,AE,United Arab Emirates,86,23930
+CSIR-IMTECH,country,BN,Brunei,9,23930
+CSIR-IMTECH,country,ET,Ethiopia,42,23930
+CSIR-IMTECH,country,HR,Croatia,31,23930
+CSIR-IMTECH,country,SK,Slovakia,39,23930
+CSIR-IMTECH,country,JO,Jordan,46,23930
+CSIR-IMTECH,country,UG,Uganda,27,23930
+CSIR-IMTECH,country,YE,Yemen,12,23930
+CSIR-IMTECH,country,CU,Cuba,15,23930
+CSIR-IMTECH,country,CY,Cyprus,27,23930
+CSIR-IMTECH,country,DZ,Algeria,34,23930
+CSIR-IMTECH,country,KE,Kenya,23,23930
+CSIR-IMTECH,country,LB,Lebanon,24,23930
+CSIR-IMTECH,country,LU,Luxembourg,11,23930
+CSIR-IMTECH,country,MA,Morocco,54,23930
+CSIR-IMTECH,country,PH,Philippines,52,23930
+CSIR-IMTECH,country,AM,Armenia,12,23930
+CSIR-IMTECH,country,BG,Bulgaria,33,23930
+CSIR-IMTECH,country,LK,Sri Lanka,17,23930
+CSIR-IMTECH,country,NP,Nepal,17,23930
+CSIR-IMTECH,country,OM,Oman,32,23930
+CSIR-IMTECH,country,SI,Slovenia,45,23930
+CSIR-IMTECH,country,VE,Venezuela,9,23930
+CSIR-IMTECH,country,AZ,Azerbaijan,11,23930
+CSIR-IMTECH,country,BA,Bosnia & Herzegovina,9,23930
+CSIR-IMTECH,country,CM,Cameroon,21,23930
+CSIR-IMTECH,country,IS,Iceland,9,23930
+CSIR-IMTECH,country,LT,Lithuania,19,23930
+CSIR-IMTECH,country,SD,Sudan,20,23930
+CSIR-IMTECH,country,SY,Syria,9,23930
+CSIR-IMTECH,country,TZ,Tanzania,11,23930
+CSIR-IMTECH,country,UZ,Uzbekistan,11,23930
+CSIR-IMTECH,country,BF,Burkina Faso,6,23930
+CSIR-IMTECH,country,BY,Belarus,14,23930
+CSIR-IMTECH,country,CG,Congo,1,23930
+CSIR-IMTECH,country,CI,Ivory Coast,3,23930
+CSIR-IMTECH,country,CR,Costa Rica,12,23930
+CSIR-IMTECH,country,FJ,Fiji,2,23930
+CSIR-IMTECH,country,GM,Gambia,4,23930
+CSIR-IMTECH,country,KW,Kuwait,14,23930
+CSIR-IMTECH,country,KZ,Kazakhstan,16,23930
+CSIR-IMTECH,country,LV,Latvia,12,23930
+CSIR-IMTECH,country,LY,Libya,7,23930
+CSIR-IMTECH,country,MD,Moldova,2,23930
+CSIR-IMTECH,country,ML,Mali,5,23930
+CSIR-IMTECH,country,MM,Myanmar,8,23930
+CSIR-IMTECH,country,MV,Maldives,1,23930
+CSIR-IMTECH,country,NC,New Caledonia,2,23930
+CSIR-IMTECH,country,PR,Puerto Rico,8,23930
+CSIR-IMTECH,country,SO,Somalia,5,23930
+CSIR-IMTECH,country,SR,Suriname,2,23930
+CSIR-IMTECH,country,UY,Uruguay,11,23930
+CSIR-IMTECH,country,ZM,Zambia,6,23930
+CSIR-IMTECH,country,ZW,Zimbabwe,6,23930
+CSIR-IMTECH,country,GT,Guatemala,5,23930
+CSIR-IMTECH,country,BJ,Benin,5,23930
+CSIR-IMTECH,country,KG,Kyrgyzstan,6,23930
+CSIR-IMTECH,country,SN,Senegal,5,23930
+CSIR-IMTECH,country,TT,Trinidad & Tobago,7,23930
+CSIR-IMTECH,country,AL,Albania,6,23930
+CSIR-IMTECH,country,BH,Bahrain,6,23930
+CSIR-IMTECH,country,DO,Dominican Rep.,2,23930
+CSIR-IMTECH,country,GD,Grenada,1,23930
+CSIR-IMTECH,country,GN,Guinea,1,23930
+CSIR-IMTECH,country,JM,Jamaica,1,23930
+CSIR-IMTECH,country,MU,Mauritius,6,23930
+CSIR-IMTECH,country,MW,Malawi,6,23930
+CSIR-IMTECH,country,SC,Seychelles,1,23930
+CSIR-IMTECH,country,VI,US Virgin Islands,1,23930
+CSIR-IMTECH,country,XK,Kosovo,1,23930
+CSIR-IMTECH,country,BO,Bolivia,2,23930
+CSIR-IMTECH,country,GA,Gabon,2,23930
+CSIR-IMTECH,country,GE,Georgia,6,23930
+CSIR-IMTECH,country,GP,Guadeloupe,2,23930
+CSIR-IMTECH,country,GW,Guinea-Bissau,3,23930
+CSIR-IMTECH,country,KH,Cambodia,1,23930
+CSIR-IMTECH,country,MZ,Mozambique,4,23930
+CSIR-IMTECH,country,PA,Panama,3,23930
+CSIR-IMTECH,country,AF,Afghanistan,5,23930
+CSIR-IMTECH,country,BW,Botswana,4,23930
+CSIR-IMTECH,country,PS,Palestine,6,23930
+CSIR-IMTECH,country,KN,St. Kitts & Nevis,2,23930
+CSIR-IMTECH,country,LS,Lesotho,2,23930
+CSIR-IMTECH,country,MK,North Macedonia,3,23930
+CSIR-IMTECH,country,MT,Malta,2,23930
+CSIR-IMTECH,country,PF,French Polynesia,1,23930
+CSIR-IMTECH,country,PG,Papua New Guinea,2,23930
+CSIR-IMTECH,country,CD,DR Congo,4,23930
+CSIR-IMTECH,country,DM,Dominica,1,23930
+CSIR-IMTECH,country,MG,Madagascar,1,23930
+CSIR-IMTECH,country,MN,Mongolia,2,23930
+CSIR-IMTECH,country,NI,Nicaragua,1,23930
+CSIR-IMTECH,country,TD,Chad,1,23930
+CSIR-IMTECH,country,HN,Honduras,1,23930
+CSIR-IMTECH,country,NE,Niger,1,23930
+CSIR-IMTECH,country,RW,Rwanda,2,23930
+CSIR-IMTECH,country,BT,Bhutan,1,23930
+CSIR-IMTECH,country,MQ,Martinique,1,23930
+CSIR-IMTECH,country,NA,Namibia,1,23930
+CSIR-IMTECH,country,BB,Barbados,1,23930
+CSIR-IMTECH,field,13,"Biochemistry, Genetics and Molecular Biology",7151,23930
+CSIR-IMTECH,field,27,Medicine,5358,23930
+CSIR-IMTECH,field,24,Immunology and Microbiology,2177,23930
+CSIR-IMTECH,field,11,Agricultural and Biological Sciences,2615,23930
+CSIR-IMTECH,field,16,Chemistry,946,23930
+CSIR-IMTECH,field,30,"Pharmacology, Toxicology and Pharmaceutics",1334,23930
+CSIR-IMTECH,field,25,Materials Science,1696,23930
+CSIR-IMTECH,field,23,Environmental Science,1075,23930
+CSIR-IMTECH,field,22,Engineering,433,23930
+CSIR-IMTECH,field,28,Neuroscience,389,23930
+CSIR-IMTECH,field,35,Dentistry,170,23930
+CSIR-IMTECH,field,21,Energy,97,23930
+CSIR-IMTECH,field,17,Computer Science,98,23930
+CSIR-IMTECH,field,29,Nursing,81,23930
+CSIR-IMTECH,field,15,Chemical Engineering,21,23930
+CSIR-IMTECH,field,31,Physics and Astronomy,44,23930
+CSIR-IMTECH,field,26,Mathematics,15,23930
+CSIR-IMTECH,field,19,Earth and Planetary Sciences,31,23930
+CSIR-IMTECH,field,32,Psychology,17,23930
+CSIR-IMTECH,field,12,Arts and Humanities,4,23930
+CSIR-IMTECH,field,14,"Business, Management and Accounting",8,23930
+CSIR-IMTECH,field,34,Veterinary,12,23930
+CSIR-IMTECH,field,18,Decision Sciences,7,23930
+CSIR-IMTECH,field,33,Social Sciences,42,23930
+CSIR-IMTECH,field,36,Health Professions,18,23930
+CSIR-IMTECH,field,20,"Economics, Econometrics and Finance",4,23930

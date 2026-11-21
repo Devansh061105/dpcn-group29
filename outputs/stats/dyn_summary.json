@@ -1,0 +1,123 @@
+{
+ "quick": false,
+ "team_assembly": {
+  "p": 0.9784886157284537,
+  "q": 0.5681010659297276,
+  "h": 0.9922012578616353
+ },
+ "brokerage_panel": {
+  "faculty_years": 1874,
+  "faculty": 253,
+  "with_cross_lab_tie": 0.09818569903948772
+ },
+ "temporal_paths": {
+  "static_share_reaching_other_lab": 0.9578947368421052,
+  "sources": 190,
+  "lab_pairs": [
+   {
+    "source_lab": "CSIR-CCMB",
+    "target_lab": "CSIR-CDRI",
+    "sources": 35,
+    "reached": 0.6285714285714286,
+    "median_arrival": 2020.5
+   },
+   {
+    "source_lab": "CSIR-CCMB",
+    "target_lab": "CSIR-IGIB",
+    "sources": 35,
+    "reached": 0.7142857142857143,
+    "median_arrival": 2020.0
+   },
+   {
+    "source_lab": "CSIR-CCMB",
+    "target_lab": "CSIR-IMTECH",
+    "sources": 35,
+    "reached": 0.7142857142857143,
+    "median_arrival": 2022.0
+   },
+   {
+    "source_lab": "CSIR-CDRI",
+    "target_lab": "CSIR-CCMB",
+    "sources": 80,
+    "reached": 0.95,
+    "median_arrival": 2022.0
+   },
+   {
+    "source_lab": "CSIR-CDRI",
+    "target_lab": "CSIR-IGIB",
+    "sources": 80,
+    "reached": 0.95,
+    "median_arrival": 2023.0
+   },
+   {
+    "source_lab": "CSIR-CDRI",
+    "target_lab": "CSIR-IMTECH",
+    "sources": 80,
+    "reached": 0.95,
+    "median_arrival": 2022.0
+   },
+   {
+    "source_lab": "CSIR-IGIB",
+    "target_lab": "CSIR-CCMB",
+    "sources": 40,
+    "reached": 0.95,
+    "median_arrival": 2020.0
+   },
+   {
+    "source_lab": "CSIR-IGIB",
+    "target_lab": "CSIR-CDRI",
+    "sources": 40,
+    "reached": 0.875,
+    "median_arrival": 2019.0
+   },
+   {
+    "source_lab": "CSIR-IGIB",
+    "target_lab": "CSIR-IMTECH",
+    "sources": 40,
+    "reached": 0.9,
+    "median_arrival": 2022.0
+   },
+   {
+    "source_lab": "CSIR-IMTECH",
+    "target_lab": "CSIR-CCMB",
+    "sources": 35,
+    "reached": 0.8857142857142857,
+    "median_arrival": 2022.0
+   },
+   {
+    "source_lab": "CSIR-IMTECH",
+    "target_lab": "CSIR-CDRI",
+    "sources": 35,
+    "reached": 0.9142857142857143,
+    "median_arrival": 2022.0
+   },
+   {
+    "source_lab": "CSIR-IMTECH",
+    "target_lab": "CSIR-IGIB",
+    "sources": 35,
+    "reached": 0.8857142857142857,
+    "median_arrival": 2022.0
+   }
+  ]
+ },
+ "communities": {
+  "louvain_runs": 100,
+  "nmi_runs_mean": 0.7223542376780882,
+  "nmi_runs_sd": 0.03526535334997606,
+  "consensus_communities": 6,
+  "consensus_mean_lab_purity_weighted": 0.9506172839506173,
+  "consensus_communities_spanning_labs": 1
+ },
+ "openalex_extras": {
+  "india_share_of_citing_country_mentions": {
+   "CSIR-CCMB": 0.10154022611830248,
+   "CSIR-CDRI": 0.21669314040871898,
+   "CSIR-IGIB": 0.1433990895295903,
+   "CSIR-IMTECH": 0.16607740387650735
+  },
+  "shared_funder_share_new_links": 0.9138702460850112,
+  "shared_funder_share_unlinked": 0.8554677596552016,
+  "pairs_with_tie_before_2016_in_risk_set": 3035,
+  "papers_with_funder": 4444
+ }
+}
