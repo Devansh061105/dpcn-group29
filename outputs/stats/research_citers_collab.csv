@@ -91,7 +91,7 @@ I67357951,KIIT University,University (other),private,127,12,43.4633812457221,10.
 I65181880,Indian Institute of Technology Hyderabad,IIT,government,126,8,77.53846153846155,15.75,0.48558457051692105
 I4405262955,Amity University Gurugram,University (other),private,125,8,111.90689346463742,15.625,0.48212403840741436
 I16292982,National Institute of Technology Rourkela,NIT,government,124,7,63.32992849846783,17.714285714285715,0.5247287552265543
-I1281160679,Graphic Era Hill University,University (other),unclassified,121,0,79.24034053700066,,
+I1281160679,Graphic Era Hill University,University (other),private,121,0,79.24034053700066,,
 I167751958,Institute of Chemical Technology,University (other),government,121,1,42.24860335195531,121.0,1.185791594051815
 I76414455,"Kasturba Medical College, Manipal",Medical,private,120,1,12.243648607284973,120.0,1.1821874697829897
 I8975392,Osmania University,University (other),government,120,26,32.467532467532465,4.615384615384615,0.057541150306197775
@@ -244,7 +244,7 @@ I221342038,Kerala University of Fisheries and Ocean Studies,University (other),g
 I347237974,Ashoka University,University (other),private,48,22,109.09090909090908,2.1818181818181817,-0.2827342805126358
 I4210130476,Datta Meghe Institute of Higher Education and Research,University (other),private,48,0,5.244182235332678,,
 I4387152206,All India Institute of Medical Sciences Rishikesh,Medical,government,48,16,7.715801318116058,3.0,-0.17280880333705717
-I4405287327,"Pranveer Singh Institute of Technology (Pharmacy), Kanpur",University (other),unclassified,48,0,94.11764705882352,,
+I4405287327,"Pranveer Singh Institute of Technology (Pharmacy), Kanpur",University (other),private,48,0,94.11764705882352,,
 I33459947,Charotar University of Science and Technology,University (other),private,47,1,45.14889529298751,47.0,0.7751040816710825
 I80883720,Nature Conservation Foundation,Other,private,47,8,,5.875,0.05731188333507564
 I206040828,Sher-i-Kashmir Institute of Medical Sciences,Medical,government,46,0,12.076660540824363,,
@@ -314,7 +314,7 @@ I4210153931,D.Y. Patil University,University (other),private,36,2,15.63857515204
 I904467727,Himachal Pradesh University,University (other),government,36,0,42.20398593200469,,
 I4405266258,Chaitanya,University (other),private,35,1,57.283142389525366,35.0,0.6470742680856406
 I83737708,REVA University,University (other),private,35,2,42.01680672268908,17.5,0.40781020197363826
-I860813019,Bharath University,University (other),unclassified,35,0,14.83679525222552,,
+I860813019,Bharath University,University (other),private,35,0,14.83679525222552,,
 I148776243,Government of Tamil Nadu,Government,government,34,2,15.246636771300448,17.0,0.39522107466561773
 I155837530,National Institute of Technology Durgapur,NIT,government,34,2,53.62776025236593,17.0,0.39522107466561773
 I182997119,Manonmaniam Sundaranar University,University (other),government,34,0,25.222551928783385,,
@@ -333,18 +333,18 @@ I99552915,University of Rajasthan,University (other),government,33,3,24.79338842
 I1302839792,Indraprastha Apollo Hospitals,Medical,private,32,8,15.968063872255488,4.0,-0.10963599628073584
 I13567498,Odisha University of Agriculture and Technology,University (other),government,32,0,9.364940005853088,,
 I197181853,Saurashtra University,University (other),government,32,0,47.47774480712167,,
-I252758333,Govind Ballabh Pant University of Agriculture and Technology,University (other),unclassified,32,0,7.5489502241094595,,
-I2800701874,Tamil Nadu Dr. M.G.R. Medical University,Medical,unclassified,32,0,7.932573128408527,,
+I252758333,Govind Ballabh Pant University of Agriculture and Technology,University (other),government,32,0,7.5489502241094595,,
+I2800701874,Tamil Nadu Dr. M.G.R. Medical University,Medical,government,32,0,7.932573128408527,,
 I2802584695,Government of Karnataka,Government,government,32,2,19.6319018404908,16.0,0.36889213594326864
 I68428275,"Medical College and Hospital, Kolkata",Medical,government,32,5,7.327684909548889,6.4,0.05260224485282561
 I112576028,Central Leather Research Institute,CSIR,government,31,16,40.73587385019711,1.9375,-0.3626883468783717
-I1331084196,National Forensic Sciences University,University (other),unclassified,31,2,56.56934306569343,15.5,0.35510385145763523
+I1331084196,National Forensic Sciences University,University (other),government,31,2,56.56934306569343,15.5,0.35510385145763523
 I4210114989,Institute of Nuclear Medicine & Allied Sciences,Other,government,31,10,35.267349260523325,3.1,-0.20045010574481026
-I4210125057,Vivekananda Global University,University (other),unclassified,31,0,42.936288088642655,,
+I4210125057,Vivekananda Global University,University (other),private,31,0,42.936288088642655,,
 I50557253,Indian Institute of Science Education and Research Thiruvananthapuram,IISc/TIFR/IISER,government,31,3,29.92277992277992,10.333333333333334,0.21514334501204635
-I119668213,Karunya University,University (other),unclassified,30,0,22.40477968633308,,
+I119668213,Karunya University,University (other),private,30,0,22.40477968633308,,
 I134315084,Rajendra Memorial National Institute of Health Research,ICMR,government,30,4,71.25890736342043,7.5,0.10159934623102251
-I4210100463,"SRM University, Andhra Pradesh",University (other),unclassified,30,0,94.9367088607595,,
+I4210100463,"SRM University, Andhra Pradesh",University (other),private,30,0,94.9367088607595,,
 I4210148958,King Edward Memorial Hospital Research Centre,Medical,private,30,24,,1.25,-0.5168892924385708
 I4210163968,G.B. Pant Institute of Himalayan Environment and Development,Government,government,30,1,52.44755244755245,30.0,0.5801274784550273
 I70699430,Utkal University,University (other),government,30,1,35.252643948296125,30.0,0.5801274784550273

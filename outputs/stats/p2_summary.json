@@ -102,18 +102,16 @@
       "Translational Health Science and Technology Institute"
     ],
     "median_rate": {
-      "government": 49.87980769230769,
+      "government": 49.61401930239221,
       "government-aided": 93.6945343103701,
       "international": 83.0367734282325,
-      "private": 49.59803817038063,
-      "unclassified": 42.936288088642655
+      "private": 49.59803817038063
     },
     "n_by_ownership": {
-      "government": 225,
+      "government": 228,
       "government-aided": 2,
       "international": 1,
-      "private": 104,
-      "unclassified": 9
+      "private": 110
     },
     "rank_corr_raw_vs_normalised": 0.345911743876433,
     "outliers_by_ownership": {

@@ -63,7 +63,7 @@ python -m dpcn run s13
 | T-02 | Check the "glue people" (top non-faculty bridges) | Aman | ☐ |
 | T-03 | Verify the peer-institute list | Devansh | ☑ done by Deepraj |
 | T-04 | Verify every source in the Science context page | Aman | ☐ |
-| T-05 | Classify the remaining citing institutions by ownership | Devansh | ☐ |
+| T-05 | Classify the remaining citing institutions by ownership | Devansh | ☑ done by Deepraj |
 | T-06 | Collect joining years for faculty (enables career-stage analysis) | Deepraj | ◐ worksheet built; years to decide |
 | T-07 | Fill the 6 unknown departments and check merged-profile flags | Devansh | ◐ evidence and merged profiles done (Deepraj); roster decision open |
 | T-17 | Check the "Only here" coverage map against our reviews of the other groups | everyone | ◐ firsts checked (Deepraj); rest open |
@@ -109,6 +109,10 @@ python -m dpcn run s13
 - **Commit:** `Science context sources checked`.
 
 **T-05 · Ownership of citing institutions (2 hours).**
+- **Status (done by Deepraj):** the last 9 institutions with 30+ citations were classified from their legal status: 6 private universities or colleges, plus 3 government (a state agricultural university, a state medical university and a central institution of national importance).
+  - All 349 heavy citers now have an ownership class.
+  - Re-running s16, s17, s26 and s13 changed no flags.
+  - The new rows say `verified = no` until someone confirms them on the UGC list.
 - **Where:** Flags → "Institutions citing the labs" still has unclassified institutions.
 - **What to record:** for those with 30 or more citations, add rows to `data/manual/institution_ownership.csv` with ownership (`government`, `government-aided`, `private`, `international`), source and date checked.
 - **Re-run:** `s16`, `s17`, `s26` and `s13`.
@@ -152,7 +156,7 @@ python -m dpcn run s13
 | # | Task | Owner (suggested) | Done |
 |---|---|---|---|
 | T-08 | Team interpretation for the new pages | everyone, one section each | ☐ |
-| T-09 | Read and rewrite `RESEARCH_FINDINGS.md` in our own words | Devansh | ☐ |
+| T-09 | Read and rewrite `RESEARCH_FINDINGS.md` in our own words | Devansh | ☑ numbers verified (Deepraj); rewording optional |
 | T-10 | Update the report slides with the new results | Aman | ☐ |
 | T-11 | Check each verdict's wording on Findings → Verdicts | Deepraj | ☑ |
 
@@ -169,6 +173,9 @@ python -m dpcn run s13
 - **Re-run:** `s13`.
 
 **T-09 · `RESEARCH_FINDINGS.md`.**
+- **Status (Deepraj):** 21 headline numbers were re-checked against the current output files after today's re-runs, and all match.
+  - The identity note now records the two merged profiles that were fixed.
+  - Rewording the explanations in your own voice is still worth doing before the viva.
 - It lists 60 tested results, from both sets of Phase III work and the methods no other group used.
 - Read each one, open the matching dashboard chart, and check that the number and the sentence agree.
 - Rewrite the explanations in your voice.
