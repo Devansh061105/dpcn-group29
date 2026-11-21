@@ -1,0 +1,211 @@
+source,test,effect,p,q_bh_all,significant_p05,significant_q05
+s17 A2 lab exchange,all citations | same cited year | CSIR-CCMB -> CSIR-CCMB,4.900734210685101,0.001,0.0019626168224299067,True,True
+s17 A2 lab exchange,all citations | same cited year | CSIR-CCMB -> CSIR-IGIB,0.1752021107738861,0.001,0.0019626168224299067,True,True
+s17 A2 lab exchange,all citations | same cited year | CSIR-CCMB -> CSIR-IMTECH,0.0885049137247291,0.001,0.0019626168224299067,True,True
+s17 A2 lab exchange,all citations | same cited year | CSIR-CCMB -> CSIR-CDRI,0.02154648976935,0.001,0.0019626168224299067,True,True
+s17 A2 lab exchange,all citations | same cited year | CSIR-IGIB -> CSIR-CCMB,0.2083205883677593,0.001,0.0019626168224299067,True,True
+s17 A2 lab exchange,all citations | same cited year | CSIR-IGIB -> CSIR-IGIB,5.332255507389785,0.001,0.0019626168224299067,True,True
+s17 A2 lab exchange,all citations | same cited year | CSIR-IGIB -> CSIR-IMTECH,0.100558943634608,0.001,0.0019626168224299067,True,True
+s17 A2 lab exchange,all citations | same cited year | CSIR-IGIB -> CSIR-CDRI,0.0240766055129281,0.001,0.0019626168224299067,True,True
+s17 A2 lab exchange,all citations | same cited year | CSIR-IMTECH -> CSIR-CCMB,0.0738170414021778,0.001,0.0019626168224299067,True,True
+s17 A2 lab exchange,all citations | same cited year | CSIR-IMTECH -> CSIR-IGIB,0.1182924923910153,0.001,0.0019626168224299067,True,True
+s17 A2 lab exchange,all citations | same cited year | CSIR-IMTECH -> CSIR-IMTECH,6.677052770677428,0.001,0.0019626168224299067,True,True
+s17 A2 lab exchange,all citations | same cited year | CSIR-IMTECH -> CSIR-CDRI,0.0327650063895078,0.001,0.0019626168224299067,True,True
+s17 A2 lab exchange,all citations | same cited year | CSIR-CDRI -> CSIR-CCMB,0.0346301968689354,0.001,0.0019626168224299067,True,True
+s17 A2 lab exchange,all citations | same cited year | CSIR-CDRI -> CSIR-IGIB,0.0356205655335107,0.001,0.0019626168224299067,True,True
+s17 A2 lab exchange,all citations | same cited year | CSIR-CDRI -> CSIR-IMTECH,0.0563950821149428,0.001,0.0019626168224299067,True,True
+s17 A2 lab exchange,all citations | same cited year | CSIR-CDRI -> CSIR-CDRI,1.8257473540371727,0.001,0.0019626168224299067,True,True
+s17 A2 lab exchange,all citations | same cited year and fields | CSIR-CCMB -> CSIR-CCMB,2.3020090324661315,0.001,0.0019626168224299067,True,True
+s17 A2 lab exchange,all citations | same cited year and fields | CSIR-CCMB -> CSIR-IGIB,0.1711996759845056,0.001,0.0019626168224299067,True,True
+s17 A2 lab exchange,all citations | same cited year and fields | CSIR-CCMB -> CSIR-IMTECH,0.0902192803350458,0.001,0.0019626168224299067,True,True
+s17 A2 lab exchange,all citations | same cited year and fields | CSIR-CCMB -> CSIR-CDRI,0.0380209394435789,0.001,0.0019626168224299067,True,True
+s17 A2 lab exchange,all citations | same cited year and fields | CSIR-IGIB -> CSIR-CCMB,0.1999490270790121,0.001,0.0019626168224299067,True,True
+s17 A2 lab exchange,all citations | same cited year and fields | CSIR-IGIB -> CSIR-IGIB,2.899598247653849,0.001,0.0019626168224299067,True,True
+s17 A2 lab exchange,all citations | same cited year and fields | CSIR-IGIB -> CSIR-IMTECH,0.1236656783760987,0.001,0.0019626168224299067,True,True
+s17 A2 lab exchange,all citations | same cited year and fields | CSIR-IGIB -> CSIR-CDRI,0.0322299063053699,0.001,0.0019626168224299067,True,True
+s17 A2 lab exchange,all citations | same cited year and fields | CSIR-IMTECH -> CSIR-CCMB,0.0770910863149407,0.001,0.0019626168224299067,True,True
+s17 A2 lab exchange,all citations | same cited year and fields | CSIR-IMTECH -> CSIR-IGIB,0.1446264283803708,0.001,0.0019626168224299067,True,True
+s17 A2 lab exchange,all citations | same cited year and fields | CSIR-IMTECH -> CSIR-IMTECH,2.6699607650529606,0.001,0.0019626168224299067,True,True
+s17 A2 lab exchange,all citations | same cited year and fields | CSIR-IMTECH -> CSIR-CDRI,0.0501159158815512,0.001,0.0019626168224299067,True,True
+s17 A2 lab exchange,all citations | same cited year and fields | CSIR-CDRI -> CSIR-CCMB,0.0601288312883858,0.001,0.0019626168224299067,True,True
+s17 A2 lab exchange,all citations | same cited year and fields | CSIR-CDRI -> CSIR-IGIB,0.0472676070176462,0.001,0.0019626168224299067,True,True
+s17 A2 lab exchange,all citations | same cited year and fields | CSIR-CDRI -> CSIR-IMTECH,0.0861885782260644,0.001,0.0019626168224299067,True,True
+s17 A2 lab exchange,all citations | same cited year and fields | CSIR-CDRI -> CSIR-CDRI,1.4120354850310126,0.001,0.0019626168224299067,True,True
+s17 A2 lab exchange,independent citations (no shared author) | same cited year | CSIR-CCMB -> CSIR-CCMB,3.248180749593977,0.001,0.0019626168224299067,True,True
+s17 A2 lab exchange,independent citations (no shared author) | same cited year | CSIR-CCMB -> CSIR-IGIB,1.649484536082474,0.003,0.005575221238938053,True,True
+s17 A2 lab exchange,independent citations (no shared author) | same cited year | CSIR-CCMB -> CSIR-IMTECH,0.5236915892948711,0.049,0.07679104477611941,True,False
+s17 A2 lab exchange,independent citations (no shared author) | same cited year | CSIR-CCMB -> CSIR-CDRI,0.146898531308484,0.001,0.0019626168224299067,True,True
+s17 A2 lab exchange,independent citations (no shared author) | same cited year | CSIR-IGIB -> CSIR-CCMB,1.9362057910155024,0.001,0.0019626168224299067,True,True
+s17 A2 lab exchange,independent citations (no shared author) | same cited year | CSIR-IGIB -> CSIR-IGIB,2.629193923241895,0.001,0.0019626168224299067,True,True
+s17 A2 lab exchange,independent citations (no shared author) | same cited year | CSIR-IGIB -> CSIR-IMTECH,0.7388462631429383,0.145,0.18796296296296297,False,False
+s17 A2 lab exchange,independent citations (no shared author) | same cited year | CSIR-IGIB -> CSIR-CDRI,0.1881225025866844,0.001,0.0019626168224299067,True,True
+s17 A2 lab exchange,independent citations (no shared author) | same cited year | CSIR-IMTECH -> CSIR-CCMB,0.6017432856953232,0.049,0.07679104477611941,True,False
+s17 A2 lab exchange,independent citations (no shared author) | same cited year | CSIR-IMTECH -> CSIR-IGIB,0.7817436792766266,0.259,0.305561797752809,False,False
+s17 A2 lab exchange,independent citations (no shared author) | same cited year | CSIR-IMTECH -> CSIR-IMTECH,4.035740764803449,0.001,0.0019626168224299067,True,True
+s17 A2 lab exchange,independent citations (no shared author) | same cited year | CSIR-IMTECH -> CSIR-CDRI,0.2086122072909966,0.001,0.0019626168224299067,True,True
+s17 A2 lab exchange,independent citations (no shared author) | same cited year | CSIR-CDRI -> CSIR-CCMB,0.2060590314329614,0.001,0.0019626168224299067,True,True
+s17 A2 lab exchange,independent citations (no shared author) | same cited year | CSIR-CDRI -> CSIR-IGIB,0.2891118415391763,0.001,0.0019626168224299067,True,True
+s17 A2 lab exchange,independent citations (no shared author) | same cited year | CSIR-CDRI -> CSIR-IMTECH,0.3532662407845875,0.001,0.0019626168224299067,True,True
+s17 A2 lab exchange,independent citations (no shared author) | same cited year | CSIR-CDRI -> CSIR-CDRI,1.598331324288737,0.001,0.0019626168224299067,True,True
+s17 A2 lab exchange,independent citations (no shared author) | same cited year and fields | CSIR-CCMB -> CSIR-CCMB,1.6881178884536467,0.001,0.0019626168224299067,True,True
+s17 A2 lab exchange,independent citations (no shared author) | same cited year and fields | CSIR-CCMB -> CSIR-IGIB,1.2757865344342008,0.055,0.0843065693430657,False,False
+s17 A2 lab exchange,independent citations (no shared author) | same cited year and fields | CSIR-CCMB -> CSIR-IMTECH,0.6266318537859008,0.157,0.20226993865030674,False,False
+s17 A2 lab exchange,independent citations (no shared author) | same cited year and fields | CSIR-CCMB -> CSIR-CDRI,0.2327876790137251,0.001,0.0019626168224299067,True,True
+s17 A2 lab exchange,independent citations (no shared author) | same cited year and fields | CSIR-IGIB -> CSIR-CCMB,1.3953319802841404,0.001,0.0019626168224299067,True,True
+s17 A2 lab exchange,independent citations (no shared author) | same cited year and fields | CSIR-IGIB -> CSIR-IGIB,1.552712742843213,0.001,0.0019626168224299067,True,True
+s17 A2 lab exchange,independent citations (no shared author) | same cited year and fields | CSIR-IGIB -> CSIR-IMTECH,0.892587404905111,0.545,0.59609375,False,False
+s17 A2 lab exchange,independent citations (no shared author) | same cited year and fields | CSIR-IGIB -> CSIR-CDRI,0.2781956436622911,0.001,0.0019626168224299067,True,True
+s17 A2 lab exchange,independent citations (no shared author) | same cited year and fields | CSIR-IMTECH -> CSIR-CCMB,0.9157509157509156,0.793,0.8203448275862069,False,False
+s17 A2 lab exchange,independent citations (no shared author) | same cited year and fields | CSIR-IMTECH -> CSIR-IGIB,0.8648773315651397,0.419,0.4782065217391304,False,False
+s17 A2 lab exchange,independent citations (no shared author) | same cited year and fields | CSIR-IMTECH -> CSIR-IMTECH,1.4752724224643756,0.001,0.0019626168224299067,True,True
+s17 A2 lab exchange,independent citations (no shared author) | same cited year and fields | CSIR-IMTECH -> CSIR-CDRI,0.3666585186995844,0.001,0.0019626168224299067,True,True
+s17 A2 lab exchange,independent citations (no shared author) | same cited year and fields | CSIR-CDRI -> CSIR-CCMB,0.286990591699733,0.001,0.0019626168224299067,True,True
+s17 A2 lab exchange,independent citations (no shared author) | same cited year and fields | CSIR-CDRI -> CSIR-IGIB,0.4161753485468544,0.001,0.0019626168224299067,True,True
+s17 A2 lab exchange,independent citations (no shared author) | same cited year and fields | CSIR-CDRI -> CSIR-IMTECH,0.5717085919634106,0.001,0.0019626168224299067,True,True
+s17 A2 lab exchange,independent citations (no shared author) | same cited year and fields | CSIR-CDRI -> CSIR-CDRI,1.2586002892326569,0.001,0.0019626168224299067,True,True
+s17 A3 co-author model,same lab only | same_lab,54.59004567158972,3.744957835585727e-199,3.932205727365013e-197,True,True
+s17 A3 co-author model,same lab + topic similarity + size | same_lab,56.13376298192391,1.369973894027488e-197,7.192362943644313e-196,True,True
+s17 A3 co-author model,same lab + topic similarity + size | topic_similarity,8.867463861621438,2.518794263937229e-71,5.877186615853535e-70,True,True
+s17 A3 co-author model,same lab + topic similarity + size | log_papers_product,2.4356261147948266,1.6974189987805602e-185,5.940966495731961e-184,True,True
+s17 A3 co-author model,same lab + same department + topic similarity + size | same_lab,55.21956092712426,1.9698268818766328e-194,8.273272903881858e-193,True,True
+s17 A3 co-author model,same lab + same department + topic similarity + size | same_department,1.17561810397834,0.16995735955882596,0.21371883537337397,False,False
+s17 A3 co-author model,same lab + same department + topic similarity + size | topic_similarity,8.366671837728944,1.4631942048961466e-60,2.36362140790916e-59,True,True
+s17 A3 co-author model,same lab + same department + topic similarity + size | log_papers_product,2.443634879883779,2.0935881971628442e-185,6.280764591488532e-184,True,True
+s17 A6 tie persistence,Fisher cross vs same lab,,0.0080088949161256,0.014374939593045947,True,True
+s17 A7 lab impact,lab only | lab: CSIR-CCMB,-18.073255260048214,2.1863507999373494e-05,0.0001067752716248473,True,True
+s17 A7 lab impact,lab only | lab: CSIR-IGIB,-14.791310090343549,0.0002656001733550437,0.0011155207280911835,True,True
+s17 A7 lab impact,lab only | lab: CSIR-IMTECH,10.226491650944167,0.06667802077018284,0.09656816801198895,False,False
+s17 A7 lab impact,lab + year + field + team size + review | lab: CSIR-CCMB,-14.842390612696796,6.240349763145261e-05,0.0002848855326653271,True,True
+s17 A7 lab impact,lab + year + field + team size + review | lab: CSIR-IGIB,-18.03830052576468,7.14731348633752e-08,4.288388091802512e-07,True,True
+s17 A7 lab impact,lab + year + field + team size + review | lab: CSIR-IMTECH,10.571242416353895,0.01661567320909634,0.029166666666666553,True,True
+s17 A7 lab impact,lab + year + field + team size + review | log authors,44.55601576898656,4.3826539387867497e-44,6.13571551430145e-43,True,True
+s17 A7 lab impact,lab + year + field + team size + review | review,58.01331891642048,0.001122801286289255,0.002183224723340218,True,True
+s18 M1 power-law fit,bootstrap goodness of fit | faculty co-authorship degree,,0.1233333333333333,0.16392405063291135,False,False
+s18 M1 power-law fit,bootstrap goodness of fit | all-author co-authorship degree,,0.0833333333333333,0.11513157894736838,False,False
+s18 M1 power-law fit,bootstrap goodness of fit | paper citations,,0.0166666666666666,0.029166666666666553,True,True
+s18 M1 likelihood ratio,faculty co-authorship degree vs log-normal,-2.4940232052666973,0.1657002221227639,0.2108911917926086,False,False
+s18 M1 likelihood ratio,faculty co-authorship degree vs exponential,-2.3783200043864507,0.0312100364005751,0.05160714680410056,True,False
+s18 M1 likelihood ratio,faculty co-authorship degree vs power law with cutoff,-2.796267100812085,0.0180371824973227,0.0313042010284113,True,True
+s18 M1 likelihood ratio,all-author co-authorship degree vs log-normal,-3.710458512529441,0.0807756013118469,0.1123369289767407,False,False
+s18 M1 likelihood ratio,all-author co-authorship degree vs exponential,110.86493448046588,5.845275397100627e-07,3.3230606953051824e-06,True,True
+s18 M1 likelihood ratio,all-author co-authorship degree vs power law with cutoff,-5.426048989091063,0.0009868389056014,0.0019626168224299067,True,True
+s18 M1 likelihood ratio,paper citations vs log-normal,0.9738206811462318,0.2667185334983463,0.312910011366775,False,False
+s18 M1 likelihood ratio,paper citations vs exponential,347.9605772034265,7.018569134361214e-05,0.0003135956421735862,True,True
+s18 M1 likelihood ratio,paper citations vs power law with cutoff,-0.001636269926931,0.9543810052605414,0.9635577456957389,False,False
+s18 M6 tie formation,4 + seniority | same_lab,29.63724957506321,1.8145098547891048e-35,2.2414533500336004e-34,True,True
+s18 M6 tie formation,4 + seniority | same_department,1.4309588045825368,0.0599454097660686,0.08928039752393196,False,False
+s18 M6 tie formation,4 + seniority | topic_similarity,1.5445818105103146,0.0529391843968528,0.08234984239510436,False,False
+s18 M6 tie formation,4 + seniority | log_cn,1.7441576701986743,4.358325480755739e-06,2.3467906434838596e-05,True,True
+s18 M6 tie formation,4 + seniority | log_pa,1.132812583402385,0.0722597940448076,0.10184266274771542,False,False
+s18 M6 tie formation,4 + seniority | log_output_product,1.2340632719068765,0.0192024113566524,0.03305333102374594,True,True
+s18 M6 tie formation,4 + seniority | seniority_sum,0.927154609249534,0.2187989127353912,0.26559405592157315,False,False
+s18 M6 tie formation,4 + seniority | seniority_gap,1.0330127718845306,0.616809135792178,0.6676799923523576,False,False
+s18 M6 tie formation,4 + seniority | seniority_missing,0.7773593234126562,0.171918514464429,0.21489814308053623,False,False
+s18 M6 tie formation,5 + lab x shared co-authors | same_lab,34.25456762627101,5.13918153685531e-39,6.745175767122594e-38,True,True
+s18 M6 tie formation,5 + lab x shared co-authors | same_department,1.4334352986761796,0.0581606761348952,0.0872410142023428,False,False
+s18 M6 tie formation,5 + lab x shared co-authors | topic_similarity,1.5300828485724862,0.0566409090918426,0.08557259646969026,False,False
+s18 M6 tie formation,5 + lab x shared co-authors | log_cn,12.96318984496849,1.7527147937853914e-08,1.1153639596816127e-07,True,True
+s18 M6 tie formation,5 + lab x shared co-authors | log_pa,1.1341384246970407,0.0692153692817093,0.09955635307643118,False,False
+s18 M6 tie formation,5 + lab x shared co-authors | log_output_product,1.226441476152106,0.0213143217877977,0.03639030549136193,True,True
+s18 M6 tie formation,5 + lab x shared co-authors | seniority_sum,0.9277638210796372,0.222429488143685,0.2684493822423784,False,False
+s18 M6 tie formation,5 + lab x shared co-authors | seniority_gap,1.031166318512886,0.6344015979301032,0.6762656627681303,False,False
+s18 M6 tie formation,5 + lab x shared co-authors | seniority_missing,0.7798921941777907,0.1772335637150429,0.2176552536851404,False,False
+s18 M6 tie formation,5 + lab x shared co-authors | same_lab_x_log_cn,0.1331838206397071,7.689052631209543e-06,3.938295250131717e-05,True,True
+s18 M6 permutation,4 + seniority | same_lab,,0.0049751243781094,0.009164702801780472,True,True
+s18 M6 permutation,4 + seniority | same_department,,0.0796019900497512,0.11144278606965169,False,False
+s19 E2 technique diffusion,dose-response | exposed: 1 adopting co-author,2.2808036104112386,4.1990858321352736e-05,0.0001959573388329794,True,True
+s19 E2 technique diffusion,dose-response | exposed: 2 adopting co-authors,3.897902565213351,1.896507625180039e-08,1.1713723567288475e-07,True,True
+s19 E2 technique diffusion,dose-response | exposed: 3+ adopting co-authors,4.849441552283015,1.7077553380965125e-12,1.1954287366675588e-11,True,True
+s19 E2 technique diffusion,dose-response | degree (log),1.0522834409260633,0.630721322116137,0.6757728451244325,False,False
+s19 E2 technique diffusion,same vs cross lab | same-lab adopting co-authors (log),2.574716085648078,3.089928935544121e-13,2.2375347464285015e-12,True,True
+s19 E2 technique diffusion,same vs cross lab | cross-lab adopting co-authors (log),1.6049313847794076,0.23834198284300734,0.2827786237120426,False,False
+s19 E2 technique diffusion,same vs cross lab | degree (log),1.0357784200891575,0.7462306546744164,0.7796439675702858,False,False
+s19 E2 technique diffusion,"dose-response, adoptions not through a joint paper | exposed: 1 adopting co-author",1.793376481847437,0.009588778934015788,0.017064776069011148,True,True
+s19 E2 technique diffusion,"dose-response, adoptions not through a joint paper | exposed: 2 adopting co-authors",2.8677030008792066,0.0005960907091407071,0.0019626168224299067,True,True
+s19 E2 technique diffusion,"dose-response, adoptions not through a joint paper | exposed: 3+ adopting co-authors",2.7912813229119178,0.0008417914827642996,0.0019626168224299067,True,True
+s19 E2 technique diffusion,"dose-response, adoptions not through a joint paper | degree (log)",1.0863340888996613,0.529417590020511,0.5882417666894567,False,False
+s19 E2 technique diffusion,any exposure | any adopting co-author,2.7296836544415655,3.5192842904192695e-09,2.3095303155876456e-08,True,True
+s19 E2 technique diffusion,any exposure | degree (log),1.1826645155114373,0.08966327095251035,0.1222680967534232,False,False
+s19 E2 shuffle test,influence vs shuffled adoption times,2.7296836544415655,0.527363184079602,0.5882417666894567,False,False
+s19 E3 simplicial closure,open triangle vs open wedge (Fisher),1.535472972972973,0.13615537415536588,0.17870392857891773,False,False
+s19 E3 simplicial closure,repeated open triangle vs open wedge (Fisher),6.824324324324325,0.0018362142020824062,0.003505499840339139,True,True
+s19 E3 simplicial closure,open wedge: mixed labs vs one lab (Fisher),0.1206957009607967,0.00666075073133297,0.012058255634309688,True,True
+s19 E5 COVID ties,all pairs | later_any | Fisher COVID vs other,0.6458635703918723,0.16730980177767313,0.21165697815247808,False,False
+s19 E5 COVID ties,all pairs | later_non_covid | Fisher COVID vs other,0.18924570575056013,6.2495714142682555e-06,3.2810249924908344e-05,True,True
+s19 E5 COVID ties,same lab | later_any | Fisher COVID vs other,0.7547038327526132,0.37950966432534483,0.43789576652924406,False,False
+s19 E5 COVID ties,same lab | later_non_covid | Fisher COVID vs other,0.2253052164261931,0.00010881838274480295,0.0004663644974777269,True,True
+s19 E5 COVID ties,cross-lab | later_any | Fisher COVID vs other,0.6363636363636364,1.0,1.0,False,False
+s19 E5 COVID ties,cross-lab | later_non_covid | Fisher COVID vs other,0.0,0.4,0.45901639344262296,False,False
+s19 E5 COVID ties,continuation ~ COVID x cross-lab + year | formed on COVID paper,0.7475755857180554,0.5733442005973167,0.6238460213753187,False,False
+s19 E5 COVID ties,continuation ~ COVID x cross-lab + year | cross-lab pair,0.1767676411580423,0.11945252297794283,0.15977726003419104,False,False
+s19 E5 COVID ties,continuation ~ COVID x cross-lab + year | COVID x cross-lab,0.8507842068499257,0.9230754510767589,0.9409992462432979,False,False
+s19 E6 citation before collaboration,prior citation only | any_prior_citation,9.057791482962644,1.1649772756996114e-47,1.747465913549417e-46,True,True
+s19 E6 citation before collaboration,model 4 + any prior citation | any_prior_citation,1.673068264847555,0.0019175758508823248,0.003627846204371966,True,True
+s19 E6 citation before collaboration,model 4 + log prior citations | log_prior_citations,1.3635692568553108,0.05618408955621276,0.08549752758554116,False,False
+s21 D2 tie survival,repeat hazard (years since formation and cohort effects) | same_lab,1.8430312313666088,0.0716683809252794,0.1016916215831667,False,False
+s21 D2 tie survival,repeat hazard (years since formation and cohort effects) | log_cn_at_formation,1.243655897336575,0.0981764323470128,0.1330132309217593,False,False
+s21 D2 tie survival,repeat hazard (years since formation and cohort effects) | log_first_year_papers,8.202381668209334,5.111659637080733e-12,3.462737173506303e-11,True,True
+s21 D2 tie survival,repeat hazard (years since formation and cohort effects) | topic_similarity,0.9810010288160004,0.95169649430929,0.9635577456957389,False,False
+s21 D2 tie survival,repeat hazard (years since formation and cohort effects) | seniority_sum,0.9311178713637348,0.3318341624258938,0.385000961930595,False,False
+s21 D7 OpenAlex extras,model 3 + shared funder | same_lab,30.0244360768474,9.950570434911367e-35,1.0997998901744143e-33,True,True
+s21 D7 OpenAlex extras,model 3 + shared funder | same_department,1.4981261602558913,0.0355201736812916,0.05827528494586903,True,False
+s21 D7 OpenAlex extras,model 3 + shared funder | topic_similarity,1.4771036580462271,0.0882708113071331,0.12115601551959446,False,False
+s21 D7 OpenAlex extras,model 3 + shared funder | log_cn,1.7376992985922215,2.8958167054767883e-06,1.6003197582898043e-05,True,True
+s21 D7 OpenAlex extras,model 3 + shared funder | log_pa,1.149193081771282,0.0301702767237544,0.05028379453959067,True,False
+s21 D7 OpenAlex extras,model 3 + shared funder | log_output_product,1.151171380562515,0.1419824240391191,0.18519446613798143,False,False
+s21 D7 OpenAlex extras,model 3 + shared funder | shared_funder,1.1794848133372908,0.5412328373624716,0.5950727531210421,False,False
+s21 D7 OpenAlex extras,model 3 + career age (decades) | same_lab,30.77673915234019,6.049777457529191e-35,7.058073700450722e-34,True,True
+s21 D7 OpenAlex extras,model 3 + career age (decades) | same_department,1.5008331357675146,0.0291693425211259,0.04900449543549151,True,True
+s21 D7 OpenAlex extras,model 3 + career age (decades) | topic_similarity,1.514184871263884,0.0644085256861204,0.09392909995892558,False,False
+s21 D7 OpenAlex extras,model 3 + career age (decades) | log_cn,1.6220466588342652,1.6474451183114383e-05,8.237225591557191e-05,True,True
+s21 D7 OpenAlex extras,model 3 + career age (decades) | log_pa,1.140642643250222,0.0408056274199892,0.06642776556742429,True,False
+s21 D7 OpenAlex extras,model 3 + career age (decades) | log_output_product,1.291241217578232,0.0052288845666354,0.00954839790429073,True,True
+s21 D7 OpenAlex extras,model 3 + career age (decades) | career_age_sum_dec,0.815837502745874,0.0026692982633919,0.0050049342438598125,True,True
+s21 D7 OpenAlex extras,model 3 + career age (decades) | career_age_gap_dec,1.1009870213631778,0.174549275152715,0.21606407530188967,False,False
+s21 D7 OpenAlex extras,model 3 + tie before 2016 | same_lab,27.69837665748054,9.711391480047627e-33,9.269964594590917e-32,True,True
+s21 D7 OpenAlex extras,model 3 + tie before 2016 | same_department,1.4311964771415857,0.0632054208507277,0.09281914950106863,False,False
+s21 D7 OpenAlex extras,model 3 + tie before 2016 | topic_similarity,1.3518044075294595,0.1965799183222483,0.24001036539344273,False,False
+s21 D7 OpenAlex extras,model 3 + tie before 2016 | log_cn,1.6399682204194812,2.4878789942057646e-05,0.00011873967926891151,True,True
+s21 D7 OpenAlex extras,model 3 + tie before 2016 | log_pa,1.1427972266266748,0.0428897578939477,0.06823370574037134,True,False
+s21 D7 OpenAlex extras,model 3 + tie before 2016 | log_output_product,1.1102468990774157,0.2324382781946866,0.2789259338336239,False,False
+s21 D7 OpenAlex extras,model 3 + tie before 2016 | tie_before_2016,3.023622004908195,4.946773992994058e-15,3.847490883439823e-14,True,True
+s21 D7 OpenAlex extras,all extras | same_lab,28.26478000748769,5.8123153819629056e-33,5.812315381962906e-32,True,True
+s21 D7 OpenAlex extras,all extras | same_department,1.4251645101471315,0.0624507010058784,0.09235667050165115,False,False
+s21 D7 OpenAlex extras,all extras | topic_similarity,1.363259218718601,0.174909013339625,0.21606407530188967,False,False
+s21 D7 OpenAlex extras,all extras | log_cn,1.5594657397788652,8.290055835741486e-05,0.00036268994281369004,True,True
+s21 D7 OpenAlex extras,all extras | log_pa,1.1202067234172337,0.0703692179615277,0.10052745423075386,False,False
+s21 D7 OpenAlex extras,all extras | log_output_product,1.2145926773243347,0.0417654720566944,0.06695228344966278,True,False
+s21 D7 OpenAlex extras,all extras | shared_funder,1.2274563497475597,0.434979977092684,0.49376105507818185,False,False
+s21 D7 OpenAlex extras,all extras | career_age_sum_dec,0.7997473952969417,0.001751011114398,0.003373507651592477,True,True
+s21 D7 OpenAlex extras,all extras | career_age_gap_dec,1.1183747176843706,0.1189360863696575,0.15977726003419104,False,False
+s21 D7 OpenAlex extras,all extras | tie_before_2016,3.155025324138648,1.1407956046884115e-14,8.555967035163087e-14,True,True
+s21 D3 brokerage and impact,degree + cross-lab ties | log_norm_cit | log_degree,0.0506122697349842,0.0414230632369247,0.0669141790750322,True,False
+s21 D3 brokerage and impact,degree + cross-lab ties | log_norm_cit | any_cross_lab,-0.0054679295809222,0.8982115599379449,0.9201191589608216,False,False
+s21 D3 brokerage and impact,degree + cross-lab ties | log_papers | log_degree,-0.0206410062340945,0.534859115508417,0.5911600750356188,False,False
+s21 D3 brokerage and impact,degree + cross-lab ties | log_papers | any_cross_lab,0.0194150347230567,0.7644394061074797,0.7947142340721324,False,False
+s21 D3 brokerage and impact,degree + brokerage (1 - constraint) | log_norm_cit | log_degree,0.063310888181185,0.1262642032199803,0.16676404198865322,False,False
+s21 D3 brokerage and impact,degree + brokerage (1 - constraint) | log_norm_cit | brokerage,-0.0369957394427747,0.6662023853350935,0.6995125046018481,False,False
+s21 D3 brokerage and impact,degree + brokerage (1 - constraint) | log_papers | log_degree,0.0436165353744773,0.4494046989463929,0.50739240203625,False,False
+s21 D3 brokerage and impact,degree + brokerage (1 - constraint) | log_papers | brokerage,-0.1756520606277255,0.1617385710327205,0.20710426778580063,False,False
+s21 D3 brokerage and impact,degree + betweenness | log_norm_cit | log_degree,0.0483262459135212,0.0537256180212174,0.08295867488570333,False,False
+s21 D3 brokerage and impact,degree + betweenness | log_norm_cit | betweenness_x100,0.002220261101442,0.6294702053994008,0.6757728451244325,False,False
+s21 D3 brokerage and impact,degree + betweenness | log_papers | log_degree,-0.0355589399475938,0.2714719930118782,0.31671732518052453,False,False
+s21 D3 brokerage and impact,degree + betweenness | log_papers | betweenness_x100,0.024796540726244,0.0251872036311933,0.042655748085085425,True,True
+s22 RSiena,1 lab and structure | degree (density),-3.53883299274214,2.9870167744928797e-179,7.84091903304381e-178,True,True
+s22 RSiena,1 lab and structure | transitive triads,0.293849610014818,1.99354304797763e-27,1.6101693849050085e-26,True,True
+s22 RSiena,1 lab and structure | degree act+pop,-0.0015982108798295,0.638850180629156,0.6775683733945593,False,False
+s22 RSiena,1 lab and structure | same lab,1.93993203408467,4.95296670652752e-61,8.66769173642316e-60,True,True
+s22 RSiena,"2 + department, topic | degree (density)",-3.66349979300682,5.852483413400491e-198,4.096738389380344e-196,True,True
+s22 RSiena,"2 + department, topic | transitive triads",0.270768785915393,4.14296729415791e-31,3.6250963823881716e-30,True,True
+s22 RSiena,"2 + department, topic | degree act+pop",0.0004127288647719,0.896245341375344,0.9201191589608216,False,False
+s22 RSiena,"2 + department, topic | topicSim",1.26816798447205,3.18956857955857e-32,2.9122147900317375e-31,True,True
+s22 RSiena,"2 + department, topic | same lab",1.90751346249055,4.6770469360013606e-61,8.66769173642316e-60,True,True
+s22 RSiena,"2 + department, topic | same dept",-0.0041258370947008,0.962995173610061,0.9676028060196785,False,False
+s22 RSiena,"3 + seniority, output | degree (density)",-3.62952981860963,8.06387866277612e-205,1.6934145191829855e-202,True,True
+s22 RSiena,"3 + seniority, output | transitive triads",0.267135514863813,4.59958853267877e-34,4.8295679593127085e-33,True,True
+s22 RSiena,"3 + seniority, output | degree act+pop",-0.0042145485190266,0.236217450625808,0.2818503672239755,False,False
+s22 RSiena,"3 + seniority, output | topicSim",1.20925795116918,4.927396946296419e-30,4.1390134348889923e-29,True,True
+s22 RSiena,"3 + seniority, output | same lab",1.91065695675076,7.98935606773355e-68,1.6777647742240455e-66,True,True
+s22 RSiena,"3 + seniority, output | same dept",0.0394388559844711,0.64939776712044,0.6852941261069969,False,False
+s22 RSiena,"3 + seniority, output | senior ego and alt",0.0157719672323393,0.481133652376258,0.5403105187113058,False,False
+s22 RSiena,"3 + seniority, output | outp ego and alt",0.152888116332077,5.85491646315675e-07,3.3230606953051824e-06,True,True

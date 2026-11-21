@@ -87,6 +87,82 @@
     <div class="card prose"><h2>Methods</h2><div id="fd-methods"></div></div>
   </section>
 
+  <section id="tab-models" class="tab" hidden>
+    <div class="card banner"><h2>How to read this page</h2>
+      <p class="note">The network models from the course, applied to the faculty co-authorship network (274 roster faculty; linked from their first joint paper with at most 50 authors) and, where it needs a larger sample, to the network of every author on the labs' papers. Each measure is set against a random graph of the same size (Erdős–Rényi) or with the same degrees (rewired), or tested on years the model did not see. Computed by step s18; the lab selector does not change this page.</p></div>
+    <div class="card"><h2>Results</h2><div id="nm-list"></div></div>
+    <div class="grid2">
+      <div class="card"><h2>Degree and citation distributions</h2><p class="note">Fraction of nodes (or papers) with at least x links (or citations), log–log. The line is the power law fitted above x<sub>min</sub> by maximum likelihood (Clauset, Shalizi &amp; Newman 2009); a bootstrap p ≥ 0.1 means a power law is plausible. The table below tests it against other heavy-tailed shapes.</p><div id="c-nm-tails" class="chart"></div></div>
+      <div class="card"><h2>Small world?</h2><p class="note">Clustering C and average path length L of the largest component, against Erdős–Rényi graphs with the same nodes and links and against degree-preserving rewired graphs. Small world: L close to random, C far above it (σ = (C/C<sub>r</sub>)/(L/L<sub>r</sub>) ≫ 1).</p><div id="c-nm-sw" class="chart"></div></div>
+    </div>
+    <div class="card"><h2>Power law against the alternatives</h2><p class="note">Log-likelihood ratio R on the fitted tail (positive favours the power law) with Vuong's p-value; for the nested power law with cutoff, a χ² test. p ≥ 0.1 = the data cannot tell the two apart.</p><div id="t-nm-tails"></div></div>
+    <div class="grid2">
+      <div class="card"><h2>Removing faculty</h2><p class="note">Largest connected group (share of all 274 faculty) as faculty leave: at random (mean of 100 orders), highest degree first, highest betweenness first, or most cross-lab co-authors first (brokers), recomputed after each removal.</p><div id="c-nm-rob" class="chart"></div></div>
+      <div class="card"><h2>Do the four labs stay connected?</h2><p class="note">Lab pairs (of 6) still joined by some chain of co-authors as faculty are removed, same orders as on the left.</p><div id="c-nm-labs" class="chart"></div></div>
+    </div>
+    <div class="grid2">
+      <div class="card"><h2>How fast an idea could spread</h2><p class="note">SI model: start from one faculty member; each step, every joint paper with an "infected" colleague passes it on with probability 0.05. Median steps until another lab, and every lab, is reached; one run from every faculty member in the connected group. Null: links rewired at random (same degrees), so lab walls disappear.</p><div id="c-nm-si" class="chart"></div></div>
+      <div class="card"><h2>Epidemic threshold (SIS)</h2><p class="note">Stationary share infected in an SIS model (recovery 0.2 per step) against the spreading rate λ = β/μ, scaled by the quenched mean-field threshold 1/Λ<sub>max</sub> (largest eigenvalue of the adjacency matrix). Theory predicts the outbreak survives right of the dashed line.</p><div id="c-nm-sis" class="chart"></div></div>
+    </div>
+    <div class="grid2">
+      <div class="card"><h2>Predicting next year's collaborations</h2><p class="note">For each test year, every pair of active faculty not yet linked is scored using only earlier years; AUC = chance that a pair that does link that year outranks one that does not (0.5 = guessing). The logistic model combines all scores and is trained on earlier years only.</p><div id="c-nm-lp" class="chart"></div></div>
+      <div class="card"><h2>What makes a new collaboration</h2><p class="note">Odds ratios from a discrete-time model of the first joint paper of each unlinked pair, 2017–2025, with year effects. Bars: 95% intervals with dyadic-robust errors (observations sharing a person may be correlated). log scale.</p><div id="c-nm-haz" class="chart"></div></div>
+    </div>
+    <div class="card"><h2>Tie-formation models</h2><p class="note">Coefficients as odds ratios with dyadic-robust 95% intervals. Shared co-authors = log(1 + common neighbours); degree = log(1 + degree product); output = log(1 + papers) summed; seniority from the CSIR grade on the roster (1 Scientist … 6 fellows and directors).</p><div id="t-nm-haz"></div></div>
+    <div class="card prose"><h2>Methods and limits</h2><div id="nm-methods"></div></div>
+  </section>
+
+  <section id="tab-extensions" class="tab" hidden>
+    <div class="card banner"><h2>How to read this page</h2>
+      <p class="note">First, checks on the main result: the same-lab effect on new collaborations re-estimated under every combination of reasonable analysis choices, and every p-value on the Findings pages corrected together. Then four dynamics on the faculty network: how methods spread, whether groups of three close into joint papers, whether a model of tie formation can grow the real network, and whether COVID-19 and citations change who collaborates. Computed by step s19; the lab selector does not change this page.</p></div>
+    <div class="card"><h2>Results</h2><div id="ex-list"></div></div>
+    <div class="card"><h2>Specification curve: the same-lab effect under 48 analysis choices</h2><p class="note">Each dot is the odds ratio for a same-lab pair starting to collaborate, with its 95% interval (dyadic-robust), from one combination of: author cap (20, 50, 100), risk set (active span, or past information only), years (all, or without 2020–22), the top 5% most connected faculty kept or dropped, and controls (lab and year only, or the full model). Sorted by size; the strip below shows which choices each specification uses.</p><div id="c-ex-spec" class="chart tall"></div></div>
+    <div class="grid2">
+      <div class="card"><h2>Adopting a method after co-authors do</h2><p class="note">Share of faculty-years in which a faculty member first publishes with a method, by how many of their co-authors (network of earlier years) already had. Diamonds: what simple contagion predicts if every adopting co-author passes it on independently with the one-exposure rate. Eight methods pooled; bars are 95% intervals.</p><div id="c-ex-dose" class="chart"></div></div>
+      <div class="card"><h2>Influence or similarity? The shuffle test</h2><p class="note">Effect of having an adopting co-author (odds ratio, log) in the real data against 200 data sets where adoption years are shuffled among the same adopters (Anagnostopoulos et al. 2008). If co-authors influenced each other, the real effect would sit to the right of the shuffled ones; if it sits inside them, the pattern comes from similar people adopting, not from timing.</p><div id="c-ex-shuffle" class="chart"></div></div>
+    </div>
+    <div class="card"><h2>Method adoption models</h2><p class="note">Discrete-time logit of first adoption with year, method and lab effects and faculty-clustered errors. "Not through a joint paper": adoptions where no earlier adopter is a co-author on the adopting paper.</p><div id="t-ex-diff"></div></div>
+    <div class="grid2">
+      <div class="card"><h2>Do groups of three close into a joint paper?</h2><p class="note">Triples of faculty active in both periods who never shared a paper in 2016–2020: share who write one together in 2021–2025, by how many of the three pairs had co-authored and whether all those ties were repeated (log scale). Triples within one lab vs spanning labs.</p><div id="c-ex-closure" class="chart"></div></div>
+      <div class="card"><h2>Can the tie model grow the real network?</h2><p class="note">Each year adds as many links as really formed, drawn with the fitted model's probabilities on the simulated network. Values relative to the real network (1 = matches), mean of 40 simulations; each variant drops one ingredient and is refitted.</p><div id="c-ex-gen" class="chart"></div></div>
+    </div>
+    <div class="grid2">
+      <div class="card"><h2>Did pandemic collaborations last?</h2><p class="note">Faculty pairs whose first joint paper (2020–22) was on SARS-CoV-2 / COVID-19 vs on other topics: share who wrote another paper together later, and another paper on a non-COVID topic. 95% intervals.</p><div id="c-ex-covid" class="chart"></div></div>
+      <div class="card"><h2>Citing before collaborating</h2><p class="note">Odds ratios from the tie-formation model with an extra term: had either faculty member cited the other's work (no shared author) before the year? 95% dyadic-robust intervals, log scale.</p><div id="c-ex-cite" class="chart"></div></div>
+    </div>
+    <div class="card"><h2>Every test, corrected together</h2><p class="note">All p-values reported on the Findings pages (steps s17, s18, s19) with Benjamini–Hochberg q-values computed across the whole set, so the false-discovery rate holds for the paper as a whole, not per analysis.</p><div id="t-ex-reg"></div></div>
+    <div class="card prose"><h2>Methods and limits</h2><div id="ex-methods"></div></div>
+  </section>
+
+  <section id="tab-teams" class="tab" hidden>
+    <div class="card banner"><h2>How to read this page</h2>
+      <p class="note">Models of how teams are assembled and how ties last, whether brokers gain, how sensitive the results are to errors in the data, whether information can travel between labs in time order, which communities the network really has, a stochastic actor-oriented model (RSiena) of the faculty network, and what extra OpenAlex data (funders, countries, careers, ties before 2016, citing works worldwide) adds. Computed by steps s20–s22; the lab selector does not change this page.</p></div>
+    <div class="card"><h2>Results</h2><div id="dy-list"></div></div>
+    <div class="grid2">
+      <div class="card"><h2>Growing the network paper by paper</h2><p class="note">Faculty network grown from the real sequence of papers (year, lead lab, number of faculty and of first-time faculty), filling incumbent slots with a past collaborator with probability q and from the lead lab with probability h (Guimerà et al. 2005). Simulated ÷ real, mean of 30 runs; compare with the pair-by-pair model on the previous page (clustering about half the real value).</p><div id="c-dy-team" class="chart"></div></div>
+      <div class="card"><h2>Incumbents and repeat collaborators</h2><p class="note">Share of team slots filled by people who had published before in the window (p) and share of incumbent pairs on a team that had written together before (q), per year, for full author teams and for faculty only.</p><div id="c-dy-pq" class="chart"></div></div>
+    </div>
+    <div class="grid2">
+      <div class="card"><h2>How long until a new pair writes again?</h2><p class="note">Share of faculty pairs (first joint paper 2016–2024) who have not yet written a second paper together, by years since the first (life table, pairs observed long enough).</p><div id="c-dy-life" class="chart"></div></div>
+      <div class="card"><h2>Do brokers gain?</h2><p class="note">Within-person change: effect of network position in the previous three years on a faculty member's field-normalised citations and output in the next year, with faculty and year fixed effects (95% intervals, faculty-clustered).</p><div id="c-dy-broker" class="chart"></div></div>
+    </div>
+    <div class="grid2">
+      <div class="card"><h2>What if the author data were wrong?</h2><p class="note">Same-lab odds ratio of co-authorship (all faculty pairs, with topic and output) when 5–20% of faculty–paper links are dropped or reassigned at random, when faculty are resampled, and with one lab left out (mean and 95% range).</p><div id="c-dy-err" class="chart"></div></div>
+      <div class="card"><h2>Can information reach another lab in time?</h2><p class="note">Share of (early faculty member, other lab) pairs that a time-respecting chain of joint papers reaches by 2025: one hop per year, or any number within a year; against contact years shuffled (100 runs, 95% range) and the static network that ignores time.</p><div id="c-dy-temp" class="chart"></div></div>
+    </div>
+    <div class="card"><h2>Which partition describes the network best?</h2><p class="note">Description length of a degree-corrected stochastic block model for each partition (lower = better compression of the network), its agreement with labs and departments (normalised mutual information, adjusted Rand index) and modularity. Largest connected component.</p><div id="t-dy-comm"></div></div>
+    <div class="grid2">
+      <div class="card"><h2>Stochastic actor-oriented model (RSiena)</h2><p class="note">Faculty active through the window; ties = a joint paper in 2016–18, 2019–21, 2022–25, so ties form and end between waves. Estimates (log-odds of a tie change) with 95% intervals for the fullest model; the table lists all models and their convergence.</p><div id="c-dy-siena" class="chart"></div></div>
+      <div class="card"><h2>Funders, careers and old ties</h2><p class="note">Odds ratios added to the s18 tie model (with topic, network position and output): a funder both faculty had named before the year, career age from their first publication anywhere (per decade), and a joint paper before 2016. 95% dyadic-robust intervals.</p><div id="c-dy-extra" class="chart"></div></div>
+    </div>
+    <div class="card"><h2>RSiena estimates</h2><div id="t-dy-siena"></div></div>
+    <div class="grid2">
+      <div class="card"><h2>Abroad, India, or a sister lab?</h2><p class="note">Share of each lab's papers with a foreign co-author, with another Indian institution, and with another of our four labs (OpenAlex author countries).</p><div id="c-dy-intl" class="chart"></div></div>
+      <div class="card"><h2>Who cites the labs worldwide</h2><p class="note">Countries of the authors of works (2016–2026) that cite each lab, as a share of all country mentions; top countries.</p><div id="c-dy-world" class="chart"></div></div>
+    </div>
+    <div class="card prose"><h2>Methods and limits</h2><div id="dy-methods"></div></div>
+  </section>
+
   <section id="tab-journals" class="tab" hidden>
     <div class="grid2">
       <div class="card"><h2>3 · Journal quartile distribution</h2><p class="note">Scimago (SJR) best quartile in the publication year. Q1 fraction = Q1 ÷ journal papers with a known quartile.</p><div id="c-quart" class="chart"></div></div>

@@ -1,0 +1,503 @@
+{
+ "inputs": {
+  "faculty_nodes": 274,
+  "faculty_links": 1250,
+  "all_author_nodes": 17136,
+  "all_author_links": 87619,
+  "max_authors_for_pairs": 50,
+  "quick": false
+ },
+ "heavy_tails": [
+  {
+   "distribution": "faculty co-authorship degree",
+   "xmin": 21,
+   "alpha": 3.823498675177217,
+   "n_tail": 38,
+   "gof_p": 0.12333333333333334,
+   "power_law_plausible": true
+  },
+  {
+   "distribution": "all-author co-authorship degree",
+   "xmin": 36,
+   "alpha": 2.558595844913789,
+   "n_tail": 884,
+   "gof_p": 0.08333333333333333,
+   "power_law_plausible": false
+  },
+  {
+   "distribution": "paper citations",
+   "xmin": 40,
+   "alpha": 2.642028882196889,
+   "n_tail": 823,
+   "gof_p": 0.016666666666666666,
+   "power_law_plausible": false
+  }
+ ],
+ "heavy_tails_tests": [
+  {
+   "distribution": "faculty co-authorship degree",
+   "alternative": "log-normal",
+   "llr": -2.4940232052666973,
+   "p": 0.16570022212276392,
+   "verdict": "inconclusive"
+  },
+  {
+   "distribution": "faculty co-authorship degree",
+   "alternative": "exponential",
+   "llr": -2.3783200043864507,
+   "p": 0.031210036400575108,
+   "verdict": "exponential favoured"
+  },
+  {
+   "distribution": "faculty co-authorship degree",
+   "alternative": "power law with cutoff",
+   "llr": -2.796267100812085,
+   "p": 0.01803718249732273,
+   "verdict": "power law with cutoff favoured"
+  },
+  {
+   "distribution": "all-author co-authorship degree",
+   "alternative": "log-normal",
+   "llr": -3.710458512529441,
+   "p": 0.08077560131184698,
+   "verdict": "log-normal favoured"
+  },
+  {
+   "distribution": "all-author co-authorship degree",
+   "alternative": "exponential",
+   "llr": 110.86493448046589,
+   "p": 5.845275397100627e-07,
+   "verdict": "power law favoured"
+  },
+  {
+   "distribution": "all-author co-authorship degree",
+   "alternative": "power law with cutoff",
+   "llr": -5.426048989091063,
+   "p": 0.0009868389056014993,
+   "verdict": "power law with cutoff favoured"
+  },
+  {
+   "distribution": "paper citations",
+   "alternative": "log-normal",
+   "llr": 0.9738206811462318,
+   "p": 0.2667185334983463,
+   "verdict": "inconclusive"
+  },
+  {
+   "distribution": "paper citations",
+   "alternative": "exponential",
+   "llr": 347.9605772034265,
+   "p": 7.018569134361214e-05,
+   "verdict": "power law favoured"
+  },
+  {
+   "distribution": "paper citations",
+   "alternative": "power law with cutoff",
+   "llr": -0.001636269926931,
+   "p": 0.9543810052605414,
+   "verdict": "inconclusive"
+  }
+ ],
+ "small_world": [
+  {
+   "network": "faculty co-authorship",
+   "n_nodes": 274,
+   "n_edges": 1250,
+   "lcc_nodes": 243,
+   "lcc_edges": 1245,
+   "mean_degree": 10.246913580246913,
+   "clustering": 0.3643516476257965,
+   "transitivity": 0.3977580684897758,
+   "path_length": 3.5499438832772165,
+   "diameter_lb": 8.0,
+   "er_path_length_theory": 2.3606002615298878,
+   "er_clustering_theory": 0.04216836864299141,
+   "er_clustering": 0.041867961876336623,
+   "er_path_length": 2.609531000238071,
+   "degree_preserving_clustering": 0.14272416087652046,
+   "degree_preserving_path_length": 2.661963541016434,
+   "degree_null": "double-edge swap",
+   "n_null": 50,
+   "sigma_er": 6.3970521374757165,
+   "sigma_degree_preserving": 1.9142729148931719
+  },
+  {
+   "network": "all-author co-authorship",
+   "n_nodes": 17136,
+   "n_edges": 87619,
+   "lcc_nodes": 16988,
+   "lcc_edges": 87384,
+   "mean_degree": 10.287732517070873,
+   "clustering": 0.6649595666006438,
+   "transitivity": 0.13406242287014283,
+   "path_length": 4.310669139145621,
+   "diameter_lb": null,
+   "er_path_length_theory": 4.178662533968828,
+   "er_clustering_theory": 0.0006055882103291072,
+   "er_clustering": 0.0006134043205771069,
+   "er_path_length": 4.443503412285876,
+   "degree_preserving_clustering": 0.02195203384225821,
+   "degree_preserving_path_length": 3.6905659434974405,
+   "degree_null": "configuration model",
+   "n_null": 5,
+   "sigma_er": 1117.452922107877,
+   "sigma_degree_preserving": 25.933955085785644
+  }
+ ],
+ "molloy_reed": {
+  "mean_k": 9.124087591240876,
+  "mean_k2": 186.90510948905109,
+  "kappa": 20.4848,
+  "fc_random_theory": 0.9486779438331417
+ },
+ "robustness": [
+  {
+   "strategy": "betweenness",
+   "lcc_share_start": 0.8868613138686131,
+   "removed_to_halve_lcc": 13,
+   "share_to_halve_lcc": 0.04744525547445255,
+   "removed_until_a_lab_pair_splits": 13,
+   "removed_until_no_lab_pair_joined": 134,
+   "lcc_after_5pct": 0.40875912408759124,
+   "lcc_after_10pct": 0.354014598540146
+  },
+  {
+   "strategy": "brokers",
+   "lcc_share_start": 0.8868613138686131,
+   "removed_to_halve_lcc": 21,
+   "share_to_halve_lcc": 0.07664233576642336,
+   "removed_until_a_lab_pair_splits": 19,
+   "removed_until_no_lab_pair_joined": 24,
+   "lcc_after_5pct": 0.8102189781021898,
+   "lcc_after_10pct": 0.35766423357664234
+  },
+  {
+   "strategy": "degree",
+   "lcc_share_start": 0.8868613138686131,
+   "removed_to_halve_lcc": 66,
+   "share_to_halve_lcc": 0.24087591240875914,
+   "removed_until_a_lab_pair_splits": 83,
+   "removed_until_no_lab_pair_joined": 134,
+   "lcc_after_5pct": 0.8248175182481752,
+   "lcc_after_10pct": 0.7664233576642335
+  },
+  {
+   "strategy": "random",
+   "lcc_share_start": 0.8868613138686131,
+   "removed_to_halve_lcc": 120,
+   "share_to_halve_lcc": 0.43795620437956206,
+   "removed_until_a_lab_pair_splits": 116,
+   "removed_until_no_lab_pair_joined": 270,
+   "lcc_after_5pct": 0.8359124087591242,
+   "lcc_after_10pct": 0.7834671532846715
+  }
+ ],
+ "lab_cuts": [
+  {
+   "side_a": "CSIR-CCMB",
+   "side_b": "CSIR-CDRI",
+   "min_edge_cut": 24,
+   "direct_links": 7
+  },
+  {
+   "side_a": "CSIR-CCMB",
+   "side_b": "CSIR-IGIB",
+   "min_edge_cut": 33,
+   "direct_links": 23
+  },
+  {
+   "side_a": "CSIR-CCMB",
+   "side_b": "CSIR-IMTECH",
+   "min_edge_cut": 23,
+   "direct_links": 8
+  },
+  {
+   "side_a": "CSIR-CDRI",
+   "side_b": "CSIR-IGIB",
+   "min_edge_cut": 22,
+   "direct_links": 7
+  },
+  {
+   "side_a": "CSIR-CDRI",
+   "side_b": "CSIR-IMTECH",
+   "min_edge_cut": 22,
+   "direct_links": 11
+  },
+  {
+   "side_a": "CSIR-IGIB",
+   "side_b": "CSIR-IMTECH",
+   "min_edge_cut": 22,
+   "direct_links": 4
+  },
+  {
+   "side_a": "CSIR-CCMB",
+   "side_b": "CSIR-CDRI+CSIR-IGIB+CSIR-IMTECH",
+   "min_edge_cut": 38,
+   "direct_links": 38
+  },
+  {
+   "side_a": "CSIR-CDRI",
+   "side_b": "CSIR-CCMB+CSIR-IGIB+CSIR-IMTECH",
+   "min_edge_cut": 25,
+   "direct_links": 25
+  },
+  {
+   "side_a": "CSIR-IGIB",
+   "side_b": "CSIR-CCMB+CSIR-CDRI+CSIR-IMTECH",
+   "min_edge_cut": 34,
+   "direct_links": 34
+  },
+  {
+   "side_a": "CSIR-IMTECH",
+   "side_b": "CSIR-CCMB+CSIR-CDRI+CSIR-IGIB",
+   "min_edge_cut": 23,
+   "direct_links": 23
+  }
+ ],
+ "si": [
+  {
+   "network": "degree-preserving null",
+   "runs": 2430.0,
+   "share_reaching_all_labs": 0.9975308641975309,
+   "median_t_other_lab": 2.0,
+   "median_t_all_labs": 4.0,
+   "median_t50": 8.0,
+   "median_t90": 17.0,
+   "beta": 0.05
+  },
+  {
+   "network": "five brokers removed",
+   "runs": 238.0,
+   "share_reaching_all_labs": 0.9915966386554622,
+   "median_t_other_lab": 7.0,
+   "median_t_all_labs": 14.0,
+   "median_t50": 15.0,
+   "median_t90": 31.0,
+   "beta": 0.05
+  },
+  {
+   "network": "observed",
+   "runs": 243.0,
+   "share_reaching_all_labs": 1.0,
+   "median_t_other_lab": 6.0,
+   "median_t_all_labs": 10.0,
+   "median_t50": 12.0,
+   "median_t90": 27.0,
+   "beta": 0.05
+  }
+ ],
+ "sis": {
+  "lambda_max": 25.447184478480814,
+  "threshold_qmf": 0.0392970782620624,
+  "threshold_hmf": 0.048634712293448956,
+  "mu": 0.2,
+  "threshold_empirical": 0.06288,
+  "brokers_removed": [
+   {
+    "faculty_id": "CCMB-009",
+    "lab": "CSIR-CCMB"
+   },
+   {
+    "faculty_id": "IGIB-028",
+    "lab": "CSIR-IGIB"
+   },
+   {
+    "faculty_id": "CCMB-019",
+    "lab": "CSIR-CCMB"
+   },
+   {
+    "faculty_id": "IGIB-043",
+    "lab": "CSIR-IGIB"
+   },
+   {
+    "faculty_id": "CDRI-012",
+    "lab": "CSIR-CDRI"
+   }
+  ],
+  "lcc_nodes": 243
+ },
+ "link_prediction_mean_auc_all": {
+  "adamic_adar": 0.747769214699183,
+  "common_neighbours": 0.7478840810784336,
+  "inv_distance": 0.7623955308642564,
+  "jaccard": 0.743025718315282,
+  "katz": 0.7973185989105465,
+  "logistic model (all features)": 0.8773883951880911,
+  "preferential_attachment": 0.7010654967806952,
+  "resource_allocation": 0.7470370025551288,
+  "same_lab": 0.832959153483481,
+  "topic_similarity": 0.6044577325582893
+ },
+ "link_prediction_mean_ap_all": {
+  "adamic_adar": 0.03805909969355186,
+  "common_neighbours": 0.03718055203282866,
+  "inv_distance": 0.017722177720547596,
+  "jaccard": 0.02220572852148126,
+  "katz": 0.04196855449151227,
+  "logistic model (all features)": 0.02921110793840348,
+  "preferential_attachment": 0.025584441949744453,
+  "resource_allocation": 0.03272186536692514,
+  "same_lab": 0.012476017462254537,
+  "topic_similarity": 0.005541111892598086
+ },
+ "link_prediction_mean_auc_cross_lab": {
+  "adamic_adar": 0.5672176676733475,
+  "common_neighbours": 0.5673286388661711,
+  "inv_distance": 0.6673272836134762,
+  "jaccard": 0.5673294438199503,
+  "katz": 0.6851345646628436,
+  "logistic model (all features)": 0.6419030795777495,
+  "preferential_attachment": 0.6365031593598872,
+  "resource_allocation": 0.5672196281077606,
+  "topic_similarity": 0.689397512367564
+ },
+ "tie_formation_fit": [
+  {
+   "model": "1 lab",
+   "observations": 190222,
+   "new_links": 894,
+   "pairs": 30875,
+   "years": "2017-2025",
+   "log_likelihood": -4686.703181714005,
+   "mcfadden_r2": 0.1754498490449844,
+   "in_sample_auc": 0.8645608884719506,
+   "parameters": 10
+  },
+  {
+   "model": "2 + department, topic",
+   "observations": 190222,
+   "new_links": 894,
+   "pairs": 30875,
+   "years": "2017-2025",
+   "log_likelihood": -4664.965312279917,
+   "mcfadden_r2": 0.17927427803661555,
+   "in_sample_auc": 0.8758440632650395,
+   "parameters": 12
+  },
+  {
+   "model": "3 + network structure, output",
+   "observations": 190222,
+   "new_links": 894,
+   "pairs": 30875,
+   "years": "2017-2025",
+   "log_likelihood": -4478.89143683628,
+   "mcfadden_r2": 0.2120109878595161,
+   "in_sample_auc": 0.8979535692327849,
+   "parameters": 15
+  },
+  {
+   "model": "4 + seniority",
+   "observations": 190222,
+   "new_links": 894,
+   "pairs": 30875,
+   "years": "2017-2025",
+   "log_likelihood": -4470.443639008636,
+   "mcfadden_r2": 0.2134972422058974,
+   "in_sample_auc": 0.8989778471876796,
+   "parameters": 18
+  },
+  {
+   "model": "5 + lab x shared co-authors",
+   "observations": 190222,
+   "new_links": 894,
+   "pairs": 30875,
+   "years": "2017-2025",
+   "log_likelihood": -4462.093151035482,
+   "mcfadden_r2": 0.2149663764462898,
+   "in_sample_auc": 0.8994319021842189,
+   "parameters": 19
+  }
+ ],
+ "tie_formation_model4_or": {
+  "same_lab": {
+   "or": 29.637249575063212,
+   "low": 17.367568702954507,
+   "high": 50.575102214805696,
+   "p": 1.814509854789105e-35
+  },
+  "same_department": {
+   "or": 1.4309588045825368,
+   "low": 0.9851007001172181,
+   "high": 2.0786129785194873,
+   "p": 0.059945409766068665
+  },
+  "topic_similarity": {
+   "or": 1.5445818105103146,
+   "low": 0.9944930603186526,
+   "high": 2.398943808210076,
+   "p": 0.05293918439685287
+  },
+  "log_cn": {
+   "or": 1.7441576701986745,
+   "low": 1.3756374282746615,
+   "high": 2.211400995630283,
+   "p": 4.358325480755739e-06
+  },
+  "log_pa": {
+   "or": 1.132812583402385,
+   "low": 0.9887880336655869,
+   "high": 1.2978154118203982,
+   "p": 0.07225979404480767
+  },
+  "log_output_product": {
+   "or": 1.2340632719068765,
+   "low": 1.0348660310164686,
+   "high": 1.471603196380566,
+   "p": 0.019202411356652432
+  },
+  "seniority_sum": {
+   "or": 0.9271546092495341,
+   "low": 0.8218597178948285,
+   "high": 1.0459396545855035,
+   "p": 0.2187989127353912
+  },
+  "seniority_gap": {
+   "or": 1.0330127718845306,
+   "low": 0.9096055939405349,
+   "high": 1.17316273556946,
+   "p": 0.616809135792178
+  },
+  "seniority_missing": {
+   "or": 0.7773593234126562,
+   "low": 0.541612166826718,
+   "high": 1.1157199832438711,
+   "p": 0.17191851446442907
+  }
+ },
+ "tie_formation_permutation": [
+  {
+   "model": "4 + seniority",
+   "term": "same_lab",
+   "coef_observed": 3.3890320017586335,
+   "perm_mean": -0.0003025471871655883,
+   "perm_sd": 0.08856430975386279,
+   "perm_p95": 0.14430516210030472,
+   "p_one_sided": 0.004975124378109453,
+   "permutations": 200
+  },
+  {
+   "model": "4 + seniority",
+   "term": "same_department",
+   "coef_observed": 0.35834471230706133,
+   "perm_mean": -0.019207884595984166,
+   "perm_sd": 0.3337299769989868,
+   "perm_p95": 0.40227250725899105,
+   "p_one_sided": 0.07960199004975124,
+   "permutations": 200
+  }
+ ],
+ "tie_formation_holdout": {
+  "train_years": "2017-2022",
+  "test_years": "2023-2025",
+  "test_pairs": 72347,
+  "test_new_links": 283,
+  "auc": 0.8870482078356734,
+  "auc_same_lab_only": 0.8272269466795122
+ },
+ "figures": [
+  "netmodel_tails.png",
+  "netmodel_robustness.png",
+  "netmodel_sis.png",
+  "netmodel_linkpred.png"
+ ]
+}
