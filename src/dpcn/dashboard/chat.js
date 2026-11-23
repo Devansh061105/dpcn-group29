@@ -68,6 +68,13 @@ function chatKB() {
   (R3.laws || []).forEach((r) => add(`${r.law}: ${r.statement}. Expected ${r.expected}; our data: ${r.observed}.`, "extras", "law"));
   Object.entries(SECTX).forEach(([k, m]) => add(`The ${m[0]} page: ${m[1]}. ${m[2]}`, k, "page"));
   Object.entries(GLOSS).forEach(([k, s]) => add(`${k}: ${s}`, null, "glossary"));
+  const LIM = P3API.limits ? P3API.limits() : { nd: [], bs: [] };
+  LIM.nd.forEach((t) => add(`Limitations, not done: ${t}`, "verdicts", "faq"));
+  LIM.bs.forEach((t) => add(`Limitations, blind spot (what the numbers cannot show): ${t}`, "verdicts", "faq"));
+  const prc = (R3.precision || []).find((r) => r.method === "all");
+  if (prc) add(`Accuracy of the faculty–paper matching (hand-checked precision audit): ${pct(prc.precision, 0)} of ${fmt(prc.checked)} randomly sampled faculty–paper links were correct when checked against the paper and its byline (95% CI ${pct(prc.ci_lo, 0)}–${pct(prc.ci_hi, 0)}). Identity is matched by ORCID, the person's own publication list, then strict name rules, with manual review; a paper counts only if the person's own byline names the lab.`, "about", "faq");
+  const ro = ((D.p2 || {}).manual || {}).roster, allS = (D.summary || []).find((s) => s.scope === "ALL");
+  if (ro && allS) add(`How many faculty are on the roster: ${fmt(ro.total)} scientists (${fmt(ro.website)} from the lab websites, ${fmt(ro.from_papers)} added from the lab-affiliated papers they lead, ${fmt(ro.other)} added in review; ${fmt(ro.former)} former). ${fmt(allS.faculty_with_papers)} faculty have at least one paper in 2016–2026.`, "about", "faq");
   (D.summary || []).forEach((s) => add(`${s.scope === "ALL" ? "All four labs" : s.scope}: ${fmt(s.papers)} papers, ${fmt(s.citations)} citations, ${fmt(s.faculty_with_papers)} faculty with papers of ${fmt(s.roster_faculty)} on the roster, ${pct(s.q1_fraction, 0)} in Q1 journals, median ${fmt(s.median_citations)} citations per paper.`, "overview", "lab"));
   (R3.lab_credit || []).forEach((r) => add(`${r.scope}: normalised impact MNCS ${fmt(r.mncs, 2)} (${fmt(r.mncs_lo, 2)}–${fmt(r.mncs_hi, 2)}), top-10% share ${pct(r.top10_share, 1)}, effective papers ${fmt(r.effective_papers, 0)}, Gini across faculty ${fmt(r.gini_faculty_citations, 2)}.`, "findings", "lab"));
   (Array.isArray(R3.benchmark) ? R3.benchmark : []).forEach((r) => add(`${r.short} (${r.name}, ${r.city}): ${fmt(r.papers)} papers 2016–2026, mean FWCI ${fmt(r.mean_fwci, 2)} (rank ${r.rank_mean_fwci}), top-10% share ${pct(r.top10_share, 1)}, ${fmt(r.citations_per_paper, 1)} citations per paper, international ${pct(r.intl_share, 0)}, open access ${pct(r.oa_share, 0)}, growth ${pct(r.cagr, 1)} a year.`, "benchmark", "peer"));
@@ -85,7 +92,7 @@ function bm25(q) {
   return kb.map((d) => { const tf = {}; d.t.forEach((w) => { tf[w] = (tf[w] || 0) + 1; });
     let s = 0; qt.forEach((w) => { const f = tf[w] || (w.length > 4 ? Object.keys(tf).filter((x) => x.startsWith(w.slice(0, -1))).reduce((a, x) => a + tf[x], 0) * 0.6 : 0);
       if (f) s += (CHAT.idf[w] || 0.6) * f * (k1 + 1) / (f + k1 * (1 - b + b * d.t.length / CHAT.avg)); });
-    const boost = { doc: 1.35, finding: 1.3, verdict: 1.3, law: 1.1, page: 0.8, method: 0.85, science: 0.9, caveat: 0.85 }[d.kind] || 1;
+    const boost = { faq: 1.6, doc: 1.35, finding: 1.3, verdict: 1.3, law: 1.1, page: 0.8, method: 0.85, science: 0.9, caveat: 0.85 }[d.kind] || 1;
     return [s * boost, d]; }).filter(([s]) => s > 0).sort((a, b2) => b2[0] - a[0]);
 }
 function findPeople(q) {
@@ -115,8 +122,29 @@ function labLine(l, k) {
   if (k && a[k] !== undefined) return `${short(l)}: ${MNAME[k] || k} ${["mean_ncs", "degree", "collab_inst", "median_if"].includes(k) ? fmt(a[k], 2) : fmt(a[k])}${["degree", "collab_inst"].includes(k) ? " (mean per faculty member)" : ""}.`;
   return `${short(l)} (${D.meta.lab_names[l]}): ${fmt(s.papers ?? a.papers)} papers, ${fmt(s.citations ?? a.citations)} citations, ${fmt(a.faculty)} faculty with papers, h-index of the lab ${fmt(a.h)}, MNCS ${fmt(lc.mncs, 2)}, ${pct(s.q1_fraction, 0)} in Q1.${bm.mean_fwci ? ` Whole-institute mean FWCI ${fmt(bm.mean_fwci, 2)}, rank ${bm.rank_mean_fwci} of 17 Indian biology institutes.` : ""}`;
 }
+function labRank(q) {   // "which lab has the highest Q1 share?" ranks the four labs, not faculty
+  const n = norm(q);
+  if (!/\bwhich (lab|labs|institute|institution)\b|\brank(ing)? (of )?the labs\b|\blabs? (by|ranked)\b/.test(n)) return null;
+  const M = [[/q1/, "q1_fraction", "share of ranked journal papers in Q1", (v) => pct(v, 1)], [/median/, "median_citations", "median citations per paper", (v) => fmt(v)],
+    [/per paper|mean citation|average citation/, "mean_citations", "mean citations per paper", (v) => fmt(v, 1)], [/cited|citation/, "citations", "citations", (v) => fmt(v)],
+    [/h[\s-]?index/, "institutional_h", "institutional h-index", (v) => fmt(v)], [/foreign|international|abroad/, "pct_foreign_collab", "share of papers with a foreign co-author", (v) => pct(v, 0)],
+    [/partner|indian/, "pct_indian_partner_collab", "share of papers with an Indian partner", (v) => pct(v, 0)], [/faculty|scientist/, "faculty_with_papers", "faculty with papers", (v) => fmt(v)],
+    [/paper|output|productiv|publish/, "papers", "papers", (v) => fmt(v)]];
+  const m = M.find(([re]) => re.test(n)) || M[M.length - 1], low = /\b(lowest|least|fewest|smallest|worst)\b/.test(n);
+  const rows = (D.summary || []).filter((s) => LABS.includes(s.scope)).sort((a, b) => low ? a[m[1]] - b[m[1]] : b[m[1]] - a[m[1]]);
+  return rows.length ? { text: `The four labs by ${m[2]}: ` + rows.map((r, i) => `${i + 1}. ${short(r.scope)} ${m[3](r[m[1]])}`).join("; ") + ".", tab: "overview" } : null;
+}
+function journalAnswer(q) {   // "which journal do the labs publish in most?"
+  const n = norm(q);
+  if (!/\bjournals?\b/.test(n) || /impact factor|\bif\b|above|over|quartile/.test(n) || !/\b(most|top|main|common|popular|favourite|favorite|which|where)\b/.test(n)) return null;
+  const labs = findLabs(q), TJ = D.top_journals || [];
+  const lines = (labs.length ? labs : ["ALL"]).map((s) => { const r = TJ.filter((x) => x.scope === s).sort((a, b) => a.rank - b.rank).slice(0, 5);
+    return r.length ? `${s === "ALL" ? "All four labs" : short(s)}: ` + r.map((x) => `${x.journal_name} (${fmt(x.papers)} papers${x.quartile ? `, ${x.quartile}` : ""})`).join("; ") : null; }).filter(Boolean);
+  return lines.length ? { text: `Most used journals. ${lines.join(". ")}.`, tab: "journals" } : null;
+}
 function topList(q) {
   const n = norm(q), m = n.match(/\b(top|best|most|highest|leading|largest)\b\s*(\d+)?/); if (!m) return null;
+  if (/\bjournals?\b|\bwhich (lab|labs|institute)\b/.test(n)) return null;
   const k = metricOf(q) || "citations", N = Math.min(20, +(m[2] || (n.match(/\b(\d+)\b/) || [])[1]) || 10), labs = findLabs(q);
   if (/spread/.test(n) && R3.epi_spreaders) return { text: `Top ${N} spreaders (SIR outbreak size when they are the first case): ` + R3.epi_spreaders.slice().sort((a, b) => a.rank_influence - b.rank_influence).filter((r) => !labs.length || labs.includes(r.lab)).slice(0, N).map((r, i) => `${i + 1}. ${r.name} (${short(r.lab)}, ${fmt(r.sir_size_mean, 1)})`).join("; "), tab: "epidemics" };
   const pool = XF.filter((p) => !labs.length || labs.includes(p.lab)).filter((p) => k !== "mean_ncs" || p.papers >= 10);
@@ -151,7 +179,7 @@ function answer(q) {
     const rare = cat.filter((r) => r.other_groups > 0 && r.other_groups <= 2 && r.ours === "yes");
     return { text: `${f.length} things no other group in the course did: ${f.map((r) => r.item.split(":")[0]).join("; ")}.\n\nWe also did ${rare.length} rare items (only 1–2 of the 29 groups did them), cover ${cat.filter((r) => r.ours === "yes").length} of the ${cat.length} catalogued methods and features (plus ${cat.filter((r) => r.ours === "partial").length} in part), and kept every common and baseline item.`, tab: "novelty" };
   }
-  if (/who cites|citing institution|citers?\b|cite (us|the labs|our)/.test(n)) {
+  if (/who cites|citing institution|citers?\b|cite (us|the labs|our)/.test(n) && !/private|government|heavy|suspicious|outlier|flag/.test(n)) {
     const C = (R3.citers_collab || []).slice().sort((a, b) => b.cites_in - a.cites_in).slice(0, 8);
     if (C.length) return { text: `Indian institutions citing the labs most (external citations, our own labs excluded): ${C.map((r, i) => `${i + 1}. ${r.partner_inst} (${fmt(r.cites_in)}; ${fmt(r.shared_papers)} joint papers)`).join("; ")}. Big institutions cite more simply because they publish more; the Flags tab divides by each institution's output.`, tab: "flags" };
   }
@@ -161,6 +189,7 @@ function answer(q) {
     if (F.h > 0) return { text: `${fmt(r.people.length)} faculty have an h-index above ${F.h} counting only papers with ${cond}${state.lab !== "ALL" ? ` (${short(state.lab)} only)` : ""}. Highest: ${r.people.slice(0, 8).map((x) => `${x.p.name} (${short(x.p.lab)}, h ${x.h})`).join("; ")}.`, tab: "explorer", filters: F };
     const top = XP.filter((p) => paperPass(p, Object.assign({}, F, { t: "" }))).sort((a, b) => b.c - a.c).slice(0, 5);
     return { text: `${fmt(r.papers)} papers have ${cond}${state.lab !== "ALL" ? ` (${short(state.lab)} only)` : ""}, by ${fmt(r.people.length)} faculty. Most cited: ${top.map((p) => `“${p.title.slice(0, 80)}” (${p.year}, ${fmt(p.c)} citations, IF ${fmt(p.if, 1)})`).join("; ")}.`, tab: "explorer", filters: F }; }
+  const lr = labRank(q) || journalAnswer(q); if (lr) return lr;
   const ppl = findPeople(q), labs = findLabs(q), peers = findPeers(q), k = metricOf(q);
   const cmp = /compare|versus|\bvs\b|against|difference between/.test(n);
   if (cmp && ppl.length >= 2) return { text: ppl.slice(0, 4).map((p) => personAnswer(p, k)).join(" "), tab: "versus", compare: ppl.slice(0, 6).map((p) => p.id) };
@@ -171,7 +200,13 @@ function answer(q) {
     const lines = labs.map((l) => labLine(l, cmp ? null : k)).concat(peers.map((r) => `${r.short} (${r.name}): ${fmt(r.papers)} papers, mean FWCI ${fmt(r.mean_fwci, 2)} (rank ${r.rank_mean_fwci} of 17), top-10% share ${pct(r.top10_share, 1)}, international ${pct(r.intl_share, 0)}, open access ${pct(r.oa_share, 0)}.`));
     if (!/spread|walk|cite|citing|collab|wall|threshold|why|how|does|did|is |are /.test(n) || cmp) return { text: lines.join(" "), tab: peers.length ? "benchmark" : cmp ? "versus" : "overview", labs: !!labs.length && cmp };
   }
-  const hits = bm25(q);
+  let hits = bm25(q);
+  // a clearly distinctive query word (e.g. "covid-19", "causal") must appear in the answer, so common words cannot outvote it
+  const qi = [...new Set(toks(q))].filter((w) => CHAT.idf[w]).sort((a, b) => CHAT.idf[b] - CHAT.idf[a]);
+  if (qi.length && hits.length) {
+    const f = hits.filter(([, d]) => d.t.includes(qi[0]));
+    if (f.length && (qi.length === 1 || CHAT.idf[qi[0]] >= CHAT.idf[qi[1]] + 1 || f[0][0] >= hits[0][0] * 0.5)) hits = f;
+  }
   if (!hits.length || hits[0][0] < 1.2) return { text: "I couldn't find that in the dashboard's data. Try a name, a lab (CCMB, IGIB, IMTECH, CDRI), a peer institute (NCBS, NII, IICB…), a measure (h-index, citations, impact factor, FWCI) or a topic (self-citation, lab walls, COVID-19, epidemic threshold, random walk, journals)." };
   const top = hits.slice(0, 3).filter(([s]) => s >= hits[0][0] * 0.55).map(([, d]) => d);
   return { text: top.map((d) => d.text).join("\n\n"), tab: top[0].tab, more: top.slice(1).map((d) => d.tab).filter(Boolean) };

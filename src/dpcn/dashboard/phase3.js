@@ -486,10 +486,18 @@ function renderVerdicts() {
     d.addEventListener("click", () => { show(x.tab); window.scrollTo(0, 0); });
     box.append(d);
   });
+  const { nd, bs } = verdictLimits();
+  el("vd-notdone").replaceChildren(...nd.map((t) => mk("li", t)));
+  el("vd-blind").replaceChildren(...bs.map((t) => mk("li", t)));
+}
+P3REG.verdicts = renderVerdicts;
+function verdictLimits() {   // the "not done" and "blind spots" lists; shared with the chatbot
   const audit = ((RJ.extras || {}).precision_audit) || {};
   const nd = [
-    `Measured precision of the faculty–paper matching: a seeded sample of ${audit.sample || 50} links is ready in data/manual/precision_audit.csv; ${audit.checked || 0} have been checked by hand so far.`,
-    "Career-age analyses (variance by career stage, as in paper P1): the roster has no joining dates or PhD years, and OpenAlex first-paper years are unreliable for senior staff.",
+    audit.sample && audit.checked >= audit.sample
+      ? `Recall of the faculty–paper matching: precision was checked by hand (${audit.checked} of ${audit.sample} sampled links, About → Hand-checked precision), but papers OpenAlex never linked to a faculty member were not counted.`
+      : `Measured precision of the faculty–paper matching: a seeded sample of ${audit.sample || 50} links is ready in data/manual/precision_audit.csv; ${audit.checked || 0} have been checked by hand so far.`,
+    "Career stage from joining dates (paper P1): joining years are recorded for 106 of 294 faculty from their ORCID records (data/manual/joining_years.csv) but not yet used; verdict 18 uses years since the first OpenAlex paper, which is unreliable for senior staff.",
     "Gender and hiring analyses (papers P7, P9, P10): the roster holds no gender data, and inferring it from names would be unreliable and inappropriate.",
     "Patents, clinical trials and policy citations: not in OpenAlex; linking them needs other sources (e.g. Reliance on Science, CTRI).",
     "Whether heavy citers are former lab members: citing authors are not stored, and naming individual citing authors was dropped for ethical reasons.",
@@ -497,15 +505,14 @@ function renderVerdicts() {
     "Causal claims: every result here is an association, tested against baselines, not an experiment.",
     "The Scimago 2025 file was blocked by a bot check, so 62 fallback impact factors are frozen from an earlier run.",
   ];
-  const ul = el("vd-notdone"); ul.replaceChildren(...nd.map((t) => mk("li", t)));
   const bs = ["Research quality beyond citations: originality, rigour and reproducibility are not in any count.", "Teaching, mentoring and training of students, the labs' other main output.",
     "Translation: drugs, diagnostics, technologies and services (e.g. CDRI's drug development, IGIB's genome surveillance).",
     "Work in Indian-language or regional journals, books, datasets and software that OpenAlex indexes poorly.",
     "Informal collaboration and advice that never becomes a co-authored paper.", "Funding, equipment and staffing, which drive output but are not in the data.",
     "Very recent papers, which have not had time to be cited."];
-  el("vd-blind").replaceChildren(...bs.map((t) => mk("li", t)));
+  return { nd, bs };
 }
-P3REG.verdicts = renderVerdicts;
+P3API.limits = verdictLimits;
 
 // ------------------------------------------------------------------ Science context
 function scienceOurs(id) {
