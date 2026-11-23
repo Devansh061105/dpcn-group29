@@ -75,7 +75,7 @@ python -m dpcn run s13
   - **Team decision needed:** these 5 rows are 0.06% of the data. Fixing them means changing `s05_normalise.authorship_lab_method` (ignore e-mail text; exclude "Amity") and re-running `all --from s05`, which needs the full cache.
 - **Status (Deepraj):** the sample was regenerated with raw affiliations (the first version had none). `python -m dpcn.audit_precheck` added evidence columns. `precheck_byline` checks Crossref's author list, a second source. `precheck_affiliation` checks the OpenAlex raw affiliation text. `precheck_name` compares names.
   - 53 of 55 rows are consistent on all three. The 2 flagged rows are spelling variants, explained in `precheck_note`.
-  - **Still to do by hand:** open each DOI, then fill `verdict` and `checked_by`. The evidence makes this about 1 minute a row.
+  - **By hand (done, see Aman's status above):** open each DOI, then fill `verdict` and `checked_by`. The evidence makes this about 1 minute a row.
 - **File:** `data/manual/precision_audit.csv` holds 55 randomly chosen (paper, faculty) links, stratified by how the affiliation was matched.
 - **What to check for each row:**
   - open the DOI;

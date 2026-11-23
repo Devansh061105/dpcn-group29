@@ -3456,7 +3456,8 @@ P3API.about = function () {
   if (pr.length) {
     const all = pr.find((r) => r.method === "all") || pr[0];
     const big = mk("div", null, "bigstat"); big.append(mk("b", pct(all.precision, 0)), mk("span", `of ${all.checked} checked links are correct (95% CI ${pct(all.ci_lo, 0)}–${pct(all.ci_hi, 0)}). Checked by ${(a.checkers || []).join(", ") || "the team"}.`));
-    box.append(big);
+    box.append(big, mk("div", null, null));
+    box.lastChild.id = "t-ab-audit";
     table("t-ab-audit", pr, [{ title: "Matched by", field: "method" }, { title: "Checked", field: "checked", hozAlign: "right" }, { title: "Correct", field: "correct", hozAlign: "right" },
       { title: "Precision", field: "precision", hozAlign: "right", formatter: (c) => pct(c.getValue(), 0) }], { layout: "fitColumns" });
   } else {
