@@ -1,80 +1,101 @@
 # Facts from the science-of-science literature that the dashboard sets beside our own numbers ("Science context"
 # panel and the chatbot). Each entry: what the literature says, the source, and which of our results it is compared
 # with (`ours` names a result key the dashboard fills in). Team: please check every source before submission
-# (task.md, T-12) and add others you trust. Keep claims short and qualitative where the exact figure is uncertain.
+# (task.md, T-04) and add others you trust. Keep claims short and qualitative where the exact figure is uncertain.
 items:
   - id: lotka
     topic: Productivity
     claim: "Lotka's law: the number of authors who write n papers falls roughly as 1/n², so most authors write one or two papers and a few write very many."
     source: "Lotka, A. J. (1926). The frequency distribution of scientific productivity. J. Washington Acad. Sci. 16, 317–323."
+    checked: "Aman, 2026-11-23. Citation checked (J. Washington Acad. Sci. 16(12), 317–323); claim matches the inverse-square law."
     ours: law_lotka
   - id: price
     topic: Productivity
     claim: "Price's square-root law: about √N of N authors write half of all papers. Later tests found it rarely holds exactly."
     source: "de Solla Price, D. J. (1963). Little Science, Big Science. Columbia University Press."
+    checked: "Aman, 2026-11-23. Citation checked; the square-root law is stated in Little Science, Big Science."
     ours: law_price
   - id: bradford
     topic: Journals
     claim: "Bradford's law: if journals are ranked by output and split into three zones with equal papers, the zone sizes grow roughly as 1 : n : n²."
     source: "Bradford, S. C. (1934). Sources of information on specific subjects. Engineering 137, 85–86."
+    checked: "Aman, 2026-11-23. Citation checked (Engineering 137, 85–86); the 1 : n : n² zones are Bradford's own formulation."
     ours: law_bradford
   - id: seglen
     topic: Citations
     claim: "Citations are highly skewed: in Seglen's data the most cited 15% of articles drew about half of all citations, so a journal's impact factor says little about any single paper in it."
     source: "Seglen, P. O. (1997). Why the impact factor of journals should not be used for evaluating research. BMJ 314, 498–502."
+    checked: "Aman, 2026-11-23. Checked against Crossref and PubMed (BMJ 314(7079), 498–502); Seglen reports the most cited 15% of articles take 50% of citations."
     ours: law_seglen
   - id: matthew
     topic: Citations
     claim: "The Matthew effect: recognition flows to those who already have it, so early citation advantage compounds."
     source: "Merton, R. K. (1968). The Matthew effect in science. Science 159, 56–63."
+    checked: "Aman, 2026-11-23. Checked against Crossref (Science 159(3810), 56–63)."
     ours: null
   - id: teams
     topic: Teams
     claim: "Teams increasingly dominate the production of knowledge, and team papers are more highly cited than solo papers across fields."
     source: "Wuchty, S., Jones, B. F. & Uzzi, B. (2007). The increasing dominance of teams in production of knowledge. Science 316, 1036–1039."
+    checked: "Aman, 2026-11-23. Checked against Crossref (Science 316(5827), 1036–1039)."
     ours: team_size
   - id: newman
     topic: Networks
     claim: "Scientific collaboration networks are small worlds: short paths between scientists and far more clustering than a random network. The biomedical (MEDLINE) network was less clustered than physics or computer science."
     source: "Newman, M. E. J. (2001). The structure of scientific collaboration networks. PNAS 98, 404–409."
+    checked: "Aman, 2026-11-23. Checked against Crossref (PNAS 98(2), 404–409); the paper reports lower clustering for MEDLINE than for physics or computer science."
     ours: clustering
   - id: smallworld
     topic: Networks
     claim: "Small-world networks combine high clustering with short path lengths; a few long-range links are enough to shrink distances."
     source: "Watts, D. J. & Strogatz, S. H. (1998). Collective dynamics of 'small-world' networks. Nature 393, 440–442."
+    checked: "Aman, 2026-11-23. Checked against Crossref (Nature 393, 440–442)."
     ours: interventions
   - id: weakties
     topic: Networks
     claim: "Weak ties, links between otherwise separate groups, carry new information that strong ties inside a group do not."
     source: "Granovetter, M. S. (1973). The strength of weak ties. American Journal of Sociology 78, 1360–1380."
+    checked: "Aman, 2026-11-23. Checked against Crossref (AJS 78(6), 1360–1380)."
     ours: cross_lab
   - id: threshold
     topic: Spreading
     claim: "On networks with very heterogeneous degrees, the epidemic threshold shrinks towards zero: hubs let a process persist even when transmission is weak."
     source: "Pastor-Satorras, R. & Vespignani, A. (2001). Epidemic spreading in scale-free networks. Phys. Rev. Lett. 86, 3200–3203."
+    checked: "Aman, 2026-11-23. Checked against Crossref (PRL 86, 3200–3203)."
     ours: epi_threshold
   - id: kshell
     topic: Spreading
     claim: "The most efficient spreaders are those in the network's core (high k-shell), not necessarily the best-connected people."
     source: "Kitsak, M. et al. (2010). Identification of influential spreaders in complex networks. Nature Physics 6, 888–893."
+    checked: "Aman, 2026-11-23. Checked against Crossref (Nature Physics 6, 888–893)."
     ours: epi_spreaders
   - id: distance
     topic: Knowledge flow
     claim: "Citations between scientists fall with their distance in the co-authorship network: co-authors and co-authors of co-authors cite each other far more than chance."
-    source: "Singh, C. K. et al. (2020). Correlation between scientific collaboration and citation count at the paper level. (Course paper P3.)"
+    source: "Singh, C. K., Vasques Filho, D., Jolad, S. & O'Neale, D. R. J. (2020). Evolution of interdependent co-authorship and citation networks. Scientometrics 125, 385–404. (Course paper P3.)"
+    checked: "Aman, 2026-11-23. Corrected: the earlier title belonged to a different paper (Shen et al. 2021, a meta-analysis). Singh et al. 2020 checked against Crossref."
     ours: distance_lift
   - id: disparity
     topic: Methods
     claim: "The disparity filter keeps only the links that carry an unusually large share of a node's weight, revealing the backbone of a weighted network."
     source: "Serrano, M. Á., Boguñá, M. & Vespignani, A. (2009). Extracting the multiscale backbone of complex weighted networks. PNAS 106, 6483–6488."
+    checked: "Aman, 2026-11-23. Checked against Crossref (PNAS 106(16), 6483–6488)."
     ours: backbone
   - id: leiden
     topic: Methods
-    claim: "Responsible metrics: normalise citations by field and year, count credit fractionally for big teams, and report uncertainty instead of single ranks."
+    claim: "Responsible metrics: account for differences between fields with normalised indicators, avoid false precision (report uncertainty, not single ranks), and keep quantitative evaluation in support of expert judgement."
     source: "Hicks, D. et al. (2015). Bibliometrics: The Leiden Manifesto for research metrics. Nature 520, 429–431."
+    checked: "Aman, 2026-11-23. Checked against Crossref (Nature 520, 429–431). Claim reworded: the manifesto does not itself prescribe fractional counting (see the next item)."
     ours: mncs
   - id: fwci
     topic: Methods
     claim: "Field-weighted citation impact (FWCI) is 1 for the world average paper of the same field, year and type; 1.5 means 50% more cited than expected."
-    source: "OpenAlex / Elsevier SciVal definitions of FWCI."
+    source: "Elsevier (2019). Research Metrics Guidebook (Field-Weighted Citation Impact); OpenAlex documentation of the Work field `fwci`."
+    checked: "Aman, 2026-11-23. Definition checked: FWCI = citations received / citations expected for the same field, year and document type; 1.00 is the world average."
     ours: benchmark
+  - id: fractional
+    topic: Methods
+    claim: "Full counting gives every co-author of a paper all of its citations; fractional counting splits them, which stops consortium papers with hundreds of authors from dominating rankings. Field-normalised indicators are more consistent with fractional counting."
+    source: "Waltman, L. & van Eck, N. J. (2015). Field-normalized citation impact indicators and the choice of an appropriate counting method. Journal of Informetrics 9, 872–894."
+    checked: "Aman, 2026-11-23. Checked against Crossref (doi 10.1016/j.joi.2015.08.001)."
+    ours: null
