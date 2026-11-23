@@ -59,16 +59,20 @@ python -m dpcn run s13
 
 | # | Task | Owner (suggested) | Done |
 |---|---|---|---|
-| T-01 | Precision audit of the faculty–paper matching | Deepraj | ◐ evidence pre-filled; 55 verdicts to confirm |
-| T-02 | Check the "glue people" (top non-faculty bridges) | Aman | ☐ |
+| T-01 | Precision audit of the faculty–paper matching | Deepraj, Aman | ☑ 54 of 55 correct (98%, CI 90–100%); all 17 raw-text links also checked |
+| T-02 | Check the "glue people" (top non-faculty bridges) | Aman | ☑ 6 missing scientists, 1 merged profile found |
 | T-03 | Verify the peer-institute list | Devansh | ☑ done by Deepraj |
-| T-04 | Verify every source in the Science context page | Aman | ☐ |
+| T-04 | Verify every source in the Science context page | Aman | ☑ one citation corrected, one item added |
 | T-05 | Classify the remaining citing institutions by ownership | Devansh | ☑ done by Deepraj |
-| T-06 | Collect joining years for faculty (enables career-stage analysis) | Deepraj | ◐ worksheet built; years to decide |
-| T-07 | Fill the 6 unknown departments and check merged-profile flags | Devansh | ◐ evidence and merged profiles done (Deepraj); roster decision open |
+| T-06 | Collect joining years for faculty (enables career-stage analysis) | Deepraj, Aman | ◐ 106 of 294 filled from ORCID; the rest need annual reports |
+| T-07 | Fill the 6 unknown departments and check merged-profile flags | Devansh | ☑ kept on the roster as support roles (team decision); departments filled |
 | T-17 | Check the "Only here" coverage map against our reviews of the other groups | everyone | ◐ firsts checked (Deepraj); rest open |
 
 **T-01 · Precision audit (about 2–3 hours).**
+- **Status (Aman, 2026-11-23):** done. Each of the 55 papers was checked on OpenAlex and Crossref (PubMed for the doubtful ones).
+  - 54 are correct; 1 is wrong. Madhu Dikshit's 2023 BBA paper names only THSTI on her byline; CDRI appears only in her e-mail address. Precision 98% (95% CI 90–100%).
+  - All 17 raw-text links in the dataset were then checked (`data/manual/raw_string_review.csv`); 5 are wrong. The raw-text rule matches "cdri" inside an e-mail address (2 Dikshit papers at THSTI) and "microbial technology" inside "Amity Institute of Microbial Technology" (3 Rajeev Kumar Tyagi papers, 2018).
+  - **Team decision needed:** these 5 rows are 0.06% of the data. Fixing them means changing `s05_normalise.authorship_lab_method` (ignore e-mail text; exclude "Amity") and re-running `all --from s05`, which needs the full cache.
 - **Status (Deepraj):** the sample was regenerated with raw affiliations (the first version had none). `python -m dpcn.audit_precheck` added evidence columns. `precheck_byline` checks Crossref's author list, a second source. `precheck_affiliation` checks the OpenAlex raw affiliation text. `precheck_name` compares names.
   - 53 of 55 rows are consistent on all three. The 2 flagged rows are spelling variants, explained in `precheck_note`.
   - **Still to do by hand:** open each DOI, then fill `verdict` and `checked_by`. The evidence makes this about 1 minute a row.
@@ -83,6 +87,13 @@ python -m dpcn run s13
 - **Commit:** `Precision audit of 55 links`.
 
 **T-02 · Glue people (about 1 hour).**
+- **Status (Aman, 2026-11-23):** done; see `data/manual/glue_people_roles.csv`.
+  - **Students:** 4 (Bisen, Riyazuddin, Sristi Agrawal, Alka Raj Pandey).
+  - **Staff:** 3 (Konica Porwal, Suriya P. Singh, Ruchir Kant).
+  - **Scientists missing from the roster:** 6 (Anurag Agrawal, former IGIB director; Rituraj Konwar; Jawahar Lal; Himangsu K. Bora; Sharad Sharma; R. S. Ampapathi).
+  - **Merged profile:** "Divya Ramesh Singh" is our own CDRI-019 Divya Singh, whose 55 CDRI papers sit on a profile that s03 rejected as merged.
+  - **Unknown:** 1 (Akhilesh Kumar).
+  - **Tell the team:** the 6 missing scientists and Divya Singh's undercount are roster decisions.
 - **Source:** `outputs/stats/research_glue_people.csv` lists the 15 non-roster lab authors who link the most faculty pairs.
 - **What to look up:** for each person, use the lab website or Google Scholar to find whether they are a student, postdoc, technical staff or a scientist missing from our roster.
 - **What to record:** write the result in a new file `data/manual/glue_people_roles.csv` with columns `name, lab, role, source_url, checked_by`.
@@ -103,6 +114,11 @@ python -m dpcn run s13
 - **Commit:** `Peer list checked`.
 
 **T-04 · Science context sources (1 hour).**
+- **Status (Aman, 2026-11-23):** done. Every citation was checked against Crossref or PubMed, and each item now has a `checked` line.
+  - The "Singh et al. 2020" title belonged to another paper. It is now Singh, Vasques Filho, Jolad & O'Neale (2020), *Scientometrics* 125, 385–404.
+  - The Leiden Manifesto claim was reworded, because the manifesto does not itself prescribe fractional counting.
+  - The FWCI source is now concrete.
+  - Added Waltman & van Eck (2015) on fractional counting.
 - **File:** for every item in `data/manual/science_context.yaml`, open the source.
 - **What to check:** the claim matches what the paper says, and the citation (authors, year, journal, volume, pages) is right.
 - **What to edit:** fix anything wrong. Add one or two results you know from the course papers (P1–P10, see `papers_summary.md` in the shared folder).
@@ -119,6 +135,11 @@ python -m dpcn run s13
 - **Commit:** `Ownership for N more institutions`.
 
 **T-06 · Joining years (3 hours, can be shared).**
+- **Status (Aman, 2026-11-23):** 106 of 294 filled from the faculty's public ORCID employment records (`source_url` is the ORCID page).
+  - The earliest staff position at the lab counts. Ramalingaswami and Ramanujan fellowships count as independent PIs.
+  - ORCID dates that are clearly a later title (4+ years after OpenAlex places them at the lab) were left blank and noted.
+  - Implausible first-paper years (before 1980) are flagged as merged profiles.
+  - The other 188 need CSIR annual reports.
 - **Status (Deepraj):** `python -m dpcn.joining_worksheet` built `data/manual/joining_years.csv` (294 rows). It holds the OpenAlex first year at the lab (274 faculty) and the first paper year (272). For 29 CCMB faculty it also has PhD year, last postdoc year and experience, read from the CCMB website.
   - IGIB, IMTECH and CDRI pages do not give these.
   - Fill `joined_year`, `source_url` and `checked_by` there instead of in the roster. Re-running the script keeps what you typed.
@@ -130,6 +151,10 @@ python -m dpcn run s13
 - **Commit:** `Joining years for N faculty`.
 
 **T-07 · Departments and merged profiles (1 hour).**
+- **Status (Aman, 2026-11-23):** team decision: keep all five support-role scientists on the roster.
+  - Their departments are marked "(support)" in `faculty_roster.csv`.
+  - IGIB-035's page exists under a different spelling (ShivanshuKukrety.html): Scientist-C, assigned to IT Management.
+  - None of the six has papers, so no published number changes.
 - **Status (Deepraj):**
   - **Departments:** the 6 profile pages were read; the evidence is in `data/manual/department_review.csv`. Only Imtiyaz Yaseen heads a research group (host epigenetics in infection). Four IMTECH "faculty" are support scientists: patents, science communication, website, and one blank profile. IGIB-035's page is a 404.
   - **Team decision needed:** keep these four in the faculty roster, or drop them (this changes faculty counts). Then copy the departments into `faculty_roster.csv` and re-run `all --from s06`.
@@ -155,12 +180,13 @@ python -m dpcn run s13
 
 | # | Task | Owner (suggested) | Done |
 |---|---|---|---|
-| T-08 | Team interpretation for the new pages | everyone, one section each | ☐ |
+| T-08 | Team interpretation for the new pages | everyone, one section each | ☑ drafts for all six pages; everyone should read and reword |
 | T-09 | Read and rewrite `RESEARCH_FINDINGS.md` in our own words | Devansh | ☑ numbers verified (Deepraj); rewording optional |
-| T-10 | Update the report slides with the new results | Aman | ☐ |
+| T-10 | Update the report slides with the new results | Aman | ☑ separate 3-slide supplement (the report stays at the 10-slide limit) |
 | T-11 | Check each verdict's wording on Findings → Verdicts | Deepraj | ☑ |
 
 **T-08 · Team interpretation.**
+- **Status (Aman, 2026-11-23):** drafts written for `extras`, `verdicts`, `structure`, `dynamics`, `walks` and `benchmark`, each checked against the numbers it quotes. **Everyone should read them and put them in their own words before the viva.**
 - Each new page has an empty "Team interpretation" box. Fill it in `data/manual/phase2_notes.yaml` under these keys:
   - `extras` (More results);
   - `verdicts`;
@@ -182,6 +208,9 @@ python -m dpcn run s13
 - Mark anything you would not defend in a viva.
 
 **T-10 · Report slides.**
+- **Status (Aman, 2026-11-23):** done. The statistics report already has the assignment's maximum of 10 slides, so the three slides are a separate supplement, `outputs/report/group29_report_phase3.pptx` (and `.pdf`).
+  - They are built by `python -m dpcn run s14 --phase3-only` from `outputs/stats` only, so they need no interim data.
+  - The charts are native PowerPoint charts, not screenshots.
 - `python -m dpcn run s14` builds `outputs/report/`. It covers Phase II and s17, but not s23–s26 yet.
 - Add three slides:
   - **Dynamics:** lab walls cut cross-lab outbreak reach from 23% to 5%; a random walker needs 147 steps to leave its lab, against 10 by chance.
@@ -198,11 +227,12 @@ python -m dpcn run s13
 
 | # | Task | Owner (suggested) | Done |
 |---|---|---|---|
-| T-12 | Chatbot test: 30 questions | Aman | ☐ |
-| T-13 | Device and browser check | everyone | ☐ |
+| T-12 | Chatbot test: 30 questions | Aman | ☑ 21 → 30 of 30 after fixes |
+| T-13 | Device and browser check | everyone | ◐ Chromium at 1366, 1920 and phone width, light and dark; Firefox still to open |
 | T-14 | Live simulator sanity check | Devansh | ☑ done by Deepraj |
 
 **T-12 · Chatbot test.**
+- **Status (Aman, 2026-11-23):** done; see `data/manual/chatbot_tests.md`. 21 of 30 answers were right at first; the 9 failures were fixed in `chat.js`, and all 30 (plus 4 extra checks) are now right.
 - Open "Ask the data" and ask 30 questions a viva examiner might ask. Mix in:
   - names;
   - labs;
@@ -214,6 +244,10 @@ python -m dpcn run s13
 - Missing definitions can be added to `GLOSS` in `src/dpcn/dashboard/chat.js`. Bigger problems go to the team.
 
 **T-13 · Devices.**
+- **Status (Aman, 2026-11-23):** see `data/manual/device_check.md`.
+  - In Chromium at 1366, 1920 and 375 (phone) width, in light and dark, no page scrolls sideways.
+  - Two minor cosmetic issues are noted there.
+  - Firefox and a real phone are still to check.
 - Open the file on:
   - a laptop (1366 and 1920 wide);
   - a phone;
