@@ -42,7 +42,7 @@
     <div class="hero-stats" id="hero-stats"></div>
     <p class="team" id="team"></p>
     <div class="insts" id="insts"></div>
-    <button type="button" class="hero-cta" data-go="novelty">What only we did <span aria-hidden="true">→</span></button>
+    <button type="button" class="hero-cta" data-go="findings">Read the findings <span aria-hidden="true">→</span></button>
   </div>
 </header>
 <button class="to-top" id="to-top" type="button" aria-label="Back to top">↑</button>
@@ -62,14 +62,6 @@
 
 
   <section id="tab-novelty" class="tab" hidden>
-    <div class="card banner"><h2>How we know what is new</h2><p class="note">Our team read and reviewed the dashboards, code and reports of all 29 other groups in the course, one review per group, and catalogued every method, check and feature they used, with which groups used it (154 items). Each item is matched here to what we did. "First" means none of the 29 reviewed groups did it; "rare" means one or two did. We kept the common baseline too: everything nearly every group has is here as well. The map is a hand-made file the team can correct (data/manual/novelty_map.csv).</p></div>
-    <div class="kpis" id="nv-kpis"></div>
-    <div class="card"><h2>Firsts: what no other group did</h2><p class="note">Methods from the instructor's papers that no reviewed group carried out, and methods and features that appear in none of the 29 reviews. Each card links to its evidence.</p><div id="nv-firsts" class="nv-firsts"></div></div>
-    <div class="grid2">
-      <div class="card"><h2>Where we stand against the other 29 groups</h2><p class="note">Each dot is one method or feature from the catalogue, placed by how many other groups did it (left = rare). Filled = we did it; half = partly; hollow = not done. Hover for the item, click to open it.</p><div id="c-nv-strip" class="chart tall"></div></div>
-      <div class="card"><h2>Coverage by theme</h2><p class="note">For each theme of the catalogue: items we did that few groups did (rare or first), items most groups did that we also have, and gaps.</p><div id="c-nv-theme" class="chart tall"></div></div>
-    </div>
-    <h3 class="nv-sub">Results of the methods nobody else did</h3>
     <div class="grid2">
       <div class="card"><h2>P1 · How output varies over a career</h2><p class="note">Laplace scale of year-on-year changes in a faculty member's papers, by years since their first paper (career age from OpenAlex), with bootstrap 95% intervals. Bars: absolute; line: relative to mean output. Zhang et al. found variability falling over a career.</p><div id="c-nv-p1" class="chart"></div></div>
       <div class="card"><h2>P3 · Citations around the first joint paper</h2><p class="note">Mean yearly citations between two faculty, from 3 years before to 6 years after their first joint paper, against pairs with a co-author in common who never write together.</p><div id="c-nv-p3" class="chart"></div></div>
@@ -82,7 +74,6 @@
       <div class="card"><h2>P8 · Research-group sizes</h2><p class="note">Distribution of a PI's group size per year (distinct students, postdocs and staff on their papers). Gibrat's law says growth is independent of size.</p><div id="c-nv-p8" class="chart small"></div><div id="nv-p8" class="note"></div></div>
       <div class="card"><h2>P9 · Does early partner diversity pay off later?</h2><p class="note">Spearman correlation of 2016–20 partner-sector diversity with 2021–26 output and impact, against 2,000 reshuffles within lab and early-output group (grey band).</p><div id="c-nv-p9" class="chart small"></div></div>
     </div>
-    <div class="card"><h2>Every catalogued item and what we did</h2><p class="note">Filter by typing in a column header. Click a row to open the page.</p><div id="t-nv"></div></div>
   </section>
   <section id="tab-findings" class="tab" hidden>
     <div class="card banner"><h2>How to read this tab</h2>

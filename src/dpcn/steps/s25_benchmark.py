@@ -463,8 +463,7 @@ def run(cfg, oa, argv=()) -> None:
         "peer_medians": {m: float(b.loc[b["group"] == "peer", m].median()) for m in MAIN_METRICS + ["review_share"]},
         "gravity": {"distance_elasticity_joint_papers": el["joint_papers"],
                     "distance_elasticity_citations": el["citations"],
-                    "difference": el["joint_papers - citations"], **ginfo,
-                    "reference": "inspiration: another group reported -0.70 (joint papers) vs -0.17 (citations)"},
+                    "difference": el["joint_papers - citations"], **ginfo},
         "rca_top5": {s: rca[rca["short"] == s].head(5)[["subfield", "papers", "share", "india_share", "rca"]]
                      .to_dict("records") for s in b["short"]},
         "india_reference_works": india_total,

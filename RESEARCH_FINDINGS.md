@@ -166,9 +166,9 @@ These complement the course network models above. Rows 41–44 extend the SI/SIS
 
 **53–54. Geography and peers.** Distance matters twice as much for writing together as for citing. Against other Indian biology institutes, our labs have world-average-plus impact (FWCI 1.4–2.1) but rank in the lower half on top-10% papers, international co-authorship and growth.
 
-## Methods no other group used (step `s27`)
+## Tests from the course papers (step `s27`)
 
-Our team reviewed the projects of all 29 other groups and catalogued 154 methods and features with who used each (Phase III planning notes). Six methods from the instructor's papers were used by none of them; these are they. The dashboard's "Only here" page sets all of our work against that catalogue: 14 firsts (checked against the review files; three earlier candidates were done by one other group each and count as rare), 16 of the 38 rare items, 104 of 154 items fully and 22 partly, and all 50 items that six or more groups did.
+Six methods from the instructor's papers, run on our faculty data. The dashboard shows them on Overview → Course papers.
 
 | # | Finding | Test | Result |
 |---|---|---|---|
@@ -181,8 +181,8 @@ Our team reviewed the projects of all 29 other groups and catalogued 154 methods
 
 ## Paper-worthy directions
 
-1. **"Walls between labs, not departments: co-authorship homophily in Indian national laboratories."** Results 1, 6, 7 and 8, extended to more CSIR labs (other groups in the course cover many of them), would test whether the 55× lab effect is general. Data and code are in this repository.
-2. **"Self-citation distorts institutional citation centrality."** Results 2–3: a simple, reproducible correction with a large effect on rankings; could be shown across all groups' datasets.
+1. **"Walls between labs, not departments: co-authorship homophily in Indian national laboratories."** Results 1, 6, 7 and 8, extended to more CSIR labs, would test whether the 55× lab effect is general. Data and code are in this repository.
+2. **"Self-citation distorts institutional citation centrality."** Results 2–3: a simple, reproducible correction with a large effect on rankings; could be shown across other institutions' datasets.
 3. **"How far does knowledge travel inside an institute?"** Results 4–5: distance-decay of independent citation, with a field-stratified null that separates topic from proximity.
 4. **Credit in big science.** Results 9–10 and the hyperauthorship flags: how much of an Indian lab's visibility comes from middle-author positions in consortia, and what fractional counting changes.
 

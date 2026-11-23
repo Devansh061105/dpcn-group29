@@ -21,7 +21,7 @@ Tested by Aman on 2026-11-23, on the dashboard built from this commit. I asked 3
 
 ## Answers that were right in the first run
 
-1. what did we do that no other group did?
+1. what did we do that no other group did? (later removed, with the comparison page)
 2. h-index of Thangaraj
 3. who is Rajesh Pandey?
 4. compare CCMB and IGIB

@@ -516,7 +516,7 @@
     const MW = (P2 && P2.manual) || {};
     if (MW.roster) {
       const R = MW.roster, O = MW.overrides || {}, W = MW.ownership || {}, cl = (P2.cleaning_log || []);
-      add("h3", "How the dataset was built: the team's manual work");
+      add("h3", "How the dataset was built");
       add("p", "Every number on this dashboard rests on decisions the team made and recorded by hand in data/manual/ (version-controlled, one row per decision with its source). The code only applies them.");
       list([
         `Faculty roster (${fmt(R.total)} scientists): ${fmt(R.website)} copied from the four institutes' websites, ${fmt(R.from_papers)} added from the lab-affiliated papers they lead (frequent last or corresponding author) and confirmed by the team, ${R.other ? fmt(R.other) + " added in review; " : ""}${fmt(R.designation)} designations filled and ${fmt(R.former)} scientists marked as former, with the source noted.`,
@@ -572,8 +572,8 @@
     collab: ["Co-authorship", "Who writes with whom", "The faculty co-authorship network, its communities and its brokers."],
     instnet: ["Institutions & time", "Partners across India, and how the networks grew", "The partner-institution network with a year range, and the faculty network year by year."],
     flags: ["Flags", "Numbers that need a closer look", "Many-author papers, merged author profiles and heavy citing institutions, each with the evidence."],
-    about: ["About", "Data, methods and the team's work", "Sources, definitions, checks, and the manual work behind every number."],
-    novelty: ["Only here", "What no other group did, and the baseline we kept", "Every method and feature of the 29 other groups' projects, matched to ours: the firsts, the rare ones, and the common ground we cover too."],
+    about: ["About", "Data and methods", "Sources, definitions and checks behind every number."],
+    novelty: ["Course papers", "Methods from the course papers, on our labs", "Six tests from the instructor's papers: output over a career, citations around a first joint paper, whether co-authors cite each other, who changes the labs, research-group sizes and partner diversity."],
     extras: ["More results", "Journals, partners, citers and the laws of science", "Re-graded journals, which partners pay off, who cites and how, productivity as a random walk, and whether the headlines survive."],
     verdicts: ["Verdicts", "Every question, with a verdict", "What we asked, how we tested it, and whether the answer held up. Also what we did not do and what the numbers cannot show."],
     explorer: ["Filter & find", "Set any threshold, see who and what matches", "Years, author count, impact factor, citations, quartile, field, role and h-index: everything recomputes as you type."],

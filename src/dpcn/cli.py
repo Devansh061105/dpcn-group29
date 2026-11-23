@@ -42,7 +42,7 @@ STEPS: list[tuple[str, str]] = [
     ("s24", "s24_structure"),   # null-model table, communities, students, growth laws, link prediction
     ("s25", "s25_benchmark"),   # peer biology institutes from OpenAlex, specialisation, gravity model
     ("s26", "s26_extras"),      # journal re-grading, citers vs collaborators, completeness, fragility, explorer data
-    ("s27", "s27_firsts"),      # instructor-paper methods no other group did: P1 by career age, P8, P6, P3 event study, P9, P10
+    ("s27", "s27_firsts"),      # instructor-paper methods: P1 by career age, P8, P6, P3 event study, P9, P10
     ("s13", "s13_dashboard"),
     ("s14", "s14_report"),
     ("s15", "s15_validate"),

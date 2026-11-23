@@ -167,11 +167,8 @@ def phase2_bundle(cfg) -> dict | None:
         out["research"] = research
     if (st / "explorer.json").exists():                    # paper- and faculty-level data for Explorer, People, Compare
         out["explorer"] = json.loads((st / "explorer.json").read_text(encoding="utf-8"))
-    nov = cfg.paths.manual / "novelty_map.csv"            # what we did against the 29 other groups' projects (team reviews)
-    if nov.exists():
-        out["novelty"] = records(pd.read_csv(nov, keep_default_na=False, na_values=[""]))
     firsts = {f.stem.replace("first_", ""): records(pd.read_csv(f, keep_default_na=False, na_values=[""])) for f in sorted(st.glob("first_*.csv"))}
-    if firsts and (st / "first_summary.json").exists():    # instructor-paper methods no other group did (s27)
+    if firsts and (st / "first_summary.json").exists():    # instructor-paper methods (s27)
         firsts["summary"] = json.loads((st / "first_summary.json").read_text(encoding="utf-8"))
         out["firsts"] = firsts
     doc = cfg.root / "RESEARCH_FINDINGS.md"                # every tested result, for the chatbot's search

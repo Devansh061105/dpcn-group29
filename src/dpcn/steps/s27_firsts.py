@@ -1,4 +1,4 @@
-"""S27: methods from the instructor's papers that none of the 29 other reviewed groups did (inspiration.md, section 12).
+"""S27: methods from the instructor's papers, run on our labs (inspiration.md, section 12).
 
   F1 P1, the full random walk   variance of yearly output changes by career-age bin (years since a faculty member's
                                 first OpenAlex paper, from s20), with a faculty-block bootstrap and a permutation test;

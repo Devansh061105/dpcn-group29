@@ -66,7 +66,7 @@ python -m dpcn run s13
 | T-05 | Classify the remaining citing institutions by ownership | Devansh | ☑ done by Deepraj |
 | T-06 | Collect joining years for faculty (enables career-stage analysis) | Deepraj, Aman | ◐ 106 of 294 filled from ORCID; the rest need annual reports |
 | T-07 | Fill the 6 unknown departments and check merged-profile flags | Devansh | ☑ kept on the roster as support roles (team decision); departments filled |
-| T-17 | Check the "Only here" coverage map against our reviews of the other groups | everyone | ◐ firsts checked (Deepraj); rest open |
+| T-17 | Check the "Only here" coverage map against our reviews of the other groups | everyone | ☒ dropped: the comparison with other groups was removed from the dashboard (team decision, 2026-11-23); the six course-paper results stay on Overview → Course papers |
 
 **T-01 · Precision audit (about 2–3 hours).**
 - **Status (Aman, 2026-11-23):** done. Each of the 55 papers was checked on OpenAlex and Crossref (PubMed for the doubtful ones).

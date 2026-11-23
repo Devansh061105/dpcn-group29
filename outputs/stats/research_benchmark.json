@@ -419,8 +419,7 @@
     "partners_without_geo": 0,
     "joint_papers_total": 6663,
     "citations_total": 60266,
-    "median_distance_km": 1081.5752019249012,
-    "reference": "inspiration: another group reported -0.70 (joint papers) vs -0.17 (citations)"
+    "median_distance_km": 1081.5752019249012
   },
   "rca_top5": {
     "CSIR-CCMB": [

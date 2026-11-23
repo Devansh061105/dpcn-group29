@@ -606,60 +606,10 @@ function renderBenchmark() {
 P3REG.benchmark = renderBenchmark;
 
 
-// ------------------------------------------------------------------ Only here: firsts against the 29 other groups
-const NOV = (D.p2 && D.p2.novelty) || [];
+// ------------------------------------------------------------------ Course papers: the instructor-paper methods (s27)
 const FIRST = (D.p2 && D.p2.firsts) || null;
-const tierOf = (r) => r.other_groups < 0 ? "baseline" : r.other_groups === 0 ? "first" : r.other_groups <= 2 ? "rare" : r.other_groups <= 5 ? "uncommon" : "common";
-const TIER = { first: ["First", "nobody else"], rare: ["Rare", "1–2 groups"], uncommon: ["Uncommon", "3–5 groups"], common: ["Common", "6+ groups"], baseline: ["Baseline", "nearly all groups"] };
-const DOCKEY = [[/RSiena/, "Finding 40:"], [/Specification curve/, "Finding 22:"], [/Guimerà/, "Finding 31:"], [/Tie survival/, "Finding 32:"],
-  [/author-matching errors/, "Finding 34:"], [/Time-respecting/, "Finding 35:"], [/first-passage/, "Finding 44:"], [/k-shell/, "Finding 43:"], [/outbreak simulator/, "Finding 41:"]];
-function docResult(item) {
-  const bb = ((RJ.extras || {}).backbone) || {}, hf = ((RJ.extras || {}).h_filtered) || {};
-  if (/backbone/.test(item) && bb.edges) return `Keeps ${fmt(bb.backbone_edges)} of ${fmt(bb.edges)} institution links, carrying ${pct(bb.weight_kept, 0)} of the joint-paper weight.`;
-  if (/h-index recomputed/.test(item) && hf.faculty_h_gt10_lt100 !== undefined) return `e.g. ${hf.faculty_h_gt10_lt100} faculty keep an h-index above 10 on papers with fewer than 100 authors (${hf.faculty_h_gt10_all} on all papers); any threshold works.`;
-  const k = DOCKEY.find(([re]) => re.test(item)); if (!k) return "";
-  const row = (((D.p2 || {}).findings_doc) || []).find((r) => r.text.startsWith(k[1])); if (!row) return "";
-  const m = row.text.match(/Result: (.*)\.$/); return m ? m[1].charAt(0).toUpperCase() + m[1].slice(1) + "." : "";
-}
 function renderNovelty() {
-  if (!NOV.length) { el("nv-firsts").replaceChildren(mk("p", "Add data/manual/novelty_map.csv.", "muted")); return; }
-  const cat = NOV.filter((r) => /^\d/.test(r.id)), firsts = NOV.filter((r) => r.other_groups === 0), base = NOV.filter((r) => r.other_groups < 0);
-  const yes = (r) => r.ours === "yes", part = (r) => r.ours === "partial";
-  const common = cat.filter((r) => r.other_groups >= 6), rare = cat.filter((r) => r.other_groups > 0 && r.other_groups <= 2);
-  kpis("nv-kpis", [["Firsts", fmt(firsts.length), "methods and features no other group did"],
-    ["Rare, and we did them", fmt(rare.filter(yes).length), `of ${rare.length} items only 1–2 groups did`],
-    ["Catalogue covered", `${fmt(cat.filter(yes).length)} / ${fmt(cat.length)}`, `plus ${fmt(cat.filter(part).length)} in part`],
-    ["Common ground kept", `${fmt(common.filter((r) => yes(r) || part(r)).length)} / ${fmt(common.length)}`, "items 6+ groups did"],
-    ["Baseline kept", `${fmt(base.filter(yes).length)} / ${fmt(base.length)}`, "what nearly every group has"]]);
-  const fs = (FIRST && FIRST.summary && FIRST.summary.findings) || [];
-  const resOf = (code) => { const t = (fs.find((x) => x.startsWith(code + " ")) || "").replace(/^P\d+ [^:]*: /, ""); return t.charAt(0).toUpperCase() + t.slice(1); };
-  const box = el("nv-firsts"); box.replaceChildren();
-  firsts.forEach((r) => {
-    const c = mk("button", null, "nv-first"); c.type = "button";
-    c.append(mk("span", r.id === "new" ? "new method" : `course paper ${r.id}`, "nv-tag"), mk("h3", r.item));
-    const res = r.id.startsWith("P") ? resOf(r.id) : docResult(r.item); if (res) c.append(mk("p", pretty(res)));
-    c.append(mk("span", `${r.what_we_did} · open →`, "nv-go"));
-    c.addEventListener("click", () => { show(r.page); window.scrollTo(0, 0); }); box.append(c); });
-  // strip: every catalogue item by number of other groups
-  const jit = (i) => ((i * 9301 + 49297) % 233280) / 233280 - 0.5;
-  const ST = { yes: ["we did it", css("--lab-1"), "circle"], partial: ["partly", css("--lab-4"), "circle"], no: ["not done", css("--muted"), "circle-open"] };
-  const themes = [...new Set(cat.map((r) => r.theme))];
-  plot("c-nv-strip", Object.entries(ST).map(([k, [name, col, sym]]) => { const rr = cat.filter((r) => r.ours === k);
-    return { type: "scatter", mode: "markers", name, x: rr.map((r, i) => Math.min(r.other_groups, 12) + 0.55 * jit(i + 7 * r.other_groups)), y: rr.map((r, i) => themes.indexOf(r.theme) + 0.6 * jit(i * 3 + 1)),
-      customdata: rr.map((r) => [r.item, r.other_groups, r.what_we_did || "", r.page]), marker: { size: 11, color: col, symbol: sym, line: { width: 1.5, color: col }, opacity: 0.85 },
-      hovertemplate: "<b>%{customdata[0]}</b><br>%{customdata[1]} other groups<br>%{customdata[2]}<extra></extra>" }; }),
-    { xaxis: { title: "Other groups that did it (of 29)", range: [0.3, 12.6], dtick: 1 }, yaxis: { tickvals: themes.map((_, i) => i), ticktext: themes, autorange: "reversed", automargin: true, zeroline: false },
-      margin: { l: 10, r: 10, t: 40, b: 50 },
-      shapes: [{ type: "rect", xref: "x", yref: "paper", x0: 0.3, x1: 2.5, y0: 0, y1: 1, fillcolor: css("--lab-2"), opacity: 0.07, line: { width: 0 } }],
-      annotations: [{ xref: "x", yref: "paper", x: 1.4, y: 1.0, yanchor: "bottom", showarrow: false, text: "rare", font: { size: 12, color: css("--muted") } }] });
-  el("c-nv-strip").on?.("plotly_click", (ev) => { const pg = ev.points[0].customdata[3]; if (pg) { show(pg); window.scrollTo(0, 0); } });
-  const th = [...themes, "Common baseline"];
-  const cnt = (t, f) => NOV.filter((r) => r.theme === t && f(r)).length;
-  plot("c-nv-theme", [["first or rare, done", (r) => r.other_groups >= 0 && r.other_groups <= 2 && r.ours !== "no" && /^\d/.test(r.id), css("--lab-2")],
-    ["common or baseline, done", (r) => (r.other_groups > 2 || r.other_groups < 0) && r.ours !== "no", css("--lab-1")],
-    ["not done", (r) => r.ours === "no", css("--axis")]].map(([n, f, c]) => ({ type: "bar", orientation: "h", name: n, y: th, x: th.map((t) => cnt(t, f)), marker: { color: c },
-      hovertemplate: `%{y}: %{x} ${n}<extra></extra>` })), { barmode: "stack", yaxis: { autorange: "reversed", automargin: true }, xaxis: { title: "Catalogue items" }, margin: { l: 10, r: 10, t: 40, b: 50 } });
-  // the firsts' results
+  // P1, P3, P6, P10, P8 and P9 from the course papers
   if (FIRST) {
     const P1 = FIRST.p1_career || [];
     plot("c-nv-p1", [{ type: "bar", name: "absolute swing (papers)", x: P1.map((r) => r.career_age), y: P1.map((r) => r.laplace_alpha), marker: { color: css("--lab-3") },
@@ -696,13 +646,6 @@ function renderNovelty() {
       customdata: P9.map((r) => [r.null_mean, r.p]), hovertemplate: "Spearman %{x:.2f}<br>reshuffled mean %{customdata[0]:.2f}, p = %{customdata[1]:.2f}<extra></extra>" }],
       { xaxis: { title: "Spearman with early partner diversity (grey: reshuffled 95% range)", zeroline: true }, yaxis: { automargin: true }, showlegend: false, margin: { l: 10, r: 10, t: 10, b: 50 } });
   }
-  const t = table("t-nv", NOV.map((r) => Object.assign({}, r, { tier: TIER[tierOf(r)][0], groups: r.other_groups < 0 ? "most" : r.other_groups })), [
-    { title: "Item", field: "item", formatter: "textarea", widthGrow: 4, minWidth: 240, headerFilter: "input" }, { title: "Theme", field: "theme", headerFilter: "input", widthGrow: 2 },
-    { title: "Other groups", field: "groups", hozAlign: "right", sorter: (a, b) => (a === "most" ? 99 : a) - (b === "most" ? 99 : b) },
-    { title: "Tier", field: "tier", headerFilter: "input", formatter: (c) => mk("span", c.getValue(), `badge ${{ First: "ok", Rare: "ok", Uncommon: "mid", Common: "mid", Baseline: "mid" }[c.getValue()]}`) },
-    { title: "Ours", field: "ours", headerFilter: "input", formatter: (c) => mk("span", { yes: "done", partial: "partly", no: "not done" }[c.getValue()], `badge ${{ yes: "ok", partial: "mid", no: "no" }[c.getValue()]}`) },
-    { title: "What we did", field: "what_we_did", formatter: "textarea", widthGrow: 3 }], { layout: "fitColumns", initialSort: [{ column: "groups", dir: "asc" }] });
-  if (t) t.on("rowClick", (e, row) => { const pg = row.getData().page; if (pg) { show(pg); window.scrollTo(0, 0); } });
 }
 P3REG.novelty = renderNovelty;
 
