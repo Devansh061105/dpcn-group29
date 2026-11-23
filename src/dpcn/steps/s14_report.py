@@ -521,21 +521,138 @@ def build(cfg, T) -> Presentation:
     return d.p
 
 
+def build_phase3(cfg) -> Presentation | None:
+    """Three supplementary slides on the Phase III results (steps s23-s25): spreading, structure, peer benchmark.
+
+    Kept out of the 10-slide statistics report (the assignment's limit); reads only outputs/stats, so it can be
+    rebuilt without data/interim."""
+    st = cfg.paths.stats
+    need = ["research_epi_crosslab.csv", "research_epi_intervention.csv", "research_dynamics.json", "research_students_glue.csv",
+            "research_structure.json", "research_benchmark.csv", "research_benchmark.json", "research_gravity.csv"]
+    if any(not (st / n).exists() for n in need):
+        log.warning("Phase III outputs missing (run s23-s25); supplementary slides skipped")
+        return None
+    labs = [l["short"] for l in cfg.labs]
+    d = Deck()
+
+    # A ---- spreading and random walks (s23)
+    dy = json.loads((st / "research_dynamics.json").read_text(encoding="utf-8"))
+    ep = pd.read_csv(st / "research_epi_crosslab.csv")
+    ep = ep[ep.seed_lab != ep.target_lab]
+    reach = ep.groupby(["seed_lab", "network"])["p_reach"].mean().unstack()
+    tot = ep.groupby("network")["p_reach"].mean()
+    s = d.slide("Dynamics: the lab walls slow anything that spreads",
+                kicker=f"SIR outbreaks and random walks on the faculty co-authorship network, real vs degree-preserving rewired")
+    d.chart(s, XL_CHART_TYPE.COLUMN_CLUSTERED, [short(l) for l in labs],
+            {"Real network": [float(reach.loc[l, "observed"]) for l in labs],
+             "Rewired (same degrees)": [float(reach.loc[l, "rewired"]) for l in labs]},
+            0.5, 1.6, 6.6, 4.6, colors=["16323A", "9FC3C9"], number_format="0%", labels=True, gap=60)
+    d.text(s, "Chance that an outbreak seeded in a lab reaches another lab (mean over target labs, 1,000 runs each)",
+           0.6, 6.25, 6.5, 0.6, size=11, color=INK2, italic=True)
+    th = dy["threshold_numeric"]
+    rw = dy.get("random_walk") or {}
+    mf = pd.read_csv(st / "research_rw_mfpt.csv") if (st / "research_rw_mfpt.csv").exists() else None
+    mf_obs = float(mf["mfpt_obs"].mean()) if mf is not None else float("nan")
+    mf_null = float(mf["mfpt_null_mean"].mean()) if mf is not None else float("nan")
+    iv = pd.read_csv(st / "research_epi_intervention.csv")
+    k = int(iv["k"].max())
+    best = iv[iv.k == k].sort_values("reach_mean", ascending=False).iloc[0]
+    d.stat(s, 7.5, 1.6, 2.55, f"{tot['observed']:.0%} vs {tot['rewired']:.0%}", "outbreaks reaching another lab")
+    d.stat(s, 10.25, 1.6, 2.55, f"{mf_obs:.0f} vs {mf_null:.0f}", "random-walk steps to leave a lab")
+    d.bullets(s, [f"Epidemic threshold λc = {th['observed']:.3f} on the real network vs {th['rewired']:.3f} rewired and "
+                  f"{th['ER']:.3f} random: hubs make spreading easier, the walls keep it inside one lab.",
+                  f"Outbreak size from a single seed is best predicted by {dy['best_centrality']} centrality (Spearman "
+                  f"{dy['influence_spearman'][dy['best_centrality']]['rho_sir']:.2f}; k-shell {dy['influence_spearman']['kshell']['rho_sir']:.2f}, "
+                  f"degree {dy['influence_spearman']['degree']['rho_sir']:.2f}).",
+                  f"Adding {k} cross-lab links ({best['strategy']}) raises cross-lab reach from "
+                  f"{iv[iv.k == 0]['reach_mean'].iloc[0]:.0%} to {best['reach_mean']:.0%}.",
+                  "An infection is an analogy for ideas or methods passing along joint papers."],
+              7.5, 3.1, 5.3, 3.8, size=13)
+
+    # B ---- structure (s24)
+    sj = json.loads((st / "research_structure.json").read_text(encoding="utf-8"))
+    sg = pd.read_csv(st / "research_students_glue.csv").set_index(["scope", "metric"])
+    cl = sg.loc[("ALL", "cross-lab share of links")]
+    s = d.slide("Structure: students and staff are the glue between labs",
+                kicker="Faculty network with and without links through non-faculty lab authors, and against a bipartite (paper-level) null")
+    d.chart(s, XL_CHART_TYPE.BAR_CLUSTERED,
+            ["Faculty only", "+ short-tenure authors", "+ non-faculty (2+ mediators)", "+ all non-faculty lab authors"][::-1],
+            {"Cross-lab share of links": [float(cl["faculty_only"]), float(cl["with_short_tenure_only"]),
+                                         float(cl["with_students_2plus_mediators"]), float(cl["with_students"])][::-1]},
+            0.5, 1.6, 6.4, 4.4, colors=["16323A"], legend=False, number_format="0.0%", labels=True, gap=50)
+    d.text(s, "Cross-lab share of faculty links when two faculty are joined through a student, postdoc or staff co-author",
+           0.6, 6.1, 6.3, 0.6, size=11, color=INK2, italic=True)
+    nt = pd.read_csv(st / "research_null_table.csv") if (st / "research_null_table.csv").exists() else None
+    fr, ct = sj["fragility"], sj["contagion"]["contagion"]
+    prior = next(v for k_, v in ct.items() if k_.startswith("prior"))
+    fut = next(v for k_, v in ct.items() if "future" in k_)
+    items = []
+    if nt is not None:
+        c = nt[nt.metric.str.contains("clustering", case=False)]
+        bip = c[c.model.str.contains("bipartite|paper", case=False)]
+        if len(bip):
+            items.append(f"Clustering {bip.iloc[0]['observed']:.2f} vs {bip.iloc[0]['null_mean']:.2f} when papers are reshuffled "
+                         "with their team sizes: most triangles come from multi-faculty papers, the rest is real triadic closure.")
+    items += [f"{fr['cross_lab_single_paper_share']:.0%} of the {fr['cross_lab_links']} cross-lab faculty links rest on a single joint paper.",
+              f"Topics spread to co-authors (relative risk {prior['rr']:.1f}) no more than to future co-authors ({fut['rr']:.1f}): homophily, not influence.",
+              "Communities match the labs (NMI 0.64) better than departments (0.52)."]
+    d.bullets(s, items, 7.3, 1.6, 5.5, 5.3, size=14)
+
+    # C ---- peer benchmark (s25)
+    bm = pd.read_csv(st / "research_benchmark.csv").sort_values("mean_fwci")
+    bj = json.loads((st / "research_benchmark.json").read_text(encoding="utf-8"))
+    gr = pd.read_csv(st / "research_gravity.csv")
+    el = {o: gr[(gr.outcome == o) & (gr.term == "log_distance")]["coef"].iloc[0] for o in ("joint_papers", "citations")}
+    s = d.slide("Benchmark: our labs among 17 Indian biology institutes",
+                kicker=f"Whole-institute output, identical OpenAlex query, {bj['window']['start']}–{bj['window']['end']} "
+                       f"({bj['window']['partial_year']} partial); FWCI 1 = world average for the field and year")
+    ch = d.chart(s, XL_CHART_TYPE.BAR_CLUSTERED, [r.short.replace("CSIR-", "") for r in bm.itertuples()],
+                 {"Mean FWCI": [float(v) for v in bm["mean_fwci"]]}, 0.5, 1.55, 6.4, 5.4, colors=["9FC3C9"], legend=False,
+                 number_format="0.0", labels=True, gap=35)
+    for i, r in enumerate(bm.itertuples()):
+        if r.group == "ours":
+            pt = ch.plots[0].series[0].points[i]
+            pt.format.fill.solid()
+            pt.format.fill.fore_color.rgb = rgb(LAB_HEX.get(r.short, "16323A"))
+    R = bj["ranks_of_our_labs"]
+    d.bullets(s, ["Mean FWCI ranks: " + ", ".join(f"{short(l)} {R[l]['mean_fwci']['rank']}" for l in labs) + " of 17; "
+                  f"the peer median is {bj['peer_medians']['mean_fwci']:.2f}.",
+                  "On the median FWCI the ranks fall, because a few consortium papers carry the means (CCMB 4th on the mean, 14th on the median).",
+                  f"CDRI has the largest output of the 17 but ranks {R['CSIR-CDRI']['mean_fwci']['rank']} on mean FWCI.",
+                  "All four labs shrank in output (" + ", ".join(f"{short(l)} {R[l]['cagr']['value']:+.1%}" for l in labs)
+                  + f" a year) while the median peer grew {bj['peer_medians']['cagr']:+.1%}.",
+                  f"Within India, joint papers fall with distance with elasticity {el['joint_papers']:.2f}, citations only "
+                  f"{el['citations']:.2f}: collaboration decays about twice as fast as citation."],
+              7.2, 1.6, 5.6, 5.4, size=13)
+    return d.p
+
+
 def run(cfg, oa, argv=()) -> None:
-    T = load(cfg)
-    prs = build(cfg, T)
-    if len(prs.slides) > 10:
-        raise StepFailed(f"report has {len(prs.slides)} slides; the limit is 10")
     out_dir = cfg.paths.report
     out_dir.mkdir(parents=True, exist_ok=True)
-    path = out_dir / f"group{cfg.group}_report.pptx"
-    prs.save(path)
-    print(f"\n{cfg.rel(path)}: {len(prs.slides)} slides")
+    if "--phase3-only" not in argv:
+        T = load(cfg)
+        prs = build(cfg, T)
+        if len(prs.slides) > 10:
+            raise StepFailed(f"report has {len(prs.slides)} slides; the limit is 10")
+        path = out_dir / f"group{cfg.group}_report.pptx"
+        prs.save(path)
+        print(f"\n{cfg.rel(path)}: {len(prs.slides)} slides")
+        _to_pdf(cfg, out_dir, path)
+    sup = build_phase3(cfg)
+    if sup is not None:
+        p3 = out_dir / f"group{cfg.group}_report_phase3.pptx"
+        sup.save(p3)
+        print(f"{cfg.rel(p3)}: {len(sup.slides)} supplementary slides (outside the 10-slide report)")
+        _to_pdf(cfg, out_dir, p3)
+
+
+def _to_pdf(cfg, out_dir, path) -> None:
     soffice = shutil.which("soffice") or shutil.which("libreoffice")
     if soffice:
         subprocess.run([soffice, "--headless", "--convert-to", "pdf", "--outdir", str(out_dir), str(path)],
                        capture_output=True, timeout=300)
-        if (out_dir / f"group{cfg.group}_report.pdf").exists():
-            print(f"{cfg.rel(out_dir / f'group{cfg.group}_report.pdf')} written")
+        if path.with_suffix(".pdf").exists():
+            print(f"{cfg.rel(path.with_suffix('.pdf'))} written")
     else:
         log.warning("LibreOffice not found; export the PDF from PowerPoint by hand")
