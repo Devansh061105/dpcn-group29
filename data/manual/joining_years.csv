@@ -1,109 +1,109 @@
 faculty_id,name,lab,status,designation,profile_url,openalex_first_year_at_lab,first_paper_year,phd_year,last_postdoc_year,experience_years,joined_year,source_url,checked_by,notes
 CCMB-001,A S Sreedhar,CSIR-CCMB,current,Scientist-G,https://www.ccmb.res.in/people-details?id=2,1999,1994,2004,2007,27,,,,
 CCMB-002,Ajay Gaur,CSIR-CCMB,current,Scientist-G,https://www.ccmb.res.in/people-details?id=4,2002,2002,,1998,,,,,
-CCMB-003,Amitabha Chattopadhyay,CSIR-CCMB,current,CSIR Bhatnagar Fellow,https://www.ccmb.res.in/people-details?id=328,1990,1973,1987,1987,,,,,
-CCMB-004,Anant Bahadur Patel,CSIR-CCMB,current,Scientist-G,https://www.ccmb.res.in/people-details?id=1,2010,1969,1999,1999,,,,,
+CCMB-003,Amitabha Chattopadhyay,CSIR-CCMB,current,CSIR Bhatnagar Fellow,https://www.ccmb.res.in/people-details?id=328,1990,1973,1987,1987,,,,,First OpenAlex paper year 1973 is implausibly early: a namesake is probably merged into one of the profiles.
+CCMB-004,Anant Bahadur Patel,CSIR-CCMB,current,Scientist-G,https://www.ccmb.res.in/people-details?id=1,2010,1969,1999,1999,,2006,https://orcid.org/0000-0002-9551-9395,Aman,Project Leader & Senior Scientist from 2006 (the filter had skipped the word 'Project'). First OpenAlex paper year 1969 is implausibly early: a namesake is probably merged into one of the profiles.
 CCMB-005,B Kiran Kumar,CSIR-CCMB,current,Scientist-E,https://www.ccmb.res.in/people-details?id=3,2014,2003,2008,2008,,,,,
-CCMB-006,C B Tripura,CSIR-CCMB,current,Scientist-E,https://www.ccmb.res.in/people-details?id=5,2011,2007,2006,2006,,,,,
-CCMB-007,Dhananjay Chaturvedi,CSIR-CCMB,current,Scientist-E,https://www.ccmb.res.in/people-details?id=28,2024,2013,,,,,,,
+CCMB-006,C B Tripura,CSIR-CCMB,current,Scientist-E,https://www.ccmb.res.in/people-details?id=5,2011,2007,2006,2006,,2008,https://orcid.org/0000-0003-2766-0861,Aman,ORCID employment: Principal Scientist from 2008.
+CCMB-007,Dhananjay Chaturvedi,CSIR-CCMB,current,Scientist-E,https://www.ccmb.res.in/people-details?id=28,2024,2013,,,,2022,https://orcid.org/0000-0002-3957-1236,Aman,ORCID employment: Senior Scientist/Assistant Professor from 2022.
 CCMB-008,Divya Tej Sowpati,CSIR-CCMB,current,Scientist-E,https://www.ccmb.res.in/people-details?id=33,2014,2008,2012,2012,,,,,
 CCMB-009,G R Chandak,CSIR-CCMB,current,J C Bose Fellow,https://www.ccmb.res.in/people-details?id=361,1999,1999,2009,1994,,,,,
-CCMB-010,G Umapathy,CSIR-CCMB,current,Scientist-G,https://www.ccmb.res.in/people-details?id=35,2003,1995,1998,1999,,,,,
-CCMB-011,Hitendra Kumar Patel,CSIR-CCMB,current,Scientist-G,https://www.ccmb.res.in/people-details?id=49,2009,2003,,,,,,,
+CCMB-010,G Umapathy,CSIR-CCMB,current,Scientist-G,https://www.ccmb.res.in/people-details?id=35,2003,1995,1998,1999,,2000,https://orcid.org/0000-0003-4086-7445,Aman,ORCID employment: Dr from 2000.
+CCMB-011,Hitendra Kumar Patel,CSIR-CCMB,current,Scientist-G,https://www.ccmb.res.in/people-details?id=49,2009,2003,,,,2004,https://orcid.org/0009-0003-4016-4739,Aman,ORCID employment: Senior Principal Scientist from 2004.
 CCMB-012,Imran Siddiqi,CSIR-CCMB,current,Emeritus Scientist,https://www.ccmb.res.in/people-details?id=300,1998,1995,,,,,,,
 CCMB-013,Ira Bhatnagar,CSIR-CCMB,current,Scientist-F,https://www.ccmb.res.in/people-details?id=293,2009,2009,,,21,,,,
-CCMB-014,Ishwariya Venkatesh,CSIR-CCMB,current,Scientist-D,https://www.ccmb.res.in/people-details?id=50,2024,2014,,2014,,,,,
-CCMB-015,Jahnavi Joshi,CSIR-CCMB,current,Scientist-E,https://www.ccmb.res.in/people-details?id=51,2020,2005,2012,2017,,,,,
+CCMB-014,Ishwariya Venkatesh,CSIR-CCMB,current,Scientist-D,https://www.ccmb.res.in/people-details?id=50,2024,2014,,2014,,2023,https://orcid.org/0000-0003-0084-8354,Aman,ORCID employment: Senior Scientist/ Asst Professor from 2023.
+CCMB-015,Jahnavi Joshi,CSIR-CCMB,current,Scientist-E,https://www.ccmb.res.in/people-details?id=51,2020,2005,2012,2017,,2020,https://orcid.org/0000-0002-6015-4138,Aman,ORCID employment: Senior Scientist from 2020.
 CCMB-016,K Thangaraj,CSIR-CCMB,current,CSIR Bhatnagar Fellow,https://www.ccmb.res.in/people-details?id=333,1998,1992,,,,,,,
 CCMB-017,Karthik Bharadwaj,CSIR-CCMB,current,Scientist-D,https://www.ccmb.res.in/people-details?id=53,,,,2018,,,,,
-CCMB-018,Karthikeyan Vasudevan,CSIR-CCMB,current,Scientist-G,https://www.ccmb.res.in/people-details?id=54,2014,2001,2001,2000,,,,,
+CCMB-018,Karthikeyan Vasudevan,CSIR-CCMB,current,Scientist-G,https://www.ccmb.res.in/people-details?id=54,2014,2001,2001,2000,,2013,https://orcid.org/0000-0003-2316-3382,Aman,ORCID employment: Chief Scientist from 2013.
 CCMB-019,Krishnan H Harshan,CSIR-CCMB,current,Scientist-F,https://www.ccmb.res.in/people-details?id=61,2014,2013,2003,2002,,,,,
-CCMB-020,M Mohammed Idris,CSIR-CCMB,current,Scientist-G,https://www.ccmb.res.in/people-details?id=63,2005,2005,2008,,,,,,
-CCMB-021,Mandar V Deshmukh,CSIR-CCMB,current,Scientist-G,https://www.ccmb.res.in/people-details?id=64,2010,1993,,,,,,,
+CCMB-020,M Mohammed Idris,CSIR-CCMB,current,Scientist-G,https://www.ccmb.res.in/people-details?id=63,2005,2005,2008,,,2000,https://orcid.org/0000-0002-1462-3458,Aman,ORCID employment: Senior Principal Scientist from 2000.
+CCMB-021,Mandar V Deshmukh,CSIR-CCMB,current,Scientist-G,https://www.ccmb.res.in/people-details?id=64,2010,1993,,,,2006,https://orcid.org/0000-0003-2447-9725,Aman,ORCID employment: Scientist from 2006.
 CCMB-022,Manjula Reddy,CSIR-CCMB,current,J C Bose Fellow,https://www.ccmb.res.in/people-details?id=100,1997,1991,2001,,,,,,
 CCMB-023,Megha Kumar,CSIR-CCMB,current,Scientist-E,https://www.ccmb.res.in/people-details?id=309,2007,2007,2012,2017,,,,,
 CCMB-024,Mukesh Lodha,CSIR-CCMB,current,Scientist-E,https://www.ccmb.res.in/people-details?id=156,2017,1999,,,,,,,
-CCMB-025,Nitin C Tupperwar,CSIR-CCMB,current,Scientist-F,https://www.ccmb.res.in/people-details?id=188,2008,2005,2020,,,,,,
-CCMB-026,P Anuradha Reddy,CSIR-CCMB,current,Scientist-F,https://www.ccmb.res.in/people-details?id=221,2005,2003,2020,,,,,,
+CCMB-025,Nitin C Tupperwar,CSIR-CCMB,current,Scientist-F,https://www.ccmb.res.in/people-details?id=188,2008,2005,2020,,,,,,"ORCID gives 2017 (Principal Scientist), but OpenAlex places them at the lab from 2008: the ORCID date is a later title, not the joining year."
+CCMB-026,P Anuradha Reddy,CSIR-CCMB,current,Scientist-F,https://www.ccmb.res.in/people-details?id=221,2005,2003,2020,,,2009,https://orcid.org/0000-0002-3808-7223,Aman,"ORCID employment: Scientist from 2009. OpenAlex has lab papers from 2005, before joining (PhD or postdoc at the lab)."
 CCMB-027,P Chandra shekar,CSIR-CCMB,current,Scientist-F,https://www.ccmb.res.in/people-details?id=187,2021,2021,,,,,,,
 CCMB-028,Puran Singh Sijwali,CSIR-CCMB,current,Scientist-G,https://www.ccmb.res.in/people-details?id=237,2010,1997,1999,1999,,,,,
 CCMB-029,Raghunand R Tirumalai,CSIR-CCMB,current,Scientist-F,https://www.ccmb.res.in/people-details?id=294,2008,1996,2001,2001,,,,,
-CCMB-030,Rajan Sankaranarayanan,CSIR-CCMB,current,Outstanding Scientist,https://www.ccmb.res.in/people-details?id=240,2003,1995,1996,1996,,,,,
-CCMB-031,Rakesh Kumar Mishra,CSIR-CCMB,current,AcSIR Distinguished Emeritus Professor,https://www.ccmb.res.in/people-details?id=323,1990,1986,,,,,,,
+CCMB-030,Rajan Sankaranarayanan,CSIR-CCMB,current,Outstanding Scientist,https://www.ccmb.res.in/people-details?id=240,2003,1995,1996,1996,,2002,https://orcid.org/0000-0003-4524-9953,Aman,ORCID employment: Dr. from 2002.
+CCMB-031,Rakesh Kumar Mishra,CSIR-CCMB,current,AcSIR Distinguished Emeritus Professor,https://www.ccmb.res.in/people-details?id=323,1990,1986,,,,2001,https://orcid.org/0000-0001-6636-7380,Aman,"ORCID employment: position from 2001. OpenAlex has lab papers from 1990, before joining (PhD or postdoc at the lab)."
 CCMB-032,Regalla Kumaraswamy,CSIR-CCMB,current,Scientist-D,https://www.ccmb.res.in/people-details?id=282,2023,2008,2009,2016,,,,,
-CCMB-033,Saikat Chowdhury,CSIR-CCMB,current,Scientist-E,https://www.ccmb.res.in/people-details?id=273,2021,2008,2012,2018,,,,,
-CCMB-034,Santosh Chauhan,CSIR-CCMB,current,Scientist-F,https://www.ccmb.res.in/people-details?id=241,2022,2005,2009,,,,,,
-CCMB-035,Santosh Kumar,CSIR-CCMB,current,Scientist-E,https://www.ccmb.res.in/people-details?id=207,2018,2005,2004,2010,,,,,
-CCMB-036,Sonal Nagarkar Jaiswal,CSIR-CCMB,current,Scientist-E,https://www.ccmb.res.in/people-details?id=175,2019,2010,2010,2012,,,,,
-CCMB-037,Sriram Varahan,CSIR-CCMB,current,Scientist-E,https://www.ccmb.res.in/people-details?id=195,2022,2012,2014,2015,,,,,
+CCMB-033,Saikat Chowdhury,CSIR-CCMB,current,Scientist-E,https://www.ccmb.res.in/people-details?id=273,2021,2008,2012,2018,,2021,https://orcid.org/0000-0001-8043-5028,Aman,ORCID employment: Senior Scientist from 2021.
+CCMB-034,Santosh Chauhan,CSIR-CCMB,current,Scientist-F,https://www.ccmb.res.in/people-details?id=241,2022,2005,2009,,,2022,https://orcid.org/0000-0001-9167-5107,Aman,ORCID employment: Senior Principal Scientist from 2022.
+CCMB-035,Santosh Kumar,CSIR-CCMB,current,Scientist-E,https://www.ccmb.res.in/people-details?id=207,2018,2005,2004,2010,,2018,https://orcid.org/0000-0001-8588-0630,Aman,ORCID employment: Faculty from 2018.
+CCMB-036,Sonal Nagarkar Jaiswal,CSIR-CCMB,current,Scientist-E,https://www.ccmb.res.in/people-details?id=175,2019,2010,2010,2012,,2020,https://orcid.org/0000-0002-2369-3714,Aman,ORCID employment: Senior Scientist from 2020.
+CCMB-037,Sriram Varahan,CSIR-CCMB,current,Scientist-E,https://www.ccmb.res.in/people-details?id=195,2022,2012,2014,2015,,2022,https://orcid.org/0000-0002-3609-4032,Aman,ORCID employment: Scientist D & Principal Investigator from 2022.
 CCMB-038,Suman S. Thakur,CSIR-CCMB,current,Scientist-F,https://www.ccmb.res.in/people-details?id=322,2012,2001,2002,2002,,,,,
 CCMB-039,Swasti Raychaudhuri,CSIR-CCMB,current,Scientist-F,https://www.ccmb.res.in/people-details?id=178,2014,2007,2008,2008,,,,,
 CCMB-040,Venkat R Chalamcharla,CSIR-CCMB,current,Scientist-D,https://www.ccmb.res.in/people-details?id=179,2026,,2010,2011,,,,,
-CCMB-041,Vinay K Nandicoori,CSIR-CCMB,current,Director,https://www.ccmb.res.in/people-details?id=162,2021,1994,1991,,,,,,
-CCMB-042,Narayana Nagesh,CSIR-CCMB,current,,,1992,1992,,,,,,,
-CCMB-043,Ruby Srivastava,CSIR-CCMB,former,,,2019,2010,,,,,,,
-CCMB-044,G. Swarup,CSIR-CCMB,current,,,1985,1955,,,,,,,
+CCMB-041,Vinay K Nandicoori,CSIR-CCMB,current,Director,https://www.ccmb.res.in/people-details?id=162,2021,1994,1991,,,2021,https://orcid.org/0000-0002-5682-4178,Aman,ORCID employment: Director from 2021.
+CCMB-042,Narayana Nagesh,CSIR-CCMB,current,,,1992,1992,,,,1991,https://orcid.org/0000-0002-8998-8013,Aman,ORCID employment: Chief Scientist from 1991.
+CCMB-043,Ruby Srivastava,CSIR-CCMB,former,,,2019,2010,,,,2019,https://orcid.org/0000-0002-2367-0176,Aman,ORCID employment: Principal Investigator from 2019.
+CCMB-044,G. Swarup,CSIR-CCMB,current,,,1985,1955,,,,1983,https://orcid.org/0000-0002-8098-0509,Aman,ORCID employment: Scientist from 1983. First OpenAlex paper year 1955 is implausibly early: a namesake is probably merged into one of the profiles.
 CCMB-045,Lekha Dinesh Kumar,CSIR-CCMB,current,,,2007,1998,,,,,,,
 CCMB-046,Jyotsna Dhawan,CSIR-CCMB,former,,,2001,1985,,,,,,,
-CCMB-047,Ramakrishnan Nagaraj,CSIR-CCMB,former,,,1984,1977,,,,,,,
+CCMB-047,Ramakrishnan Nagaraj,CSIR-CCMB,former,,,1984,1977,,,,,,,First OpenAlex paper year 1977 is implausibly early: a namesake is probably merged into one of the profiles.
 CCMB-048,PD Gupta,CSIR-CCMB,current,,,1992,1980,,,,,,,
 CCMB-049,Arvind Kumar,CSIR-CCMB,current,,,2011,1985,,,,,,,
-CCMB-050,Meghna Krishnadas,CSIR-CCMB,current,,,2019,2011,,,,,,,
-CCMB-051,Vegesna Radha,CSIR-CCMB,current,,,1991,1991,,,,,,,
+CCMB-050,Meghna Krishnadas,CSIR-CCMB,current,,,2019,2011,,,,2019,https://orcid.org/0000-0003-2231-9787,Aman,ORCID employment: Scientist and Assistant Professor (AcCSIR) from 2019.
+CCMB-051,Vegesna Radha,CSIR-CCMB,current,,,1991,1991,,,,1988,https://orcid.org/0000-0002-1381-2206,Aman,ORCID employment: Chief Scientist from 1988.
 CCMB-052,Medicharla Venkata Jagannadham,CSIR-CCMB,former,,,1985,1981,,,,,,,
 CCMB-053,Ch. Mohan Rao,CSIR-CCMB,former,,,1983,1982,,,,,,,
-CCMB-054,Yogendra Sharma,CSIR-CCMB,former,,,1989,1989,,,,,,,
-CCMB-055,Janesh Kumar,CSIR-CCMB,current,,,2023,2000,,,,,,,
-CCMB-056,Purnima Bhargava,CSIR-CCMB,current,,,1979,1950,,,,,,,
-CDRI-001,Sabyasachi Sanyal,CSIR-CDRI,current,Scientist G & Head,https://cdri.res.in/ScientistDivisionWise?division=bsb,2009,2002,,,,,,,
+CCMB-054,Yogendra Sharma,CSIR-CCMB,former,,,1989,1989,,,,1989,https://orcid.org/0000-0003-1345-8478,Aman,"ORCID employment: Chief Scientist and Group Leader, professor of Biology from 1989."
+CCMB-055,Janesh Kumar,CSIR-CCMB,current,,,2023,2000,,,,2022,https://orcid.org/0000-0003-0767-3788,Aman,ORCID employment: Senior Principal Scientist from 2022.
+CCMB-056,Purnima Bhargava,CSIR-CCMB,current,,,1979,1950,,,,,,,First OpenAlex paper year 1950 is implausibly early: a namesake is probably merged into one of the profiles.
+CDRI-001,Sabyasachi Sanyal,CSIR-CDRI,current,Scientist G & Head,https://cdri.res.in/ScientistDivisionWise?division=bsb,2009,2002,,,,2007,https://orcid.org/0000-0002-8603-3828,Aman,ORCID employment: Senior Scientist from 2007.
 CDRI-002,Saman Habib,CSIR-CDRI,current,Scientist G,https://cdri.res.in/ScientistDivisionWise?division=bsb,2000,1994,,,,,,,
 CDRI-003,J Venkatesh Pratap,CSIR-CDRI,current,Scientist G,https://cdri.res.in/ScientistDivisionWise?division=bsb,2012,1997,,,,,,,
 CDRI-004,Mohammad I Siddiqi,CSIR-CDRI,current,Scientist G,https://cdri.res.in/ScientistDivisionWise?division=bsb,2006,2006,,,,,,,
 CDRI-005,Mohd. S Akhtar,CSIR-CDRI,current,Scientist G,https://cdri.res.in/ScientistDivisionWise?division=bsb,2020,2020,,,,,,,
 CDRI-006,Ravishankar Ramachandran,CSIR-CDRI,current,Scientist G,https://cdri.res.in/ScientistDivisionWise?division=bsb,2004,2000,,,,,,,
-CDRI-007,Shakil Ahmed,CSIR-CDRI,current,Scientist F,https://cdri.res.in/ScientistDivisionWise?division=bsb,2011,1990,,,,,,,
+CDRI-007,Shakil Ahmed,CSIR-CDRI,current,Scientist F,https://cdri.res.in/ScientistDivisionWise?division=bsb,2011,1990,,,,2006,https://orcid.org/0000-0002-5941-3534,Aman,ORCID employment: position from 2006.
 CDRI-008,Akhilesh K Tamrakar,CSIR-CDRI,current,Scientist F,https://cdri.res.in/ScientistDivisionWise?division=bsb,2004,2004,,,,,,,
 CDRI-009,Amogh A Sahasrabuddhe,CSIR-CDRI,current,Scientist F,https://cdri.res.in/ScientistDivisionWise?division=bsb,2003,2003,,,,,,,
-CDRI-010,Tejender S Thakur,CSIR-CDRI,current,Scientist E,https://cdri.res.in/ScientistDivisionWise?division=bsb,2012,2004,,,,,,,
+CDRI-010,Tejender S Thakur,CSIR-CDRI,current,Scientist E,https://cdri.res.in/ScientistDivisionWise?division=bsb,2012,2004,,,,2012,https://orcid.org/0000-0002-0478-4354,Aman,ORCID employment: Principal Scientist from 2012.
 CDRI-011,Arun K Haldar,CSIR-CDRI,current,Scientist E,https://cdri.res.in/ScientistDivisionWise?division=bsb,2019,2007,,,,,,,
-CDRI-012,Ashish Arora,CSIR-CDRI,current,Scientist D,https://cdri.res.in/ScientistDivisionWise?division=bsb,1999,1996,,,,,,,
-CDRI-013,Dipak Datta,CSIR-CDRI,current,Scientist F & Head,https://cdri.res.in/ScientistDivisionWise?division=cnB,2012,1974,,,,,,,
-CDRI-014,Arun K Trivedi,CSIR-CDRI,current,Scientist G,https://cdri.res.in/ScientistDivisionWise?division=cnB,2008,2006,,,,,,,
-CDRI-015,Jayanta Sarkar,CSIR-CDRI,current,Scientist F,https://cdri.res.in/ScientistDivisionWise?division=cnB,2009,1954,,,,,,,
-CDRI-016,Dibyendu Banerjee,CSIR-CDRI,current,Scientist E,https://cdri.res.in/ScientistDivisionWise?division=cnB,2013,2004,,,,,,,
-CDRI-017,Abhishek B Sharma,CSIR-CDRI,current,Scientist D,https://cdri.res.in/ScientistDivisionWise?division=cnB,2013,1994,,,,,,,
+CDRI-012,Ashish Arora,CSIR-CDRI,current,Scientist D,https://cdri.res.in/ScientistDivisionWise?division=bsb,1999,1996,,,,2002,https://orcid.org/0000-0002-0630-2224,Aman,ORCID employment: position from 2002.
+CDRI-013,Dipak Datta,CSIR-CDRI,current,Scientist F & Head,https://cdri.res.in/ScientistDivisionWise?division=cnB,2012,1974,,,,,,,"First OpenAlex paper year 1974 is implausibly early: a namesake is probably merged into one of the profiles. ORCID gives 2020 (Senior Principal Scientist & Professor & Head), but OpenAlex places them at the lab from 2012: the ORCID date is a later title, not the joining year."
+CDRI-014,Arun K Trivedi,CSIR-CDRI,current,Scientist G,https://cdri.res.in/ScientistDivisionWise?division=cnB,2008,2006,,,,,,,"ORCID gives 2024 (Chief Scientist), but OpenAlex places them at the lab from 2008: the ORCID date is a later title, not the joining year."
+CDRI-015,Jayanta Sarkar,CSIR-CDRI,current,Scientist F,https://cdri.res.in/ScientistDivisionWise?division=cnB,2009,1954,,,,,,,First OpenAlex paper year 1954 is implausibly early: a namesake is probably merged into one of the profiles.
+CDRI-016,Dibyendu Banerjee,CSIR-CDRI,current,Scientist E,https://cdri.res.in/ScientistDivisionWise?division=cnB,2013,2004,,,,,,,"ORCID gives 2025 (Senior Principal Scientist), but OpenAlex places them at the lab from 2013: the ORCID date is a later title, not the joining year."
+CDRI-017,Abhishek B Sharma,CSIR-CDRI,current,Scientist D,https://cdri.res.in/ScientistDivisionWise?division=cnB,2013,1994,,,,,,,"ORCID gives 2026 (PI and Senior Scientist), but OpenAlex places them at the lab from 2013: the ORCID date is a later title, not the joining year."
 CDRI-018,Ritu Trivedi,CSIR-CDRI,current,Scientist G & Head,https://cdri.res.in/ScientistDivisionWise?division=endo,2008,1995,,,,,,,
 CDRI-019,Divya Singh,CSIR-CDRI,current,Scientist G,https://cdri.res.in/ScientistDivisionWise?division=endo,2023,2023,,,,,,,
-CDRI-020,Durga P Mishra,CSIR-CDRI,current,Scientist G,https://cdri.res.in/ScientistDivisionWise?division=endo,2009,1975,,,,,,,
+CDRI-020,Durga P Mishra,CSIR-CDRI,current,Scientist G,https://cdri.res.in/ScientistDivisionWise?division=endo,2009,1975,,,,,,,First OpenAlex paper year 1975 is implausibly early: a namesake is probably merged into one of the profiles.
 CDRI-021,Monika Sachdev,CSIR-CDRI,current,Scientist F,https://cdri.res.in/ScientistDivisionWise?division=endo,2012,2000,,,,,,,
-CDRI-022,Rajender Singh,CSIR-CDRI,current,Scientist F,https://cdri.res.in/ScientistDivisionWise?division=endo,2008,1972,,,,,,,
+CDRI-022,Rajender Singh,CSIR-CDRI,current,Scientist F,https://cdri.res.in/ScientistDivisionWise?division=endo,2008,1972,,,,,,,First OpenAlex paper year 1972 is implausibly early: a namesake is probably merged into one of the profiles.
 CDRI-023,Rajesh K Jha,CSIR-CDRI,current,Scientist F,https://cdri.res.in/ScientistDivisionWise?division=endo,2013,2004,,,,,,,
-CDRI-024,Rajdeep Guha,CSIR-CDRI,current,Scientist F & Head,https://cdri.res.in/ScientistDivisionWise?division=laf,2019,2012,,,,,,,
+CDRI-024,Rajdeep Guha,CSIR-CDRI,current,Scientist F & Head,https://cdri.res.in/ScientistDivisionWise?division=laf,2019,2012,,,,2017,https://orcid.org/0000-0002-4451-6995,Aman,ORCID employment: Principal Scientist and Head from 2017.
 CDRI-025,Dhananjoy Hansda,CSIR-CDRI,current,Scientist F,https://cdri.res.in/ScientistDivisionWise?division=laf,2005,2002,,,,,,,
 CDRI-026,S. Rajakumar,CSIR-CDRI,current,Scientist F,https://cdri.res.in/ScientistDivisionWise?division=laf,,,,,,,,,
-CDRI-027,Shishir K Gupta,CSIR-CDRI,current,Scientist D,https://cdri.res.in/ScientistDivisionWise?division=laf,2020,1979,,,,,,,
-CDRI-028,Koneni V Sashidhara,CSIR-CDRI,current,Scientist G & Head,https://cdri.res.in/ScientistDivisionWise?division=mpc,2007,1999,,,,,,,
-CDRI-029,Atul Goel,CSIR-CDRI,current,Scientist G,https://cdri.res.in/ScientistDivisionWise?division=mpc,1988,1968,,,,,,,
+CDRI-027,Shishir K Gupta,CSIR-CDRI,current,Scientist D,https://cdri.res.in/ScientistDivisionWise?division=laf,2020,1979,,,,,,,First OpenAlex paper year 1979 is implausibly early: a namesake is probably merged into one of the profiles.
+CDRI-028,Koneni V Sashidhara,CSIR-CDRI,current,Scientist G & Head,https://cdri.res.in/ScientistDivisionWise?division=mpc,2007,1999,,,,,,,"ORCID gives 2018 (Senior Principal Scientist), but OpenAlex places them at the lab from 2007: the ORCID date is a later title, not the joining year."
+CDRI-029,Atul Goel,CSIR-CDRI,current,Scientist G,https://cdri.res.in/ScientistDivisionWise?division=mpc,1988,1968,,,,,,,First OpenAlex paper year 1968 is implausibly early: a namesake is probably merged into one of the profiles.
 CDRI-030,Gautam Panda,CSIR-CDRI,current,Scientist G,https://cdri.res.in/ScientistDivisionWise?division=mpc,2004,1997,,,,,,,
 CDRI-031,Narender Tadigoppula,CSIR-CDRI,current,Chief Scientist,https://cdri.res.in/ScientistDivisionWise?division=mpc,2004,1999,,,,,,,
 CDRI-032,Prem P Yadav,CSIR-CDRI,current,Scientist F,https://cdri.res.in/ScientistDivisionWise?division=mpc,2003,2003,,,,,,,
-CDRI-033,Kishor M,CSIR-CDRI,current,Scientist F,https://cdri.res.in/ScientistDivisionWise?division=mpc,2014,2003,,,,,,,
+CDRI-033,Kishor M,CSIR-CDRI,current,Scientist F,https://cdri.res.in/ScientistDivisionWise?division=mpc,2014,2003,,,,2013,https://orcid.org/0000-0001-5602-7112,Aman,ORCID employment: Senior Scientist from 2013.
 CDRI-034,Pintu K Mandal,CSIR-CDRI,current,Scientist F,https://cdri.res.in/ScientistDivisionWise?division=mpc,2007,1997,,,,,,,
 CDRI-035,Dipankar Koley,CSIR-CDRI,current,Scientist F,https://cdri.res.in/ScientistDivisionWise?division=mpc,2013,2005,,,,,,,
 CDRI-036,Asif Ali,CSIR-CDRI,current,Scientist F,https://cdri.res.in/ScientistDivisionWise?division=mpc,2022,2001,,,,,,,
 CDRI-037,Er. Ranvir Singh,CSIR-CDRI,current,Scientist F,https://cdri.res.in/ScientistDivisionWise?division=mpc,,,,,,,,,
 CDRI-038,Namrata Rastogi,CSIR-CDRI,current,Scientist F,https://cdri.res.in/ScientistDivisionWise?division=mpc,2012,2004,,,,,,,
 CDRI-039,Ajay K Srivastava,CSIR-CDRI,current,Scientist F,https://cdri.res.in/ScientistDivisionWise?division=mpc,,,,,,,,,
-CDRI-040,Ravindra . Kumar,CSIR-CDRI,current,Scientist E,https://cdri.res.in/ScientistDivisionWise?division=mpc,2016,1979,,,,,,,
+CDRI-040,Ravindra . Kumar,CSIR-CDRI,current,Scientist E,https://cdri.res.in/ScientistDivisionWise?division=mpc,2016,1979,,,,2018,https://orcid.org/0000-0003-0290-679X,Aman,ORCID employment: Principal Scientist from 2018. First OpenAlex paper year 1979 is implausibly early: a namesake is probably merged into one of the profiles.
 CDRI-041,Richa Pandey,CSIR-CDRI,current,Scientist E,https://cdri.res.in/ScientistDivisionWise?division=mpc,2018,1990,,,,,,,
-CDRI-042,Chandra B Tripathi,CSIR-CDRI,current,Scientist E,https://cdri.res.in/ScientistDivisionWise?division=mpc,2020,2012,,,,,,,
-CDRI-043,Malleswara R Kuram,CSIR-CDRI,current,Scientist E,https://cdri.res.in/ScientistDivisionWise?division=mpc,2021,2010,,,,,,,
-CDRI-044,Kinshuk R Srivastava,CSIR-CDRI,current,Scientist D,https://cdri.res.in/ScientistDivisionWise?division=mpc,2022,2010,,,,,,,
-CDRI-045,Damodara Reddy N,CSIR-CDRI,current,Scientist E,https://cdri.res.in/ScientistDivisionWise?division=mpc,2021,2009,,,,,,,
-CDRI-046,Nayan Ghosh,CSIR-CDRI,current,Scientist D,https://cdri.res.in/ScientistDivisionWise?division=mpc,2020,2008,,,,,,,
-CDRI-047,Valmik S Shinde,CSIR-CDRI,current,Scientist D,https://cdri.res.in/ScientistDivisionWise?division=mpc,2024,2010,,,,,,,
+CDRI-042,Chandra B Tripathi,CSIR-CDRI,current,Scientist E,https://cdri.res.in/ScientistDivisionWise?division=mpc,2020,2012,,,,2017,https://orcid.org/0000-0001-7154-242X,Aman,ORCID employment: Principal Scientist from 2017.
+CDRI-043,Malleswara R Kuram,CSIR-CDRI,current,Scientist E,https://cdri.res.in/ScientistDivisionWise?division=mpc,2021,2010,,,,2017,https://orcid.org/0000-0003-0711-1275,Aman,ORCID employment: Principal Scientist from 2017.
+CDRI-044,Kinshuk R Srivastava,CSIR-CDRI,current,Scientist D,https://cdri.res.in/ScientistDivisionWise?division=mpc,2022,2010,,,,2021,https://orcid.org/0000-0002-3688-9652,Aman,ORCID employment: Senior Scientist & Assistant Professor from 2021.
+CDRI-045,Damodara Reddy N,CSIR-CDRI,current,Scientist E,https://cdri.res.in/ScientistDivisionWise?division=mpc,2021,2009,,,,2018,https://orcid.org/0000-0001-9762-9160,Aman,ORCID employment: Senior Sceintist from 2018.
+CDRI-046,Nayan Ghosh,CSIR-CDRI,current,Scientist D,https://cdri.res.in/ScientistDivisionWise?division=mpc,2020,2008,,,,2018,https://orcid.org/0000-0002-6626-045X,Aman,ORCID employment: Scientist from 2018.
+CDRI-047,Valmik S Shinde,CSIR-CDRI,current,Scientist D,https://cdri.res.in/ScientistDivisionWise?division=mpc,2024,2010,,,,2022,https://orcid.org/0000-0002-2185-9418,Aman,ORCID employment: Scientist-D from 2022.
 CDRI-048,Ramesh . Chintakunta,CSIR-CDRI,current,Scientist D,https://cdri.res.in/ScientistDivisionWise?division=mpc,2021,1998,,,,,,,
-CDRI-049,Ashok K Pandey,CSIR-CDRI,current,Scientist D,https://cdri.res.in/ScientistDivisionWise?division=mpc,2025,2014,,,,,,,
+CDRI-049,Ashok K Pandey,CSIR-CDRI,current,Scientist D,https://cdri.res.in/ScientistDivisionWise?division=mpc,2025,2014,,,,2025,https://orcid.org/0000-0001-7597-7500,Aman,ORCID employment: position from 2025.
 CDRI-050,Sathish Kumar Mudedla,CSIR-CDRI,current,Scientist D,https://cdri.res.in/ScientistDivisionWise?division=mpc,2025,2014,,,,,,,
 CDRI-051,Dinabandhu Sar,CSIR-CDRI,current,Scientist D,https://cdri.res.in/ScientistDivisionWise?division=mpc,,,,,,,,,
 CDRI-052,Bandi Siva,CSIR-CDRI,current,Scientist D,https://cdri.res.in/ScientistDivisionWise?division=mpc,,,,,,,,,
@@ -111,118 +111,118 @@ CDRI-053,Gorakhnath R Jachak,CSIR-CDRI,current,Scientist C,https://cdri.res.in/S
 CDRI-054,Satish C Philkhana,CSIR-CDRI,current,Scientist C,https://cdri.res.in/ScientistDivisionWise?division=mpc,,,,,,,,,
 CDRI-055,Arunava Dasgupta,CSIR-CDRI,current,Scientist F & Head,https://cdri.res.in/ScientistDivisionWise?division=mmi,2020,2020,,,,,,,
 CDRI-056,Manju Y Krishnan,CSIR-CDRI,current,Scientist F,https://cdri.res.in/ScientistDivisionWise?division=mmi,2006,2006,,,,,,,
-CDRI-057,Mrigank Srivastava,CSIR-CDRI,current,Scientist F,https://cdri.res.in/ScientistDivisionWise?division=mmi,2010,2002,,,,,,,
-CDRI-058,Mukesh P,CSIR-CDRI,current,Scientist F,https://cdri.res.in/ScientistDivisionWise?division=mmi,2013,2006,,,,,,,
-CDRI-059,Sidharth Chopra,CSIR-CDRI,current,Scientist F,https://cdri.res.in/ScientistDivisionWise?division=mmi,1973,1973,,,,,,,
-CDRI-060,Sudheer K Singh,CSIR-CDRI,current,Scientist F,https://cdri.res.in/ScientistDivisionWise?division=mmi,1997,1971,,,,,,,
+CDRI-057,Mrigank Srivastava,CSIR-CDRI,current,Scientist F,https://cdri.res.in/ScientistDivisionWise?division=mmi,2010,2002,,,,2010,https://orcid.org/0000-0001-9324-7843,Aman,ORCID employment: Principal Investigator (Principal Scientist) from 2010.
+CDRI-058,Mukesh P,CSIR-CDRI,current,Scientist F,https://cdri.res.in/ScientistDivisionWise?division=mmi,2013,2006,,,,2014,https://orcid.org/0000-0001-6337-6257,Aman,ORCID employment: Senior Scientist from 2014.
+CDRI-059,Sidharth Chopra,CSIR-CDRI,current,Scientist F,https://cdri.res.in/ScientistDivisionWise?division=mmi,1973,1973,,,,,,,First OpenAlex paper year 1973 is implausibly early: a namesake is probably merged into one of the profiles.
+CDRI-060,Sudheer K Singh,CSIR-CDRI,current,Scientist F,https://cdri.res.in/ScientistDivisionWise?division=mmi,1997,1971,,,,,,,First OpenAlex paper year 1971 is implausibly early: a namesake is probably merged into one of the profiles.
 CDRI-061,Satish Mishra,CSIR-CDRI,current,Scientist F,https://cdri.res.in/ScientistDivisionWise?division=mmi,2014,2005,,,,,,,
 CDRI-062,Bidyut Purkait,CSIR-CDRI,current,Scientist E,https://cdri.res.in/ScientistDivisionWise?division=mmi,2021,2011,,,,,,,
-CDRI-063,Niti Kumar,CSIR-CDRI,current,Scientist E,https://cdri.res.in/ScientistDivisionWise?division=mmi,2015,2001,,,,,,,
-CDRI-064,Mohammad Zeeshan,CSIR-CDRI,current,Scientist D,https://cdri.res.in/ScientistDivisionWise?division=mmi,2026,2012,,,,,,,
-CDRI-065,Prem Prakash,CSIR-CDRI,current,Scientist C,https://cdri.res.in/ScientistDivisionWise?division=mmi,2009,1967,,,,,,,
-CDRI-066,Suresh K Kalangi,CSIR-CDRI,current,Scientist C,https://cdri.res.in/ScientistDivisionWise?division=mmi,2024,2009,,,,,,,
+CDRI-063,Niti Kumar,CSIR-CDRI,current,Scientist E,https://cdri.res.in/ScientistDivisionWise?division=mmi,2015,2001,,,,2013,https://orcid.org/0000-0002-3786-2953,Aman,ORCID employment: Scientist from 2013.
+CDRI-064,Mohammad Zeeshan,CSIR-CDRI,current,Scientist D,https://cdri.res.in/ScientistDivisionWise?division=mmi,2026,2012,,,,2025,https://orcid.org/0000-0002-6185-403X,Aman,ORCID employment: Senior Scientists from 2025.
+CDRI-065,Prem Prakash,CSIR-CDRI,current,Scientist C,https://cdri.res.in/ScientistDivisionWise?division=mmi,2009,1967,,,,,,,First OpenAlex paper year 1967 is implausibly early: a namesake is probably merged into one of the profiles.
+CDRI-066,Suresh K Kalangi,CSIR-CDRI,current,Scientist C,https://cdri.res.in/ScientistDivisionWise?division=mmi,2024,2009,,,,2024,https://orcid.org/0000-0002-7328-9322,Aman,ORCID employment: Scientist from 2024.
 CDRI-067,Prem N Yadav,CSIR-CDRI,current,Scientist F & Head,https://cdri.res.in/ScientistDivisionWise?division=ngb,2012,1990,,,,,,,
-CDRI-068,Shubha Shukla,CSIR-CDRI,current,Scientist E,https://cdri.res.in/ScientistDivisionWise?division=ngb,2012,2003,,,,,,,
+CDRI-068,Shubha Shukla,CSIR-CDRI,current,Scientist E,https://cdri.res.in/ScientistDivisionWise?division=ngb,2012,2003,,,,2010,https://orcid.org/0000-0002-2965-1128,Aman,ORCID employment: Senior Scientist from 2010.
 CDRI-069,Aravind S Kshatri,CSIR-CDRI,current,Scientist D,https://cdri.res.in/ScientistDivisionWise?division=ngb,2024,2013,,,,,,,
-CDRI-070,Sonia Verma,CSIR-CDRI,current,Scientist C,https://cdri.res.in/ScientistDivisionWise?division=ngb,2019,2014,,,,,,,
+CDRI-070,Sonia Verma,CSIR-CDRI,current,Scientist C,https://cdri.res.in/ScientistDivisionWise?division=ngb,2019,2014,,,,2021,https://orcid.org/0000-0001-5920-7792,Aman,ORCID employment: position from 2021.
 CDRI-071,Anil N Gaikwad,CSIR-CDRI,current,Scientist F & Head,https://cdri.res.in/ScientistDivisionWise?division=pharma,2003,2003,,,,,,,
-CDRI-072,Manoj K Barthwal,CSIR-CDRI,current,Scientist G & Head,https://cdri.res.in/ScientistDivisionWise?division=pharma,2000,2000,,,,,,,
-CDRI-073,Kashif Hanif,CSIR-CDRI,current,Scientist F,https://cdri.res.in/ScientistDivisionWise?division=pharma,2008,2004,,,,,,,
-CDRI-074,Kumaravelu J,CSIR-CDRI,current,Scientist F,https://cdri.res.in/ScientistDivisionWise?division=pharma,2014,2000,,,,,,,
-CDRI-075,Sachin Kumar,CSIR-CDRI,current,Scientist E,https://cdri.res.in/ScientistDivisionWise?division=pharma,2007,1979,,,,,,,
+CDRI-072,Manoj K Barthwal,CSIR-CDRI,current,Scientist G & Head,https://cdri.res.in/ScientistDivisionWise?division=pharma,2000,2000,,,,2006,https://orcid.org/0000-0001-7574-482X,Aman,"ORCID employment: Senior Principal Scientist from 2006. OpenAlex has lab papers from 2000, before joining (PhD or postdoc at the lab)."
+CDRI-073,Kashif Hanif,CSIR-CDRI,current,Scientist F,https://cdri.res.in/ScientistDivisionWise?division=pharma,2008,2004,,,,2006,https://orcid.org/0000-0001-6088-6024,Aman,ORCID employment: Principal Scientist from 2006.
+CDRI-074,Kumaravelu J,CSIR-CDRI,current,Scientist F,https://cdri.res.in/ScientistDivisionWise?division=pharma,2014,2000,,,,2017,https://orcid.org/0000-0002-9235-0600,Aman,ORCID employment: Principal Scientist from 2017.
+CDRI-075,Sachin Kumar,CSIR-CDRI,current,Scientist E,https://cdri.res.in/ScientistDivisionWise?division=pharma,2007,1979,,,,2016,https://orcid.org/0000-0002-3835-8935,Aman,"Research scholar 2011-2016, then Ramalingaswami Fellow (independent PI) from 2016. First OpenAlex paper year 1979 is implausibly early: a namesake is probably merged into one of the profiles."
 CDRI-076,Amit Lahiri,CSIR-CDRI,current,Scientist E,https://cdri.res.in/ScientistDivisionWise?division=pharma,2019,2008,,,,,,,
 CDRI-077,Shashi K Gupta,CSIR-CDRI,current,Scientist D,https://cdri.res.in/ScientistDivisionWise?division=pharma,2026,,,,,,,,
 CDRI-078,Baisakhi Moharana,CSIR-CDRI,current,Scientist D,https://cdri.res.in/ScientistDivisionWise?division=pharma,2019,2014,,,,,,,
 CDRI-079,Manish K Chourasia,CSIR-CDRI,current,Scientist F & Head,https://cdri.res.in/ScientistDivisionWise?division=pnp,2006,2003,,,,,,,
 CDRI-080,Prabhat R Mishra,CSIR-CDRI,current,Scientist G,https://cdri.res.in/ScientistDivisionWise?division=pnp,2007,2007,,,,,,,
-CDRI-081,Rabi S Bhatta,CSIR-CDRI,current,Scientist F,https://cdri.res.in/ScientistDivisionWise?division=pnp,2010,2007,,,,,,,
+CDRI-081,Rabi S Bhatta,CSIR-CDRI,current,Scientist F,https://cdri.res.in/ScientistDivisionWise?division=pnp,2010,2007,,,,2006,https://orcid.org/0000-0003-4844-2388,Aman,ORCID employment: Scientist from 2006.
 CDRI-082,Jiaur R Gayen,CSIR-CDRI,current,Scientist E,https://cdri.res.in/ScientistDivisionWise?division=pnp,2011,2000,,,,,,,
 CDRI-083,Varun Kushwah,CSIR-CDRI,current,Scientist D,https://cdri.res.in/ScientistDivisionWise?division=pnp,2026,2014,,,,,,,
 CDRI-084,Yuvraj Singh,CSIR-CDRI,current,Scientist D,https://cdri.res.in/ScientistDivisionWise?division=pnp,2014,2010,,,,,,,
 CDRI-085,Kalyan Mitra,CSIR-CDRI,current,Scientist G,https://cdri.res.in/ScientistDivisionWise?division=saifr,2006,2006,,,,,,,
 CDRI-086,Dipak K Mishra,CSIR-CDRI,current,Scientist F,https://cdri.res.in/ScientistDivisionWise?division=saifr,2007,2007,,,,,,,
-CDRI-087,Sanjeev Kanojiya,CSIR-CDRI,current,Scientist F,https://cdri.res.in/ScientistDivisionWise?division=saifr,2005,2005,,,,,,,
+CDRI-087,Sanjeev Kanojiya,CSIR-CDRI,current,Scientist F,https://cdri.res.in/ScientistDivisionWise?division=saifr,2005,2005,,,,2004,https://orcid.org/0000-0003-2831-2797,Aman,ORCID employment: Scientist from 2004.
 CDRI-088,Sanjeev K Shukla,CSIR-CDRI,current,Scientist F,https://cdri.res.in/ScientistDivisionWise?division=saifr,2009,2000,,,,,,,
 CDRI-089,Vineeta Tripathi,CSIR-CDRI,current,Scientist E,https://cdri.res.in/ScientistDivisionWise?division=saifr,2012,2006,,,,,,,
 CDRI-090,Vineeta Rai,CSIR-CDRI,current,Scientist D,https://cdri.res.in/ScientistDivisionWise?division=saifr,2026,2010,,,,,,,
-CDRI-091,Aamir Nazir,CSIR-CDRI,current,Scientist G & Head,https://cdri.res.in/ScientistDivisionWise?division=tox,2010,2001,,,,,,,
-CDRI-092,Sarika Singh,CSIR-CDRI,current,Scientist F,https://cdri.res.in/ScientistDivisionWise?division=tox,1992,1939,,,,,,,
+CDRI-091,Aamir Nazir,CSIR-CDRI,current,Scientist G & Head,https://cdri.res.in/ScientistDivisionWise?division=tox,2010,2001,,,,2008,https://orcid.org/0000-0002-1978-8251,Aman,ORCID employment: Senior Principal Scientist & Professor from 2008.
+CDRI-092,Sarika Singh,CSIR-CDRI,current,Scientist F,https://cdri.res.in/ScientistDivisionWise?division=tox,1992,1939,,,,,,,First OpenAlex paper year 1939 is implausibly early: a namesake is probably merged into one of the profiles.
 CDRI-093,Smrati Bhadauria,CSIR-CDRI,current,Scientist F,https://cdri.res.in/ScientistDivisionWise?division=tox,2007,2004,,,,,,,
-CDRI-094,Vivek V Bhosale,CSIR-CDRI,current,Scientist E,https://cdri.res.in/ScientistDivisionWise?division=tox,2013,2013,,,,,,,
-CDRI-095,Madhav N Mugale,CSIR-CDRI,current,Scientist E,https://cdri.res.in/ScientistDivisionWise?division=tox,2019,2012,,,,,,,
+CDRI-094,Vivek V Bhosale,CSIR-CDRI,current,Scientist E,https://cdri.res.in/ScientistDivisionWise?division=tox,2013,2013,,,,2010,https://orcid.org/0000-0002-2729-266X,Aman,ORCID employment: Senior Principal Scientist from 2010.
+CDRI-095,Madhav N Mugale,CSIR-CDRI,current,Scientist E,https://cdri.res.in/ScientistDivisionWise?division=tox,2019,2012,,,,2017,https://orcid.org/0000-0003-3138-3860,Aman,ORCID employment: Senior Scientist from 2017.
 CDRI-096,Virendrakumar M Prajapati,CSIR-CDRI,current,Scientist D,https://cdri.res.in/ScientistDivisionWise?division=tox,2026,2026,,,,,,,
-CDRI-097,Ashish Awasthi,CSIR-CDRI,current,Scientist D,https://cdri.res.in/ScientistDivisionWise?division=tox,2024,2011,,,,,,,
+CDRI-097,Ashish Awasthi,CSIR-CDRI,current,Scientist D,https://cdri.res.in/ScientistDivisionWise?division=tox,2024,2011,,,,2024,https://orcid.org/0000-0002-9308-9782,Aman,ORCID employment: Senior Scientist from 2024.
 CDRI-098,Neha Topno,CSIR-CDRI,current,Scientist D,https://cdri.res.in/ScientistDivisionWise?division=tox,,,,,,,,,
 CDRI-099,Raj K Tripathi,CSIR-CDRI,current,Scientist F & Head,https://cdri.res.in/ScientistDivisionWise?division=vrt,2007,1997,,,,,,,
-CDRI-100,Chetan D Meshram,CSIR-CDRI,current,Scientist D,https://cdri.res.in/ScientistDivisionWise?division=vrt,2024,2011,,,,,,,
-CDRI-101,Rahul Shukla,CSIR-CDRI,current,Scientist C,https://cdri.res.in/ScientistDivisionWise?division=vrt,2023,2013,,,,,,,
-CDRI-102,Sanjay Batra,CSIR-CDRI,current,,,1990,1970,,,,,,,
-CDRI-103,Srikanta Kumar Rath,CSIR-CDRI,current,,,2006,1990,,,,,,,
+CDRI-100,Chetan D Meshram,CSIR-CDRI,current,Scientist D,https://cdri.res.in/ScientistDivisionWise?division=vrt,2024,2011,,,,2022,https://orcid.org/0000-0001-5426-2063,Aman,ORCID employment: Senior Scientist from 2022.
+CDRI-101,Rahul Shukla,CSIR-CDRI,current,Scientist C,https://cdri.res.in/ScientistDivisionWise?division=vrt,2023,2013,,,,2021,https://orcid.org/0000-0002-4320-9512,Aman,ORCID employment: Scientist from 2021.
+CDRI-102,Sanjay Batra,CSIR-CDRI,current,,,1990,1970,,,,,,,First OpenAlex paper year 1970 is implausibly early: a namesake is probably merged into one of the profiles.
+CDRI-103,Srikanta Kumar Rath,CSIR-CDRI,current,,,2006,1990,,,,1998,https://orcid.org/0000-0002-0600-0533,Aman,ORCID employment: Scientist C from 1998.
 CDRI-104,Atul Kumar,CSIR-CDRI,former,,,1991,1988,,,,,,,
-CDRI-105,Arun K. Sinha,CSIR-CDRI,current,,,1992,1989,,,,,,,
-CDRI-106,Naibedya Chattopadhyay,CSIR-CDRI,current,,,2006,1988,,,,,,,
+CDRI-105,Arun K. Sinha,CSIR-CDRI,current,,,1992,1989,,,,2013,https://orcid.org/0000-0002-1223-9495,Aman,"ORCID employment: Chief Scientist from 2013. OpenAlex has lab papers from 1992, before joining (PhD or postdoc at the lab)."
+CDRI-106,Naibedya Chattopadhyay,CSIR-CDRI,current,,,2006,1988,,,,2006,https://orcid.org/0000-0003-2473-0246,Aman,ORCID employment: Chief Scientist from 2006.
 CDRI-107,Arun Kumar Shaw,CSIR-CDRI,former,,,1995,1991,,,,,,,
-CDRI-108,Brijesh Kumar,CSIR-CDRI,former,,,1993,1979,,,,,,,
+CDRI-108,Brijesh Kumar,CSIR-CDRI,former,,,1993,1979,,,,,,,"First OpenAlex paper year 1979 is implausibly early: a namesake is probably merged into one of the profiles. ORCID gives 2013 (Senior Principal Scientist/ Facility Incharge), but OpenAlex places them at the lab from 1993: the ORCID date is a later title, not the joining year."
 CDRI-109,Maddi Sridhar Reddy,CSIR-CDRI,former,,,2012,2002,,,,,,,
-CDRI-110,Muhammad Wahajuddin,CSIR-CDRI,former,,,2008,2008,,,,,,,
-CDRI-111,Anil Kumar Saxena,CSIR-CDRI,former,,,1979,1973,,,,,,,
+CDRI-110,Muhammad Wahajuddin,CSIR-CDRI,former,,,2008,2008,,,,2006,https://orcid.org/0000-0003-3362-7558,Aman,ORCID employment: Junior Scientist from 2006.
+CDRI-111,Anil Kumar Saxena,CSIR-CDRI,former,,,1979,1973,,,,,,,First OpenAlex paper year 1973 is implausibly early: a namesake is probably merged into one of the profiles.
 CDRI-112,Rakesh Maurya,CSIR-CDRI,former,,,2003,1982,,,,,,,
 CDRI-113,Prashant Kesharwani,CSIR-CDRI,former,,,2016,2010,,,,,,,
 CDRI-114,Md. Sohail Akhtar,CSIR-CDRI,current,,,2001,2001,,,,,,,
 CDRI-115,Neena Goyal,CSIR-CDRI,former,,,1990,1990,,,,,,,
-CDRI-116,Anila Dwivedi,CSIR-CDRI,former,,,1991,1991,,,,,,,
+CDRI-116,Anila Dwivedi,CSIR-CDRI,former,,,1991,1991,,,,1998,https://orcid.org/0000-0002-8868-2960,Aman,"ORCID employment: Senior Principal Scientist from 1998. OpenAlex has lab papers from 1991, before joining (PhD or postdoc at the lab)."
 CDRI-117,Renu Tripathi,CSIR-CDRI,current,,,1989,1985,,,,,,,
 CDRI-118,Kishore Kumar Srivastava,CSIR-CDRI,current,,,1998,1992,,,,,,,
 CDRI-119,Nilanjana Majumdar,CSIR-CDRI,current,,,2021,2010,,,,,,,
-CDRI-120,Vinita Chaturvedi,CSIR-CDRI,former,,,1995,1988,,,,,,,
-CDRI-121,Neeraj Kumar Jain,CSIR-CDRI,current,,,2021,1952,,,,,,,
+CDRI-120,Vinita Chaturvedi,CSIR-CDRI,former,,,1995,1988,,,,1992,https://orcid.org/0000-0002-2412-2278,Aman,ORCID employment: Scientist from 1992.
+CDRI-121,Neeraj Kumar Jain,CSIR-CDRI,current,,,2021,1952,,,,,,,First OpenAlex paper year 1952 is implausibly early: a namesake is probably merged into one of the profiles.
 CDRI-122,Shrikant R. Mulay,CSIR-CDRI,former,,,2019,2010,,,,,,,
 CDRI-123,Madhu Dikshit,CSIR-CDRI,current,,,1985,1985,,,,,,,
 CDRI-124,Jimut Kanti Ghosh,CSIR-CDRI,current,,,2004,1989,,,,,,,
-IGIB-001,Aastha Mishra,CSIR-IGIB,current,Scientist-E,https://www.igib.res.in/Scientists/aastha-mishra.html,2010,2010,,,,,,,
+IGIB-001,Aastha Mishra,CSIR-IGIB,current,Scientist-E,https://www.igib.res.in/Scientists/aastha-mishra.html,2010,2010,,,,2021,https://orcid.org/0000-0003-0403-0293,Aman,"ORCID employment: Scientist from 2021. OpenAlex has lab papers from 2010, before joining (PhD or postdoc at the lab)."
 IGIB-002,Ajay Pratap Singh,CSIR-IGIB,current,Scientist-C,https://www.igib.res.in/Scientists/ajay-pratap-singh.html,2021,1990,,,,,,,
 IGIB-003,Ankesh Kumar Jaiswal,CSIR-IGIB,current,Scientist-C,https://www.igib.res.in/Scientists/ankesh_Jaiswal.html,,,,,,,,,
 IGIB-004,Archana Singh,CSIR-IGIB,current,Scientist-F,https://www.igib.res.in/Scientists/archana-singh.html,2012,2003,,,,,,,
 IGIB-005,Arpan Parichha,CSIR-IGIB,current,Scientist-C,https://www.igib.res.in/Scientists/arpan-parichcha.html,2025,2017,,,,,,,
 IGIB-006,Arya Sidharthan,CSIR-IGIB,current,Scientist-C,https://www.igib.res.in/Scientists/arya-sidharthan.html,2025,2018,,,,,,,
-IGIB-007,Beena Pillai,CSIR-IGIB,current,Scientist-G,https://www.igib.res.in/Scientists/beena-pillai.html,2004,2001,,,,,,,
-IGIB-008,Bhavana Prasher,CSIR-IGIB,current,Scientist-G,https://www.igib.res.in/Scientists/bhavana-prasher.html,2008,2008,,,,,,,
+IGIB-007,Beena Pillai,CSIR-IGIB,current,Scientist-G,https://www.igib.res.in/Scientists/beena-pillai.html,2004,2001,,,,2004,https://orcid.org/0000-0002-9302-9878,Aman,ORCID employment: Scientist from 2004.
+IGIB-008,Bhavana Prasher,CSIR-IGIB,current,Scientist-G,https://www.igib.res.in/Scientists/bhavana-prasher.html,2008,2008,,,,2011,https://orcid.org/0000-0003-4185-4400,Aman,ORCID employment: Senior Scientist from 2011.
 IGIB-009,Bhupesh Taneja,CSIR-IGIB,current,Scientist-G,https://www.igib.res.in/Scientists/bhupesh-taneja.html,2009,1999,,,,,,,
-IGIB-010,Binukumar B. K,CSIR-IGIB,current,Scientist-F,https://www.igib.res.in/Scientists/binukumar-bk.html,2017,2008,,,,,,,
+IGIB-010,Binukumar B. K,CSIR-IGIB,current,Scientist-F,https://www.igib.res.in/Scientists/binukumar-bk.html,2017,2008,,,,2016,https://orcid.org/0000-0003-0933-4691,Aman,ORCID employment: Senior Scientist from 2016.
 IGIB-011,Chetana Sachidanandan,CSIR-IGIB,current,Scientist-G,https://www.igib.res.in/Scientists/chetana-sachidanandan.html,2010,2001,,,,,,,
 IGIB-012,Debasis Dash,CSIR-IGIB,current,Scientist-G,https://www.igib.res.in/Scientists/debasis-dash.html,2001,2001,,,,,,,
 IGIB-013,Debojyoti Chakraborty,CSIR-IGIB,current,Scientist-F,https://www.igib.res.in/Scientists/debojyoti-chakraborty.html,2016,2012,,,,,,,
-IGIB-014,Jitendra Narayan,CSIR-IGIB,current,Scientist-E,https://www.igib.res.in/Scientists/jitendra-narayan.html,2022,2010,,,,,,,
-IGIB-015,Kausik Chakraborty,CSIR-IGIB,current,Scientist-G,https://www.igib.res.in/Scientists/kausik-chakraborty.html,2011,2004,,,,,,,
-IGIB-016,Krishnendu Chakraborty,CSIR-IGIB,current,Scientist-E,https://www.igib.res.in/Scientists/krishnendu-chakraborty.html,2021,2007,,,,,,,
-IGIB-017,Kumardeep Chaudhary,CSIR-IGIB,current,Scientist-E,https://www.igib.res.in/Scientists/kumardeep-chaudhary.html,2013,2011,,,,,,,
-IGIB-018,Lipi Thukral,CSIR-IGIB,current,Scientist-F,https://www.igib.res.in/Scientists/lipi-thukral.html,2013,2007,,,,,,,
+IGIB-014,Jitendra Narayan,CSIR-IGIB,current,Scientist-E,https://www.igib.res.in/Scientists/jitendra-narayan.html,2022,2010,,,,2021,https://orcid.org/0000-0002-2065-2861,Aman,ORCID employment: Senior Scientist from 2021.
+IGIB-015,Kausik Chakraborty,CSIR-IGIB,current,Scientist-G,https://www.igib.res.in/Scientists/kausik-chakraborty.html,2011,2004,,,,2009,https://orcid.org/0000-0001-6000-8379,Aman,ORCID employment: Senior Scientist from 2009.
+IGIB-016,Krishnendu Chakraborty,CSIR-IGIB,current,Scientist-E,https://www.igib.res.in/Scientists/krishnendu-chakraborty.html,2021,2007,,,,2018,https://orcid.org/0000-0001-5632-2904,Aman,Ramalingaswami Fellow (independent PI) from 2018; Principal Scientist from 2023.
+IGIB-017,Kumardeep Chaudhary,CSIR-IGIB,current,Scientist-E,https://www.igib.res.in/Scientists/kumardeep-chaudhary.html,2013,2011,,,,2021,https://orcid.org/0000-0002-4117-6403,Aman,"ORCID employment: Senior Scientist from 2021. OpenAlex has lab papers from 2013, before joining (PhD or postdoc at the lab)."
+IGIB-018,Lipi Thukral,CSIR-IGIB,current,Scientist-F,https://www.igib.res.in/Scientists/lipi-thukral.html,2013,2007,,,,2016,https://orcid.org/0000-0002-1961-039X,Aman,ORCID employment: Senior Scientist from 2016.
 IGIB-019,Malabika Dutta,CSIR-IGIB,current,Scientist-G,https://www.igib.res.in/Scientists/malabika-datta.html,2008,2003,,,,,,,
 IGIB-020,Mary Krishna Ekka,CSIR-IGIB,current,Scientist-E,https://www.igib.res.in/Scientists/mary-krishna-ekka.html,2016,2010,,,,,,,
 IGIB-021,Mohammed Faruq,CSIR-IGIB,current,Scientist-G,https://www.igib.res.in/Scientists/mohammed-faruq.html,2009,2009,,,,,,,
-IGIB-022,Munia Ganguli,CSIR-IGIB,current,Scientist-G,https://www.igib.res.in/Scientists/munia-ganguli.html,2003,1994,,,,,,,
-IGIB-023,Neeru Saini,CSIR-IGIB,current,Scientist-G,https://www.igib.res.in/Scientists/neeru-saini.html,2006,2006,,,,,,,
+IGIB-022,Munia Ganguli,CSIR-IGIB,current,Scientist-G,https://www.igib.res.in/Scientists/munia-ganguli.html,2003,1994,,,,2002,https://orcid.org/0000-0002-0003-2737,Aman,ORCID employment: Research Scientist from 2002.
+IGIB-023,Neeru Saini,CSIR-IGIB,current,Scientist-G,https://www.igib.res.in/Scientists/neeru-saini.html,2006,2006,,,,2004,https://orcid.org/0000-0002-6986-8372,Aman,ORCID employment: Scientist C from 2004.
 IGIB-024,Neetu Sain,CSIR-IGIB,current,Scientist-C,https://www.igib.res.in/Scientists/Neetu_Sain.html,,,,,,,,,
 IGIB-025,Pradeep Kumar,CSIR-IGIB,current,Scientist-G,https://www.igib.res.in/Scientists/pradeep-kumar.html,1993,1982,,,,,,,
 IGIB-026,Prashant P,CSIR-IGIB,current,Scientist-C,https://www.igib.res.in/Scientists/prashant-p.html,,,,,,,,,
 IGIB-027,Priya Sharma,CSIR-IGIB,current,Scientist-C,https://www.igib.res.in/Scientists/priya_sharma.html,2021,1984,,,,,,,
-IGIB-028,Rajesh Pandey,CSIR-IGIB,current,Scientist-F,https://www.igib.res.in/Scientists/rajesh-pandey.html,2011,1970,,,,,,,
+IGIB-028,Rajesh Pandey,CSIR-IGIB,current,Scientist-F,https://www.igib.res.in/Scientists/rajesh-pandey.html,2011,1970,,,,,,,"First OpenAlex paper year 1970 is implausibly early: a namesake is probably merged into one of the profiles. ORCID gives 2020 (Principal Scientist), but OpenAlex places them at the lab from 2011: the ORCID date is a later title, not the joining year."
 IGIB-029,Rajeshwari Tiwari,CSIR-IGIB,current,Scientist-C,https://www.igib.res.in/Scientists/Rajeshwaritiwari.html,,,,,,,,,
-IGIB-030,Rakesh Sharma,CSIR-IGIB,current,Scientist-G,https://www.igib.res.in/Scientists/rakesh-sharma.html,2005,1976,,,,,,,
+IGIB-030,Rakesh Sharma,CSIR-IGIB,current,Scientist-G,https://www.igib.res.in/Scientists/rakesh-sharma.html,2005,1976,,,,2003,https://orcid.org/0000-0003-3320-4491,Aman,ORCID employment: Chief Scientist from 2003. First OpenAlex paper year 1976 is implausibly early: a namesake is probably merged into one of the profiles.
 IGIB-031,Shamita Sanga,CSIR-IGIB,current,Scientist-C,https://www.igib.res.in/Scientists/shamita-sanga.html,2026,2020,,,,,,,
 IGIB-032,Shantanu Sengupta,CSIR-IGIB,current,Scientist-G,https://www.igib.res.in/Scientists/shantanu-sengupta.html,2005,1999,,,,,,,
-IGIB-033,Sheetal Gandotra,CSIR-IGIB,current,Scientist-F,https://www.igib.res.in/Scientists/sheetal-gandotra.html,2013,2005,,,,,,,
-IGIB-034,Sherry Bhalla,CSIR-IGIB,current,Scientist-C,https://www.igib.res.in/Scientists/sherry-bhalla.html,2025,2013,,,,,,,
+IGIB-033,Sheetal Gandotra,CSIR-IGIB,current,Scientist-F,https://www.igib.res.in/Scientists/sheetal-gandotra.html,2013,2005,,,,2011,https://orcid.org/0000-0002-1204-7290,Aman,ORCID employment: Scientist C from 2011.
+IGIB-034,Sherry Bhalla,CSIR-IGIB,current,Scientist-C,https://www.igib.res.in/Scientists/sherry-bhalla.html,2025,2013,,,,2023,https://orcid.org/0000-0001-9482-9343,Aman,ORCID employment: Scientist -C from 2023.
 IGIB-035,Shivanshu Kukrety,CSIR-IGIB,current,,https://www.igib.res.in/Scientists/ShivanshuKukreti.html,,,,,,,,,
-IGIB-036,Shruthy Suresh Aggarwal,CSIR-IGIB,current,Scientist-C,https://www.igib.res.in/Scientists/Shruthy-suresh-aggarwal.html,2024,2013,,,,,,,
-IGIB-037,Soumya Sinha Roy,CSIR-IGIB,current,Scientist-F,https://www.igib.res.in/Scientists/Soumya-sinharoy.html,2012,2003,,,,,,,
-IGIB-038,Souvik Maiti,CSIR-IGIB,current,Director; Scientist-G,https://www.igib.res.in/Scientists/souvik-maiti.html,2003,1997,,,,,,,
-IGIB-039,Swarnendu Bag,CSIR-IGIB,current,Scientist-D,https://www.igib.res.in/Scientists/SBag.html,2021,2009,,,,,,,
+IGIB-036,Shruthy Suresh Aggarwal,CSIR-IGIB,current,Scientist-C,https://www.igib.res.in/Scientists/Shruthy-suresh-aggarwal.html,2024,2013,,,,2023,https://orcid.org/0000-0002-2985-8284,Aman,ORCID employment: Scientist & Assistant Professor from 2023.
+IGIB-037,Soumya Sinha Roy,CSIR-IGIB,current,Scientist-F,https://www.igib.res.in/Scientists/Soumya-sinharoy.html,2012,2003,,,,2011,https://orcid.org/0000-0002-4135-0141,Aman,ORCID employment: Principal Scientist from 2011.
+IGIB-038,Souvik Maiti,CSIR-IGIB,current,Director; Scientist-G,https://www.igib.res.in/Scientists/souvik-maiti.html,2003,1997,,,,2002,https://orcid.org/0000-0001-9897-1419,Aman,ORCID employment: position from 2002.
+IGIB-039,Swarnendu Bag,CSIR-IGIB,current,Scientist-D,https://www.igib.res.in/Scientists/SBag.html,2021,2009,,,,2020,https://orcid.org/0000-0003-2811-482X,Aman,ORCID employment: Senior Scientist & Assistant Professor (AcSIR) from 2020.
 IGIB-040,Viren Sardana,CSIR-IGIB,current,Scientist-F,https://www.igib.res.in/Scientists/viren-sardana.html,2021,2011,,,,,,,
-IGIB-041,Vivek Rao,CSIR-IGIB,current,Scientist-F,https://www.igib.res.in/Scientists/vivek-rao.html,2013,1960,,,,,,,
+IGIB-041,Vivek Rao,CSIR-IGIB,current,Scientist-F,https://www.igib.res.in/Scientists/vivek-rao.html,2013,1960,,,,2011,https://orcid.org/0000-0001-8646-6634,Aman,ORCID employment: Senior Principal Scientist from 2011. First OpenAlex paper year 1960 is implausibly early: a namesake is probably merged into one of the profiles.
 IGIB-042,Vivek T Natarajan,CSIR-IGIB,current,Scientist-G,https://www.igib.res.in/Scientists/vivek-t-natarajan.html,2010,2009,,,,,,,
 IGIB-043,Vinod Scaria,CSIR-IGIB,current,,,2005,2003,,,,,,,
-IGIB-044,Sagarika Biswas,CSIR-IGIB,current,,,2007,1952,,,,,,,
+IGIB-044,Sagarika Biswas,CSIR-IGIB,current,,,2007,1952,,,,,,,First OpenAlex paper year 1952 is implausibly early: a namesake is probably merged into one of the profiles.
 IGIB-045,Ritushree Kukreti,CSIR-IGIB,current,,,2001,1996,,,,,,,
 IGIB-046,Sridhar Sivasubbu,CSIR-IGIB,current,,,2007,2002,,,,,,,
 IGIB-047,Laxman S. Meena,CSIR-IGIB,former,,,2002,2002,,,,,,,
@@ -230,7 +230,7 @@ IGIB-048,Naveen Arora,CSIR-IGIB,current,,,1994,1987,,,,,,,
 IGIB-049,Shantanu Chowdhury,CSIR-IGIB,current,,,2003,1995,,,,,,,
 IGIB-050,Vipin Chandra Kalia,CSIR-IGIB,former,,,1995,1985,,,,,,,
 IGIB-051,Dwaipayan Bharadwaj,CSIR-IGIB,former,,,2004,1991,,,,,,,
-IGIB-052,Abhay Sharma,CSIR-IGIB,current,,,2007,1990,,,,,,,
+IGIB-052,Abhay Sharma,CSIR-IGIB,current,,,2007,1990,,,,2002,https://orcid.org/0000-0003-1306-1497,Aman,ORCID employment: Senior Scientist from 2002.
 IGIB-053,Hemant Kumar Gautam,CSIR-IGIB,current,,,2006,1980,,,,,,,
 IGIB-054,Srinivasan Ramachandran,CSIR-IGIB,current,,,2000,1991,,,,,,,
 IGIB-055,Qadar Pasha,CSIR-IGIB,former,,,2000,2000,,,,,,,
@@ -238,58 +238,58 @@ IGIB-056,Hirekodathakallu Venkataramaiah Thulasiram,CSIR-IGIB,former,,,,,,,,,,,
 IGIB-057,Pradip Nahar,CSIR-IGIB,former,,,1995,1983,,,,,,,
 IGIB-058,Sivaprakash Ramalingam,CSIR-IGIB,current,,,2017,2009,,,,,,,
 IGIB-059,Ulaganathan Mabalirajan,CSIR-IGIB,former,,,2004,2004,,,,,,,
-IGIB-060,Samir Kumar Brahmachari,CSIR-IGIB,former,,,1998,1976,,,,,,,
+IGIB-060,Samir Kumar Brahmachari,CSIR-IGIB,former,,,1998,1976,,,,,,,First OpenAlex paper year 1976 is implausibly early: a namesake is probably merged into one of the profiles.
 IMTECH-001,Vijayender Bhalla,CSIR-IMTECH,current,Scientist F,https://www.imtech.res.in/en/contact/staff/dr-vijayender-bhalla,2011,2002,,,,,,,
 IMTECH-002,Dibyendu Sarkar,CSIR-IMTECH,current,Scientist G,https://www.imtech.res.in/en/contact/staff/dr-dibyendu-sarkar,2003,1996,,,,,,,
-IMTECH-003,Nithya Vadakedath,CSIR-IMTECH,current,Scientist E,https://www.imtech.res.in/en/contact/staff/dr-nithya-vadakedath,2020,2013,,,,,,,
-IMTECH-004,Amit Tuli,CSIR-IMTECH,current,Scientist F,https://www.imtech.res.in/en/contact/staff/dr-amit-tuli,2012,2007,,,,,,,
-IMTECH-005,Vinod Chaudhari,CSIR-IMTECH,current,Scientist F,https://www.imtech.res.in/en/contact/staff/dr-vinod-chaudhari,2020,2003,,,,,,,
-IMTECH-006,Anshu Bhardwaj,CSIR-IMTECH,current,Scientist F,https://www.imtech.res.in/en/contact/staff/dr-anshu-bhardwaj,2016,2006,,,,,,,
+IMTECH-003,Nithya Vadakedath,CSIR-IMTECH,current,Scientist E,https://www.imtech.res.in/en/contact/staff/dr-nithya-vadakedath,2020,2013,,,,2019,https://orcid.org/0000-0001-9341-9780,Aman,ORCID employment: Sr. Scientist from 2019.
+IMTECH-004,Amit Tuli,CSIR-IMTECH,current,Scientist F,https://www.imtech.res.in/en/contact/staff/dr-amit-tuli,2012,2007,,,,2012,https://orcid.org/0000-0001-5476-4127,Aman,Ramanujan Fellow (independent PI) from 2012; Senior Scientist from 2014.
+IMTECH-005,Vinod Chaudhari,CSIR-IMTECH,current,Scientist F,https://www.imtech.res.in/en/contact/staff/dr-vinod-chaudhari,2020,2003,,,,2019,https://orcid.org/0000-0003-1785-9287,Aman,ORCID employment: Senior Principal Scientist from 2019.
+IMTECH-006,Anshu Bhardwaj,CSIR-IMTECH,current,Scientist F,https://www.imtech.res.in/en/contact/staff/dr-anshu-bhardwaj,2016,2006,,,,2016,https://orcid.org/0000-0001-5830-2616,Aman,ORCID employment: Senior Scientist from 2016.
 IMTECH-007,Kailash T. Bhamare,CSIR-IMTECH,current,Scientist F,https://www.imtech.res.in/en/contact/staff/dr-kailash-t-bhamare,2020,2020,,,,,,,
 IMTECH-008,Garry Bedi,CSIR-IMTECH,current,Scientist F,https://www.imtech.res.in/en/contact/staff/mr-garry-bedi,,,,,,,,,
-IMTECH-009,Sachin Raut,CSIR-IMTECH,current,Scientist E,https://www.imtech.res.in/en/contact/staff/dr-sachin-raut,2017,2008,,,,,,,
+IMTECH-009,Sachin Raut,CSIR-IMTECH,current,Scientist E,https://www.imtech.res.in/en/contact/staff/dr-sachin-raut,2017,2008,,,,2014,https://orcid.org/0000-0002-4619-1979,Aman,ORCID employment: Senior Scientist from 2014.
 IMTECH-010,Dipak Dutta,CSIR-IMTECH,current,Scientist F,https://www.imtech.res.in/en/contact/staff/dr-dipak-dutta,2013,2008,,,,,,,
 IMTECH-011,Manuj Tripathi,CSIR-IMTECH,current,Scientist E,https://www.imtech.res.in/en/contact/staff/mr-manuj-tripathi,,,,,,,,,
 IMTECH-012,Mohit Paul,CSIR-IMTECH,current,Scientist E,https://www.imtech.res.in/en/contact/staff/mr-mohit-paul,2019,2015,,,,,,,
-IMTECH-013,Manoj Kumar,CSIR-IMTECH,current,Scientist F,https://www.imtech.res.in/en/contact/staff/dr-manoj-kumar-on-lien,2006,2002,,,,,,,
+IMTECH-013,Manoj Kumar,CSIR-IMTECH,current,Scientist F,https://www.imtech.res.in/en/contact/staff/dr-manoj-kumar-on-lien,2006,2002,,,,2004,https://orcid.org/0000-0003-3769-052X,Aman,ORCID employment: Senior Principal Scientist from 2004.
 IMTECH-014,Raman Parkesh,CSIR-IMTECH,current,Scientist E,https://www.imtech.res.in/en/contact/staff/dr-raman-parkesh,2013,2003,,,,,,,
 IMTECH-015,Srikrishna Subramanian,CSIR-IMTECH,current,Scientist G,https://www.imtech.res.in/en/contact/staff/dr-srikrishna-subramanian,2012,2001,,,,,,,
-IMTECH-016,Easa Nagamalleswari,CSIR-IMTECH,current,Scientist C,https://www.imtech.res.in/en/contact/staff/dr-easa-nagamalleswari,2024,2012,,,,,,,
+IMTECH-016,Easa Nagamalleswari,CSIR-IMTECH,current,Scientist C,https://www.imtech.res.in/en/contact/staff/dr-easa-nagamalleswari,2024,2012,,,,2023,https://orcid.org/0000-0003-4253-3692,Aman,ORCID employment: Scientist from 2023.
 IMTECH-017,Srinivasan Krishnamurthi,CSIR-IMTECH,current,Scientist F,https://www.imtech.res.in/en/contact/staff/dr-srinivasan-krishnamurthi,2005,2005,,,,,,,
 IMTECH-018,Rishabh Verma,CSIR-IMTECH,current,Scientist E,https://www.imtech.res.in/en/contact/staff/mr-rishabh-verma,,,,,,,,,
-IMTECH-019,Charu Sharma,CSIR-IMTECH,current,Scientist G,https://www.imtech.res.in/en/contact/staff/dr-charu-sharma,1993,1993,,,,,,,
+IMTECH-019,Charu Sharma,CSIR-IMTECH,current,Scientist G,https://www.imtech.res.in/en/contact/staff/dr-charu-sharma,1993,1993,,,,,,,"ORCID gives 2008 (Scientist), but OpenAlex places them at the lab from 1993: the ORCID date is a later title, not the joining year."
 IMTECH-020,Saumya Ray Chaudhuri,CSIR-IMTECH,current,Scientist G,https://www.imtech.res.in/en/contact/staff/dr-saumya-ray-chaudhuri,2001,1998,,,,,,,
-IMTECH-021,Prabhu B. Patil,CSIR-IMTECH,current,Scientist F,https://www.imtech.res.in/en/contact/staff/dr-prabhu-b-patil,2011,1995,,,,,,,
+IMTECH-021,Prabhu B. Patil,CSIR-IMTECH,current,Scientist F,https://www.imtech.res.in/en/contact/staff/dr-prabhu-b-patil,2011,1995,,,,2009,https://orcid.org/0000-0003-2720-1059,Aman,ORCID employment: Senior Scientist from 2009.
 IMTECH-022,E. Senthil Prasad,CSIR-IMTECH,current,Scientist F,https://www.imtech.res.in/en/contact/staff/dr-e-senthil-prasad,2016,2016,,,,,,,
 IMTECH-023,S. Kumaran,CSIR-IMTECH,current,Scientist G,https://www.imtech.res.in/en/contact/staff/dr-s-kumaran,2010,1997,,,,,,,
-IMTECH-024,Amit Kumar,CSIR-IMTECH,current,Scientist F,https://www.imtech.res.in/en/contact/staff/dr-amit-kumar,2022,1999,,,,,,,
+IMTECH-024,Amit Kumar,CSIR-IMTECH,current,Scientist F,https://www.imtech.res.in/en/contact/staff/dr-amit-kumar,2022,1999,,,,2021,https://orcid.org/0000-0003-1732-440X,Aman,ORCID employment: Principal Scientist from 2021.
 IMTECH-025,Imtiyaz Yaseen,CSIR-IMTECH,current,Scientist D,https://www.imtech.res.in/en/contact/staff/dr-imtiyaz-yaseen,,,,,,,,,
-IMTECH-026,Ashwani Kumar,CSIR-IMTECH,current,Scientist G,https://www.imtech.res.in/en/contact/staff/dr-ashwani-kumar,2011,1978,,,,,,,
-IMTECH-027,Pradip Sen,CSIR-IMTECH,current,Scientist G,https://www.imtech.res.in/en/contact/staff/dr-pradip-sen,2006,1998,,,,,,,
-IMTECH-028,Pawan Gupta,CSIR-IMTECH,current,Scientist G,https://www.imtech.res.in/en/contact/staff/dr-pawan-gupta,2009,1975,,,,,,,
+IMTECH-026,Ashwani Kumar,CSIR-IMTECH,current,Scientist G,https://www.imtech.res.in/en/contact/staff/dr-ashwani-kumar,2011,1978,,,,2010,https://orcid.org/0000-0002-6240-6810,Aman,ORCID employment: Senior Scientist from 2010. First OpenAlex paper year 1978 is implausibly early: a namesake is probably merged into one of the profiles.
+IMTECH-027,Pradip Sen,CSIR-IMTECH,current,Scientist G,https://www.imtech.res.in/en/contact/staff/dr-pradip-sen,2006,1998,,,,2005,https://orcid.org/0000-0003-1712-5312,Aman,ORCID employment: Senior Principal Scientist from 2005.
+IMTECH-028,Pawan Gupta,CSIR-IMTECH,current,Scientist G,https://www.imtech.res.in/en/contact/staff/dr-pawan-gupta,2009,1975,,,,2008,https://orcid.org/0000-0001-6692-7237,Aman,ORCID employment: Scientist E1 (Senior Scientist) from 2008. First OpenAlex paper year 1975 is implausibly early: a namesake is probably merged into one of the profiles.
 IMTECH-029,Mani Shankar Bhattacharyya,CSIR-IMTECH,current,Scientist F,https://www.imtech.res.in/en/contact/staff/dr-mani-shankar-bhattacharyya,2012,2003,,,,,,,
-IMTECH-030,Alka Rao,CSIR-IMTECH,current,Director,https://www.imtech.res.in/en/contact/staff/dr-alka-rao,2023,1942,,,,,,,
+IMTECH-030,Alka Rao,CSIR-IMTECH,current,Director,https://www.imtech.res.in/en/contact/staff/dr-alka-rao,2023,1942,,,,,,,First OpenAlex paper year 1942 is implausibly early: a namesake is probably merged into one of the profiles.
 IMTECH-031,Balvinder Singh,CSIR-IMTECH,current,Scientist G,https://www.imtech.res.in/en/contact/staff/dr-balvinder-singh,2004,1992,,,,,,,
 IMTECH-032,Chander Shekhar Sharma,CSIR-IMTECH,current,Scientist E,https://www.imtech.res.in/en/contact/staff/mr-chander-shekhar-sharma,,,,,,,,,
 IMTECH-033,Suresh Korpole,CSIR-IMTECH,current,Scientist G,https://www.imtech.res.in/en/contact/staff/dr-suresh-korpole,2010,2005,,,,,,,
 IMTECH-034,P. Anil Kumar,CSIR-IMTECH,current,Scientist F,https://www.imtech.res.in/en/contact/staff/dr-p-anil-kumar,2011,1980,,,,,,,
 IMTECH-035,Ravi Pratap Narayan Mishra,CSIR-IMTECH,current,Scientist F,https://www.imtech.res.in/en/contact/staff/dr-ravi-pratap-narayan-mishra,2020,2006,,,,,,,
 IMTECH-036,Barnali Chaudhuri,CSIR-IMTECH,current,Scientist G,https://www.imtech.res.in/en/contact/staff/dr-barnali-chaudhuri,2017,1996,,,,,,,
-IMTECH-037,Karthikeyan Subramanian,CSIR-IMTECH,current,Scientist G,https://www.imtech.res.in/en/contact/staff/dr-karthikeyan-subramanian,2012,2012,,,,,,,
+IMTECH-037,Karthikeyan Subramanian,CSIR-IMTECH,current,Scientist G,https://www.imtech.res.in/en/contact/staff/dr-karthikeyan-subramanian,2012,2012,,,,2005,https://orcid.org/0000-0002-2689-9929,Aman,ORCID employment: Scientist from 2005.
 IMTECH-038,Beena Krishnan,CSIR-IMTECH,current,Scientist E,https://www.imtech.res.in/en/contact/staff/dr-beena-krishnan,2013,2004,,,,,,,
-IMTECH-039,B. Devadatha,CSIR-IMTECH,current,Scientist C,https://www.imtech.res.in/en/contact/staff/dr-b-devadatha,2024,2017,,,,,,,
-IMTECH-040,Krishan Gopal,CSIR-IMTECH,current,Scientist F,https://www.imtech.res.in/en/contact/staff/dr-krishan-gopal-on-lien,2013,2005,,,,,,,
-IMTECH-041,Neeraj Khatri,CSIR-IMTECH,current,Scientist G,https://www.imtech.res.in/en/contact/staff/dr-neeraj-khatri,2013,2000,,,,,,,
-IMTECH-042,Hemraj S. Nandanwar,CSIR-IMTECH,current,Scientist G,https://www.imtech.res.in/en/contact/staff/dr-hemraj-s-nandanwar,2000,2000,,,,,,,
-IMTECH-043,Deepak Sharma,CSIR-IMTECH,current,Scientist F,https://www.imtech.res.in/en/contact/staff/dr-deepak-sharma,2013,1970,,,,,,,
-IMTECH-044,Vemuluri Venkata Ramana,CSIR-IMTECH,current,Scientist F,https://www.imtech.res.in/en/contact/staff/dr-vemuluri-venkata-ramana,2018,1991,,,,,,,
-IMTECH-045,Rashmi Kumar,CSIR-IMTECH,current,Scientist E,https://www.imtech.res.in/en/contact/staff/dr-rashmi-kumar,2021,2009,,,,,,,
+IMTECH-039,B. Devadatha,CSIR-IMTECH,current,Scientist C,https://www.imtech.res.in/en/contact/staff/dr-b-devadatha,2024,2017,,,,2023,https://orcid.org/0000-0001-6400-5407,Aman,ORCID employment: Scientist from 2023.
+IMTECH-040,Krishan Gopal,CSIR-IMTECH,current,Scientist F,https://www.imtech.res.in/en/contact/staff/dr-krishan-gopal-on-lien,2013,2005,,,,2011,https://orcid.org/0000-0003-4500-2133,Aman,ORCID employment: Scientist from 2011.
+IMTECH-041,Neeraj Khatri,CSIR-IMTECH,current,Scientist G,https://www.imtech.res.in/en/contact/staff/dr-neeraj-khatri,2013,2000,,,,,,,"ORCID gives 2024 (Scientist G & Head), but OpenAlex places them at the lab from 2013: the ORCID date is a later title, not the joining year."
+IMTECH-042,Hemraj S. Nandanwar,CSIR-IMTECH,current,Scientist G,https://www.imtech.res.in/en/contact/staff/dr-hemraj-s-nandanwar,2000,2000,,,,,,,"ORCID gives 2020 (Chief Scientist), but OpenAlex places them at the lab from 2000: the ORCID date is a later title, not the joining year."
+IMTECH-043,Deepak Sharma,CSIR-IMTECH,current,Scientist F,https://www.imtech.res.in/en/contact/staff/dr-deepak-sharma,2013,1970,,,,2011,https://orcid.org/0000-0003-1104-575X,Aman,Ramalingaswami Fellow (independent PI) from 2011; Senior Principal Scientist from 2014. First OpenAlex paper year 1970 is implausibly early: a namesake is probably merged into one of the profiles.
+IMTECH-044,Vemuluri Venkata Ramana,CSIR-IMTECH,current,Scientist F,https://www.imtech.res.in/en/contact/staff/dr-vemuluri-venkata-ramana,2018,1991,,,,2017,https://orcid.org/0000-0002-0716-8805,Aman,ORCID employment: Senior Scientist from 2017.
+IMTECH-045,Rashmi Kumar,CSIR-IMTECH,current,Scientist E,https://www.imtech.res.in/en/contact/staff/dr-rashmi-kumar,2021,2009,,,,2017,https://orcid.org/0000-0003-3444-1018,Aman,ORCID employment: Senior Scientist from 2017.
 IMTECH-046,Anirban Roy Choudhury,CSIR-IMTECH,current,Scientist G,https://www.imtech.res.in/en/contact/staff/dr-anirban-roy-choudhury,2010,2010,,,,,,,
 IMTECH-047,Ramya T. N. C,CSIR-IMTECH,current,Scientist G,https://www.imtech.res.in/en/contact/staff/dr-ramya-tnc,2013,2002,,,,,,,
 IMTECH-048,G. Rajamohan,CSIR-IMTECH,current,Scientist G,https://www.imtech.res.in/en/contact/staff/dr-g-rajamohan,1996,1996,,,,,,,
-IMTECH-049,Gajendra P. S. Raghava,CSIR-IMTECH,former,,,1992,1992,,,,,,,
-IMTECH-050,Javed Naim Agrewala,CSIR-IMTECH,former,,,1992,1989,,,,,,,
+IMTECH-049,Gajendra P. S. Raghava,CSIR-IMTECH,former,,,1992,1992,,,,1986,https://orcid.org/0000-0002-8902-2876,Aman,ORCID employment: Scientist from 1986.
+IMTECH-050,Javed Naim Agrewala,CSIR-IMTECH,former,,,1992,1989,,,,1989,https://orcid.org/0000-0001-6786-3239,Aman,ORCID employment: Professor and Chief Scientist from 1989.
 IMTECH-051,Rajeev Kumar Tyagi,CSIR-IMTECH,current,,,2020,2009,,,,,,,
-IMTECH-052,Manoj Raje,CSIR-IMTECH,current,,,1994,1990,,,,,,,
+IMTECH-052,Manoj Raje,CSIR-IMTECH,current,,,1994,1990,,,,1991,https://orcid.org/0000-0002-7513-6098,Aman,ORCID employment: Scientist from 1991.
 IMTECH-053,Shanmugam Mayilraj,CSIR-IMTECH,current,,,2003,2002,,,,,,,
 IMTECH-054,C. Raman Suri,CSIR-IMTECH,former,,,1994,1994,,,,,,,
