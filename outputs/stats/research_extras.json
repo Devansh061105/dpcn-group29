@@ -67,9 +67,11 @@
  },
  "precision_audit": {
   "sample": 55,
-  "checked": 0,
+  "checked": 55,
   "unsure": 0,
-  "checkers": []
+  "checkers": [
+   "Aman"
+  ]
  },
  "citers_collab_spearman": 0.5491489068249624,
  "regrading": {
